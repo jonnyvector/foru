@@ -126,6 +126,7 @@
         "heading_XQM4jQ",
         "button_B63KwX"
       ],
+      "disabled": true,
       "settings": {
         "content_position": "over_image",
         "slide_height": "adapt_to_first_image",
@@ -141,11 +142,73 @@
         "mobile_text_vertical_position": "center",
         "mobile_text_horizontal_position": "center"
       }
+    },
+    "page_header_image_banner_rCVqwY": {
+      "type": "page-header-image-banner",
+      "blocks": {
+        "subheading_GMHVHi": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Tell you story",
+            "subheading_disable_on_mobile": false
+          }
+        },
+        "heading_taknR7": {
+          "type": "heading",
+          "settings": {
+            "heading": "certified clean nutrition systems",
+            "disable_on_mobile": false,
+            "size_heading": 270,
+            "size_heading_mobile": 100
+          }
+        },
+        "text_EeMXMg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Third-party tested formulas built for daily habits and specific performance goals. Travel-ready sticks that fit your routine, backed by real science and trusted by top performers.</p>",
+            "disable_on_mobile": false
+          }
+        },
+        "button_WDHdTN": {
+          "type": "button",
+          "settings": {
+            "button_select": "primary",
+            "button_label": "Shop Now",
+            "disable_on_mobile": false,
+            "button_link": "/",
+            "second_button_select": "primary",
+            "second_button_label": "Button label",
+            "second_disable_on_mobile": false,
+            "second_button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_GMHVHi",
+        "heading_taknR7",
+        "text_EeMXMg",
+        "button_WDHdTN"
+      ],
+      "name": "Image banner for transparent header",
+      "settings": {
+        "slide_height": "adapt_to_first_image",
+        "desktop_fixed_height": 320,
+        "mobile_fixed_height": 460,
+        "desktop_image": "shopify://shop_images/image_21_2.png",
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "center",
+        "mobile_text_vertical_position": "center",
+        "mobile_text_horizontal_position": "center",
+        "color-body-text": "transparent",
+        "text-container-color": "transparent",
+        "color-overlay-opacity": 100
+      }
     }
   },
   "order": [
     "announcement-bar",
     "header",
-    "page_header_image_video_fECwHG"
+    "page_header_image_video_fECwHG",
+    "page_header_image_banner_rCVqwY"
   ]
 }
