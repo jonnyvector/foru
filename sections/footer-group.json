@@ -1,0 +1,72 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer Group",
+  "sections": {
+    "footer": {
+      "type": "page-footer",
+      "blocks": {
+        "menu_bB7XxG": {
+          "type": "menu",
+          "settings": {
+            "heading_links": "Products",
+            "links": "products"
+          }
+        },
+        "menu_FVzkic": {
+          "type": "menu",
+          "settings": {
+            "heading_links": "info",
+            "links": "info"
+          }
+        },
+        "menu_ja9mLY": {
+          "type": "menu",
+          "settings": {
+            "heading_links": "Social",
+            "links": "social"
+          }
+        },
+        "text_dLzjfY": {
+          "type": "text",
+          "settings": {
+            "heading_text": "About Wonder",
+            "text": "<p>With <strong>18 years of experience</strong> and a passion for helping our customers succeed, we’re here to ensure your journey with Wonder Theme is seamless and enjoyable. Got ideas or questions about sections? Need a tweak to make it just perfect?</p><p><strong>Reach out to us!</strong> Our friendly support team is ready to bring your vision to life.  🌿 This is demo store. Wellness brand was designed in Nethype.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "menu_bB7XxG",
+        "menu_FVzkic",
+        "menu_ja9mLY",
+        "text_dLzjfY"
+      ],
+      "settings": {
+        "show-social-media-icons": false,
+        "show_country_selector": true,
+        "show_country_selector_label": true,
+        "show_country_selector_flag": true,
+        "show_language_selector": true,
+        "enable_follow_on_shop": false,
+        "show-payments-icons": true,
+        "show-copyright": false,
+        "text": "© 2025 Wonder-theme. Powered by Shopify.",
+
+        "big-logo-width": 100,
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}
