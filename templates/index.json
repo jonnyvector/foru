@@ -9,55 +9,6 @@
  */
 {
   "sections": {
-    "separator_aVXGVH": {
-      "type": "separator",
-      "settings": {
-        "heading": "",
-        "show-separator-line": true,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "rich_text_with_image_d9iPb9": {
-      "type": "rich-text-with-image",
-      "blocks": {
-        "heading_xqAqaP": {
-          "type": "heading",
-          "settings": {
-            "subheading": "<p>Plant Powered</p>",
-            "font_uppercase": "none",
-            "disable_on_mobile": false
-          }
-        },
-        "text_yXHg9h": {
-          "type": "text",
-          "settings": {
-            "text": "daily  PICTURE1     supplements with\nbenefits <br> for you  to PICTURE2 feel good",
-            "font_uppercase": "uppercase",
-            "disable_on_mobile": false,
-            "size_heading": 160,
-            "size_heading_mobile": 120,
-            "line_height": 1.5,
-            "button_link1": "",
-            "button_link2": "",
-            "button_link3": ""
-          }
-        }
-      },
-      "block_order": [
-        "heading_xqAqaP",
-        "text_yXHg9h"
-      ],
-      "settings": {
-        "desktop_text_horizontal_position": "center",
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
-        "margin-top": 8,
-        "margin-bottom": 0
-      }
-    },
     "featured_collection_98txhK": {
       "type": "featured-collection",
       "settings": {
@@ -84,7 +35,7 @@
         "enable_quick_add_button": true,
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
-        "margin-top": 0,
+        "margin-top": 100,
         "margin-bottom": 44
       }
     },
@@ -815,8 +766,6 @@
     }
   },
   "order": [
-    "separator_aVXGVH",
-    "rich_text_with_image_d9iPb9",
     "featured_collection_98txhK",
     "separator_b68976",
     "scrolling_text_banner_37jGnf",
