@@ -146,13 +146,6 @@
     "page_header_image_banner_rCVqwY": {
       "type": "page-header-image-banner",
       "blocks": {
-        "subheading_GMHVHi": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Tell you story",
-            "subheading_disable_on_mobile": false
-          }
-        },
         "heading_taknR7": {
           "type": "heading",
           "settings": {
@@ -184,7 +177,6 @@
         }
       },
       "block_order": [
-        "subheading_GMHVHi",
         "heading_taknR7",
         "text_EeMXMg",
         "button_WDHdTN"
