@@ -43,50 +43,6 @@
         "margin-bottom": 12
       }
     },
-    "background_video_mxDAKG": {
-      "type": "background-video",
-      "blocks": {
-        "text_iYp8Kq": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Explore Our</p>",
-            "disable_on_mobile": false
-          }
-        },
-        "heading_kUtttd": {
-          "type": "heading",
-          "settings": {
-            "heading": "Wellness products",
-            "disable_on_mobile": false,
-            "size_heading": 330,
-            "size_heading_mobile": 170
-          }
-        }
-      },
-      "block_order": [
-        "text_iYp8Kq",
-        "heading_kUtttd"
-      ],
-      "settings": {
-        "heading": "",
-        "full-width-enabled": true,
-
-        "autoplay": true,
-        "video_controls": false,
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "original_ratio": "fixed_height",
-        "desktop_fixed_height": 480,
-        "mobile_fixed_height": 300,
-        "color-body-heading": "rgba(0,0,0,0)",
-        "color-overlay": "rgba(0,0,0,0)",
-        "color-overlay-opacity": 100,
-        "color-body-text": "#ffffff",
-        "desktop_text_horizontal_position": "center",
-        "mobile_text_horizontal_position": "center",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
     "title": {
       "type": "main-collection-title",
       "disabled": true,
@@ -133,9 +89,7 @@
             "size_heading": 160,
             "size_heading_mobile": 120,
             "line_height": 1.5,
-
             "button_link1": "",
-
             "button_link2": "",
             "button_link3": ""
           }
@@ -197,7 +151,6 @@
             "color-body-text": "#ffffff",
             "color-overlay": "rgba(0,0,0,0)",
             "color-overlay-opacity": 0,
-
             "desktop_text_vertical_position": "top",
             "desktop_text_horizontal_position": "center",
             "mobile_text_vertical_position": "top",
@@ -221,7 +174,6 @@
             "color-body-text": "#ffffff",
             "color-overlay": "rgba(0,0,0,0)",
             "color-overlay-opacity": 0,
-
             "desktop_text_vertical_position": "top",
             "desktop_text_horizontal_position": "center",
             "mobile_text_vertical_position": "top",
@@ -262,7 +214,6 @@
         "video_DGJbX8": {
           "type": "video",
           "settings": {
-
             "rating": "5",
             "testimonial": "<p>\"I was skeptical at first, but after just a few weeks, I noticed a huge difference in my energy and mood!\"</p>",
             "author": "Mark D."
@@ -271,7 +222,6 @@
         "video_L6bHnN": {
           "type": "video",
           "settings": {
-
             "rating": "5",
             "testimonial": "<p>\"I’ve tried so many supplements, but nothing compares to these. I feel like the best version of myself!\"</p>",
             "author": "Hubert E."
@@ -280,7 +230,6 @@
         "video_bHRgk8": {
           "type": "video",
           "settings": {
-
             "rating": "4",
             "testimonial": "<p>\"A game-changer for my daily routine. I wake up refreshed and ready to take on the day like never before!\"</p>",
             "author": "Olivia R."
@@ -289,7 +238,6 @@
         "video_hCjN8e": {
           "type": "video",
           "settings": {
-
             "rating": "4.5",
             "testimonial": "<p>\"A game-changer for my daily routine. I wake up refreshed and ready to take on the day like never before!\"</p>",
             "author": "Martha W."
@@ -298,7 +246,6 @@
         "video_WqdeYe": {
           "type": "video",
           "settings": {
-
             "rating": "5",
             "testimonial": "<p>\"These supplements have truly changed my life! I feel healthier, more energetic, and confident every day.\"</p>",
             "author": "Emma T."
@@ -351,7 +298,7 @@
             "button_select": "secondary",
             "button_label": "about us",
             "disable_on_mobile": false,
-
+            "button_link": "/",
             "second_button_select": "primary",
             "second_button_label": "Button label",
             "second_disable_on_mobile": false,
@@ -370,10 +317,8 @@
         "slide_height": "adapt_to_first_image",
         "desktop_fixed_height": 320,
         "mobile_fixed_height": 460,
-
         "desktop_text_vertical_position": "center",
         "desktop_text_horizontal_position": "center",
-
         "mobile_text_vertical_position": "center",
         "mobile_text_horizontal_position": "center",
         "color-heading": "rgba(0,0,0,0)",
@@ -403,7 +348,6 @@
         "image_bf9aR9": {
           "type": "image",
           "settings": {
-
             "select_icon": "user",
             "heading": "Third-party tested",
             "text": "<p>We hold ourselves and our ingredients to the highest standards.</p>",
@@ -413,7 +357,6 @@
         "image_gcNmVy": {
           "type": "image",
           "settings": {
-
             "select_icon": "bag",
             "heading": "Quality ingredients",
             "text": "<p>We're dedicated to using scientifically backed, high-quality natural ingredients.</p>",
@@ -423,7 +366,6 @@
         "image_yX8NnD": {
           "type": "image",
           "settings": {
-
             "select_icon": "star",
             "heading": "Non-GMO",
             "text": "<p>We carefully evaluate every ingredient, ensuring they are non-GMO.</p>",
@@ -433,7 +375,6 @@
         "image_qgFzka": {
           "type": "image",
           "settings": {
-
             "select_icon": "search",
             "heading": "vegan",
             "text": "<p>We ensure the highest standards with 100% vegan, cruelty-free formulations.</p>",
@@ -510,8 +451,6 @@
         "slide_height": "fixed_height",
         "desktop_fixed_height": 480,
         "mobile_fixed_height": 460,
-
-
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "#ffffff",
         "background_color_opacity": 54,
@@ -524,7 +463,6 @@
   "order": [
     "breadcrumbs",
     "banner",
-    "background_video_mxDAKG",
     "title",
     "separator_frYThK",
     "rich_text_with_image_cXNFjY",
