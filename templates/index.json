@@ -55,7 +55,7 @@
           "type": "benefit",
           "settings": {
             "image": "shopify://shop_images/Icons_6_e49fd3fa-d99b-4646-a98e-399579c8ba73.svg",
-            "item_heading": "<h3>Clinician-Led Formulation</h3>",
+            "item_heading": "<h3>Clinician-Led<br/>Formulation</h3>",
             "text": "<p>Developed with doctors and health scientists. Ingredients with purpose, not trends.</p>",
             "alignment": "left"
           }
@@ -106,7 +106,7 @@
         "benefit_jfRQhb"
       ],
       "custom_css": [
-        "h3{line-height:90%;}"
+        "h3 {line-height: 90%;}"
       ],
       "settings": {
         "subheading": "Wellness Made Smarter",
