@@ -14,11 +14,19 @@
     "footer": {
       "type": "page-footer",
       "blocks": {
+        "newsletter_LT9cDC": {
+          "type": "newsletter",
+          "settings": {
+            "heading_newsletter": "Sign up to our Newsletter",
+            "text_newsletter": "<p>Be the first to know the least relases, news, collaborations, exclusives and offers!</p>",
+            "button_type": "primary"
+          }
+        },
         "menu_bB7XxG": {
           "type": "menu",
           "settings": {
             "heading_links": "Products",
-            "links": "products"
+            "links": ""
           }
         },
         "menu_FVzkic": {
@@ -32,22 +40,15 @@
           "type": "menu",
           "settings": {
             "heading_links": "Social",
-            "links": "social"
-          }
-        },
-        "text_dLzjfY": {
-          "type": "text",
-          "settings": {
-            "heading_text": "About Wonder",
-            "text": "<p>With <strong>18 years of experience</strong> and a passion for helping our customers succeed, we’re here to ensure your journey with Wonder Theme is seamless and enjoyable. Got ideas or questions about sections? Need a tweak to make it just perfect?</p><p><strong>Reach out to us!</strong> Our friendly support team is ready to bring your vision to life.  🌿 This is demo store. Wellness brand was designed in Nethype.</p>"
+            "links": ""
           }
         }
       },
       "block_order": [
+        "newsletter_LT9cDC",
         "menu_bB7XxG",
         "menu_FVzkic",
-        "menu_ja9mLY",
-        "text_dLzjfY"
+        "menu_ja9mLY"
       ],
       "settings": {
         "show-social-media-icons": false,
@@ -59,7 +60,6 @@
         "show-payments-icons": true,
         "show-copyright": false,
         "text": "© 2025 Wonder-theme. Powered by Shopify.",
-
         "big-logo-width": 100,
         "margin-top": 0,
         "margin-bottom": 0
