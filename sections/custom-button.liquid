@@ -1,8 +1,83 @@
-{% render 'custom-button'
-  , text: 'Button'
-  , type: 'button'
-  , url: '#'
-  , aria_label: 'Button'
-  , class: 'custom-button'
-  , id: 'custom-button'
-  , style: 'dark' %}
+{% comment %}
+  Custom Button Section - Test section for the custom button component
+{% endcomment %}
+
+<div class="custom-button-section" style="padding: 40px 20px; text-align: center;">
+  {% if section.settings.button_type == 'link' %}
+    {% render 'custom-button', 
+      text: section.settings.button_text,
+      type: 'link',
+      url: section.settings.button_url,
+      style: section.settings.button_style,
+      id: section.id %}
+  {% else %}
+    {% render 'custom-button', 
+      text: section.settings.button_text,
+      type: section.settings.button_type,
+      style: section.settings.button_style,
+      id: section.id %}
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Custom Button",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_text",
+      "default": "Shop Now",
+      "label": "Button Text"
+    },
+    {
+      "type": "select",
+      "id": "button_type",
+      "options": [
+        {
+          "value": "button",
+          "label": "Button"
+        },
+        {
+          "value": "submit",
+          "label": "Submit Button"
+        },
+        {
+          "value": "link",
+          "label": "Link"
+        }
+      ],
+      "default": "button",
+      "label": "Button Type"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL",
+      "info": "Only used when Button Type is set to Link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "options": [
+        {
+          "value": "dark",
+          "label": "Dark"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        }
+      ],
+      "default": "dark",
+      "label": "Button Style"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Button"
+    }
+  ]
+}
+{% endschema %}
