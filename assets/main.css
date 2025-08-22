@@ -10696,6 +10696,12 @@ main#root > .wt-featured-nav {
   margin-inline-start: 0;
   color: var(--color-custom-text);
 }
+
+@media (max-width: 899px) {
+  .wt-benefits-product__icon-list {
+    padding-top: 0;
+  }
+}
 .wt-benefits-product__icon-item {
   display: flex;
   flex-direction: column;
