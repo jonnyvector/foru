@@ -146,8 +146,8 @@
   .custom-button-wrapper--light .custom-button-text-{{ unique_id }}
   , .custom-button-wrapper--light .custom-button-arrow-{{ unique_id }} {
     background: #fff;
-    color: #1a1c1c;
-    border-color: #fff;
+    color: #2a2a2a;
+    border-color: #e0e0e0;
   }
 
   /* Slide mechanics (GRID overlay, no absolute height dependency) */
@@ -190,6 +190,19 @@
     transform: translateY(0);
   }
 
+  /* Hover colors (fixed :hover typos) */
+  .custom-button-wrapper--dark.custom-button-wrapper-{{ unique_id }}: hover .custom-button-text-{{ unique_id }}
+  , .custom-button-wrapper--dark.custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }} {
+    background: #1a1a1a !important;
+    color: #fff !important;
+    border-color: #1a1a1a !important;
+  }
+  .custom-button-wrapper--light.custom-button-wrapper-{{ unique_id }}: hover .custom-button-text-{{ unique_id }}
+  , .custom-button-wrapper--light.custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }} {
+    background: #f8f8f8 !important;
+    color: #2a2a2a !important;
+    border-color: #d9d9d9 !important;
+  }
 
   /* Icon size */
   .custom-button-arrow-icon-{{ unique_id }} {
