@@ -46,7 +46,7 @@
           "type": "benefit",
           "settings": {
             "image": "shopify://shop_images/Icons_4_6e3ff6e8-ee04-4021-81fe-4e7d63bf44d7.svg",
-            "item_heading": "100% Ingredient Transparency",
+            "item_heading": "<h3>100% Ingredient <br/>Transparency</h3>",
             "text": "<p>Every compound listed. No blends. No guessing.</p>",
             "alignment": "right"
           }
@@ -55,7 +55,7 @@
           "type": "benefit",
           "settings": {
             "image": "shopify://shop_images/Icons_6_e49fd3fa-d99b-4646-a98e-399579c8ba73.svg",
-            "item_heading": "Clinician-Led Formulation",
+            "item_heading": "<h3>Clinician-Led Formulation</h3>",
             "text": "<p>Developed with doctors and health scientists. Ingredients with purpose, not trends.</p>",
             "alignment": "left"
           }
@@ -64,7 +64,7 @@
           "type": "benefit",
           "settings": {
             "image": "shopify://shop_images/Icons_5.svg",
-            "item_heading": "Third-party tested",
+            "item_heading": "<h3>Third-party tested</h3>",
             "text": "<p>Every batch tested for banned substances and trusted by professionals.</p>",
             "alignment": "right"
           }
@@ -73,7 +73,7 @@
           "type": "benefit",
           "settings": {
             "image": "shopify://shop_images/Icons_7.svg",
-            "item_heading": "Designed for Daily Use",
+            "item_heading": "<h3>Designed for <br/>Daily Use</h3>",
             "text": "<p>No megadoses. No crashes. Just balanced, functional support.</p>",
             "alignment": "left"
           }
@@ -82,7 +82,7 @@
           "type": "benefit",
           "settings": {
             "image": "shopify://shop_images/Frame_40.svg",
-            "item_heading": "Full-System Protocols",
+            "item_heading": "<h3>Full-System <br/>Protocols</h3>",
             "text": "<p>Hydration. Focus. Recovery. Each protocol fits your life and biology.</p>",
             "alignment": "right"
           }
@@ -91,7 +91,7 @@
           "type": "benefit",
           "settings": {
             "image": "shopify://shop_images/Icons_8.svg",
-            "item_heading": "Vegan & Gluten-Free",
+            "item_heading": "<h3>Vegan & <br/>Gluten-Free</h3>",
             "text": "<p>No dairy, gluten, or animal products. Pure, clean fuel.</p>",
             "alignment": "left"
           }
