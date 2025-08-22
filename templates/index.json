@@ -543,6 +543,50 @@
         "margin-top": 20,
         "margin-bottom": 20
       }
+    },
+    "testimonials_custom_kHmmbJ": {
+      "type": "testimonials-custom",
+      "blocks": {
+        "testimonial_4rtYRV": {
+          "type": "testimonial",
+          "settings": {
+            "expert_name": "Dr. Expert Name",
+            "expert_title": "PhD, Specialist Title",
+            "expert_description": "Expert background and credentials description.",
+            "testimonial_text": "Add the testimonial quote here."
+          }
+        },
+        "testimonial_rPVGwC": {
+          "type": "testimonial",
+          "settings": {
+            "expert_name": "Dr. Expert Name",
+            "expert_title": "PhD, Specialist Title",
+            "expert_description": "Expert background and credentials description.",
+            "testimonial_text": "Add the testimonial quote here."
+          }
+        },
+        "testimonial_EC7aFT": {
+          "type": "testimonial",
+          "settings": {
+            "expert_name": "Dr. Expert Name",
+            "expert_title": "PhD, Specialist Title",
+            "expert_description": "Expert background and credentials description.",
+            "testimonial_text": "Add the testimonial quote here."
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_4rtYRV",
+        "testimonial_rPVGwC",
+        "testimonial_EC7aFT"
+      ],
+      "name": "Testimonials Custom",
+      "settings": {
+        "heading": "Built by Experts, Proven by Athletes",
+        "full_width_enabled": false,
+        "color_body_text": "#1a1c1c",
+        "background_color": "transparent"
+      }
     }
   },
   "order": [
@@ -554,6 +598,7 @@
     "features_banner_custom_dBR6wK",
     "background_video_LxNkdh",
     "blog_posts_Pt33Px",
-    "testimonials_UyRmE3"
+    "testimonials_UyRmE3",
+    "testimonials_custom_kHmmbJ"
   ]
 }
