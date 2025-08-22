@@ -110,7 +110,7 @@
     align-items: stretch;
   }
 
-  /* Both halves (padding defines size) */
+  /* Text + Arrow button base */
   .custom-button-text-{{ unique_id }}
   , .custom-button-arrow-{{ unique_id }} {
     border: 1px solid;
@@ -119,7 +119,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* ← consistent padding */
+    padding: 22px 40px;
     position: relative;
     cursor: pointer;
     transition: background-color 0.25s ease
@@ -127,37 +127,39 @@
     , border-color 0.25s ease
     , filter 0.25s ease;
   }
-  .custom-button-text-{{ unique_id }} {
-    padding: 22px 40px;
-    max-height: 64px;
-  }
+
+  /* Arrow specific size */
   .custom-button-arrow-{{ unique_id }} {
     width: 64px;
     height: 64px;
+    padding: 0;
+    /* ensure it's square, no extra padding */
   }
 
-  /* Theme variants */
+  /* Dark variant */
   .custom-button-wrapper--dark .custom-button-text-{{ unique_id }}
   , .custom-button-wrapper--dark .custom-button-arrow-{{ unique_id }} {
     background: #1a1c1c;
-    color: #fff;
-    border-color: #1a1c1c;
-  }
-  .custom-button-wrapper--light .custom-button-text-{{ unique_id }}
-  , .custom-button-wrapper--light .custom-button-arrow-{{ unique_id }} {
-    background: #fff;
-    color: #2a2a2a;
-    border-color: #e0e0e0;
+    color: #ffffff;
+    border: 1px solid #1a1c1c;
   }
 
-  /* Slide mechanics (GRID overlay, no absolute height dependency) */
+  /* Light variant */
+  .custom-button-wrapper--light .custom-button-text-{{ unique_id }}
+  , .custom-button-wrapper--light .custom-button-arrow-{{ unique_id }} {
+    background: #ffffff;
+    color: #1a1c1c;
+    border: 1px solid #ffffff;
+  }
+
+  /* Slide mechanics: wrapper fills the padded box; layers are absolute */
   .custom-button-text-{{ unique_id }} .slide-wrapper
   , .custom-button-arrow-{{ unique_id }}
   .slide-wrapper {
-    display: grid;
-    place-items: center;
+    position: relative;
+    display: block;
     width: 100%;
-    /* height auto from content + padding */
+    height: 100%;
     overflow: hidden;
   }
 
@@ -165,8 +167,11 @@
   .slide-text
   , .custom-button-arrow-{{ unique_id }}
   .slide-arrow {
-    grid-area: 1 / 1;
-    /* stack both copies */
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transform: translateY(0);
     transition: transform 0.32s cubic-bezier(0.22,0.61,0.36,1);
     will-change: transform;
@@ -174,13 +179,13 @@
     color: inherit;
   }
 
-  /* Second copy starts below (NOTE the space before .slide-*) */
+  /* Second copy starts below */
   .custom-button-text-{{ unique_id }}.slide-text:last-child,
   .custom-button-arrow-{{ unique_id }}.slide-arrow:last-child {
     transform: translateY(100%);
   }
 
-  /* Hover the WRAPPER → animate BOTH halves */
+  /* Hover anywhere on wrapper → animate BOTH halves */
   .custom-button-wrapper-{{ unique_id }}:hover .slide-text:first-child,
   .custom-button-wrapper-{{ unique_id }}:hover .slide-arrow:first-child {
     transform: translateY(-100%);
@@ -190,18 +195,12 @@
     transform: translateY(0);
   }
 
-  /* Hover colors (fixed :hover typos) */
-  .custom-button-wrapper--dark.custom-button-wrapper-{{ unique_id }}: hover .custom-button-text-{{ unique_id }}
-  , .custom-button-wrapper--dark.custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }} {
-    background: #1a1a1a !important;
-    color: #fff !important;
-    border-color: #1a1a1a !important;
-  }
-  .custom-button-wrapper--light.custom-button-wrapper-{{ unique_id }}: hover .custom-button-text-{{ unique_id }}
-  , .custom-button-wrapper--light.custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }} {
-    background: #f8f8f8 !important;
-    color: #2a2a2a !important;
-    border-color: #d9d9d9 !important;
+  /* Keep colors same on hover */
+  .custom-button-wrapper-{{ unique_id }}: hover .custom-button-text-{{ unique_id }}
+  , .custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }} {
+    background: inherit;
+    color: inherit;
+    border-color: inherit;
   }
 
   /* Icon size */
@@ -225,4 +224,5 @@
     outline: 2px solid #6aa3ff;
     outline-offset: 2px;
   }
+
 </style>
