@@ -11,107 +11,55 @@
   - style: Style variant - "dark" or "light" (default: "dark")
 {% endcomment %}
 
-{% assign button_text = text | default: 'Click Me' %}
-{% assign button_type = type | default: 'button' %}
-{% assign button_style = style | default: 'primary' %}
-{% assign unique_id = id | default: section.id | default: 'default' | prepend: 'custom-btn-' %}
+{% assign button_text  = text  | default: 'Click Me' %}
+{% assign button_type  = type  | default: 'button' %}
+{% assign button_style = style | default: 'dark' %} {# was 'primary' but CSS defines dark/light #}
+{% assign unique_id    = id | default: section.id | default: 'default' | prepend: 'custom-btn-' %}
 
 <div class="custom-button-wrapper-{{ unique_id }} custom-button-wrapper--{{ button_style }} {{ class }}">
   {% if button_type == 'link' %}
-    <a
-      href="{{ url | default: '#' }}"
-      class="custom-button-text-{{ unique_id }}"
-      {% if target %}
-      target="{{ target }}"
-      {% endif %}
-      {% if aria_label %}
-      aria-label="{{ aria_label }}"
-      {% else %}
-      aria-label="{{ button_text }}"
-      {% endif %}>
+    <a href="{{ url | default: '#' }}"
+       class="custom-button-text-{{ unique_id }}"
+       {% if target %}target="{{ target }}"{% endif %}
+       aria-label="{{ aria_label | default: button_text }}">
       <span class="slide-wrapper">
         <span class="slide-text">{{ button_text }}</span>
         <span class="slide-text">{{ button_text }}</span>
       </span>
     </a>
 
-    <a
-      href="{{ url | default: '#' }}"
-      class="custom-button-arrow-{{ unique_id }}"
-      {% if target %}
-      target="{{ target }}"
-      {% endif %}
-      aria-label="{{ aria_label | default: button_text }}">
+    <a href="{{ url | default: '#' }}"
+       class="custom-button-arrow-{{ unique_id }}"
+       {% if target %}target="{{ target }}"{% endif %}
+       aria-label="{{ aria_label | default: button_text }}">
       <span class="slide-wrapper">
         <span class="slide-arrow">
-          <svg
-            class="custom-button-arrow-icon-{{ unique_id }}"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
+          <svg class="custom-button-arrow-icon-{{ unique_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </span>
         <span class="slide-arrow">
-          <svg
-            class="custom-button-arrow-icon-{{ unique_id }}"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
+          <svg class="custom-button-arrow-icon-{{ unique_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </span>
       </span>
     </a>
   {% else %}
-    <button
-      type="{{ button_type }}"
-      class="custom-button-text-{{ unique_id }}"
-      {% if aria_label %}
-      aria-label="{{ aria_label }}"
-      {% else %}
-      aria-label="{{ button_text }}"
-      {% endif %}>
+    <button type="{{ button_type }}"
+            class="custom-button-text-{{ unique_id }}"
+            aria-label="{{ aria_label | default: button_text }}">
       <span class="slide-wrapper">
         <span class="slide-text">{{ button_text }}</span>
         <span class="slide-text">{{ button_text }}</span>
       </span>
     </button>
 
-    <button
-      type="{{ button_type }}"
-      class="custom-button-arrow-{{ unique_id }}"
-      aria-label="{{ aria_label | default: button_text }}">
+    <button type="{{ button_type }}"
+            class="custom-button-arrow-{{ unique_id }}"
+            aria-label="{{ aria_label | default: button_text }}">
       <span class="slide-wrapper">
         <span class="slide-arrow">
-          <svg
-            class="custom-button-arrow-icon-{{ unique_id }}"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
+          <svg class="custom-button-arrow-icon-{{ unique_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </span>
         <span class="slide-arrow">
-          <svg
-            class="custom-button-arrow-icon-{{ unique_id }}"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
+          <svg class="custom-button-arrow-icon-{{ unique_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </span>
       </span>
     </button>
@@ -120,123 +68,103 @@
 
 <style>
   /* Wrapper */
-  .custom-button-wrapper-{{ unique_id }} {
-    display: flex;
-    gap: 1rem;
-    align-items: stretch;
+  .custom-button-wrapper-{{ unique_id }}{
+    display:flex;
+    gap:1rem;
+    align-items:stretch;
   }
 
-  /* Both halves share the same box model (padding drives size) */
-  .custom-button-text-{{ unique_id }}
-  , .custom-button-arrow-{{ unique_id }} {
-    border: 1px solid;
-    border-radius: 8px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 22px 40px;
-    /* ← consistent padding */
-    position: relative;
-    cursor: pointer;
-    transition: background-color 0.25s ease
-    , color 0.25s ease
-    , border-color 0.25s ease
-    , filter 0.25s ease;
+  /* Both halves (padding defines size) */
+  .custom-button-text-{{ unique_id }},
+  .custom-button-arrow-{{ unique_id }}{
+    border:1px solid;
+    border-radius:8px;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:22px 40px;      /* ← consistent padding */
+    position:relative;
+    cursor:pointer;
+    transition:background-color .25s ease, color .25s ease, border-color .25s ease, filter .25s ease;
   }
 
   /* Theme variants */
-  .custom-button-wrapper--dark .custom-button-text-{{ unique_id }}
-  , .custom-button-wrapper--dark .custom-button-arrow-{{ unique_id }} {
-    background: #2a2a2a;
-    color: #fff;
-    border-color: #2a2a2a;
+  .custom-button-wrapper--dark .custom-button-text-{{ unique_id }},
+  .custom-button-wrapper--dark .custom-button-arrow-{{ unique_id }}{
+    background:#2a2a2a;
+    color:#fff;
+    border-color:#2a2a2a;
   }
-  .custom-button-wrapper--light .custom-button-text-{{ unique_id }}
-  , .custom-button-wrapper--light .custom-button-arrow-{{ unique_id }} {
-    background: #fff;
-    color: #2a2a2a;
-    border-color: #e0e0e0;
-  }
-
-  /* Slide mechanics: wrapper fills the padded box; layers are absolute */
-  .custom-button-text-{{ unique_id }} .slide-wrapper
-  , .custom-button-arrow-{{ unique_id }}
-  .slide-wrapper {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+  .custom-button-wrapper--light .custom-button-text-{{ unique_id }},
+  .custom-button-wrapper--light .custom-button-arrow-{{ unique_id }}{
+    background:#fff;
+    color:#2a2a2a;
+    border-color:#e0e0e0;
   }
 
-  .custom-button-text-{{ unique_id }}
-  .slide-text
-  , .custom-button-arrow-{{ unique_id }}
-  .slide-arrow {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translateY(0);
-    transition: transform 0.32s cubic-bezier(0.22,.61,0.36,1);
-    will-change: transform;
-    backface-visibility: hidden;
-    color: inherit;
+  /* Slide mechanics (GRID overlay, no absolute height dependency) */
+  .custom-button-text-{{ unique_id }} .slide-wrapper,
+  .custom-button-arrow-{{ unique_id }} .slide-wrapper{
+    display:grid;
+    place-items:center;
+    width:100%;
+    /* height auto from content + padding */
+    overflow:hidden;
   }
 
-  /* Second copy starts below (note the space before .slide-*) */
-  .custom-button-text-{{ unique_id }}.slide-text:last-child,
-  .custom-button-arrow-{{ unique_id }}.slide-arrow:last-child {
-    transform: translateY(100%);
+  .custom-button-text-{{ unique_id }} .slide-text,
+  .custom-button-arrow-{{ unique_id }} .slide-arrow{
+    grid-area:1/1;                 /* stack both copies */
+    transform:translateY(0);
+    transition:transform .32s cubic-bezier(.22,.61,.36,1);
+    will-change:transform;
+    backface-visibility:hidden;
+    color:inherit;
   }
 
-  /* Hover anywhere on the WRAPPER → animate BOTH halves */
+  /* Second copy starts below (NOTE the space before .slide-*) */
+  .custom-button-text-{{ unique_id }} .slide-text:last-child,
+  .custom-button-arrow-{{ unique_id }} .slide-arrow:last-child{
+    transform:translateY(100%);
+  }
+
+  /* Hover the WRAPPER → animate BOTH halves */
   .custom-button-wrapper-{{ unique_id }}:hover .slide-text:first-child,
-  .custom-button-wrapper-{{ unique_id }}:hover .slide-arrow:first-child {
-    transform: translateY(-100%);
+  .custom-button-wrapper-{{ unique_id }}:hover .slide-arrow:first-child{
+    transform:translateY(-100%);
   }
   .custom-button-wrapper-{{ unique_id }}:hover .slide-text:last-child,
-  .custom-button-wrapper-{{ unique_id }}:hover .slide-arrow:last-child {
-    transform: translateY(0);
+  .custom-button-wrapper-{{ unique_id }}:hover .slide-arrow:last-child{
+    transform:translateY(0);
   }
 
-  /* Hover colors */
-  .custom-button-wrapper--dark.custom-button-wrapper-{{ unique_id }}: hover .custom-button-text-{{ unique_id }}
-  , .custom-button-wrapper--dark.custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }} {
-    background: #1a1a1a !important;
-    color: #fff !important;
-    border-color: #1a1a1a !important;
+  /* Hover colors (fixed :hover typos) */
+  .custom-button-wrapper--dark.custom-button-wrapper-{{ unique_id }}:hover .custom-button-text-{{ unique_id }},
+  .custom-button-wrapper--dark.custom-button-wrapper-{{ unique_id }}:hover .custom-button-arrow-{{ unique_id }}{
+    background:#1a1a1a !important;
+    color:#fff !important;
+    border-color:#1a1a1a !important;
   }
-  .custom-button-wrapper--light.custom-button-wrapper-{{ unique_id }}: hover .custom-button-text-{{ unique_id }}
-  , .custom-button-wrapper--light.custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }} {
-    background: #f8f8f8 !important;
-    color: #2a2a2a !important;
-    border-color: #d9d9d9 !important;
+  .custom-button-wrapper--light.custom-button-wrapper-{{ unique_id }}:hover .custom-button-text-{{ unique_id }},
+  .custom-button-wrapper--light.custom-button-wrapper-{{ unique_id }}:hover .custom-button-arrow-{{ unique_id }}{
+    background:#f8f8f8 !important;
+    color:#2a2a2a !important;
+    border-color:#d9d9d9 !important;
   }
 
   /* Icon size */
-  .custom-button-arrow-icon-{{ unique_id }} {
-    width: 20px;
-    height: 20px;
-    display: block;
-  }
+  .custom-button-arrow-icon-{{ unique_id }}{ width:20px; height:20px; display:block; }
 
-  /* Optional: subtle stagger so arrow trails text by 60ms */
-  @media (hover: hover) {
-    .custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }}
-    .slide-arrow {
-      transition-delay: 0.06s;
-    }
+  /* Subtle stagger so arrow trails text by 60ms */
+  @media (hover:hover){
+    .custom-button-wrapper-{{ unique_id }}:hover .custom-button-arrow-{{ unique_id }} .slide-arrow{ transition-delay:.06s; }
   }
 
   /* Focus-visible for a11y */
   .custom-button-text-{{ unique_id }}:focus-visible,
-  .custom-button-arrow-{{ unique_id }}:focus-visible {
-    outline: 2px solid #6aa3ff;
-    outline-offset: 2px;
+  .custom-button-arrow-{{ unique_id }}:focus-visible{
+    outline:2px solid #6aa3ff;
+    outline-offset:2px;
   }
-
-
 </style>
