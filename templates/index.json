@@ -64,7 +64,7 @@
           "type": "benefit",
           "settings": {
             "image": "shopify://shop_images/Icons_5.svg",
-            "item_heading": "<h3>Third-party tested</h3>",
+            "item_heading": "<h3>Third-party <br/>tested</h3>",
             "text": "<p>Every batch tested for banned substances and trusted by professionals.</p>",
             "alignment": "right"
           }
