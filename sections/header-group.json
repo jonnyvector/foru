@@ -131,7 +131,7 @@
       ],
       "name": "Image banner for transparent header",
       "settings": {
-        "slide_height": "adapt_to_first_image",
+        "slide_height": "fixed_height",
         "desktop_fixed_height": 320,
         "mobile_fixed_height": 460,
         "video_hosted": "shopify://files/videos/Foru Main Screen (1).mp4",
