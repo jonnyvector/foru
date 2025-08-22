@@ -10,6 +10,7 @@
       --desktop-max-width: {{ section.settings.desktop_max_width }}px;
       --font-icon-headline-scale-desk: {{ section.settings.size_heading | divided_by: 100.0 }};
       --font-icon-headline-scale: {{ section.settings.size_heading_mobile | divided_by: 100.0 }};
+      --icon-width: {{ section.settings.icon_width }}px;
 
       {% if section.settings.margin-top %}
           --section-gap-top: {{ section.settings.margin-top }}px;
@@ -25,6 +26,17 @@
       {% endif %}
 
     }
+
+  section[id="shopify-section-{{ section.id }}"] .wt-benefits-product__icon {
+      width: var(--icon-width);
+      height: var(--icon-width);
+  }
+
+  section[id="shopify-section-{{ section.id }}"] .wt-benefits-product__icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+  }
 
   {% if heading_rgb != 'rgba(0, 0, 0, 0.0)' %}
     section[id="shopify-section-{{ section.id }}"] .headline__title{
@@ -79,6 +91,9 @@
 
 <div class="{{ width_line }} wt-benefits-product" data-section-id="{{ section.id }}">
   <div>
+    {% if section.settings.subheading %}
+      <div class="wt-benefits-product__subheading">{{ section.settings.subheading }}</div>
+    {% endif %}
     {% render 'headline', title: section.settings.heading %}
 
     <div class="wt-benefits-product__wrapper {% if settings.animations %}scroll-trigger animate--slide-in {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}{% endif %}">
@@ -237,6 +252,11 @@
       "content": "t:sections.global.general"
     },
     {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
       "type": "textarea",
       "id": "heading",
       "label": "t:sections.settings.settings.heading.label",
@@ -327,6 +347,16 @@
     {
       "type": "header",
       "content": "t:sections.benefits_product.settings.benefit_blocks.content"
+    },
+    {
+      "type": "range",
+      "id": "icon_width",
+      "min": 20,
+      "max": 200,
+      "step": 5,
+      "default": 60,
+      "label": "Icon width",
+      "unit": "px"
     },
     {
       "type": "range",
