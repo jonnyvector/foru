@@ -45,7 +45,7 @@
         "benefit_UTArkc": {
           "type": "benefit",
           "settings": {
-            "image": "shopify://shop_images/Icons.svg",
+            "image": "shopify://shop_images/Icons_4_6e3ff6e8-ee04-4021-81fe-4e7d63bf44d7.svg",
             "item_heading": "100% Ingredient Transparency",
             "text": "<p>Every compound listed. No blends. No guessing.</p>",
             "alignment": "right"
@@ -54,7 +54,7 @@
         "benefit_8VaYPT": {
           "type": "benefit",
           "settings": {
-            "image": "shopify://shop_images/Icons_6.svg",
+            "image": "shopify://shop_images/Icons_6_e49fd3fa-d99b-4646-a98e-399579c8ba73.svg",
             "item_heading": "Clinician-Led Formulation",
             "text": "<p>Developed with doctors and health scientists. Ingredients with purpose, not trends.</p>",
             "alignment": "left"
@@ -63,7 +63,7 @@
         "benefit_H479zA": {
           "type": "benefit",
           "settings": {
-            "image": "shopify://shop_images/Icons_1.svg",
+            "image": "shopify://shop_images/Icons_5.svg",
             "item_heading": "Third-party tested",
             "text": "<p>Every batch tested for banned substances and trusted by professionals.</p>",
             "alignment": "right"
