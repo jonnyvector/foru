@@ -49,9 +49,9 @@
               <!-- Testimonial Quote -->
               {% if block.settings.testimonial_text != blank %}
                 <div class="testimonial-quote">
-                  {% if block.settings.quote_icon != blank %}
+                  {% if section.settings.quote_icon != blank %}
                     <div class="testimonial-quote__icon">
-                      {{ block.settings.quote_icon | image_url: width: 100 | image_tag: alt: 'Quote', loading: 'lazy' }}
+                      {{ section.settings.quote_icon | image_url: width: 100 | image_tag: alt: 'Quote', loading: 'lazy' }}
                     </div>
                   {% else %}
                     <div class="testimonial-quote__marks">"</div>
@@ -310,6 +310,11 @@
       "id": "background_color",
       "default": "transparent",
       "label": "t:sections.settings.settings.background-color.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "quote_icon",
+      "label": "Custom Quote Icon (SVG recommended)"
     }
   ],
   "blocks": [
@@ -351,11 +356,6 @@
           "id": "background_color",
           "default": "transparent",
           "label": "Background Color"
-        },
-        {
-          "type": "image_picker",
-          "id": "quote_icon",
-          "label": "Custom Quote Icon (SVG recommended)"
         }
       ]
     }
