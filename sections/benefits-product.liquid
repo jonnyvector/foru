@@ -191,7 +191,7 @@
                     {% endif %}
                     <div class="wt-benefits-product__icon-texts">
                       {% if block.settings.item_heading %}
-                        <h3 class="wt-benefits-product__icon-item-heading h3">{{ block.settings.item_heading }}</h3>
+                        <div class="wt-benefits-product__icon-item-heading h3 rte">{{ block.settings.item_heading }}</div>
                       {% endif %}
                       {% if block.settings.text %}
                         <div class="wt-benefits-product__icon-item-text rte">{{ block.settings.text }}</div>
@@ -455,10 +455,10 @@
           "label": "t:sections.benefits_product.blocks.benefit.settings.image.label"
         },
         {
-          "type": "text",
+          "type": "richtext",
           "id": "item_heading",
           "label": "t:sections.benefits_product.blocks.benefit.settings.item_heading.label",
-          "default": "Benefit heading"
+          "default": "<p>Benefit heading</p>"
         },
         {
           "type": "richtext",
