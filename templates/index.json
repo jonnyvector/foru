@@ -266,7 +266,7 @@
         "icon_width_desktop": 48,
         "icon_layout": "center",
         "columns_desktop": "4",
-        "icon_layout_mobile": "grid",
+        "icon_layout_mobile": "slider",
         "color_body_icon": "transparent",
         "color_background_icon": "transparent",
         "color_body_text": "transparent",
