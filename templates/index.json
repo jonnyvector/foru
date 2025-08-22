@@ -108,7 +108,7 @@
       "custom_css": [
         "h3 {line-height: 90%;}",
         "@media (min-width: 1023px) {.wt-benefits-product__icon-item-heading {margin: 1rem 0; }}",
-        ".wt-benefits-product__icon-item:nth-of-type(1) {align-items: flex-end; }",
+        ".wt-benefits-product__icon-item:nth-of-type(1) {align-items: flex-end;}",
         ".wt-benefits-product__icon-item:nth-of-type(2) {align-items: flex-start;}",
         ".wt-benefits-product__icon-item:nth-of-type(5) {align-items: flex-end;}",
         ".wt-benefits-product__icon-item:nth-of-type(6) {align-items: flex-start;}"
@@ -118,7 +118,7 @@
         "heading": "THE FORU STANDARD",
         "full-width-enabled": false,
         "video_hosted": "shopify://files/videos/benfits-video.mp4",
-        "desktop_width": 44,
+        "desktop_width": 35,
         "desktop_max_width": 800,
         "button_label": "",
         "button_link": "",
