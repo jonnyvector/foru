@@ -39,18 +39,12 @@
 
           {% if play_pause_button %}
             <video-controls>
-              {% render 'play-pause-button', classname: mobile_video_class %}
+            {% render 'play-pause-button'
+              , classname: mobile_video_class %}
           {% endif %}
 
           {{
-            mobile_video
-            | video_tag:
-              autoplay: autoplay,
-              loop: true,
-              muted: true,
-              controls: video_controls,
-              image_size: '600x',
-              class: mobile_video_class
+            mobile_video | video_tag: autoplay: autoplay, loop: true, muted: true, controls: video_controls, image_size: '600x', class: mobile_video_class
           }}
 
           {% if play_pause_button %}
@@ -62,18 +56,12 @@
 
         {% if play_pause_button %}
           <video-controls>
-            {% render 'play-pause-button', classname: video_class %}
+          {% render 'play-pause-button'
+            , classname: video_class %}
         {% endif %}
 
         {{
-          video
-          | video_tag:
-            autoplay: autoplay,
-            loop: true,
-            muted: true,
-            controls: video_controls,
-            image_size: '600x',
-            class: video_class
+          video | video_tag: autoplay: autoplay, loop: true, muted: true, controls: video_controls, image_size: '600x', class: video_class
         }}
 
         {% if play_pause_button %}
@@ -87,8 +75,7 @@
           frameborder="0"
           class="wt-video__movie wt-video__item wt-video__item--bg"
           allow="autoplay; encrypted-media"
-          title="{{ 'aria-label.hero-yt' | t }}"
-        ></iframe>
+          title="{{ 'aria-label.hero-yt' | t }}"></iframe>
       {%- elsif video_url.type == 'vimeo' -%}
         <iframe
           src="https://player.vimeo.com/video/{{ video_id }}?transparent=0&controls=0&autoplay=1&loop=1&muted=1&playsinline=1"
@@ -96,8 +83,7 @@
           class="js-vimeo wt-video__movie wt-video__item wt-video__item--bg"
           allow="autoplay; encrypted-media"
           style="background-color:  black;"
-          title="{{ 'aria-label.hero-vimeo' | t }}"
-        ></iframe>
+          title="{{ 'aria-label.hero-vimeo' | t }}"></iframe>
       {%- endif -%}
     {% endif %}
 
@@ -105,15 +91,15 @@
     {% render 'before-after-comparison' %}
   {% else %}
     {%- if hide_picture == false -%}
-      {% render 'picture',
-        desktop_image: desktop_image,
-        mobile_image: mobile_image,
-        placeholder: placeholder,
-        button_link: button_link,
-        button_label: button_label,
-        button_link_in_new_window: button_link_in_new_window,
-        loader: loader,
-        loading_option: loading_option
+      {% render 'picture'
+        , desktop_image: desktop_image
+        , mobile_image: mobile_image
+        , placeholder: placeholder
+        , button_link: button_link
+        , button_label: button_label
+        , button_link_in_new_window: button_link_in_new_window
+        , loader: loader
+        , loading_option: loading_option
       %}
     {%- else -%}
       <div class="hero__pic hero__pic--no-img"></div>
@@ -122,12 +108,7 @@
 
   {% if button_link and link_only_on_button %}
     {% assign overlay_tag = 'div' %}
-  {% elsif button_link
-    and button_label == blank
-    or button_link
-    and button_disable_on_mobile
-    or section_link
-    and second_button_link == null
+  {% elsif button_link and button_label == blank or button_link and button_disable_on_mobile or section_link and second_button_link == null
   %}
     {% assign overlay_tag = 'js-link' %}
   {% else %}
@@ -135,37 +116,46 @@
   {% endif %}
 
   <{{ overlay_tag }}
-    {% if button_link and link_only_on_button != true %}
-      href="{{ button_link }}"
-    {% endif %}
-    {% if button_link_in_new_window %}
-      target="_blank" rel="noreferrer noopener"
-    {% endif %}
-    class="
-      hero__overlay
-      hero__overlay--{{ desktop_text_horizontal_position }}
-      hero__overlay--{{ desktop_text_vertical_position }}
-      hero__overlay--mobile--{{ mobile_text_horizontal_position }}
-      hero__overlay--mobile--{{ mobile_text_vertical_position }}
-    "
-    {% if button_disable_on_mobile %}
-      data-mobile="true"
-    {% endif %}
-  >
+        {% if button_link and link_only_on_button != true %}
+          href="{{ button_link }}"
+        {% endif %}
+        {% if button_link_in_new_window %}
+          target="_blank" rel="noreferrer noopener"
+        {% endif %}
+        class="
+          hero__overlay
+          hero__overlay--{{ desktop_text_horizontal_position }}
+          hero__overlay--{{ desktop_text_vertical_position }}
+          hero__overlay--mobile--{{ mobile_text_horizontal_position }}
+          hero__overlay--mobile--{{ mobile_text_vertical_position }}
+        "
+        {% if button_disable_on_mobile %}
+          data-mobile="true"
+        {% endif %}
+    >
     <div class="hero__overlay__content hero__overlay__content--{{ desktop_text_horizontal_position }} hero__overlay__content--mobile--{{ mobile_text_horizontal_position }} rte">
       {% if blocks %}
-        {% render 'simple-block', prefix: 'hero', blocks: blocks, rich_text_with_image: rich_text_with_image %}
+        {% render 'simple-block'
+          , prefix: 'hero'
+          , blocks: blocks
+          , rich_text_with_image: rich_text_with_image %}
       {% else %}
         {% if review_star_rating != blank %}
           <div class="hero__star-rating">
             {% if review_star_rating == '80' %}
-              {% render 'rating-stars', percent: review_star_rating, icon_class: 'wt-test__icon' %}
+              {% render 'rating-stars'
+                , percent: review_star_rating
+                , icon_class: 'wt-test__icon' %}
             {% endif %}
             {% if review_star_rating == '90' %}
-              {% render 'rating-stars', percent: review_star_rating, icon_class: 'wt-test__icon' %}
+              {% render 'rating-stars'
+                , percent: review_star_rating
+                , icon_class: 'wt-test__icon' %}
             {% endif %}
             {% if review_star_rating == '100' %}
-              {% render 'rating-stars', percent: review_star_rating, icon_class: 'wt-test__icon' %}
+              {% render 'rating-stars'
+                , percent: review_star_rating
+                , icon_class: 'wt-test__icon' %}
             {% endif %}
           </div>
         {% endif %}
@@ -204,12 +194,12 @@
               <a
                 href="{{ button_link }}"
                 {% if button_link_in_new_window %}
-                  target="_blank" rel="noreferrer noopener"
+                target="_blank"
+                rel="noreferrer noopener"
                 {% endif %}
                 tabindex="0"
                 aria-label="{{ button_label }}"
-                class="hero__button {% if button_disable_on_mobile %}hero__button--mobile {% endif %} hero__button--primary {% if button_select != 'primary' %} hero__button--secondary{% endif %}{% if button_select == 'link' %} hero__button--link{% endif %}"
-              >
+                class="hero__button {% if button_disable_on_mobile %}hero__button--mobile {% endif %} hero__button--primary {% if button_select != 'primary' %} hero__button--secondary{% endif %}{% if button_select == 'link' %} hero__button--link{% endif %}">
                 <span>{{ button_label }}</span>
               </a>
             {% endif %}
@@ -218,12 +208,12 @@
               <a
                 href="{{ second_button_link }}"
                 {% if button_link_in_new_window %}
-                  target="_blank" rel="noreferrer noopener"
+                target="_blank"
+                rel="noreferrer noopener"
                 {% endif %}
                 tabindex="0"
                 aria-label="{{ second_button_label }}"
-                class="hero__button {% if button_disable_on_mobile_second %}hero__button--mobile {% endif %} hero__button--primary {% if second_button_select != 'primary' %} hero__button--secondary{% endif %}{% if second_button_select == 'link' %} hero__button--link{% endif %}"
-              >
+                class="hero__button {% if button_disable_on_mobile_second %}hero__button--mobile {% endif %} hero__button--primary {% if second_button_select != 'primary' %} hero__button--secondary{% endif %}{% if second_button_select == 'link' %} hero__button--link{% endif %}">
                 <span>{{ second_button_label }}</span>
               </a>
             {% endif %}
