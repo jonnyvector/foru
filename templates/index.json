@@ -99,6 +99,10 @@
         "benefit_Pbt4Uh",
         "benefit_jfRQhb"
       ],
+      "custom_css": [
+        ".wt-benefits-product__icon-item:nth-child(odd) .wt-benefits-product__icon-item-wrapper {align-items: flex-end;}",
+        ".wt-benefits-product__icon-item:nth-child(even) .wt-benefits-product__icon-item-wrapper {align-items: flex-start;}"
+      ],
       "settings": {
         "heading": "Wellness Made Smarter",
         "full-width-enabled": false,
