@@ -10647,6 +10647,11 @@ main#root > .wt-featured-nav {
   text-align: center;
   color: var(--color-custom-text);
 }
+
+.wt-benefits-product__subheading {
+  font-family: var(--font-heading-style);
+}
+
 /* .wt-benefits-product__heading {
   font-size: 25px;
   text-align: center;
