@@ -191,6 +191,72 @@
         "margin-bottom": 20
       }
     },
+    "image_with_text_3rdT8b": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_eE7ezQ": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Mission",
+            "subheading_disable_on_mobile": false
+          }
+        },
+        "heading_gBBLFe": {
+          "type": "heading",
+          "settings": {
+            "heading": "Built for Consistency, Not Perfection",
+            "disable_on_mobile": false,
+            "size_heading": 100,
+            "size_heading_mobile": 100
+          }
+        },
+        "text_ciLkej": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We build clean, intelligent systems for modern health, made to streamline your routine and support real progress. Already trusted by top trainers, nutritionists, and founders who demand more from their wellness.</p>",
+            "text_style": "body",
+            "disable_on_mobile": false
+          }
+        },
+        "button_qQzJAz": {
+          "type": "button",
+          "settings": {
+            "button_select": "primary",
+            "button_label": "About Us",
+            "button_link": "/",
+            "disable_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "subheading_eE7ezQ",
+        "heading_gBBLFe",
+        "text_ciLkej",
+        "button_qQzJAz"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "title": "",
+        "layout": "text_first",
+        "desktop-percentage-image-width": 50,
+        "full-width-enabled": true,
+        "slide_height": "fixed_height",
+        "desktop_fixed_height": 900,
+        "mobile_fixed_height": 460,
+        "section-color-body-text": "transparent",
+        "section-color-overlay": "transparent",
+        "section-color-overlay-opacity": 100,
+        "color-body-text": "transparent",
+        "color-overlay": "transparent",
+        "color-overlay-opacity": 100,
+        "desktop_image": "shopify://shop_images/image_55.png",
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "left",
+        "mobile_text_horizontal_position": "center",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
     "features_banner_custom_dBR6wK": {
       "type": "features-banner-custom",
       "blocks": {
@@ -377,6 +443,7 @@
     "featured_collection_98txhK",
     "benefits_product_DGyBfk",
     "video_reels_kb4KdA",
+    "image_with_text_3rdT8b",
     "features_banner_custom_dBR6wK",
     "background_video_LxNkdh",
     "blog_posts_Pt33Px"
