@@ -100,7 +100,10 @@
     {% if section.settings.subheading %}
       <div class="wt-benefits-product__subheading">{{ section.settings.subheading }}</div>
     {% endif %}
-    {% render 'headline', title: section.settings.heading %}
+    {% comment %}{% render 'headline', title: section.settings.heading %}{% endcomment %}
+    {% if section.settings.heading %}
+      <h2 class="h2">{{ section.settings.heading }}</h2>
+    {% endif %}
 
     <div class="wt-benefits-product__wrapper {% if settings.animations %}scroll-trigger animate--slide-in {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}{% endif %}">
       <div class="wt-benefits-product__img{% if section.settings.video_hosted %} wt-benefits-product__img--video{% endif %}">
