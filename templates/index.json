@@ -54,7 +54,7 @@
         "benefit_8VaYPT": {
           "type": "benefit",
           "settings": {
-            "image": "shopify://shop_images/Vector_1.svg",
+            "image": "shopify://shop_images/Icons_6.svg",
             "item_heading": "Clinician-Led Formulation",
             "text": "<p>Developed with doctors and health scientists. Ingredients with purpose, not trends.</p>",
             "alignment": "left"
@@ -72,7 +72,7 @@
         "benefit_rJ3fVn": {
           "type": "benefit",
           "settings": {
-            "image": "shopify://shop_images/Icons_2.svg",
+            "image": "shopify://shop_images/Icons_7.svg",
             "item_heading": "Designed for Daily Use",
             "text": "<p>No megadoses. No crashes. Just balanced, functional support.</p>",
             "alignment": "left"
@@ -81,7 +81,7 @@
         "benefit_Pbt4Uh": {
           "type": "benefit",
           "settings": {
-            "image": "shopify://shop_images/Vector_2.svg",
+            "image": "shopify://shop_images/Frame_40.svg",
             "item_heading": "Full-System Protocols",
             "text": "<p>Hydration. Focus. Recovery. Each protocol fits your life and biology.</p>",
             "alignment": "right"
@@ -90,7 +90,7 @@
         "benefit_jfRQhb": {
           "type": "benefit",
           "settings": {
-            "image": "shopify://shop_images/Icons_3.svg",
+            "image": "shopify://shop_images/Icons_8.svg",
             "item_heading": "Vegan & Gluten-Free",
             "text": "<p>No dairy, gluten, or animal products. Pure, clean fuel.</p>",
             "alignment": "left"
