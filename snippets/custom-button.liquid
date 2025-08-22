@@ -181,8 +181,8 @@
   }
 
   /* Second copy starts below */
-  .custom-button-text-{{ unique_id }} .slide-text:last-child,
-  .custom-button-arrow-{{ unique_id }} .slide-arrow:last-child {
+  .custom-button-text-{{ unique_id }}.slide-text:last-child,
+  .custom-button-arrow-{{ unique_id }}.slide-arrow:last-child {
     transform: translateY(100%);
   }
 
@@ -214,14 +214,14 @@
 
   /* Icon size */
   .custom-button-arrow-icon-{{ unique_id }} {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     display: block;
   }
 
   /* Subtle stagger so arrow trails text */
   @media (hover: hover) {
-    .custom-button-wrapper-{{ unique_id }}:hover .custom-button-arrow-{{ unique_id }}
+    .custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }}
     .slide-arrow {
       transition-delay: 0.06s;
     }
