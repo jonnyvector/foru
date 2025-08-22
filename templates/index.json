@@ -579,7 +579,8 @@
         "heading": "<p>Built by Experts, <br/>Proven by Athletes</p>",
         "full_width_enabled": false,
         "color_body_text": "#1a1c1c",
-        "background_color": "rgba(0,0,0,0)"
+        "background_color": "rgba(0,0,0,0)",
+        "quote_icon": "shopify://shop_images/Frame_1_41d73260-6314-4618-a31f-a5cb2b91c3e4.svg"
       }
     }
   },
