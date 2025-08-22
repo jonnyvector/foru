@@ -42,6 +42,10 @@
       text-align: center;
   }
 
+  section[id="shopify-section-{{ section.id }}"] .h2 {
+      text-align: center;
+  }
+
   {% if heading_rgb != 'rgba(0, 0, 0, 0.0)' %}
     section[id="shopify-section-{{ section.id }}"] .headline__title{
       --color-custom-text: {{ section.settings.color-body-heading }};
