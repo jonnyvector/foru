@@ -106,7 +106,8 @@
         "benefit_jfRQhb"
       ],
       "custom_css": [
-        "h3 {line-height: 90%;}"
+        "h3 {line-height: 90%;}",
+        "@media(min-width:1023px){.wt-benefits-product__icon-item-heading{margin: 1rem 0; }}"
       ],
       "settings": {
         "subheading": "Wellness Made Smarter",
