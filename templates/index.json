@@ -47,7 +47,8 @@
           "settings": {
             "image": "shopify://shop_images/Icons.svg",
             "item_heading": "100% Ingredient Transparency",
-            "text": "<p>Every compound listed. No blends. No guessing.</p>"
+            "text": "<p>Every compound listed. No blends. No guessing.</p>",
+            "alignment": "right"
           }
         },
         "benefit_8VaYPT": {
@@ -55,7 +56,8 @@
           "settings": {
             "image": "shopify://shop_images/Vector_1.svg",
             "item_heading": "Clinician-Led Formulation",
-            "text": "<p>Developed with doctors and health scientists. Ingredients with purpose, not trends.</p>"
+            "text": "<p>Developed with doctors and health scientists. Ingredients with purpose, not trends.</p>",
+            "alignment": "left"
           }
         },
         "benefit_H479zA": {
@@ -63,7 +65,8 @@
           "settings": {
             "image": "shopify://shop_images/Icons_1.svg",
             "item_heading": "Third-party tested",
-            "text": "<p>Every batch tested for banned substances and trusted by professionals.</p>"
+            "text": "<p>Every batch tested for banned substances and trusted by professionals.</p>",
+            "alignment": "right"
           }
         },
         "benefit_rJ3fVn": {
@@ -71,7 +74,8 @@
           "settings": {
             "image": "shopify://shop_images/Icons_2.svg",
             "item_heading": "Designed for Daily Use",
-            "text": "<p>No megadoses. No crashes. Just balanced, functional support.</p>"
+            "text": "<p>No megadoses. No crashes. Just balanced, functional support.</p>",
+            "alignment": "left"
           }
         },
         "benefit_Pbt4Uh": {
@@ -79,7 +83,8 @@
           "settings": {
             "image": "shopify://shop_images/Vector_2.svg",
             "item_heading": "Full-System Protocols",
-            "text": "<p>Hydration. Focus. Recovery. Each protocol fits your life and biology.</p>"
+            "text": "<p>Hydration. Focus. Recovery. Each protocol fits your life and biology.</p>",
+            "alignment": "right"
           }
         },
         "benefit_jfRQhb": {
@@ -87,7 +92,8 @@
           "settings": {
             "image": "shopify://shop_images/Icons_3.svg",
             "item_heading": "Vegan & Gluten-Free",
-            "text": "<p>No dairy, gluten, or animal products. Pure, clean fuel.</p>"
+            "text": "<p>No dairy, gluten, or animal products. Pure, clean fuel.</p>",
+            "alignment": "left"
           }
         }
       },
@@ -99,10 +105,7 @@
         "benefit_Pbt4Uh",
         "benefit_jfRQhb"
       ],
-      "custom_css": [
-        ".wt-benefits-product__icon-item:nth-child(odd) .wt-benefits-product__icon-item-wrapper {align-items: flex-end;}",
-        ".wt-benefits-product__icon-item:nth-child(even) .wt-benefits-product__icon-item-wrapper {align-items: flex-start;}"
-      ],
+      "custom_css": [],
       "settings": {
         "heading": "Wellness Made Smarter",
         "full-width-enabled": false,
