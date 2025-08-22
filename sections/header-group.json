@@ -129,7 +129,9 @@
         "text_EeMXMg",
         "button_WDHdTN"
       ],
-      "custom_css": [],
+      "custom_css": [
+        ".hero__title{max-width:100rem;}"
+      ],
       "name": "Image banner for transparent header",
       "settings": {
         "slide_height": "fixed_height",
