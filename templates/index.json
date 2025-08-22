@@ -281,6 +281,72 @@
         "margin-bottom": 20
       }
     },
+    "background_video_LxNkdh": {
+      "type": "background-video",
+      "blocks": {
+        "subheading_pnGqRy": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Tell your story",
+            "subheading_disable_on_mobile": false
+          }
+        },
+        "heading_DAqiNX": {
+          "type": "heading",
+          "settings": {
+            "heading": "Video scene",
+            "disable_on_mobile": false,
+            "size_heading": 100,
+            "size_heading_mobile": 100
+          }
+        },
+        "text_y3AtzL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Explore in motion</p>",
+            "disable_on_mobile": false
+          }
+        },
+        "button_d9KDmV": {
+          "type": "button",
+          "settings": {
+            "button_select": "primary",
+            "button_label": "Button label",
+            "disable_on_mobile": false,
+            "button_link": "",
+            "second_button_select": "primary",
+            "second_button_label": "Button label",
+            "second_disable_on_mobile": false,
+            "second_button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_pnGqRy",
+        "heading_DAqiNX",
+        "text_y3AtzL",
+        "button_d9KDmV"
+      ],
+      "name": "t:sections.background-video.presets.name",
+      "settings": {
+        "heading": "Background video",
+        "full-width-enabled": false,
+        "autoplay": true,
+        "video_controls": false,
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "original_ratio": "fixed_height",
+        "desktop_fixed_height": 320,
+        "mobile_fixed_height": 460,
+        "color-body-heading": "transparent",
+        "color-overlay": "transparent",
+        "color-overlay-opacity": 100,
+        "color-body-text": "transparent",
+        "desktop_text_horizontal_position": "center",
+        "mobile_text_horizontal_position": "center",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
     "blog_posts_Pt33Px": {
       "type": "blog-posts",
       "name": "t:sections.blog-posts.presets.name",
@@ -312,6 +378,7 @@
     "benefits_product_DGyBfk",
     "video_reels_kb4KdA",
     "features_banner_custom_dBR6wK",
+    "background_video_LxNkdh",
     "blog_posts_Pt33Px"
   ]
 }
