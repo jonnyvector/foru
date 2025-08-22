@@ -197,6 +197,7 @@
         "image_rdUxjy": {
           "type": "image",
           "settings": {
+            "desktop_image": "shopify://shop_images/Frame_162.png",
             "select_icon": "bag",
             "heading": "",
             "text": "",
@@ -206,6 +207,7 @@
         "image_hqkXBH": {
           "type": "image",
           "settings": {
+            "desktop_image": "shopify://shop_images/Frame_161.png",
             "select_icon": "bag",
             "heading": "",
             "text": "",
@@ -215,6 +217,7 @@
         "image_nMFytR": {
           "type": "image",
           "settings": {
+            "desktop_image": "shopify://shop_images/Frame_163.png",
             "select_icon": "bag",
             "heading": "",
             "text": "",
@@ -224,6 +227,7 @@
         "image_XYrPgB": {
           "type": "image",
           "settings": {
+            "desktop_image": "shopify://shop_images/Frame_164.png",
             "select_icon": "bag",
             "heading": "",
             "text": "",
@@ -233,6 +237,7 @@
         "image_A7HEdp": {
           "type": "image",
           "settings": {
+            "desktop_image": "shopify://shop_images/Frame_165.png",
             "select_icon": "bag",
             "heading": "",
             "text": "",
@@ -242,6 +247,7 @@
         "image_b9rXBR": {
           "type": "image",
           "settings": {
+            "desktop_image": "shopify://shop_images/Frame_166.png",
             "select_icon": "bag",
             "heading": "",
             "text": "",
@@ -262,8 +268,8 @@
         "heading": "Featured On",
         "size_heading_mobile": 80,
         "size_heading": 80,
-        "icon_width_mobile": 36,
-        "icon_width_desktop": 48,
+        "icon_width_mobile": 100,
+        "icon_width_desktop": 200,
         "icon_layout": "center",
         "columns_desktop": "6",
         "icon_layout_mobile": "grid",
