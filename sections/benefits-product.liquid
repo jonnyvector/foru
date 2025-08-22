@@ -42,20 +42,22 @@
     text-align: center;
   }
 
+
+  section[id="shopify-section-{{ section.id }}"] .h2 {
+    text-align: center;
+  }
+
   @media(max-width: 899px) {
     section[id="shopify-section-{{ section.id }}"] .wt-benefits-product__subheading {
       text-align: left;
     }
 
-    section[id="shopify-section-{{ section.id }}"] .wt-benefits-product__custom-heading {
+    section[id="shopify-section-{{ section.id }}"] .wt-benefits-product__custom-heading .h2 {
       text-align: left;
     }
 
   }
 
-  section[id="shopify-section-{{ section.id }}"] .h2 {
-    text-align: center;
-  }
 
   {% if heading_rgb != 'rgba(0, 0, 0, 0.0)' %}
     section[id="shopify-section-{{ section.id }}"] .headline__title {
