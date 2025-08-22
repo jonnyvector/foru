@@ -551,7 +551,7 @@
         "button_text": "Go Home",
         "button_type": "link",
         "button_url": "shopify://products/hydration",
-        "button_style": "dark"
+        "button_style": "secondary"
       }
     }
   },
