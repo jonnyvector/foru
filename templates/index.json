@@ -39,78 +39,6 @@
         "margin-bottom": 44
       }
     },
-    "separator_b68976": {
-      "type": "separator",
-      "settings": {
-        "heading": "",
-        "show-separator-line": true,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "scrolling_text_banner_37jGnf": {
-      "type": "scrolling-text-banner",
-      "blocks": {
-        "heading_e8khMB": {
-          "type": "heading",
-          "settings": {
-            "heading": "your Wellness, \u0003Our Priority!",
-            "size_heading": 610,
-            "size_heading_mobile": 300
-          }
-        },
-        "button_epiDF9": {
-          "type": "button",
-          "settings": {
-            "button_select": "secondary",
-            "button_label": "boost energy",
-            "disable_on_mobile": false,
-            "button_link": "/",
-            "second_button_select": "primary",
-            "second_button_label": "Button label",
-            "second_disable_on_mobile": false,
-            "second_button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "heading_e8khMB",
-        "button_epiDF9"
-      ],
-      "settings": {
-        "heading": "",
-        "full-width-enabled": true,
-        "animation_speed": 5,
-        "slide_height": "adapt_to_first_image",
-        "desktop_fixed_height": 320,
-        "mobile_fixed_height": 380,
-        "desktop_text_vertical_position": "center",
-        "desktop_text_horizontal_position": "center",
-        "mobile_text_vertical_position": "center",
-        "mobile_text_horizontal_position": "center",
-        "color-heading": "rgba(0,0,0,0)",
-        "section-color-overlay": "rgba(0,0,0,0)",
-        "section-color-overlay-opacity": 100,
-        "color-body-text": "#ffffff",
-        "text-container-color": "rgba(0,0,0,0)",
-        "color-overlay-opacity": 100,
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "separator_BCPCLk": {
-      "type": "separator",
-      "settings": {
-        "heading": "",
-        "show-separator-line": true,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
     "benefits_product_DGyBfk": {
       "type": "benefits-product",
       "blocks": {
@@ -774,9 +702,6 @@
   },
   "order": [
     "featured_collection_98txhK",
-    "separator_b68976",
-    "scrolling_text_banner_37jGnf",
-    "separator_BCPCLk",
     "benefits_product_DGyBfk",
     "separator_TmXRib",
     "product_slider_p83PNB",
