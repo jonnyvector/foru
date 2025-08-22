@@ -130,7 +130,7 @@
         "button_WDHdTN"
       ],
       "custom_css": [
-        ".hero__title{max-width:100rem;}"
+        ".hero__title {max-width: 120rem;}"
       ],
       "name": "Image banner for transparent header",
       "settings": {
