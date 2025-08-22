@@ -208,7 +208,7 @@
     "separator_a938wj": {
       "type": "separator",
       "settings": {
-        "heading": "",
+        "heading": "<p></p>",
         "show-separator-line": true,
         "full-width-line": true,
         "color-background": "#000000",
@@ -222,42 +222,42 @@
         "benefit_a8BHCH": {
           "type": "benefit",
           "settings": {
-            "item_heading": "Vitamin C",
+            "item_heading": "<p>Vitamin C</p>",
             "text": "<p>A powerful antioxidant that boosts the immune system, enhances iron absorption, and promotes collagen production for healthy skin.</p>"
           }
         },
         "benefit_VC9nyU": {
           "type": "benefit",
           "settings": {
-            "item_heading": "Vitamin E",
+            "item_heading": "<p>Vitamin E</p>",
             "text": "<p>Is a powerful antioxidant that helps protect cells from damage caused by free radicals. It supports healthy skin by promoting hydration and reducing signs of aging.</p>"
           }
         },
         "benefit_dAVxLA": {
           "type": "benefit",
           "settings": {
-            "item_heading": "Hydrolysed Collagen",
+            "item_heading": "<p>Hydrolysed Collagen</p>",
             "text": "<p>Supports skin elasticity and hydration, reducing the appearance of fine lines and wrinkles for a youthful glow.</p>"
           }
         },
         "benefit_MgFn7x": {
           "type": "benefit",
           "settings": {
-            "item_heading": "Iron",
+            "item_heading": "<p>Iron</p>",
             "text": "<p>Vital for energy production and oxygen transport in the body, it prevents fatigue and supports overall vitality.</p>"
           }
         },
         "benefit_xByee6": {
           "type": "benefit",
           "settings": {
-            "item_heading": "Zinc",
+            "item_heading": "<p>Zinc</p>",
             "text": "<p>Supports a strong immune system, promotes wound healing, and helps maintain healthy skin.</p>"
           }
         },
         "benefit_Vd94d7": {
           "type": "benefit",
           "settings": {
-            "item_heading": "Vitamin A",
+            "item_heading": "<p>Vitamin A</p>",
             "text": "<p>Essential for good vision, healthy skin, and a robust immune system, it also supports cell growth and reproduction.</p>"
           }
         }
@@ -293,7 +293,7 @@
     "separator_eQP688": {
       "type": "separator",
       "settings": {
-        "heading": "",
+        "heading": "<p></p>",
         "show-separator-line": true,
         "full-width-line": true,
         "color-background": "#000000",
@@ -356,7 +356,7 @@
     "separator_X8dBea": {
       "type": "separator",
       "settings": {
-        "heading": "",
+        "heading": "<p></p>",
         "show-separator-line": true,
         "full-width-line": true,
         "color-background": "#000000",
@@ -467,7 +467,7 @@
     "separator_y6xcTk": {
       "type": "separator",
       "settings": {
-        "heading": "",
+        "heading": "<p></p>",
         "show-separator-line": true,
         "full-width-line": true,
         "color-background": "#000000",
@@ -565,7 +565,7 @@
     "separator_UNtqVW": {
       "type": "separator",
       "settings": {
-        "heading": "",
+        "heading": "<p></p>",
         "show-separator-line": true,
         "full-width-line": true,
         "color-background": "#000000",
@@ -643,7 +643,7 @@
     "separator_4a7fFL": {
       "type": "separator",
       "settings": {
-        "heading": "",
+        "heading": "<p></p>",
         "show-separator-line": true,
         "full-width-line": true,
         "color-background": "#000000",
@@ -745,7 +745,7 @@
     "separator_daizRp": {
       "type": "separator",
       "settings": {
-        "heading": "",
+        "heading": "<p></p>",
         "show-separator-line": true,
         "full-width-line": true,
         "color-background": "#000000",
@@ -823,7 +823,7 @@
     "separator_FD4z9W": {
       "type": "separator",
       "settings": {
-        "heading": "",
+        "heading": "<p></p>",
         "show-separator-line": true,
         "full-width-line": true,
         "color-background": "#000000",
