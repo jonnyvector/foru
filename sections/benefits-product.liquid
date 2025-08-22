@@ -45,6 +45,12 @@
           text-align: {{ block.settings.alignment }};
       }
 
+      [data-section-id="{{ section.id }}"] [data-block-id="{{ block.id }}"] .wt-benefits-product__icon-texts,
+      [data-section-id="{{ section.id }}"] [data-block-id="{{ block.id }}"] .wt-benefits-product__icon-item-heading,
+      [data-section-id="{{ section.id }}"] [data-block-id="{{ block.id }}"] .wt-benefits-product__icon-item-text {
+          text-align: {{ block.settings.alignment }};
+      }
+
       {% if block.settings.alignment == 'center' %}
         [data-section-id="{{ section.id }}"] [data-block-id="{{ block.id }}"] .wt-benefits-product__icon-item-wrapper {
             align-items: center;
