@@ -154,6 +154,10 @@
 
   .expert-profile__content {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 244px;
+    justify-content: space-between;
   }
 
   .expert-profile__name {
@@ -161,6 +165,7 @@
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
+    margin-top: 0;
     color: var(--color-custom-text, var(--color-foreground));
   }
 
@@ -218,6 +223,23 @@
     .expert-profile__image {
       width: 100px;
       height: 100px;
+    }
+
+    .expert-profile__content {
+      height: 100px;
+      justify-content: space-between;
+    }
+
+    .expert-profile__description {
+      display: none;
+    }
+
+    .expert-profile__name {
+      margin-bottom: 0;
+    }
+
+    .expert-profile__title {
+      margin-bottom: 0;
     }
 
     .testimonial-quote__marks {
