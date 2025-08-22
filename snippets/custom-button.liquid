@@ -16,11 +16,11 @@
 {% assign button_style = style | default: 'primary' %}
 {% assign unique_id = id | default: section.id | default: 'default' | prepend: 'custom-btn-' %}
 
-<div class="custom-button-wrapper-{{ unique_id }}hero__button--primary {% if section.settings.button_select != 'primary' %} hero__button--secondary {% endif %}">
+<div class="custom-button-wrapper-{{ unique_id }} custom-button-wrapper--{{ button_style }} {{ class }}">
   {% if button_type == 'link' %}
     <a
       href="{{ url | default: '#' }}"
-      class="custom-button-text-{{ unique_id }} hero__button--primary {% if section.settings.button_select != 'primary' %} hero__button--secondary {% endif %}"
+      class="custom-button-text-{{ unique_id }}"
       {% if target %}
       target="{{ target }}"
       {% endif %}
@@ -159,6 +159,34 @@
     outline: none;
   }
 
+  /* Dark theme colors */
+  .custom-button-wrapper--dark .custom-button-text-{{ unique_id }}
+  , .custom-button-wrapper--dark .custom-button-arrow-{{ unique_id }} {
+    background: #2a2a2a;
+    color: white;
+    border-color: #2a2a2a;
+  }
+
+  /* Light theme colors */
+  .custom-button-wrapper--light .custom-button-text-{{ unique_id }}
+  , .custom-button-wrapper--light .custom-button-arrow-{{ unique_id }} {
+    background: white;
+    color: #2a2a2a;
+    border-color: #e0e0e0;
+  }
+
+  /* Hover effects */
+  .custom-button-wrapper-{{ unique_id }}: hover .custom-button-text-{{ unique_id }}
+  , .custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }} {
+    background: #1a1a1a !important;
+    color: white !important;
+  }
+
+  .custom-button-wrapper--light.custom-button-wrapper-{{ unique_id }}: hover .custom-button-text-{{ unique_id }}
+  , .custom-button-wrapper--light.custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }} {
+    background: #f8f8f8 !important;
+    color: #2a2a2a !important;
+  }
 
   /* Slide animation structure */
   .custom-button-text-{{ unique_id }} .slide-wrapper
