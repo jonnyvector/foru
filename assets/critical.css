@@ -368,6 +368,31 @@ h6 {
   text-transform: var(--font-headline-transform, none);
 }
 
+/* Individual heading font sizes */
+h1, .h1 {
+  font-size: var(--font-h1-size);
+}
+
+h2, .h2 {
+  font-size: var(--font-h2-size);
+}
+
+h3, .h3 {
+  font-size: var(--font-h3-size);
+}
+
+h4, .h4 {
+  font-size: var(--font-h4-size);
+}
+
+h5, .h5 {
+  font-size: var(--font-h5-size);
+}
+
+h6, .h6 {
+  font-size: var(--font-h6-size);
+}
+
 small,
 .small {
   font-size: 0.75rem;
