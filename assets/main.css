@@ -10721,7 +10721,7 @@ main#root > .wt-featured-nav {
   width: 100%;
 }
 .wt-benefits-product__icon-item-heading {
-  max-width: 146px;
+  /* max-width: 146px; */
   text-align: center;
   /* font-size: calc(var(--font-icon-headline-scale) * var(--font-base-size)); */
   word-wrap: break-word;
