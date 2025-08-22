@@ -119,73 +119,23 @@
 </div>
 
 <style>
-  /* Button wrapper */
+  /* Wrapper + sizing (optional: tune heights in one place) */
   .custom-button-wrapper-{{ unique_id }} {
+    --btn-h: 52px;
+    /* set to 64px if you want taller */
+    --arrow-w: 60px;
     display: flex;
     gap: 1rem;
     align-items: stretch;
   }
 
-  /* Text button styling */
   .custom-button-text-{{ unique_id }} {
-    flex: 1;
-    padding: 0 24px;
-    font-size: 16px;
-    font-weight: 500;
-    position: relative;
-    border: 1px solid;
-    cursor: pointer;
-    text-decoration: none;
-    border-radius: 8px;
-    height: 52px;
-    display: flex;
-    align-items: center;
-    outline: none;
+    height: var(--btn-h);
   }
 
-  /* Arrow button styling */
   .custom-button-arrow-{{ unique_id }} {
-    width: 60px;
-    height: 52px;
-    position: relative;
-    border: 1px solid;
-    cursor: pointer;
-    text-decoration: none;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    outline: none;
-  }
-
-  /* Dark theme colors */
-  .custom-button-wrapper--dark .custom-button-text-{{ unique_id }}
-  , .custom-button-wrapper--dark .custom-button-arrow-{{ unique_id }} {
-    background: #2a2a2a;
-    color: white;
-    border-color: #2a2a2a;
-  }
-
-  /* Light theme colors */
-  .custom-button-wrapper--light .custom-button-text-{{ unique_id }}
-  , .custom-button-wrapper--light .custom-button-arrow-{{ unique_id }} {
-    background: white;
-    color: #2a2a2a;
-    border-color: #e0e0e0;
-  }
-
-  /* Hover effects */
-  .custom-button-wrapper-{{ unique_id }}: hover .custom-button-text-{{ unique_id }}
-  , .custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }} {
-    background: #1a1a1a !important;
-    color: white !important;
-  }
-
-  .custom-button-wrapper--light.custom-button-wrapper-{{ unique_id }}: hover .custom-button-text-{{ unique_id }}
-  , .custom-button-wrapper--light.custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }} {
-    background: #f8f8f8 !important;
-    color: #2a2a2a !important;
+    width: var(--arrow-w);
+    height: var(--btn-h);
   }
 
   /* Slide animation structure */
@@ -195,7 +145,8 @@
     position: relative;
     display: block;
     width: 100%;
-    height: 52px;
+    height: 100%;
+    /* use the parent’s fixed height */
     overflow: hidden;
   }
 
@@ -215,13 +166,13 @@
     color: inherit;
   }
 
-  /* Second copy starts below */
+  /* BUGFIX: descendant space before .slide-text/.slide-arrow */
   .custom-button-text-{{ unique_id }}.slide-text:last-child,
   .custom-button-arrow-{{ unique_id }}.slide-arrow:last-child {
     transform: translateY(100%);
   }
 
-  /* On hover they swap */
+  /* BUGFIX: no space before :hover */
   .custom-button-wrapper-{{ unique_id }}:hover .slide-text:first-child,
   .custom-button-wrapper-{{ unique_id }}:hover .slide-arrow:first-child {
     transform: translateY(-100%);
@@ -232,10 +183,17 @@
     transform: translateY(0);
   }
 
-  /* Arrow icon styling */
-  .custom-button-arrow-icon-{{ unique_id }} {
-    width: 20px;
-    height: 20px;
-    display: block;
+  /* Hover colors (also needed the :hover fix) */
+  .custom-button-wrapper-{{ unique_id }}: hover .custom-button-text-{{ unique_id }}
+  , .custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }} {
+    background: #1a1a1a !important;
+    color: #fff !important;
   }
+
+  .custom-button-wrapper--light.custom-button-wrapper-{{ unique_id }}: hover .custom-button-text-{{ unique_id }}
+  , .custom-button-wrapper--light.custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }} {
+    background: #f8f8f8 !important;
+    color: #2a2a2a !important;
+  }
+
 </style>
