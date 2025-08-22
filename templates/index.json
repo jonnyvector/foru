@@ -252,7 +252,7 @@
         "desktop_image": "shopify://shop_images/image_55.png",
         "desktop_text_vertical_position": "center",
         "desktop_text_horizontal_position": "left",
-        "mobile_text_horizontal_position": "center",
+        "mobile_text_horizontal_position": "left",
         "margin-top": 20,
         "margin-bottom": 0
       }
@@ -318,7 +318,7 @@
         "desktop_image": "shopify://shop_images/image_56.png",
         "desktop_text_vertical_position": "center",
         "desktop_text_horizontal_position": "left",
-        "mobile_text_horizontal_position": "center",
+        "mobile_text_horizontal_position": "left",
         "margin-top": 0,
         "margin-bottom": 20
       }
