@@ -107,6 +107,7 @@
       ],
       "custom_css": [],
       "settings": {
+        "subheading": "Wellness Made Smarter",
         "heading": "Wellness Made Smarter",
         "full-width-enabled": false,
         "video_hosted": "shopify://files/videos/benfits-video.mp4",
@@ -116,6 +117,7 @@
         "button_link": "",
         "quick_buy_product": "",
         "button_select": "primary",
+        "icon_width": 40,
         "size_heading": 100,
         "size_heading_mobile": 90,
         "color-body-heading": "rgba(0,0,0,0)",
