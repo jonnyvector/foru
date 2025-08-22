@@ -39,23 +39,27 @@
       {% endif %}
   }
 
-  [data-section-id="{{ section.id }}"] .wt-benefits-product__icon-item {
-      text-align: {{ section.settings.benefits_alignment }};
-  }
+  {% for block in section.blocks %}
+    {% if block.type == 'benefit' %}
+      [data-section-id="{{ section.id }}"] [data-block-id="{{ block.id }}"] {
+          text-align: {{ block.settings.alignment }};
+      }
 
-  {% if section.settings.benefits_alignment == 'center' %}
-    [data-section-id="{{ section.id }}"] .wt-benefits-product__icon-item-wrapper {
-        align-items: center;
-    }
-  {% elsif section.settings.benefits_alignment == 'right' %}
-    [data-section-id="{{ section.id }}"] .wt-benefits-product__icon-item-wrapper {
-        align-items: flex-end;
-    }
-  {% else %}
-    [data-section-id="{{ section.id }}"] .wt-benefits-product__icon-item-wrapper {
-        align-items: flex-start;
-    }
-  {% endif %}
+      {% if block.settings.alignment == 'center' %}
+        [data-section-id="{{ section.id }}"] [data-block-id="{{ block.id }}"] .wt-benefits-product__icon-item-wrapper {
+            align-items: center;
+        }
+      {% elsif block.settings.alignment == 'right' %}
+        [data-section-id="{{ section.id }}"] [data-block-id="{{ block.id }}"] .wt-benefits-product__icon-item-wrapper {
+            align-items: flex-end;
+        }
+      {% else %}
+        [data-section-id="{{ section.id }}"] [data-block-id="{{ block.id }}"] .wt-benefits-product__icon-item-wrapper {
+            align-items: flex-start;
+        }
+      {% endif %}
+    {% endif %}
+  {% endfor %}
 </style>
 
 {% if section.settings['full-width-enabled'] %}
@@ -151,7 +155,7 @@
           {% for block in section.blocks %}
             {% case block.type %}
               {% when 'benefit' %}
-                <div class="wt-benefits-product__icon-item wt-benefits-product__icon-item--{{ section.settings.benefits_alignment }}" data-block-id="{{ block.id }}">
+                <div class="wt-benefits-product__icon-item wt-benefits-product__icon-item--{{ block.settings.alignment }}" data-block-id="{{ block.id }}">
                   <div class="wt-benefits-product__icon-item-wrapper">
                     {% if block.settings.image %}
                       <div class="wt-benefits-product__icon">
@@ -339,26 +343,6 @@
       "unit": "%"
     },
     {
-      "type": "select",
-      "id": "benefits_alignment",
-      "options": [
-        {
-          "value": "left",
-          "label": "Left"
-        },
-        {
-          "value": "center",
-          "label": "Center"
-        },
-        {
-          "value": "right",
-          "label": "Right"
-        }
-      ],
-      "default": "left",
-      "label": "Benefits alignment"
-    },
-    {
       "type": "header",
       "content": "t:sections.global.colors",
       "info": "t:sections.global.colors-info"
@@ -439,6 +423,26 @@
           "id": "text",
           "label": "t:sections.benefits_product.blocks.benefit.settings.text.label",
           "default": "<p>Designed to deliver effective and consistent outcomes.</p>"
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left",
+          "label": "Alignment"
         }
       ]
     }
