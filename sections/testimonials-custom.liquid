@@ -17,29 +17,29 @@
         {% case block.type %}
           {% when 'testimonial' %}
             {% assign block_background_rgb = block.settings.background_color | color_to_rgb %}
-            <div class="testimonial-card" {{ block.shopify_attributes }} 
-                 {% if block_background_rgb != 'rgba(0, 0, 0, 0.0)' %}
-                 style="background-color: {{ block.settings.background_color }}; padding: 2rem; border-radius: var(--border-radius);"
-                 {% endif %}>
+              <div
+              class="testimonial-card"
+              {{ block.shopify_attributes }}
+              {% if block_background_rgb != 'rgba(0, 0, 0, 0.0)' %}
+              style="background-color: {{ block.settings.background_color }}; padding: 2rem; border-radius: var(--border-radius);"
+              {% endif %}>
               <!-- Expert Profile -->
               <div class="expert-profile">
                 {% if block.settings.expert_image != blank %}
                   <div class="expert-profile__image">
-                    {{ block.settings.expert_image | image_url: width: 500 | image_tag: 
-                       alt: block.settings.expert_name, 
-                       loading: 'lazy' }}
+                    {{ block.settings.expert_image | image_url: width: 500 | image_tag:  alt: block.settings.expert_name,  loading: 'lazy' }}
                   </div>
                 {% endif %}
-                
+
                 <div class="expert-profile__content">
                   {% if block.settings.expert_name != blank %}
                     <h3 class="expert-profile__name">{{ block.settings.expert_name }}</h3>
                   {% endif %}
-                  
+
                   {% if block.settings.expert_title != blank %}
                     <p class="expert-profile__title">{{ block.settings.expert_title }}</p>
                   {% endif %}
-                  
+
                   {% if block.settings.expert_description != blank %}
                     <p class="expert-profile__description">{{ block.settings.expert_description }}</p>
                   {% endif %}
@@ -215,7 +215,7 @@
 
   .testimonial-quote__text {
     font-size: 1.6rem;
-    line-height: 1.4;
+    line-height: 140%;
     font-style: italic;
     font-weight: 700;
     color: var(--color-custom-text, var(--color-foreground));
@@ -277,101 +277,96 @@
 </style>
 
 {% schema %}
-{
-  "name": "Testimonials Custom",
-  "tag": "section",
-  "class": "section",
-  "settings": [
-    {
-      "type": "richtext",
-      "id": "heading",
-      "label": "Heading",
-      "default": "<p>Built by Experts,<br>Proven by Athletes</p>"
-    },
-    {
-      "type": "checkbox",
-      "id": "full_width_enabled",
-      "label": "t:sections.settings.settings.section-full-width.label",
-      "default": false
-    },
-    {
-      "type": "header",
-      "content": "t:sections.global.colors",
-      "info": "t:sections.global.colors-info"
-    },
-    {
-      "type": "color",
-      "id": "color_body_text",
-      "default": "transparent",
-      "label": "t:sections.settings.settings.text-color.label"
-    },
-    {
-      "type": "color",
-      "id": "background_color",
-      "default": "transparent",
-      "label": "t:sections.settings.settings.background-color.label"
-    },
-    {
-      "type": "image_picker",
-      "id": "quote_icon",
-      "label": "Custom Quote Icon (SVG recommended)"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "testimonial",
-      "name": "Expert Testimonial",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "expert_image",
-          "label": "Expert Photo"
-        },
-        {
-          "type": "text",
-          "id": "expert_name",
-          "label": "Expert Name",
-          "default": "Dr. Expert Name"
-        },
-        {
-          "type": "text",
-          "id": "expert_title",
-          "label": "Expert Title",
-          "default": "PhD, Specialist Title"
-        },
-        {
-          "type": "textarea",
-          "id": "expert_description",
-          "label": "Expert Description",
-          "default": "Expert background and credentials description."
-        },
-        {
-          "type": "textarea",
-          "id": "testimonial_text",
-          "label": "Testimonial Quote",
-          "default": "Add the testimonial quote here."
-        },
-        {
-          "type": "color",
-          "id": "background_color",
-          "default": "transparent",
-          "label": "Background Color"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Testimonials Custom",
-      "blocks": [
-        {
-          "type": "testimonial"
-        },
-        {
-          "type": "testimonial"
-        }
-      ]
-    }
-  ]
-}
+  {
+    "name": "Testimonials Custom",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "heading",
+        "label": "Heading",
+        "default": "<p>Built by Experts,<br>Proven by Athletes</p>"
+      },
+      {
+        "type": "checkbox",
+        "id": "full_width_enabled",
+        "label": "t:sections.settings.settings.section-full-width.label",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "t:sections.global.colors",
+        "info": "t:sections.global.colors-info"
+      },
+      {
+        "type": "color",
+        "id": "color_body_text",
+        "default": "transparent",
+        "label": "t:sections.settings.settings.text-color.label"
+      }, {
+        "type": "color",
+        "id": "background_color",
+        "default": "transparent",
+        "label": "t:sections.settings.settings.background-color.label"
+      }, {
+        "type": "image_picker",
+        "id": "quote_icon",
+        "label": "Custom Quote Icon (SVG recommended)"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "testimonial",
+        "name": "Expert Testimonial",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "expert_image",
+            "label": "Expert Photo"
+          },
+          {
+            "type": "text",
+            "id": "expert_name",
+            "label": "Expert Name",
+            "default": "Dr. Expert Name"
+          },
+          {
+            "type": "text",
+            "id": "expert_title",
+            "label": "Expert Title",
+            "default": "PhD, Specialist Title"
+          },
+          {
+            "type": "textarea",
+            "id": "expert_description",
+            "label": "Expert Description",
+            "default": "Expert background and credentials description."
+          }, {
+            "type": "textarea",
+            "id": "testimonial_text",
+            "label": "Testimonial Quote",
+            "default": "Add the testimonial quote here."
+          }, {
+            "type": "color",
+            "id": "background_color",
+            "default": "transparent",
+            "label": "Background Color"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Testimonials Custom",
+        "blocks": [
+          {
+            "type": "testimonial"
+          }, {
+            "type": "testimonial"
+          }
+        ]
+      }
+    ]
+  }
 {% endschema %}
