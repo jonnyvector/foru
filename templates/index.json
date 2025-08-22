@@ -191,73 +191,73 @@
         "margin-bottom": 20
       }
     },
-    "features_banner_yeyzDx": {
-      "type": "features-banner",
+    "features_banner_custom_dBR6wK": {
+      "type": "features-banner-custom",
       "blocks": {
-        "image_JRnAWh": {
+        "image_rdUxjy": {
           "type": "image",
           "settings": {
             "select_icon": "bag",
-            "heading": "Banner title",
-            "text": "<p>Items you love at prices that fit your budget.</p>",
+            "heading": "",
+            "text": "",
             "link": ""
           }
         },
-        "image_ngUXLM": {
+        "image_hqkXBH": {
           "type": "image",
           "settings": {
             "select_icon": "bag",
-            "heading": "Banner title",
-            "text": "<p>Items you love at prices that fit your budget.</p>",
+            "heading": "",
+            "text": "",
             "link": ""
           }
         },
-        "image_HijJWE": {
+        "image_nMFytR": {
           "type": "image",
           "settings": {
             "select_icon": "bag",
-            "heading": "Banner title",
-            "text": "<p>Items you love at prices that fit your budget.</p>",
+            "heading": "",
+            "text": "",
             "link": ""
           }
         },
-        "image_6tbxxx": {
+        "image_XYrPgB": {
           "type": "image",
           "settings": {
             "select_icon": "bag",
-            "heading": "Banner title",
-            "text": "<p>Items you love at prices that fit your budget.</p>",
+            "heading": "",
+            "text": "",
             "link": ""
           }
         },
-        "image_pqUBtm": {
+        "image_A7HEdp": {
           "type": "image",
           "settings": {
             "select_icon": "bag",
-            "heading": "Banner title",
-            "text": "<p>Items you love at prices that fit your budget.</p>",
+            "heading": "",
+            "text": "",
             "link": ""
           }
         },
-        "image_RFWQHx": {
+        "image_b9rXBR": {
           "type": "image",
           "settings": {
             "select_icon": "bag",
-            "heading": "Banner title",
-            "text": "<p>Items you love at prices that fit your budget.</p>",
+            "heading": "",
+            "text": "",
             "link": ""
           }
         }
       },
       "block_order": [
-        "image_JRnAWh",
-        "image_ngUXLM",
-        "image_HijJWE",
-        "image_6tbxxx",
-        "image_pqUBtm",
-        "image_RFWQHx"
+        "image_rdUxjy",
+        "image_hqkXBH",
+        "image_nMFytR",
+        "image_XYrPgB",
+        "image_A7HEdp",
+        "image_b9rXBR"
       ],
-      "name": "t:sections.features-banner.settings.presets.name",
+      "name": "Features Banner Custom",
       "settings": {
         "heading": "Featured On",
         "size_heading_mobile": 80,
@@ -265,8 +265,8 @@
         "icon_width_mobile": 36,
         "icon_width_desktop": 48,
         "icon_layout": "center",
-        "columns_desktop": "4",
-        "icon_layout_mobile": "slider",
+        "columns_desktop": "6",
+        "icon_layout_mobile": "grid",
         "color_body_icon": "transparent",
         "color_background_icon": "transparent",
         "color_body_text": "transparent",
@@ -294,8 +294,8 @@
         "button_select": "primary",
         "size_heading": 100,
         "size_heading_mobile": 100,
-        "color-body-text": "transparent",
-        "background_color": "transparent",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
         "margin-top": 20,
         "margin-bottom": 20
       }
@@ -305,7 +305,7 @@
     "featured_collection_98txhK",
     "benefits_product_DGyBfk",
     "video_reels_kb4KdA",
-    "features_banner_yeyzDx",
+    "features_banner_custom_dBR6wK",
     "blog_posts_Pt33Px"
   ]
 }
