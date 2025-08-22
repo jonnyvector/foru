@@ -91,58 +91,6 @@
         "suggestions_menu": ""
       }
     },
-    "page_header_image_video_fECwHG": {
-      "type": "page-header-image-video",
-      "blocks": {
-        "text_RCbiGj": {
-          "type": "text",
-          "settings": {
-            "text": "<p>The Future of Wellness</p>",
-            "disable_on_mobile": false
-          }
-        },
-        "heading_XQM4jQ": {
-          "type": "heading",
-          "settings": {
-            "heading": "Gear up for great health",
-            "disable_on_mobile": false,
-            "size_heading": 300,
-            "size_heading_mobile": 220
-          }
-        },
-        "button_B63KwX": {
-          "type": "button",
-          "settings": {
-            "button_select": "secondary",
-            "button_label": "check now",
-            "button_link": "/",
-            "button_link_in_new_window": false,
-            "disable_on_mobile": false
-          }
-        }
-      },
-      "block_order": [
-        "text_RCbiGj",
-        "heading_XQM4jQ",
-        "button_B63KwX"
-      ],
-      "disabled": true,
-      "settings": {
-        "content_position": "over_image",
-        "slide_height": "adapt_to_first_image",
-        "desktop_fixed_height": 560,
-        "mobile_fixed_height": 460,
-        "layout_mobile": "video",
-        "layout": "video_first",
-        "color-body-text": "#000000",
-        "color-overlay": "#cef5fd",
-        "color-overlay-opacity": 100,
-        "desktop_text_vertical_position": "bottom",
-        "desktop_text_horizontal_position": "left",
-        "mobile_text_vertical_position": "center",
-        "mobile_text_horizontal_position": "center"
-      }
-    },
     "page_header_image_banner_rCVqwY": {
       "type": "page-header-image-banner",
       "blocks": {
@@ -186,6 +134,7 @@
         "slide_height": "adapt_to_first_image",
         "desktop_fixed_height": 320,
         "mobile_fixed_height": 460,
+        "video_hosted": "shopify://files/videos/Foru Main Screen (1).mp4",
         "desktop_image": "shopify://shop_images/image_21_2.png",
         "desktop_text_vertical_position": "center",
         "desktop_text_horizontal_position": "center",
@@ -193,7 +142,7 @@
         "mobile_text_vertical_position": "center",
         "mobile_text_horizontal_position": "center",
         "color-body-text": "#ffffff",
-        "text-container-color": "transparent",
+        "text-container-color": "rgba(0,0,0,0)",
         "color-overlay-opacity": 100
       }
     }
@@ -201,7 +150,6 @@
   "order": [
     "announcement-bar",
     "header",
-    "page_header_image_video_fECwHG",
     "page_header_image_banner_rCVqwY"
   ]
 }
