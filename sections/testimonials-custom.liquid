@@ -3,7 +3,10 @@
   Layout: Two-column grid with expert profiles and testimonials
 {% endcomment %}
 
-<div class="testimonials-custom{% if section.settings.full_width_enabled %} testimonials-custom--full-width{% endif %}">
+{% assign background_rgb = section.settings.background_color | color_to_rgb %}
+{% assign text_rgb = section.settings.color_body_text | color_to_rgb %}
+
+<div class="testimonials-custom{% if section.settings.full_width_enabled %} testimonials-custom--full-width{% endif %}" data-section-id="{{ section.id }}">
   <div class="{% unless section.settings.full_width_enabled %}page-width{% endunless %}">
     {% if section.settings.heading != blank %}
       <h2 class="testimonials-custom__heading">{{ section.settings.heading }}</h2>
@@ -54,6 +57,20 @@
 </div>
 
 <style>
+  [data-section-id="{{ section.id }}"] {
+    {% if background_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --color-background: {{ section.settings.background_color }};
+    {% endif %}
+
+    {% if text_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --color-custom-text: {{ section.settings.color_body_text }};
+    {% endif %}
+
+    {% if section.settings.full_width_enabled %}
+      --border-radius: 0;
+    {% endif %}
+  }
+
   .testimonials-custom {
     padding: 5rem 0;
     background: var(--color-background);
@@ -89,7 +106,7 @@
     line-height: 1.1;
     margin-bottom: 4rem;
     text-align: left;
-    color: var(--color-foreground);
+    color: var(--color-custom-text, var(--color-foreground));
   }
 
   .testimonials-custom__grid {
@@ -140,20 +157,20 @@
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: var(--color-foreground);
+    color: var(--color-custom-text, var(--color-foreground));
   }
 
   .expert-profile__title {
     font-size: 1.4rem;
     margin-bottom: 1.5rem;
-    color: var(--color-foreground-75);
+    color: var(--color-custom-text, var(--color-foreground-75));
     font-weight: 500;
   }
 
   .expert-profile__description {
     font-size: 1.4rem;
     line-height: 1.5;
-    color: var(--color-foreground);
+    color: var(--color-custom-text, var(--color-foreground));
   }
 
   /* Testimonial Quote Styles */
@@ -165,7 +182,7 @@
     font-size: 6rem;
     font-weight: 700;
     line-height: 1;
-    color: var(--color-foreground);
+    color: var(--color-custom-text, var(--color-foreground));
     margin-bottom: 1rem;
   }
 
@@ -173,7 +190,7 @@
     font-size: 1.6rem;
     line-height: 1.5;
     font-style: italic;
-    color: var(--color-foreground);
+    color: var(--color-custom-text, var(--color-foreground));
     margin: 0;
   }
 
@@ -227,6 +244,23 @@
       "id": "full_width_enabled",
       "label": "t:sections.settings.settings.section-full-width.label",
       "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.colors",
+      "info": "t:sections.global.colors-info"
+    },
+    {
+      "type": "color",
+      "id": "color_body_text",
+      "default": "transparent",
+      "label": "t:sections.settings.settings.text-color.label"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "default": "transparent",
+      "label": "t:sections.settings.settings.background-color.label"
     }
   ],
   "blocks": [
