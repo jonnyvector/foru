@@ -38,6 +38,10 @@
       object-fit: contain;
   }
 
+  section[id="shopify-section-{{ section.id }}"] .wt-benefits-product__subheading {
+      text-align: center;
+  }
+
   {% if heading_rgb != 'rgba(0, 0, 0, 0.0)' %}
     section[id="shopify-section-{{ section.id }}"] .headline__title{
       --color-custom-text: {{ section.settings.color-body-heading }};
