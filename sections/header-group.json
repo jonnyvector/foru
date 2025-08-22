@@ -113,7 +113,7 @@
         "button_WDHdTN": {
           "type": "button",
           "settings": {
-            "button_select": "primary",
+            "button_select": "secondary",
             "button_label": "Shop Now",
             "disable_on_mobile": false,
             "button_link": "/",
