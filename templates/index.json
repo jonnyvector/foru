@@ -191,6 +191,70 @@
         "margin-bottom": 20
       }
     },
+    "features_banner_yeyzDx": {
+      "type": "features-banner",
+      "blocks": {
+        "image_JRnAWh": {
+          "type": "image",
+          "settings": {
+            "select_icon": "bag",
+            "heading": "Banner title",
+            "text": "<p>Items you love at prices that fit your budget.</p>",
+            "link": ""
+          }
+        },
+        "image_ngUXLM": {
+          "type": "image",
+          "settings": {
+            "select_icon": "bag",
+            "heading": "Banner title",
+            "text": "<p>Items you love at prices that fit your budget.</p>",
+            "link": ""
+          }
+        },
+        "image_HijJWE": {
+          "type": "image",
+          "settings": {
+            "select_icon": "bag",
+            "heading": "Banner title",
+            "text": "<p>Items you love at prices that fit your budget.</p>",
+            "link": ""
+          }
+        },
+        "image_6tbxxx": {
+          "type": "image",
+          "settings": {
+            "select_icon": "bag",
+            "heading": "Banner title",
+            "text": "<p>Items you love at prices that fit your budget.</p>",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_JRnAWh",
+        "image_ngUXLM",
+        "image_HijJWE",
+        "image_6tbxxx"
+      ],
+      "name": "t:sections.features-banner.settings.presets.name",
+      "settings": {
+        "heading": "Featured On",
+        "size_heading_mobile": 80,
+        "size_heading": 80,
+        "icon_width_mobile": 36,
+        "icon_width_desktop": 48,
+        "icon_layout": "center",
+        "columns_desktop": "4",
+        "icon_layout_mobile": "grid",
+        "color_body_icon": "transparent",
+        "color_background_icon": "transparent",
+        "color_body_text": "transparent",
+        "background_color": "transparent",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
     "blog_posts_Pt33Px": {
       "type": "blog-posts",
       "name": "t:sections.blog-posts.presets.name",
@@ -221,6 +285,7 @@
     "featured_collection_98txhK",
     "benefits_product_DGyBfk",
     "video_reels_kb4KdA",
+    "features_banner_yeyzDx",
     "blog_posts_Pt33Px"
   ]
 }
