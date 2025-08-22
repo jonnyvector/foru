@@ -2276,6 +2276,10 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   .form__fieldset .form__field {
     flex: 1;
   }
+  
+  .form__field--name {
+    width: 100%;
+  }
 }
 
 .form__container {
@@ -2368,7 +2372,6 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   flex-direction: column;
 }
 @media (min-width: 600px) {
-  .form__field--name,
   .form__field--phone {
     width: 50%;
   }
