@@ -105,7 +105,7 @@
     {% endif %}
     {% comment %}{% render 'headline', title: section.settings.heading %}{% endcomment %}
     {% if section.settings.heading %}
-      <h2 class="h2 wt-benefits-product__heading">{{ section.settings.heading }}</h2>
+      <h2 class="h2 wt-benefits-product__custom-heading">{{ section.settings.heading }}</h2>
     {% endif %}
 
     <div class="wt-benefits-product__wrapper {% if settings.animations %}scroll-trigger animate--slide-in {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}{% endif %}">
