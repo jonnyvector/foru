@@ -1,6 +1,5 @@
 {% comment %}
   Custom Button Snippet - Reusable two-part button with sliding animation
-  
   Parameters:
   - text: Button text (default: "Click Me")
   - type: Button type - "button", "submit", or "link" (default: "button")
@@ -14,60 +13,104 @@
 
 {% assign button_text = text | default: 'Click Me' %}
 {% assign button_type = type | default: 'button' %}
-{% assign button_style = style | default: 'dark' %}
+{% assign button_style = style | default: 'primary' %}
 {% assign unique_id = id | default: section.id | default: 'default' | prepend: 'custom-btn-' %}
 
-<div class="custom-button-wrapper-{{ unique_id }} custom-button-wrapper--{{ button_style }} {{ class }}">
+<div class="custom-button-wrapper-{{ unique_id }}hero__button--primary {% if section.settings.button_select != 'primary' %} hero__button--secondary {% endif %}">
   {% if button_type == 'link' %}
-    <a href="{{ url | default: '#' }}" 
-       class="custom-button-text-{{ unique_id }}"
-       {% if target %}target="{{ target }}"{% endif %}
-       {% if aria_label %}aria-label="{{ aria_label }}"{% else %}aria-label="{{ button_text }}"{% endif %}>
+    <a
+      href="{{ url | default: '#' }}"
+      class="custom-button-text-{{ unique_id }} hero__button--primary {% if section.settings.button_select != 'primary' %} hero__button--secondary {% endif %}"
+      {% if target %}
+      target="{{ target }}"
+      {% endif %}
+      {% if aria_label %}
+      aria-label="{{ aria_label }}"
+      {% else %}
+      aria-label="{{ button_text }}"
+      {% endif %}>
       <span class="slide-wrapper">
         <span class="slide-text">{{ button_text }}</span>
         <span class="slide-text">{{ button_text }}</span>
       </span>
     </a>
 
-    <a href="{{ url | default: '#' }}" 
-       class="custom-button-arrow-{{ unique_id }}"
-       {% if target %}target="{{ target }}"{% endif %}
-       aria-label="{{ aria_label | default: button_text }}">
+    <a
+      href="{{ url | default: '#' }}"
+      class="custom-button-arrow-{{ unique_id }}"
+      {% if target %}
+      target="{{ target }}"
+      {% endif %}
+      aria-label="{{ aria_label | default: button_text }}">
       <span class="slide-wrapper">
         <span class="slide-arrow">
-          <svg class="custom-button-arrow-icon-{{ unique_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
+          <svg
+            class="custom-button-arrow-icon-{{ unique_id }}"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </span>
         <span class="slide-arrow">
-          <svg class="custom-button-arrow-icon-{{ unique_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
+          <svg
+            class="custom-button-arrow-icon-{{ unique_id }}"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </span>
       </span>
     </a>
   {% else %}
-    <button type="{{ button_type }}" 
-            class="custom-button-text-{{ unique_id }}"
-            {% if aria_label %}aria-label="{{ aria_label }}"{% else %}aria-label="{{ button_text }}"{% endif %}>
+    <button
+      type="{{ button_type }}"
+      class="custom-button-text-{{ unique_id }}"
+      {% if aria_label %}
+      aria-label="{{ aria_label }}"
+      {% else %}
+      aria-label="{{ button_text }}"
+      {% endif %}>
       <span class="slide-wrapper">
         <span class="slide-text">{{ button_text }}</span>
         <span class="slide-text">{{ button_text }}</span>
       </span>
     </button>
 
-    <button type="{{ button_type }}" 
-            class="custom-button-arrow-{{ unique_id }}"
-            aria-label="{{ aria_label | default: button_text }}">
+    <button
+      type="{{ button_type }}"
+      class="custom-button-arrow-{{ unique_id }}"
+      aria-label="{{ aria_label | default: button_text }}">
       <span class="slide-wrapper">
         <span class="slide-arrow">
-          <svg class="custom-button-arrow-icon-{{ unique_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
+          <svg
+            class="custom-button-arrow-icon-{{ unique_id }}"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </span>
         <span class="slide-arrow">
-          <svg class="custom-button-arrow-icon-{{ unique_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
+          <svg
+            class="custom-button-arrow-icon-{{ unique_id }}"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </span>
       </span>
@@ -76,120 +119,95 @@
 </div>
 
 <style>
-/* Button wrapper */
-.custom-button-wrapper-{{ unique_id }} {
-  display: flex;
-  gap: 1rem;
-  align-items: stretch;
-}
+  /* Button wrapper */
+  .custom-button-wrapper-{{ unique_id }} {
+    display: flex;
+    gap: 1rem;
+    align-items: stretch;
+  }
 
-/* Text button styling */
-.custom-button-text-{{ unique_id }} {
-  flex: 1;
-  padding: 0 24px;
-  font-size: 16px;
-  font-weight: 500;
-  position: relative;
-  border: 1px solid;
-  cursor: pointer;
-  text-decoration: none;
-  border-radius: 8px;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  outline: none;
-}
+  /* Text button styling */
+  .custom-button-text-{{ unique_id }} {
+    flex: 1;
+    padding: 0 24px;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    border: 1px solid;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 8px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    outline: none;
+  }
 
-/* Arrow button styling */
-.custom-button-arrow-{{ unique_id }} {
-  width: 60px;
-  height: 52px;
-  position: relative;
-  border: 1px solid;
-  cursor: pointer;
-  text-decoration: none;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  outline: none;
-}
+  /* Arrow button styling */
+  .custom-button-arrow-{{ unique_id }} {
+    width: 60px;
+    height: 52px;
+    position: relative;
+    border: 1px solid;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    outline: none;
+  }
 
-/* Dark theme colors */
-.custom-button-wrapper--dark .custom-button-text-{{ unique_id }},
-.custom-button-wrapper--dark .custom-button-arrow-{{ unique_id }} {
-  background: #2a2a2a;
-  color: white;
-  border-color: #2a2a2a;
-}
 
-/* Light theme colors */
-.custom-button-wrapper--light .custom-button-text-{{ unique_id }},
-.custom-button-wrapper--light .custom-button-arrow-{{ unique_id }} {
-  background: white;
-  color: #2a2a2a;
-  border-color: #e0e0e0;
-}
+  /* Slide animation structure */
+  .custom-button-text-{{ unique_id }} .slide-wrapper
+  , .custom-button-arrow-{{ unique_id }}
+  .slide-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 52px;
+    overflow: hidden;
+  }
 
-/* Hover effects */
-.custom-button-wrapper-{{ unique_id }}:hover .custom-button-text-{{ unique_id }},
-.custom-button-wrapper-{{ unique_id }}:hover .custom-button-arrow-{{ unique_id }} {
-  background: #1a1a1a !important;
-  color: white !important;
-}
+  .custom-button-text-{{ unique_id }}
+  .slide-text
+  , .custom-button-arrow-{{ unique_id }}
+  .slide-arrow {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateY(0);
+    color: inherit;
+  }
 
-.custom-button-wrapper--light.custom-button-wrapper-{{ unique_id }}:hover .custom-button-text-{{ unique_id }},
-.custom-button-wrapper--light.custom-button-wrapper-{{ unique_id }}:hover .custom-button-arrow-{{ unique_id }} {
-  background: #f8f8f8 !important;
-  color: #2a2a2a !important;
-}
+  /* Second copy starts below */
+  .custom-button-text-{{ unique_id }}.slide-text:last-child,
+  .custom-button-arrow-{{ unique_id }}.slide-arrow:last-child {
+    transform: translateY(100%);
+  }
 
-/* Slide animation structure */
-.custom-button-text-{{ unique_id }} .slide-wrapper,
-.custom-button-arrow-{{ unique_id }} .slide-wrapper {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 52px;
-  overflow: hidden;
-}
+  /* On hover they swap */
+  .custom-button-wrapper-{{ unique_id }}:hover .slide-text:first-child,
+  .custom-button-wrapper-{{ unique_id }}:hover .slide-arrow:first-child {
+    transform: translateY(-100%);
+  }
 
-.custom-button-text-{{ unique_id }} .slide-text,
-.custom-button-arrow-{{ unique_id }} .slide-arrow {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
-  will-change: transform;
-  backface-visibility: hidden;
-  transform: translateY(0);
-  color: inherit;
-}
+  .custom-button-wrapper-{{ unique_id }}:hover .slide-text:last-child,
+  .custom-button-wrapper-{{ unique_id }}:hover .slide-arrow:last-child {
+    transform: translateY(0);
+  }
 
-/* Second copy starts below */
-.custom-button-text-{{ unique_id }} .slide-text:last-child,
-.custom-button-arrow-{{ unique_id }} .slide-arrow:last-child {
-  transform: translateY(100%);
-}
-
-/* On hover they swap */
-.custom-button-wrapper-{{ unique_id }}:hover .slide-text:first-child,
-.custom-button-wrapper-{{ unique_id }}:hover .slide-arrow:first-child {
-  transform: translateY(-100%);
-}
-
-.custom-button-wrapper-{{ unique_id }}:hover .slide-text:last-child,
-.custom-button-wrapper-{{ unique_id }}:hover .slide-arrow:last-child {
-  transform: translateY(0);
-}
-
-/* Arrow icon styling */
-.custom-button-arrow-icon-{{ unique_id }} {
-  width: 20px;
-  height: 20px;
-  display: block;
-}
+  /* Arrow icon styling */
+  .custom-button-arrow-icon-{{ unique_id }} {
+    width: 20px;
+    height: 20px;
+    display: block;
+  }
 </style>
