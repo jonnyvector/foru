@@ -9,14 +9,85 @@
  */
 {
   "sections": {
+    "background_video_HmXBiJ": {
+      "type": "background-video",
+      "blocks": {
+        "subheading_FrVB7e": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "subheading": "Tell your story",
+            "subheading_disable_on_mobile": false
+          }
+        },
+        "heading_mLqPbp": {
+          "type": "heading",
+          "settings": {
+            "heading": "Contact",
+            "disable_on_mobile": false,
+            "size_heading": 200,
+            "size_heading_mobile": 100
+          }
+        },
+        "text_Gb67mF": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Explore in motion</p>",
+            "disable_on_mobile": false
+          }
+        },
+        "button_QTXVU8": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_select": "primary",
+            "button_label": "Button label",
+            "disable_on_mobile": false,
+            "button_link": "",
+            "second_button_select": "primary",
+            "second_button_label": "Button label",
+            "second_disable_on_mobile": false,
+            "second_button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_FrVB7e",
+        "heading_mLqPbp",
+        "text_Gb67mF",
+        "button_QTXVU8"
+      ],
+      "name": "t:sections.background-video.presets.name",
+      "settings": {
+        "heading": "",
+        "full-width-enabled": true,
+        "video_hosted": "shopify://files/videos/Foru Main Screen (1).mp4",
+        "autoplay": true,
+        "video_controls": false,
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "original_ratio": "fixed_height",
+        "desktop_fixed_height": 520,
+        "mobile_fixed_height": 460,
+        "color-body-heading": "#ffffff",
+        "color-overlay": "transparent",
+        "color-overlay-opacity": 100,
+        "color-body-text": "#ffffff",
+        "desktop_text_horizontal_position": "center",
+        "mobile_text_horizontal_position": "center",
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "compact-size-enabled": true,
         "size_heading": 140,
         "size_heading_mobile": 100,
-        "color-body-text": "transparent",
-        "color-bg-overlay": "transparent",
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-bg-overlay": "rgba(0,0,0,0)",
         "color-overlay-opacity": 100,
         "margin-top": 40,
         "margin-bottom": 0
@@ -27,12 +98,18 @@
       "blocks": {
         "f7540b5e-8608-433d-bf4e-2ca6b4e12cf1": {
           "type": "heading",
-          "disabled": true,
           "settings": {
-            "heading": "Heading",
+            "heading": "Get in touch with us",
             "heading_disable_on_mobile": false,
-            "size_heading": 140,
+            "size_heading": 200,
             "size_heading_mobile": 100
+          }
+        },
+        "paragraph_erHAmb": {
+          "type": "paragraph",
+          "settings": {
+            "paragraph": "<p>Have questions or need assistance? Fill out the form below, and we’ll get back to you as soon as possible!</p>",
+            "text_disable_on_mobile": false
           }
         },
         "e44258d7-7299-4647-b930-6950bb2f925b": {
@@ -44,17 +121,19 @@
       },
       "block_order": [
         "f7540b5e-8608-433d-bf4e-2ca6b4e12cf1",
+        "paragraph_erHAmb",
         "e44258d7-7299-4647-b930-6950bb2f925b"
       ],
       "settings": {
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
-        "margin-top": 0,
-        "margin-bottom": 56
+        "margin-top": 100,
+        "margin-bottom": 100
       }
     }
   },
   "order": [
+    "background_video_HmXBiJ",
     "main",
     "form"
   ]
