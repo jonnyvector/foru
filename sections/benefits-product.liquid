@@ -38,6 +38,24 @@
           --color-custom-text: {{ section.settings.color-body-text }};
       {% endif %}
   }
+
+  [data-section-id="{{ section.id }}"] .wt-benefits-product__icon-item {
+      text-align: {{ section.settings.benefits_alignment }};
+  }
+
+  {% if section.settings.benefits_alignment == 'center' %}
+    [data-section-id="{{ section.id }}"] .wt-benefits-product__icon-item-wrapper {
+        align-items: center;
+    }
+  {% elsif section.settings.benefits_alignment == 'right' %}
+    [data-section-id="{{ section.id }}"] .wt-benefits-product__icon-item-wrapper {
+        align-items: flex-end;
+    }
+  {% else %}
+    [data-section-id="{{ section.id }}"] .wt-benefits-product__icon-item-wrapper {
+        align-items: flex-start;
+    }
+  {% endif %}
 </style>
 
 {% if section.settings['full-width-enabled'] %}
@@ -133,7 +151,7 @@
           {% for block in section.blocks %}
             {% case block.type %}
               {% when 'benefit' %}
-                <div class="wt-benefits-product__icon-item" data-block-id="{{ block.id }}">
+                <div class="wt-benefits-product__icon-item wt-benefits-product__icon-item--{{ section.settings.benefits_alignment }}" data-block-id="{{ block.id }}">
                   <div class="wt-benefits-product__icon-item-wrapper">
                     {% if block.settings.image %}
                       <div class="wt-benefits-product__icon">
@@ -319,6 +337,26 @@
       "default": 100,
       "label": "t:sections.settings.settings.size-heading-mobile.label",
       "unit": "%"
+    },
+    {
+      "type": "select",
+      "id": "benefits_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "label": "Benefits alignment"
     },
     {
       "type": "header",
