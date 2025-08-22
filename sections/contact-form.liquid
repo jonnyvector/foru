@@ -70,20 +70,35 @@
                   </div>
                 </div>
               {%- endif -%}
+              <label
+                class="form__field form__field--name"
+                for="ContactFormName-{{ section.id }}"
+              >
+                <input
+                  type="text"
+                  name="contact[name]"
+                  id="ContactFormName-{{ section.id }}"
+                  class="form__field__input"
+                  placeholder=" "
+                  value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+                >
+                <span class="form__field__label">{{ 'templates.contact.form.name' | t }}</span>
+              </label>
+
               <div class="form__fieldset">
                 <label
-                  class="form__field form__field--name"
-                  for="ContactFormName-{{ section.id }}"
+                  class="form__field form__field--email"
+                  for="ContactFormEmail-{{ section.id }}"
                 >
                   <input
                     type="text"
-                    name="contact[name]"
-                    id="ContactFormName-{{ section.id }}"
+                    name="contact[email]"
+                    id="ContactFormEmail-{{ section.id }}"
                     class="form__field__input"
                     placeholder=" "
-                    value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+                    value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
                   >
-                  <span class="form__field__label">{{ 'templates.contact.form.name' | t }}</span>
+                  <span class="form__field__label">{{ 'templates.contact.form.email' | t }}* </span>
                 </label>
 
                 <label
@@ -101,21 +116,6 @@
                   <span class="form__field__label">{{ 'templates.contact.form.phone' | t }}</span>
                 </label>
               </div>
-
-              <label
-                class="form__field form__field--email"
-                for="ContactFormEmail-{{ section.id }}"
-              >
-                <input
-                  type="text"
-                  name="contact[email]"
-                  id="ContactFormEmail-{{ section.id }}"
-                  class="form__field__input"
-                  placeholder=" "
-                  value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-                >
-                <span class="form__field__label">{{ 'templates.contact.form.email' | t }}* </span>
-              </label>
 
               <label
                 class="form__field"

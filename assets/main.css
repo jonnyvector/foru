@@ -2271,10 +2271,13 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   .form__fieldset {
     display: flex;
     gap: 16px;
-    width: 100%;
-    justify-content: space-between;
+  }
+  
+  .form__fieldset .form__field {
+    flex: 1;
   }
 }
+
 .form__container {
   max-width: var(--site-max-width);
   padding-left: calc(var(--gap, 8px) * 2);
