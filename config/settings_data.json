@@ -74,6 +74,7 @@
     "type_headings_font_size_desk": 22,
     "type_navigation_font_size_desk": 18,
     "type_button_font_size_desk": 22,
+    "type_h1_font_size_desk": 64,
     "show_view_cart": false,
     "enable_cross_sells": false,
     "product_limit_cross_sells": 6,
