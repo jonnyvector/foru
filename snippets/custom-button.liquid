@@ -119,7 +119,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* ← consistent padding */
     position: relative;
     cursor: pointer;
     transition: background-color 0.25s ease
@@ -128,10 +127,13 @@
     , filter 0.25s ease;
   }
 
+  /* Text half (padding-based) */
   .custom-button-text-{{ unique_id }} {
     padding: 22px 40px;
     max-height: 64px;
   }
+
+  /* Arrow half (fixed size) */
   .custom-button-arrow-{{ unique_id }} {
     width: 64px;
     height: 64px;
@@ -144,6 +146,7 @@
     color: #fff;
     border-color: #1a1c1c;
   }
+
   .custom-button-wrapper--light .custom-button-text-{{ unique_id }}
   , .custom-button-wrapper--light .custom-button-arrow-{{ unique_id }} {
     background: #fff;
@@ -151,14 +154,13 @@
     border-color: #fff;
   }
 
-  /* Slide mechanics (GRID overlay, no absolute height dependency) */
+  /* Slide mechanics (grid overlay, no height dependency) */
   .custom-button-text-{{ unique_id }} .slide-wrapper
   , .custom-button-arrow-{{ unique_id }}
   .slide-wrapper {
     display: grid;
     place-items: center;
     width: 100%;
-    /* height auto from content + padding */
     overflow: hidden;
   }
 
@@ -167,42 +169,28 @@
   , .custom-button-arrow-{{ unique_id }}
   .slide-arrow {
     grid-area: 1 / 1;
-    /* stack both copies */
     transform: translateY(0);
-    transition: transform 0.32s cubic-bezier(0.22,.61,0.36,1);
+    transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
     will-change: transform;
     backface-visibility: hidden;
     color: inherit;
   }
 
-  /* Second copy starts below (NOTE the space before .slide-*) */
+  /* Second copy starts below */
   .custom-button-text-{{ unique_id }}.slide-text:last-child,
   .custom-button-arrow-{{ unique_id }}.slide-arrow:last-child {
     transform: translateY(100%);
   }
 
-  /* Hover the WRAPPER → animate BOTH halves */
+  /* Hover → animate both halves */
   .custom-button-wrapper-{{ unique_id }}:hover .slide-text:first-child,
   .custom-button-wrapper-{{ unique_id }}:hover .slide-arrow:first-child {
     transform: translateY(-100%);
   }
+
   .custom-button-wrapper-{{ unique_id }}:hover .slide-text:last-child,
   .custom-button-wrapper-{{ unique_id }}:hover .slide-arrow:last-child {
     transform: translateY(0);
-  }
-
-  /* Hover colors (fixed :hover typos) */
-  .custom-button-wrapper--dark.custom-button-wrapper-{{ unique_id }}: hover .custom-button-text-{{ unique_id }}
-  , .custom-button-wrapper--dark.custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }} {
-    background: #1a1a1a !important;
-    color: #fff !important;
-    border-color: #1a1a1a !important;
-  }
-  .custom-button-wrapper--light.custom-button-wrapper-{{ unique_id }}: hover .custom-button-text-{{ unique_id }}
-  , .custom-button-wrapper--light.custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }} {
-    background: #f8f8f8 !important;
-    color: #2a2a2a !important;
-    border-color: #d9d9d9 !important;
   }
 
   /* Icon size */
@@ -212,7 +200,7 @@
     display: block;
   }
 
-  /* Subtle stagger so arrow trails text by 60ms */
+  /* Subtle stagger so arrow trails text */
   @media (hover: hover) {
     .custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }}
     .slide-arrow {
@@ -226,4 +214,5 @@
     outline: 2px solid #6aa3ff;
     outline-offset: 2px;
   }
+
 </style>
