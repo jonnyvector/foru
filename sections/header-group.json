@@ -84,7 +84,7 @@
         "show_country_selector": true,
         "show_country_selector_label": false,
         "show_country_selector_flag": true,
-        "show_language_selector": true,
+        "show_language_selector": false,
         "drawer_title": "Hello!",
         "typing_search": "Search...",
         "suggestions_title": "most popular",
