@@ -5,14 +5,14 @@
 <div class="custom-button-section" style="padding: 40px 20px; text-align: center;">
   {% if section.settings.button_type == 'link' %}
     {% render 'custom-button'
-      , text: section.settings.button_text
+      ,  text: section.settings.button_text
       , type: 'link'
       , url: section.settings.button_url
       , style: section.settings.button_style
       , id: section.id %}
   {% else %}
     {% render 'custom-button'
-      , text: section.settings.button_text
+      ,  text: section.settings.button_text
       , type: section.settings.button_type
       , style: section.settings.button_style
       , id: section.id %}
@@ -57,14 +57,14 @@
         "id": "button_style",
         "options": [
           {
-            "value": "primary",
-            "label": "Primary"
+            "value": "dark",
+            "label": "Dark"
           }, {
-            "value": "secondary",
-            "label": "Secondary"
+            "value": "light",
+            "label": "Light"
           }
         ],
-        "default": "primary",
+        "default": "dark",
         "label": "Button Style"
       }
     ],
