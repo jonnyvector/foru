@@ -528,7 +528,10 @@
           }
         }
       },
-      "block_order": ["image_iGNwEi", "image_Fwyrb8"],
+      "block_order": [
+        "image_iGNwEi",
+        "image_Fwyrb8"
+      ],
       "name": "t:sections.testimonials.settings.presets.name",
       "settings": {
         "heading": "Testimonials",
@@ -567,10 +570,13 @@
           }
         }
       },
-      "block_order": ["testimonial_4rtYRV", "testimonial_rPVGwC"],
+      "block_order": [
+        "testimonial_4rtYRV",
+        "testimonial_rPVGwC"
+      ],
       "name": "Testimonials Custom",
       "settings": {
-        "heading": "<h3>Built by Experts, Proven by Athletes</h3>",
+        "heading": "<p>Built by Experts, <br/>Proven by Athletes</p>",
         "full_width_enabled": false,
         "color_body_text": "#1a1c1c",
         "background_color": "rgba(0,0,0,0)"
