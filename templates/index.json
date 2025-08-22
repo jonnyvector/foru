@@ -254,6 +254,72 @@
         "desktop_text_horizontal_position": "left",
         "mobile_text_horizontal_position": "center",
         "margin-top": 20,
+        "margin-bottom": 0
+      }
+    },
+    "image_with_text_ewadgb": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_FjRKag": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Transparency",
+            "subheading_disable_on_mobile": false
+          }
+        },
+        "heading_R3tMLH": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Science Behind the System",
+            "disable_on_mobile": false,
+            "size_heading": 100,
+            "size_heading_mobile": 100
+          }
+        },
+        "text_r8TFeH": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Each formula is built from the ground up using research-backed ingredients and clinically relevant doses. Designed with expert input for real-world results. Every batch is third party tested for quality, consistency, and purity - and refined through ongoing formulation reviews.</p>",
+            "text_style": "body",
+            "disable_on_mobile": false
+          }
+        },
+        "button_KcR4tg": {
+          "type": "button",
+          "settings": {
+            "button_select": "primary",
+            "button_label": "Check Our Ingredients",
+            "button_link": "/",
+            "disable_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "subheading_FjRKag",
+        "heading_R3tMLH",
+        "text_r8TFeH",
+        "button_KcR4tg"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "title": "",
+        "layout": "image_first",
+        "desktop-percentage-image-width": 50,
+        "full-width-enabled": true,
+        "slide_height": "fixed_height",
+        "desktop_fixed_height": 900,
+        "mobile_fixed_height": 460,
+        "section-color-body-text": "transparent",
+        "section-color-overlay": "transparent",
+        "section-color-overlay-opacity": 100,
+        "color-body-text": "transparent",
+        "color-overlay": "transparent",
+        "color-overlay-opacity": 100,
+        "desktop_image": "shopify://shop_images/image_56.png",
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "left",
+        "mobile_text_horizontal_position": "center",
+        "margin-top": 0,
         "margin-bottom": 20
       }
     },
@@ -444,6 +510,7 @@
     "benefits_product_DGyBfk",
     "video_reels_kb4KdA",
     "image_with_text_3rdT8b",
+    "image_with_text_ewadgb",
     "features_banner_custom_dBR6wK",
     "background_video_LxNkdh",
     "blog_posts_Pt33Px"
