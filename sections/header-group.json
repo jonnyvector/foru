@@ -116,7 +116,7 @@
             "button_select": "secondary",
             "button_label": "Shop Now",
             "disable_on_mobile": false,
-            "button_link": "/",
+            "button_link": "shopify://collections/all",
             "second_button_select": "primary",
             "second_button_label": "Button label",
             "second_disable_on_mobile": false,
