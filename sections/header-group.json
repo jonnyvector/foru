@@ -99,7 +99,7 @@
           "settings": {
             "heading": "certified clean nutrition systems",
             "disable_on_mobile": false,
-            "size_heading": 270,
+            "size_heading": 500,
             "size_heading_mobile": 210
           }
         },
@@ -129,6 +129,7 @@
         "text_EeMXMg",
         "button_WDHdTN"
       ],
+      "custom_css": [],
       "name": "Image banner for transparent header",
       "settings": {
         "slide_height": "fixed_height",
