@@ -119,26 +119,47 @@
 </div>
 
 <style>
-  /* Wrapper + sizing (optional: tune heights in one place) */
+  /* Wrapper */
   .custom-button-wrapper-{{ unique_id }} {
-    --btn-h: 52px;
-    /* set to 64px if you want taller */
-    --arrow-w: 60px;
     display: flex;
     gap: 1rem;
     align-items: stretch;
   }
 
-  .custom-button-text-{{ unique_id }} {
-    height: var(--btn-h);
+  /* Both halves share the same box model (padding drives size) */
+  .custom-button-text-{{ unique_id }}
+  , .custom-button-arrow-{{ unique_id }} {
+    border: 1px solid;
+    border-radius: 8px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 22px 40px;
+    /* ← consistent padding */
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.25s ease
+    , color 0.25s ease
+    , border-color 0.25s ease
+    , filter 0.25s ease;
   }
 
-  .custom-button-arrow-{{ unique_id }} {
-    width: var(--arrow-w);
-    height: var(--btn-h);
+  /* Theme variants */
+  .custom-button-wrapper--dark .custom-button-text-{{ unique_id }}
+  , .custom-button-wrapper--dark .custom-button-arrow-{{ unique_id }} {
+    background: #2a2a2a;
+    color: #fff;
+    border-color: #2a2a2a;
+  }
+  .custom-button-wrapper--light .custom-button-text-{{ unique_id }}
+  , .custom-button-wrapper--light .custom-button-arrow-{{ unique_id }} {
+    background: #fff;
+    color: #2a2a2a;
+    border-color: #e0e0e0;
   }
 
-  /* Slide animation structure */
+  /* Slide mechanics: wrapper fills the padded box; layers are absolute */
   .custom-button-text-{{ unique_id }} .slide-wrapper
   , .custom-button-arrow-{{ unique_id }}
   .slide-wrapper {
@@ -146,7 +167,6 @@
     display: block;
     width: 100%;
     height: 100%;
-    /* use the parent’s fixed height */
     overflow: hidden;
   }
 
@@ -159,41 +179,64 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transform: translateY(0);
+    transition: transform 0.32s cubic-bezier(0.22,.61,0.36,1);
     will-change: transform;
     backface-visibility: hidden;
-    transform: translateY(0);
     color: inherit;
   }
 
-  /* BUGFIX: descendant space before .slide-text/.slide-arrow */
+  /* Second copy starts below (note the space before .slide-*) */
   .custom-button-text-{{ unique_id }}.slide-text:last-child,
   .custom-button-arrow-{{ unique_id }}.slide-arrow:last-child {
     transform: translateY(100%);
   }
 
-  /* BUGFIX: no space before :hover */
+  /* Hover anywhere on the WRAPPER → animate BOTH halves */
   .custom-button-wrapper-{{ unique_id }}:hover .slide-text:first-child,
   .custom-button-wrapper-{{ unique_id }}:hover .slide-arrow:first-child {
     transform: translateY(-100%);
   }
-
   .custom-button-wrapper-{{ unique_id }}:hover .slide-text:last-child,
   .custom-button-wrapper-{{ unique_id }}:hover .slide-arrow:last-child {
     transform: translateY(0);
   }
 
-  /* Hover colors (also needed the :hover fix) */
-  .custom-button-wrapper-{{ unique_id }}: hover .custom-button-text-{{ unique_id }}
-  , .custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }} {
+  /* Hover colors */
+  .custom-button-wrapper--dark.custom-button-wrapper-{{ unique_id }}: hover .custom-button-text-{{ unique_id }}
+  , .custom-button-wrapper--dark.custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }} {
     background: #1a1a1a !important;
     color: #fff !important;
+    border-color: #1a1a1a !important;
   }
-
   .custom-button-wrapper--light.custom-button-wrapper-{{ unique_id }}: hover .custom-button-text-{{ unique_id }}
   , .custom-button-wrapper--light.custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }} {
     background: #f8f8f8 !important;
     color: #2a2a2a !important;
+    border-color: #d9d9d9 !important;
   }
+
+  /* Icon size */
+  .custom-button-arrow-icon-{{ unique_id }} {
+    width: 20px;
+    height: 20px;
+    display: block;
+  }
+
+  /* Optional: subtle stagger so arrow trails text by 60ms */
+  @media (hover: hover) {
+    .custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }}
+    .slide-arrow {
+      transition-delay: 0.06s;
+    }
+  }
+
+  /* Focus-visible for a11y */
+  .custom-button-text-{{ unique_id }}:focus-visible,
+  .custom-button-arrow-{{ unique_id }}:focus-visible {
+    outline: 2px solid #6aa3ff;
+    outline-offset: 2px;
+  }
+
 
 </style>
