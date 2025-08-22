@@ -51,33 +51,35 @@
       {% endif %}
   }
 
-  {% for block in section.blocks %}
-    {% if block.type == 'benefit' %}
-      [data-section-id="{{ section.id }}"] [data-block-id="{{ block.id }}"] {
-          text-align: {{ block.settings.alignment }};
-      }
+  @media (min-width: 900px) {
+    {% for block in section.blocks %}
+      {% if block.type == 'benefit' %}
+        [data-section-id="{{ section.id }}"] [data-block-id="{{ block.id }}"] {
+            text-align: {{ block.settings.alignment }};
+        }
 
-      [data-section-id="{{ section.id }}"] [data-block-id="{{ block.id }}"] .wt-benefits-product__icon-texts,
-      [data-section-id="{{ section.id }}"] [data-block-id="{{ block.id }}"] .wt-benefits-product__icon-item-heading,
-      [data-section-id="{{ section.id }}"] [data-block-id="{{ block.id }}"] .wt-benefits-product__icon-item-text {
-          text-align: {{ block.settings.alignment }};
-      }
+        [data-section-id="{{ section.id }}"] [data-block-id="{{ block.id }}"] .wt-benefits-product__icon-texts,
+        [data-section-id="{{ section.id }}"] [data-block-id="{{ block.id }}"] .wt-benefits-product__icon-item-heading,
+        [data-section-id="{{ section.id }}"] [data-block-id="{{ block.id }}"] .wt-benefits-product__icon-item-text {
+            text-align: {{ block.settings.alignment }};
+        }
 
-      {% if block.settings.alignment == 'center' %}
-        [data-section-id="{{ section.id }}"] [data-block-id="{{ block.id }}"] .wt-benefits-product__icon-item-wrapper {
-            align-items: center;
-        }
-      {% elsif block.settings.alignment == 'right' %}
-        [data-section-id="{{ section.id }}"] [data-block-id="{{ block.id }}"] .wt-benefits-product__icon-item-wrapper {
-            align-items: flex-end;
-        }
-      {% else %}
-        [data-section-id="{{ section.id }}"] [data-block-id="{{ block.id }}"] .wt-benefits-product__icon-item-wrapper {
-            align-items: flex-start;
-        }
+        {% if block.settings.alignment == 'center' %}
+          [data-section-id="{{ section.id }}"] [data-block-id="{{ block.id }}"] .wt-benefits-product__icon-item-wrapper {
+              align-items: center;
+          }
+        {% elsif block.settings.alignment == 'right' %}
+          [data-section-id="{{ section.id }}"] [data-block-id="{{ block.id }}"] .wt-benefits-product__icon-item-wrapper {
+              align-items: flex-end;
+          }
+        {% else %}
+          [data-section-id="{{ section.id }}"] [data-block-id="{{ block.id }}"] .wt-benefits-product__icon-item-wrapper {
+              align-items: flex-start;
+          }
+        {% endif %}
       {% endif %}
-    {% endif %}
-  {% endfor %}
+    {% endfor %}
+  }
 </style>
 
 {% if section.settings['full-width-enabled'] %}
