@@ -83,24 +83,33 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:22px 40px;      /* ← consistent padding */
+     /* ← consistent padding */
     position:relative;
     cursor:pointer;
     transition:background-color .25s ease, color .25s ease, border-color .25s ease, filter .25s ease;
   }
 
+  .custom-button-text-{{ unique_id }}{
+    padding:22px 40px;
+    max-height: 64px;
+  }
+  .custom-button-arrow-{{ unique_id }}{
+   width: 64px;
+    height: 64px;
+  }
+
   /* Theme variants */
   .custom-button-wrapper--dark .custom-button-text-{{ unique_id }},
   .custom-button-wrapper--dark .custom-button-arrow-{{ unique_id }}{
-    background:#2a2a2a;
+    background:#1a1c1c;
     color:#fff;
-    border-color:#2a2a2a;
+    border-color:#1a1c1c;
   }
   .custom-button-wrapper--light .custom-button-text-{{ unique_id }},
   .custom-button-wrapper--light .custom-button-arrow-{{ unique_id }}{
     background:#fff;
-    color:#2a2a2a;
-    border-color:#e0e0e0;
+    color:#1a1c1c;
+    border-color:#fff;
   }
 
   /* Slide mechanics (GRID overlay, no absolute height dependency) */
