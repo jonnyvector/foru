@@ -1,0 +1,42 @@
+{% comment %}
+  Simple test version without animations
+{% endcomment %}
+
+{% assign unique_id = 'shop-btn-' | append: section.id | default: 'shop-btn-default' %}
+
+<div style="display: flex; gap: 1rem; align-items: stretch;">
+  
+  {% if type %}
+    <button type="{{ type }}" style="
+      padding: 0 24px;
+      font-size: 16px;
+      font-weight: 500;
+      border: 1px solid #2a2a2a;
+      cursor: pointer;
+      border-radius: 8px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      background: #2a2a2a;
+      color: white;
+    ">
+      {{ text | default: 'Send Message' }}
+    </button>
+
+    <button type="{{ type }}" style="
+      width: 60px;
+      height: 52px;
+      border: 1px solid #2a2a2a;
+      cursor: pointer;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      background: #2a2a2a;
+      color: white;
+    ">
+      →
+    </button>
+  {% endif %}
+</div>
