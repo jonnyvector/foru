@@ -221,10 +221,10 @@
   }
 
   .testimonial-quote__text {
-    font-size: 1.6rem;
+    font-size: clamp(1.6rem, 4vw, 3.2rem);
     line-height: 140%;
     font-style: italic;
-    font-weight: 700;
+    font-weight: 500;
     color: var(--color-custom-text, var(--color-foreground));
     margin: 0;
   }
@@ -277,9 +277,6 @@
       height: 4rem;
     }
 
-    .testimonial-quote__text {
-      font-size: 1.4rem;
-    }
   }
 </style>
 
