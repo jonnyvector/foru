@@ -8,12 +8,12 @@
   - aria_label: Accessibility label (default: uses text)
   - class: Additional CSS classes
   - id: Optional ID for the button wrapper
-  - style: Style variant - "dark" or "light" (default: "dark")
+  - style: Style variant - "primary" or "secondary" (default: "primary")
 {% endcomment %}
 
 {% assign button_text = text | default: 'Click Me' %}
 {% assign button_type = type | default: 'button' %}
-{% assign button_style = style | default: 'dark' %}
+{% assign button_style = style | default: 'primary' %}
 {% assign unique_id = id | default: section.id | default: 'default' | prepend: 'custom-btn-' %}
 
 <div class="custom-button-wrapper-{{ unique_id }} custom-button-wrapper--{{ button_style }} {{ class }}">
@@ -140,18 +140,18 @@
   }
 
   /* Theme variants */
-  .custom-button-wrapper--dark .custom-button-text-{{ unique_id }}
-  , .custom-button-wrapper--dark .custom-button-arrow-{{ unique_id }} {
-    background: #1a1c1c;
-    color: #fff;
-    border-color: #1a1c1c;
+  .custom-button-wrapper--primary .custom-button-text-{{ unique_id }}
+  , .custom-button-wrapper--primary .custom-button-arrow-{{ unique_id }} {
+    background: var(--color-button-primary-background);
+    color: var(--color-button-primary-text);
+    border-color: transparent;
   }
 
-  .custom-button-wrapper--light .custom-button-text-{{ unique_id }}
-  , .custom-button-wrapper--light .custom-button-arrow-{{ unique_id }} {
-    background: #fff;
-    color: #1a1c1c;
-    border-color: #fff;
+  .custom-button-wrapper--secondary .custom-button-text-{{ unique_id }}
+  , .custom-button-wrapper--secondary .custom-button-arrow-{{ unique_id }} {
+    background: var(--color-button-secondary-background);
+    color: var(--color-button-secondary-text);
+    border-color: var(--color-button-secondary-border);
   }
 
   /* Slide mechanics (grid overlay, no height dependency) */
@@ -182,6 +182,21 @@
     transform: translateY(100%);
   }
 
+  /* Hover color changes */
+  @media (hover: hover) {
+    .custom-button-wrapper--primary:hover .custom-button-text-{{ unique_id }},
+    .custom-button-wrapper--primary:hover .custom-button-arrow-{{ unique_id }} {
+      background: var(--color-button-primary-background-hover);
+      color: var(--color-button-primary-text-hover);
+    }
+
+    .custom-button-wrapper--secondary:hover .custom-button-text-{{ unique_id }},
+    .custom-button-wrapper--secondary:hover .custom-button-arrow-{{ unique_id }} {
+      background: var(--color-button-secondary-background-hover);
+      color: var(--color-button-secondary-text-hover);
+    }
+  }
+
   /* Hover → animate both halves */
   .custom-button-wrapper-{{ unique_id }}:hover .slide-text:first-child,
   .custom-button-wrapper-{{ unique_id }}:hover .slide-arrow:first-child {
@@ -202,7 +217,7 @@
 
   /* Subtle stagger so arrow trails text */
   @media (hover: hover) {
-    .custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }}
+    .custom-button-wrapper-{{ unique_id }}:hover .custom-button-arrow-{{ unique_id }}
     .slide-arrow {
       transition-delay: 0.06s;
     }
