@@ -10649,7 +10649,7 @@ main#root > .wt-featured-nav {
 }
 
 .wt-benefits-product__subheading {
-  font-family: var(--font-heading-style);
+  font-family: var(--font-headline);
 }
 
 /* .wt-benefits-product__heading {
