@@ -212,11 +212,18 @@
     transform: translateY(0);
   }
 
-  /* Icon size */
+  /* Icon size - 56px desktop, 24px mobile */
   .custom-button-arrow-icon-{{ unique_id }} {
-    width: 24px;
-    height: 24px;
+    width: 56px;
+    height: 56px;
     display: block;
+  }
+
+  @media (max-width: 767px) {
+    .custom-button-arrow-icon-{{ unique_id }} {
+      width: 24px;
+      height: 24px;
+    }
   }
 
   /* Subtle stagger so arrow trails text */
