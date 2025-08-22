@@ -229,13 +229,33 @@
             "text": "<p>Items you love at prices that fit your budget.</p>",
             "link": ""
           }
+        },
+        "image_pqUBtm": {
+          "type": "image",
+          "settings": {
+            "select_icon": "bag",
+            "heading": "Banner title",
+            "text": "<p>Items you love at prices that fit your budget.</p>",
+            "link": ""
+          }
+        },
+        "image_RFWQHx": {
+          "type": "image",
+          "settings": {
+            "select_icon": "bag",
+            "heading": "Banner title",
+            "text": "<p>Items you love at prices that fit your budget.</p>",
+            "link": ""
+          }
         }
       },
       "block_order": [
         "image_JRnAWh",
         "image_ngUXLM",
         "image_HijJWE",
-        "image_6tbxxx"
+        "image_6tbxxx",
+        "image_pqUBtm",
+        "image_RFWQHx"
       ],
       "name": "t:sections.features-banner.settings.presets.name",
       "settings": {
