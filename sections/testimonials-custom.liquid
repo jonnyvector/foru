@@ -16,7 +16,11 @@
       {% for block in section.blocks %}
         {% case block.type %}
           {% when 'testimonial' %}
-            <div class="testimonial-card" {{ block.shopify_attributes }}>
+            {% assign block_background_rgb = block.settings.background_color | color_to_rgb %}
+            <div class="testimonial-card" {{ block.shopify_attributes }} 
+                 {% if block_background_rgb != 'rgba(0, 0, 0, 0.0)' %}
+                 style="background-color: {{ block.settings.background_color }}; padding: 2rem; border-radius: var(--border-radius);"
+                 {% endif %}>
               <!-- Expert Profile -->
               <div class="expert-profile">
                 {% if block.settings.expert_image != blank %}
@@ -296,6 +300,12 @@
           "id": "testimonial_text",
           "label": "Testimonial Quote",
           "default": "Add the testimonial quote here."
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "default": "transparent",
+          "label": "Background Color"
         }
       ]
     }
