@@ -190,11 +190,37 @@
         "margin-top": 56,
         "margin-bottom": 20
       }
+    },
+    "blog_posts_Pt33Px": {
+      "type": "blog-posts",
+      "name": "t:sections.blog-posts.presets.name",
+      "settings": {
+        "heading": "Blog posts",
+        "swipe_on_mobile": false,
+        "full-width-enabled": false,
+        "blog": "",
+        "post_limit": 3,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": true,
+        "view_all_button_select": "link",
+        "show_image": true,
+        "image_ratio": "adapt",
+        "column_alignment": "left",
+        "button_select": "primary",
+        "size_heading": 100,
+        "size_heading_mobile": 100,
+        "color-body-text": "transparent",
+        "background_color": "transparent",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
     }
   },
   "order": [
     "featured_collection_98txhK",
     "benefits_product_DGyBfk",
-    "video_reels_kb4KdA"
+    "video_reels_kb4KdA",
+    "blog_posts_Pt33Px"
   ]
 }
