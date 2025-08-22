@@ -549,7 +549,7 @@
       "name": "Custom Button",
       "settings": {
         "button_text": "Go Home",
-        "button_type": "button",
+        "button_type": "link",
         "button_url": "shopify://products/hydration",
         "button_style": "dark"
       }
