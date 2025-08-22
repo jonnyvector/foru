@@ -27,7 +27,7 @@
               <div class="expert-profile">
                 {% if block.settings.expert_image != blank %}
                   <div class="expert-profile__image">
-                    {{ block.settings.expert_image | image_url: width: 500 | image_tag:  alt: block.settings.expert_name,  loading: 'lazy' }}
+                    {{ block.settings.expert_image | image_url: width: 500 | image_tag: alt: block.settings.expert_name, loading: 'lazy' }}
                   </div>
                 {% endif %}
 
@@ -204,13 +204,14 @@
   .testimonial-quote__icon {
     width: 56px;
     height: 56px;
-    margin-bottom: 1rem;
+    margin: 2.25rem 0;
   }
 
   @media screen and (max-width: 767px) {
     .testimonial-quote__icon {
       width: 24px;
       height: 24px;
+      margin: 1rem 0;
     }
   }
 
