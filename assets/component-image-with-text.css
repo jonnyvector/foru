@@ -289,15 +289,6 @@
     height: 80px;
   }
 
-  .trust-badge__text {
-    font-size: 0.75rem;
-  }
-
-  .trust-badge__percentage {
-    font-size: 2rem;
-  }
-
-
   .trust-badge--mobile {
     display: none;
   }
