@@ -121,7 +121,7 @@
       {%- when 'trust_badge' -%}
         {% if block.settings.badge_text or block.settings.percentage_text or block.settings.subtitle_text %}
           <div data-block-id="{{ block.id }}" class="trust-badge {% if block.settings.disable_on_mobile %}trust-badge--mobile{% endif %}" 
-               style="margin-top: {{ block.settings.padding_top_desktop | default: 0 }}px; --trust-badge-margin-top-mobile: {{ block.settings.padding_top_mobile | default: 0 }}px;">
+               style="transform: translateY({{ block.settings.padding_top_desktop | default: 0 }}px); --trust-badge-transform-mobile: translateY({{ block.settings.padding_top_mobile | default: 0 }}px);">
             <div class="trust-badge__content">
               <div class="trust-badge__icon-container">
                 {% if block.settings.custom_icon %}
