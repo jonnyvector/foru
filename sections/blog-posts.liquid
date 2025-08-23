@@ -201,14 +201,11 @@
         and section.settings.post_limit < section.settings.blog.articles_count
       -%}
         <div class="wt-blog__view">
-          <a
-            href="{{ section.settings.blog.url }}"
-            class="hero__button hero__button--primary {% if section.settings.view_all_button_select == 'secondary' %} hero__button--secondary{% endif %}{% if section.settings.view_all_button_select == 'link' %} hero__button--link{% endif %}"
-          >
-            <span>
-              {{ 'sections.featured_blog.view_all' | t }}
-            </span>
-          </a>
+          {% render 'custom-view-all',
+            text: 'sections.featured_blog.view_all' | t,
+            url: section.settings.blog.url,
+            id: section.id
+          %}
         </div>
       {%- endif -%}
 </div>
