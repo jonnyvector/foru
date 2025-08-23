@@ -292,13 +292,26 @@
             "button_link": "/",
             "disable_on_mobile": false
           }
+        },
+        "trust_badge_JjCUfP": {
+          "type": "trust_badge",
+          "settings": {
+            "percentage_text": "100%",
+            "subtitle_text": "Ingredients Made Traceable",
+            "custom_icon": "shopify://shop_images/415900663_c80bd758-9595-44f8-8eb7-ad393f99b33d_1.svg",
+            "icon_type": "lab_flask",
+            "padding_top_desktop": 56,
+            "padding_top_mobile": 20,
+            "disable_on_mobile": false
+          }
         }
       },
       "block_order": [
         "subheading_FjRKag",
         "heading_R3tMLH",
         "text_r8TFeH",
-        "button_KcR4tg"
+        "button_KcR4tg",
+        "trust_badge_JjCUfP"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
@@ -479,31 +492,6 @@
         "margin-bottom": 20
       }
     },
-    "blog_posts_Pt33Px": {
-      "type": "blog-posts",
-      "name": "t:sections.blog-posts.presets.name",
-      "settings": {
-        "heading": "Blog posts",
-        "swipe_on_mobile": true,
-        "full-width-enabled": false,
-        "blog": "",
-        "post_limit": 3,
-        "show_date": true,
-        "show_author": false,
-        "show_view_all": true,
-        "view_all_button_select": "link",
-        "show_image": true,
-        "image_ratio": "adapt",
-        "column_alignment": "left",
-        "button_select": "primary",
-        "size_heading": 100,
-        "size_heading_mobile": 100,
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
-        "margin-top": 20,
-        "margin-bottom": 20
-      }
-    },
     "testimonials_custom_kHmmbJ": {
       "type": "testimonials-custom",
       "blocks": {
@@ -542,6 +530,31 @@
         "background_color": "rgba(0,0,0,0)",
         "quote_icon": "shopify://shop_images/Frame_1_41d73260-6314-4618-a31f-a5cb2b91c3e4.svg"
       }
+    },
+    "blog_posts_Pt33Px": {
+      "type": "blog-posts",
+      "name": "t:sections.blog-posts.presets.name",
+      "settings": {
+        "heading": "Blog posts",
+        "swipe_on_mobile": true,
+        "full-width-enabled": false,
+        "blog": "",
+        "post_limit": 3,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": true,
+        "view_all_button_select": "link",
+        "show_image": true,
+        "image_ratio": "adapt",
+        "column_alignment": "left",
+        "button_select": "primary",
+        "size_heading": 100,
+        "size_heading_mobile": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
     }
   },
   "order": [
@@ -552,7 +565,7 @@
     "image_with_text_ewadgb",
     "features_banner_custom_dBR6wK",
     "background_video_LxNkdh",
-    "blog_posts_Pt33Px",
-    "testimonials_custom_kHmmbJ"
+    "testimonials_custom_kHmmbJ",
+    "blog_posts_Pt33Px"
   ]
 }
