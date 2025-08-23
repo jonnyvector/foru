@@ -164,14 +164,14 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  border: 3px solid var(--color-custom-text, var(--color-foreground, black));
+  border: 3px solid var(--color-custom-text, var(--color-text));
   background-color: var(--color-background, white);
 }
 
 .trust-badge__icon svg {
   width: 40px;
   height: 40px;
-  color: var(--color-custom-text, var(--color-foreground, black));
+  color: var(--color-custom-text, var(--color-text));
 }
 
 .trust-badge__custom-icon {
@@ -179,7 +179,7 @@
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--color-custom-text, var(--color-foreground, black));
+  border: 3px solid var(--color-custom-text, var(--color-text));
 }
 
 .trust-badge__text {
@@ -188,7 +188,7 @@
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: var(--color-custom-text, var(--color-foreground, black));
+  color: var(--color-custom-text, var(--color-text));
   line-height: 1.2;
 }
 
@@ -204,14 +204,14 @@
 .trust-badge__percentage {
   font-size: 3rem;
   font-weight: 700;
-  color: var(--color-custom-text, var(--color-foreground, black));
+  color: var(--color-custom-text, var(--color-text));
   line-height: 1;
 }
 
 .trust-badge__subtitle {
   font-size: 1.125rem;
   font-weight: 400;
-  color: var(--color-custom-text, var(--color-foreground, black));
+  color: var(--color-custom-text, var(--color-text));
   line-height: 1.3;
 }
 
