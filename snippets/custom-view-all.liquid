@@ -67,7 +67,7 @@
   /* Text part */
   .custom-view-all-text-{{ unique_id }} {
     font-family: var(--font-body);
-    font-size: var(--font-base-size);
+    font-size: 24px;
     font-weight: var(--font-body-weight);
     color: var(--color-text);
     display: flex;
@@ -81,8 +81,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     background-color: var(--color-text);
     border-radius: 4px;
     transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -111,7 +111,7 @@
     backface-visibility: hidden;
     color: var(--color-text);
     font-family: var(--font-body);
-    font-size: var(--font-base-size);
+    font-size: 24px;
     font-weight: var(--font-body-weight);
   }
 
@@ -144,8 +144,8 @@
   /* Mobile responsive adjustments */
   @media screen and (max-width: 749px) {
     .custom-view-all-icon-{{ unique_id }} {
-      width: 28px;
-      height: 28px;
+      width: 23px;
+      height: 23px;
     }
 
     .custom-view-all-icon-{{ unique_id }} svg {
@@ -154,7 +154,11 @@
     }
 
     .custom-view-all-text-{{ unique_id }} {
-      font-size: calc(var(--font-base-size) * 0.9);
+      font-size: 14px;
+    }
+
+    .custom-view-all-text-{{ unique_id }} .slide-text {
+      font-size: 14px;
     }
   }
 </style>
