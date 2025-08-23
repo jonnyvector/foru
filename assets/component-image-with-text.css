@@ -223,7 +223,7 @@
 @media screen and (max-width: 749px) {
   .trust-badge {
     gap: 1rem;
-    padding-top: var(--trust-badge-padding-top-mobile, 0px) !important;
+    margin-top: var(--trust-badge-margin-top-mobile, 0px) !important;
   }
   
   .trust-badge__content {
