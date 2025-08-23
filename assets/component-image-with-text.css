@@ -152,7 +152,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 0.5rem;
-  min-width: 120px;
+  min-width: 100px;
   /* Icon container stays on the left */
   flex-shrink: 0;
   margin: 0;
@@ -163,8 +163,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   border: 3px solid var(--color-custom-text, var(--color-text));
   background-color: var(--color-background, white);
@@ -173,8 +173,8 @@
 }
 
 .trust-badge__icon svg {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   color: var(--color-custom-text, var(--color-text));
 }
 
@@ -182,25 +182,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
 }
 
 .trust-badge__icon-only svg {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   color: var(--color-custom-text, var(--color-text));
 }
 
 .trust-badge__icon-only img {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
 }
 
 .trust-badge__custom-icon {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--color-custom-text, var(--color-text));
@@ -257,37 +257,37 @@
   }
   
   .trust-badge__icon-container {
-    min-width: 100px;
+    min-width: 70px;
   }
   
   .trust-badge__icon {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
   }
   
   .trust-badge__icon svg {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
   }
   
   .trust-badge__icon-only {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
   }
   
   .trust-badge__icon-only svg {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
   }
   
   .trust-badge__icon-only img {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
   }
   
   .trust-badge__custom-icon {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
   }
   
   .trust-badge__text {
@@ -320,37 +320,37 @@
   }
   
   .trust-badge__icon-container {
-    min-width: 80px;
+    min-width: 70px;
   }
   
   .trust-badge__icon {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
   }
   
   .trust-badge__icon svg {
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
   }
   
   .trust-badge__icon-only {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
   }
   
   .trust-badge__icon-only svg {
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
   }
   
   .trust-badge__icon-only img {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
   }
   
   .trust-badge__custom-icon {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
   }
   
   .trust-badge__percentage {
