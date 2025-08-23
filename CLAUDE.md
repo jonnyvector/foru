@@ -100,3 +100,13 @@ shopify theme share
 - Default language: English (`en.default.json`)
 - Schema translations for theme editor in multiple languages
 - RTL support for Arabic and Hebrew
+
+## CSS and Styling Guidelines
+
+### Theme Variables
+- **ALWAYS** check for existing theme variables before hardcoding values
+- **Font sizes**: Use variables like `--font-base-size`, `--font-h1-size`, `--font-h2-size`, `--font-h3-size`, etc.
+- **Font families**: Use variables like `--font-headline`, `--font-body`, etc.
+- **Colors**: Use variables like `--color-custom-text`, `--color-text`, `--color-background`, etc.
+- When unsure which semantic level (h1/h2/h3/body) to use, ask for clarification
+- This ensures consistency with the theme's design system and maintainability
