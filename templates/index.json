@@ -538,7 +538,7 @@
         "heading": "Blog posts",
         "swipe_on_mobile": true,
         "full-width-enabled": false,
-        "blog": "",
+        "blog": "health",
         "post_limit": 3,
         "show_date": true,
         "show_author": false,
