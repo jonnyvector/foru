@@ -226,7 +226,6 @@
 }
 
 .trust-badge__percentage {
-  font-size: 3rem;
   font-family: var(--font-headline);
   font-weight: var(--font-headline-weight);
   font-style: var(--font-headline-style);
@@ -249,59 +248,59 @@
     gap: 1rem;
     transform: var(--trust-badge-transform-mobile, translateY(0px)) !important;
   }
-  
+
   .trust-badge__content {
     gap: 1rem;
     /* Maintain horizontal layout on mobile - icon left, text right */
     flex-direction: row;
   }
-  
+
   .trust-badge__icon-container {
     min-width: 70px;
   }
-  
+
   .trust-badge__icon {
     width: 70px;
     height: 70px;
   }
-  
+
   .trust-badge__icon svg {
     width: 35px;
     height: 35px;
   }
-  
+
   .trust-badge__icon-only {
     width: 70px;
     height: 70px;
   }
-  
+
   .trust-badge__icon-only svg {
     width: 35px;
     height: 35px;
   }
-  
+
   .trust-badge__icon-only img {
     width: 70px;
     height: 70px;
   }
-  
+
   .trust-badge__custom-icon {
     width: 70px;
     height: 70px;
   }
-  
+
   .trust-badge__text {
     font-size: 0.75rem;
   }
-  
+
   .trust-badge__percentage {
     font-size: 2rem;
   }
-  
+
   .trust-badge__subtitle {
     font-size: 1rem;
   }
-  
+
   .trust-badge--mobile {
     display: none;
   }
@@ -312,51 +311,51 @@
   .trust-badge {
     gap: 0.5rem;
   }
-  
+
   .trust-badge__content {
     gap: 0.5rem;
     /* NEVER stack vertically - always keep icon left, text right */
     flex-direction: row;
   }
-  
+
   .trust-badge__icon-container {
     min-width: 70px;
   }
-  
+
   .trust-badge__icon {
     width: 70px;
     height: 70px;
   }
-  
+
   .trust-badge__icon svg {
     width: 35px;
     height: 35px;
   }
-  
+
   .trust-badge__icon-only {
     width: 70px;
     height: 70px;
   }
-  
+
   .trust-badge__icon-only svg {
     width: 35px;
     height: 35px;
   }
-  
+
   .trust-badge__icon-only img {
     width: 70px;
     height: 70px;
   }
-  
+
   .trust-badge__custom-icon {
     width: 70px;
     height: 70px;
   }
-  
+
   .trust-badge__percentage {
     font-size: 1.5rem;
   }
-  
+
   .trust-badge__subtitle {
     font-size: 0.875rem;
   }
