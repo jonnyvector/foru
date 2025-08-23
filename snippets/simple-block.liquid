@@ -124,7 +124,7 @@
                style="margin-top: {{ block.settings.padding_top_desktop | default: 0 }}px; --trust-badge-margin-top-mobile: {{ block.settings.padding_top_mobile | default: 0 }}px;">
             <div class="trust-badge__content">
               <div class="trust-badge__icon-container">
-                {% if block.settings.icon_type == 'custom' and block.settings.custom_icon %}
+                {% if block.settings.custom_icon %}
                   {{ block.settings.custom_icon | image_url: width: 80 | image_tag: class: 'trust-badge__custom-icon', alt: block.settings.badge_text }}
                 {% elsif block.settings.icon_type == 'checkmark' %}
                   <div class="trust-badge__icon trust-badge__icon--checkmark">
@@ -132,6 +132,9 @@
                       <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                   </div>
+                  {% if block.settings.badge_text %}
+                    <div class="trust-badge__text">{{ block.settings.badge_text }}</div>
+                  {% endif %}
                 {% else %}
                   <div class="trust-badge__icon trust-badge__icon--lab-flask">
                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -141,9 +144,9 @@
                       <circle cx="14" cy="13" r="0.5" fill="currentColor"/>
                     </svg>
                   </div>
-                {% endif %}
-                {% if block.settings.badge_text %}
-                  <div class="trust-badge__text">{{ block.settings.badge_text }}</div>
+                  {% if block.settings.badge_text %}
+                    <div class="trust-badge__text">{{ block.settings.badge_text }}</div>
+                  {% endif %}
                 {% endif %}
               </div>
               <div class="trust-badge__info">

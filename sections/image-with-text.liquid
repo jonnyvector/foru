@@ -519,9 +519,14 @@
           "label": "Subtitle Text"
         },
         {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Custom Icon (leave empty to use built-in icons)"
+        },
+        {
           "type": "select",
           "id": "icon_type",
-          "label": "Icon Type",
+          "label": "Built-in Icon Type",
           "options": [
             {
               "value": "lab_flask",
@@ -530,18 +535,10 @@
             {
               "value": "checkmark", 
               "label": "Checkmark"
-            },
-            {
-              "value": "custom",
-              "label": "Custom Icon"
             }
           ],
-          "default": "lab_flask"
-        },
-        {
-          "type": "image_picker",
-          "id": "custom_icon",
-          "label": "Custom Icon (if selected above)"
+          "default": "lab_flask",
+          "info": "Only shown if no custom icon is uploaded above"
         },
         {
           "type": "range",
