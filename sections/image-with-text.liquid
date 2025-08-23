@@ -496,6 +496,62 @@
       ]
     },
     {
+      "type": "trust_badge",
+      "name": "Trust Badge",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "badge_text", 
+          "default": "LAB TESTED",
+          "label": "Badge Text"
+        },
+        {
+          "type": "text",
+          "id": "percentage_text",
+          "default": "100%", 
+          "label": "Percentage Text"
+        },
+        {
+          "type": "text",
+          "id": "subtitle_text",
+          "default": "Ingredients Made Traceable",
+          "label": "Subtitle Text"
+        },
+        {
+          "type": "select",
+          "id": "icon_type",
+          "label": "Icon Type",
+          "options": [
+            {
+              "value": "lab_flask",
+              "label": "Lab Flask"
+            },
+            {
+              "value": "checkmark", 
+              "label": "Checkmark"
+            },
+            {
+              "value": "custom",
+              "label": "Custom Icon"
+            }
+          ],
+          "default": "lab_flask"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Custom Icon (if selected above)"
+        },
+        {
+          "type": "checkbox",
+          "id": "disable_on_mobile",
+          "label": "t:sections.global.disable_on_mobile",
+          "default": false
+        }
+      ]
+    },
+    {
       "type": "countdown_timer",
       "name": "t:blocks.countdown_timer.name",
       "settings": [
