@@ -203,7 +203,11 @@
 
 .trust-badge__percentage {
   font-size: 3rem;
-  font-weight: 700;
+  font-family: var(--font-headline);
+  font-weight: var(--font-headline-weight);
+  font-style: var(--font-headline-style);
+  letter-spacing: var(--font-headline-letter-spacing, normal);
+  text-transform: var(--font-headline-transform, initial);
   color: var(--color-custom-text, var(--color-text));
   line-height: 1;
 }
