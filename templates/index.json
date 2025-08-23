@@ -300,7 +300,7 @@
             "subtitle_text": "Ingredients Made Traceable",
             "custom_icon": "shopify://shop_images/415900663_c80bd758-9595-44f8-8eb7-ad393f99b33d_1.svg",
             "icon_type": "lab_flask",
-            "padding_top_desktop": 56,
+            "padding_top_desktop": 100,
             "padding_top_mobile": 20,
             "disable_on_mobile": false
           }
