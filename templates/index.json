@@ -484,7 +484,7 @@
       "name": "t:sections.blog-posts.presets.name",
       "settings": {
         "heading": "Blog posts",
-        "swipe_on_mobile": false,
+        "swipe_on_mobile": true,
         "full-width-enabled": false,
         "blog": "",
         "post_limit": 3,
