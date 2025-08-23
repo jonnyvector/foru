@@ -504,46 +504,6 @@
         "margin-bottom": 20
       }
     },
-    "testimonials_UyRmE3": {
-      "type": "testimonials",
-      "blocks": {
-        "image_iGNwEi": {
-          "type": "image",
-          "settings": {
-            "icon_select": "100",
-            "text": "<p>Add customer reviews and testimonials to showcase your store's happy customers. </p>",
-            "large_screen_logo_width": 100,
-            "mobile_screen_logo_width": 100,
-            "author": "Author name"
-          }
-        },
-        "image_Fwyrb8": {
-          "type": "image",
-          "settings": {
-            "icon_select": "100",
-            "text": "<p>Add customer reviews and testimonials to showcase your store's happy customers. </p>",
-            "large_screen_logo_width": 100,
-            "mobile_screen_logo_width": 100,
-            "author": "Author name"
-          }
-        }
-      },
-      "block_order": [
-        "image_iGNwEi",
-        "image_Fwyrb8"
-      ],
-      "name": "t:sections.testimonials.settings.presets.name",
-      "settings": {
-        "heading": "Testimonials",
-        "image_shape": "square",
-        "testimonial_text_size_desktop": 100,
-        "testimonial_text_size": 100,
-        "text_color": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
-        "margin-top": 20,
-        "margin-bottom": 20
-      }
-    },
     "testimonials_custom_kHmmbJ": {
       "type": "testimonials-custom",
       "blocks": {
@@ -593,7 +553,6 @@
     "features_banner_custom_dBR6wK",
     "background_video_LxNkdh",
     "blog_posts_Pt33Px",
-    "testimonials_UyRmE3",
     "testimonials_custom_kHmmbJ"
   ]
 }
