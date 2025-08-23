@@ -118,16 +118,16 @@
             </label>
               {% comment %}<a href="#" class="test-1">{% endcomment %}
               {% comment %} <button aria-label="{{ 'aria-label.contact-form' | t }}" class="hero__button--primary {% if block.settings.button_select != 'primary' %} hero__button--secondary {% endif %}{% if block.settings.button_select == 'link' %} hero__button--link {% endif %} block__button block{% if block.settings.disable_on_mobile %}__button--mobile{% endif %}">
-                                                                                <span>
-                                                                                  {{ block.settings.button_label }}</span>
-                                                                                <span class="wt-newsletter__send__text">{{ 'aria-label.contact-form' | t }}</span>
-                                                                      </button> {% endcomment %}
+                                                                                                <span>
+                                                                                                  {{ block.settings.button_label }}</span>
+                                                                                                <span class="wt-newsletter__send__text">{{ 'aria-label.contact-form' | t }}</span>
+                                                                                    </button> {% endcomment %}
               {% comment %}</a>{% endcomment %}
               {% render 'custom-button'
                 , text: {{ block.settings.button_label }}
-                , type: 'submit'
-                , style: block.settings.button_select
-                , id: block.id %}
+                                , type: 'submit'
+                                , style: block.settings.button_select
+                                , id: block.id %}
 
             {% endform %}
           </div>
@@ -242,7 +242,7 @@
         "limit": 1,
         "settings": [
           {
-            "type": "textarea",
+            "type": "text",
             "id": "button_label",
             "default": "Send form",
             "label": "t:sections.settings.settings.button_label.default.label"
