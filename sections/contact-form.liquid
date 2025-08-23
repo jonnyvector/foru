@@ -115,14 +115,20 @@
                   rows="6"
                   value="{% if form[comment] %}{{ form[comment] }}{% elsif customer %}{{ customer.comment }}{% endif %}">{{- form.body -}}</textarea>
                 <span class="form__field__label">{{- 'templates.contact.form.comment' | t -}}</span>
-              </label>
+            </label>
               {% comment %}<a href="#" class="test-1">{% endcomment %}
-              <button aria-label="{{ 'aria-label.contact-form' | t }}" class="hero__button--primary {% if block.settings.button_select != 'primary' %} hero__button--secondary {% endif %}{% if block.settings.button_select == 'link' %} hero__button--link {% endif %} block__button block{% if block.settings.disable_on_mobile %}__button--mobile{% endif %}">
-                <span>
-                  {{ block.settings.button_label }}</span>
-                <span class="wt-newsletter__send__text">{{ 'aria-label.contact-form' | t }}</span>
-              </button>
+              {% comment %} <button aria-label="{{ 'aria-label.contact-form' | t }}" class="hero__button--primary {% if block.settings.button_select != 'primary' %} hero__button--secondary {% endif %}{% if block.settings.button_select == 'link' %} hero__button--link {% endif %} block__button block{% if block.settings.disable_on_mobile %}__button--mobile{% endif %}">
+                                                                                <span>
+                                                                                  {{ block.settings.button_label }}</span>
+                                                                                <span class="wt-newsletter__send__text">{{ 'aria-label.contact-form' | t }}</span>
+                                                                      </button> {% endcomment %}
               {% comment %}</a>{% endcomment %}
+              {% render 'custom-button'
+                , text: {{ block.settings.button_label }}
+                , type: 'submit'
+                , style: block.settings.button_select
+                , id: block.id %}
+
             {% endform %}
           </div>
         </div>
@@ -236,6 +242,11 @@
         "limit": 1,
         "settings": [
           {
+            "type": "textarea",
+            "id": "button_label",
+            "default": "Send form",
+            "label": "t:sections.settings.settings.button_label.default.label"
+          }, {
             "type": "select",
             "id": "button_select",
             "options": [

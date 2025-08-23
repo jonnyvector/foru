@@ -79,16 +79,16 @@
         <div class="hero__button--gap">
           {% if block.settings.button_link and block.settings.button_label != blank %}
             {% comment %} <a
-                                                                                                                href="{{ block.settings.button_link }}"
-                                                                                                                {% if block.settings.button_link_in_new_window %}
-                                                                                                                target="_blank"
-                                                                                                                rel="noreferrer noopener"
-                                                                                                                tabindex="0"
-                                                                                                                {% endif %}
-                                                                                                                aria-label="{{ block.settings.button_label }}"
-                                                                                                                class="hero__button--primary {% if block.settings.button_select != 'primary' %} hero__button--secondary {% endif %}{% if block.settings.button_select == 'link' %} hero__button--link {% endif %}{% if prefix %}{{ prefix }}{% else %}block{% endif %}__button {% if prefix %}{{ prefix }}{% else %}block{% endif %}{% if block.settings.disable_on_mobile %}__button--mobile{% endif %}">
-                                                                                                                <span>{{ block.settings.button_label }}</span>
-                                                                                                </a> {% endcomment %}
+                                                                                                                                                                        href="{{ block.settings.button_link }}"
+                                                                                                                                                                        {% if block.settings.button_link_in_new_window %}
+                                                                                                                                                                        target="_blank"
+                                                                                                                                                                        rel="noreferrer noopener"
+                                                                                                                                                                        tabindex="0"
+                                                                                                                                                                        {% endif %}
+                                                                                                                                                                        aria-label="{{ block.settings.button_label }}"
+                                                                                                                                                                        class="hero__button--primary {% if block.settings.button_select != 'primary' %} hero__button--secondary {% endif %}{% if block.settings.button_select == 'link' %} hero__button--link {% endif %}{% if prefix %}{{ prefix }}{% else %}block{% endif %}__button {% if prefix %}{{ prefix }}{% else %}block{% endif %}{% if block.settings.disable_on_mobile %}__button--mobile{% endif %}">
+                                                                                                                                                                        <span>{{ block.settings.button_label }}</span>
+                                                                                                                                                </a> {% endcomment %}
             {% render 'custom-button'
               , text: block.settings.button_label
               , type: 'link'
@@ -98,18 +98,24 @@
           {% endif %}
 
           {% if block.settings.second_button_link %}
-            <a
-              href="{{ block.settings.second_button_link }}"
-              {% if button_link_in_new_window %}
-              target="_blank"
-              rel="noreferrer noopener"
-              {% endif %}>
-              <button aria-label="{{ block.settings.second_button_label }}" class="hero__button--primary {% if block.settings.second_button_select != 'primary' %} hero__button--secondary {% endif %}{% if block.settings.second_button_select == 'link' %} hero__button--link {% endif %}{% if prefix %}{{ prefix }}{% else %}block{% endif %}__button {% if prefix %}{{ prefix }}{% else %}block{% endif %}{% if block.settings.second_disable_on_mobile %}__button--mobile{% endif %}">
-                <span>
-                  {{ block.settings.second_button_label }}
-                </span>
-              </button>
-            </a>
+            {% comment %} <a
+                                                                      href="{{ block.settings.second_button_link }}"
+                                                                      {% if button_link_in_new_window %}
+                                                                      target="_blank"
+                                                                      rel="noreferrer noopener"
+                                                                      {% endif %}>
+                                                                      <button aria-label="{{ block.settings.second_button_label }}" class="hero__button--primary {% if block.settings.second_button_select != 'primary' %} hero__button--secondary {% endif %}{% if block.settings.second_button_select == 'link' %} hero__button--link {% endif %}{% if prefix %}{{ prefix }}{% else %}block{% endif %}__button {% if prefix %}{{ prefix }}{% else %}block{% endif %}{% if block.settings.second_disable_on_mobile %}__button--mobile{% endif %}">
+                                                                        <span>
+                                                                          {{ block.settings.second_button_label }}
+                                                                        </span>
+                                                                      </button>
+                                                            </a> {% endcomment %}
+            {% render 'custom-button'
+              , text: block.settings.second_button_label
+              , type: 'submit'
+              , url: block.settings.second_button_link
+              , style: block.settings.second_button_select
+              , id: block.id %}
           {% endif %}
         </div>
       {%- when 'countdown_timer' %}
