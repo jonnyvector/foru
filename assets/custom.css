@@ -15,3 +15,9 @@
   font-style: normal;
   font-display: swap;
 }
+
+.contact-form__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
