@@ -141,7 +141,7 @@
 .trust-badge__content {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.25rem;
   width: 100%;
   /* Icon left, text right */
   flex-direction: row;
@@ -150,11 +150,13 @@
 .trust-badge__icon-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.5rem;
   min-width: 120px;
   /* Icon container stays on the left */
   flex-shrink: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .trust-badge__icon {
@@ -166,6 +168,8 @@
   border-radius: 50%;
   border: 3px solid var(--color-custom-text, var(--color-text));
   background-color: var(--color-background, white);
+  margin: 0;
+  padding: 0;
 }
 
 .trust-badge__icon svg {
@@ -215,7 +219,7 @@
 .trust-badge__info {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1.25rem;
   /* Text info stays on the right, takes available space */
   flex: 1;
   text-align: left;
