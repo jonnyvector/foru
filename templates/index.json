@@ -545,6 +545,7 @@
         "show_view_all": true,
         "view_all_button_select": "link",
         "show_image": true,
+        "hide_read_more": true,
         "image_ratio": "adapt",
         "column_alignment": "left",
         "button_select": "primary",
