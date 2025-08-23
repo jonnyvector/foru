@@ -63,6 +63,7 @@
     </a>
   {% else %}
     <button
+      style="padding:0"
       type="{{ button_type }}"
       class="custom-button-text-{{ unique_id }}"
       aria-label="{{ aria_label | default: button_text }}">
@@ -73,6 +74,7 @@
     </button>
 
     <button
+      style="padding:0"
       type="{{ button_type }}"
       class="custom-button-arrow-{{ unique_id }}"
       aria-label="{{ aria_label | default: button_text }}">
@@ -181,8 +183,8 @@
   }
 
   /* Second copy starts below */
-  .custom-button-text-{{ unique_id }} .slide-text:last-child,
-  .custom-button-arrow-{{ unique_id }} .slide-arrow:last-child {
+  .custom-button-text-{{ unique_id }}.slide-text:last-child,
+  .custom-button-arrow-{{ unique_id }}.slide-arrow:last-child {
     transform: translateY(100%);
   }
 
