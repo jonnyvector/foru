@@ -43,6 +43,13 @@
     --font-headline-scale-desk: {{ section.settings.size_heading | divided_by: 100.0 }};
     --font-headline-scale: {{ section.settings.size_heading_mobile | divided_by: 100.0 }};
   }
+
+  /* Hide scrollbar on desktop since slider is only enabled on mobile */
+  @media (min-width: 900px) {
+    [data-section-id="{{ section.id }}"] .wt-slider__scrollbar {
+      display: none;
+    }
+  }
 </style>
 
 {% if section.settings.blog.articles.size > 0 or section.settings.blog == blank %}
