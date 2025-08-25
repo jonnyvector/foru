@@ -184,6 +184,14 @@ if (!customElements.get("slideshow-section")) {
 
               this.centerNavigation();
               this.handleTabindex(swiper);
+              
+              // Fix scrollbar sizing after CSS transitions complete
+              if (swiper.scrollbar) {
+                setTimeout(() => {
+                  swiper.update();
+                  swiper.scrollbar.updateSize();
+                }, 150);
+              }
             },
             slideChangeTransitionEnd: (swiper) => {
               this.handleTabindex(swiper);
