@@ -41,6 +41,13 @@
     {% endif %}
   }
 
+  [data-section-id="{{ section.id }}"] .headline__title
+  {
+    --font-headline-scale: {{ section.settings.headline_font_size_mobile | divided_by: 100.0 }};
+    --font-headline-scale-desk: {{ section.settings.headline_font_size_desktop | divided_by: 100.0 }};
+    text-transform: {{ section.settings.headline_text_case }};
+  }
+
   [data-section-id="{{ section.id }}"] .wt-keys__title
   {
     --font-headline-scale-desk: {{ section.settings.size_heading | divided_by: 100.0 }};
@@ -255,6 +262,42 @@
       "default": 80,
       "label": "t:sections.settings.settings.size-heading.label",
       "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "headline_font_size_mobile",
+      "min": 40,
+      "max": 220,
+      "step": 10,
+      "default": 100,
+      "label": "Headline font size (mobile)",
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "headline_font_size_desktop",
+      "min": 40,
+      "max": 220,
+      "step": 10,
+      "default": 100,
+      "label": "Headline font size (desktop)",
+      "unit": "%"
+    },
+    {
+      "type": "select",
+      "id": "headline_text_case",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        }
+      ],
+      "default": "normal",
+      "label": "Headline text case"
     },
     {
       "type": "range",
