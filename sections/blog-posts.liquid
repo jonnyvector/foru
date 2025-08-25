@@ -44,6 +44,11 @@
     --font-headline-scale: {{ section.settings.size_heading_mobile | divided_by: 100.0 }};
   }
 
+  /* Ensure scrollbar is visible when swiper is active */
+  [data-section-id="{{ section.id }}"] .swiper .wt-slider__scrollbar {
+    display: block !important;
+  }
+
 
 </style>
 
