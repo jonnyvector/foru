@@ -314,6 +314,8 @@
         "view_all_link": "shopify://pages/contact",
         "title_size_mobile": 100,
         "title_size_desktop": 100,
+        "ingredient_name_size_mobile": 100,
+        "ingredient_name_size_desktop": 150,
         "text_color": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
         "margin_top": 40,
