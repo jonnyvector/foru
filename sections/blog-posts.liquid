@@ -44,21 +44,6 @@
     --font-headline-scale: {{ section.settings.size_heading_mobile | divided_by: 100.0 }};
   }
 
-  /* Hide scrollbar on desktop since slider is only enabled on mobile */
-  @media (min-width: 900px) {
-    [data-section-id="{{ section.id }}"] .wt-slider__scrollbar {
-      display: none;
-    }
-  }
-
-  /* Ensure scrollbar drag element is visible on mobile */
-  @media (max-width: 899px) {
-    [data-section-id="{{ section.id }}"] .wt-slider__scrollbar .swiper-scrollbar-drag {
-      background: rgba(0, 0, 0, 0.5) !important;
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-  }
 </style>
 
 {% if section.settings.blog.articles.size > 0 or section.settings.blog == blank %}
