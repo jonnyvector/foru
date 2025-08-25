@@ -1,0 +1,459 @@
+{% assign background_rgb = section.settings.background_color | color_to_rgb %}
+{% assign text_rgb = section.settings.text_color | color_to_rgb %}
+
+{% comment %} Get ingredients from product metafield {% endcomment %}
+{% assign ingredients_metafield = product.metafields.custom.ingredients %}
+{% assign ingredients = ingredients_metafield.value %}
+
+{{ 'swiper.css' | asset_url | stylesheet_tag }}
+
+<style>
+  [data-section-id="{{ section.id }}"] {
+    {% if background_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --color-background: {{ section.settings.background_color }};
+    {% endif %}
+    {% if text_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --color-custom-text: {{ section.settings.text_color }};
+    {% endif %}
+    
+    {% if section.settings.margin_top %}
+      --section-gap-top: {{ section.settings.margin_top }}px;
+    {% endif %}
+    
+    {% if section.settings.margin_bottom %}
+      --section-gap-bottom: {{ section.settings.margin_bottom }}px;
+    {% endif %}
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product {
+    padding: var(--section-gap-top, 40px) 0 var(--section-gap-bottom, 40px);
+    background-color: var(--color-background, transparent);
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product__header {
+    margin-bottom: 40px;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product__subtitle {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-custom-text, #666);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product__title {
+    font-size: calc(var(--font-h1-size, 2.5rem) * {{ section.settings.title_size_desktop | divided_by: 100.0 }});
+    font-family: var(--font-headline, inherit);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-custom-text, #000);
+    margin-bottom: 16px;
+    text-transform: var(--font-headline-transform, none);
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product__description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-custom-text, #666);
+    margin-bottom: 20px;
+    max-width: 600px;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product__view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-custom-text, #000);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product__view-all:hover {
+    opacity: 0.7;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product__view-all-icon {
+    width: 18px;
+    height: 18px;
+    background: var(--color-custom-text, #000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: white;
+    font-weight: 300;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product__card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product__card:hover {
+    transform: translateY(-4px);
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product__card-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product__card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product__card-content {
+    padding: 20px;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product__card-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product__card-description {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product__dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 30px;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product__dot.active {
+    background: var(--color-custom-text, #000);
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product__empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+    font-style: italic;
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 767px) {
+    [data-section-id="{{ section.id }}"] .ingredients-product__title {
+      font-size: calc(var(--font-h1-size, 2rem) * {{ section.settings.title_size_mobile | divided_by: 100.0 }});
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredients-product__grid {
+      display: none;
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredients-product__mobile-slider {
+      display: block;
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredients-product__card {
+      min-width: 280px;
+      margin-right: 16px;
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredients-product__card-image {
+      height: 250px;
+    }
+  }
+
+  /* Desktop - hide mobile slider */
+  [data-section-id="{{ section.id }}"] .ingredients-product__mobile-slider {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    [data-section-id="{{ section.id }}"] .ingredients-product__mobile-slider {
+      display: none;
+    }
+  }
+
+  /* Responsive grid adjustments */
+  @media (max-width: 1024px) {
+    [data-section-id="{{ section.id }}"] .ingredients-product__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    [data-section-id="{{ section.id }}"] .ingredients-product__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+  }
+</style>
+
+<section data-section-id="{{ section.id }}" class="ingredients-product">
+  <div class="ingredients-product__container">
+    <div class="ingredients-product__header">
+      {% if section.settings.subtitle != blank %}
+        <div class="ingredients-product__subtitle">{{ section.settings.subtitle }}</div>
+      {% endif %}
+      
+      {% if section.settings.title != blank %}
+        <h2 class="ingredients-product__title">{{ section.settings.title }}</h2>
+      {% endif %}
+      
+      {% if section.settings.description != blank %}
+        <div class="ingredients-product__description">{{ section.settings.description }}</div>
+      {% endif %}
+      
+      {% if section.settings.view_all_text != blank and section.settings.view_all_link != blank %}
+        <a href="{{ section.settings.view_all_link }}" class="ingredients-product__view-all">
+          {{ section.settings.view_all_text }}
+          <span class="ingredients-product__view-all-icon">+</span>
+        </a>
+      {% endif %}
+    </div>
+
+    {% if ingredients and ingredients.size > 0 %}
+      <!-- Desktop Grid -->
+      <div class="ingredients-product__grid">
+        {% for ingredient in ingredients %}
+          <div class="ingredients-product__card">
+            {% if ingredient.image %}
+              <div class="ingredients-product__card-image">
+                {{
+                  ingredient.image
+                  | image_url: width: 400
+                  | image_tag:
+                    loading: 'lazy',
+                    sizes: '(min-width: 768px) 300px, 280px',
+                    widths: '280, 400, 600',
+                    alt: ingredient.name
+                }}
+              </div>
+            {% endif %}
+            
+            <div class="ingredients-product__card-content">
+              {% if ingredient.name %}
+                <h3 class="ingredients-product__card-name">{{ ingredient.name }}</h3>
+              {% endif %}
+              
+              {% if ingredient.short_description %}
+                <div class="ingredients-product__card-description">{{ ingredient.short_description }}</div>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Mobile Slider -->
+      <div class="ingredients-product__mobile-slider">
+        <slideshow-section data-section-id="{{ section.id }}" class="wt-slider wt-slider--hero">
+          <script data-swiper-configuration type="text/json">
+            {
+              "enableOnMedia": "(max-width: 767px)",
+              "spaceBetween": 16,
+              "slidesPerView": "auto",
+              "centeredSlides": false,
+              "loop": false,
+              "pagination": {
+                "el": ".ingredients-product__dots",
+                "clickable": true,
+                "renderBullet": "function (index, className) { return '<span class=\"ingredients-product__dot ' + className + '\"></span>'; }"
+              }
+            }
+          </script>
+          
+          <div data-swiper class="wt-slider__container">
+            <div data-swiper-container class="ingredients-product__slider-container">
+              {% for ingredient in ingredients %}
+                <div data-swiper-slide class="ingredients-product__card">
+                  {% if ingredient.image %}
+                    <div class="ingredients-product__card-image">
+                      {{
+                        ingredient.image
+                        | image_url: width: 400
+                        | image_tag:
+                          loading: 'lazy',
+                          sizes: '280px',
+                          widths: '280, 400',
+                          alt: ingredient.name
+                      }}
+                    </div>
+                  {% endif %}
+                  
+                  <div class="ingredients-product__card-content">
+                    {% if ingredient.name %}
+                      <h3 class="ingredients-product__card-name">{{ ingredient.name }}</h3>
+                    {% endif %}
+                    
+                    {% if ingredient.short_description %}
+                      <div class="ingredients-product__card-description">{{ ingredient.short_description }}</div>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </slideshow-section>
+        
+        <div class="ingredients-product__dots"></div>
+      </div>
+    {% else %}
+      <div class="ingredients-product__empty">
+        <p>No ingredients found. Please add ingredients to this product's metafields.</p>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Ingredients",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Ingredients"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "RESEARCH-BACKED FORMULA"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Each component is precisely selected and dosed based on clinical research. Clean formulas designed to work together, not just work alone."
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View All Text",
+      "default": "View all"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "View All Link"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "min": 60,
+      "max": 200,
+      "step": 10,
+      "default": 100,
+      "label": "Title size (mobile)",
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "title_size_desktop",
+      "min": 60,
+      "max": 200,
+      "step": 10,
+      "default": 100,
+      "label": "Title size (desktop)",
+      "unit": "%"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "transparent"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "transparent"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 40,
+      "unit": "px",
+      "label": "Top margin"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 40,
+      "unit": "px",
+      "label": "Bottom margin"
+    },
+    {
+      "type": "header",
+      "content": "Instructions"
+    },
+    {
+      "type": "paragraph",
+      "content": "This section automatically pulls ingredient data from the product's 'ingredients' metafield. Each ingredient should be a metaobject with 'name', 'short_description', and 'image' fields."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Ingredients"
+    }
+  ],
+  "enabled_on": {
+    "templates": ["product"]
+  }
+}
+{% endschema %}
