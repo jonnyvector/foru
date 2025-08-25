@@ -50,25 +50,6 @@
       display: none;
     }
   }
-
-  /* Ensure scrollbar is visible and functional on mobile devices */
-  @media (max-width: 899px) {
-    [data-section-id="{{ section.id }}"] .wt-slider__scrollbar {
-      display: block !important;
-      height: 6px !important;
-      opacity: 1 !important;
-      background: rgba(0, 0, 0, 0.1) !important;
-    }
-    
-    [data-section-id="{{ section.id }}"] .wt-slider__scrollbar .swiper-scrollbar-drag {
-      opacity: 1 !important;
-      visibility: visible !important;
-      display: block !important;
-      background: rgba(0, 0, 0, 0.5) !important;
-      height: 100% !important;
-      width: auto !important;
-    }
-  }
 </style>
 
 {% if section.settings.blog.articles.size > 0 or section.settings.blog == blank %}
@@ -199,8 +180,7 @@
             },
             "scrollbar": {
               "el": ".wt-slider__scrollbar--featured",
-              "draggable": true,
-              "hide": false
+              "draggable": true
             },
             "pagination": false
           }
