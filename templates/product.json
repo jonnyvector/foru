@@ -107,6 +107,7 @@
         },
         "promo_wBVFy3": {
           "type": "promo",
+          "disabled": true,
           "settings": {
             "content": "<p>+10000 Happy Customers  - Free shipping on US</p>",
             "text_alignment": "center",
@@ -120,6 +121,15 @@
           "settings": {
             "is_open": false,
             "icon": "none"
+          }
+        },
+        "separator_b4z8Dx": {
+          "type": "separator",
+          "settings": {
+            "show-separator-line": true,
+            "color-background": "#d0d0d0",
+            "margin-top": 16,
+            "margin-bottom": 0
           }
         },
         "collapsible_tab_Q7UFgL": {
@@ -136,7 +146,7 @@
           "type": "separator",
           "settings": {
             "show-separator-line": true,
-            "color-background": "#ffffff",
+            "color-background": "#d0d0d0",
             "margin-top": 0,
             "margin-bottom": 0
           }
@@ -155,7 +165,7 @@
           "type": "separator",
           "settings": {
             "show-separator-line": true,
-            "color-background": "#ffffff",
+            "color-background": "#d0d0d0",
             "margin-top": 0,
             "margin-bottom": 0
           }
@@ -168,6 +178,15 @@
             "metafield_variables": "",
             "page": "",
             "icon": "none"
+          }
+        },
+        "separator_LgmQMx": {
+          "type": "separator",
+          "settings": {
+            "show-separator-line": true,
+            "color-background": "#d0d0d0",
+            "margin-top": 0,
+            "margin-bottom": 0
           }
         }
       },
@@ -183,11 +202,13 @@
         "buy_buttons",
         "promo_wBVFy3",
         "description",
+        "separator_b4z8Dx",
         "collapsible_tab_Q7UFgL",
         "separator_gDwzxi",
         "collapsible_tab_3rErRt",
         "separator_pEEMHg",
-        "collapsible_tab_cAT6Ne"
+        "collapsible_tab_cAT6Ne",
+        "separator_LgmQMx"
       ],
       "settings": {
         "enable_sticky_buy_button": true,
