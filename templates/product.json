@@ -95,6 +95,20 @@
             "size_text_mobile": 140
           }
         },
+        "variant_picker_fHUhmX": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_swatch_names": "",
+            "variant_picture_swatch_names": "",
+            "thumb_size": 60,
+            "radius": "default",
+            "border_radius": 0,
+            "dropdown_swatch_names": "",
+            "margin-top": 8,
+            "margin-bottom": 8
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -199,6 +213,7 @@
         "product_variations_7LBAAU",
         "separator_xgqTJM",
         "price",
+        "variant_picker_fHUhmX",
         "buy_buttons",
         "promo_wBVFy3",
         "description",
