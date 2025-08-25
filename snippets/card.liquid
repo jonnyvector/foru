@@ -367,7 +367,7 @@
                     {{ rep_variant.image | image_url: width: 1000 }} 1000w
                   {% endif %}
                 "
-                data-href="{{ rep_variant.url }}"
+                data-href="{% if variant_context %}{{ product.url }}?variant={{ rep_variant.id }}{% else %}{{ rep_variant.url }}{% endif %}"
                 data-hover="{% if new_hover_image %}{{ new_hover_image | image_url: width: 1000 }}{% endif %}"
                 style="
                   {% if is_variant_picture %}
