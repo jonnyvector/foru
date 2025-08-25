@@ -44,7 +44,11 @@
     --font-headline-scale: {{ section.settings.size_heading_mobile | divided_by: 100.0 }};
   }
 
-
+  @media (min-width: 900px) {
+    [data-section-id="{{ section.id }}"] .wt-slider__scrollbar--featured {
+      display: none;
+    }
+  }
 
 </style>
 
