@@ -14,7 +14,7 @@
       "settings": {
         "full-width-enabled": true,
         "text_color": "#ffffff",
-        "background_color": "#f29f00",
+        "background_color": "#f7f7f7",
         "margin-top": 12,
         "margin-bottom": 12
       }
@@ -74,7 +74,7 @@
             "radius": "default",
             "border_radius": 0,
             "option_value_metafield": "custom.color",
-
+            "products": []
           }
         },
         "separator_xgqTJM": {
@@ -199,8 +199,8 @@
         "enable-preselected-variant": true,
         "enable-image-zoom": true,
         "mobile-image": "small",
-        "text_color": "#ffffff",
-        "background_color": "#f29f00",
+        "text_color": "#1a1c1c",
+        "background_color": "#f7f7f7",
         "margin-top": 0,
         "margin-bottom": 8
       }
@@ -223,42 +223,48 @@
           "type": "benefit",
           "settings": {
             "item_heading": "<p>Vitamin C</p>",
-            "text": "<p>A powerful antioxidant that boosts the immune system, enhances iron absorption, and promotes collagen production for healthy skin.</p>"
+            "text": "<p>A powerful antioxidant that boosts the immune system, enhances iron absorption, and promotes collagen production for healthy skin.</p>",
+            "alignment": "left"
           }
         },
         "benefit_VC9nyU": {
           "type": "benefit",
           "settings": {
             "item_heading": "<p>Vitamin E</p>",
-            "text": "<p>Is a powerful antioxidant that helps protect cells from damage caused by free radicals. It supports healthy skin by promoting hydration and reducing signs of aging.</p>"
+            "text": "<p>Is a powerful antioxidant that helps protect cells from damage caused by free radicals. It supports healthy skin by promoting hydration and reducing signs of aging.</p>",
+            "alignment": "left"
           }
         },
         "benefit_dAVxLA": {
           "type": "benefit",
           "settings": {
             "item_heading": "<p>Hydrolysed Collagen</p>",
-            "text": "<p>Supports skin elasticity and hydration, reducing the appearance of fine lines and wrinkles for a youthful glow.</p>"
+            "text": "<p>Supports skin elasticity and hydration, reducing the appearance of fine lines and wrinkles for a youthful glow.</p>",
+            "alignment": "left"
           }
         },
         "benefit_MgFn7x": {
           "type": "benefit",
           "settings": {
             "item_heading": "<p>Iron</p>",
-            "text": "<p>Vital for energy production and oxygen transport in the body, it prevents fatigue and supports overall vitality.</p>"
+            "text": "<p>Vital for energy production and oxygen transport in the body, it prevents fatigue and supports overall vitality.</p>",
+            "alignment": "left"
           }
         },
         "benefit_xByee6": {
           "type": "benefit",
           "settings": {
             "item_heading": "<p>Zinc</p>",
-            "text": "<p>Supports a strong immune system, promotes wound healing, and helps maintain healthy skin.</p>"
+            "text": "<p>Supports a strong immune system, promotes wound healing, and helps maintain healthy skin.</p>",
+            "alignment": "left"
           }
         },
         "benefit_Vd94d7": {
           "type": "benefit",
           "settings": {
             "item_heading": "<p>Vitamin A</p>",
-            "text": "<p>Essential for good vision, healthy skin, and a robust immune system, it also supports cell growth and reproduction.</p>"
+            "text": "<p>Essential for good vision, healthy skin, and a robust immune system, it also supports cell growth and reproduction.</p>",
+            "alignment": "left"
           }
         }
       },
@@ -271,15 +277,16 @@
         "benefit_Vd94d7"
       ],
       "settings": {
+        "subheading": "",
         "heading": "Key Ingredients",
         "full-width-enabled": false,
-
         "desktop_width": 86,
         "desktop_max_width": 840,
         "button_label": "",
         "button_link": "",
         "quick_buy_product": "",
         "button_select": "primary",
+        "icon_width": 60,
         "size_heading": 140,
         "size_heading_mobile": 120,
         "color-body-heading": "rgba(0,0,0,0)",
@@ -318,7 +325,7 @@
             "button_select": "secondary",
             "button_label": "our mission",
             "disable_on_mobile": false,
-
+            "button_link": "/",
             "second_button_select": "primary",
             "second_button_label": "Button label",
             "second_disable_on_mobile": false,
@@ -337,10 +344,8 @@
         "slide_height": "adapt_to_first_image",
         "desktop_fixed_height": 320,
         "mobile_fixed_height": 460,
-
         "desktop_text_vertical_position": "center",
         "desktop_text_horizontal_position": "center",
-
         "mobile_text_vertical_position": "center",
         "mobile_text_horizontal_position": "center",
         "color-heading": "rgba(0,0,0,0)",
@@ -403,7 +408,6 @@
         "video_xweXNL": {
           "type": "video",
           "settings": {
-
             "rating": "5",
             "testimonial": "<p>\"I was skeptical at first, but after just a few weeks, I noticed a huge difference in my energy and mood!\"</p>",
             "author": "Sarah J."
@@ -412,7 +416,6 @@
         "video_CgLccj": {
           "type": "video",
           "settings": {
-
             "rating": "5",
             "testimonial": "<p>\"Finally, a product that delivers on its promises. My skin glows, and I feel amazing inside and out!\"</p>",
             "author": "Anna P."
@@ -421,7 +424,6 @@
         "video_XqGWqn": {
           "type": "video",
           "settings": {
-
             "rating": "4.5",
             "testimonial": "<p>\"I’ve tried so many supplements, but nothing compares to these. I feel like the best version of myself!\"</p>",
             "author": "Maria Z."
@@ -430,7 +432,6 @@
         "video_dtJqXE": {
           "type": "video",
           "settings": {
-
             "rating": "4.5",
             "testimonial": "<p>\"A game-changer for my daily routine. I wake up refreshed and ready to take on the day like never before!\"</p>",
             "author": "Hanna S."
@@ -439,7 +440,6 @@
         "video_gAfQHf": {
           "type": "video",
           "settings": {
-
             "rating": "5",
             "testimonial": "<p>\"These supplements have truly changed my life! I feel healthier, more energetic, and confident every day.\"</p>",
             "author": "Emma T."
@@ -588,12 +588,11 @@
             "button_select": "link",
             "button_label": "check now",
             "button_disable_on_mobile": false,
-
+            "button_link": "",
             "button_link_in_new_window": false,
             "color-body-text": "#ffffff",
             "color-overlay": "#ffffff",
             "color-overlay-opacity": 0,
-
             "desktop_text_vertical_position": "top",
             "desktop_text_horizontal_position": "left",
             "mobile_text_vertical_position": "top",
@@ -612,12 +611,11 @@
             "button_select": "link",
             "button_label": "check now",
             "button_disable_on_mobile": false,
-
+            "button_link": "",
             "button_link_in_new_window": false,
             "color-body-text": "#ffffff",
             "color-overlay": "rgba(0,0,0,0)",
             "color-overlay-opacity": 0,
-
             "desktop_text_vertical_position": "top",
             "desktop_text_horizontal_position": "left",
             "mobile_text_vertical_position": "top",
@@ -694,8 +692,6 @@
             "icon_select": "100",
             "text": "<p>\"Collagen Caps have helped with my joint comfort and even improved my skin. Simple, effective, and worth it. I'll definitely keep using them.\"</p>",
             "author": "- Michael M.",
-
-
             "image_link": ""
           }
         },
@@ -705,8 +701,6 @@
             "icon_select": "100",
             "text": "<p>\"I've been taking Collagen Caps for a month now and I really see a difference — my skin feels smoother and looks brighter. Super easy to add to my routine.\"</p>",
             "author": "- Anna M.",
-
-
             "image_link": ""
           }
         }
@@ -759,7 +753,6 @@
         "image_P4yL64": {
           "type": "image",
           "settings": {
-
             "select_icon": "bag",
             "heading": "Third-party tested",
             "text": "<p>We hold ourselves and our ingredients to the highest standards.</p>",
@@ -769,7 +762,6 @@
         "image_m7jjzm": {
           "type": "image",
           "settings": {
-
             "select_icon": "user",
             "heading": "Quality ingredients",
             "text": "<p>We're dedicated to using scientifically backed, high-quality natural ingredients.</p>",
@@ -779,7 +771,6 @@
         "image_AkKWrq": {
           "type": "image",
           "settings": {
-
             "select_icon": "search",
             "heading": "Non-GMO",
             "text": "<p>We carefully evaluate every ingredient, ensuring they are non-GMO.</p>",
@@ -789,7 +780,6 @@
         "image_XPgaAR": {
           "type": "image",
           "settings": {
-
             "select_icon": "star",
             "heading": "Vegan",
             "text": "<p>We ensure the highest standards with 100% vegan, cruelty-free formulations.</p>",
