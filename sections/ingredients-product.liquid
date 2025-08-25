@@ -3,10 +3,7 @@
 {% comment %} Get ingredients from product metafield {% endcomment %}
 {% assign ingredients = product.metafields.custom.ingredients.value %}
 
-{% comment %} Debug output - remove after testing {% endcomment %}
-<!-- DEBUG: ingredients metafield exists: {{ product.metafields.custom.ingredients != blank }} -->
-<!-- DEBUG: ingredients value: {{ ingredients }} -->
-<!-- DEBUG: ingredients size: {{ ingredients.size }} -->
+
 
 {{ 'swiper.css' | asset_url | stylesheet_tag }}
 
