@@ -75,7 +75,7 @@
     font-size: calc(var(--font-h1-size, 2.5rem) * {{ section.settings.title_size_desktop | divided_by: 100.0 }});
     font-family: var(--font-headline, inherit);
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 0.9;
     color: var(--color-custom-text, #000);
     margin: 0;
     text-transform: var(--font-headline-transform, none);
@@ -135,7 +135,7 @@
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__card-name {
-    font-size: 14px;
+    font-size: calc(14px * {{ section.settings.ingredient_name_size_desktop | divided_by: 100.0 }});
     font-weight: 700;
     color: var(--color-custom-text, #000);
     margin-bottom: 8px;
@@ -248,7 +248,7 @@
     }
 
     [data-section-id="{{ section.id }}"] .ingredients-product__card-name {
-      font-size: 13px;
+      font-size: calc(13px * {{ section.settings.ingredient_name_size_mobile | divided_by: 100.0 }});
       margin-bottom: 6px;
     }
 
@@ -306,7 +306,8 @@
               "loop": false,
               "pagination": {
                 "el": ".ingredients-product__dots",
-                "clickable": true
+                "clickable": true,
+                "renderBullet": "function (index, className) { return '<span class=\"' + className + ' swiper-pagination-bullet--svg-animation\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 28 28\"><circle class=\"svg__circle\" cx=\"14\" cy=\"14\" r=\"12\" fill=\"none\" stroke-width=\"2\"></circle><circle class=\"svg__circle-inner\" cx=\"14\" cy=\"14\" r=\"5\" stroke-width=\"2\"></circle></svg></span>'; }"
               },
               "navigation": {
                 "nextEl": ".ingredients-swiper-button-next",
@@ -437,6 +438,24 @@
         "step": 10,
         "default": 100,
         "label": "Title size (desktop)",
+        "unit": "%"
+      }, {
+        "type": "range",
+        "id": "ingredient_name_size_mobile",
+        "min": 60,
+        "max": 200,
+        "step": 10,
+        "default": 100,
+        "label": "Ingredient name size (mobile)",
+        "unit": "%"
+      }, {
+        "type": "range",
+        "id": "ingredient_name_size_desktop",
+        "min": 60,
+        "max": 200,
+        "step": 10,
+        "default": 100,
+        "label": "Ingredient name size (desktop)",
         "unit": "%"
       }, {
         "type": "header",
