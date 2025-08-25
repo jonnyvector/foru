@@ -132,15 +132,18 @@
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__card-name {
+    margin-bottom: 8px;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product__card-name .headline__title {
     --font-headline-scale-desk: {{ section.settings.ingredient_name_size_desktop | divided_by: 100.0 }};
     --font-headline-scale: {{ section.settings.ingredient_name_size_mobile | divided_by: 100.0 }};
-    font-size: calc(14px * var(--font-headline-scale-desk, 0.8));
     font-weight: 700;
     color: var(--color-custom-text, #000);
-    margin-bottom: 8px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     line-height: 1.2;
+    margin: 0;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__card-description {
@@ -262,7 +265,6 @@
     }
 
     [data-section-id="{{ section.id }}"] .ingredients-product__card-name {
-      font-size: calc(13px * var(--font-headline-scale, 0.8));
       margin-bottom: 6px;
     }
 
@@ -394,7 +396,9 @@
 
                   <div class="ingredients-product__card-content">
                     {% if ingredient.name.value %}
-                      <h3 class="ingredients-product__card-name">{{ ingredient.name.value }}</h3>
+                      <div class="ingredients-product__card-name">
+                        {% render 'headline', title: ingredient.name.value %}
+                      </div>
                     {% endif %}
 
                     {% if ingredient.short_description.value %}
@@ -489,19 +493,19 @@
       }, {
         "type": "range",
         "id": "ingredient_name_size_mobile",
-        "min": 40,
-        "max": 220,
+        "min": 80,
+        "max": 300,
         "step": 10,
-        "default": 80,
+        "default": 100,
         "label": "Ingredient name size (mobile)",
         "unit": "%"
       }, {
         "type": "range",
         "id": "ingredient_name_size_desktop",
-        "min": 40,
-        "max": 220,
+        "min": 100,
+        "max": 500,
         "step": 10,
-        "default": 80,
+        "default": 100,
         "label": "Ingredient name size (desktop)",
         "unit": "%"
       }, {
