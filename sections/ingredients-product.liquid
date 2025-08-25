@@ -1,7 +1,7 @@
 {% assign background_rgb = section.settings.background_color | color_to_rgb %}{% assign text_rgb = section.settings.text_color | color_to_rgb %}
 
 {% comment %} Get ingredients from product metafield {% endcomment %}
-{% assign ingredients = product.metafields.custom.ingredients %}
+{% assign ingredients = product.metafields.custom.ingredients.value %}
 
 
 
