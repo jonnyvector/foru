@@ -145,13 +145,6 @@
           {% endif %}
         </ul>
 
-        <div class="swiper-button-next wt-slider__nav-btn wt-slider__nav-next wt-slider__nav-next--featured">
-          {% render 'icons', id: 'arrow-right' %}
-        </div>
-        <div class="swiper-button-prev wt-slider__nav-btn wt-slider__nav-prev wt-slider__nav-prev--featured">
-          {% render 'icons', id: 'arrow-left' %}
-        </div>
-        <div class="swiper-scrollbar wt-slider__scrollbar wt-slider__scrollbar--featured {% if section.settings['full-width-enabled'] %} wt-slider__scrollbar--full {% endif %}"></div>
 
         {% if section.settings['full-width-enabled'] %}
           {% assign slidesPerView = 1 %}
