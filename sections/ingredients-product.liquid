@@ -56,6 +56,12 @@
     margin-bottom: 40px;
   }
 
+  [data-section-id="{{ section.id }}"] .ingredients-product__header-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
   [data-section-id="{{ section.id }}"] .ingredients-product__subtitle {
     font-size: 14px;
     text-transform: uppercase;
@@ -71,7 +77,7 @@
     font-weight: 700;
     line-height: 1.2;
     color: var(--color-custom-text, #000);
-    margin-bottom: 16px;
+    margin-bottom: 0;
     text-transform: var(--font-headline-transform, none);
   }
 
@@ -80,7 +86,6 @@
     line-height: 1.6;
     color: var(--color-custom-text, #666);
     margin-bottom: 20px;
-    max-width: 600px;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__view-all {
@@ -240,8 +245,14 @@
     font-style: italic;
   }
 
-  /* Desktop - show dots instead of arrows */
+  /* Desktop - show dots instead of arrows and 2-column header */
   @media (min-width: 768px) {
+    [data-section-id="{{ section.id }}"] .ingredients-product__header-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
     [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next,
     [data-section-id="{{ section.id }}"] .ingredients-swiper-button-prev {
       display: none !important;
@@ -282,24 +293,32 @@
   
   <div class="ingredients-product__container">
     <div class="ingredients-product__header">
-      {% if section.settings.subtitle != blank %}
-        <div class="ingredients-product__subtitle">{{ section.settings.subtitle }}</div>
-      {% endif %}
+      <div class="ingredients-product__header-grid">
+        <!-- Column 1: Subtitle and Title -->
+        <div class="ingredients-product__header-col1">
+          {% if section.settings.subtitle != blank %}
+            <div class="ingredients-product__subtitle">{{ section.settings.subtitle }}</div>
+          {% endif %}
 
-      {% if section.settings.title != blank %}
-        <h2 class="ingredients-product__title">{{ section.settings.title }}</h2>
-      {% endif %}
+          {% if section.settings.title != blank %}
+            <h2 class="ingredients-product__title">{{ section.settings.title }}</h2>
+          {% endif %}
+        </div>
 
-      {% if section.settings.description != blank %}
-        <div class="ingredients-product__description">{{ section.settings.description }}</div>
-      {% endif %}
+        <!-- Column 2: Description and View All Link -->
+        <div class="ingredients-product__header-col2">
+          {% if section.settings.description != blank %}
+            <div class="ingredients-product__description">{{ section.settings.description }}</div>
+          {% endif %}
 
-      {% if section.settings.view_all_text != blank and section.settings.view_all_link != blank %}
-        <a href="{{ section.settings.view_all_link }}" class="ingredients-product__view-all">
-          {{ section.settings.view_all_text }}
-          <span class="ingredients-product__view-all-icon">+</span>
-        </a>
-      {% endif %}
+          {% if section.settings.view_all_text != blank and section.settings.view_all_link != blank %}
+            <a href="{{ section.settings.view_all_link }}" class="ingredients-product__view-all">
+              {{ section.settings.view_all_text }}
+              <span class="ingredients-product__view-all-icon">+</span>
+            </a>
+          {% endif %}
+        </div>
+      </div>
     </div>
       
     {% if ingredients %}
@@ -412,10 +431,10 @@
         "default": "RESEARCH-BACKED FORMULA"
       },
       {
-        "type": "textarea",
+        "type": "richtext",
         "id": "description",
         "label": "Description",
-        "default": "Each component is precisely selected and dosed based on clinical research. Clean formulas designed to work together, not just work alone."
+        "default": "<p>Each component is precisely selected and dosed based on clinical research. Clean formulas designed to work together, not just work alone.</p>"
       }, {
         "type": "text",
         "id": "view_all_text",
