@@ -49,6 +49,12 @@
     display: block !important;
   }
 
+  /* Force proper scrollbar drag element sizing */
+  [data-section-id="{{ section.id }}"] .swiper .wt-slider__scrollbar .swiper-scrollbar-drag {
+    transform: translate3d(0px, 0, 0) !important;
+    transition: transform 150ms !important;
+  }
+
 
 </style>
 
