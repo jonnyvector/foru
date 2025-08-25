@@ -101,8 +101,9 @@
     overflow: visible;
     box-shadow: none;
     transition: none;
-    height: auto;
-    display: block;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__card:hover {
@@ -128,7 +129,9 @@
 
   [data-section-id="{{ section.id }}"] .ingredients-product__card-content {
     padding: 0.75rem 0 0 0;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__card-name {
@@ -139,14 +142,17 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
     line-height: 1.2;
-    margin: 0 0 8px 0;
+    margin: 0;
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__card-description {
     font-size: calc(var(--font-base-size, 1rem) * 0.75);
     line-height: 1.4;
     color: #666;
-    margin: 0;
+    margin: 8px 0 0 0;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__dots {
