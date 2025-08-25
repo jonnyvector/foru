@@ -276,6 +276,9 @@
         "image_ywEm3e",
         "image_P4VQTE"
       ],
+      "custom_css": [
+        ".wt-keys__content {text-align: left;}"
+      ],
       "name": "t:sections.features-banner.settings.presets.name",
       "settings": {
         "heading": "The Foru Standard",
