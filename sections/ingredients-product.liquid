@@ -243,13 +243,11 @@
         </a>
       {% endif %}
     </div>
-    
-        {{ product }}
-    {% if ingredients and ingredients.size > 0 %}
+      
+    {% if ingredients %}
       <!-- Desktop Grid -->
       <div class="ingredients-product__grid">
         {% for ingredient in ingredients %}
-          {{ ingredients }}
         
           <div class="ingredients-product__card">
             {% if ingredient.image.value %}
