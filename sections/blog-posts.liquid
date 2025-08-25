@@ -159,9 +159,23 @@
 
         <script data-swiper-configuration type="text/json">
           {
-            "enableOnMedia": "(max-width: 899px)",
-            "slidesPerView": {{ slidesPerView }},
-            "spaceBetween": 16,
+            "slidesPerView": "auto",
+            "spaceBetween": 8,
+            "freeMode": false,
+            "speed": 150,
+            "grabCursor": false,
+            "breakpoints": {
+              "320": {
+                "slidesPerView": {{ slidesPerView }},
+                "slidesPerGroup": 1,
+                "spaceBetween": 16
+              },
+              "900": {
+                "slidesPerView": 3,
+                "slidesPerGroup": 1,
+                "spaceBetween": 24
+              }
+            },
             "scrollbar": {
               "el": ".wt-slider__scrollbar--featured",
               "draggable": true
