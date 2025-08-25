@@ -279,8 +279,8 @@
       "custom_css": [
         ".wt-keys__content {text-align: left;}",
         ".wt-keys__item {align-items: flex-start;}",
-        ".headline__title{text-align:left;}",
-        "@media (min-width: 768px) {.headline__title{margin-left:16px; } img {margin-left: 16px; }}"
+        ".headline__title {text-align: left;}",
+        "@media (min-width: 768px) {.headline__title {margin-left: 16px; } img {margin-left: 16px; }}"
       ],
       "name": "t:sections.features-banner.settings.presets.name",
       "settings": {
@@ -298,39 +298,6 @@
         "background_color": "transparent",
         "margin-top": 20,
         "margin-bottom": 20
-      }
-    },
-    "rich_text_zWj4cT": {
-      "type": "rich-text",
-      "blocks": {
-        "text_BDXGNa": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Your Health in Trusted Hands!</p>",
-            "disable_on_mobile": false
-          }
-        },
-        "heading_G4i3AE": {
-          "type": "heading",
-          "settings": {
-            "heading": "Real Stories, Real Results",
-            "disable_on_mobile": false,
-            "size_heading": 100,
-            "size_heading_mobile": 100
-          }
-        }
-      },
-      "block_order": [
-        "text_BDXGNa",
-        "heading_G4i3AE"
-      ],
-      "settings": {
-        "section_width": "regular",
-        "desktop_text_horizontal_position": "center",
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
-        "margin-top": 40,
-        "margin-bottom": 0
       }
     },
     "testimonial_video_reels_qnieGX": {
@@ -411,7 +378,6 @@
     "breadcrumbs",
     "main",
     "features_banner_idectQ",
-    "rich_text_zWj4cT",
     "testimonial_video_reels_qnieGX",
     "separator_y6xcTk"
   ]
