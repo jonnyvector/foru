@@ -101,8 +101,8 @@
                 %}
               </div>
             {% endfor %}
-          {%- endif -%}
-          
+        {%- endif -%}
+
           {% comment %} Loop through products and then their variants {% endcomment %}
           {%- assign variant_count = 0 -%}
           {%- for product in products_source -%}
@@ -110,7 +110,7 @@
               {%- if variant_count >= section.settings.products_to_show -%}
                 {%- break -%}
               {%- endif -%}
-              
+
               <div data-swiper-slide>
                 {% comment %} Use variant featured image or product featured image {% endcomment %}
                 {% assign variant_image = variant.featured_image | default: product.featured_media %}
@@ -119,7 +119,7 @@
                 {% else %}
                   {% assign image_hover = false %}
                 {% endif %}
-                
+
                 <div
                   {% if settings.animations and variant_count <= 1 %}
                   data-cascade
@@ -128,28 +128,7 @@
                   {% else %}
                   class="wt-slider__card-wrapper"
                   {% endif %}>
-                  {% render 'card'
-                    , card_product: product
-                    , card_variant: variant
-                    , img: variant_image
-                    , img_hover: image_hover
-                    , title: variant.title
-                    , subtitle: product.vendor
-                    , rating: section.settings.show_product_rating
-                    , reviews: product.metafields.reviews
-                    , options: false
-                    , url: product.url | append: '?variant=' | append: variant.id
-                    , uri: product.handle
-                    , text_alignment: section.settings.text_alignment
-                    , variants: product.variants
-                    , product_options: product.options
-                    , product: product
-                    , media_aspect_ratio: section.settings.image_ratio
-                    , enable_quick_add_button: section.settings.enable_quick_add_button
-                    , show_video: section.settings.show_video
-                    , price: variant.price
-                    , compare_at_price: variant.compare_at_price
-                    , variant_context: true
+                  {% render 'card', card_product: product, card_variant: variant, img: variant_image, img_hover: image_hover, title: variant.title, subtitle: product.vendor, rating: section.settings.show_product_rating, reviews: product.metafields.reviews, options: false, url: product.url | within: collection | append: '?variant=' | append: variant.id, uri: product.handle, text_alignment: section.settings.text_alignment, variants: product.variants, product_options: product.options, product: product, media_aspect_ratio: section.settings.image_ratio, enable_quick_add_button: section.settings.enable_quick_add_button, show_video: section.settings.show_video, price: variant.price, compare_at_price: variant.compare_at_price, variant_context: true
                   %}
                 </div>
               </div>
