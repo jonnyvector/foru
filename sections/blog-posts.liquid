@@ -162,16 +162,12 @@
 
         <script data-swiper-configuration type="text/json">
           {
-            "slidesPerView": "auto",
-            "spaceBetween": 8,
+            "slidesPerView": {{ slidesPerView }},
+            "spaceBetween": 16,
             "freeMode": false,
             "speed": 150,
             "grabCursor": false,
             "breakpoints": {
-              "320": {
-                "slidesPerView": {{ slidesPerView }},
-                "spaceBetween": 16
-              },
               "900": {
                 "slidesPerView": {{ section.settings.post_limit }},
                 "spaceBetween": 16
