@@ -234,7 +234,7 @@
           "settings": {
             "desktop_image": "shopify://shop_images/Icons_4_6e3ff6e8-ee04-4021-81fe-4e7d63bf44d7.svg",
             "select_icon": "bag",
-            "heading": "Banner title",
+            "heading": "100% Ingredient Transparency",
             "text": "<p>Items you love at prices that fit your budget.</p>",
             "link": ""
           }
@@ -244,7 +244,7 @@
           "settings": {
             "desktop_image": "shopify://shop_images/Icons_5.svg",
             "select_icon": "bag",
-            "heading": "Banner title",
+            "heading": "Third-party\ntested",
             "text": "<p>Items you love at prices that fit your budget.</p>",
             "link": ""
           }
@@ -254,7 +254,7 @@
           "settings": {
             "desktop_image": "shopify://shop_images/Icons_6_e49fd3fa-d99b-4646-a98e-399579c8ba73.svg",
             "select_icon": "bag",
-            "heading": "Banner title",
+            "heading": "Clinician-Led Formulation",
             "text": "<p>Items you love at prices that fit your budget.</p>",
             "link": ""
           }
@@ -264,7 +264,7 @@
           "settings": {
             "desktop_image": "shopify://shop_images/Icons_8.svg",
             "select_icon": "bag",
-            "heading": "Banner title",
+            "heading": "Vegan &\nGluten-Free",
             "text": "<p>Items you love at prices that fit your budget.</p>",
             "link": ""
           }
@@ -279,9 +279,9 @@
       "name": "t:sections.features-banner.settings.presets.name",
       "settings": {
         "heading": "The Foru Standard",
-        "size_heading_mobile": 80,
-        "size_heading": 80,
-        "icon_width_mobile": 36,
+        "size_heading_mobile": 110,
+        "size_heading": 160,
+        "icon_width_mobile": 32,
         "icon_width_desktop": 48,
         "icon_layout": "center",
         "columns_desktop": "4",
