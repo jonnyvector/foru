@@ -2,8 +2,7 @@
 {% assign text_rgb = section.settings.text_color | color_to_rgb %}
 
 {% comment %} Get ingredients from product metafield {% endcomment %}
-{% assign ingredients_metafield = product.metafields.custom.ingredients %}
-{% assign ingredients = ingredients_metafield.value %}
+{% assign ingredients = product.metafields.custom.ingredients.value %}
 
 {{ 'swiper.css' | asset_url | stylesheet_tag }}
 
@@ -248,27 +247,27 @@
       <div class="ingredients-product__grid">
         {% for ingredient in ingredients %}
           <div class="ingredients-product__card">
-            {% if ingredient.image %}
+            {% if ingredient.image.value %}
               <div class="ingredients-product__card-image">
                 {{
-                  ingredient.image
+                  ingredient.image.value
                   | image_url: width: 400
                   | image_tag:
                     loading: 'lazy',
                     sizes: '(min-width: 768px) 300px, 280px',
                     widths: '280, 400, 600',
-                    alt: ingredient.name
+                    alt: ingredient.name.value
                 }}
               </div>
             {% endif %}
             
             <div class="ingredients-product__card-content">
-              {% if ingredient.name %}
-                <h3 class="ingredients-product__card-name">{{ ingredient.name }}</h3>
+              {% if ingredient.name.value %}
+                <h3 class="ingredients-product__card-name">{{ ingredient.name.value }}</h3>
               {% endif %}
               
-              {% if ingredient.short_description %}
-                <div class="ingredients-product__card-description">{{ ingredient.short_description }}</div>
+              {% if ingredient.short_description.value %}
+                <div class="ingredients-product__card-description">{{ ingredient.short_description.value }}</div>
               {% endif %}
             </div>
           </div>
@@ -297,27 +296,27 @@
             <div data-swiper-container class="ingredients-product__slider-container">
               {% for ingredient in ingredients %}
                 <div data-swiper-slide class="ingredients-product__card">
-                  {% if ingredient.image %}
+                  {% if ingredient.image.value %}
                     <div class="ingredients-product__card-image">
                       {{
-                        ingredient.image
+                        ingredient.image.value
                         | image_url: width: 400
                         | image_tag:
                           loading: 'lazy',
                           sizes: '280px',
                           widths: '280, 400',
-                          alt: ingredient.name
+                          alt: ingredient.name.value
                       }}
                     </div>
                   {% endif %}
                   
                   <div class="ingredients-product__card-content">
-                    {% if ingredient.name %}
-                      <h3 class="ingredients-product__card-name">{{ ingredient.name }}</h3>
+                    {% if ingredient.name.value %}
+                      <h3 class="ingredients-product__card-name">{{ ingredient.name.value }}</h3>
                     {% endif %}
                     
-                    {% if ingredient.short_description %}
-                      <div class="ingredients-product__card-description">{{ ingredient.short_description }}</div>
+                    {% if ingredient.short_description.value %}
+                      <div class="ingredients-product__card-description">{{ ingredient.short_description.value }}</div>
                     {% endif %}
                   </div>
                 </div>
