@@ -279,7 +279,8 @@
       "custom_css": [
         ".wt-keys__content {text-align: left;}",
         ".wt-keys__item {align-items: flex-start;}",
-        "@media(min-width:768px){img {margin-left: 16px;} }"
+        ".headline__title{text-align:left;}",
+        "@media (min-width: 768px) {.headline__title{margin-left:16px; } img {margin-left: 16px; }}"
       ],
       "name": "t:sections.features-banner.settings.presets.name",
       "settings": {
