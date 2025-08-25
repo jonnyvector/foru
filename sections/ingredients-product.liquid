@@ -71,13 +71,11 @@
     font-weight: 500;
   }
 
-  [data-section-id="{{ section.id }}"] .headline__title {
+  [data-section-id="{{ section.id }}"] .ingredients-product__title {
     --font-headline-scale-desk: {{ section.settings.size_heading | divided_by: 100.0 }};
     --font-headline-scale: {{ section.settings.size_heading_mobile | divided_by: 100.0 }};
     line-height: 0.9;
     margin: 0;
-    padding: 0;
-    text-align: left;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__description {
@@ -134,10 +132,6 @@
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__card-name {
-    margin-bottom: 8px;
-  }
-
-  [data-section-id="{{ section.id }}"] .ingredients-product__card-name .headline__title {
     --font-headline-scale-desk: {{ section.settings.ingredient_name_size_desktop | divided_by: 100.0 }};
     --font-headline-scale: {{ section.settings.ingredient_name_size_mobile | divided_by: 100.0 }};
     font-weight: 700;
@@ -145,9 +139,7 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
     line-height: 1.2;
-    margin: 0;
-    padding: 0;
-    text-align: left;
+    margin: 0 0 8px 0;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__card-description {
@@ -268,9 +260,6 @@
       padding: 0.75rem 0 0 0;
     }
 
-    [data-section-id="{{ section.id }}"] .ingredients-product__card-name {
-      margin-bottom: 6px;
-    }
 
     [data-section-id="{{ section.id }}"] .ingredients-product__card-description {
       font-size: calc(var(--font-base-size, 1rem) * 0.7);
@@ -304,8 +293,8 @@
             <div class="ingredients-product__subtitle">{{ section.settings.subtitle }}</div>
           {% endif %}
 
-          {% if section.settings.title.size > 0 %}
-            {% render 'headline', title: section.settings.title %}
+          {% if section.settings.title != blank %}
+            <h2 class="ingredients-product__title">{{ section.settings.title }}</h2>
           {% endif %}
         </div>
 
@@ -400,9 +389,7 @@
 
                   <div class="ingredients-product__card-content">
                     {% if ingredient.name.value %}
-                      <div class="ingredients-product__card-name">
-                        {% render 'headline', title: ingredient.name.value %}
-                      </div>
+                      <h3 class="ingredients-product__card-name">{{ ingredient.name.value }}</h3>
                     {% endif %}
 
                     {% if ingredient.short_description.value %}
@@ -454,7 +441,7 @@
         "default": "Ingredients"
       },
       {
-        "type": "textarea",
+        "type": "text",
         "id": "title",
         "label": "Title",
         "default": "RESEARCH-BACKED FORMULA"
