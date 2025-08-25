@@ -63,7 +63,7 @@
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__subtitle {
-    font-size: 14px;
+    font-size: calc(var(--font-base-size, 1rem) * 0.875);
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--color-custom-text, #666);
@@ -79,7 +79,7 @@
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__description {
-    font-size: 16px;
+    font-size: var(--font-base-size, 1rem);
     line-height: 1.6;
     color: var(--color-custom-text, #666);
     margin-bottom: 20px;
@@ -147,7 +147,7 @@
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__card-description {
-    font-size: 12px;
+    font-size: calc(var(--font-base-size, 1rem) * 0.75);
     line-height: 1.4;
     color: #666;
     margin: 0;
@@ -269,7 +269,7 @@
     }
 
     [data-section-id="{{ section.id }}"] .ingredients-product__card-description {
-      font-size: 11px;
+      font-size: calc(var(--font-base-size, 1rem) * 0.7);
     }
 
     [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next,
