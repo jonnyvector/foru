@@ -292,11 +292,6 @@
     [data-section-id="{{ section.id }}"] .ingredients-product__slider {
       margin-right: calc(0px - calc(var(--gap, 8px) * 2));
     }
-
-    /* Keep scrollbar with right padding */
-    [data-section-id="{{ section.id }}"] .ingredients-product__scrollbar {
-      margin-right: calc(var(--gap, 8px) * 2);
-    }
   }
 </style>
 
@@ -431,10 +426,10 @@
             </div>
           </div>
         </slideshow-section>
-
-        <div class="ingredients-product__dots"></div>
-        <div class="swiper-scrollbar ingredients-product__scrollbar wt-slider__scrollbar"></div>
       </div>
+
+      <div class="ingredients-product__dots"></div>
+      <div class="swiper-scrollbar ingredients-product__scrollbar wt-slider__scrollbar"></div>
     {% else %}
       <div class="ingredients-product__empty">
         <p>No ingredients found. Please add ingredients to this product's metafields.</p>
