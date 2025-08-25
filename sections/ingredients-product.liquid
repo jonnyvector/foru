@@ -256,8 +256,6 @@
     /* Hide scrollbar on desktop */
     [data-section-id="{{ section.id }}"] .ingredients-product__scrollbar {
       display: none !important;
-      visibility: hidden !important;
-      opacity: 0 !important;
     }
   }
 
@@ -346,11 +344,7 @@
               "breakpoints": {
                 "480": {
                   "slidesPerView": 1.5,
-                  "spaceBetween": 16,
-                  "scrollbar": {
-                    "el": ".ingredients-product__scrollbar",
-                    "draggable": true
-                  }
+                  "spaceBetween": 16
                 },
                 "768": {
                   "slidesPerView": 2,
