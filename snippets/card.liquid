@@ -24,7 +24,6 @@
 <color-swatch>
   <div class="card__container" style="--aspect-ratio: {{ aspect_ratio }};">
     <div class="card__picture-container">
-      {{ card_url | default: url }}
       <a
         href="{{ card_url | default: url | default: '#' }}"
         class="card{% if text_alignment %} card--{{ text_alignment }}{% endif %}"
