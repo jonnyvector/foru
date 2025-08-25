@@ -260,7 +260,7 @@
 
 {% assign selected_variant = product.selected_variant %}
 {% assign enabled_preselect = false %}
-{% if section.settings['enable-preselected-variant'] %}
+{% if section.settings['enable-preselected-variant'] and product.selected_variant == blank %}
   {% assign selected_variant = product.variants | where: 'available', true | first %}
   {% assign enabled_preselect = true %}
 {% endif %}
