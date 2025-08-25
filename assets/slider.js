@@ -184,21 +184,9 @@ if (!customElements.get("slideshow-section")) {
 
               this.centerNavigation();
               this.handleTabindex(swiper);
-              
-              // Force scrollbar update after slides are properly measured
-              setTimeout(() => {
-                if (swiper.scrollbar && swiper.scrollbar.updateSize) {
-                  swiper.update();
-                  swiper.scrollbar.updateSize();
-                }
-              }, 50);
             },
             slideChangeTransitionEnd: (swiper) => {
               this.handleTabindex(swiper);
-              // Update scrollbar after slide transition
-              if (swiper.scrollbar && swiper.scrollbar.updateSize) {
-                swiper.scrollbar.updateSize();
-              }
             },
           },
         };
