@@ -45,7 +45,7 @@
   {
     --font-headline-scale: {{ section.settings.headline_font_size_mobile | divided_by: 100.0 }};
     --font-headline-scale-desk: {{ section.settings.headline_font_size_desktop | divided_by: 100.0 }};
-    text-transform: {{ section.settings.headline_text_case }};
+    --font-headline-transform: {{ section.settings.headline_text_case }};
   }
 
   [data-section-id="{{ section.id }}"] .wt-keys__title
