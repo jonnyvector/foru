@@ -248,7 +248,7 @@
       <!-- Desktop Grid -->
       <div class="ingredients-product__grid">
         {% for ingredient in ingredients %}
-          {{ ingredient }}
+          {{ ingredient.name.value }}
         
           <div class="ingredients-product__card">
             {% if ingredient.image.value %}
