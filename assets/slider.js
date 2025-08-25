@@ -169,7 +169,10 @@ if (!customElements.get("slideshow-section")) {
             nextEl: ".wt-slider__nav-next",
             prevEl: ".wt-slider__nav-prev",
           },
-          scrollbar: false,
+          scrollbar: {
+            el: ".swiper-scrollbar",
+            draggable: true,
+          },
           on: {
             afterInit: (swiper) => {
               const dataSwiper = this.querySelector("[data-swiper]");
