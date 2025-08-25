@@ -72,7 +72,9 @@
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__title {
-    font-size: calc(var(--font-h1-size, 2.5rem) * {{ section.settings.title_size_desktop | divided_by: 100.0 }});
+    --font-headline-scale-desk: {{ section.settings.size_heading | divided_by: 100.0 }};
+    --font-headline-scale: {{ section.settings.size_heading_mobile | divided_by: 100.0 }};
+    font-size: calc(var(--font-h1-size, 2.5rem) * var(--font-headline-scale-desk, 0.8));
     font-family: var(--font-headline, inherit);
     font-weight: 700;
     line-height: 0.9;
@@ -135,7 +137,9 @@
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__card-name {
-    font-size: calc(14px * {{ section.settings.ingredient_name_size_desktop | divided_by: 100.0 }});
+    --font-headline-scale-desk: {{ section.settings.ingredient_name_size_desktop | divided_by: 100.0 }};
+    --font-headline-scale: {{ section.settings.ingredient_name_size_mobile | divided_by: 100.0 }};
+    font-size: calc(14px * var(--font-headline-scale-desk, 0.8));
     font-weight: 700;
     color: var(--color-custom-text, #000);
     margin-bottom: 8px;
@@ -240,7 +244,7 @@
   /* Mobile Styles */
   @media (max-width: 767px) {
     [data-section-id="{{ section.id }}"] .ingredients-product__title {
-      font-size: calc(var(--font-h1-size, 2rem) * {{ section.settings.title_size_mobile | divided_by: 100.0 }});
+      font-size: calc(var(--font-h1-size, 2rem) * var(--font-headline-scale, 0.8));
     }
 
     [data-section-id="{{ section.id }}"] .ingredients-product__card-content {
@@ -248,7 +252,7 @@
     }
 
     [data-section-id="{{ section.id }}"] .ingredients-product__card-name {
-      font-size: calc(13px * {{ section.settings.ingredient_name_size_mobile | divided_by: 100.0 }});
+      font-size: calc(13px * var(--font-headline-scale, 0.8));
       margin-bottom: 6px;
     }
 
@@ -423,38 +427,38 @@
         "content": "Typography"
       }, {
         "type": "range",
-        "id": "title_size_mobile",
-        "min": 60,
-        "max": 200,
+        "id": "size_heading_mobile",
+        "min": 40,
+        "max": 220,
         "step": 10,
-        "default": 100,
+        "default": 80,
         "label": "Title size (mobile)",
         "unit": "%"
       }, {
         "type": "range",
-        "id": "title_size_desktop",
-        "min": 60,
-        "max": 200,
+        "id": "size_heading",
+        "min": 40,
+        "max": 220,
         "step": 10,
-        "default": 100,
+        "default": 80,
         "label": "Title size (desktop)",
         "unit": "%"
       }, {
         "type": "range",
         "id": "ingredient_name_size_mobile",
-        "min": 60,
-        "max": 200,
+        "min": 40,
+        "max": 220,
         "step": 10,
-        "default": 100,
+        "default": 80,
         "label": "Ingredient name size (mobile)",
         "unit": "%"
       }, {
         "type": "range",
         "id": "ingredient_name_size_desktop",
-        "min": 60,
-        "max": 200,
+        "min": 40,
+        "max": 220,
         "step": 10,
-        "default": 100,
+        "default": 80,
         "label": "Ingredient name size (desktop)",
         "unit": "%"
       }, {
