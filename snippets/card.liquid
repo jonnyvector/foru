@@ -24,9 +24,9 @@
 <color-swatch>
   <div class="card__container" style="--aspect-ratio: {{ aspect_ratio }};">
     <div class="card__picture-container">
-      {{ url }}
+      {{ card_url | default: url }}
       <a
-        href="{{ url | default: '#' }}"
+        href="{{ card_url | default: url | default: '#' }}"
         class="card{% if text_alignment %} card--{{ text_alignment }}{% endif %}"
         tabindex="0"
         aria-label="{{ 'aria-label.card-url' | t }}">
@@ -194,7 +194,7 @@
     </div>
 
     <a
-      href="{{ url }}"
+      href="{{ card_url | default: url }}"
       tabindex="-1"
       data-omit-tabindex
       class="card{% if text_alignment %} card--{{ text_alignment }}{% endif %}">
