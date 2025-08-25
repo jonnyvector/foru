@@ -286,9 +286,8 @@
           {% endif %}
 
           {% if section.settings.view_all_text != blank and section.settings.view_all_link != blank %}
-            {% render 'shop-button', 
+            {% render 'custom-view-all', 
                text: section.settings.view_all_text, 
-               style: 'light', 
                url: section.settings.view_all_link %}
           {% endif %}
         </div>
