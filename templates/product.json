@@ -375,6 +375,23 @@
         "margin-top": 0,
         "margin-bottom": 0
       }
+    },
+    "ingredients_product_nVPErd": {
+      "type": "ingredients-product",
+      "name": "Product Ingredients",
+      "settings": {
+        "subtitle": "Ingredients",
+        "title": "RESEARCH-BACKED FORMULA",
+        "description": "Each component is precisely selected and dosed based on clinical research. Clean formulas designed to work together, not just work alone.",
+        "view_all_text": "View all",
+        "view_all_link": "",
+        "title_size_mobile": 100,
+        "title_size_desktop": 100,
+        "text_color": "transparent",
+        "background_color": "transparent",
+        "margin_top": 40,
+        "margin_bottom": 40
+      }
     }
   },
   "order": [
@@ -382,6 +399,7 @@
     "main",
     "features_banner_idectQ",
     "testimonial_video_reels_qnieGX",
-    "separator_y6xcTk"
+    "separator_y6xcTk",
+    "ingredients_product_nVPErd"
   ]
 }
