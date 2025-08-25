@@ -50,6 +50,17 @@
       display: none;
     }
   }
+
+  /* Show navigation buttons on mobile devices since hover is not available */
+  @media (max-width: 899px) {
+    [data-section-id="{{ section.id }}"] .wt-slider__nav-btn {
+      display: flex !important;
+    }
+    
+    [data-section-id="{{ section.id }}"] .wt-slider__nav-btn.swiper-button-disabled {
+      display: none !important;
+    }
+  }
 </style>
 
 {% if section.settings.blog.articles.size > 0 or section.settings.blog == blank %}
