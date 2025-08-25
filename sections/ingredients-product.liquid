@@ -114,6 +114,11 @@
     position: relative;
   }
 
+  [data-section-id="{{ section.id }}"] .wt-slider__container {
+    overflow: hidden;
+    position: relative;
+  }
+
   [data-section-id="{{ section.id }}"] .ingredients-product__card {
     background: white;
     border-radius: 8px;
@@ -212,6 +217,12 @@
     left: -22px;
   }
 
+  /* Ensure slider wrapper doesn't have extra margin/padding affecting alignment */
+  [data-section-id="{{ section.id }}"] .wt-slider {
+    margin: 0;
+    padding: 0;
+  }
+
   [data-section-id="{{ section.id }}"] .ingredients-product__empty {
     text-align: center;
     padding: 60px 20px;
@@ -278,7 +289,7 @@
         <slideshow-section data-section-id="{{ section.id }}" class="wt-slider">
           <script data-swiper-configuration type="text/json">
             {
-              "spaceBetween": 20,
+              "spaceBetween": 16,
               "slidesPerView": 1.2,
               "centeredSlides": false,
               "loop": false,
@@ -297,15 +308,15 @@
                 },
                 "768": {
                   "slidesPerView": 2,
-                  "spaceBetween": 20
+                  "spaceBetween": 16
                 },
                 "1024": {
                   "slidesPerView": 3,
-                  "spaceBetween": 20
+                  "spaceBetween": 16
                 },
                 "1200": {
                   "slidesPerView": 4,
-                  "spaceBetween": 20
+                  "spaceBetween": 16
                 }
               }
             }
