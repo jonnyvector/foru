@@ -236,6 +236,11 @@
     [data-section-id="{{ section.id }}"] .ingredients-swiper-button-prev {
       display: none !important;
     }
+
+    /* Hide scrollbar on desktop */
+    [data-section-id="{{ section.id }}"] .ingredients-product__scrollbar {
+      display: none !important;
+    }
   }
 
   /* Mobile Styles */
@@ -259,6 +264,11 @@
 
     [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next,
     [data-section-id="{{ section.id }}"] .ingredients-swiper-button-prev {
+      display: none !important;
+    }
+
+    /* Hide dots on mobile, show scrollbar */
+    [data-section-id="{{ section.id }}"] .ingredients-product__dots {
       display: none !important;
     }
   }
@@ -309,6 +319,10 @@
                 "el": ".ingredients-product__dots",
                 "clickable": true
               },
+              "scrollbar": {
+                "el": ".ingredients-product__scrollbar",
+                "draggable": true
+              },
               "navigation": {
                 "nextEl": ".ingredients-swiper-button-next",
                 "prevEl": ".ingredients-swiper-button-prev"
@@ -320,15 +334,30 @@
                 },
                 "768": {
                   "slidesPerView": 2,
-                  "spaceBetween": 16
+                  "spaceBetween": 16,
+                  "pagination": {
+                    "el": ".ingredients-product__dots",
+                    "clickable": true
+                  },
+                  "scrollbar": false
                 },
                 "1024": {
                   "slidesPerView": 3,
-                  "spaceBetween": 16
+                  "spaceBetween": 16,
+                  "pagination": {
+                    "el": ".ingredients-product__dots",
+                    "clickable": true
+                  },
+                  "scrollbar": false
                 },
                 "1200": {
                   "slidesPerView": 4,
-                  "spaceBetween": 16
+                  "spaceBetween": 16,
+                  "pagination": {
+                    "el": ".ingredients-product__dots",
+                    "clickable": true
+                  },
+                  "scrollbar": false
                 }
               }
             }
@@ -374,6 +403,7 @@
         </slideshow-section>
 
         <div class="ingredients-product__dots"></div>
+        <div class="swiper-scrollbar ingredients-product__scrollbar wt-slider__scrollbar"></div>
       </div>
     {% else %}
       <div class="ingredients-product__empty">
