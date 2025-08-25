@@ -239,24 +239,7 @@ if (!customElements.get("slideshow-section")) {
         this.querySelectorAll("[data-swiper-slide]").forEach(function (e) {
           e.classList.add("swiper-slide", "wt-slider__slide");
         });
-        
-        // Add a small delay for enableOnMedia initializations to ensure content is ready
-        if (this.configuration.enableOnMedia) {
-          setTimeout(() => {
-            this.swiper = new Swiper(container, this.configuration);
-            // Force scrollbar update after initialization for enableOnMedia cases
-            if (this.swiper.scrollbar) {
-              setTimeout(() => {
-                this.swiper.update();
-                if (this.swiper.scrollbar.updateSize) {
-                  this.swiper.scrollbar.updateSize();
-                }
-              }, 100);
-            }
-          }, 50);
-        } else {
-          this.swiper = new Swiper(container, this.configuration);
-        }
+        this.swiper = new Swiper(container, this.configuration);
       }
 
       swiperDestroy() {
