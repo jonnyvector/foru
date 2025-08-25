@@ -47,11 +47,10 @@
         {% if block.settings.show_qty_selector %}
           {% render 'component-counter' %}
         {% endif %}
-        {% assign variant_available = card_variant.available | default: card_product.selected_or_first_available_variant.available %}
-        <input type="hidden" name="id" value="{{ card_variant.id | default: card_product.selected_or_first_available_variant.id }}">
+        <input type="hidden" name="id" value="{{ card_product.selected_or_first_available_variant.id }}">
         <button
           aria-label="
-            {%- if variant_available -%}
+            {%- if card_product.selected_or_first_available_variant.available -%}
               {{ 'products.product.add_to_cart' | t }}
             {%- else -%}
               {{ 'products.product.sold_out' | t }}
@@ -61,12 +60,12 @@
           type="submit"
           name="add"
           class="button--full-width hero__button--secondary"
-          {% if variant_available == false %}
+          {% if card_product.selected_or_first_available_variant.available == false %}
             disabled
           {% endif %}
         >
           <span>
-            {%- if variant_available -%}
+            {%- if card_product.selected_or_first_available_variant.available -%}
               {{ 'products.product.add_to_cart' | t }}
             {%- else -%}
               {{ 'products.product.sold_out' | t }}
