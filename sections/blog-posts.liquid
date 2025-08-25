@@ -158,12 +158,31 @@
 
         <script data-swiper-configuration type="text/json">
           {
-            "enableOnMedia": "(max-width: 899px)",
             "slidesPerView": {{ slidesPerView }},
             "spaceBetween": 16,
             "scrollbar": {
               "el": ".wt-slider__scrollbar--featured",
-              "draggable": true
+              "draggable": true,
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": {{ section.settings.number_of_column_mobile }},
+                  "slidesPerGroup": {{ section.settings.number_of_column_mobile | floor }},
+                  "spaceBetween": {{ section.settings.spacing_mobile | floor }}
+                },
+                "900": {
+                  "slidesPerView": {{ section.settings.number_of_column_desktop }},
+                  "slidesPerGroup": {{ section.settings.number_of_column_desktop | floor }},
+                  "spaceBetween": {{ section.settings.spacing_desktop | floor }}
+                }
+              },
+              "navigation": {
+                "nextEl": ".wt-slider__nav-next--featured",
+                "prevEl": ".wt-slider__nav-prev--featured"
+              },
+              "scrollbar": {
+                "el": ".wt-slider__scrollbar--featured",
+                "draggable": true
+              }
             }
           }
         </script>
