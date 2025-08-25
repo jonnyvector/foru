@@ -176,6 +176,22 @@
     background: var(--color-custom-text, #000);
   }
 
+  /* Scrollbar styling for mobile */
+  [data-section-id="{{ section.id }}"] .ingredients-product__scrollbar {
+    height: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    margin-top: 20px;
+    position: relative;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-product__scrollbar .swiper-scrollbar-drag {
+    background: var(--color-custom-text, #000);
+    border-radius: 2px;
+    height: 100%;
+    cursor: pointer;
+  }
+
   /* Navigation Arrows */
   [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next,
   [data-section-id="{{ section.id }}"] .ingredients-swiper-button-prev {
@@ -330,7 +346,11 @@
               "breakpoints": {
                 "480": {
                   "slidesPerView": 1.5,
-                  "spaceBetween": 16
+                  "spaceBetween": 16,
+                  "scrollbar": {
+                    "el": ".ingredients-product__scrollbar",
+                    "draggable": true
+                  }
                 },
                 "768": {
                   "slidesPerView": 2,
