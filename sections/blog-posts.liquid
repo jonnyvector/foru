@@ -44,6 +44,14 @@
     --font-headline-scale: {{ section.settings.size_heading_mobile | divided_by: 100.0 }};
   }
 
+  /* Hide scrollbar on desktop via CSS to prevent flashing */
+  @media (min-width: 900px) {
+    [data-section-id="{{ section.id }}"] .wt-slider__scrollbar {
+      opacity: 0 !important;
+      visibility: hidden !important;
+    }
+  }
+
 </style>
 
 {% if section.settings.blog.articles.size > 0 or section.settings.blog == blank %}
@@ -144,6 +152,9 @@
             {% endfor %}
           {% endif %}
         </ul>
+
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar wt-slider__scrollbar wt-slider__scrollbar--featured {% if section.settings['full-width-enabled'] %} wt-slider__scrollbar--full {% endif %}"></div>
 
 
         {% if section.settings['full-width-enabled'] %}
