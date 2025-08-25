@@ -303,6 +303,23 @@
         "margin-bottom": 20
       }
     },
+    "ingredients_product_nVPErd": {
+      "type": "ingredients-product",
+      "name": "Product Ingredients",
+      "settings": {
+        "subtitle": "Ingredients",
+        "title": "RESEARCH-BACKED FORMULA",
+        "description": "Each component is precisely selected and dosed based on clinical research. Clean formulas designed to work together, not just work alone.",
+        "view_all_text": "View all",
+        "view_all_link": "",
+        "title_size_mobile": 100,
+        "title_size_desktop": 100,
+        "text_color": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin_top": 40,
+        "margin_bottom": 40
+      }
+    },
     "testimonial_video_reels_qnieGX": {
       "type": "testimonial-video-reels",
       "blocks": {
@@ -363,23 +380,6 @@
         "background_color": "rgba(0,0,0,0)",
         "margin-top": 20,
         "margin-bottom": 40
-      }
-    },
-    "ingredients_product_nVPErd": {
-      "type": "ingredients-product",
-      "name": "Product Ingredients",
-      "settings": {
-        "subtitle": "Ingredients",
-        "title": "RESEARCH-BACKED FORMULA",
-        "description": "Each component is precisely selected and dosed based on clinical research. Clean formulas designed to work together, not just work alone.",
-        "view_all_text": "View all",
-        "view_all_link": "",
-        "title_size_mobile": 100,
-        "title_size_desktop": 100,
-        "text_color": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
-        "margin_top": 40,
-        "margin_bottom": 40
       }
     }
   },
