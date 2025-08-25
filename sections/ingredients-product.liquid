@@ -157,6 +157,23 @@
 
   [data-section-id="{{ section.id }}"] .ingredients-product__dots {
     margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 20px;
+  }
+
+  /* Style the swiper pagination bullets */
+  [data-section-id="{{ section.id }}"] .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background: #ddd;
+    opacity: 1;
+    margin: 0 4px;
+  }
+
+  [data-section-id="{{ section.id }}"] .swiper-pagination-bullet-active {
+    background: var(--color-custom-text, #000);
   }
 
   /* Navigation Arrows */
@@ -218,10 +235,6 @@
     [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next,
     [data-section-id="{{ section.id }}"] .ingredients-swiper-button-prev {
       display: none !important;
-    }
-
-    [data-section-id="{{ section.id }}"] .ingredients-product__dots {
-      display: flex;
     }
   }
 
@@ -294,8 +307,7 @@
               "loop": false,
               "pagination": {
                 "el": ".ingredients-product__dots",
-                "clickable": true,
-                "renderBullet": "function (index, className) { return '<span class=\"' + className + ' swiper-pagination-bullet--svg-animation\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 28 28\"><circle class=\"svg__circle\" cx=\"14\" cy=\"14\" r=\"12\" fill=\"none\" stroke-width=\"2\"></circle><circle class=\"svg__circle-inner\" cx=\"14\" cy=\"14\" r=\"5\" stroke-width=\"2\"></circle></svg></span>'; }"
+                "clickable": true
               },
               "navigation": {
                 "nextEl": ".ingredients-swiper-button-next",
