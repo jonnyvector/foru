@@ -71,16 +71,11 @@
     font-weight: 500;
   }
 
-  [data-section-id="{{ section.id }}"] .ingredients-product__title {
+  [data-section-id="{{ section.id }}"] .headline__title {
     --font-headline-scale-desk: {{ section.settings.size_heading | divided_by: 100.0 }};
     --font-headline-scale: {{ section.settings.size_heading_mobile | divided_by: 100.0 }};
-    font-size: calc(var(--font-h1-size, 2.5rem) * var(--font-headline-scale-desk, 0.8));
-    font-family: var(--font-headline, inherit);
-    font-weight: 700;
     line-height: 0.9;
-    color: var(--color-custom-text, #000);
     margin: 0;
-    text-transform: var(--font-headline-transform, none);
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__description {
@@ -261,9 +256,6 @@
 
   /* Mobile Styles */
   @media (max-width: 767px) {
-    [data-section-id="{{ section.id }}"] .ingredients-product__title {
-      font-size: calc(var(--font-h1-size, 2rem) * var(--font-headline-scale, 0.8));
-    }
 
     [data-section-id="{{ section.id }}"] .ingredients-product__card-content {
       padding: 0.75rem 0 0 0;
@@ -306,8 +298,8 @@
             <div class="ingredients-product__subtitle">{{ section.settings.subtitle }}</div>
           {% endif %}
 
-          {% if section.settings.title != blank %}
-            <h2 class="ingredients-product__title">{{ section.settings.title }}</h2>
+          {% if section.settings.title.size > 0 %}
+            {% render 'headline', title: section.settings.title %}
           {% endif %}
         </div>
 
@@ -479,19 +471,19 @@
       }, {
         "type": "range",
         "id": "size_heading_mobile",
-        "min": 40,
-        "max": 220,
+        "min": 80,
+        "max": 300,
         "step": 10,
-        "default": 80,
+        "default": 100,
         "label": "Title size (mobile)",
         "unit": "%"
       }, {
         "type": "range",
         "id": "size_heading",
-        "min": 40,
-        "max": 220,
+        "min": 100,
+        "max": 500,
         "step": 10,
-        "default": 80,
+        "default": 100,
         "label": "Title size (desktop)",
         "unit": "%"
       }, {
