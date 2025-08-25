@@ -158,31 +158,12 @@
 
         <script data-swiper-configuration type="text/json">
           {
+            "enableOnMedia": "(max-width: 899px)",
             "slidesPerView": {{ slidesPerView }},
             "spaceBetween": 16,
             "scrollbar": {
               "el": ".wt-slider__scrollbar--featured",
-              "draggable": true,
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 1.04,
-                  "slidesPerGroup": 1,
-                  "spaceBetween": 12
-                },
-                "900": {
-                  "slidesPerView": 2,
-                  "slidesPerGroup": 2,
-                  "spaceBetween": 12
-                }
-              },
-              "navigation": {
-                "nextEl": ".wt-slider__nav-next--featured",
-                "prevEl": ".wt-slider__nav-prev--featured"
-              },
-              "scrollbar": {
-                "el": ".wt-slider__scrollbar--featured",
-                "draggable": true
-              }
+              "draggable": true
             }
           }
         </script>
