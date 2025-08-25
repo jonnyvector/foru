@@ -309,9 +309,9 @@
       "settings": {
         "subtitle": "Ingredients",
         "title": "RESEARCH-BACKED FORMULA",
-        "description": "Each component is precisely selected and dosed based on clinical research. Clean formulas designed to work together, not just work alone.",
+        "description": "<p>Each component is precisely selected and dosed based on clinical research. Clean formulas designed to work together, not just work alone.</p>",
         "view_all_text": "View all",
-        "view_all_link": "",
+        "view_all_link": "shopify://pages/contact",
         "title_size_mobile": 100,
         "title_size_desktop": 100,
         "text_color": "rgba(0,0,0,0)",
