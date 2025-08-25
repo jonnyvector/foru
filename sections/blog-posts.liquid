@@ -176,13 +176,27 @@
 
         <script data-swiper-configuration type="text/json">
           {
-            "enableOnMedia": "(max-width: 899px)",
-            "slidesPerView": {{ slidesPerView }},
-            "slidesPerGroup": 1,
-            "spaceBetween": 16,
+            "enabled": true,
+            "slidesPerView": "auto",
             "freeMode": false,
+            "centeredSlides": false,
+            "slideToClickedSlide": false,
+            "centeredSlidesBounds": true,
             "speed": 150,
             "grabCursor": false,
+            "paginationType": "bullets",
+            "breakpoints": {
+              "320": {
+                "slidesPerView": {{ slidesPerView }},
+                "slidesPerGroup": 1,
+                "spaceBetween": 16
+              },
+              "900": {
+                "slidesPerView": 3,
+                "slidesPerGroup": 1,
+                "spaceBetween": 24
+              }
+            },
             "navigation": {
               "nextEl": ".wt-slider__nav-next--featured",
               "prevEl": ".wt-slider__nav-prev--featured"
