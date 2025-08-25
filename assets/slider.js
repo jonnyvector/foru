@@ -184,38 +184,6 @@ if (!customElements.get("slideshow-section")) {
 
               this.centerNavigation();
               this.handleTabindex(swiper);
-              
-              // Update scrollbar after initialization and image loading
-              if (swiper.scrollbar && swiper.scrollbar.updateSize) {
-                // Immediate update
-                swiper.scrollbar.updateSize();
-                
-                // Delayed update for images
-                setTimeout(() => {
-                  swiper.scrollbar.updateSize();
-                }, 100);
-                
-                // Update after all images are loaded
-                const images = this.querySelectorAll('img');
-                if (images.length > 0) {
-                  let loadedImages = 0;
-                  images.forEach((img) => {
-                    if (img.complete) {
-                      loadedImages++;
-                    } else {
-                      img.addEventListener('load', () => {
-                        loadedImages++;
-                        if (loadedImages === images.length) {
-                          swiper.scrollbar.updateSize();
-                        }
-                      });
-                    }
-                  });
-                  if (loadedImages === images.length) {
-                    swiper.scrollbar.updateSize();
-                  }
-                }
-              }
             },
             slideChangeTransitionEnd: (swiper) => {
               this.handleTabindex(swiper);
