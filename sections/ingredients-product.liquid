@@ -250,10 +250,10 @@
         {% for ingredient in ingredients %}
         
           <div class="ingredients-product__card">
-            {% if ingredient.ingredient.image.value %}
+            {% if ingredient.image.value %}
               <div class="ingredients-product__card-image">
                 {{
-                  ingredient.ingredient.image.value | image_url: width: 400 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 300px, 280px', widths: '280, 400, 600', alt: ingredient.ingredient.name.value
+                  ingredient.image.value | image_url: width: 400 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 300px, 280px', widths: '280, 400, 600', alt: ingredient.name.value
                 }}
               </div>
             {% endif %}
