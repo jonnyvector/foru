@@ -6,6 +6,7 @@
 
 
 {{ 'swiper.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'slider.js' | asset_url }}" defer></script>
 
 <style>
   [data-section-id="{{ section.id }}"] {
@@ -94,10 +95,8 @@
     font-weight: 300;
   }
 
-  [data-section-id="{{ section.id }}"] .ingredients-product__grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+  [data-section-id="{{ section.id }}"] .ingredients-product__slider {
+    position: relative;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__card {
@@ -163,11 +162,58 @@
     background: var(--color-custom-text, #000);
   }
 
+  /* Navigation Arrows */
+  [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next,
+  [data-section-id="{{ section.id }}"] .ingredients-swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background: white;
+    border: 2px solid var(--color-custom-text, #000);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    color: var(--color-custom-text, #000);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next:hover,
+  [data-section-id="{{ section.id }}"] .ingredients-swiper-button-prev:hover {
+    background: var(--color-custom-text, #000);
+    color: white;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next {
+    right: -22px;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-swiper-button-prev {
+    left: -22px;
+  }
+
   [data-section-id="{{ section.id }}"] .ingredients-product__empty {
     text-align: center;
     padding: 60px 20px;
     color: #666;
     font-style: italic;
+  }
+
+  /* Desktop - show navigation arrows */
+  @media (min-width: 768px) {
+    [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next,
+    [data-section-id="{{ section.id }}"] .ingredients-swiper-button-prev {
+      display: flex !important;
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredients-product__dots {
+      display: none;
+    }
   }
 
   /* Mobile Styles */
@@ -176,46 +222,13 @@
       font-size: calc(var(--font-h1-size, 2rem) * {{ section.settings.title_size_mobile | divided_by: 100.0 }});
     }
 
-    [data-section-id="{{ section.id }}"] .ingredients-product__grid {
-      display: none;
-    }
-
-    [data-section-id="{{ section.id }}"] .ingredients-product__mobile-slider {
-      display: block;
-    }
-
-    [data-section-id="{{ section.id }}"] .ingredients-product__card {
-      min-width: 280px;
-      margin-right: 16px;
-    }
-
     [data-section-id="{{ section.id }}"] .ingredients-product__card-image {
       height: 250px;
     }
-  }
 
-  /* Desktop - hide mobile slider */
-  [data-section-id="{{ section.id }}"] .ingredients-product__mobile-slider {
-    display: none;
-  }
-
-  @media (min-width: 768px) {
-    [data-section-id="{{ section.id }}"] .ingredients-product__mobile-slider {
-      display: none;
-    }
-  }
-
-  /* Responsive grid adjustments */
-  @media (max-width: 1024px) {
-    [data-section-id="{{ section.id }}"] .ingredients-product__grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  @media (max-width: 768px) {
-    [data-section-id="{{ section.id }}"] .ingredients-product__grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+    [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next,
+    [data-section-id="{{ section.id }}"] .ingredients-swiper-button-prev {
+      display: none !important;
     }
   }
 </style>
@@ -245,58 +258,52 @@
     </div>
       
     {% if ingredients %}
-      <!-- Desktop Grid -->
-      <div class="ingredients-product__grid">
-        {% for ingredient in ingredients %}
-        
-          <div class="ingredients-product__card">
-            {% if ingredient.image.value %}
-              <div class="ingredients-product__card-image">
-                {{
-                  ingredient.image.value | image_url: width: 400 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 300px, 280px', widths: '280, 400, 600', alt: ingredient.name.value
-                }}
-              </div>
-            {% endif %}
-
-            <div class="ingredients-product__card-content">
-              {% if ingredient.name.value %}
-                <h3 class="ingredients-product__card-name">{{ ingredient.name.value }}</h3>
-              {% endif %}
-
-              {% if ingredient.short_description.value %}
-                <div class="ingredients-product__card-description">{{ ingredient.short_description.value }}</div>
-              {% endif %}
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-
-      <!-- Mobile Slider -->
-      <div class="ingredients-product__mobile-slider">
-        <slideshow-section data-section-id="{{ section.id }}" class="wt-slider wt-slider--hero">
+      <!-- Ingredients Slider (Desktop & Mobile) -->
+      <div class="ingredients-product__slider">
+        <slideshow-section data-section-id="{{ section.id }}" class="wt-slider">
           <script data-swiper-configuration type="text/json">
             {
-              "enableOnMedia": "(max-width: 767px)",
-              "spaceBetween": 16,
-              "slidesPerView": "auto",
+              "spaceBetween": 20,
+              "slidesPerView": 1.2,
               "centeredSlides": false,
               "loop": false,
               "pagination": {
                 "el": ".ingredients-product__dots",
-                "clickable": true,
-                "renderBullet": "function (index, className) { return '<span class=\"ingredients-product__dot ' + className + '\"></span>'; }"
+                "clickable": true
+              },
+              "navigation": {
+                "nextEl": ".ingredients-swiper-button-next",
+                "prevEl": ".ingredients-swiper-button-prev"
+              },
+              "breakpoints": {
+                "480": {
+                  "slidesPerView": 1.5,
+                  "spaceBetween": 16
+                },
+                "768": {
+                  "slidesPerView": 2,
+                  "spaceBetween": 20
+                },
+                "1024": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 20
+                },
+                "1200": {
+                  "slidesPerView": 4,
+                  "spaceBetween": 20
+                }
               }
             }
           </script>
 
           <div data-swiper class="wt-slider__container">
-            <div data-swiper-container class="ingredients-product__slider-container">
+            <div data-swiper-container>
               {% for ingredient in ingredients %}
                 <div data-swiper-slide class="ingredients-product__card">
                   {% if ingredient.image.value %}
                     <div class="ingredients-product__card-image">
                       {{
-                        ingredient.image.value | image_url: width: 400 | image_tag: loading: 'lazy', sizes: '280px', widths: '280, 400', alt: ingredient.name.value
+                        ingredient.image.value | image_url: width: 400 | image_tag: loading: 'lazy', sizes: '(min-width: 1200px) 300px, (min-width: 768px) 350px, 280px', widths: '280, 350, 400, 600', alt: ingredient.name.value
                       }}
                     </div>
                   {% endif %}
@@ -312,6 +319,18 @@
                   </div>
                 </div>
               {% endfor %}
+            </div>
+
+            <!-- Desktop Navigation Arrows -->
+            <div class="ingredients-swiper-button-next swiper-button-next" style="display: none;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="ingredients-swiper-button-prev swiper-button-prev" style="display: none;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
             </div>
           </div>
         </slideshow-section>
