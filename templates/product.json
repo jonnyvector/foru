@@ -299,8 +299,8 @@
         "color_background_icon": "rgba(0,0,0,0)",
         "color_body_text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
-        "margin-top": 80,
-        "margin-bottom": 80
+        "margin-top": 100,
+        "margin-bottom": 100
       }
     },
     "ingredients_product_nVPErd": {
@@ -318,8 +318,8 @@
         "ingredient_name_size_desktop": 150,
         "text_color": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
-        "margin_top": 40,
-        "margin_bottom": 40
+        "margin_top": 0,
+        "margin_bottom": 100
       }
     },
     "testimonial_video_reels_qnieGX": {
