@@ -88,7 +88,7 @@
         data-swiper
         class="wt-multicol  {% if section.settings.full-width-enabled %} wt-multicol--full {% endif %}"
       >
-        <ul data-swiper-container class="wt-multicol__list wt-multicol__list--{{ section.blocks.size }}">
+        <ul data-swiper-container class="wt-multicol__list wt-multicol__list--{{ section.settings.post_limit }}">
           {% if section.settings.blog.articles %}
             {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
               <li
