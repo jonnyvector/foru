@@ -277,7 +277,8 @@
         "image_P4VQTE"
       ],
       "custom_css": [
-        ".wt-keys__content {text-align: left;}"
+        ".wt-keys__content {text-align: left;}",
+        ".wt-keys__item{align-items:flex-start;}"
       ],
       "name": "t:sections.features-banner.settings.presets.name",
       "settings": {
