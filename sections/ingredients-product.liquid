@@ -3,10 +3,7 @@
 {% comment %} Get ingredients from product metafield {% endcomment %}
 {% assign ingredients = product.metafields.custom.ingredients.value %}
 
-{% comment %} Debug output - remove after testing {% endcomment %}
-<!-- DEBUG: ingredients metafield exists: {{ product.metafields.custom.ingredients != blank }} -->
-<!-- DEBUG: ingredients value: {{ ingredients }} -->
-<!-- DEBUG: ingredients size: {{ ingredients.size }} -->
+
 
 {{ 'swiper.css' | asset_url | stylesheet_tag }}
 
@@ -224,7 +221,7 @@
 </style>
 
 <section data-section-id="{{ section.id }}" class="ingredients-product">
-  {{ ingredients }}
+  
   <div class="ingredients-product__container">
     <div class="ingredients-product__header">
       {% if section.settings.subtitle != blank %}
@@ -247,29 +244,30 @@
       {% endif %}
     </div>
 
+    {{ ingredients }}
+
     {% if ingredients and ingredients.size > 0 %}
       <!-- Desktop Grid -->
       <div class="ingredients-product__grid">
         {% for ingredient in ingredients %}
-          <!-- DEBUG ingredient: {{ ingredient }} -->
-          <!-- DEBUG ingredient.ingredient.name: {{ ingredient.ingredient.name }} -->
-          <!-- DEBUG ingredient.ingredient.name.value: {{ ingredient.ingredient.name.value }} -->
+          {{ ingredients }}
+        
           <div class="ingredients-product__card">
-            {% if ingredient.ingredient.image.value %}
+            {% if ingredient.image.value %}
               <div class="ingredients-product__card-image">
                 {{
-                  ingredient.ingredient.image.value | image_url: width: 400 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 300px, 280px', widths: '280, 400, 600', alt: ingredient.ingredient.name.value
+                  ingredient.image.value | image_url: width: 400 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 300px, 280px', widths: '280, 400, 600', alt: ingredient.name.value
                 }}
               </div>
             {% endif %}
 
             <div class="ingredients-product__card-content">
-              {% if ingredient.ingredient.name.value %}
-                <h3 class="ingredients-product__card-name">{{ ingredient.ingredient.name.value }}</h3>
+              {% if ingredient.name.value %}
+                <h3 class="ingredients-product__card-name">{{ ingredient.name.value }}</h3>
               {% endif %}
 
-              {% if ingredient.ingredient.short_description.value %}
-                <div class="ingredients-product__card-description">{{ ingredient.ingredient.short_description.value }}</div>
+              {% if ingredient.short_description.value %}
+                <div class="ingredients-product__card-description">{{ ingredient.short_description.value }}</div>
               {% endif %}
             </div>
           </div>
@@ -298,21 +296,21 @@
             <div data-swiper-container class="ingredients-product__slider-container">
               {% for ingredient in ingredients %}
                 <div data-swiper-slide class="ingredients-product__card">
-                  {% if ingredient.ingredient.image.value %}
+                  {% if ingredient.image.value %}
                     <div class="ingredients-product__card-image">
                       {{
-                        ingredient.ingredient.image.value | image_url: width: 400 | image_tag: loading: 'lazy', sizes: '280px', widths: '280, 400', alt: ingredient.ingredient.name.value
+                        ingredient.image.value | image_url: width: 400 | image_tag: loading: 'lazy', sizes: '280px', widths: '280, 400', alt: ingredient.name.value
                       }}
                     </div>
                   {% endif %}
 
                   <div class="ingredients-product__card-content">
-                    {% if ingredient.ingredient.name.value %}
-                      <h3 class="ingredients-product__card-name">{{ ingredient.ingredient.name.value }}</h3>
+                    {% if ingredient.name.value %}
+                      <h3 class="ingredients-product__card-name">{{ ingredient.name.value }}</h3>
                     {% endif %}
 
-                    {% if ingredient.ingredient.short_description.value %}
-                      <div class="ingredients-product__card-description">{{ ingredient.ingredient.short_description.value }}</div>
+                    {% if ingredient.short_description.value %}
+                      <div class="ingredients-product__card-description">{{ ingredient.short_description.value }}</div>
                     {% endif %}
                   </div>
                 </div>
