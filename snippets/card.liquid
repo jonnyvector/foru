@@ -1,4 +1,4 @@
-{%- liquid
+w{%- liquid
   if lazy_load
     assign loading = 'lazy'
   else
@@ -24,6 +24,7 @@
 <color-swatch>
   <div class="card__container" style="--aspect-ratio: {{ aspect_ratio }};">
     <div class="card__picture-container">
+      {{ url }}
       <a
         href="{{ url | default: '#' }}"
         class="card{% if text_alignment %} card--{{ text_alignment }}{% endif %}"
