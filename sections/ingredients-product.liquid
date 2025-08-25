@@ -88,32 +88,6 @@
     margin-bottom: 20px;
   }
 
-  [data-section-id="{{ section.id }}"] .ingredients-product__view-all {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-custom-text, #000);
-    text-decoration: none;
-    transition: opacity 0.2s ease;
-  }
-
-  [data-section-id="{{ section.id }}"] .ingredients-product__view-all:hover {
-    opacity: 0.7;
-  }
-
-  [data-section-id="{{ section.id }}"] .ingredients-product__view-all-icon {
-    width: 18px;
-    height: 18px;
-    background: var(--color-custom-text, #000);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    color: white;
-    font-weight: 300;
-  }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__slider {
     position: relative;
@@ -312,10 +286,10 @@
           {% endif %}
 
           {% if section.settings.view_all_text != blank and section.settings.view_all_link != blank %}
-            <a href="{{ section.settings.view_all_link }}" class="ingredients-product__view-all">
-              {{ section.settings.view_all_text }}
-              <span class="ingredients-product__view-all-icon">+</span>
-            </a>
+            {% render 'shop-button', 
+               text: section.settings.view_all_text, 
+               style: 'light', 
+               url: section.settings.view_all_link %}
           {% endif %}
         </div>
       </div>
