@@ -4,6 +4,11 @@
 {% comment %} Get ingredients from product metafield {% endcomment %}
 {% assign ingredients = product.metafields.custom.ingredients.value %}
 
+{% comment %} Debug output - remove after testing {% endcomment %}
+<!-- DEBUG: ingredients metafield exists: {{ product.metafields.custom.ingredients != blank }} -->
+<!-- DEBUG: ingredients value: {{ ingredients }} -->
+<!-- DEBUG: ingredients size: {{ ingredients.size }} -->
+
 {{ 'swiper.css' | asset_url | stylesheet_tag }}
 
 <style>
@@ -246,6 +251,9 @@
       <!-- Desktop Grid -->
       <div class="ingredients-product__grid">
         {% for ingredient in ingredients %}
+          <!-- DEBUG ingredient: {{ ingredient }} -->
+          <!-- DEBUG ingredient.name: {{ ingredient.name }} -->
+          <!-- DEBUG ingredient.name.value: {{ ingredient.name.value }} -->
           <div class="ingredients-product__card">
             {% if ingredient.image.value %}
               <div class="ingredients-product__card-image">
