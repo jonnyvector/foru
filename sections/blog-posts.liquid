@@ -44,23 +44,6 @@
     --font-headline-scale: {{ section.settings.size_heading_mobile | divided_by: 100.0 }};
   }
 
-  /* Ensure scrollbar is visible when swiper is active */
-  [data-section-id="{{ section.id }}"] .swiper .wt-slider__scrollbar {
-    display: block !important;
-  }
-
-  /* Force proper scrollbar drag element sizing */
-  [data-section-id="{{ section.id }}"] .swiper .wt-slider__scrollbar .swiper-scrollbar-drag {
-    transform: translate3d(0px, 0, 0) !important;
-    transition: transform 150ms !important;
-    width: auto !important;
-    left: 0 !important;
-  }
-
-  /* Prevent width override on scrollbar drag */
-  [data-section-id="{{ section.id }}"] .swiper .wt-slider__scrollbar .swiper-scrollbar-drag {
-    max-width: none !important;
-  }
 
 
 </style>
@@ -89,6 +72,7 @@
         <slideshow-section
           class="wt-slider background-{{ section.settings.background_style }}{% if section.settings.title == blank %} no-heading{% endif %}"
           id="{{ section.id }}"
+          data-slides-group
         >
       {% else %}
         <div
@@ -163,9 +147,6 @@
             {% endfor %}
           {% endif %}
         </ul>
-
-        <!-- If we need scrollbar -->
-        <div class="swiper-scrollbar wt-slider__scrollbar wt-slider__scrollbar--featured {% if section.settings['full-width-enabled'] %} wt-slider__scrollbar--full {% endif %}"></div>
 
 
         {% if section.settings['full-width-enabled'] %}
