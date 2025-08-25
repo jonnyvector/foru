@@ -39,6 +39,38 @@
         "margin-bottom": 44
       }
     },
+    "featured_collection_variant_W7pFMg": {
+      "type": "featured-collection-variant",
+      "name": "Collection Variants",
+      "settings": {
+        "title": "Featured variants",
+        "disable_on_mobile": false,
+        "hide_empty_section": false,
+        "collection": "frontpage",
+        "product_list": [],
+        "products_to_show": 8,
+        "variants_per_product": 3,
+        "enable_stack_products": false,
+        "show_view_all": true,
+        "button_select": "primary",
+        "number_of_column_desktop": 4,
+        "spacing_desktop": "16",
+        "make_products_full_width": true,
+        "number_of_column_mobile": 2.1,
+        "spacing_mobile": "16",
+        "text_alignment": "left",
+        "image_ratio": "square",
+        "show_video": false,
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "show_product_rating": true,
+        "enable_quick_add_button": false,
+        "color-body-text": "transparent",
+        "background_color": "transparent",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
     "benefits_product_DGyBfk": {
       "type": "benefits-product",
       "blocks": {
@@ -560,6 +592,7 @@
   },
   "order": [
     "featured_collection_98txhK",
+    "featured_collection_variant_W7pFMg",
     "benefits_product_DGyBfk",
     "video_reels_kb4KdA",
     "image_with_text_3rdT8b",
