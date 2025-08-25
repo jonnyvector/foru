@@ -277,7 +277,7 @@
         "image_P4VQTE"
       ],
       "custom_css": [
-        ".wt-keys__content {text-align: left; max-width:350px;}",
+        ".wt-keys__content {text-align: left; max-width: 350px;}",
         ".wt-keys__item {align-items: flex-start;}",
         ".headline__title {text-align: left;}",
         "@media (min-width: 768px) {.headline__title {margin-left: 16px; } img {margin-left: 16px; }}"
@@ -308,7 +308,7 @@
       "name": "Product Ingredients",
       "settings": {
         "subtitle": "Ingredients",
-        "title": "RESEARCH-BACKED FORMULA",
+        "title": "RESEARCH-BACKED \nFORMULA",
         "description": "<p>Each component is precisely selected and dosed based on clinical research. Clean formulas designed to work together, not just work alone.</p>",
         "view_all_text": "View all",
         "view_all_link": "shopify://pages/contact",
