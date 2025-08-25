@@ -190,6 +190,7 @@ if (!customElements.get("slideshow-section")) {
                 setTimeout(() => {
                   swiper.update();
                   swiper.scrollbar.updateSize();
+                  swiper.scrollbar.setTranslate();
                 }, 100);
               }
             },
