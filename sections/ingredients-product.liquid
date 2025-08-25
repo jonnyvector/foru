@@ -287,6 +287,11 @@
     [data-section-id="{{ section.id }}"] .ingredients-product__dots {
       display: none !important;
     }
+
+    /* Extend slider to screen edge on right side */
+    [data-section-id="{{ section.id }}"] .ingredients-product__slider {
+      margin-right: calc(0px - calc(var(--gap, 8px) * 2));
+    }
   }
 </style>
 
