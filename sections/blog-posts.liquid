@@ -81,7 +81,10 @@
         >
       {% endif %}
 
-      <div data-swiper class="wt-slider__container--featured loading {% if section.settings.full-width-enabled %} wt-slider__container--full {% endif %}">
+      <div
+        data-swiper
+        class="wt-multicol  {% if section.settings.full-width-enabled %} wt-multicol--full {% endif %}"
+      >
         <ul data-swiper-container class="wt-multicol__list wt-multicol__list--{{ section.blocks.size }}">
           {% if section.settings.blog.articles %}
             {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
@@ -156,23 +159,9 @@
 
         <script data-swiper-configuration type="text/json">
           {
-            "slidesPerView": "auto",
-            "spaceBetween": 8,
-            "freeMode": false,
-            "speed": 150,
-            "grabCursor": false,
-            "breakpoints": {
-              "320": {
-                "slidesPerView": {{ slidesPerView }},
-                "slidesPerGroup": 1,
-                "spaceBetween": 16
-              },
-              "900": {
-                "slidesPerView": 3,
-                "slidesPerGroup": 1,
-                "spaceBetween": 24
-              }
-            },
+            "enableOnMedia": "(max-width: 899px)",
+            "slidesPerView": {{ slidesPerView }},
+            "spaceBetween": 16,
             "scrollbar": {
               "el": ".wt-slider__scrollbar--featured",
               "draggable": true
