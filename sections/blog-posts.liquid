@@ -188,6 +188,14 @@
         </div>
       {%- endif -%}
 </div>
+
+<style>
+@media (min-width: 900px) {
+  #shopify-section-{{ section.id }} .wt-slider__scrollbar--featured {
+    display: none !important;
+  }
+}
+</style>
 {% endif %}
 
 {% schema %}
