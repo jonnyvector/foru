@@ -44,13 +44,6 @@
     --font-headline-scale: {{ section.settings.size_heading_mobile | divided_by: 100.0 }};
   }
 
-  /* Hide scrollbar on desktop via CSS to prevent flashing */
-  @media (min-width: 900px) {
-    [data-section-id="{{ section.id }}"] .wt-slider__scrollbar {
-      opacity: 0 !important;
-      visibility: hidden !important;
-    }
-  }
 
 </style>
 
@@ -165,27 +158,13 @@
 
         <script data-swiper-configuration type="text/json">
           {
-            "enabled": true,
-            "slidesPerView": "auto",
+            "enableOnMedia": "(max-width: 899px)",
+            "slidesPerView": {{ slidesPerView }},
+            "slidesPerGroup": 1,
+            "spaceBetween": 16,
             "freeMode": false,
-            "centeredSlides": false,
-            "slideToClickedSlide": false,
-            "centeredSlidesBounds": true,
             "speed": 150,
             "grabCursor": false,
-            "paginationType": "bullets",
-            "breakpoints": {
-              "320": {
-                "slidesPerView": {{ slidesPerView }},
-                "slidesPerGroup": 1,
-                "spaceBetween": 16
-              },
-              "900": {
-                "slidesPerView": 3,
-                "slidesPerGroup": 1,
-                "spaceBetween": 24
-              }
-            },
             "navigation": {
               "nextEl": ".wt-slider__nav-next--featured",
               "prevEl": ".wt-slider__nav-prev--featured"
