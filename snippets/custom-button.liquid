@@ -65,43 +65,48 @@
   {% else %}
     <button
       type="{{ button_type }}"
-      class="custom-button-single-{{ unique_id }}"
+      class="custom-button-text-{{ unique_id }}"
       aria-label="{{ aria_label | default: button_text }}"
       {% if disabled %}disabled{% endif %}>
-      <span class="custom-button-text-part-{{ unique_id }}">
-        <span class="slide-wrapper">
-          <span class="slide-text">{{ button_text }}</span>
-          <span class="slide-text">{{ button_text }}</span>
-        </span>
+      <span class="slide-wrapper">
+        <span class="slide-text">{{ button_text }}</span>
+        <span class="slide-text">{{ button_text }}</span>
       </span>
-      <span class="custom-button-arrow-part-{{ unique_id }}">
-        <span class="slide-wrapper">
-          <span class="slide-arrow">
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 32 32"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M6.57227 16H25.4284M25.4284 16L16.9432 7.51472M25.4284 16L16.9432 24.4853"
-                stroke="currentColor"
-                stroke-width="2" />
-            </svg>
-          </span>
-          <span class="slide-arrow">
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 32 32"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M6.57227 16H25.4284M25.4284 16L16.9432 7.51472M25.4284 16L16.9432 24.4853"
-                stroke="currentColor"
-                stroke-width="2" />
-            </svg>
-          </span>
+    </button>
+
+    <button
+      style="padding:0"
+      type="{{ button_type }}"
+      class="custom-button-arrow-{{ unique_id }}"
+      aria-label="{{ aria_label | default: button_text }}"
+      {% if disabled %}disabled{% endif %}>
+      <span class="slide-wrapper">
+        <span class="slide-arrow">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M6.57227 16H25.4284M25.4284 16L16.9432 7.51472M25.4284 16L16.9432 24.4853"
+              stroke="currentColor"
+              stroke-width="2" />
+          </svg>
+
+        </span>
+        <span class="slide-arrow">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M6.57227 16H25.4284M25.4284 16L16.9432 7.51472M25.4284 16L16.9432 24.4853"
+              stroke="currentColor"
+              stroke-width="2" />
+          </svg>
         </span>
       </span>
     </button>
@@ -128,25 +133,9 @@
     flex: 1;
   }
 
-  /* Single button styling */
-  .custom-button-single-{{ unique_id }} {
-    display: flex;
-    gap: 1rem;
-    padding: 0;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    align-items: stretch;
-  }
-
-  /* Full width modifier for single button */
-  .custom-button-wrapper-{{ unique_id }}.button--full-width .custom-button-single-{{ unique_id }} {
-    width: 100%;
-  }
-
-  /* Text and arrow parts */
-  .custom-button-text-part-{{ unique_id }}, 
-  .custom-button-arrow-part-{{ unique_id }} {
+  /* Both halves (padding defines size) */
+  .custom-button-text-{{ unique_id }}
+  , .custom-button-arrow-{{ unique_id }} {
     border: 1px solid;
     border-radius: var(--border-radius-button);
     text-decoration: none;
@@ -161,48 +150,50 @@
     , filter 0.25s ease;
   }
 
-  /* Text part (padding-based) */
-  .custom-button-text-part-{{ unique_id }} {
+  /* Text half (padding-based) */
+  .custom-button-text-{{ unique_id }} {
     padding: 22px 40px;
-    flex: 1;
+    max-height: 64px;
     font-family: var(--font-headline);
     font-size: var(--font-button-size);
     font-weight: var(--font-button-weight);
   }
 
-  /* Arrow part (fixed size) */
-  .custom-button-arrow-part-{{ unique_id }} {
+  /* Arrow half (fixed size) */
+  .custom-button-arrow-{{ unique_id }} {
     width: 64px;
-    min-width: 64px;
     height: 64px;
   }
 
   /* Theme variants */
-  .custom-button-wrapper--primary .custom-button-text-part-{{ unique_id }},
-  .custom-button-wrapper--primary .custom-button-arrow-part-{{ unique_id }} {
+  .custom-button-wrapper--primary .custom-button-text-{{ unique_id }}
+  , .custom-button-wrapper--primary .custom-button-arrow-{{ unique_id }} {
     background: var(--color-button-primary-background);
     color: var(--color-button-primary-text);
     border-color: transparent;
   }
 
-  .custom-button-wrapper--secondary .custom-button-text-part-{{ unique_id }},
-  .custom-button-wrapper--secondary .custom-button-arrow-part-{{ unique_id }} {
+  .custom-button-wrapper--secondary .custom-button-text-{{ unique_id }}
+  , .custom-button-wrapper--secondary .custom-button-arrow-{{ unique_id }} {
     background: var(--color-button-secondary-background);
     color: var(--color-button-secondary-text);
     border-color: var(--color-button-secondary-border);
   }
 
   /* Slide mechanics (grid overlay, no height dependency) */
-  .custom-button-text-part-{{ unique_id }} .slide-wrapper,
-  .custom-button-arrow-part-{{ unique_id }} .slide-wrapper {
+  .custom-button-text-{{ unique_id }} .slide-wrapper
+  , .custom-button-arrow-{{ unique_id }}
+  .slide-wrapper {
     display: grid;
     place-items: center;
     width: 100%;
     overflow: hidden;
   }
 
-  .custom-button-text-part-{{ unique_id }} .slide-text,
-  .custom-button-arrow-part-{{ unique_id }} .slide-arrow {
+  .custom-button-text-{{ unique_id }}
+  .slide-text
+  , .custom-button-arrow-{{ unique_id }}
+  .slide-arrow {
     grid-area: 1 / 1;
     transform: translateY(0);
     transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -215,21 +206,21 @@
   }
 
   /* Second copy starts below */
-  .custom-button-text-part-{{ unique_id }} .slide-text:last-child,
-  .custom-button-arrow-part-{{ unique_id }} .slide-arrow:last-child {
+  .custom-button-text-{{ unique_id }} .slide-text:last-child,
+  .custom-button-arrow-{{ unique_id }} .slide-arrow:last-child {
     transform: translateY(100%);
   }
 
   /* Hover color changes */
   @media (hover: hover) {
-    .custom-button-wrapper--primary:hover .custom-button-text-part-{{ unique_id }},
-    .custom-button-wrapper--primary:hover .custom-button-arrow-part-{{ unique_id }} {
+    .custom-button-wrapper--primary:hover .custom-button-text-{{ unique_id }},
+    .custom-button-wrapper--primary:hover .custom-button-arrow-{{ unique_id }} {
       background: var(--color-button-primary-background-hover);
       color: var(--color-button-primary-text-hover);
     }
 
-    .custom-button-wrapper--secondary:hover .custom-button-text-part-{{ unique_id }},
-    .custom-button-wrapper--secondary:hover .custom-button-arrow-part-{{ unique_id }} {
+    .custom-button-wrapper--secondary:hover .custom-button-text-{{ unique_id }},
+    .custom-button-wrapper--secondary:hover .custom-button-arrow-{{ unique_id }} {
       background: var(--color-button-secondary-background-hover);
       color: var(--color-button-secondary-text-hover);
     }
@@ -247,7 +238,7 @@
   }
 
   /* Icon size */
-  .custom-button-arrow-part-{{ unique_id }} svg {
+  .custom-button-arrow-{{ unique_id }} svg {
     width: 32px;
     height: 32px;
     display: block;
@@ -255,20 +246,22 @@
 
   /* Subtle stagger so arrow trails text */
   @media (hover: hover) {
-    .custom-button-wrapper-{{ unique_id }}:hover .custom-button-arrow-part-{{ unique_id }} .slide-arrow {
+    .custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }}
+    .slide-arrow {
       transition-delay: 0.06s;
     }
   }
 
   /* Focus-visible for a11y */
-  .custom-button-single-{{ unique_id }}:focus-visible {
+  .custom-button-text-{{ unique_id }}:focus-visible,
+  .custom-button-arrow-{{ unique_id }}:focus-visible {
     outline: 2px solid #6aa3ff;
     outline-offset: 2px;
   }
 
   /* Disabled state */
-  .custom-button-single-{{ unique_id }}:disabled .custom-button-text-part-{{ unique_id }},
-  .custom-button-single-{{ unique_id }}:disabled .custom-button-arrow-part-{{ unique_id }} {
+  .custom-button-text-{{ unique_id }}:disabled,
+  .custom-button-arrow-{{ unique_id }}:disabled {
     opacity: 0.5;
     cursor: not-allowed;
   }
@@ -280,17 +273,15 @@
 
   /* Mobile adjustments */
   @media screen and (max-width: 749px) {
-    .custom-button-text-part-{{ unique_id }} {
+    .custom-button-text-{{ unique_id }} {
       max-height: 48px;
     }
 
-    .custom-button-arrow-part-{{ unique_id }} {
+    .custom-button-arrow-{{ unique_id }} {
       max-height: 48px;
-      width: 48px;
-      min-width: 48px;
     }
 
-    .custom-button-arrow-part-{{ unique_id }} svg {
+    .custom-button-arrow-{{ unique_id }} svg {
       width: 24px;
       height: 24px;
     }
