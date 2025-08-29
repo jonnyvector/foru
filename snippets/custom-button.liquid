@@ -138,14 +138,19 @@
     width: 100% !important;
     display: flex !important;
     gap: 1rem !important;
-    justify-content: stretch !important;
-  }
-
-  /* Force the container itself to allow full width when it contains custom button */
-  .main-product__buy-buttons--container:has(.custom-button-wrapper-{{ unique_id }}) {
-    justify-content: stretch !important;
     align-items: stretch !important;
   }
+
+  /* Ensure buttons don't stretch individually but wrapper controls the layout */
+  .main-product__buy-buttons--container .custom-button-wrapper-{{ unique_id }} .custom-button-text-{{ unique_id }} {
+    flex: 1 !important;
+  }
+  
+  .main-product__buy-buttons--container .custom-button-wrapper-{{ unique_id }} .custom-button-arrow-{{ unique_id }} {
+    flex: none !important;
+    width: 64px !important;
+  }
+
 
   /* Both halves (padding defines size) */
   .custom-button-text-{{ unique_id }}
