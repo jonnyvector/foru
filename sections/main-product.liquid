@@ -59,6 +59,23 @@
         flex: 1;
     }
 
+    .wt-product__quantity-section {
+        flex-shrink: 0;
+        text-align: right;
+    }
+
+    /* Position the actual counter to align with the label above */
+    .wt-product__add-to-cart_form--wrapper {
+        position: relative;
+    }
+
+    .wt-product__add-to-cart_form--wrapper .counter-wrapper {
+        position: absolute;
+        top: -50px;
+        right: 0;
+        z-index: 1;
+    }
+
     .wt-product__total-label,
     .wt-product__quantity-label {
         font-size: var(--font-body-size);
@@ -1778,7 +1795,7 @@
                     {% if block.settings.show_gift_card_recipient and product.gift_card? %}
                       {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
                     {% endif %}
-                    {% comment %} Total and Quantity section matching the design {% endcomment %}
+                    {% comment %} Price-Quantity container matching the design {% endcomment %}
                     <div class="wt-product__price-quantity-container">
                       <div class="wt-product__total-section">
                         <p class="wt-product__total-label">Total</p>
@@ -1794,12 +1811,14 @@
                       {% if block.settings.show_qty_selector %}
                         <div class="wt-product__quantity-section">
                           <p class="wt-product__quantity-label">Quantity</p>
-                          {% render 'component-counter' %}
                         </div>
                       {% endif %}
                     </div>
                     
                     <div class="wt-product__add-to-cart_form--wrapper">
+                      {% if block.settings.show_qty_selector %}
+                        {% render 'component-counter' %}
+                      {% endif %}
 
                       {% assign disable_button = false %}
                       {% if product.has_only_default_variant == false and product.selected_variant.available == false %}
