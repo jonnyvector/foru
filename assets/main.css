@@ -6578,8 +6578,7 @@ input.disabled + .f-swatch__list__link .f-swatch__list__link__content {
   }
 }
 /* Price styling for total section with responsive scaling */
-.price--total .wt-product__price__final,
-.price--total .wt-product__price__compare {
+.price--total .wt-product__price__final {
   font-size: clamp(32px, 4vw + 20px, 48px);
   font-family: var(--font-price);
   font-style: var(--font-price-style);
