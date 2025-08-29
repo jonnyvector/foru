@@ -6587,6 +6587,10 @@ input.disabled + .f-swatch__list__link .f-swatch__list__link__content {
   letter-spacing: var(--font-price-letter-spacing, normal);
   color: var(--color-price) !important;
 }
+/* Hide sale percentage badge in total section */
+.price--total .price-item--percent {
+  display: none;
+}
 .wt-product__price__final--sale,
 .wt-product__price__compare--sale {
   color: var(--color-sale-price);
