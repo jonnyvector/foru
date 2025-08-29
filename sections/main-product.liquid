@@ -93,12 +93,24 @@
         align-items: center;
     }
 
-    /* Align the content elements (price and counter) at their bottoms */
+    /* Align the content elements (price and counter) at their baselines */
     .wt-product__total-price,
     .wt-product__quantity-section .counter-wrapper {
         display: flex;
-        align-items: flex-end;
-        min-height: 3rem; /* Ensure consistent baseline for alignment */
+        align-items: baseline;
+    }
+
+    /* Ensure counter wrapper has proper baseline alignment */
+    .wt-product__quantity-section .counter-wrapper {
+        align-items: center; /* Center the counter elements */
+    }
+
+    /* Make sure the price and counter are on the same baseline */
+    .wt-product__total-price .price,
+    .wt-product__quantity-section .counter {
+        line-height: 1;
+        display: flex;
+        align-items: center;
     }
 
     .wt-product__total-label,
@@ -131,8 +143,9 @@
     }
 
     .wt-product__quantity-section .counter {
-        height: 40px;
+        height: auto;
         align-items: center;
+        line-height: 1;
     }
 
     .wt-product__quantity-section .counter button {
