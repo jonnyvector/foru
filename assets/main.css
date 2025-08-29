@@ -6588,8 +6588,8 @@ input.disabled + .f-swatch__list__link .f-swatch__list__link__content {
   color: var(--color-price) !important;
 }
 /* Hide sale percentage badge in total section */
-.price--total .price-item--percent {
-  display: none;
+.price--total .price__sale .price-item--percent {
+  display: none !important;
 }
 .wt-product__price__final--sale,
 .wt-product__price__compare--sale {
