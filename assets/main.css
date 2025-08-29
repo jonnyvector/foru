@@ -6585,6 +6585,7 @@ input.disabled + .f-swatch__list__link .f-swatch__list__link__content {
   font-weight: var(--font-price-weight);
   text-transform: var(--font-price-transform, none);
   letter-spacing: var(--font-price-letter-spacing, normal);
+  color: var(--color-price) !important;
 }
 .wt-product__price__final--sale,
 .wt-product__price__compare--sale {
