@@ -7912,12 +7912,12 @@ input.disabled + .f-swatch__list__link .f-swatch__list__link__content {
     .js-counter-decrease {
     margin-left: 6px;
   }
-  .wt-product__add-to-cart_form
+  /* .wt-product__add-to-cart_form
     form:has(quantity-counter)
     .counter
     .js-counter-increase {
     margin-right: 6px;
-  }
+  } */
 }
 .wt-product__add-to-cart_form.large form {
   max-width: 100%;
