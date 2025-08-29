@@ -754,7 +754,7 @@ button[disabled] {
 
 @media (hover: hover) {
   .counter button:hover {
-    color: var(--color-input-text);
+    color: var(--color-button-primary-text);
     background-color: var(--color-button-primary-background);
   }
 
