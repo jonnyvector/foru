@@ -79,6 +79,11 @@ shopify theme share
 
 ## Development Notes
 
+### JavaScript File Policy
+- **DO NOT** modify existing JavaScript files or components
+- Always try to achieve functionality changes through Liquid templates or CSS first
+- Only create new JS when absolutely necessary and existing solutions won't work
+
 ### Liquid Template System
 - Uses Shopify's Liquid templating language
 - JSON templates in `templates/` define section layouts

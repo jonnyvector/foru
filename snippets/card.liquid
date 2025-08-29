@@ -185,9 +185,15 @@
 
       {% if enable_quick_add_button %}
         <div class="card__quick-add-container--desktop">
-          {% render 'quick-add-button'
-            , card_product: product
-            , product: card_product %}
+          {% if variant_context %}
+            {% render 'quick-add-button-variant'
+              , card_variant: card_variant
+              , product: product %}
+          {% else %}
+            {% render 'quick-add-button'
+              , card_product: product
+              , product: card_product %}
+          {% endif %}
         </div>
       {% endif %}
     </div>
@@ -371,9 +377,15 @@
 
     {% if enable_quick_add_button %}
       <div class="card__quick-add-container">
-        {% render 'quick-add-button'
-          , card_product: product
-          , product: card_product %}
+        {% if variant_context %}
+          {% render 'quick-add-button-variant'
+            , card_variant: card_variant
+            , product: product %}
+        {% else %}
+          {% render 'quick-add-button'
+            , card_product: product
+            , product: card_product %}
+        {% endif %}
       </div>
     {% endif %}
   </div>
