@@ -115,19 +115,19 @@
     }
 
     /* Quantity selector styling - individual boxes for each element */
-    .wt-product__add-to-cart_form--wrapper .counter-wrapper {
+    .wt-product__quantity-section .counter-wrapper {
         margin-top: 0.5rem;
         border: none;
         background: transparent;
         border-radius: 0;
     }
 
-    .wt-product__add-to-cart_form--wrapper .counter {
+    .wt-product__quantity-section .counter {
         height: 40px;
         align-items: center;
     }
 
-    .wt-product__add-to-cart_form--wrapper .counter button {
+    .wt-product__quantity-section .counter button {
         width: 32px;
         height: 32px;
         font-size: 1.6rem;
@@ -136,43 +136,45 @@
         transition: background-color 0.2s ease;
     }
 
-    /* Plus button - black background with white icon */
-    .wt-product__add-to-cart_form--wrapper .counter .js-counter-increase {
-        background-color: #000000 !important;
-        color: #ffffff !important;
-        border: none !important;
+    /* Plus button - transparent background with theme border */
+    .wt-product__quantity-section .counter .js-counter-increase {
+        background-color: transparent !important;
+        color: var(--color-button-primary-background) !important;
+        border: 1px solid var(--color-button-primary-background) !important;
     }
 
-    .wt-product__add-to-cart_form--wrapper .counter .js-counter-increase:hover {
-        background-color: #333333 !important;
+    .wt-product__quantity-section .counter .js-counter-increase:hover {
+        background-color: var(--color-button-primary-background) !important;
+        color: var(--color-button-primary-text) !important;
     }
 
-    /* Minus button - white background with black border and black icon */
-    .wt-product__add-to-cart_form--wrapper .counter .js-counter-decrease {
-        background-color: #ffffff !important;
-        color: #000000 !important;
-        border: 1px solid #000000 !important;
+    /* Minus button - transparent background with theme border */
+    .wt-product__quantity-section .counter .js-counter-decrease {
+        background-color: transparent !important;
+        color: var(--color-button-primary-background) !important;
+        border: 1px solid var(--color-button-primary-background) !important;
     }
 
-    .wt-product__add-to-cart_form--wrapper .counter .js-counter-decrease:hover {
-        background-color: #f5f5f5 !important;
+    .wt-product__quantity-section .counter .js-counter-decrease:hover {
+        background-color: var(--color-button-primary-background) !important;
+        color: var(--color-button-primary-text) !important;
     }
 
-    .wt-product__add-to-cart_form--wrapper .counter input {
-        height: 24px;
-        min-width: 24px;
+    .wt-product__quantity-section .counter input {
+        height: 32px;
+        min-width: 32px;
         text-align: center;
         padding: 0;
-        font-size: 24px;
+        font-size: 16px;
         color: var(--color-input-text);
-        border: none;
+        border: none !important;
         border-radius: 0;
         background-color: transparent;
     }
 
-    .wt-product__add-to-cart_form--wrapper .counter button svg {
-        width: 20px;
-        height: 20px;
+    .wt-product__quantity-section .counter button svg {
+        width: 16px;
+        height: 16px;
     }
 
     @media (max-width: 749px) {
