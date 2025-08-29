@@ -769,7 +769,7 @@ button[disabled] {
   text-align: center;
   padding: calc(var(--gap, 8px) * 1.25) calc(var(--gap, 8px) * 0.5)
     calc(var(--gap, 8px) * 1);
-  /* color: var(--color-input-text); */
+  color: var(--color-input-text);
 }
 
 .wt-rating {
