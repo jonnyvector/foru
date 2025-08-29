@@ -636,7 +636,7 @@ button[disabled] {
 }
 @media (hover: hover) {
   .button:hover {
-    background: var(--color-button-primary-background-hover);
+    /* background: var(--color-button-primary-background-hover); */
     border-color: transparent;
     color: var(--color-button-primary-text-hover);
   }
