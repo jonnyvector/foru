@@ -6577,23 +6577,7 @@ input.disabled + .f-swatch__list__link .f-swatch__list__link__content {
     --custom-text-scale: var(--font-text-scale-desk);
   }
 }
-.price--total .wt-product__price__final,
-.price--total .wt-product__price__compare {
-  font-size: var(--font-price-size);
-  font-family: var(--font-price);
-  font-style: var(--font-price-style);
-  font-weight: var(--font-price-weight);
-  text-transform: var(--font-price-transform, none);
-  letter-spacing: var(--font-price-letter-spacing, normal);
-  --custom-text-scale: var(--font-text-scale, 1);
-  --font-price-size: calc(var(--font-base-size) * var(--custom-text-scale, 1));
-}
-@media (min-width: 900px) {
-  .price--total .wt-product__price__final,
-  .price--total .wt-product__price__compare {
-    --custom-text-scale: var(--font-text-scale-desk);
-  }
-}
+/* Ensure .price--total elements inherit the main price styling */
 .wt-product__price__final--sale,
 .wt-product__price__compare--sale {
   color: var(--color-sale-price);
