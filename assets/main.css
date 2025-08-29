@@ -755,6 +755,7 @@ button[disabled] {
 @media (hover: hover) {
   .counter button:hover {
     color: var(--color-input-text);
+    background-color: var(--color-button-primary-background);
   }
 
   /* Product page quantity counter hover */
