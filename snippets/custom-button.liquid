@@ -122,6 +122,16 @@
     width: auto;
   }
 
+  /* Full width modifier */
+  .custom-button-wrapper-{{ unique_id }}.button--full-width {
+    width: 100%;
+    display: flex;
+  }
+
+  .custom-button-wrapper-{{ unique_id }}.button--full-width .custom-button-text-{{ unique_id }} {
+    flex: 1;
+  }
+
   /* Both halves (padding defines size) */
   .custom-button-text-{{ unique_id }}
   , .custom-button-arrow-{{ unique_id }} {
