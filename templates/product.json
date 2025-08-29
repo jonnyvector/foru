@@ -88,6 +88,7 @@
         },
         "price": {
           "type": "price",
+          "disabled": true,
           "settings": {
             "show_tax_included": true,
             "show_shipping_policy": true,
