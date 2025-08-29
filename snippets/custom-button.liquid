@@ -120,11 +120,17 @@
     gap: 1rem;
     align-items: stretch;
     width: auto;
+    background: transparent !important; /* Prevent any background on wrapper */
   }
   
   /* Ensure gap is maintained in all scenarios */
   .custom-button-wrapper-{{ unique_id }} * {
     box-sizing: border-box;
+  }
+  
+  /* Explicitly prevent wrapper from getting any background on hover */
+  .custom-button-wrapper-{{ unique_id }}:hover {
+    background: transparent !important;
   }
 
   /* Full width modifier */
