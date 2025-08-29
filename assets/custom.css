@@ -28,6 +28,7 @@
   height: 48px;
   background-color: #e3e3e3;
   border-radius: var(--border-radius);
+  transition: background 0.3s ease-in, color 0.3s ease-in;
 }
 
 .wt-collapse__trigger:hover .wt-icon,
