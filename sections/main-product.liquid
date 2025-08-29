@@ -1909,34 +1909,15 @@
                         name="id"
                         value="{%- if enabled_preselect and product.has_only_default_variant -%}{{product.selected_or_first_available_variant.id}}{%-elsif enabled_preselect -%}{{ selected_variant.id }}{%- else -%}{{ product.selected_or_first_available_variant.id }}{%- endif -%}"
                       >
-                      <button
-                        aria-label="
-                          {%- if product.selected_or_first_available_variant.available -%}
-                            {{ 'products.product.add_to_cart' | t }}
-                          {%- else -%}
-                            {{ 'products.product.sold_out' | t }}
-                          {%- endif -%}
-                        "
-                        id="ProductSubmitButton-{{ section.id }}"
-                        type="submit"
-                        name="add"
-                        class="js-add-to-cart product-form__submit button button--full-width {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
-                        {% if disable_button %}
-                          disabled
-                        {% endif %}
-                      >
-                        {% if settings['enable-bag-icon'] %}
-                          {% render 'icons', id: 'bag' %}
-                        {% endif %}
-                        <span>
-                          {%- if product.selected_or_first_available_variant.available -%}
-                            {{ 'products.product.add_to_cart' | t }}
-                          {%- else -%}
-                            {{ 'products.product.sold_out' | t }}
-                          {%- endif -%}
-                        </span>
-                        {% render 'button-loading-indicator' %}
-                      </button>
+                      {% render 'custom-button',
+                        text: product.selected_or_first_available_variant.available ? 'products.product.add_to_cart' | t : 'products.product.sold_out' | t,
+                        type: 'submit',
+                        aria_label: product.selected_or_first_available_variant.available ? 'products.product.add_to_cart' | t : 'products.product.sold_out' | t,
+                        class: 'js-add-to-cart product-form__submit button--full-width',
+                        id: 'ProductSubmitButton-' | append: section.id,
+                        style: 'primary',
+                        disabled: disable_button
+                      %}
                     </div>
                     {% if block.settings.show_dynamic_checkout and product.gift_card? != true %}
                       {{ form | payment_button }}

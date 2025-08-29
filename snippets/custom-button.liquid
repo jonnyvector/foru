@@ -9,6 +9,7 @@
   - class: Additional CSS classes
   - id: Optional ID for the button wrapper
   - style: Style variant - "primary" or "secondary" (default: "primary")
+  - disabled: Boolean to disable the button (default: false)
 {% endcomment %}
 
 {% assign button_text = text | default: 'Click Me' %}
@@ -65,7 +66,8 @@
     <button
       type="{{ button_type }}"
       class="custom-button-text-{{ unique_id }}"
-      aria-label="{{ aria_label | default: button_text }}">
+      aria-label="{{ aria_label | default: button_text }}"
+      {% if disabled %}disabled{% endif %}>
       <span class="slide-wrapper">
         <span class="slide-text">{{ button_text }}</span>
         <span class="slide-text">{{ button_text }}</span>
@@ -76,7 +78,8 @@
       style="padding:0"
       type="{{ button_type }}"
       class="custom-button-arrow-{{ unique_id }}"
-      aria-label="{{ aria_label | default: button_text }}">
+      aria-label="{{ aria_label | default: button_text }}"
+      {% if disabled %}disabled{% endif %}>
       <span class="slide-wrapper">
         <span class="slide-arrow">
           <svg
@@ -243,6 +246,18 @@
   .custom-button-arrow-{{ unique_id }}:focus-visible {
     outline: 2px solid #6aa3ff;
     outline-offset: 2px;
+  }
+
+  /* Disabled state */
+  .custom-button-text-{{ unique_id }}:disabled,
+  .custom-button-arrow-{{ unique_id }}:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .custom-button-wrapper-{{ unique_id }}:has(:disabled):hover .slide-text,
+  .custom-button-wrapper-{{ unique_id }}:has(:disabled):hover .slide-arrow {
+    transform: none !important;
   }
 
   /* Mobile adjustments */
