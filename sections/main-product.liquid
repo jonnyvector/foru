@@ -68,7 +68,7 @@
     .wt-product__price-quantity-container {
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;
+        align-items: flex-start;
         gap: 2rem;
         margin-bottom: 1.5rem;
     }
@@ -91,6 +91,14 @@
         height: 1.2em; /* Fixed height to ensure alignment */
         display: flex;
         align-items: center;
+    }
+
+    /* Align the content elements (price and counter) at their bottoms */
+    .wt-product__total-price,
+    .wt-product__quantity-section .counter-wrapper {
+        display: flex;
+        align-items: flex-end;
+        min-height: 3rem; /* Ensure consistent baseline for alignment */
     }
 
     .wt-product__total-label,
