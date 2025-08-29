@@ -30,7 +30,7 @@
     "color-menu-background": "#151515",
     "color-button-primary-background": "#1a1c1c",
     "color-button-primary-text": "#ffffff",
-    "color-button-primary-text-hover": "#ececec",
+    "color-button-primary-text-hover": "#1a1c1c",
     "color-button-primary-background-hover": "#1a1c1c",
     "color-button-secondary-background": "#ffffff",
     "color-button-secondary-border": "#ffffff",
