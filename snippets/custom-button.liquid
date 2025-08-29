@@ -63,53 +63,53 @@
       </span>
     </a>
   {% else %}
-    <button
-      type="{{ button_type }}"
-      class="custom-button-text-{{ unique_id }}"
-      aria-label="{{ aria_label | default: button_text }}"
-      {% if disabled %}disabled{% endif %}>
-      <span class="slide-wrapper">
-        <span class="slide-text">{{ button_text }}</span>
-        <span class="slide-text">{{ button_text }}</span>
-      </span>
-    </button>
-
-    <button
-      style="padding:0"
-      type="{{ button_type }}"
-      class="custom-button-arrow-{{ unique_id }}"
-      aria-label="{{ aria_label | default: button_text }}"
-      {% if disabled %}disabled{% endif %}>
-      <span class="slide-wrapper">
-        <span class="slide-arrow">
-          <svg
-            width="32"
-            height="32"
-            viewBox="0 0 32 32"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M6.57227 16H25.4284M25.4284 16L16.9432 7.51472M25.4284 16L16.9432 24.4853"
-              stroke="currentColor"
-              stroke-width="2" />
-          </svg>
-
+      <button
+        type="{{ button_type }}"
+        class="custom-button-text-{{ unique_id }}"
+        aria-label="{{ aria_label | default: button_text }}"
+        {% if disabled %}disabled{% endif %}>
+        <span class="slide-wrapper">
+          <span class="slide-text">{{ button_text }}</span>
+          <span class="slide-text">{{ button_text }}</span>
         </span>
-        <span class="slide-arrow">
-          <svg
-            width="32"
-            height="32"
-            viewBox="0 0 32 32"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M6.57227 16H25.4284M25.4284 16L16.9432 7.51472M25.4284 16L16.9432 24.4853"
-              stroke="currentColor"
-              stroke-width="2" />
-          </svg>
+      </button>
+
+      <button
+        style="padding:0"
+        type="{{ button_type }}"
+        class="custom-button-arrow-{{ unique_id }}"
+        aria-label="{{ aria_label | default: button_text }}"
+        {% if disabled %}disabled{% endif %}>
+        <span class="slide-wrapper">
+          <span class="slide-arrow">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M6.57227 16H25.4284M25.4284 16L16.9432 7.51472M25.4284 16L16.9432 24.4853"
+                stroke="currentColor"
+                stroke-width="2" />
+            </svg>
+
+          </span>
+          <span class="slide-arrow">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M6.57227 16H25.4284M25.4284 16L16.9432 7.51472M25.4284 16L16.9432 24.4853"
+                stroke="currentColor"
+                stroke-width="2" />
+            </svg>
+          </span>
         </span>
-      </span>
-    </button>
+      </button>
   {% endif %}
 </div>
 
@@ -131,6 +131,14 @@
 
   .custom-button-wrapper-{{ unique_id }}.button--full-width .custom-button-text-{{ unique_id }} {
     flex: 1;
+  }
+
+  /* Override product page container styling that might interfere */
+  .main-product__buy-buttons--container .custom-button-wrapper-{{ unique_id }} {
+    width: 100%;
+    display: flex !important;
+    gap: 1rem !important;
+    justify-content: stretch !important;
   }
 
   /* Both halves (padding defines size) */
