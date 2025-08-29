@@ -31,7 +31,9 @@
 }
 
 .wt-collapse__trigger:hover .wt-icon,
-.wt-collapse__trigger--active .wt-icon {
+.wt-collapse__trigger--active .wt-icon,
+.wt-collapse__trigger[data-open="true"] .wt-icon,
+.wt-collapse__trigger[aria-expanded="true"] .wt-icon {
   background: var(--color-button-primary-background);
   color: white;
 }
