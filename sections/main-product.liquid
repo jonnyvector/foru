@@ -97,37 +97,48 @@
         text-align: right;
     }
 
-    /* Quantity selector styling to match design */
-    .wt-product__quantity-section .counter-wrapper {
+    /* Quantity selector styling - individual boxes for each element */
+    .wt-product__add-to-cart_form--wrapper .counter-wrapper {
         margin-top: 0.5rem;
-        border-radius: 6px;
-        border: 1px solid var(--color-input-border);
-        background-color: var(--color-input-background);
-        overflow: hidden;
+        border: none;
+        background: transparent;
+        border-radius: 0;
     }
 
-    .wt-product__quantity-section .counter {
+    .wt-product__add-to-cart_form--wrapper .counter {
         height: 40px;
+        gap: 8px;
     }
 
-    .wt-product__quantity-section .counter button {
+    .wt-product__add-to-cart_form--wrapper .counter button {
         width: 40px;
         height: 40px;
         font-size: 1.6rem;
         color: var(--color-input-text);
         padding: 0;
+        border: 1px solid var(--color-input-border);
+        border-radius: 6px;
+        background-color: var(--color-input-background);
+        transition: background-color 0.2s ease;
     }
 
-    .wt-product__quantity-section .counter input {
+    .wt-product__add-to-cart_form--wrapper .counter button:hover {
+        background-color: var(--color-background-accent, #f5f5f5);
+    }
+
+    .wt-product__add-to-cart_form--wrapper .counter input {
         height: 40px;
         min-width: 50px;
         text-align: center;
         padding: 0;
         font-size: var(--font-body-size);
         color: var(--color-input-text);
+        border: 1px solid var(--color-input-border);
+        border-radius: 6px;
+        background-color: var(--color-input-background);
     }
 
-    .wt-product__quantity-section .counter button svg {
+    .wt-product__add-to-cart_form--wrapper .counter button svg {
         width: 20px;
         height: 20px;
     }
