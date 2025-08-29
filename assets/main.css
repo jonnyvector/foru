@@ -743,9 +743,23 @@ button[disabled] {
   font-size: 2rem;
   color: var(--color-input-placeholder);
 }
+
+/* Product page quantity counter - themed buttons */
+.main-product .wt-product__quantity-section .counter button {
+  background-color: transparent;
+  color: var(--color-button-primary-background);
+  border: 1px solid var(--color-button-primary-background);
+}
+
 @media (hover: hover) {
   .counter button:hover {
     color: var(--color-input-text);
+  }
+  
+  /* Product page quantity counter hover */
+  .main-product .wt-product__quantity-section .counter button:hover {
+    background-color: var(--color-button-primary-background);
+    color: var(--color-button-primary-text);
   }
 }
 .counter input {
