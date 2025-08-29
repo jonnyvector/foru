@@ -163,48 +163,39 @@
         transition: background-color 0.2s ease;
     }
 
-    /* Plus button - transparent background with theme border */
-    .wt-product__quantity-section .counter .js-counter-increase {
-        background-color: transparent !important;
-        color: var(--color-button-primary-background) !important;
-        border: 1px solid var(--color-button-primary-background) !important;
+    /* Quantity counter buttons - DRY approach with higher specificity */
+    .main-product .wt-product__quantity-section .counter .js-counter-increase,
+    .main-product .wt-product__quantity-section .counter .js-counter-decrease {
+        background-color: transparent;
+        color: var(--color-button-primary-background);
+        border: 1px solid var(--color-button-primary-background);
     }
 
-    .wt-product__quantity-section .counter .js-counter-increase:hover {
-        background-color: var(--color-button-primary-background) !important;
-        color: var(--color-button-primary-text) !important;
+    .main-product .wt-product__quantity-section .counter .js-counter-increase:hover,
+    .main-product .wt-product__quantity-section .counter .js-counter-decrease:hover {
+        background-color: var(--color-button-primary-background);
+        color: var(--color-button-primary-text);
     }
 
-    /* Minus button - transparent background with theme border */
-    .wt-product__quantity-section .counter .js-counter-decrease {
-        background-color: transparent !important;
-        color: var(--color-button-primary-background) !important;
-        border: 1px solid var(--color-button-primary-background) !important;
-    }
-
-    .wt-product__quantity-section .counter .js-counter-decrease:hover {
-        background-color: var(--color-button-primary-background) !important;
-        color: var(--color-button-primary-text) !important;
-    }
-
-    .wt-product__quantity-section .counter input {
+    /* Quantity input - higher specificity approach */
+    .main-product .wt-product__quantity-section .counter input {
         height: 32px;
         min-width: 24px;
         text-align: center;
         padding: 0;
         font-size: 24px;
-        font-weight:500;
+        font-weight: 500;
         color: var(--color-input-text);
-        border: none !important;
+        border: none;
         border-radius: 0;
         background-color: transparent;
-        outline: none !important;
+        outline: none;
     }
 
-    .wt-product__quantity-section .counter input:focus {
-        outline: none !important;
-        border: none !important;
-        box-shadow: none !important;
+    .main-product .wt-product__quantity-section .counter input:focus {
+        outline: none;
+        border: none;
+        box-shadow: none;
     }
 
     .wt-product__quantity-section .counter button svg {

@@ -138,23 +138,23 @@
     flex: 1;
   }
 
-  /* Override product page container styling that might interfere */
-  .main-product__buy-buttons--container .custom-button-wrapper-{{ unique_id }} {
-    width: 100% !important;
-    display: flex !important;
-    gap: 1rem !important;
-    align-items: stretch !important;
-    justify-content: space-between !important;
+  /* Product page container integration - higher specificity without !important */
+  .wt-product__add-to-cart_form.main-product__buy-buttons--container .custom-button-wrapper-{{ unique_id }} {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    align-items: stretch;
+    justify-content: space-between;
   }
 
-  /* Ensure buttons don't stretch individually but wrapper controls the layout */
-  .main-product__buy-buttons--container .custom-button-wrapper-{{ unique_id }} .custom-button-text-{{ unique_id }} {
-    flex: 1 !important;
+  /* Button layout within product container */
+  .wt-product__add-to-cart_form.main-product__buy-buttons--container .custom-button-wrapper-{{ unique_id }} .custom-button-text-{{ unique_id }} {
+    flex: 1;
   }
   
-  .main-product__buy-buttons--container .custom-button-wrapper-{{ unique_id }} .custom-button-arrow-{{ unique_id }} {
-    flex: none !important;
-    width: 64px !important;
+  .wt-product__add-to-cart_form.main-product__buy-buttons--container .custom-button-wrapper-{{ unique_id }} .custom-button-arrow-{{ unique_id }} {
+    flex: none;
+    width: 64px;
   }
 
 
@@ -236,9 +236,10 @@
     transform: translateY(100%);
   }
 
-  /* Prevent main.css from applying background on hover to our custom button */
-  .wt-product__add-to-cart_form .custom-button-wrapper-{{ unique_id }}:hover{
-    background: transparent !important;
+  /* Prevent theme hover backgrounds from interfering - use higher specificity */
+  .wt-product__add-to-cart_form .custom-button-wrapper-{{ unique_id }}:hover,
+  .wt-product__add-to-cart_form.main-product__buy-buttons--container .custom-button-wrapper-{{ unique_id }}:hover {
+    background: transparent;
   }
 
   /* Hover color changes - only change color, preserve existing background */
@@ -294,9 +295,11 @@
     cursor: not-allowed;
   }
 
+  /* Disabled state - higher specificity to override hover transforms */
   .custom-button-wrapper-{{ unique_id }}:has(:disabled):hover .slide-text,
   .custom-button-wrapper-{{ unique_id }}:has(:disabled):hover .slide-arrow {
-    transform: none !important;
+    transform: none;
+    transition: none;
   }
 
   /* Mobile adjustments */
