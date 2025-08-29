@@ -2272,11 +2272,11 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
     display: flex;
     gap: 16px;
   }
-  
+
   .form__fieldset .form__field {
     flex: 1;
   }
-  
+
   .form__field--name {
     width: 100%;
   }
@@ -7900,12 +7900,12 @@ input.disabled + .f-swatch__list__link .f-swatch__list__link__content {
   .wt-product__add-to-cart_form form:has(quantity-counter) {
     max-width: 100%;
   }
-  .wt-product__add-to-cart_form form:has(quantity-counter) quantity-counter {
+  /* .wt-product__add-to-cart_form form:has(quantity-counter) quantity-counter {
     width: 140px;
   }
   .wt-product__add-to-cart_form form:has(quantity-counter) .counter {
     width: 140px;
-  }
+  } */
   .wt-product__add-to-cart_form
     form:has(quantity-counter)
     .counter
