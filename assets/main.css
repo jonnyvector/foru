@@ -6577,8 +6577,8 @@ input.disabled + .f-swatch__list__link .f-swatch__list__link__content {
     --custom-text-scale: var(--font-text-scale-desk);
   }
 }
-.wt-product__total-price .wt-product__price__final,
-.wt-product__total-price .wt-product__price__compare {
+.price--total .wt-product__price__final,
+.price--total .wt-product__price__compare {
   font-size: var(--font-price-size);
   font-family: var(--font-price);
   font-style: var(--font-price-style);
@@ -6589,8 +6589,8 @@ input.disabled + .f-swatch__list__link .f-swatch__list__link__content {
   --font-price-size: calc(var(--font-base-size) * var(--custom-text-scale, 1));
 }
 @media (min-width: 900px) {
-  .wt-product__total-price .wt-product__price__final,
-  .wt-product__total-price .wt-product__price__compare {
+  .price--total .wt-product__price__final,
+  .price--total .wt-product__price__compare {
     --custom-text-scale: var(--font-text-scale-desk);
   }
 }
