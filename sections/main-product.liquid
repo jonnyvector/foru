@@ -46,6 +46,105 @@
         --section-gap-bottom: {{ section.settings.margin-bottom }}px;
     {% endif %}
 
+    /* Custom styles for price-quantity layout */
+    .wt-product__price-quantity-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .wt-product__total-section {
+        flex: 1;
+    }
+
+    .wt-product__total-label,
+    .wt-product__quantity-label {
+        font-size: var(--font-body-size);
+        color: var(--color-custom-text, var(--color-text));
+        margin: 0 0 0.5rem 0;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        opacity: 0.7;
+    }
+
+    .wt-product__total-price .price {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: var(--color-custom-text, var(--color-text));
+    }
+
+    .wt-product__quantity-section {
+        flex-shrink: 0;
+        text-align: right;
+    }
+
+    /* Quantity selector styling to match design */
+    .wt-product__quantity-section .counter-wrapper {
+        margin-top: 0.5rem;
+    }
+
+    .wt-product__quantity-section .counter {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        border: 1px solid var(--color-border, #e5e5e5);
+        border-radius: 4px;
+        overflow: hidden;
+        background: var(--color-background, #fff);
+    }
+
+    .wt-product__quantity-section .counter button {
+        width: 40px;
+        height: 40px;
+        background: transparent;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-custom-text, var(--color-text));
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+    .wt-product__quantity-section .counter button:hover {
+        background-color: var(--color-background-accent, #f5f5f5);
+    }
+
+    .wt-product__quantity-section .counter input {
+        width: 50px;
+        height: 40px;
+        text-align: center;
+        border: none;
+        background: transparent;
+        font-size: var(--font-body-size);
+        color: var(--color-custom-text, var(--color-text));
+    }
+
+    .wt-product__quantity-section .counter input:focus {
+        outline: none;
+    }
+
+    .wt-product__quantity-section .counter button svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    @media (max-width: 749px) {
+        .wt-product__price-quantity-container {
+            gap: 1rem;
+        }
+        
+        .wt-product__total-price .price {
+            font-size: 2rem;
+        }
+
+        .wt-product__quantity-section {
+            text-align: left;
+        }
+    }
+
     {% if section.settings.desktop-image-ratio == 'square' %}
         --aspect-ratio: 1/1;
     {% endif %}
@@ -1695,10 +1794,28 @@
                     {% if block.settings.show_gift_card_recipient and product.gift_card? %}
                       {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
                     {% endif %}
-                    <div class="wt-product__add-to-cart_form--wrapper">
+                    {% comment %} Total and Quantity section matching the design {% endcomment %}
+                    <div class="wt-product__price-quantity-container">
+                      <div class="wt-product__total-section">
+                        <p class="wt-product__total-label">Total</p>
+                        <div class="wt-product__total-price">
+                          {%- render 'price',
+                            product: product,
+                            use_variant: true,
+                            show_badges: false,
+                            price_class: 'price--total'
+                          -%}
+                        </div>
+                      </div>
                       {% if block.settings.show_qty_selector %}
-                        {% render 'component-counter' %}
+                        <div class="wt-product__quantity-section">
+                          <p class="wt-product__quantity-label">Quantity</p>
+                          {% render 'component-counter' %}
+                        </div>
                       {% endif %}
+                    </div>
+                    
+                    <div class="wt-product__add-to-cart_form--wrapper">
 
                       {% assign disable_button = false %}
                       {% if product.has_only_default_variant == false and product.selected_variant.available == false %}
