@@ -121,6 +121,11 @@
     align-items: stretch;
     width: auto;
   }
+  
+  /* Ensure gap is maintained in all scenarios */
+  .custom-button-wrapper-{{ unique_id }} * {
+    box-sizing: border-box;
+  }
 
   /* Full width modifier */
   .custom-button-wrapper-{{ unique_id }}.button--full-width {
@@ -139,6 +144,7 @@
     display: flex !important;
     gap: 1rem !important;
     align-items: stretch !important;
+    justify-content: space-between !important;
   }
 
   /* Ensure buttons don't stretch individually but wrapper controls the layout */
@@ -230,17 +236,15 @@
     transform: translateY(100%);
   }
 
-  /* Hover color changes */
+  /* Hover color changes - only change color, preserve existing background */
   @media (hover: hover) {
     .custom-button-wrapper--primary:hover .custom-button-text-{{ unique_id }},
     .custom-button-wrapper--primary:hover .custom-button-arrow-{{ unique_id }} {
-      background: var(--color-button-primary-background-hover);
       color: var(--color-button-primary-text-hover);
     }
 
     .custom-button-wrapper--secondary:hover .custom-button-text-{{ unique_id }},
     .custom-button-wrapper--secondary:hover .custom-button-arrow-{{ unique_id }} {
-      background: var(--color-button-secondary-background-hover);
       color: var(--color-button-secondary-text-hover);
     }
   }
@@ -265,7 +269,7 @@
 
   /* Subtle stagger so arrow trails text */
   @media (hover: hover) {
-    .custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }}
+    .custom-button-wrapper-{{ unique_id }}:hover .custom-button-arrow-{{ unique_id }}
     .slide-arrow {
       transition-delay: 0.06s;
     }
