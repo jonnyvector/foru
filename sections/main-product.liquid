@@ -111,33 +111,34 @@
     }
 
     .wt-product__add-to-cart_form--wrapper .counter button {
-        width: 32px;
-        height: 32px;
+        width: 40px;
+        height: 40px;
         font-size: 1.6rem;
         padding: 0;
-        border: none;
         border-radius: 6px;
         transition: background-color 0.2s ease;
     }
 
-    /* Plus button - filled background with white icon */
+    /* Plus button - black background with white icon */
     .wt-product__add-to-cart_form--wrapper .counter .js-counter-increase {
-        background-color: var(--color-button-background);
-        color: var(--color-button-text);
+        background-color: #000000;
+        color: #ffffff;
+        border: none;
     }
 
     .wt-product__add-to-cart_form--wrapper .counter .js-counter-increase:hover {
-        background-color: var(--color-button-background-hover, var(--color-button-background));
+        background-color: #333333;
     }
 
-    /* Minus button - transparent background with button color icon */
+    /* Minus button - white background with black border and black icon */
     .wt-product__add-to-cart_form--wrapper .counter .js-counter-decrease {
-        background-color: transparent;
-        color: var(--color-button-background);
+        background-color: #ffffff;
+        color: #000000;
+        border: 1px solid #000000;
     }
 
     .wt-product__add-to-cart_form--wrapper .counter .js-counter-decrease:hover {
-        background-color: var(--color-background-accent, #f5f5f5);
+        background-color: #f5f5f5;
     }
 
     .wt-product__add-to-cart_form--wrapper .counter input {
