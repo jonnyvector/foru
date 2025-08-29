@@ -30,7 +30,8 @@
   border-radius: var(--border-radius);
 }
 
-.wt-collapse__trigger:hover .wt-icon {
+.wt-collapse__trigger:hover .wt-icon,
+.wt-collapse__trigger--active .wt-icon {
   background: var(--color-button-primary-background);
   color: white;
 }
