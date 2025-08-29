@@ -122,7 +122,7 @@
 
                 {%- assign variant_url = product.url | append: '?variant=' | append: variant.id -%}
 
-                <div
+                  <div
                   {% if settings.animations and variant_count <= 1 %}
                   data-cascade
                   class="scroll-trigger animate--slide-in {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}"
@@ -131,7 +131,7 @@
                   class="wt-slider__card-wrapper"
                   {% endif %}>
                   {% comment %} Combine product title and variant title with line break {% endcomment %}
-                  {% capture combined_title %}{{ product.title }}<br><small>{{ variant.title }}</small>{% endcapture %}
+                {% capture combined_title %}{{ product.title }}<br><p style="font-size:1rem;">{{ variant.title }}</p>{% endcapture %}
                   {% comment %} Create a single-variant product for quick-add by overriding the available property {% endcomment %}
                   {% assign variant_as_product = product %}
                   {% render 'card', card_variant: variant, img: variant_image, img_hover: image_hover, title: combined_title, subtitle: product.vendor, rating: section.settings.show_product_rating, reviews: product.metafields.reviews, options: false, card_url: variant_url, uri: product.handle | append: '?variant=' | append: variant.id, text_alignment: section.settings.text_alignment, variants: product.variants, product_options: product.options, product: variant_as_product, card_product: variant, media_aspect_ratio: section.settings.image_ratio, enable_quick_add_button: section.settings.enable_quick_add_button, show_video: section.settings.show_video, price: variant.price, compare_at_price: variant.compare_at_price, variant_context: true
