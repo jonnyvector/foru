@@ -64,16 +64,26 @@
         text-align: right;
     }
 
-    /* Position the actual counter to align with the label above */
-    .wt-product__add-to-cart_form--wrapper {
-        position: relative;
+    /* Flexbox layout for price and quantity on same row */
+    .wt-product__price-quantity-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 2rem;
+        margin-bottom: 1.5rem;
     }
 
-    .wt-product__add-to-cart_form--wrapper .counter-wrapper {
-        position: absolute;
-        top: -50px;
-        right: 0;
-        z-index: 1;
+    .wt-product__total-section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .wt-product__quantity-section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.5rem;
     }
 
     .wt-product__total-label,
@@ -1838,14 +1848,12 @@
                       {% if block.settings.show_qty_selector %}
                         <div class="wt-product__quantity-section">
                           <p class="wt-product__quantity-label">Quantity</p>
+                          {% render 'component-counter' %}
                         </div>
                       {% endif %}
                     </div>
                     
                     <div class="wt-product__add-to-cart_form--wrapper">
-                      {% if block.settings.show_qty_selector %}
-                        {% render 'component-counter' %}
-                      {% endif %}
 
                       {% assign disable_button = false %}
                       {% if product.has_only_default_variant == false and product.selected_variant.available == false %}
