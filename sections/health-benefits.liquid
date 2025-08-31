@@ -146,19 +146,23 @@
       {% endif %}
 
       <div class="health-benefits__content">
-        {% if hb.eyebrow and hb.eyebrow != blank %}
-          <div class="health-benefits__eyebrow">{{ hb.eyebrow }}</div>
+        {% if hb.eyebrow %}
+          <div class="health-benefits__eyebrow">{{ hb.eyebrow }}</div> 
         {% endif %}
-
-        {% if hb.title and hb.title != blank %}
-          <h2 class="health-benefits__title">{{ hb.title.value }}</h2>
-        {% endif %}
-
-        {% if hb.body and hb.body != blank %}
-          <div class="health-benefits__body rte">
-            {{ hb.body.value }}
+      
+        {% if hb.title %}
+          <div class="health-benefits__title rte">
+            {{ hb.title | metafield_tag }}
           </div>
         {% endif %}
+      
+        {% if hb.body %}
+          <div class="health-benefits__body rte">
+            {{ hb.body | metafield_tag }}
+          </div>
+        {% endif %}
+      </div>
+      
 
         {% assign benefits = hb.benefits | default: hb.benefits.value %}
         {% if benefits %}
