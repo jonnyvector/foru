@@ -1,0 +1,224 @@
+{% assign hb = product.metafields.custom.healt_benefits_section.value | default: product.metafields.custom.health_benefits_section.value %}
+
+{% if hb %}
+<style>
+  [data-section-id="{{ section.id }}"] {
+    margin-top: var(--section-gap-top, calc(var(--gap, 8px) * 2));
+    margin-bottom: var(--section-gap-bottom, calc(var(--gap, 8px) * 2));
+  }
+
+  [data-section-id="{{ section.id }}"] .health-benefits {
+    max-width: var(--site-max-width, 1200px);
+    margin: 0 auto;
+    padding-left: calc(var(--gap, 8px) * 2);
+    padding-right: calc(var(--gap, 8px) * 2);
+  }
+
+  [data-section-id="{{ section.id }}"] .health-benefits__container {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--gap, 8px) * 3);
+  }
+
+  @media (min-width: 900px) {
+    [data-section-id="{{ section.id }}"] .health-benefits__container {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: calc(var(--gap, 8px) * 4);
+    }
+  }
+
+  [data-section-id="{{ section.id }}"] .health-benefits__media {
+    flex: 0 0 auto;
+  }
+
+  [data-section-id="{{ section.id }}"] .health-benefits__media img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius, 8px);
+  }
+
+  @media (min-width: 900px) {
+    [data-section-id="{{ section.id }}"] .health-benefits__media {
+      flex: 0 0 45%;
+      max-width: 45%;
+    }
+  }
+
+  [data-section-id="{{ section.id }}"] .health-benefits__content {
+    flex: 1;
+  }
+
+  [data-section-id="{{ section.id }}"] .health-benefits__eyebrow {
+    font-size: calc(var(--font-base-size) * 0.875);
+    font-family: var(--font-headline, inherit);
+    font-weight: var(--font-headline-weight, 600);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-custom-text, inherit);
+    margin-bottom: calc(var(--gap, 8px));
+  }
+
+  [data-section-id="{{ section.id }}"] .health-benefits__title {
+    font-family: var(--font-headline, inherit);
+    font-weight: var(--font-headline-weight, 600);
+    font-size: calc(var(--font-base-size) * 2);
+    line-height: 1.2;
+    color: var(--color-custom-text, inherit);
+    margin-bottom: calc(var(--gap, 8px) * 2);
+  }
+
+  @media (min-width: 900px) {
+    [data-section-id="{{ section.id }}"] .health-benefits__title {
+      font-size: calc(var(--font-base-size) * 2.5);
+    }
+  }
+
+  [data-section-id="{{ section.id }}"] .health-benefits__body {
+    font-family: var(--font-base, inherit);
+    font-size: var(--font-base-size);
+    line-height: var(--font-base-line-height, 1.5);
+    color: var(--color-custom-text, inherit);
+    margin-bottom: calc(var(--gap, 8px) * 3);
+  }
+
+  [data-section-id="{{ section.id }}"] .health-benefits__body p {
+    margin-bottom: calc(var(--gap, 8px));
+  }
+
+  [data-section-id="{{ section.id }}"] .health-benefits__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: calc(var(--gap, 8px) * 2);
+    margin-bottom: calc(var(--gap, 8px) * 3);
+  }
+
+  @media (min-width: 600px) {
+    [data-section-id="{{ section.id }}"] .health-benefits__list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: calc(var(--gap, 8px) * 2) calc(var(--gap, 8px) * 3);
+    }
+  }
+
+  [data-section-id="{{ section.id }}"] .health-benefits__item {
+    display: flex;
+    align-items: flex-start;
+    gap: calc(var(--gap, 8px) * 1.5);
+  }
+
+  [data-section-id="{{ section.id }}"] .health-benefits__icon {
+    flex: 0 0 auto;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  [data-section-id="{{ section.id }}"] .health-benefits__icon img,
+  [data-section-id="{{ section.id }}"] .health-benefits__icon svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  [data-section-id="{{ section.id }}"] .health-benefits__text {
+    flex: 1;
+    font-family: var(--font-base, inherit);
+    font-size: var(--font-base-size);
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--color-custom-text, inherit);
+    margin-top: 4px;
+  }
+
+  [data-section-id="{{ section.id }}"] .health-benefits__cta {
+    display: inline-block;
+  }
+</style>
+
+<div data-section-id="{{ section.id }}" class="health-benefits">
+  <div class="health-benefits__container">
+    {% if hb.hero_media %}
+      <div class="health-benefits__media">
+        {{ hb.hero_media | image_url: width: 600 | image_tag: loading: 'lazy', alt: hb.hero_media.alt | default: hb.title }}
+      </div>
+    {% endif %}
+
+    <div class="health-benefits__content">
+      {% if hb.eyebrow and hb.eyebrow != blank %}
+        <div class="health-benefits__eyebrow">{{ hb.eyebrow }}</div>
+      {% endif %}
+
+      {% if hb.title and hb.title != blank %}
+        <h2 class="health-benefits__title">{{ hb.title }}</h2>
+      {% endif %}
+
+      {% if hb.body and hb.body != blank %}
+        <div class="health-benefits__body rte">
+          {{ hb.body }}
+        </div>
+      {% endif %}
+
+      {% assign benefits = hb.benefits | default: hb.benefits.value %}
+      {% if benefits and benefits.size > 0 %}
+        <div class="health-benefits__list">
+          {% for benefit in benefits %}
+            {% if benefit.title and benefit.title != blank %}
+              <div class="health-benefits__item">
+                {% if benefit.icon %}
+                  <div class="health-benefits__icon">
+                    {{ benefit.icon | image_url: width: 64 | image_tag: loading: 'lazy', alt: benefit.title }}
+                  </div>
+                {% endif %}
+                <div class="health-benefits__text">
+                  <strong>{{ benefit.title }}</strong>
+                  {% if benefit.text and benefit.text != blank %}
+                    <div class="rte">{{ benefit.text }}</div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if section.settings.cta_label and section.settings.cta_label != blank and section.settings.cta_link and section.settings.cta_link != blank %}
+        <div class="health-benefits__cta">
+          {% render 'custom-button', 
+            text: section.settings.cta_label, 
+            type: 'link', 
+            url: section.settings.cta_link, 
+            style: 'primary' %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Health Benefits",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA label",
+      "default": "See all"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Health Benefits"
+    }
+  ]
+}
+{% endschema %}
