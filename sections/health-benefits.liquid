@@ -162,11 +162,8 @@
             {{ hb.body | metafield_tag }}
           </div>
         {% endif %}
-      </div>
-      
 
-      {%- assign benefits = hb.benefits.value -%}
-    
+        {%- assign benefits = hb.benefits.value -%}
         {% if benefits %}
           <div class="health-benefits__list">
             {% for benefit in benefits %}
