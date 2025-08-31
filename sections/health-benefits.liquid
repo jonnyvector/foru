@@ -3,6 +3,8 @@
 {% if hb %}
   <style>
     [data-section-id="{{ section.id }}"] {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
       {% if section.settings.background_color != blank %}
         background-color: {{ section.settings.background_color }};
       {% endif %}
