@@ -23,7 +23,7 @@
     @media (min-width: 900px) {
       [data-section-id="{{ section.id }}"] .health-benefits__container {
         flex-direction: row;
-        align-items: flex-start;
+        align-items: center;
         gap: calc(var(--gap, 8px) * 4);
       }
     }
@@ -56,7 +56,13 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--color-custom-text, inherit);
-      margin-bottom: calc(var(--gap, 8px));
+      margin-bottom: 12px;
+    }
+
+    @media (min-width: 900px) {
+      [data-section-id="{{ section.id }}"] .health-benefits__eyebrow {
+        margin-bottom: 16px;
+      }
     }
 
     [data-section-id="{{ section.id }}"] .health-benefits__title {
@@ -65,12 +71,13 @@
       font-size: calc(var(--font-base-size) * 2);
       line-height: 1.2;
       color: var(--color-custom-text, inherit);
-      margin-bottom: calc(var(--gap, 8px) * 2);
+      margin-bottom: 12px;
     }
 
     @media (min-width: 900px) {
       [data-section-id="{{ section.id }}"] .health-benefits__title {
         font-size: calc(var(--font-base-size) * 2.5);
+        margin-bottom: 16px;
       }
     }
 
@@ -79,7 +86,13 @@
       font-size: var(--font-base-size);
       line-height: var(--font-base-line-height, 1.5);
       color: var(--color-custom-text, inherit);
-      margin-bottom: calc(var(--gap, 8px) * 3);
+      margin-bottom: 12px;
+    }
+
+    @media (min-width: 900px) {
+      [data-section-id="{{ section.id }}"] .health-benefits__body {
+        margin-bottom: 16px;
+      }
     }
 
     [data-section-id="{{ section.id }}"] .health-benefits__body p {
@@ -90,7 +103,13 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: calc(var(--gap, 8px) * 2);
-      margin-bottom: calc(var(--gap, 8px) * 3);
+      margin-bottom: 12px;
+    }
+
+    @media (min-width: 900px) {
+      [data-section-id="{{ section.id }}"] .health-benefits__list {
+        margin-bottom: 16px;
+      }
     }
 
     @media (min-width: 600px) {
