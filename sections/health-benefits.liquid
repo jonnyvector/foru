@@ -156,12 +156,16 @@
 
       {% if hb.body and hb.body != blank %}
         <div class="health-benefits__body rte">
-          {{ hb.body }}
+          {% for item in hb.body %}
+            {% if item.type == "paragraph" %}
+              <p>{{ item.children[0].text }}</p>
+            {% endif %}
+          {% endfor %}
         </div>
       {% endif %}
 
       {% assign benefits = hb.benefits | default: hb.benefits.value %}
-      {% if benefits and benefits.size > 0 %}
+      {% if benefits %}
         <div class="health-benefits__list">
           {% for benefit in benefits %}
             {% if benefit.title and benefit.title != blank %}
