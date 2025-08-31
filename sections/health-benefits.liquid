@@ -210,16 +210,16 @@
 
       <div class="health-benefits__content">
         {% if hb.eyebrow %}
-          <div class="health-benefits__eyebrow">{{ hb.eyebrow }}</div> 
+          <div class="health-benefits__eyebrow">{{ hb.eyebrow }}</div>
         {% endif %}
-      
+
         {% if hb.title %}
-          
+
           <div class="health-benefits__title rte">
             {{ hb.title | metafield_tag }}
           </div>
         {% endif %}
-      
+
         {% if hb.body %}
           <div class="health-benefits__body rte">
             {{ hb.body | metafield_tag }}
