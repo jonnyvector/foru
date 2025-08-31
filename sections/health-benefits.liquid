@@ -6,7 +6,7 @@
       margin-top: var(--section-gap-top, calc(var(--gap, 8px) * 2));
       margin-bottom: var(--section-gap-bottom, calc(var(--gap, 8px) * 2));
       {% if section.settings.background_color != blank %}
-        --color-content-background: {{ section.settings.background_color }};
+        background-color: {{ section.settings.background_color }};
       {% endif %}
     }
 
@@ -55,7 +55,6 @@
     [data-section-id="{{ section.id }}"] .health-benefits__content {
       flex: 1;
       padding: 0 calc(var(--gap, 8px) * 2);
-      background-color: var(--color-content-background, transparent);
     }
 
     @media (min-width: 900px) {
