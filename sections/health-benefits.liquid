@@ -3,8 +3,6 @@
 {% if hb %}
   <style>
     [data-section-id="{{ section.id }}"] {
-      margin-top: var(--section-gap-top, calc(var(--gap, 8px) * 2));
-      margin-bottom: var(--section-gap-bottom, calc(var(--gap, 8px) * 2));
       {% if section.settings.background_color != blank %}
         background-color: {{ section.settings.background_color }};
       {% endif %}
