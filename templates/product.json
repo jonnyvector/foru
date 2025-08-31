@@ -342,6 +342,7 @@
       "type": "health-benefits",
       "name": "Health Benefits",
       "settings": {
+        "background_color": "#f7f7f7",
         "cta_label": "See all",
         "cta_link": "shopify://pages/contact"
       }
