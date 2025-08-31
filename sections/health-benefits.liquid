@@ -25,8 +25,9 @@
     @media (min-width: 900px) {
       [data-section-id="{{ section.id }}"] .health-benefits__container {
         flex-direction: row;
-        align-items: center;
-        gap: calc(var(--gap, 8px) * 4);
+        align-items: stretch;
+        gap: 0;
+        min-height: 100vh;
       }
     }
 
