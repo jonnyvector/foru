@@ -164,7 +164,7 @@
       </div>
       
 
-        {% assign benefits = hb.benefits | default: hb.benefits.value %}
+        {% assign benefits = hb.health_benefits | default: hb.health_benefits.value %}
         {% if benefits %}
           <div class="health-benefits__list">
             {% for benefit in benefits %}
