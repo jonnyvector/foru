@@ -106,6 +106,32 @@
       margin-bottom: calc(var(--gap, 8px));
     }
 
+    /* Override RTE default margins */
+    [data-section-id="{{ section.id }}"] .health-benefits__title.rte,
+    [data-section-id="{{ section.id }}"] .health-benefits__title.rte *,
+    [data-section-id="{{ section.id }}"] .health-benefits__body.rte,
+    [data-section-id="{{ section.id }}"] .health-benefits__body.rte * {
+      margin-top: 0 !important;
+    }
+
+    [data-section-id="{{ section.id }}"] .health-benefits__title.rte {
+      margin-bottom: 12px !important;
+    }
+
+    [data-section-id="{{ section.id }}"] .health-benefits__body.rte {
+      margin-bottom: 12px !important;
+    }
+
+    @media (min-width: 900px) {
+      [data-section-id="{{ section.id }}"] .health-benefits__title.rte {
+        margin-bottom: 16px !important;
+      }
+
+      [data-section-id="{{ section.id }}"] .health-benefits__body.rte {
+        margin-bottom: 16px !important;
+      }
+    }
+
     [data-section-id="{{ section.id }}"] .health-benefits__list {
       display: grid;
       grid-template-columns: 1fr;
