@@ -179,9 +179,6 @@
                   {% endif %}
                   <div class="health-benefits__text">
                     <strong>{{ benefit.title }}</strong>
-                    {% if benefit.text and benefit.text != blank %}
-                      <div class="rte">{{ benefit.text | metafield_tag }}</div>
-                    {% endif %}
                   </div>
                 </div>
               {% endif %}
