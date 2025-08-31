@@ -10,8 +10,7 @@
     [data-section-id="{{ section.id }}"] .health-benefits {
       max-width: var(--site-max-width, 1200px);
       margin: 0 auto;
-      padding-left: calc(var(--gap, 8px) * 2);
-      padding-right: calc(var(--gap, 8px) * 2);
+      padding: 0 calc(var(--gap, 8px) * 2);
     }
 
     [data-section-id="{{ section.id }}"] .health-benefits__container {
@@ -51,29 +50,33 @@
 
     @media (min-width: 900px) {
       [data-section-id="{{ section.id }}"] .health-benefits__content {
-        padding-left: 7rem;
-        padding-right: 7rem;
+        padding: 0 7rem;
       }
+    }
+
+    /* Common styles for text elements */
+    [data-section-id="{{ section.id }}"] .health-benefits__eyebrow,
+    [data-section-id="{{ section.id }}"] .health-benefits__title,
+    [data-section-id="{{ section.id }}"] .health-benefits__body {
+      color: var(--color-custom-text, inherit);
+    }
+
+    [data-section-id="{{ section.id }}"] .health-benefits__eyebrow,
+    [data-section-id="{{ section.id }}"] .health-benefits__title {
+      font-family: var(--font-headline, inherit);
+      font-weight: var(--font-headline-weight, 600);
+      margin-bottom: 16px;
     }
 
     [data-section-id="{{ section.id }}"] .health-benefits__eyebrow {
       font-size: calc(var(--font-base-size) * 0.875);
-      font-family: var(--font-headline, inherit);
-      font-weight: var(--font-headline-weight, 600);
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: var(--color-custom-text, inherit);
-      margin-bottom: 16px;
     }
 
-
     [data-section-id="{{ section.id }}"] .health-benefits__title {
-      font-family: var(--font-headline, inherit);
-      font-weight: var(--font-headline-weight, 600);
       font-size: calc(var(--font-base-size) * 2);
       line-height: 1.2;
-      color: var(--color-custom-text, inherit);
-      margin-bottom: 16px;
     }
 
     @media (min-width: 900px) {
@@ -86,8 +89,7 @@
       font-family: var(--font-base, inherit);
       font-size: var(--font-base-size);
       line-height: var(--font-base-line-height, 1.5);
-      color: var(--color-custom-text, inherit);
-      margin-bottom: 24px;
+      margin-bottom: 32px;
     }
 
 
@@ -109,7 +111,7 @@
     }
 
     [data-section-id="{{ section.id }}"] .health-benefits__body.rte {
-      margin-bottom: 24px !important;
+      margin-bottom: 32px !important;
     }
 
     /* Force override for all heading elements in title */
