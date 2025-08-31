@@ -324,7 +324,7 @@
       "name": "Product Ingredients",
       "settings": {
         "subtitle": "Ingredients",
-        "title": "RESEARCH-BACKED \nFORMULA",
+        "title": "RESEARCH-BACKED FORMULA",
         "description": "<p>Each component is precisely selected and dosed based on clinical research. Clean formulas designed to work together, not just work alone.</p>",
         "view_all_text": "View all",
         "view_all_link": "shopify://pages/contact",
@@ -336,6 +336,14 @@
         "background_color": "rgba(0,0,0,0)",
         "margin_top": 0,
         "margin_bottom": 100
+      }
+    },
+    "health_benefits_aBfLBK": {
+      "type": "health-benefits",
+      "name": "Health Benefits",
+      "settings": {
+        "cta_label": "See all",
+        "cta_link": ""
       }
     },
     "testimonial_video_reels_qnieGX": {
@@ -406,6 +414,7 @@
     "main",
     "features_banner_idectQ",
     "ingredients_product_nVPErd",
+    "health_benefits_aBfLBK",
     "testimonial_video_reels_qnieGX"
   ]
 }
