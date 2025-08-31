@@ -144,6 +144,12 @@
       gap: calc(var(--gap, 8px) * 1.5);
     }
 
+    @media (min-width: 900px) {
+      [data-section-id="{{ section.id }}"] .health-benefits__item {
+        display: block;
+      }
+    }
+
     [data-section-id="{{ section.id }}"] .health-benefits__icon {
       flex: 0 0 auto;
       width: 32px;
@@ -151,6 +157,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    @media (min-width: 900px) {
+      [data-section-id="{{ section.id }}"] .health-benefits__icon {
+        width: 48px;
+        height: 48px;
+      }
     }
 
     [data-section-id="{{ section.id }}"] .health-benefits__icon img,
@@ -163,8 +176,8 @@
     [data-section-id="{{ section.id }}"] .health-benefits__text {
       flex: 1;
       font-family: var(--font-base, inherit);
-      font-size: var(--font-base-size);
-      font-weight: 500;
+      font-size: 16px;
+      font-weight: 600;
       line-height: 1.4;
       color: var(--color-custom-text, inherit);
       margin-top: 4px;
