@@ -112,6 +112,7 @@
     [data-section-id="{{ section.id }}"] .health-benefits__body.rte,
     [data-section-id="{{ section.id }}"] .health-benefits__body.rte * {
       margin-top: 0 !important;
+      margin-bottom: 0 !important;
     }
 
     [data-section-id="{{ section.id }}"] .health-benefits__title.rte {
@@ -120,6 +121,16 @@
 
     [data-section-id="{{ section.id }}"] .health-benefits__body.rte {
       margin-bottom: 12px !important;
+    }
+
+    /* Force override for all heading elements in title */
+    [data-section-id="{{ section.id }}"] .health-benefits__title.rte h1,
+    [data-section-id="{{ section.id }}"] .health-benefits__title.rte h2,
+    [data-section-id="{{ section.id }}"] .health-benefits__title.rte h3,
+    [data-section-id="{{ section.id }}"] .health-benefits__title.rte h4,
+    [data-section-id="{{ section.id }}"] .health-benefits__title.rte h5,
+    [data-section-id="{{ section.id }}"] .health-benefits__title.rte h6 {
+      margin: 0 !important;
     }
 
     @media (min-width: 900px) {
