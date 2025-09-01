@@ -29,6 +29,7 @@
   background-color: #e3e3e3;
   border-radius: var(--border-radius);
   transition: background 0.3s ease-in, color 0.3s ease-in;
+  flex-shrink: 0;
 }
 
 .wt-collapse__trigger:hover .wt-icon,
