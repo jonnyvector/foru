@@ -12,6 +12,187 @@
       --size-image: {{ block.settings.image-width }}px;
     }
   {%- endfor -%}
+
+  /* Footer Grid Layout */
+  .wt-footer__grid {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    padding-left: calc(var(--gap, 8px) * 2);
+    padding-right: calc(var(--gap, 8px) * 2);
+    display: grid;
+    gap: calc(var(--gap, 8px) * 4);
+  }
+
+  @media (min-width: 1200px) {
+    .wt-footer__grid {
+      padding-left: calc(calc(var(--gap, 8px) * 2) + calc(var(--gap, 8px) * 2));
+      padding-right: calc(calc(var(--gap, 8px) * 2) + calc(var(--gap, 8px) * 2));
+    }
+  }
+
+  /* Desktop Grid Layout (4 rows) */
+  @media (min-width: 750px) {
+    /* Row 1: Newsletter + Menus (3 columns) */
+    .wt-footer__row--main {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: calc(var(--gap, 8px) * 3);
+      align-items: start;
+    }
+
+    /* Row 2: Social Media (right aligned) */
+    .wt-footer__row--social {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    /* Row 3: Payment + Disclaimer (2 columns) */
+    .wt-footer__row--secondary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: calc(var(--gap, 8px) * 3);
+      align-items: center;
+    }
+
+    /* Row 4: Copyright + Policies (2 columns) */
+    .wt-footer__row--footer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: calc(var(--gap, 8px) * 3);
+      align-items: center;
+      border-top: 1px solid rgba(var(--color-foreground-rgb), 0.1);
+      padding-top: calc(var(--gap, 8px) * 3);
+    }
+
+    .wt-footer__grid-item--policies {
+      text-align: right;
+    }
+
+    .wt-footer__grid-item--disclaimer {
+      text-align: right;
+    }
+  }
+
+  /* Mobile Grid Layout (7 rows, single column) */
+  @media (max-width: 749px) {
+    .wt-footer__grid {
+      grid-template-areas: 
+        "newsletter"
+        "menus" 
+        "social"
+        "disclaimer"
+        "payment"
+        "policies"
+        "copyright";
+    }
+
+    .wt-footer__row--main {
+      display: contents;
+    }
+
+    .wt-footer__grid-item--newsletter {
+      grid-area: newsletter;
+    }
+
+    .wt-footer__grid-item--menu {
+      grid-area: menus;
+    }
+
+    .wt-footer__row--social {
+      grid-area: social;
+      justify-content: center;
+    }
+
+    .wt-footer__row--secondary {
+      display: contents;
+    }
+
+    .wt-footer__grid-item--disclaimer {
+      grid-area: disclaimer;
+      text-align: center;
+    }
+
+    .wt-footer__grid-item--payment {
+      grid-area: payment;
+      text-align: center;
+    }
+
+    .wt-footer__row--footer {
+      display: contents;
+    }
+
+    .wt-footer__grid-item--policies {
+      grid-area: policies;
+      text-align: center;
+    }
+
+    .wt-footer__grid-item--copyright {
+      grid-area: copyright;
+      text-align: center;
+    }
+  }
+
+  /* Grid Item Styles */
+  .wt-footer__grid-item {
+    min-width: 0;
+  }
+
+  /* Social Media Icons */
+  .wt-footer__social-icons {
+    display: flex;
+    gap: calc(var(--gap, 8px) * 2);
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 749px) {
+    .wt-footer__social-icons {
+      justify-content: center;
+    }
+  }
+
+  /* Payment Icons */
+  .wt-footer__payment-icons .wt-footer__aside-list {
+    display: flex;
+    gap: calc(var(--gap, 8px) * 1);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: flex-start;
+  }
+
+  @media (max-width: 749px) {
+    .wt-footer__payment-icons .wt-footer__aside-list {
+      justify-content: center;
+    }
+  }
+
+  .wt-footer__payment-icons .wt-footer__aside-list__item {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Disclaimer Text */
+  .wt-footer__disclaimer-text {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  /* Hide empty rows */
+  .wt-footer__row:empty {
+    display: none;
+  }
+
+  /* Legacy blocks styling */
+  .wt-footer__row--legacy {
+    display: grid;
+    gap: calc(var(--gap, 8px) * 3);
+  }
+
+  @media (min-width: 750px) {
+    .wt-footer__row--legacy {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+  }
 </style>
 
 <footer class="wt-footer">
