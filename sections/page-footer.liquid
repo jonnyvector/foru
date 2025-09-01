@@ -169,6 +169,24 @@
                 {% render 'social-links' %}
               </div>
             </section>
+
+          {%- when 'payment_icons' -%}
+            <section class="wt-footer__payment">
+              <div class="wt-footer__payment-icons">
+                <ul class="wt-footer__aside-list" role="list">
+                  {%- for type in shop.enabled_payment_types -%}
+                    <li class="wt-footer__aside-list__item">
+                      {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            </section>
+
+          {%- when 'disclaimer' -%}
+            <section class="wt-footer__disclaimer">
+              <div class="wt-footer__disclaimer-text rte">{{ block.settings.text }}</div>
+            </section>
         {%- endcase -%}
       </div>
     {%- endfor -%}
@@ -495,6 +513,22 @@
           "id": "heading",
           "label": "Heading",
           "default": "Follow Us"
+        }
+      ]
+    },
+    {
+      "type": "payment_icons",
+      "name": "Payment Methods"
+    },
+    {
+      "type": "disclaimer",
+      "name": "Disclaimer Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Disclaimer Text",
+          "default": "<p>All rights reserved.</p>"
         }
       ]
     }
