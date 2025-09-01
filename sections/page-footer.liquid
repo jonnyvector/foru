@@ -211,6 +211,32 @@
     font-size: 0.9rem;
   }
 
+  .wt-footer__policies-link .slide-wrapper {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  .wt-footer__policies-link .slide-text {
+    display: block;
+    transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .wt-footer__policies-link .slide-text:last-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(100%);
+  }
+
+  .wt-footer__policies-link:hover .slide-text:first-child {
+    transform: translateY(-100%);
+  }
+
+  .wt-footer__policies-link:hover .slide-text:last-child {
+    transform: translateY(0);
+  }
+
   /* Legacy blocks styling */
   .wt-footer__row--legacy {
     display: grid;
@@ -411,7 +437,7 @@
         {% assign policies_menu = linklists['policies'] %}
         
         <!-- Debug: Show if policies menu exists -->
-        DEBUG: Policies menu size: {{ policies_menu.links.size }}
+        {% comment %}DEBUG: Policies menu size: {{ policies_menu.links.size }}{% endcomment %}
         
         {% if policies_menu.links.size > 0 %}
           <nav class="wt-footer__policies">
