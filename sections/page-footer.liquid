@@ -159,6 +159,11 @@
                 {%- endif -%}
               {% endform %}
             </section>
+
+          {%- when 'test_block' -%}
+            <section class="wt-footer__test">
+              <div class="wt-footer__title">Test Block Working!</div>
+            </section>
         {%- endcase -%}
       </div>
     {%- endfor -%}
@@ -475,6 +480,10 @@
           "default": "primary"
         }
       ]
+    },
+    {
+      "type": "test_block",
+      "name": "Test Block"
     }
   ],
   "default": {
@@ -490,9 +499,6 @@
       },
       {
         "type": "newsletter"
-      },
-      {
-        "type": "image"
       }
     ]
   }
