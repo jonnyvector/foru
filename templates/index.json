@@ -556,7 +556,7 @@
       ],
       "name": "Testimonials Custom",
       "settings": {
-        "heading": "<p>Built by Experts, <br/>Proven by Athletes</p>",
+        "heading": "<h2>Built by Experts, <br/>Proven by Athletes</h2>",
         "full_width_enabled": false,
         "color_body_text": "#1a1c1c",
         "background_color": "rgba(0,0,0,0)",
