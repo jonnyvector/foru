@@ -571,59 +571,6 @@
     {%- endfor -%}
   </div>
 
-  <div class="wt-footer__aside">
-    <div class="wt-footer__aside__wrapper">
-      {% if section.settings.show_country_selector
-        or section.settings.show_language_selector
-        or section.settings['show-social-media-icons']
-      %}
-        <div class="wt-footer__aside-block__wrapper">
-          {% if section.settings.show_country_selector or section.settings.show_language_selector %}
-            <div
-              class="wt-footer__localization__triggers"
-            >
-              {% if section.settings.show_country_selector -%}
-                {%- render 'localization-btn-local',
-                  show_country_code: section.settings.show_country_selector_label,
-                  show_country_flag: section.settings.show_country_selector_flag
-                -%}
-              {%- endif %}
-              {% if section.settings.show_language_selector %}{% render 'localization-btn-lang' %}{% endif %}
-            </div>
-          {% endif %}
-
-          {% if section.settings['show-social-media-icons'] %}
-            <div class="wt-footer__aside-block wt-footer__aside-block--social">
-              {% render 'social-links' %}
-            </div>
-          {% endif %}
-        </div>
-      {% endif %}
-
-      {% if section.settings['show-payments-icons'] %}
-        <div class="wt-footer__aside-block wt-footer__aside-block--payment">
-          <ul class="wt-footer__aside-list" role="list">
-            {%- for type in shop.enabled_payment_types -%}
-              <li class="wt-footer__aside-list__item">
-                {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
-              </li>
-            {%- endfor -%}
-          </ul>
-        </div>
-      {% endif %}
-      {%- if shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
-        <div class="footer__follow-on-shop">
-          {{ shop | login_button: action: 'follow' }}
-        </div>
-      {%- endif -%}
-    </div>
-
-    {% if section.settings['show-copyright'] %}
-      <p class="wt-footer__aside__copy">
-        {{ section.settings.text }}
-      </p>
-    {% endif %}
-  </div>
 
   {% if section.settings['big-logo'] != null %}
     <div class="wt-footer__big-logo">
