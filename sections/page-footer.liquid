@@ -40,10 +40,16 @@
       align-items: start;
     }
 
-    /* Row 2: Social Media (right aligned) */
+    /* Row 2: Social Media (positioned like right column, left-aligned within that column) */
     .wt-footer__row--social {
-      display: flex;
-      justify-content: flex-end;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: calc(var(--gap, 8px) * 3);
+    }
+    
+    .wt-footer__row--social .wt-footer__grid-item--social {
+      grid-column: 2;
+      justify-self: start;
     }
 
     /* Row 3: Payment + Disclaimer (2 columns) */
