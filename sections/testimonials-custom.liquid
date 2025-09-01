@@ -89,8 +89,16 @@
   .testimonials-custom .page-width {
     max-width: var(--site-max-width);
     margin: 0 auto;
-    padding-left: calc(calc(var(--gap, 8px) * 2) + calc(var(--gap, 8px) * 2));
-    padding-right: calc(calc(var(--gap, 8px) * 2) + calc(var(--gap, 8px) * 2));
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  /* Mobile responsive padding */
+  @media screen and (max-width: 749px) {
+    .testimonials-custom .page-width {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
   }
 
   /* Full width layout adjustments */
