@@ -81,6 +81,6 @@
 }
 
 /* Disable underline animation - only use sliding text effect */
-/* .wt-page-nav-mega__link:hover .wt-page-nav-mega__link__text::after {
-  transform: scaleX(1) !important;
-} */
+.wt-page-nav-mega__link__text::after {
+  display: none !important;
+}
