@@ -48,7 +48,10 @@
                     {%- for link in block.settings.links.links -%}
                       <li class="wt-footer__list__item">
                         <a href="{{ link.url }}" class="{% if link.active %} list-menu__item--active{% endif %}">
-                          <span class="wt-footer__list__item__text--underline">{{ link.title }}</span>
+                          <span class="wt-footer__list__item__text--underline slide-wrapper">
+                          <span class="slide-text">{{ link.title }}</span>
+                          <span class="slide-text">{{ link.title }}</span>
+                        </span>
                         </a>
                       </li>
                     {%- endfor -%}
@@ -61,7 +64,10 @@
                   {%- for link in block.settings.links.links -%}
                     <li class="wt-footer__list__item">
                       <a href="{{ link.url }}" class="{% if link.active %} list-menu__item--active{% endif %}">
-                        <span class="wt-footer__list__item__text--underline">{{ link.title }}</span>
+                        <span class="wt-footer__list__item__text--underline slide-wrapper">
+                          <span class="slide-text">{{ link.title }}</span>
+                          <span class="slide-text">{{ link.title }}</span>
+                        </span>
                       </a>
                     </li>
                   {%- endfor -%}

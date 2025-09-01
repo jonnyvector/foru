@@ -35,8 +35,9 @@
           data-menu-level="1"
           class="wt-page-nav-mega__link wt-page-nav-mega__link--parent {% if link.current %} wt-page-nav-mega__link--active{% endif %}"
         >
-          <span class="wt-page-nav-mega__link__text wt-page-nav-mega__link__text--underline">
-            {{- link.title | escape -}}
+          <span class="wt-page-nav-mega__link__text wt-page-nav-mega__link__text--underline slide-wrapper">
+            <span class="slide-text">{{- link.title | escape -}}</span>
+            <span class="slide-text">{{- link.title | escape -}}</span>
           </span>
           {% render 'icons', id: 'plus' %}
           {% render 'icons', id: 'arrow-down' %}
@@ -157,8 +158,9 @@
             aria-current="page"
           {% endif %}
         >
-          <span class="wt-page-nav-mega__link__text wt-page-nav-mega__link__text--underline">
-            {{- link.title | escape -}}
+          <span class="wt-page-nav-mega__link__text wt-page-nav-mega__link__text--underline slide-wrapper">
+            <span class="slide-text">{{- link.title | escape -}}</span>
+            <span class="slide-text">{{- link.title | escape -}}</span>
           </span>
         </a>
       </li>
