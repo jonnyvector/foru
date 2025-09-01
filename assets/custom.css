@@ -30,7 +30,7 @@
   border-radius: var(--border-radius);
   transition: background 0.3s ease-in, color 0.3s ease-in;
   flex-shrink: 0;
-  padding-left: 1rem;
+  margin-left: 1rem;
 }
 
 .wt-collapse__trigger:hover .wt-icon,
