@@ -89,15 +89,15 @@
   .testimonials-custom .page-width {
     max-width: var(--site-max-width);
     margin: 0 auto;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: calc(var(--gap, 8px) * 2);
+    padding-right: calc(var(--gap, 8px) * 2);
   }
 
-  /* Mobile responsive padding */
-  @media screen and (max-width: 749px) {
+  /* Desktop responsive padding - matches theme standard */
+  @media (min-width: 1200px) {
     .testimonials-custom .page-width {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
+      padding-left: calc(calc(var(--gap, 8px) * 2) + calc(var(--gap, 8px) * 2));
+      padding-right: calc(calc(var(--gap, 8px) * 2) + calc(var(--gap, 8px) * 2));
     }
   }
 
