@@ -67,7 +67,7 @@
         "desktop_text_vertical_position": "center",
         "desktop_text_horizontal_position": "center",
         "mobile_text_horizontal_position": "center",
-        "margin-top": 20,
+        "margin-top": 0,
         "margin-bottom": 0
       }
     },
@@ -116,7 +116,7 @@
         "desktop_text_horizontal_position": "center",
         "mobile_text_horizontal_position": "center",
         "margin-top": 0,
-        "margin-bottom": 20
+        "margin-bottom": 0
       }
     }
   },
