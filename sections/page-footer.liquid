@@ -15,10 +15,208 @@
 </style>
 
 <footer class="wt-footer">
-  <div class="wt-footer__body">
-    {% for block in section.blocks %}
-      <div class="wt-footer__block wt-footer__block--{{ block.type }}">
-        {%- case block.type -%}
+  <!-- Footer Grid Container -->
+  <div class="wt-footer__grid">
+    <!-- Collect blocks by type for organized layout -->
+    {% assign newsletter_blocks = section.blocks | where: 'type', 'newsletter' %}
+    {% assign menu_blocks = section.blocks | where: 'type', 'menu' %}
+    {% assign social_blocks = section.blocks | where: 'type', 'social_links' %}
+    {% assign payment_blocks = section.blocks | where: 'type', 'payment_icons' %}
+    {% assign disclaimer_blocks = section.blocks | where: 'type', 'disclaimer' %}
+    {% assign other_blocks = section.blocks | where: 'type', 'text' | concat: section.blocks | where: 'type', 'image' | concat: section.blocks | where: 'type', 'custom_liquid' | concat: section.blocks | where: 'type', '@app' %}
+
+    <!-- Desktop Row 1 / Mobile Rows 1-2: Newsletter + Menus -->
+    <div class="wt-footer__row wt-footer__row--main">
+      <!-- Newsletter -->
+      {% for newsletter_block in newsletter_blocks %}
+        <div class="wt-footer__grid-item wt-footer__grid-item--newsletter">
+          <section class="wt-newsletter wt-footer__additional">
+            <div class="wt-footer__title wt-newsletter__title">{{ newsletter_block.settings.heading_newsletter }}</div>
+            <div class="wt-footer__text rte">{{ newsletter_block.settings.text_newsletter }}</div>
+
+            {% form 'customer', class: 'newsletter-form wt-newsletter__form wt-footer__additional__form' %}
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <div class="wt-newsletter__fieldset">
+                <input
+                  id="NewsletterForm--{{ section.id }}"
+                  type="email"
+                  name="contact[email]"
+                  class="wt-newsletter__field"
+                  value="{{ form.email }}"
+                  aria-required="true"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  autocomplete="email"
+                  placeholder="{{ 'newsletter.label' | t }}"
+                  required
+                >
+                <button
+                  type="submit"
+                  class="wt-newsletter__send wt-newsletter__send--{{ newsletter_block.settings.button_type }}"
+                  name="commit"
+                  aria-label="{{ 'newsletter.button_label' | t }}"
+                >
+                  <span class="wt-newsletter__send__text">
+                    {{ 'newsletter.button_label' | t }}
+                  </span>
+                </button>
+              </div>
+              {%- if form.errors -%}
+                {% for error in form.errors %}
+                  <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
+                    {%- render 'icon-error' -%}
+                    {% if error == 'form' %}
+                      {{ form.errors.messages[error] }}
+                    {% else %}
+                      {{ form.errors.translated_fields[error] }} - {{ form.errors.messages[error] }}
+                    {% endif %}
+                  </small>
+                {% endfor %}
+              {%- endif -%}
+              {%- if form.posted_successfully? -%}
+                <div class="form__message">
+                  <div class="form__success-field" tabindex="-1" autofocus>
+                    <p>{{- 'newsletter.success' | t }}</p>
+                  </div>
+                </div>
+              {%- endif -%}
+            {% endform %}
+          </section>
+        </div>
+      {% endfor %}
+
+      <!-- Menus -->
+      {% for menu_block in menu_blocks %}
+        <div class="wt-footer__grid-item wt-footer__grid-item--menu">
+          {% if menu_block.settings.heading_links != empty %}
+            <collapsible-section
+              class="wt-footer__links wt-collapse"
+              data-toggle-tabindex="button, [href], input, a"
+              data-mobile-only
+            >
+              <div
+                class="wt-footer__title wt-collapse__trigger"
+                role="button"
+                tabindex="0"
+                data-open="false"
+                aria-expanded="false"
+                aria-controls="CollapsibleTab-{{ menu_block.id }}"
+              >
+                <div>{{ menu_block.settings.heading_links }}</div>
+                <div class="wt-footer__title__icon wt-icon" aria-hidden="true">
+                  {% render 'icons', id: 'plus' %}
+                </div>
+              </div>
+              <div class="wt-collapse__target wt-collapse__target--v2" id="CollapsibleTab-{{ menu_block.id }}">
+                <ul class="wt-footer__list">
+                  {%- for link in menu_block.settings.links.links -%}
+                    <li class="wt-footer__list__item">
+                      <a href="{{ link.url }}" class="{% if link.active %} list-menu__item--active{% endif %}">
+                        <span class="wt-footer__list__item__text--underline slide-wrapper">
+                        <span class="slide-text">{{ link.title }}</span>
+                        <span class="slide-text">{{ link.title }}</span>
+                      </span>
+                      </a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            </collapsible-section>
+          {% else %}
+            <div class="wt-footer__links wt-footer__links--no-heading">
+              <ul class="wt-footer__list">
+                {%- for link in menu_block.settings.links.links -%}
+                  <li class="wt-footer__list__item">
+                    <a href="{{ link.url }}" class="{% if link.active %} list-menu__item--active{% endif %}">
+                      <span class="wt-footer__list__item__text--underline slide-wrapper">
+                        <span class="slide-text">{{ link.title }}</span>
+                        <span class="slide-text">{{ link.title }}</span>
+                      </span>
+                    </a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Desktop Row 2 / Mobile Row 3: Social Media -->
+    <div class="wt-footer__row wt-footer__row--social">
+      {% for social_block in social_blocks %}
+        <div class="wt-footer__grid-item wt-footer__grid-item--social">
+          <section class="wt-footer__social">
+            {%- if social_block.settings.heading != blank -%}
+              <div class="wt-footer__title">{{ social_block.settings.heading }}</div>
+            {%- endif -%}
+            <div class="wt-footer__social-icons">
+              {% render 'social-links' %}
+            </div>
+          </section>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Desktop Row 3 / Mobile Rows 4-5: Disclaimer + Payment -->
+    <div class="wt-footer__row wt-footer__row--secondary">
+      <!-- Payment Icons -->
+      {% for payment_block in payment_blocks %}
+        <div class="wt-footer__grid-item wt-footer__grid-item--payment">
+          <section class="wt-footer__payment">
+            <div class="wt-footer__payment-icons">
+              <ul class="wt-footer__aside-list" role="list">
+                {%- for type in shop.enabled_payment_types -%}
+                  <li class="wt-footer__aside-list__item">
+                    {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          </section>
+        </div>
+      {% endfor %}
+      
+      <!-- Disclaimer -->
+      {% for disclaimer_block in disclaimer_blocks %}
+        <div class="wt-footer__grid-item wt-footer__grid-item--disclaimer">
+          <section class="wt-footer__disclaimer">
+            <div class="wt-footer__disclaimer-text rte">{{ disclaimer_block.settings.text }}</div>
+          </section>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Desktop Row 4 / Mobile Rows 6-7: Policies + Copyright -->
+    <div class="wt-footer__row wt-footer__row--footer">
+      <div class="wt-footer__grid-item wt-footer__grid-item--copyright">
+        {% if section.settings['show-copyright'] %}
+          <p class="wt-footer__aside__copy">
+            {{ section.settings.text }}
+          </p>
+        {% endif %}
+      </div>
+      
+      <div class="wt-footer__grid-item wt-footer__grid-item--policies">
+        {% if section.settings.show_country_selector or section.settings.show_language_selector %}
+          <div class="wt-footer__localization__triggers">
+            {% if section.settings.show_country_selector -%}
+              {%- render 'localization-btn-local',
+                show_country_code: section.settings.show_country_selector_label,
+                show_country_flag: section.settings.show_country_selector_flag
+              -%}
+            {%- endif %}
+            {% if section.settings.show_language_selector %}{% render 'localization-btn-lang' %}{% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Legacy blocks (text, image, custom_liquid, @app) -->
+    <div class="wt-footer__row wt-footer__row--legacy">
+      {% for block in other_blocks %}
+        <div class="wt-footer__grid-item wt-footer__grid-item--legacy">
+          {%- case block.type -%}
           {%- when '@app' -%}
             {% render block %}
           {%- when 'custom_liquid' -%}
