@@ -160,9 +160,14 @@
               {% endform %}
             </section>
 
-          {%- when 'test_block' -%}
-            <section class="wt-footer__test">
-              <div class="wt-footer__title">Test Block Working!</div>
+          {%- when 'social_links' -%}
+            <section class="wt-footer__social">
+              {%- if block.settings.heading != blank -%}
+                <div class="wt-footer__title">{{ block.settings.heading }}</div>
+              {%- endif -%}
+              <div class="wt-footer__social-icons">
+                {% render 'social-links' %}
+              </div>
             </section>
         {%- endcase -%}
       </div>
@@ -482,8 +487,16 @@
       ]
     },
     {
-      "type": "test_block",
-      "name": "Test Block"
+      "type": "social_links",
+      "name": "Social Media Links",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Follow Us"
+        }
+      ]
     }
   ],
   "default": {
