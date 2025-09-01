@@ -59,6 +59,21 @@
         {% endif %}
     }
 
+  /* Force left alignment for all text in image-with-text section */
+  .section-image-with-text .hero__content,
+  .section-image-with-text .hero__content h1,
+  .section-image-with-text .hero__content h2,
+  .section-image-with-text .hero__content h3,
+  .section-image-with-text .hero__content h4,
+  .section-image-with-text .hero__content h5,
+  .section-image-with-text .hero__content h6,
+  .section-image-with-text .hero__content p,
+  .section-image-with-text .hero__content .rte,
+  .section-image-with-text .hero__title,
+  .section-image-with-text .hero__subtitle {
+    text-align: left !important;
+  }
+
   {%- for block in section.blocks -%}
   [data-block-id="{{ block.id }}"]
   {
