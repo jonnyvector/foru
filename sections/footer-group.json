@@ -36,11 +36,16 @@
             "links": "info"
           }
         },
-        "menu_ja9mLY": {
-          "type": "menu",
+        "social_links_fXc63c": {
+          "type": "social_links",
           "settings": {
-            "heading_links": "Social",
-            "links": ""
+            "heading": "Follow Us"
+          }
+        },
+        "disclaimer_eWdnfE": {
+          "type": "disclaimer",
+          "settings": {
+            "text": "<p>All rights reserved.</p>"
           }
         }
       },
@@ -48,17 +53,18 @@
         "newsletter_LT9cDC",
         "menu_bB7XxG",
         "menu_FVzkic",
-        "menu_ja9mLY"
+        "social_links_fXc63c",
+        "disclaimer_eWdnfE"
       ],
       "settings": {
-        "show-social-media-icons": false,
-        "show_country_selector": true,
-        "show_country_selector_label": true,
-        "show_country_selector_flag": true,
+        "show-social-media-icons": true,
+        "show_country_selector": false,
+        "show_country_selector_label": false,
+        "show_country_selector_flag": false,
         "show_language_selector": true,
         "enable_follow_on_shop": false,
         "show-payments-icons": true,
-        "show-copyright": false,
+        "show-copyright": true,
         "text": "© 2025 Wonder-theme. Powered by Shopify.",
         "big-logo-width": 100,
         "margin-top": 0,
