@@ -139,7 +139,8 @@
         "77e8081d-3216-4f92-9f1e-bab5a6656d97"
       ],
       "custom_css": [
-        ".wt-collapse__wrapper--compact {max-width: none;}"
+        ".wt-collapse__wrapper--compact {max-width: none;}",
+        ".wt-collapse__wrapper .wt-collapse:not(:last-child){border:none;}"
       ],
       "settings": {
         "color-body-text": "rgba(0,0,0,0)",
