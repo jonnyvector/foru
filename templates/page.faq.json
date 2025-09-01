@@ -140,7 +140,7 @@
       ],
       "custom_css": [
         ".wt-collapse__wrapper--compact {max-width: none;}",
-        ".wt-collapse__wrapper .wt-collapse:not(:last-child){border:none;}"
+        ".wt-collapse__wrapper .wt-collapse:not(:last-child) {border: none;}"
       ],
       "settings": {
         "color-body-text": "rgba(0,0,0,0)",
