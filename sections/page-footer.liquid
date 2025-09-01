@@ -182,6 +182,35 @@
     display: none;
   }
 
+  /* Policies Menu Styling */
+  .wt-footer__policies-list {
+    display: flex;
+    gap: calc(var(--gap, 8px) * 2);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 749px) {
+    .wt-footer__policies-list {
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 100%;
+    }
+    
+    .wt-footer__policies-item {
+      flex-basis: calc(50% - calc(var(--gap, 8px) * 1));
+      text-align: center;
+    }
+  }
+
+  .wt-footer__policies-link {
+    color: var(--color-foreground);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+
   /* Legacy blocks styling */
   .wt-footer__row--legacy {
     display: grid;
@@ -379,7 +408,26 @@
       </div>
       
       <div class="wt-footer__grid-item wt-footer__grid-item--policies">
-        {% if section.settings.show_country_selector or section.settings.show_language_selector %}
+        {% assign policies_menu = linklists['policies'] %}
+        {% if policies_menu.links.size > 0 %}
+          <nav class="wt-footer__policies">
+            <ul class="wt-footer__policies-list">
+              {%- for link in policies_menu.links -%}
+                <li class="wt-footer__policies-item">
+                  <a href="{{ link.url }}" class="wt-footer__policies-link">
+                    <span class="slide-wrapper">
+                      <span class="slide-text">{{ link.title }}</span>
+                      <span class="slide-text">{{ link.title }}</span>
+                    </span>
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </nav>
+        {% endif %}
+        
+        <!-- Localization selectors as fallback -->
+        {% if policies_menu.links.size == 0 and (section.settings.show_country_selector or section.settings.show_language_selector) %}
           <div class="wt-footer__localization__triggers">
             {% if section.settings.show_country_selector -%}
               {%- render 'localization-btn-local',
