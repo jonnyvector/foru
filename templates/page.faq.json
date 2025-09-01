@@ -40,7 +40,8 @@
         "heading_K4B6He"
       ],
       "custom_css": [
-        ".hero,.hero__overlay {padding-left: 0;}"
+        ".hero,.hero__overlay {padding-left: 0;}",
+        "@media(min-width:768px){.hero__overlay{padding-bottom:.75rem; }}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
