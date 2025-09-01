@@ -135,7 +135,10 @@
         "24d707a1-7b6d-40e9-a2b3-45c72368e607",
         "77e8081d-3216-4f92-9f1e-bab5a6656d97"
       ],
-      "custom_css": [],
+      "custom_css": [
+        ".hero,.hero__overlay {padding: 0;}",
+        ".wt-collapse__wrapper--compact{max-width: none;}"
+      ],
       "settings": {
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "#ffffff",
