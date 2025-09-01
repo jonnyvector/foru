@@ -409,6 +409,10 @@
       
       <div class="wt-footer__grid-item wt-footer__grid-item--policies">
         {% assign policies_menu = linklists['policies'] %}
+        
+        <!-- Debug: Show if policies menu exists -->
+        {% comment %}DEBUG: Policies menu size: {{ policies_menu.links.size }}{% endcomment %}
+        
         {% if policies_menu.links.size > 0 %}
           <nav class="wt-footer__policies">
             <ul class="wt-footer__policies-list">
@@ -424,10 +428,40 @@
               {%- endfor -%}
             </ul>
           </nav>
+        {% else %}
+          <!-- Fallback: Show test links if no policies menu -->
+          <nav class="wt-footer__policies">
+            <ul class="wt-footer__policies-list">
+              <li class="wt-footer__policies-item">
+                <a href="/pages/privacy-policy" class="wt-footer__policies-link">
+                  <span class="slide-wrapper">
+                    <span class="slide-text">Privacy Policy</span>
+                    <span class="slide-text">Privacy Policy</span>
+                  </span>
+                </a>
+              </li>
+              <li class="wt-footer__policies-item">
+                <a href="/pages/terms-of-service" class="wt-footer__policies-link">
+                  <span class="slide-wrapper">
+                    <span class="slide-text">Terms of Service</span>
+                    <span class="slide-text">Terms of Service</span>
+                  </span>
+                </a>
+              </li>
+              <li class="wt-footer__policies-item">
+                <a href="/pages/refund-policy" class="wt-footer__policies-link">
+                  <span class="slide-wrapper">
+                    <span class="slide-text">Refund Policy</span>
+                    <span class="slide-text">Refund Policy</span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </nav>
         {% endif %}
         
-        <!-- Localization selectors as fallback -->
-        {% if policies_menu.links.size == 0 and (section.settings.show_country_selector or section.settings.show_language_selector) %}
+        <!-- Localization selectors as additional option -->
+        {% if section.settings.show_country_selector or section.settings.show_language_selector %}
           <div class="wt-footer__localization__triggers">
             {% if section.settings.show_country_selector -%}
               {%- render 'localization-btn-local',
