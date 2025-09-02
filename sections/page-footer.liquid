@@ -206,26 +206,41 @@
 
   /* Mobile Newsletter Sizing */
   @media (max-width: 749px) {
+    /* Force fieldset to be flex with proper sizing */
+    .wt-footer .wt-newsletter__fieldset {
+      display: flex !important;
+      gap: 8px !important;
+      align-items: stretch !important;
+    }
+    
     .wt-footer .wt-newsletter__field {
       height: 48px;
+      flex: 1 !important; /* Take remaining space */
+      min-width: 0 !important; /* Allow shrinking */
+    }
+    
+    .wt-footer .wt-newsletter__send {
+      flex: none !important; /* Don't grow or shrink */
+      width: 48px !important;
     }
     
     .wt-footer .wt-newsletter__send div[class*="custom-button-wrapper"],
     .wt-footer div[class*="custom-button-wrapper"] {
-      height: 48px;
-      gap: 0 !important; /* Remove gap between text and arrow parts */
-      width: 48px; /* Fixed width to match arrow button */
+      height: 48px !important;
+      width: 48px !important;
+      gap: 0 !important;
+      justify-content: center !important;
     }
     
     /* Hide text button part on mobile */
     .wt-footer .wt-newsletter__send [class*="custom-button-text-"] {
-      display: none;
+      display: none !important;
     }
     
     /* Rotate arrow to point up and resize */
     .wt-footer .wt-newsletter__send [class*="custom-button-arrow-"] {
-      width: 40px;
-      height: 40px;
+      width: 40px !important;
+      height: 40px !important;
     }
     
     .wt-footer .wt-newsletter__send [class*="custom-button-arrow-"] svg {
