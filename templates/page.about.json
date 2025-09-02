@@ -39,6 +39,9 @@
       "block_order": [
         "heading_ThTR3h"
       ],
+      "custom_css": [
+        ".hero,.hero__overlay {padding-left: 0;}"
+      ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "section_width": "regular",
