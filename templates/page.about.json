@@ -23,6 +23,32 @@
         "margin-bottom": 0
       }
     },
+    "rich_text_nAycx3": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_ThTR3h": {
+          "type": "heading",
+          "settings": {
+            "heading": "About Us",
+            "disable_on_mobile": false,
+            "size_heading": 290,
+            "size_heading_mobile": 150
+          }
+        }
+      },
+      "block_order": [
+        "heading_ThTR3h"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_width": "regular",
+        "desktop_text_horizontal_position": "left",
+        "color-body-text": "transparent",
+        "background_color": "transparent",
+        "margin-top": 20,
+        "margin-bottom": 0
+      }
+    },
     "image_with_text_m4DHjY": {
       "type": "image-with-text",
       "blocks": {
@@ -122,6 +148,7 @@
   },
   "order": [
     "main",
+    "rich_text_nAycx3",
     "image_with_text_m4DHjY",
     "image_with_text_xmd83Y"
   ]
