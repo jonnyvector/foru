@@ -50,7 +50,6 @@
     .wt-footer__menus-container > * {
       flex: 1;
       min-width: 0;
-      text-align: left;
     }
 
     /* Row 2: Social Media (positioned like right column, left-aligned within that column) */
@@ -341,60 +340,64 @@
       {% endfor %}
 
       <!-- Menus -->
-      {% for menu_block in menu_blocks %}
-        <div class="wt-footer__grid-item wt-footer__grid-item--menu">
-          {% if menu_block.settings.heading_links != empty %}
-            <collapsible-section
-              class="wt-footer__links wt-collapse"
-              data-toggle-tabindex="button, [href], input, a"
-              data-mobile-only
-            >
-              <div
-                class="wt-footer__title wt-collapse__trigger"
-                role="button"
-                tabindex="0"
-                data-open="false"
-                aria-expanded="false"
-                aria-controls="CollapsibleTab-{{ menu_block.id }}"
-              >
-                <div>{{ menu_block.settings.heading_links }}</div>
-                <div class="wt-footer__title__icon wt-icon" aria-hidden="true">
-                  {% render 'icons', id: 'plus' %}
+      {% if menu_blocks.size > 0 %}
+        <div class="wt-footer__menus-container">
+          {% for menu_block in menu_blocks %}
+            <div class="wt-footer__grid-item wt-footer__grid-item--menu">
+              {% if menu_block.settings.heading_links != empty %}
+                <collapsible-section
+                  class="wt-footer__links wt-collapse"
+                  data-toggle-tabindex="button, [href], input, a"
+                  data-mobile-only
+                >
+                  <div
+                    class="wt-footer__title wt-collapse__trigger"
+                    role="button"
+                    tabindex="0"
+                    data-open="false"
+                    aria-expanded="false"
+                    aria-controls="CollapsibleTab-{{ menu_block.id }}"
+                  >
+                    <div>{{ menu_block.settings.heading_links }}</div>
+                    <div class="wt-footer__title__icon wt-icon" aria-hidden="true">
+                      {% render 'icons', id: 'plus' %}
+                    </div>
+                  </div>
+                  <div class="wt-collapse__target wt-collapse__target--v2" id="CollapsibleTab-{{ menu_block.id }}">
+                    <ul class="wt-footer__list">
+                      {%- for link in menu_block.settings.links.links -%}
+                        <li class="wt-footer__list__item">
+                          <a href="{{ link.url }}" class="{% if link.active %} list-menu__item--active{% endif %}">
+                            <span class="wt-footer__list__item__text--underline slide-wrapper">
+                            <span class="slide-text">{{ link.title }}</span>
+                            <span class="slide-text">{{ link.title }}</span>
+                          </span>
+                          </a>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  </div>
+                </collapsible-section>
+              {% else %}
+                <div class="wt-footer__links wt-footer__links--no-heading">
+                  <ul class="wt-footer__list">
+                    {%- for link in menu_block.settings.links.links -%}
+                      <li class="wt-footer__list__item">
+                        <a href="{{ link.url }}" class="{% if link.active %} list-menu__item--active{% endif %}">
+                          <span class="wt-footer__list__item__text--underline slide-wrapper">
+                            <span class="slide-text">{{ link.title }}</span>
+                            <span class="slide-text">{{ link.title }}</span>
+                          </span>
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
                 </div>
-              </div>
-              <div class="wt-collapse__target wt-collapse__target--v2" id="CollapsibleTab-{{ menu_block.id }}">
-                <ul class="wt-footer__list">
-                  {%- for link in menu_block.settings.links.links -%}
-                    <li class="wt-footer__list__item">
-                      <a href="{{ link.url }}" class="{% if link.active %} list-menu__item--active{% endif %}">
-                        <span class="wt-footer__list__item__text--underline slide-wrapper">
-                        <span class="slide-text">{{ link.title }}</span>
-                        <span class="slide-text">{{ link.title }}</span>
-                      </span>
-                      </a>
-                    </li>
-                  {%- endfor -%}
-                </ul>
-              </div>
-            </collapsible-section>
-          {% else %}
-            <div class="wt-footer__links wt-footer__links--no-heading">
-              <ul class="wt-footer__list">
-                {%- for link in menu_block.settings.links.links -%}
-                  <li class="wt-footer__list__item">
-                    <a href="{{ link.url }}" class="{% if link.active %} list-menu__item--active{% endif %}">
-                      <span class="wt-footer__list__item__text--underline slide-wrapper">
-                        <span class="slide-text">{{ link.title }}</span>
-                        <span class="slide-text">{{ link.title }}</span>
-                      </span>
-                    </a>
-                  </li>
-                {%- endfor -%}
-              </ul>
+              {% endif %}
             </div>
-          {% endif %}
+          {% endfor %}
         </div>
-      {% endfor %}
+      {% endif %}
     </div>
 
     <!-- Desktop Row 2 / Mobile Row 3: Social Media -->
