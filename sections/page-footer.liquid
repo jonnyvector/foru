@@ -214,6 +214,16 @@
     .wt-footer div[class*="custom-button-wrapper"] {
       height: 48px;
     }
+    
+    /* Hide text button part on mobile */
+    .wt-footer .wt-newsletter__send [class*="custom-button-text-"] {
+      display: none;
+    }
+    
+    /* Rotate arrow to point up */
+    .wt-footer .wt-newsletter__send [class*="custom-button-arrow-"] svg {
+      transform: rotate(-90deg);
+    }
   }
 
   /* Social Media Icons */
