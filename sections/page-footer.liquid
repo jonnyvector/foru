@@ -206,12 +206,22 @@
 
   /* Mobile Newsletter Sizing */
   @media (max-width: 749px) {
+    .wt-footer .wt-newsletter__fieldset {
+      flex-direction: row;
+    }
+    
     .wt-footer .wt-newsletter__field {
       height: 48px;
+      flex: 1;
+    }
+    
+    .wt-footer .wt-newsletter__send {
+      flex-shrink: 0;
     }
     
     .wt-footer .wt-newsletter__send div[class*="custom-button-wrapper"] {
       height: 48px;
+      width: 48px;
     }
     
     /* Hide text button part on mobile */
