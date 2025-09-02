@@ -272,7 +272,7 @@
   }
 
   /* Icon size */
-  .custom-button-arrow-{{ unique_id }}svg {
+  .custom-button-arrow-{{ unique_id }} svg {
     width: 32px;
     height: 32px;
     display: block;
@@ -280,7 +280,7 @@
 
   /* Subtle stagger so arrow trails text */
   @media (hover: hover) {
-    .custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }}
+    .custom-button-wrapper-{{ unique_id }}:hover .custom-button-arrow-{{ unique_id }}
     .slide-arrow {
       transition-delay: 0.06s;
     }
@@ -322,8 +322,7 @@
       height: 48px;
     }
 
-    .custom-button-arrow-{{ unique_id }}
-    svg {
+    .custom-button-arrow-{{ unique_id }} svg {
       width: 24px;
       height: 24px;
     }
