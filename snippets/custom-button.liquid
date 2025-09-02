@@ -63,53 +63,55 @@
       </span>
     </a>
   {% else %}
-      <button
-        type="{{ button_type }}"
-        class="custom-button-text-{{ unique_id }}"
-        aria-label="{{ aria_label | default: button_text }}"
-        {% if disabled %}disabled{% endif %}>
-        <span class="slide-wrapper">
-          <span class="slide-text">{{ button_text }}</span>
-          <span class="slide-text">{{ button_text }}</span>
-        </span>
-      </button>
+    <button
+      type="{{ button_type }}"
+      class="custom-button-text-{{ unique_id }}"
+      aria-label="{{ aria_label | default: button_text }}"
+      {% if disabled %}
+      disabled{% endif %}>
+      <span class="slide-wrapper">
+        <span class="slide-text">{{ button_text }}</span>
+        <span class="slide-text">{{ button_text }}</span>
+      </span>
+    </button>
 
-      <button
-        style="padding:0"
-        type="{{ button_type }}"
-        class="custom-button-arrow-{{ unique_id }}"
-        aria-label="{{ aria_label | default: button_text }}"
-        {% if disabled %}disabled{% endif %}>
-        <span class="slide-wrapper">
-          <span class="slide-arrow">
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 32 32"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M6.57227 16H25.4284M25.4284 16L16.9432 7.51472M25.4284 16L16.9432 24.4853"
-                stroke="currentColor"
-                stroke-width="2" />
-            </svg>
+    <button
+      style="padding:0"
+      type="{{ button_type }}"
+      class="custom-button-arrow-{{ unique_id }}"
+      aria-label="{{ aria_label | default: button_text }}"
+      {% if disabled %}
+      disabled{% endif %}>
+      <span class="slide-wrapper">
+        <span class="slide-arrow">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M6.57227 16H25.4284M25.4284 16L16.9432 7.51472M25.4284 16L16.9432 24.4853"
+              stroke="currentColor"
+              stroke-width="2" />
+          </svg>
 
-          </span>
-          <span class="slide-arrow">
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 32 32"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M6.57227 16H25.4284M25.4284 16L16.9432 7.51472M25.4284 16L16.9432 24.4853"
-                stroke="currentColor"
-                stroke-width="2" />
-            </svg>
-          </span>
         </span>
-      </button>
+        <span class="slide-arrow">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M6.57227 16H25.4284M25.4284 16L16.9432 7.51472M25.4284 16L16.9432 24.4853"
+              stroke="currentColor"
+              stroke-width="2" />
+          </svg>
+        </span>
+      </span>
+    </button>
   {% endif %}
 </div>
 
@@ -121,20 +123,22 @@
     align-items: stretch;
     width: auto;
   }
-  
+
   /* Ensure gap is maintained in all scenarios */
-  .custom-button-wrapper-{{ unique_id }} * {
+  .custom-button-wrapper-{{ unique_id }}* {
     box-sizing: border-box;
   }
 
   /* Full width modifier */
-  .custom-button-wrapper-{{ unique_id }}.button--full-width {
+  .custom-button-wrapper-{{ unique_id }} .button--full-width {
     width: 100%;
     display: flex;
-    gap: 1rem; /* Preserve the gap in full-width mode */
+    gap: 1rem;
+    /* Preserve the gap in full-width mode */
   }
 
-  .custom-button-wrapper-{{ unique_id }}.button--full-width .custom-button-text-{{ unique_id }} {
+  .custom-button-wrapper-{{ unique_id }}
+  .button--full-width .custom-button-text-{{ unique_id }} {
     flex: 1;
   }
 
@@ -148,11 +152,12 @@
   }
 
   /* Button layout within product container */
-  .wt-product__add-to-cart_form.main-product__buy-buttons--container .custom-button-wrapper-{{ unique_id }} .custom-button-text-{{ unique_id }} {
+  .wt-product__add-to-cart_form.main-product__buy-buttons--container .custom-button-wrapper-{{ unique_id }}.custom-button-text-{{ unique_id }} {
     flex: 1;
   }
-  
-  .wt-product__add-to-cart_form.main-product__buy-buttons--container .custom-button-wrapper-{{ unique_id }} .custom-button-arrow-{{ unique_id }} {
+
+  .wt-product__add-to-cart_form.main-product__buy-buttons--container .custom-button-wrapper-{{ unique_id }}
+  .custom-button-arrow-{{ unique_id }} {
     flex: none;
     width: 64px;
   }
@@ -231,8 +236,8 @@
   }
 
   /* Second copy starts below */
-  .custom-button-text-{{ unique_id }} .slide-text:last-child,
-  .custom-button-arrow-{{ unique_id }} .slide-arrow:last-child {
+  .custom-button-text-{{ unique_id }}.slide-text:last-child,
+  .custom-button-arrow-{{ unique_id }}.slide-arrow:last-child {
     transform: translateY(100%);
   }
 
@@ -267,7 +272,7 @@
   }
 
   /* Icon size */
-  .custom-button-arrow-{{ unique_id }} svg {
+  .custom-button-arrow-{{ unique_id }}svg {
     width: 32px;
     height: 32px;
     display: block;
@@ -275,7 +280,7 @@
 
   /* Subtle stagger so arrow trails text */
   @media (hover: hover) {
-    .custom-button-wrapper-{{ unique_id }}:hover .custom-button-arrow-{{ unique_id }}
+    .custom-button-wrapper-{{ unique_id }}: hover .custom-button-arrow-{{ unique_id }}
     .slide-arrow {
       transition-delay: 0.06s;
     }
@@ -310,9 +315,11 @@
 
     .custom-button-arrow-{{ unique_id }} {
       max-height: 48px;
+      max-width: 48px;
     }
 
-    .custom-button-arrow-{{ unique_id }} svg {
+    .custom-button-arrow-{{ unique_id }}
+    svg {
       width: 24px;
       height: 24px;
     }
