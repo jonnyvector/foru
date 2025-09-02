@@ -26,13 +26,13 @@
           "type": "menu",
           "settings": {
             "heading_links": "Products",
-            "links": ""
+            "links": "footer"
           }
         },
         "menu_FVzkic": {
           "type": "menu",
           "settings": {
-            "heading_links": "info",
+            "heading_links": "Info",
             "links": "info"
           }
         },
