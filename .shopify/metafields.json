@@ -29,6 +29,16 @@
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
+    },
+    {
+      "key": "health_benefits_section",
+      "namespace": "custom",
+      "name": "Health Benefits Section",
+      "description": "",
+      "type": {
+        "name": "metaobject_reference",
+        "category": "REFERENCE"
+      }
     }
   ],
   "variant": [],
