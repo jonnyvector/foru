@@ -275,7 +275,7 @@
 }
 .wt-footer__aside__copy {
   margin: 0;
-  text-align: center;
+  text-align: left;
   font-size: 1.2rem;
   opacity: 0.65;
 }
