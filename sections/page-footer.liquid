@@ -318,11 +318,12 @@
                   placeholder="{{ 'newsletter.label' | t }}"
                   required
                 >
+                {% assign newsletter_button_text = 'newsletter.button_label' | t %}
                 {% render 'custom-button',
-                  text: 'newsletter.button_label' | t,
+                  text: newsletter_button_text,
                   type: 'submit',
                   style: newsletter_block.settings.button_type,
-                  aria_label: 'newsletter.button_label' | t,
+                  aria_label: newsletter_button_text,
                   class: 'wt-newsletter__send',
                   id: section.id | prepend: 'newsletter-'
                 %}
@@ -646,11 +647,12 @@
                     required
                   >
 
+                  {% assign newsletter_button_text = 'newsletter.button_label' | t %}
                   {% render 'custom-button',
-                    text: 'newsletter.button_label' | t,
+                    text: newsletter_button_text,
                     type: 'submit',
                     style: block.settings.button_type,
-                    aria_label: 'newsletter.button_label' | t,
+                    aria_label: newsletter_button_text,
                     class: 'wt-newsletter__send',
                     id: section.id | prepend: 'newsletter-legacy-'
                   %}
