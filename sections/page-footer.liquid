@@ -318,16 +318,14 @@
                   placeholder="{{ 'newsletter.label' | t }}"
                   required
                 >
-                <button
-                  type="submit"
-                  class="wt-newsletter__send wt-newsletter__send--{{ newsletter_block.settings.button_type }}"
-                  name="commit"
-                  aria-label="{{ 'newsletter.button_label' | t }}"
-                >
-                  <span class="wt-newsletter__send__text">
-                    {{ 'newsletter.button_label' | t }}
-                  </span>
-                </button>
+                {% render 'custom-button',
+                  text: 'newsletter.button_label' | t,
+                  type: 'submit',
+                  style: newsletter_block.settings.button_type,
+                  aria_label: 'newsletter.button_label' | t,
+                  class: 'wt-newsletter__send',
+                  id: section.id | prepend: 'newsletter-'
+                %}
               </div>
               {%- if form.errors -%}
                 {% for error in form.errors %}
@@ -648,16 +646,14 @@
                     required
                   >
 
-                  <button
-                    type="submit"
-                    class="wt-newsletter__send wt-newsletter__send--{{ block.settings.button_type }}"
-                    name="commit"
-                    aria-label="{{ 'newsletter.button_label' | t }}"
-                  >
-                    <span class="wt-newsletter__send__text">
-                      {{ 'newsletter.button_label' | t }}
-                    </span>
-                  </button>
+                  {% render 'custom-button',
+                    text: 'newsletter.button_label' | t,
+                    type: 'submit',
+                    style: block.settings.button_type,
+                    aria_label: 'newsletter.button_label' | t,
+                    class: 'wt-newsletter__send',
+                    id: section.id | prepend: 'newsletter-legacy-'
+                  %}
                 </div>
 
                 {%- if form.errors -%}
