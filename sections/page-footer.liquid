@@ -32,12 +32,18 @@
 
   /* Desktop Grid Layout (4 rows) */
   @media (min-width: 750px) {
-    /* Row 1: Newsletter + Menus (3 columns) */
+    /* Row 1: Newsletter + Menus (2 columns: 50% newsletter, 50% menus) */
     .wt-footer__row--main {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 50% 50%;
       gap: calc(var(--gap, 8px) * 3);
       align-items: start;
+    }
+    
+    .wt-footer__menus-container {
+      display: flex;
+      gap: calc(var(--gap, 8px) * 6);
+      width: 100%;
     }
 
     /* Row 2: Social Media (positioned like right column, left-aligned within that column) */
