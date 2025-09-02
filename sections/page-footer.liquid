@@ -78,7 +78,7 @@
       grid-template-columns: 1fr 1fr;
       gap: calc(var(--gap, 8px) * 3);
       align-items: center;
-      border-top: 1px solid rgba(var(--color-foreground-rgb), 0.1);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
       padding-top: calc(var(--gap, 8px) * 3);
     }
 
@@ -416,8 +416,17 @@
       {% endfor %}
     </div>
 
-    <!-- Desktop Row 3 / Mobile Rows 4-5: Disclaimer + Payment -->
-    <div class="wt-footer__row wt-footer__row--secondary">
+    <!-- Desktop Row 3 / Mobile Rows 4-5: Payment + Disclaimer -->
+    <div class="wt-footer__row wt-footer__row--secondary">      
+      <!-- Disclaimer -->
+      {% for disclaimer_block in disclaimer_blocks %}
+        <div class="wt-footer__grid-item wt-footer__grid-item--disclaimer">
+          <section class="wt-footer__disclaimer">
+            <div class="wt-footer__disclaimer-text rte">{{ disclaimer_block.settings.text }}</div>
+          </section>
+        </div>
+      {% endfor %}
+      
       <!-- Payment Icons -->
       {% for payment_block in payment_blocks %}
         <div class="wt-footer__grid-item wt-footer__grid-item--payment">
@@ -431,15 +440,6 @@
                 {%- endfor -%}
               </ul>
             </div>
-          </section>
-        </div>
-      {% endfor %}
-      
-      <!-- Disclaimer -->
-      {% for disclaimer_block in disclaimer_blocks %}
-        <div class="wt-footer__grid-item wt-footer__grid-item--disclaimer">
-          <section class="wt-footer__disclaimer">
-            <div class="wt-footer__disclaimer-text rte">{{ disclaimer_block.settings.text }}</div>
           </section>
         </div>
       {% endfor %}
