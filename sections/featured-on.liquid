@@ -31,22 +31,11 @@
 >
   {% render 'headline', title: section.settings.heading %}
 
-  <slideshow-section class="wt-slider slide-in" data-featured-on="true">
-
-  <div
-    data-swiper
-    class="wt-slider__container--featured wt-featured-on__wrapper"
-  >
-    <!-- Additional required wrapper -->
-    <div
-      data-swiper-container
-      class="wt-featured-on wt-featured-on--desktop-grid swiper"
-    >
+  <!-- Desktop: Regular grid layout -->
+  <div class="wt-featured-on__desktop-wrapper">
+    <div class="wt-featured-on wt-featured-on--desktop-grid">
       {% for block in section.blocks %}
-        <div
-          data-swiper-slide
-          class="wt-featured-on__item"
-        >
+        <div class="wt-featured-on__item">
           <div
             {% if settings.animations %}
               data-cascade
@@ -85,49 +74,57 @@
         </div>
       {% endfor %}
     </div>
-
-    <div class="swiper-button-next wt-slider__nav-btn wt-slider__nav-next wt-slider__nav-next--featured-on">
-      {% render 'icons', id: 'arrow-right' %}
-    </div>
-    <div class="swiper-button-prev wt-slider__nav-btn wt-slider__nav-prev wt-slider__nav-prev--featured-on">
-      {% render 'icons', id: 'arrow-left' %}
-    </div>
-    <div class="swiper-pagination wt-slider__pagination"></div>
   </div>
 
-  <script data-swiper-configuration type="text/json">
-      {
-        "enableOnMedia": "(max-width: 768px)",
-        "spaceBetween": 24,
-        "freeMode": false,
-        "speed": 150,
-        "autoplay": {
-          "delay": 3000,
-          "disableOnInteraction": false,
-          "pauseOnMouseEnter": true
-        },
-        "loop": true,
-        "grabCursor": true,
-        "paginationType": "bullets",
-        "breakpoints": {
-          "320": {
-            "slidesPerView": 2,
-            "slidesPerGroup": 2,
-            "spaceBetween": 16
-          },
-          "480": {
-            "slidesPerView": 2,
-            "slidesPerGroup": 2,
-            "spaceBetween": 24
-          }
-        },
-        "navigation": {
-          "nextEl": ".wt-slider__nav-next--featured-on",
-          "prevEl": ".wt-slider__nav-prev--featured-on"
-        }
-      }
-  </script>
-  </slideshow-section>
+  <!-- Mobile: Marquee auto-scroll -->
+  <div class="wt-featured-on__mobile-wrapper">
+    <div class="wt-featured-on__marquee">
+      <div class="wt-featured-on__marquee-content wt-featured-on__marquee-content--1">
+        {% for i in (1..2) %}
+          {% for block in section.blocks %}
+            <div class="wt-featured-on__item">
+              <div
+                {% if settings.animations %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+                {% if block.settings.link != blank %}
+                  <a
+                    href="{{ block.settings.link }}"
+                    class="wt-featured-on__link"
+                    aria-label="Visit {{ block.settings.logo.alt | default: 'partner site' }}"
+                    {% if block.settings.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+                    tabindex="-1"
+                  >
+                {% endif %}
+                  {% if block.settings.logo != blank %}
+                    {% assign alt_text = block.settings.logo.alt | escape %}
+                    {{
+                      block.settings.logo
+                      | image_url: width: 200
+                      | image_tag:
+                        sizes: '120px',
+                        widths: '120, 200, 400',
+                        alt: alt_text,
+                        loading: 'lazy',
+                        class: 'wt-featured-on__logo'
+                    }}
+                  {% else %}
+                    <div class="wt-featured-on__logo wt-featured-on__logo--placeholder">
+                      {{ 'image' | placeholder_svg_tag: 'wt-featured-on__logo-placeholder' }}
+                    </div>
+                  {% endif %}
+                {% if block.settings.link != blank %}
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 </div>
 
 {% schema %}

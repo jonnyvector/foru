@@ -3,10 +3,6 @@
   display: block;
 }
 
-.wt-featured-on__wrapper {
-  position: relative;
-}
-
 .wt-featured-on {
   display: flex;
   justify-content: center;
@@ -15,7 +11,15 @@
   padding: 24px 0;
 }
 
-/* Desktop: 6-column grid layout */
+/* Desktop: Show grid, hide marquee */
+.wt-featured-on__desktop-wrapper {
+  display: block;
+}
+
+.wt-featured-on__mobile-wrapper {
+  display: none;
+}
+
 @media (min-width: 769px) {
   .wt-featured-on--desktop-grid {
     display: grid;
@@ -34,56 +38,46 @@
     justify-content: center;
     height: 100%;
   }
-
-  /* Hide Swiper navigation on desktop */
-  .wt-featured-on__container .swiper-button-next,
-  .wt-featured-on__container .swiper-button-prev,
-  .wt-featured-on__container .swiper-pagination {
-    display: none;
-  }
 }
 
-/* Mobile: Swiper carousel */
+/* Mobile: Hide grid, show marquee */
 @media (max-width: 768px) {
-  .wt-featured-on {
-    gap: 0;
+  .wt-featured-on__desktop-wrapper {
+    display: none;
+  }
+
+  .wt-featured-on__mobile-wrapper {
+    display: block;
+  }
+
+  .wt-featured-on__marquee {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
     padding: 24px 0;
   }
 
-  .wt-featured-on__item {
+  .wt-featured-on__marquee:hover .wt-featured-on__marquee-content {
+    animation-play-state: paused;
+  }
+
+  .wt-featured-on__marquee-content {
+    --marquee-gap: 40px;
+    display: flex;
+    align-items: center;
+    gap: var(--marquee-gap);
+    animation: marqueeScroll 20s linear infinite;
+    flex-shrink: 0;
+  }
+
+  .wt-featured-on__marquee-content .wt-featured-on__item {
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 8px;
-  }
-
-  /* Show Swiper navigation on mobile */
-  .wt-featured-on__container .swiper-button-next,
-  .wt-featured-on__container .swiper-button-prev {
-    display: flex;
-    width: 32px;
-    height: 32px;
-    margin-top: 0;
-    color: var(--color-text, #000);
-  }
-
-  .wt-featured-on__container .swiper-button-next:after,
-  .wt-featured-on__container .swiper-button-prev:after {
-    display: none;
-  }
-
-  .wt-featured-on__container .swiper-pagination {
-    position: static;
-    margin-top: 16px;
-  }
-
-  .wt-featured-on__container .swiper-pagination-bullet {
-    background-color: var(--color-text, #000);
-    opacity: 0.3;
-  }
-
-  .wt-featured-on__container .swiper-pagination-bullet-active {
-    opacity: 1;
+    min-width: 120px;
   }
 }
 
@@ -132,8 +126,25 @@
   border-radius: 4px;
 }
 
+@media (max-width: 768px) {
+  .wt-featured-on__logo--placeholder {
+    width: 120px;
+    height: 60px;
+  }
+}
+
 .wt-featured-on__logo-placeholder {
   width: 40px;
   height: 40px;
   fill: #ccc;
+}
+
+/* Marquee animation */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
