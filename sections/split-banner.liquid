@@ -1,0 +1,282 @@
+{% assign background_rgb = section.settings.background_color | color_to_rgb %}
+{% assign text_rgb = section.settings['color-body-text'] | color_to_rgb %}
+
+<style>
+  [data-section-id="{{ section.id }}"] {
+    {% if section.settings.margin-top %}
+      --section-gap-top: {{ section.settings.margin-top }}px;
+    {% endif %}
+
+    {% if section.settings.margin-bottom %}
+      --section-gap-bottom: {{ section.settings.margin-bottom }}px;
+    {% endif %}
+  }
+
+  [id="shopify-section-{{ section.id }}"] {
+    {% if background_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --color-background: {{ section.settings.background_color }};
+    {% endif %}
+
+    {% if text_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --color-custom-text: {{ section.settings.color-body-text }};
+    {% endif %}
+  }
+
+  .split-banner-{{ section.id }} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: {{ section.settings.section_height }}px;
+    gap: 0;
+  }
+
+  .split-banner-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 60px 40px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+
+  .split-banner-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+
+  .split-banner-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    max-width: 400px;
+  }
+
+  .split-banner-heading {
+    font-family: var(--font-headline);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: var(--font-headline-weight);
+    line-height: 1.2;
+    margin: 0 0 16px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .split-banner-text {
+    font-family: var(--font-body);
+    font-size: var(--font-body-size);
+    line-height: 1.5;
+    margin: 0 0 24px 0;
+    opacity: 0.9;
+  }
+
+  .split-banner-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: white;
+    color: var(--color-text);
+    text-decoration: none;
+    font-family: var(--font-headline);
+    font-size: var(--font-button-size);
+    font-weight: var(--font-button-weight);
+    border-radius: var(--border-radius-button);
+    transition: all 0.3s ease;
+  }
+
+  .split-banner-button:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .split-banner-button svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+  }
+
+  .split-banner-button:hover svg {
+    transform: translateX(2px);
+  }
+
+  @media screen and (max-width: 749px) {
+    .split-banner-{{ section.id }} {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+
+    .split-banner-item {
+      min-height: {{ section.settings.mobile_height }}px;
+      padding: 40px 24px;
+    }
+
+    .split-banner-heading {
+      font-size: clamp(1.5rem, 6vw, 2.5rem);
+    }
+
+    .split-banner-content {
+      max-width: none;
+    }
+  }
+</style>
+
+<section class="split-banner-{{ section.id }}" data-section-id="{{ section.id }}">
+  {% for block in section.blocks %}
+    <div 
+      class="split-banner-item"
+      style="background-image: url('{{ block.settings.image | image_url: width: 800 }}');"
+      {{ block.shopify_attributes }}>
+      
+      <div class="split-banner-content">
+        {% if block.settings.heading != blank %}
+          <h2 class="split-banner-heading">{{ block.settings.heading }}</h2>
+        {% endif %}
+        
+        {% if block.settings.text != blank %}
+          <div class="split-banner-text">{{ block.settings.text }}</div>
+        {% endif %}
+        
+        {% if block.settings.button_text != blank %}
+          <a 
+            href="{{ block.settings.button_link | default: '#' }}" 
+            class="split-banner-button"
+            {% if block.settings.button_link == blank %}aria-disabled="true"{% endif %}>
+            {{ block.settings.button_text }}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+{% schema %}
+{
+  "name": "Split Banner",
+  "tag": "section",
+  "class": "split-banner-section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "section_height",
+      "min": 300,
+      "max": 800,
+      "step": 50,
+      "default": 500,
+      "label": "Desktop height",
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "min": 250,
+      "max": 600,
+      "step": 50,
+      "default": 400,
+      "label": "Mobile height",
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "color-body-text",
+      "default": "transparent",
+      "label": "Text color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "default": "transparent",
+      "label": "Background color"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin-top",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "step": 4,
+      "default": 0,
+      "label": "Top margin"
+    },
+    {
+      "type": "range",
+      "id": "margin-bottom",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "step": 4,
+      "default": 0,
+      "label": "Bottom margin"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "banner_item",
+      "name": "Banner Item",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Background image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Your heading",
+          "label": "Heading"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "default": "Give customers details about the banner image(s) or content on the template.",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "default": "Check now",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Split Banner",
+      "blocks": [
+        {
+          "type": "banner_item"
+        },
+        {
+          "type": "banner_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
