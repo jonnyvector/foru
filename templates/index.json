@@ -628,6 +628,7 @@
         "heading": "Featured On",
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
+        "logo_container_color": "#f0f0f0",
         "margin-top": 20,
         "margin-bottom": 20
       }
