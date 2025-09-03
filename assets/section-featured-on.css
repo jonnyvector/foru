@@ -4,8 +4,14 @@
 }
 
 .wt-featured-on__container .headline__title {
-  padding-bottom: 36px !important;
-  margin-bottom: 0 !important;
+  padding: 0;
+  margin-bottom: 12px;
+}
+
+@media (min-width: 1025px) {
+  .wt-featured-on__container .headline__title {
+    margin-bottom: -4px;
+  }
 }
 
 .wt-featured-on {
