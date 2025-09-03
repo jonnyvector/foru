@@ -211,8 +211,11 @@
       "name": "Featured On",
       "settings": {
         "heading": "Featured On",
-        "color-body-text": "transparent",
-        "background_color": "transparent",
+        "size_heading": 100,
+        "size_heading_mobile": 100,
+        "text_alignment": "left",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
         "logo_container_color": "#f7f7f7",
         "margin-top": 20,
         "margin-bottom": 20
