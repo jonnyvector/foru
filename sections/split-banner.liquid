@@ -28,10 +28,20 @@
   .split-banner-{{ section.id }} {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: {{ section.settings.section_height }}px;
+    {% if section.settings.image_size == 'auto' %}
+      min-height: auto;
+    {% else %}
+      min-height: {{ section.settings.section_height }}px;
+    {% endif %}
     gap: 0;
     width: 100%;
   }
+
+  {% if section.settings.image_size == 'square' %}
+  .split-banner-{{ section.id }} .split-banner-item {
+    aspect-ratio: 1;
+  }
+  {% endif %}
 
   .split-banner-item {
     position: relative;
@@ -44,12 +54,12 @@
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
-    min-height: {{ section.settings.section_height }}px;
+    {% if section.settings.image_size == 'auto' %}
+      min-height: 400px; /* fallback for auto */
+    {% else %}
+      min-height: {{ section.settings.section_height }}px;
+    {% endif %}
     width: 100%;
-  }
-
-  .split-banner-item--square {
-    aspect-ratio: 1;
   }
 
   .split-banner-item::before {
@@ -115,7 +125,7 @@
 <section class="split-banner-{{ section.id }}" data-section-id="{{ section.id }}">
   {% for block in section.blocks %}
     <div 
-      class="split-banner-item{% if block.settings.image_size == 'square' %} split-banner-item--square{% endif %}"
+      class="split-banner-item"
       style="background-image: url('{{ block.settings.image | image_url: width: 1200 }}');"
       {{ block.shopify_attributes }}>
       
@@ -187,6 +197,22 @@
       "default": 400,
       "label": "Mobile height",
       "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "image_size",
+      "options": [
+        {
+          "value": "auto",
+          "label": "Auto"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        }
+      ],
+      "default": "auto",
+      "label": "Image size"
     },
     {
       "type": "header",
@@ -279,22 +305,6 @@
           "default": "primary",
           "label": "Button style"
         },
-        {
-          "type": "select",
-          "id": "image_size",
-          "options": [
-            {
-              "value": "auto",
-              "label": "Auto"
-            },
-            {
-              "value": "square",
-              "label": "Square"
-            }
-          ],
-          "default": "auto",
-          "label": "Image size"
-        }
       ]
     }
   ],
