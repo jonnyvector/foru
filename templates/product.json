@@ -408,6 +408,67 @@
         "margin-top": 20,
         "margin-bottom": 40
       }
+    },
+    "collapsible_menu_dHQ3TK": {
+      "type": "collapsible_menu",
+      "blocks": {
+        "collapsible_tab_mpkxkM": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Collapsible tab",
+            "content": "",
+            "page": "",
+            "tab_background_color": "#f7f7f7",
+            "icon": "none"
+          }
+        },
+        "collapsible_tab_YnLn3p": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Collapsible tab",
+            "content": "",
+            "page": "",
+            "tab_background_color": "#f7f7f7",
+            "icon": "none"
+          }
+        },
+        "collapsible_tab_9kz7pN": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Collapsible tab",
+            "content": "",
+            "page": "",
+            "tab_background_color": "#f7f7f7",
+            "icon": "none"
+          }
+        },
+        "collapsible_tab_fUb36k": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Collapsible tab",
+            "content": "",
+            "page": "",
+            "tab_background_color": "#f7f7f7",
+            "icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_tab_mpkxkM",
+        "collapsible_tab_YnLn3p",
+        "collapsible_tab_9kz7pN",
+        "collapsible_tab_fUb36k"
+      ],
+      "name": "t:sections.collapsible_menu.presets.name",
+      "settings": {
+        "full-width-enabled": true,
+        "hide_bottom_border": true,
+        "color-body-text": "transparent",
+        "background_color": "transparent",
+        "compact-size-enabled": true,
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
     }
   },
   "order": [
@@ -416,6 +477,7 @@
     "features_banner_idectQ",
     "ingredients_product_nVPErd",
     "health_benefits_aBfLBK",
-    "testimonial_video_reels_qnieGX"
+    "testimonial_video_reels_qnieGX",
+    "collapsible_menu_dHQ3TK"
   ]
 }
