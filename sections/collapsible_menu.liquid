@@ -58,6 +58,9 @@
   {% endfor %}
 </style>
 <section class="wt-collapse__section__inner{% if section.settings.full-width-enabled %} wt-collapse__section--full-width{% endif %}{% if section.settings.hide_bottom_border %} wt-collapse__section--no-border{% endif %}" data-section-id="{{ section.id }}">
+  {% if section.settings.heading != blank %}
+    {% render 'headline', title: section.settings.heading %}
+  {% endif %}
   <div class="wt-collapse__wrapper wt-collapse-menu{% if section.settings.compact-size-enabled == true %}  wt-collapse__wrapper--compact{% endif %} rte">
     {% for block in section.blocks %}
       <collapsible-section
