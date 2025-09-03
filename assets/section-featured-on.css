@@ -62,14 +62,14 @@
   }
 }
 
-/* Desktop: Responsive grid sizing */
+/* Desktop: Flexible grid that fits 6 items */
 @media (min-width: 1025px) {
   .wt-featured-on--desktop-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: var(--featured-on-gap);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    justify-items: center;
+    gap: var(--featured-on-gap);
     max-width: 1400px;
     margin: 0 auto;
     padding: 40px 0;
@@ -79,7 +79,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    flex: 1 1 calc((100% - (5 * var(--featured-on-gap))) / 6);
+    min-width: 150px;
     max-width: 200px;
     aspect-ratio: 3/2;
   }
