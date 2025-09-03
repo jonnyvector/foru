@@ -484,7 +484,9 @@
             "heading": "Your heading",
             "text": "Give customers details about the banner image(s) or content on the template.",
             "button_text": "Check now",
-            "button_link": ""
+            "button_link": "",
+            "button_style": "secondary",
+            "image_size": "square"
           }
         },
         "banner_item_yDiUwa": {
@@ -494,7 +496,9 @@
             "heading": "Your heading",
             "text": "Give customers details about the banner image(s) or content on the template.",
             "button_text": "Check now",
-            "button_link": ""
+            "button_link": "",
+            "button_style": "secondary",
+            "image_size": "square"
           }
         }
       },
@@ -504,10 +508,12 @@
       ],
       "name": "Split Banner",
       "settings": {
+        "heading_size": 100,
+        "heading_size_mobile": 100,
         "section_height": 500,
         "mobile_height": 400,
-        "color-body-text": "transparent",
-        "background_color": "transparent",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
         "margin-top": 0,
         "margin-bottom": 0
       }
