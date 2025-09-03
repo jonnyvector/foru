@@ -485,8 +485,7 @@
             "text": "No dairy, gluten, or animal products. Pure, clean fuel.",
             "button_text": "Check now",
             "button_link": "",
-            "button_style": "secondary",
-            "image_size": "square"
+            "button_style": "secondary"
           }
         },
         "banner_item_yDiUwa": {
@@ -497,8 +496,7 @@
             "text": "No dairy, gluten, or animal products. Pure, clean fuel.",
             "button_text": "Check now",
             "button_link": "",
-            "button_style": "secondary",
-            "image_size": "square"
+            "button_style": "secondary"
           }
         }
       },
@@ -510,8 +508,9 @@
       "settings": {
         "heading_size": 100,
         "heading_size_mobile": 100,
-        "section_height": 500,
-        "mobile_height": 400,
+        "section_height": 800,
+        "mobile_height": 450,
+        "image_size": "square",
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
         "margin-top": 0,
