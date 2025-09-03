@@ -68,7 +68,7 @@
   }
 }
 
-/* Desktop: Flexible grid that fits 6 items */
+/* Desktop: Cards scale from 150px to 298px based on screen width */
 @media (min-width: 1025px) {
   .wt-featured-on--desktop-grid {
     display: flex;
@@ -76,7 +76,7 @@
     justify-content: center;
     align-items: center;
     gap: var(--featured-on-gap);
-    padding: 40px 20px;
+    padding: 40px 0;
   }
 
   .wt-featured-on--desktop-grid .wt-featured-on__item {
@@ -85,8 +85,15 @@
     justify-content: center;
     flex: 1 1 calc((100% - (5 * var(--featured-on-gap))) / 6);
     min-width: 150px;
-    max-width: 200px;
+    max-width: 298px;
     aspect-ratio: 3/2;
+  }
+
+  /* Ensure cards grow on very wide screens */
+  @media (min-width: 1800px) {
+    .wt-featured-on--desktop-grid .wt-featured-on__item {
+      max-width: 298px;
+    }
   }
 }
 
