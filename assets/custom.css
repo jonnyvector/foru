@@ -107,3 +107,10 @@
 .wt-footer__list__item__text--underline:hover {
   background-size: 0% 1px;
 }
+
+/* Benefits product icon item wrapper responsive styling */
+@media (min-width: 900px) and (max-width: 1199px) {
+  .wt-benefits-product__icon-item-wrapper {
+    max-width: 250px;
+  }
+}
