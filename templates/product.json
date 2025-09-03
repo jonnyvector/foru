@@ -508,7 +508,7 @@
       "settings": {
         "heading_size": 100,
         "heading_size_mobile": 100,
-        "section_height": 800,
+        "section_height": 950,
         "mobile_height": 450,
         "image_size": "square",
         "color-body-text": "rgba(0,0,0,0)",
