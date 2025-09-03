@@ -41,7 +41,7 @@
       ],
       "custom_css": [
         ".hero,.hero__overlay {padding-left: 0;}",
-        "@media(min-width:768px){.hero__overlay{padding-bottom:.75rem; }}"
+        "@media (min-width: 768px) {.hero__overlay {padding-bottom: 0.75rem; }}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -62,6 +62,7 @@
             "heading": "Are your beauty products cruelty-free?",
             "content": "<p>Absolutely! We are committed to ethical beauty, ensuring all our products are 100% cruelty-free.</p>",
             "page": "",
+            "tab_background_color": "rgba(0,0,0,0)",
             "icon": "none"
           }
         },
@@ -71,6 +72,7 @@
             "heading": "How can I determine my skin type?",
             "content": "<p>Check out our guide on identifying skin types, available in our blog section, to find products perfect for you.</p>",
             "page": "",
+            "tab_background_color": "rgba(0,0,0,0)",
             "icon": "none"
           }
         },
@@ -80,6 +82,7 @@
             "heading": "What are some essential makeup products for beginners?",
             "content": "<p>We recommend starting with a basic foundation, a versatile eyeshadow palette, and a nourishing lip balm.</p>",
             "page": "",
+            "tab_background_color": "rgba(0,0,0,0)",
             "icon": "none"
           }
         },
@@ -89,6 +92,7 @@
             "heading": "How do I place an order?",
             "content": "<p>Browse our products, add your selections to the cart, and follow the checkout process. It's that simple!</p>",
             "page": "",
+            "tab_background_color": "rgba(0,0,0,0)",
             "icon": "none"
           }
         },
@@ -98,6 +102,7 @@
             "heading": "What are your shipping rates?",
             "content": "<p>Shipping rates vary based on location and order size. Please refer to our shipping policy for detailed information.</p>",
             "page": "",
+            "tab_background_color": "rgba(0,0,0,0)",
             "icon": "none"
           }
         },
@@ -107,6 +112,7 @@
             "heading": "Can I return a product if I'm not satisfied?",
             "content": "<p>Yes, we accept returns within a specified period. Please review our return policy for more details</p>",
             "page": "",
+            "tab_background_color": "rgba(0,0,0,0)",
             "icon": "none"
           }
         },
@@ -116,6 +122,7 @@
             "heading": "How do I manage my account?",
             "content": "<p>Log in to your account to track orders, manage addresses, and update personal information.</p>",
             "page": "",
+            "tab_background_color": "rgba(0,0,0,0)",
             "icon": "none"
           }
         },
@@ -125,6 +132,7 @@
             "heading": "Do you offer gift wrapping services?",
             "content": "<p>Yes, we offer elegant gift wrapping options to make your presents even more special.</p>",
             "page": "",
+            "tab_background_color": "rgba(0,0,0,0)",
             "icon": "none"
           }
         }
@@ -143,10 +151,16 @@
         ".wt-collapse__wrapper--compact {max-width: none;}",
         ".wt-collapse__wrapper .wt-collapse:not(:last-child) {border: none;}",
         ".wt-collapse {border-radius: 4px; background-color: #f7f7f7; margin: 2rem 0; padding: 0 2rem;}",
-        ".wt-collapse__trigger {padding: 1rem 0;}",
+        ".wt-collapse__trigger {padding: 1rem 0; padding-bottom:0;}",
         "p {padding-bottom: 1rem;}"
       ],
       "settings": {
+        "heading": "",
+        "heading_size": 100,
+        "heading_size_mobile": 100,
+        "text_alignment": "center",
+        "full-width-enabled": false,
+        "hide_bottom_border": false,
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "#ffffff",
         "compact-size-enabled": true,
