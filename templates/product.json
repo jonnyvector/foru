@@ -473,6 +473,42 @@
         "margin-top": 20,
         "margin-bottom": 20
       }
+    },
+    "split_banner_jgRFr4": {
+      "type": "split-banner",
+      "blocks": {
+        "banner_item_Pb8BtA": {
+          "type": "banner_item",
+          "settings": {
+            "heading": "Your heading",
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "button_text": "Check now",
+            "button_link": ""
+          }
+        },
+        "banner_item_yDiUwa": {
+          "type": "banner_item",
+          "settings": {
+            "heading": "Your heading",
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "button_text": "Check now",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "banner_item_Pb8BtA",
+        "banner_item_yDiUwa"
+      ],
+      "name": "Split Banner",
+      "settings": {
+        "section_height": 500,
+        "mobile_height": 400,
+        "color-body-text": "transparent",
+        "background_color": "transparent",
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
     }
   },
   "order": [
@@ -482,6 +518,7 @@
     "ingredients_product_nVPErd",
     "health_benefits_aBfLBK",
     "testimonial_video_reels_qnieGX",
-    "collapsible_menu_dHQ3TK"
+    "collapsible_menu_dHQ3TK",
+    "split_banner_jgRFr4"
   ]
 }
