@@ -110,7 +110,7 @@
       "custom_css": [
         "h3 {line-height: 90%;}",
         ".wt-benefits-product__custom-heading {margin-bottom: 0;}",
-        "@media (min-width: 1023px) {.wt-benefits-product__icon-list {height:80%; } .wt-benefits-product__icon-item-heading {margin: 1rem 0; }}",
+        "@media (min-width: 1100px) {.wt-benefits-product__icon-list {height: 80%; } .wt-benefits-product__icon-item-heading {margin: 1rem 0; }}",
         ".wt-benefits-product__icon-item:nth-of-type(1),.wt-benefits-product__icon-item:nth-of-type(2),.wt-benefits-product__icon-item:nth-of-type(5),.wt-benefits-product__icon-item:nth-of-type(6) {align-items: center;}"
       ],
       "settings": {
