@@ -29,8 +29,34 @@
     height: 48px;
     background-color: #e3e3e3;
   }
+
+  /* Full width styling */
+  .wt-collapse__section--full-width {
+    max-width: none;
+    width: 100%;
+  }
+  
+  .wt-collapse__section--full-width .wt-collapse__wrapper {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Hide bottom border */
+  .wt-collapse__section--no-border .wt-collapse:last-child .wt-collapse__trigger {
+    border-bottom: none;
+  }
+
+  {% for block in section.blocks %}
+    {% assign tab_bg_rgb = block.settings.tab_background_color | color_to_rgb %}
+    {% if tab_bg_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      [data-section-id="{{ section.id }}"] collapsible-section:nth-child({{ forloop.index }}) .wt-collapse__trigger {
+        background-color: {{ block.settings.tab_background_color }};
+      }
+    {% endif %}
+  {% endfor %}
 </style>
-<section class="wt-collapse__section__inner" data-section-id="{{ section.id }}">
+<section class="wt-collapse__section__inner{% if section.settings.full-width-enabled %} wt-collapse__section--full-width{% endif %}{% if section.settings.hide_bottom_border %} wt-collapse__section--no-border{% endif %}" data-section-id="{{ section.id }}">
   <div class="wt-collapse__wrapper wt-collapse-menu{% if section.settings.compact-size-enabled == true %}  wt-collapse__wrapper--compact{% endif %} rte">
     {% for block in section.blocks %}
       <collapsible-section
@@ -79,6 +105,18 @@
     "tag": "section",
     "class": "wt-collapse__section",
     "settings": [
+      {
+        "type": "checkbox",
+        "id": "full-width-enabled",
+        "label": "t:sections.settings.settings.section-full-width.label",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "hide_bottom_border",
+        "label": "Hide bottom border",
+        "default": false
+      },
       {
         "type": "header",
         "content": "t:sections.global.colors",
@@ -144,6 +182,11 @@
             "type": "page",
             "id": "page",
             "label": "t:sections.main-product.blocks.collapsible_tab.settings.page.label"
+          }, {
+            "type": "color",
+            "id": "tab_background_color",
+            "default": "transparent",
+            "label": "Tab background color"
           }, {
             "type": "select",
             "id": "icon",
