@@ -22,6 +22,11 @@
   {% if text_rgb != 'rgba(0, 0, 0, 0.0)' %}
     --color-custom-text: {{ section.settings.color-body-text }};
   {% endif %}
+
+  {% assign container_bg_rgb = section.settings.logo_container_color | color_to_rgb %}
+  {% if container_bg_rgb != 'rgba(0, 0, 0, 0.0)' %}
+    --logo-container-bg: {{ section.settings.logo_container_color }};
+  {% endif %}
   }
 </style>
 
@@ -153,6 +158,12 @@
       "id": "background_color",
       "default": "transparent",
       "label": "Background color"
+    },
+    {
+      "type": "color",
+      "id": "logo_container_color",
+      "default": "transparent",
+      "label": "Logo container background"
     },
     {
       "type": "header",
