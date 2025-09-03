@@ -462,9 +462,9 @@
       "name": "t:sections.collapsible_menu.presets.name",
       "settings": {
         "heading": "FAQ",
-        "heading_size": 100,
+        "heading_size": 120,
         "heading_size_mobile": 100,
-        "text_alignment": "center",
+        "text_alignment": "left",
         "full-width-enabled": true,
         "hide_bottom_border": true,
         "color-body-text": "rgba(0,0,0,0)",
