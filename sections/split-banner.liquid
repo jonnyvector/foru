@@ -10,6 +10,9 @@
     {% if section.settings.margin-bottom %}
       --section-gap-bottom: {{ section.settings.margin-bottom }}px;
     {% endif %}
+
+    --font-headline-scale-desk: {{ section.settings.heading_size | divided_by: 100.0 }};
+    --font-headline-scale: {{ section.settings.heading_size_mobile | divided_by: 100.0 }};
   }
 
   [id="shopify-section-{{ section.id }}"] {
@@ -62,7 +65,7 @@
 
   .split-banner-heading {
     font-family: var(--font-headline);
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: calc(var(--font-h2-size) * var(--font-headline-scale-desk, 1));
     font-weight: var(--font-headline-weight);
     line-height: 1.2;
     margin: 0 0 16px 0;
@@ -78,35 +81,6 @@
     opacity: 0.9;
   }
 
-  .split-banner-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 24px;
-    background: white;
-    color: var(--color-text);
-    text-decoration: none;
-    font-family: var(--font-headline);
-    font-size: var(--font-button-size);
-    font-weight: var(--font-button-weight);
-    border-radius: var(--border-radius-button);
-    transition: all 0.3s ease;
-  }
-
-  .split-banner-button:hover {
-    transform: translateX(4px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  }
-
-  .split-banner-button svg {
-    width: 16px;
-    height: 16px;
-    transition: transform 0.3s ease;
-  }
-
-  .split-banner-button:hover svg {
-    transform: translateX(2px);
-  }
 
   @media screen and (max-width: 749px) {
     .split-banner-{{ section.id }} {
@@ -120,7 +94,7 @@
     }
 
     .split-banner-heading {
-      font-size: clamp(1.5rem, 6vw, 2.5rem);
+      font-size: calc(var(--font-h2-size) * var(--font-headline-scale, 1));
     }
 
     .split-banner-content {
@@ -146,15 +120,13 @@
         {% endif %}
         
         {% if block.settings.button_text != blank %}
-          <a 
-            href="{{ block.settings.button_link | default: '#' }}" 
-            class="split-banner-button"
-            {% if block.settings.button_link == blank %}aria-disabled="true"{% endif %}>
-            {{ block.settings.button_text }}
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
+          {% render 'custom-button',
+            text: block.settings.button_text,
+            type: 'link',
+            url: block.settings.button_link,
+            style: 'primary',
+            id: 'split-banner-' | append: block.id
+          %}
         {% endif %}
       </div>
     </div>
@@ -167,6 +139,26 @@
   "tag": "section",
   "class": "split-banner-section",
   "settings": [
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 50,
+      "max": 300,
+      "step": 10,
+      "default": 100,
+      "label": "Heading size",
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "min": 80,
+      "max": 300,
+      "step": 10,
+      "default": 100,
+      "label": "Mobile heading size",
+      "unit": "%"
+    },
     {
       "type": "range",
       "id": "section_height",
