@@ -3,6 +3,11 @@
   display: block;
 }
 
+.wt-featured-on__container .headline__title {
+  padding-bottom: 36px !important;
+  margin-bottom: 0 !important;
+}
+
 .wt-featured-on {
   display: flex;
   justify-content: center;
