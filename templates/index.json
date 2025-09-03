@@ -585,6 +585,7 @@
         "logo_drUPkX": {
           "type": "logo",
           "settings": {
+            "logo": "shopify://shop_images/image_12_1.svg",
             "link": "",
             "open_in_new_tab": false
           }
@@ -592,6 +593,7 @@
         "logo_maKhTR": {
           "type": "logo",
           "settings": {
+            "logo": "shopify://shop_images/image_15.svg",
             "link": "",
             "open_in_new_tab": false
           }
@@ -599,6 +601,7 @@
         "logo_PNrBWk": {
           "type": "logo",
           "settings": {
+            "logo": "shopify://shop_images/image_13_1.svg",
             "link": "",
             "open_in_new_tab": false
           }
@@ -606,6 +609,7 @@
         "logo_KyDUhz": {
           "type": "logo",
           "settings": {
+            "logo": "shopify://shop_images/image_14_1.svg",
             "link": "",
             "open_in_new_tab": false
           }
@@ -622,8 +626,8 @@
       "name": "Featured On",
       "settings": {
         "heading": "Featured On",
-        "color-body-text": "transparent",
-        "background_color": "transparent",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
         "margin-top": 20,
         "margin-bottom": 20
       }
