@@ -11,6 +11,7 @@
   "sections": {
     "featured_collection_98txhK": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Find your protocol",
         "disable_on_mobile": false,
@@ -368,162 +369,6 @@
         "margin-bottom": 0
       }
     },
-    "features_banner_custom_dBR6wK": {
-      "type": "features-banner-custom",
-      "blocks": {
-        "image_rdUxjy": {
-          "type": "image",
-          "settings": {
-            "desktop_image": "shopify://shop_images/Frame_162.png",
-            "select_icon": "bag",
-            "heading": "",
-            "text": "",
-            "link": ""
-          }
-        },
-        "image_hqkXBH": {
-          "type": "image",
-          "settings": {
-            "desktop_image": "shopify://shop_images/Frame_161.png",
-            "select_icon": "bag",
-            "heading": "",
-            "text": "",
-            "link": ""
-          }
-        },
-        "image_nMFytR": {
-          "type": "image",
-          "settings": {
-            "desktop_image": "shopify://shop_images/Frame_163.png",
-            "select_icon": "bag",
-            "heading": "",
-            "text": "",
-            "link": ""
-          }
-        },
-        "image_XYrPgB": {
-          "type": "image",
-          "settings": {
-            "desktop_image": "shopify://shop_images/Frame_164.png",
-            "select_icon": "bag",
-            "heading": "",
-            "text": "",
-            "link": ""
-          }
-        },
-        "image_A7HEdp": {
-          "type": "image",
-          "settings": {
-            "desktop_image": "shopify://shop_images/Frame_165.png",
-            "select_icon": "bag",
-            "heading": "",
-            "text": "",
-            "link": ""
-          }
-        },
-        "image_b9rXBR": {
-          "type": "image",
-          "settings": {
-            "desktop_image": "shopify://shop_images/Frame_166.png",
-            "select_icon": "bag",
-            "heading": "",
-            "text": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_rdUxjy",
-        "image_hqkXBH",
-        "image_nMFytR",
-        "image_XYrPgB",
-        "image_A7HEdp",
-        "image_b9rXBR"
-      ],
-      "name": "Features Banner Custom",
-      "settings": {
-        "heading": "Featured On",
-        "size_heading_mobile": 80,
-        "size_heading": 80,
-        "icon_width_mobile": 270,
-        "icon_width_desktop": 320,
-        "icon_layout": "center",
-        "columns_desktop": "6",
-        "icon_layout_mobile": "slider",
-        "color_body_icon": "rgba(0,0,0,0)",
-        "color_background_icon": "rgba(0,0,0,0)",
-        "color_body_text": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
-        "margin-top": 20,
-        "margin-bottom": 20
-      }
-    },
-    "background_video_LxNkdh": {
-      "type": "background-video",
-      "blocks": {
-        "subheading_pnGqRy": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Tell your story",
-            "subheading_disable_on_mobile": false
-          }
-        },
-        "heading_DAqiNX": {
-          "type": "heading",
-          "settings": {
-            "heading": "Video scene",
-            "disable_on_mobile": false,
-            "size_heading": 100,
-            "size_heading_mobile": 100
-          }
-        },
-        "text_y3AtzL": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Explore in motion</p>",
-            "disable_on_mobile": false
-          }
-        },
-        "button_d9KDmV": {
-          "type": "button",
-          "settings": {
-            "button_select": "primary",
-            "button_label": "Button label",
-            "disable_on_mobile": false,
-            "button_link": "",
-            "second_button_select": "primary",
-            "second_button_label": "Button label",
-            "second_disable_on_mobile": false,
-            "second_button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "subheading_pnGqRy",
-        "heading_DAqiNX",
-        "text_y3AtzL",
-        "button_d9KDmV"
-      ],
-      "name": "t:sections.background-video.presets.name",
-      "settings": {
-        "heading": "Background video",
-        "full-width-enabled": false,
-        "autoplay": true,
-        "video_controls": false,
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "original_ratio": "fixed_height",
-        "desktop_fixed_height": 320,
-        "mobile_fixed_height": 460,
-        "color-body-heading": "rgba(0,0,0,0)",
-        "color-overlay": "rgba(0,0,0,0)",
-        "color-overlay-opacity": 100,
-        "color-body-text": "rgba(0,0,0,0)",
-        "desktop_text_horizontal_position": "center",
-        "mobile_text_horizontal_position": "center",
-        "margin-top": 20,
-        "margin-bottom": 20
-      }
-    },
     "testimonials_custom_kHmmbJ": {
       "type": "testimonials-custom",
       "blocks": {
@@ -667,8 +512,6 @@
     "video_reels_kb4KdA",
     "image_with_text_3rdT8b",
     "image_with_text_ewadgb",
-    "features_banner_custom_dBR6wK",
-    "background_video_LxNkdh",
     "testimonials_custom_kHmmbJ",
     "featured_on_iXfAwg",
     "blog_posts_Pt33Px"
