@@ -44,6 +44,10 @@
     --font-headline-scale: {{ section.settings.size_heading_mobile | divided_by: 100.0 }};
   }
 
+  [data-section-id="{{ section.id }}"] .headline__title {
+    text-align: {{ section.settings.text_alignment }};
+  }
+
 
 
 </style>
@@ -362,6 +366,22 @@
       "default": 100,
       "label": "t:sections.settings.settings.size-heading-mobile.label",
       "unit": "%"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "center",
+          "label": "t:sections.featured-collection.settings.text_alignment.center.label"
+        },
+        {
+          "value": "left",
+          "label": "t:sections.featured-collection.settings.text_alignment.left.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.featured-collection.settings.text_alignment.label"
     },
     {
       "type": "header",
