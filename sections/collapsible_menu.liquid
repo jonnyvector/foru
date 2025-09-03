@@ -63,6 +63,9 @@
       [data-section-id="{{ section.id }}"] collapsible-section:nth-child({{ forloop.index }}) .wt-collapse__trigger {
         background-color: {{ block.settings.tab_background_color }};
       }
+      [data-section-id="{{ section.id }}"] collapsible-section:nth-child({{ forloop.index }}) .wt-collapse__target--text {
+        background-color: {{ block.settings.tab_background_color }};
+      }
     {% endif %}
   {% endfor %}
 </style>
