@@ -76,7 +76,23 @@
     justify-content: center;
     align-items: center;
     gap: var(--featured-on-gap);
-    padding: 40px 0;
+    max-width: var(--site-max-width);
+    padding: 40px calc(var(--gap, 8px) * 2);
+    margin: 0 auto;
+  }
+
+  /* Large screens: Use bigger max-width and more padding */
+  @media (min-width: 1200px) {
+    .wt-featured-on--desktop-grid {
+      padding-left: calc(calc(var(--gap, 8px) * 2) + calc(var(--gap, 8px) * 2));
+      padding-right: calc(calc(var(--gap, 8px) * 2) + calc(var(--gap, 8px) * 2));
+    }
+  }
+
+  @media (min-width: 1800px) {
+    .wt-featured-on--desktop-grid {
+      max-width: var(--site-max-width-big);
+    }
   }
 
   .wt-featured-on--desktop-grid .wt-featured-on__item {
@@ -89,12 +105,6 @@
     aspect-ratio: 3/2;
   }
 
-  /* Ensure cards grow on very wide screens */
-  @media (min-width: 1800px) {
-    .wt-featured-on--desktop-grid .wt-featured-on__item {
-      max-width: 298px;
-    }
-  }
 }
 
 /* Mobile: Hide grid, show marquee */
