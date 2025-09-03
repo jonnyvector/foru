@@ -24,49 +24,7 @@
   display: none;
 }
 
-/* Tablet: Switch to horizontal scroll */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .wt-featured-on__desktop-wrapper {
-    display: none;
-  }
-  
-  .wt-featured-on__mobile-wrapper {
-    display: none;
-  }
-
-  .wt-featured-on__tablet-wrapper {
-    display: block;
-  }
-  
-  .wt-featured-on__tablet-scroll {
-    position: relative;
-    display: flex;
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 24px 0;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  .wt-featured-on__tablet-content {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-shrink: 0;
-    padding: 0 20px;
-  }
-  
-  .wt-featured-on__tablet-content .wt-featured-on__item {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 220px;
-    aspect-ratio: 3/2;
-    scroll-snap-align: start;
-  }
-}
+/* Remove old tablet breakpoint - now using autoscroll up to 1024px */
 
 /* Desktop: Cards scale from 150px to 298px based on screen width */
 @media (min-width: 1025px) {
@@ -107,9 +65,13 @@
 
 }
 
-/* Mobile: Hide grid, show marquee */
-@media (max-width: 768px) {
+/* Mobile and tablet: Hide grid, show marquee autoscroll */
+@media (max-width: 1024px) {
   .wt-featured-on__desktop-wrapper {
+    display: none;
+  }
+
+  .wt-featured-on__tablet-wrapper {
     display: none;
   }
 
@@ -210,6 +172,13 @@
 
   .wt-featured-on__marquee-content .wt-featured-on__item {
     width: 158px;
+  }
+
+  /* Larger containers on tablet in autoscroll mode */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .wt-featured-on__marquee-content .wt-featured-on__item {
+      width: 200px;
+    }
   }
 }
 
