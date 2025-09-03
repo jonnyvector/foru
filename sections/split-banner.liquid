@@ -45,6 +45,10 @@
     overflow: hidden;
   }
 
+  .split-banner-item--square {
+    aspect-ratio: 1;
+  }
+
   .split-banner-item::before {
     content: '';
     position: absolute;
@@ -106,7 +110,7 @@
 <section class="split-banner-{{ section.id }}" data-section-id="{{ section.id }}">
   {% for block in section.blocks %}
     <div 
-      class="split-banner-item"
+      class="split-banner-item{% if block.settings.image_size == 'square' %} split-banner-item--square{% endif %}"
       style="background-image: url('{{ block.settings.image | image_url: width: 800 }}');"
       {{ block.shopify_attributes }}>
       
@@ -124,7 +128,7 @@
             text: block.settings.button_text,
             type: 'link',
             url: block.settings.button_link,
-            style: 'primary',
+            style: block.settings.button_style,
             id: 'split-banner-' | append: block.id
           %}
         {% endif %}
@@ -253,6 +257,38 @@
           "type": "url",
           "id": "button_link",
           "label": "Button link"
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Primary"
+            },
+            {
+              "value": "secondary",
+              "label": "Secondary"
+            }
+          ],
+          "default": "primary",
+          "label": "Button style"
+        },
+        {
+          "type": "select",
+          "id": "image_size",
+          "options": [
+            {
+              "value": "auto",
+              "label": "Auto"
+            },
+            {
+              "value": "square",
+              "label": "Square"
+            }
+          ],
+          "default": "auto",
+          "label": "Image size"
         }
       ]
     }
