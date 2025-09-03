@@ -415,8 +415,8 @@
         "collapsible_tab_mpkxkM": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Collapsible tab",
-            "content": "",
+            "heading": "Are Wellness supplements safe to use?",
+            "content": "<p>Absolutely! All our products are manufactured in certified facilities and meet strict safety and quality standards. We recommend consulting your healthcare provider if you have specific health conditions or are taking medications.This is the demo store.</p>",
             "page": "",
             "tab_background_color": "#f7f7f7",
             "icon": "none"
@@ -425,7 +425,7 @@
         "collapsible_tab_YnLn3p": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Collapsible tab",
+            "heading": "How should I store my supplements?",
             "content": "",
             "page": "",
             "tab_background_color": "#f7f7f7",
@@ -435,7 +435,7 @@
         "collapsible_tab_9kz7pN": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Collapsible tab",
+            "heading": "Do you offer international shipping?",
             "content": "",
             "page": "",
             "tab_background_color": "#f7f7f7",
@@ -445,7 +445,7 @@
         "collapsible_tab_fUb36k": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Collapsible tab",
+            "heading": "What is your return policy?",
             "content": "",
             "page": "",
             "tab_background_color": "#f7f7f7",
