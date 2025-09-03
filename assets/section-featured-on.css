@@ -42,7 +42,6 @@
     position: relative;
     display: flex;
     width: 100%;
-    max-width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
     padding: 24px 0;
@@ -77,9 +76,7 @@
     justify-content: center;
     align-items: center;
     gap: var(--featured-on-gap);
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 40px 0;
+    padding: 40px 20px;
   }
 
   .wt-featured-on--desktop-grid .wt-featured-on__item {
@@ -90,17 +87,6 @@
     min-width: 150px;
     max-width: 200px;
     aspect-ratio: 3/2;
-  }
-}
-
-/* Large desktop: Bigger containers */
-@media (min-width: 1400px) {
-  .wt-featured-on--desktop-grid {
-    max-width: 1600px;
-  }
-  
-  .wt-featured-on--desktop-grid .wt-featured-on__item {
-    max-width: 240px;
   }
 }
 
@@ -118,7 +104,6 @@
     position: relative;
     display: flex;
     width: 100%;
-    max-width: 100%;
     overflow: hidden;
     padding: 24px 0;
   }
