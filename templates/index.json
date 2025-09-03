@@ -470,6 +470,8 @@
         "button_select": "primary",
         "size_heading": 100,
         "size_heading_mobile": 100,
+        "section_heading_size": 120,
+        "section_heading_size_mobile": 100,
         "text_alignment": "left",
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
