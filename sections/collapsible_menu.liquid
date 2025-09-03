@@ -60,11 +60,9 @@
   {% for block in section.blocks %}
     {% assign tab_bg_rgb = block.settings.tab_background_color | color_to_rgb %}
     {% if tab_bg_rgb != 'rgba(0, 0, 0, 0.0)' %}
-      [data-section-id="{{ section.id }}"] collapsible-section:nth-child({{ forloop.index }}) .wt-collapse__trigger {
+      [data-section-id="{{ section.id }}"] collapsible-section:nth-child({{ forloop.index }}) .wt-collapse {
         background-color: {{ block.settings.tab_background_color }};
-      }
-      [data-section-id="{{ section.id }}"] collapsible-section:nth-child({{ forloop.index }}) .wt-collapse__target--text {
-        background-color: {{ block.settings.tab_background_color }};
+        border-radius: var(--border-radius);
       }
     {% endif %}
   {% endfor %}
