@@ -30,6 +30,15 @@
     background-color: #e3e3e3;
   }
 
+  /* Heading styling */
+  [data-section-id="{{ section.id }}"] .headline__title {
+    text-align: {{ section.settings.text_alignment }};
+    --font-headline-scale-desk: {{ section.settings.heading_size | divided_by: 100.0 }};
+    --font-headline-scale: {{ section.settings.heading_size_mobile | divided_by: 100.0 }};
+    padding: 0;
+    margin-bottom: 36px;
+  }
+
   /* Individual tab styling */
   .wt-collapse__trigger {
     padding-left: calc(var(--gap, 8px) * 2);
