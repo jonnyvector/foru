@@ -13,11 +13,15 @@
   {% assign total_products = total_products | plus: 1 %}
   {% if product.metafields.custom.ingredients.value %}
     {% assign products_with_ingredients = products_with_ingredients | plus: 1 %}
-    {% for ingredient in product.metafields.custom.ingredients.value %}
-      {% unless ingredient_names contains ingredient.name.value %}
-        {% assign all_ingredients = all_ingredients | push: ingredient %}
-        {% assign ingredient_names = ingredient_names | push: ingredient.name.value %}
-      {% endunless %}
+    {% comment %} Debug: show what we found {% endcomment %}
+    {% assign product_ingredients = product.metafields.custom.ingredients.value %}
+    {% for ingredient in product_ingredients %}
+      {% if ingredient.name.value and ingredient.name.value != blank %}
+        {% unless ingredient_names contains ingredient.name.value %}
+          {% assign all_ingredients = all_ingredients | push: ingredient %}
+          {% assign ingredient_names = ingredient_names | push: ingredient.name.value %}
+        {% endunless %}
+      {% endif %}
     {% endfor %}
   {% endif %}
 {% endfor %}
@@ -296,12 +300,26 @@
       Total products: {{ total_products }}<br>
       Products with ingredients: {{ products_with_ingredients }}<br>
       Total unique ingredients found: {{ ingredients.size }}<br>
+      <br>
+      {% comment %} Show raw data from first product with ingredients {% endcomment %}
+      {% for product in collections['all'].products limit: 1 %}
+        {% if product.metafields.custom.ingredients.value %}
+          <strong>First product with ingredients:</strong><br>
+          Product: {{ product.title }}<br>
+          Raw ingredients metafield: {{ product.metafields.custom.ingredients.value }}<br>
+          <br>
+        {% endif %}
+      {% endfor %}
+      <br>
+      Ingredients array: {{ ingredients }}<br>
+      All ingredients array: {{ all_ingredients }}<br>
+      Ingredient names array: {{ ingredient_names }}<br>
       {% if ingredients.size > 0 %}
         First ingredient name: {{ ingredients[0].name.value }}<br>
       {% endif %}
     </div>
 
-    {% if ingredients.size > 0 %}
+    {% if ingredients and ingredients != empty %}
       <div class="ingredients-grid__list">
         {% for ingredient in ingredients %}
           <details-modal class="ingredient-modal">
