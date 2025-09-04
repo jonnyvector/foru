@@ -52,24 +52,20 @@ class IngredientDrawer extends HTMLElement {
   }
   
   open(name, imageUrl, description) {
-    // Set content
-    console.log('Opening drawer with:', { name, imageUrl, description });
-    console.log('Title element type:', typeof this.title);
-    console.log('Title element:', this.title);
-    
     // Re-query elements to ensure they exist
     const titleEl = this.querySelector('.ingredient-drawer__title');
     const imageEl = this.querySelector('.ingredient-drawer__img');
     const descEl = this.querySelector('.ingredient-drawer__description');
     
-    console.log('Re-queried elements:', { titleEl, imageEl, descEl });
-    
+    // Set content
     if (titleEl) titleEl.textContent = name;
     if (imageEl) {
       imageEl.src = imageUrl;
       imageEl.alt = name;
     }
-    if (descEl) descEl.innerHTML = description;
+    if (descEl) {
+      descEl.innerHTML = description;
+    }
     
     // Open drawer
     this.drawer.classList.add('ingredient-drawer--open');
