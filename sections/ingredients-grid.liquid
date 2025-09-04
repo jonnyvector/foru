@@ -40,8 +40,6 @@
     padding-right: calc(var(--gap, 8px) * 2);
     margin-left: auto;
     margin-right: auto;
-    overflow: hidden;
-    box-sizing: border-box;
   }
 
   @media (min-width: 1200px) {
@@ -65,9 +63,6 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__subtitle {
@@ -263,9 +258,6 @@
       grid-template-columns: 25% 75%;
       gap: calc(var(--gap, 8px) * 7);
       align-items: start;
-      width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
     }
 
     /* Hide slider components on desktop */
