@@ -117,6 +117,11 @@
       grid-template-columns: none;
       gap: 0;
     }
+
+    [data-section-id="{{ section.id }}"] .ingredients-grid__list[data-swiper] [data-swiper-slide] {
+      width: 280px;
+      flex-shrink: 0;
+    }
   }
 
   /* Ingredient Cards */
@@ -482,11 +487,11 @@
           <script data-swiper-configuration type="text/json">
             {
               "enableOnMedia": "(max-width: 899px)",
+              "slidesPerView": "auto",
               "freeMode": false,
               "speed": 150,
               "grabCursor": false,
               "paginationType": "bullets",
-              "slidesPerView": 1.04,
               "slidesPerGroup": 1,
               "spaceBetween": 16,
               "navigation": {
