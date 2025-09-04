@@ -117,11 +117,6 @@
       grid-template-columns: none;
       gap: 0;
     }
-
-    [data-section-id="{{ section.id }}"] .ingredients-grid__list[data-swiper] [data-swiper-slide] {
-      width: 280px;
-      flex-shrink: 0;
-    }
   }
 
   /* Ingredient Cards */
@@ -311,67 +306,10 @@
     overflow: visible;
   }
 
-  /* Hide navigation on desktop */
+  /* Hide scrollbar on desktop */
   @media (min-width: 900px) {
-    [data-section-id="{{ section.id }}"] .wt-slider__nav-btn,
-    [data-section-id="{{ section.id }}"] .wt-slider__pagination {
+    [data-section-id="{{ section.id }}"] .wt-slider__scrollbar {
       display: none !important;
-    }
-  }
-
-  /* Show navigation only on mobile when swiper is active */
-  @media (max-width: 899px) {
-    [data-section-id="{{ section.id }}"] .wt-slider__nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
-      background: rgba(255, 255, 255, 0.9);
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.2s ease;
-    }
-
-    [data-section-id="{{ section.id }}"] .wt-slider__nav-btn:hover {
-      background: rgba(255, 255, 255, 1);
-    }
-
-    [data-section-id="{{ section.id }}"] .wt-slider__nav-prev {
-      left: 10px;
-    }
-
-    [data-section-id="{{ section.id }}"] .wt-slider__nav-next {
-      right: 10px;
-    }
-
-    [data-section-id="{{ section.id }}"] .wt-slider__pagination {
-      position: absolute;
-      bottom: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 8px;
-      z-index: 10;
-    }
-
-    [data-section-id="{{ section.id }}"] .wt-slider__pagination .swiper-pagination-bullet {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.3);
-      transition: background-color 0.2s ease;
-      cursor: pointer;
-    }
-
-    [data-section-id="{{ section.id }}"] .wt-slider__pagination .swiper-pagination-bullet-active {
-      background: rgba(0, 0, 0, 0.8);
     }
   }
 </style>
