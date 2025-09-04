@@ -137,13 +137,6 @@
       grid-template-columns: none;
       gap: 0;
     }
-
-    /* Override multicol CSS that sets flex-basis: 100% */
-    [data-section-id="{{ section.id }}"] .wt-multicol__item {
-      flex-shrink: 0;
-      flex-basis: auto !important; /* Override multicol flex-basis: 100% */
-      width: auto; /* Let Swiper handle width with slidesPerView: 1.2 */
-    }
   }
 
   /* Ingredient Cards */
@@ -442,13 +435,13 @@
           <div class="swiper-scrollbar wt-slider__scrollbar wt-slider__scrollbar--ingredients"></div>
         </div>
 
+          {% assign slidesPerView = 1.04 %}
+
           <script data-swiper-configuration type="text/json">
             {
               "enableOnMedia": "(max-width: 899px)",
+              "slidesPerView": {{ slidesPerView }},
               "spaceBetween": 16,
-              "slidesPerView": 1.2,
-              "centeredSlides": false,
-              "loop": false,
               "scrollbar": {
                 "el": ".wt-slider__scrollbar--ingredients",
                 "draggable": true
