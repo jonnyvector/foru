@@ -29,7 +29,7 @@
         "product": "hydration",
         "fallback_title": "INGREDIENTS",
         "size_heading_mobile": 100,
-        "size_heading": 100,
+        "size_heading": 150,
         "ingredient_name_size_mobile": 100,
         "ingredient_name_size_desktop": 100,
         "text_color": "rgba(0,0,0,0)",
