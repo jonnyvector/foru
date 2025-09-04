@@ -12,14 +12,35 @@
     "main": {
       "type": "main-page",
       "settings": {
+        "compact-size-enabled": true,
         "size_heading": 140,
         "size_heading_mobile": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-bg-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
         "margin-top": 40,
         "margin-bottom": 0
+      }
+    },
+    "ingredients_grid_HcbWNt": {
+      "type": "ingredients-grid",
+      "name": "Ingredients Grid",
+      "settings": {
+        "subtitle": "RECOVERY",
+        "title": "",
+        "size_heading_mobile": 100,
+        "size_heading": 100,
+        "ingredient_name_size_mobile": 100,
+        "ingredient_name_size_desktop": 100,
+        "text_color": "transparent",
+        "background_color": "transparent",
+        "margin_top": 40,
+        "margin_bottom": 40
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "ingredients_grid_HcbWNt"
   ]
 }
