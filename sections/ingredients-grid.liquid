@@ -114,11 +114,9 @@
     }
   }
 
-  /* Override multicol padding for our grid */
-  [data-section-id="{{ section.id }}"] .wt-multicol {
-    padding: 0;
-    max-width: none;
-    margin: 0;
+  /* Override slider container styles for our grid */
+  [data-section-id="{{ section.id }}"] .wt-slider__container {
+    overflow: visible;
   }
 
   /* Desktop: Force grid layout, override any swiper styles */
@@ -267,7 +265,7 @@
 
           <div
             data-swiper
-            class="wt-multicol"
+            class="wt-slider__container"
           >
             <ul
               data-swiper-container
