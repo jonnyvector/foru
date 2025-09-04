@@ -277,7 +277,7 @@
     /* Desktop grid layout */
     [data-section-id="{{ section.id }}"] .ingredients-grid__desktop-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr 1fr;
       gap: calc(var(--gap, 8px) * 2);
       width: 100%;
       max-width: 100%;
@@ -287,6 +287,8 @@
     [data-section-id="{{ section.id }}"] .ingredients-grid__header-col2 {
       min-width: 0;
       overflow: hidden;
+      width: 100%;
+      max-width: 100%;
     }
   }
 
