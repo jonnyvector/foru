@@ -76,10 +76,15 @@
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__title {
-    --font-headline-scale-desk: {{ section.settings.size_heading | divided_by: 100.0 }};
-    --font-headline-scale: {{ section.settings.size_heading_mobile | divided_by: 100.0 }};
+    font-size: calc(18px * {{ section.settings.size_heading_mobile | divided_by: 100.0 }});
     line-height: 0.9;
     margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    [data-section-id="{{ section.id }}"] .ingredients-grid__title {
+      font-size: calc(24px * {{ section.settings.size_heading | divided_by: 100.0 }});
+    }
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__description {
@@ -148,8 +153,7 @@
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__card-name {
-    --font-headline-scale-desk: {{ section.settings.ingredient_name_size_desktop | divided_by: 100.0 }};
-    --font-headline-scale: {{ section.settings.ingredient_name_size_mobile | divided_by: 100.0 }};
+    font-size: calc(18px * {{ section.settings.ingredient_name_size_mobile | divided_by: 100.0 }});
     font-weight: 700;
     color: var(--color-custom-text, #000);
     text-transform: uppercase;
@@ -159,6 +163,12 @@
     flex: 1;
     display: flex;
     align-items: flex-start;
+  }
+
+  @media (min-width: 768px) {
+    [data-section-id="{{ section.id }}"] .ingredients-grid__card-name {
+      font-size: calc(24px * {{ section.settings.ingredient_name_size_desktop | divided_by: 100.0 }});
+    }
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__card-description {
