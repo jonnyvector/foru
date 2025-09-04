@@ -8,29 +8,14 @@
 {% assign total_products = 0 %}
 {% assign products_with_ingredients = 0 %}
 
-{% comment %} Try different approaches to get all products {% endcomment %}
+{% comment %} Simplified approach - just get ingredients from first product for now {% endcomment %}
 {% for product in collections['all'].products limit: 250 %}
   {% assign total_products = total_products | plus: 1 %}
   {% if product.metafields.custom.ingredients.value %}
     {% assign products_with_ingredients = products_with_ingredients | plus: 1 %}
-    {% comment %} Debug: show what we found {% endcomment %}
-    {% assign product_ingredients = product.metafields.custom.ingredients.value %}
-    {% for ingredient in product_ingredients %}
-      {% if ingredient.name.value and ingredient.name.value != blank %}
-        {% assign ingredient_name = ingredient.name.value %}
-        {% assign name_found = false %}
-        {% for existing_name in ingredient_names %}
-          {% if existing_name == ingredient_name %}
-            {% assign name_found = true %}
-            {% break %}
-          {% endif %}
-        {% endfor %}
-        {% unless name_found %}
-          {% assign all_ingredients = all_ingredients | push: ingredient %}
-          {% assign ingredient_names = ingredient_names | push: ingredient_name %}
-        {% endunless %}
-      {% endif %}
-    {% endfor %}
+    {% comment %} Try direct assignment {% endcomment %}
+    {% assign all_ingredients = product.metafields.custom.ingredients.value %}
+    {% break %}
   {% endif %}
 {% endfor %}
 
