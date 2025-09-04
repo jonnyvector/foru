@@ -407,14 +407,14 @@
 
           <div
             data-swiper
-            class="ingredients-grid__list"
+            class="wt-multicol ingredients-grid__list"
           >
-            <div
+            <ul
               data-swiper-container
-              class="ingredients-grid__list-container"
+              class="wt-multicol__list ingredients-grid__list-container"
             >
             {%- for ingredient in ingredients -%}
-              <div data-swiper-slide>
+              <li data-swiper-slide class="wt-multicol__item">
                 <details-modal class="ingredient-modal">
                   <details class="modal">
                     <summary class="ingredients-grid__card" aria-haspopup="dialog">
@@ -470,9 +470,9 @@
                     </div>
                   </details>
                 </details-modal>
-              </div>
+              </li>
             {%- endfor -%}
-          </div>
+          </ul>
 
           <div class="swiper-button-next wt-slider__nav-btn wt-slider__nav-next wt-slider__nav-next--ingredients">
             {% render 'icons', id: 'arrow-right' %}
