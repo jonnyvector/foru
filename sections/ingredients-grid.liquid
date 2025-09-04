@@ -139,6 +139,13 @@
     }
   }
 
+  /* Override global slide ratio variables that affect hero sliders */
+  [data-section-id="{{ section.id }}"] {
+    --first-slide-ratio: initial;
+    --first-slide-ratio-desk: initial;
+    --slide-ratio: initial;
+  }
+
   /* Ingredient Cards */
   [data-section-id="{{ section.id }}"] .ingredients-grid__card {
     background: transparent;
