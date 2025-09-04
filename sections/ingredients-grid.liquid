@@ -246,7 +246,7 @@
   /* Desktop - disable slider and use CSS grid */
   @media (min-width: 768px) {
     [data-section-id="{{ section.id }}"] .ingredients-grid__header-grid {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 25% 75%;
       gap: 60px;
       align-items: start;
     }
@@ -268,7 +268,7 @@
     /* Desktop grid layout */
     [data-section-id="{{ section.id }}"] .ingredients-grid__desktop-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
   }
@@ -318,42 +318,42 @@
           {% endif %}
         </div>
 
-        <!-- Column 2: Empty for now, matching working structure -->
+        <!-- Column 2: Desktop Ingredients Grid -->
         <div class="ingredients-grid__header-col2">
+          {% if ingredients != blank %}
+            <div class="ingredients-grid__desktop-grid">
+              {% for ingredient in ingredients %}
+                <div class="ingredients-grid__card">
+                  {% if ingredient.image.value %}
+                    <div class="ingredients-grid__card-image">
+                      {{
+                        ingredient.image.value | image_url: width: 400 | image_tag: loading: 'lazy', sizes: '(min-width: 1200px) 300px, (min-width: 768px) 350px, 280px', widths: '280, 350, 400, 600', alt: ingredient.name.value
+                      }}
+                    </div>
+                  {% endif %}
+
+                  <div class="ingredients-grid__card-content">
+                    {% if ingredient.name.value %}
+                      <h3 class="ingredients-grid__card-name">{{ ingredient.name.value }}</h3>
+                    {% endif %}
+
+                    {% if ingredient.scientific_name.value %}
+                      <div class="ingredients-grid__card-scientific">{{ ingredient.scientific_name.value }}</div>
+                    {% endif %}
+
+                    {% if ingredient.short_description.value %}
+                      <div class="ingredients-grid__card-description">{{ ingredient.short_description.value }}</div>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
         </div>
       </div>
     </div>
       
     {% if ingredients != blank %}
-      <!-- Desktop Grid Layout -->
-      <div class="ingredients-grid__desktop-grid">
-        {% for ingredient in ingredients %}
-          <div class="ingredients-grid__card">
-            {% if ingredient.image.value %}
-              <div class="ingredients-grid__card-image">
-                {{
-                  ingredient.image.value | image_url: width: 400 | image_tag: loading: 'lazy', sizes: '(min-width: 1200px) 300px, (min-width: 768px) 350px, 280px', widths: '280, 350, 400, 600', alt: ingredient.name.value
-                }}
-              </div>
-            {% endif %}
-
-            <div class="ingredients-grid__card-content">
-              {% if ingredient.name.value %}
-                <h3 class="ingredients-grid__card-name">{{ ingredient.name.value }}</h3>
-              {% endif %}
-
-              {% if ingredient.scientific_name.value %}
-                <div class="ingredients-grid__card-scientific">{{ ingredient.scientific_name.value }}</div>
-              {% endif %}
-
-              {% if ingredient.short_description.value %}
-                <div class="ingredients-grid__card-description">{{ ingredient.short_description.value }}</div>
-              {% endif %}
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-
       <!-- Mobile Slider -->
       <div class="ingredients-grid__slider">
         <slideshow-section data-section-id="{{ section.id }}" class="wt-slider">
