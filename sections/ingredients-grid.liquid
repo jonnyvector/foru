@@ -457,7 +457,7 @@
                   class="ingredients-grid__card ingredient-card-trigger"
                   data-ingredient-name="{{ ingredient.name.value | escape }}"
                   data-ingredient-image="{{ ingredient.image.value | image_url: width: 600 }}"
-                  data-ingredient-full-description="{{ ingredient.full_description.value }}"
+                  data-ingredient-full-description="{{ ingredient.full_description.value | escape }}"
                 >
                   {% if ingredient.image.value %}
                     <div class="ingredients-grid__card-image">
@@ -523,7 +523,7 @@
                   class="ingredients-grid__card ingredient-card-trigger"
                   data-ingredient-name="{{ ingredient.name.value | escape }}"
                   data-ingredient-image="{{ ingredient.image.value | image_url: width: 600 }}"
-                  data-ingredient-full-description="{{ ingredient.full_description.value }}"
+                  data-ingredient-full-description="{{ ingredient.full_description.value | escape }}"
                 >
                   {% if ingredient.image.value %}
                     <div class="ingredients-grid__card-image">
