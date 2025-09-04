@@ -17,9 +17,17 @@
     {% assign product_ingredients = product.metafields.custom.ingredients.value %}
     {% for ingredient in product_ingredients %}
       {% if ingredient.name.value and ingredient.name.value != blank %}
-        {% unless ingredient_names contains ingredient.name.value %}
+        {% assign ingredient_name = ingredient.name.value %}
+        {% assign name_found = false %}
+        {% for existing_name in ingredient_names %}
+          {% if existing_name == ingredient_name %}
+            {% assign name_found = true %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+        {% unless name_found %}
           {% assign all_ingredients = all_ingredients | push: ingredient %}
-          {% assign ingredient_names = ingredient_names | push: ingredient.name.value %}
+          {% assign ingredient_names = ingredient_names | push: ingredient_name %}
         {% endunless %}
       {% endif %}
     {% endfor %}
