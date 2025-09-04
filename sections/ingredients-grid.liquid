@@ -31,7 +31,7 @@
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-grid {
-    padding: var(--section-gap-top, 40px) 0 var(--section-gap-bottom,;
+    padding: var(--section-gap-top, 40px) 0 var(--section-gap-bottom, 40px);
     background-color: var(--color-background, transparent);
   }
 
@@ -341,8 +341,7 @@
     z-index: 49;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease
-    , visibility 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
 
   .page-overlay-ingredient-on .page-overlay-ingredient {
@@ -394,7 +393,7 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
     line-height: 1.2;
-    margin: 0 0 calc(var(--gap, 8px);
+    margin: 0 0 calc(var(--gap, 8px) * 2);
   }
 
   .ingredient-drawer__description {
