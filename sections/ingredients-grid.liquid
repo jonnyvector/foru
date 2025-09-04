@@ -55,38 +55,39 @@
     }
   }
 
-  /* Main layout - Desktop: 25% title, 75% grid */
-  [data-section-id="{{ section.id }}"] .ingredients-grid__layout {
+  [data-section-id="{{ section.id }}"] .ingredients-grid__header {
+    margin-bottom: 40px;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__header-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 40px;
-    align-items: start;
+    gap: 24px;
   }
 
-  @media (min-width: 768px) {
-    [data-section-id="{{ section.id }}"] .ingredients-grid__layout {
-      grid-template-columns: 1fr 3fr;
-      gap: 60px;
-    }
-  }
-
-  [data-section-id="{{ section.id }}"] .ingredients-grid__header {
-    text-align: left;
+  [data-section-id="{{ section.id }}"] .ingredients-grid__subtitle {
+    font-size: calc(var(--font-base-size, 1rem) * 0.875);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-custom-text, #666);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__title {
     --font-headline-scale-desk: {{ section.settings.size_heading | divided_by: 100.0 }};
     --font-headline-scale: {{ section.settings.size_heading_mobile | divided_by: 100.0 }};
-    font-size: calc(18px * var(--font-headline-scale, 1));
     line-height: 0.9;
     margin: 0;
   }
 
-  @media (min-width: 768px) {
-    [data-section-id="{{ section.id }}"] .ingredients-grid__title {
-      font-size: calc(24px * var(--font-headline-scale-desk, 1));
-    }
+  [data-section-id="{{ section.id }}"] .ingredients-grid__description {
+    font-size: var(--font-base-size, 1rem);
+    line-height: 1.6;
+    color: var(--color-custom-text, #666);
+    margin-bottom: 20px;
   }
+
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__slider {
     position: relative;
@@ -150,16 +151,6 @@
     align-items: flex-start;
   }
 
-  [data-section-id="{{ section.id }}"] .ingredients-grid__card-scientific {
-    font-size: calc(var(--font-base-size, 1rem) * 0.875);
-    line-height: 1.4;
-    color: var(--color-custom-text, #666);
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-    margin: 8px 0 12px 0;
-    font-weight: 500;
-  }
-
   [data-section-id="{{ section.id }}"] .ingredients-grid__card-description {
     font-size: calc(var(--font-base-size, 1rem) * 0.75);
     line-height: 1.4;
@@ -204,11 +195,39 @@
     cursor: pointer;
   }
 
-  [data-section-id="{{ section.id }}"] .ingredients-grid__empty {
-    text-align: center;
-    padding: 60px 20px;
-    color: #666;
-    font-style: italic;
+  /* Navigation Arrows */
+  [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next,
+  [data-section-id="{{ section.id }}"] .ingredients-swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background: white;
+    border: 2px solid var(--color-custom-text, #000);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    color: var(--color-custom-text, #000);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next:hover,
+  [data-section-id="{{ section.id }}"] .ingredients-swiper-button-prev:hover {
+    background: var(--color-custom-text, #000);
+    color: white;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next {
+    right: -22px;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-swiper-button-prev {
+    left: -22px;
   }
 
   /* Ensure slider wrapper doesn't have extra margin/padding affecting alignment */
@@ -217,8 +236,26 @@
     padding: 0;
   }
 
-  /* Desktop - show dots instead of arrows and force grid */
+  [data-section-id="{{ section.id }}"] .ingredients-grid__empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+    font-style: italic;
+  }
+
+  /* Desktop - show dots instead of arrows and 2-column header */
   @media (min-width: 768px) {
+    [data-section-id="{{ section.id }}"] .ingredients-grid__header-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next,
+    [data-section-id="{{ section.id }}"] .ingredients-swiper-button-prev {
+      display: none !important;
+    }
+
     /* Hide scrollbar on desktop */
     [data-section-id="{{ section.id }}"] .ingredients-grid__scrollbar {
       display: none !important;
@@ -227,12 +264,19 @@
 
   /* Mobile Styles */
   @media (max-width: 767px) {
+
     [data-section-id="{{ section.id }}"] .ingredients-grid__card-content {
       padding: 0.75rem 0 0 0;
     }
 
+
     [data-section-id="{{ section.id }}"] .ingredients-grid__card-description {
       font-size: calc(var(--font-base-size, 1rem) * 0.7);
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next,
+    [data-section-id="{{ section.id }}"] .ingredients-swiper-button-prev {
+      display: none !important;
     }
 
     /* Hide dots on mobile, show scrollbar */
