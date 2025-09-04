@@ -146,12 +146,19 @@
   [data-section-id="{{ section.id }}"] .ingredients-grid__card-name {
     --font-headline-scale-desk: {{ section.settings.ingredient_name_size_desktop | divided_by: 100.0 }};
     --font-headline-scale: {{ section.settings.ingredient_name_size_mobile | divided_by: 100.0 }};
+    font-size: calc(var(--font-h3-size, 1.25rem) * var(--font-headline-scale, 1));
     font-weight: 700;
     color: var(--color-custom-text, #000);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     line-height: 1.2;
     margin: 0 0 8px 0;
+  }
+
+  @media (min-width: 768px) {
+    [data-section-id="{{ section.id }}"] .ingredients-grid__card-name {
+      font-size: calc(var(--font-h3-size, 1.25rem) * var(--font-headline-scale-desk, 1));
+    }
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__card-scientific {
