@@ -1,3 +1,5 @@
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+
 {% assign background_rgb = section.settings.background_color | color_to_rgb %}{% assign text_rgb = section.settings.text_color | color_to_rgb %}
 
 {% comment %} Get ingredients from selected product {% endcomment %}
