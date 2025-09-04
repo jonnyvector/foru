@@ -1,25 +1,12 @@
 {% assign background_rgb = section.settings.background_color | color_to_rgb %}{% assign text_rgb = section.settings.text_color | color_to_rgb %}
 
-{% comment %} Collect all unique ingredients from all products in the store {% endcomment %}
-{% assign all_ingredients = '' | split: ',' %}
-{% assign ingredient_names = '' | split: ',' %}
-
-{% comment %} Debug: Count total products and products with ingredients {% endcomment %}
-{% assign total_products = 0 %}
-{% assign products_with_ingredients = 0 %}
-
-{% comment %} Simplified approach - just get ingredients from first product for now {% endcomment %}
-{% for product in collections['all'].products limit: 250 %}
-  {% assign total_products = total_products | plus: 1 %}
-  {% if product.metafields.custom.ingredients.value %}
-    {% assign products_with_ingredients = products_with_ingredients | plus: 1 %}
-    {% comment %} Try direct assignment {% endcomment %}
-    {% assign all_ingredients = product.metafields.custom.ingredients.value %}
-    {% break %}
-  {% endif %}
-{% endfor %}
-
-{% assign ingredients = all_ingredients %}
+{% comment %} Get ingredients from selected product {% endcomment %}
+{% if section.settings.product %}
+  {% assign selected_product = section.settings.product %}
+  {% assign ingredients = selected_product.metafields.custom.ingredients.value %}
+{% else %}
+  {% assign ingredients = null %}
+{% endif %}
 
 <style>
   [data-section-id="{{ section.id }}"] {
@@ -292,8 +279,10 @@
     <div class="ingredients-grid__layout">
       <!-- Left Column: Product Title -->
       <div class="ingredients-grid__header">
-        {% if section.settings.subtitle != blank %}
-          <h2 class="ingredients-grid__title">{{ section.settings.subtitle }}</h2>
+        {% if selected_product %}
+          <h2 class="ingredients-grid__title">{{ selected_product.title }}</h2>
+        {% elsif section.settings.fallback_title != blank %}
+          <h2 class="ingredients-grid__title">{{ section.settings.fallback_title }}</h2>
         {% endif %}
       </div>
 
@@ -361,8 +350,11 @@
           </div>
         {% else %}
           <div class="ingredients-grid__empty">
-            <p>No ingredients found. Please add ingredients to this product's metafields.</p>
-            <p><small>Total products checked: {{ total_products }}</small></p>
+            {% if section.settings.product %}
+              <p>No ingredients found for this product. Please add ingredients to the product's metafields.</p>
+            {% else %}
+              <p>Please select a product in the section settings to display its ingredients.</p>
+            {% endif %}
           </div>
         {% endif %}
       </div>
@@ -380,10 +372,17 @@
         "content": "Content"
       },
       {
+        "type": "product",
+        "id": "product",
+        "label": "Product",
+        "info": "Select the product whose ingredients you want to display"
+      },
+      {
         "type": "text",
-        "id": "subtitle",
-        "label": "Product Title",
-        "default": "RECOVERY"
+        "id": "fallback_title",
+        "label": "Fallback Title",
+        "default": "INGREDIENTS",
+        "info": "Title to show if no product is selected"
       },
       {
         "type": "header",
@@ -475,7 +474,7 @@
       },
       {
         "type": "paragraph",
-        "content": "This section automatically pulls ingredient data from the product's 'ingredients' metafield. Each ingredient should be a metaobject with 'ingredient.name', 'ingredient.short_description', 'ingredient.long_description', 'ingredient.scientific_name' and 'ingredient.image' fields. Click any ingredient to view detailed information in a modal."
+        "content": "This section displays ingredients from the selected product's 'ingredients' metafield. Each ingredient should be a metaobject with 'ingredient.name', 'ingredient.short_description', 'ingredient.long_description', 'ingredient.scientific_name' and 'ingredient.image' fields. Click any ingredient to view detailed information in a modal."
       }
     ],
     "presets": [
