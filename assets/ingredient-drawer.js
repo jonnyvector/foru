@@ -42,10 +42,10 @@ class IngredientDrawer extends HTMLElement {
       trigger.addEventListener('click', (e) => {
         e.preventDefault();
         const name = trigger.dataset.ingredientName;
-        const image = trigger.dataset.ingredientImage;
+        const imageUrl = trigger.dataset.ingredientImage;
         const description = trigger.dataset.ingredientFullDescription;
         
-        this.open(name, image, description);
+        this.open(name, imageUrl, description);
       });
     });
   }
