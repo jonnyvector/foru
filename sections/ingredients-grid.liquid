@@ -98,14 +98,17 @@
   }
 
   /* Ingredient Grid Layout */
-  [data-section-id="{{ section.id }}"] .ingredients-grid__list-container {
+  [data-section-id="{{ section.id }}"] .wt-multicol__list {
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
   @media (min-width: 768px) {
-    [data-section-id="{{ section.id }}"] .ingredients-grid__list-container {
+    [data-section-id="{{ section.id }}"] .wt-multicol__list {
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
@@ -113,7 +116,7 @@
 
   /* Mobile: Override grid for swiper when enabled */
   @media (max-width: 899px) {
-    [data-section-id="{{ section.id }}"] .ingredients-grid__list[data-swiper] .ingredients-grid__list-container {
+    [data-section-id="{{ section.id }}"] .wt-multicol[data-swiper] .wt-multicol__list {
       display: flex;
       grid-template-columns: none;
       gap: 0;
