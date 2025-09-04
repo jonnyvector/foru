@@ -50,7 +50,7 @@
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "heading": "",
-        "full-width-enabled": false,
+        "full-width-enabled": true,
         "slide_height": "fixed_height",
         "desktop_fixed_height": 320,
         "mobile_fixed_height": 460,
@@ -66,8 +66,8 @@
         "color-body-text": "#ffffff",
         "text-container-color": "transparent",
         "color-overlay-opacity": 100,
-        "margin-top": 20,
-        "margin-bottom": 20
+        "margin-top": 0,
+        "margin-bottom": 0
       }
     },
     "ingredients_grid_HcbWNt": {
