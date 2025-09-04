@@ -1,6 +1,3 @@
-{{ 'section-multicol.css' | asset_url | stylesheet_tag }}
-{{ 'swiper.css' | asset_url | stylesheet_tag }}
-
 {% assign background_rgb = section.settings.background_color | color_to_rgb %}{% assign text_rgb = section.settings.text_color | color_to_rgb %}
 
 {% comment %} Get ingredients from selected product {% endcomment %}
@@ -10,6 +7,9 @@
 {% else %}
   {% assign ingredients = null %}
 {% endif %}
+
+{{ 'swiper.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'slider.js' | asset_url }}" defer></script>
 
 <style>
   [data-section-id="{{ section.id }}"] {
@@ -74,15 +74,6 @@
     text-align: left;
   }
 
-  [data-section-id="{{ section.id }}"] .ingredients-grid__subtitle {
-    font-size: calc(var(--font-base-size, 1rem) * 0.875);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--color-custom-text, #666);
-    margin-bottom: 0.75rem;
-    font-weight: 500;
-  }
-
   [data-section-id="{{ section.id }}"] .ingredients-grid__title {
     --font-headline-scale-desk: {{ section.settings.size_heading | divided_by: 100.0 }};
     --font-headline-scale: {{ section.settings.size_heading_mobile | divided_by: 100.0 }};
@@ -97,12 +88,15 @@
     }
   }
 
-  /* Override slider container styles for our grid */
-  [data-section-id="{{ section.id }}"] .wt-slider__container {
-    overflow: visible;
+  [data-section-id="{{ section.id }}"] .ingredients-grid__slider {
+    position: relative;
   }
 
-  /* Ingredient Cards */
+  [data-section-id="{{ section.id }}"] .wt-slider__container {
+    overflow: hidden;
+    position: relative;
+  }
+
   [data-section-id="{{ section.id }}"] .ingredients-grid__card {
     background: transparent;
     border-radius: 0;
@@ -114,13 +108,17 @@
     flex-direction: column;
   }
 
+  [data-section-id="{{ section.id }}"] .ingredients-grid__card:hover {
+    box-shadow: none;
+    transform: none;
+  }
+
   [data-section-id="{{ section.id }}"] .ingredients-grid__card-image {
     position: relative;
     aspect-ratio: 1;
     overflow: hidden;
     background: transparent;
     border-radius: var(--border-radius);
-    margin-bottom: 20px;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__card-image img {
@@ -132,7 +130,7 @@
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__card-content {
-    padding: 0;
+    padding: 0.75rem 0 0 0;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -141,19 +139,15 @@
   [data-section-id="{{ section.id }}"] .ingredients-grid__card-name {
     --font-headline-scale-desk: {{ section.settings.ingredient_name_size_desktop | divided_by: 100.0 }};
     --font-headline-scale: {{ section.settings.ingredient_name_size_mobile | divided_by: 100.0 }};
-    font-size: calc(18px * var(--font-headline-scale, 1));
     font-weight: 700;
     color: var(--color-custom-text, #000);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     line-height: 1.2;
-    margin: 0 0 8px 0;
-  }
-
-  @media (min-width: 768px) {
-    [data-section-id="{{ section.id }}"] .ingredients-grid__card-name {
-      font-size: calc(24px * var(--font-headline-scale-desk, 1));
-    }
+    margin: 0;
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__card-scientific {
@@ -162,15 +156,52 @@
     color: var(--color-custom-text, #666);
     text-transform: uppercase;
     letter-spacing: 0.3px;
-    margin: 0 0 12px 0;
+    margin: 8px 0 12px 0;
     font-weight: 500;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__card-description {
-    font-size: calc(var(--font-base-size, 1rem) * 0.875);
-    line-height: 1.5;
+    font-size: calc(var(--font-base-size, 1rem) * 0.75);
+    line-height: 1.4;
     color: #666;
-    margin: 0;
+    margin: 8px 0 0 0;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__dots {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 20px;
+  }
+
+  /* Style the swiper pagination bullets */
+  [data-section-id="{{ section.id }}"] .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background: #ddd;
+    opacity: 1;
+    margin: 0 4px;
+  }
+
+  [data-section-id="{{ section.id }}"] .swiper-pagination-bullet-active {
+    background: var(--color-custom-text, #000);
+  }
+
+  /* Scrollbar styling for mobile */
+  [data-section-id="{{ section.id }}"] .ingredients-grid__scrollbar {
+    height: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    margin-top: 20px;
+    position: relative;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__scrollbar .swiper-scrollbar-drag {
+    background: var(--color-custom-text, #000);
+    border-radius: 2px;
+    height: 100%;
+    cursor: pointer;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__empty {
@@ -180,26 +211,41 @@
     font-style: italic;
   }
 
-
-  /* Swiper Styles */
-  [data-section-id="{{ section.id }}"] .ingredients-slider {
-    position: relative;
-    overflow: hidden;
+  /* Ensure slider wrapper doesn't have extra margin/padding affecting alignment */
+  [data-section-id="{{ section.id }}"] .wt-slider {
+    margin: 0;
+    padding: 0;
   }
 
-  [data-section-id="{{ section.id }}"] .ingredients-grid__list {
-    overflow: visible;
-  }
-
-  /* Hide scrollbar on desktop */
-  @media (min-width: 900px) {
-    [data-section-id="{{ section.id }}"] .wt-slider__scrollbar {
+  /* Desktop - show dots instead of arrows and force grid */
+  @media (min-width: 768px) {
+    /* Hide scrollbar on desktop */
+    [data-section-id="{{ section.id }}"] .ingredients-grid__scrollbar {
       display: none !important;
     }
   }
-</style>
 
-<script src="{{ 'slider.js' | asset_url }}" defer></script>
+  /* Mobile Styles */
+  @media (max-width: 767px) {
+    [data-section-id="{{ section.id }}"] .ingredients-grid__card-content {
+      padding: 0.75rem 0 0 0;
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredients-grid__card-description {
+      font-size: calc(var(--font-base-size, 1rem) * 0.7);
+    }
+
+    /* Hide dots on mobile, show scrollbar */
+    [data-section-id="{{ section.id }}"] .ingredients-grid__dots {
+      display: none !important;
+    }
+
+    /* Extend slider to screen edge on right side */
+    [data-section-id="{{ section.id }}"] .ingredients-grid__slider {
+      margin-right: calc(0px - calc(var(--gap, 8px) * 2));
+    }
+  }
+</style>
 
 <section data-section-id="{{ section.id }}" class="ingredients-grid">
   <div class="ingredients-grid__container">
@@ -213,78 +259,93 @@
         {% endif %}
       </div>
 
-      <!-- Right Column: Ingredient Grid -->
+      <!-- Right Column: Ingredient Slider -->
       <div class="ingredients-grid__content">
         {% if ingredients != blank %}
-          {% if section.settings.swipe_on_mobile %}
-            <slideshow-section
-              class="wt-slider ingredients-slider"
-              id="{{ section.id }}"
-            >
-          {% else %}
-            <div
-              class="wt-slider ingredients-slider"
-              id="{{ section.id }}"
-            >
-          {% endif %}
+          <!-- Ingredients Slider (Desktop & Mobile) -->
+          <div class="ingredients-grid__slider">
+            <slideshow-section data-section-id="{{ section.id }}" class="wt-slider">
+              <script data-swiper-configuration type="text/json">
+                {
+                  "spaceBetween": 16,
+                  "slidesPerView": 1.2,
+                  "centeredSlides": false,
+                  "loop": false,
+                  "pagination": {
+                    "el": ".ingredients-grid__dots",
+                    "clickable": true
+                  },
+                  "scrollbar": {
+                    "el": ".ingredients-grid__scrollbar",
+                    "draggable": true
+                  },
+                  "breakpoints": {
+                    "480": {
+                      "slidesPerView": 1.5,
+                      "spaceBetween": 16
+                    },
+                    "768": {
+                      "slidesPerView": 2,
+                      "spaceBetween": 16,
+                      "pagination": {
+                        "el": ".ingredients-grid__dots",
+                        "clickable": true
+                      }
+                    },
+                    "1024": {
+                      "slidesPerView": 3,
+                      "spaceBetween": 16,
+                      "pagination": {
+                        "el": ".ingredients-grid__dots",
+                        "clickable": true
+                      }
+                    },
+                    "1200": {
+                      "slidesPerView": 4,
+                      "spaceBetween": 16,
+                      "pagination": {
+                        "el": ".ingredients-grid__dots",
+                        "clickable": true
+                      }
+                    }
+                  }
+                }
+              </script>
 
-          <div
-            data-swiper
-            class="wt-slider__container"
-          >
-            <div data-swiper-container>
-            {%- for ingredient in ingredients -%}
-              <div data-swiper-slide class="ingredients-grid__card">
-                  {% if ingredient.image.value %}
-                    <div class="ingredients-grid__card-image">
-                      {{
-                        ingredient.image.value | image_url: width: 600 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 400px, 600px', widths: '400, 600, 800', alt: ingredient.name.value
-                      }}
+              <div data-swiper class="wt-slider__container">
+                <div data-swiper-container>
+                  {% for ingredient in ingredients %}
+                    <div data-swiper-slide class="ingredients-grid__card">
+                      {% if ingredient.image.value %}
+                        <div class="ingredients-grid__card-image">
+                          {{
+                            ingredient.image.value | image_url: width: 400 | image_tag: loading: 'lazy', sizes: '(min-width: 1200px) 300px, (min-width: 768px) 350px, 280px', widths: '280, 350, 400, 600', alt: ingredient.name.value
+                          }}
+                        </div>
+                      {% endif %}
+
+                      <div class="ingredients-grid__card-content">
+                        {% if ingredient.name.value %}
+                          <h3 class="ingredients-grid__card-name">{{ ingredient.name.value }}</h3>
+                        {% endif %}
+
+                        {% if ingredient.scientific_name.value %}
+                          <div class="ingredients-grid__card-scientific">{{ ingredient.scientific_name.value }}</div>
+                        {% endif %}
+
+                        {% if ingredient.short_description.value %}
+                          <div class="ingredients-grid__card-description">{{ ingredient.short_description.value }}</div>
+                        {% endif %}
+                      </div>
                     </div>
-                  {% endif %}
-
-                  <div class="ingredients-grid__card-content">
-                    {% if ingredient.name.value %}
-                      <h3 class="ingredients-grid__card-name">{{ ingredient.name.value }}</h3>
-                    {% endif %}
-
-                    {% if ingredient.scientific_name.value %}
-                      <div class="ingredients-grid__card-scientific">{{ ingredient.scientific_name.value }}</div>
-                    {% endif %}
-
-                    {% if ingredient.short_description.value %}
-                      <div class="ingredients-grid__card-description">{{ ingredient.short_description.value }}</div>
-                    {% endif %}
-                  </div>
+                  {% endfor %}
                 </div>
-            {%- endfor -%}
+              </div>
+            </slideshow-section>
           </div>
 
-          <div class="swiper-scrollbar wt-slider__scrollbar wt-slider__scrollbar--ingredients"></div>
-        </div>
-
-          {% assign slidesPerView = 1 %}
-
-          <script data-swiper-configuration type="text/json">
-            {
-              "enableOnMedia": "(max-width: 899px)",
-              "slidesPerView": {{ slidesPerView }},
-              "spaceBetween": 16,
-              "resistanceRatio": 0,
-              "watchOverflow": true,
-              "scrollbar": {
-                "el": ".wt-slider__scrollbar--ingredients",
-                "draggable": true
-              }
-            }
-          </script>
-        </div>
-
-        {% if section.settings.swipe_on_mobile %}
-          </slideshow-section>
-        {% else %}
-          </div>
-        {% endif %}
+          <div class="ingredients-grid__dots"></div>
+          <div class="swiper-scrollbar ingredients-grid__scrollbar wt-slider__scrollbar"></div>
         {% else %}
           <div class="ingredients-grid__empty">
             {% if section.settings.product %}
@@ -404,12 +465,6 @@
         "default": 40,
         "unit": "px",
         "label": "Bottom margin"
-      },
-      {
-        "type": "checkbox",
-        "id": "swipe_on_mobile",
-        "default": true,
-        "label": "Enable mobile swipe"
       },
       {
         "type": "header",
