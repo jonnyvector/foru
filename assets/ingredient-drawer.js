@@ -38,6 +38,7 @@ class IngredientDrawer extends HTMLElement {
   
   bindIngredientTriggers() {
     const triggers = document.querySelectorAll('.ingredient-card-trigger');
+    console.log('Found triggers:', triggers.length);
     triggers.forEach(trigger => {
       trigger.addEventListener('click', (e) => {
         e.preventDefault();
@@ -52,10 +53,15 @@ class IngredientDrawer extends HTMLElement {
   
   open(name, imageUrl, description) {
     // Set content
-    this.title.textContent = name;
-    this.image.src = imageUrl;
-    this.image.alt = name;
-    this.description.innerHTML = description;
+    console.log('Opening drawer with:', { name, imageUrl, description });
+    console.log('DOM elements:', { title: this.title, image: this.image, description: this.description });
+    
+    if (this.title) this.title.textContent = name;
+    if (this.image) {
+      this.image.src = imageUrl;
+      this.image.alt = name;
+    }
+    if (this.description) this.description.innerHTML = description;
     
     // Open drawer
     this.drawer.classList.add('ingredient-drawer--open');
