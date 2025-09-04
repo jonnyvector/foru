@@ -307,6 +307,11 @@
           <strong>First product with ingredients:</strong><br>
           Product: {{ product.title }}<br>
           Raw ingredients metafield: {{ product.metafields.custom.ingredients.value }}<br>
+          Metafield count: {{ product.metafields.custom.ingredients.value.size }}<br>
+          {% assign test_ingredients = product.metafields.custom.ingredients.value %}
+          {% for test_ingredient in test_ingredients limit: 3 %}
+            - Ingredient {{ forloop.index }}: {{ test_ingredient.name.value }} | {{ test_ingredient }}<br>
+          {% endfor %}
           <br>
         {% endif %}
       {% endfor %}
@@ -314,12 +319,12 @@
       Ingredients array: {{ ingredients }}<br>
       All ingredients array: {{ all_ingredients }}<br>
       Ingredient names array: {{ ingredient_names }}<br>
-      {% if ingredients.size > 0 %}
+      {% if ingredients != blank %}
         First ingredient name: {{ ingredients[0].name.value }}<br>
       {% endif %}
     </div>
 
-    {% if ingredients and ingredients != empty %}
+    {% if ingredients != blank %}
       <div class="ingredients-grid__list">
         {% for ingredient in ingredients %}
           <details-modal class="ingredient-modal">
