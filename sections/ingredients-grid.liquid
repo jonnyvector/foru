@@ -83,15 +83,8 @@
   [data-section-id="{{ section.id }}"] .ingredients-grid__title {
     --font-headline-scale-desk: {{ section.settings.size_heading | divided_by: 100.0 }};
     --font-headline-scale: {{ section.settings.size_heading_mobile | divided_by: 100.0 }};
-    font-size: calc(var(--font-h2-size) * var(--font-headline-scale, 1));
     line-height: 0.9;
     margin: 0;
-  }
-
-  @media (min-width: 768px) {
-    [data-section-id="{{ section.id }}"] .ingredients-grid__title {
-      font-size: calc(var(--font-h2-size) * var(--font-headline-scale-desk, 1));
-    }
   }
 
   /* Ingredient Grid Layout */
@@ -153,19 +146,12 @@
   [data-section-id="{{ section.id }}"] .ingredients-grid__card-name {
     --font-headline-scale-desk: {{ section.settings.ingredient_name_size_desktop | divided_by: 100.0 }};
     --font-headline-scale: {{ section.settings.ingredient_name_size_mobile | divided_by: 100.0 }};
-    font-size: calc(var(--font-h2-size) * var(--font-headline-scale, 1));
     font-weight: 700;
     color: var(--color-custom-text, #000);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     line-height: 1.2;
     margin: 0 0 8px 0;
-  }
-
-  @media (min-width: 768px) {
-    [data-section-id="{{ section.id }}"] .ingredients-grid__card-name {
-      font-size: calc(var(--font-h2-size) * var(--font-headline-scale-desk, 1));
-    }
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__card-scientific {
@@ -294,9 +280,9 @@
       <!-- Left Column: Product Title -->
       <div class="ingredients-grid__header">
         {% if selected_product %}
-          <h2 class="ingredients-grid__title">{{ selected_product.title }}</h2>
+          <h2 class="ingredients-grid__title h2">{{ selected_product.title }}</h2>
         {% elsif section.settings.fallback_title != blank %}
-          <h2 class="ingredients-grid__title">{{ section.settings.fallback_title }}</h2>
+          <h2 class="ingredients-grid__title h2">{{ section.settings.fallback_title }}</h2>
         {% endif %}
       </div>
 
@@ -318,7 +304,7 @@
 
                 <div class="ingredients-grid__card-content">
                   {% if ingredient.name.value %}
-                    <h3 class="ingredients-grid__card-name">{{ ingredient.name.value }}</h3>
+                    <h3 class="ingredients-grid__card-name h3">{{ ingredient.name.value }}</h3>
                   {% endif %}
 
                   {% if ingredient.scientific_name.value %}
