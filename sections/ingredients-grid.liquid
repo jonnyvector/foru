@@ -95,16 +95,32 @@
   }
 
   /* Ingredient Grid Layout */
-  [data-section-id="{{ section.id }}"] .ingredients-grid__list {
+  [data-section-id="{{ section.id }}"] .ingredients-grid__list-container {
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
   }
 
   @media (min-width: 768px) {
-    [data-section-id="{{ section.id }}"] .ingredients-grid__list {
+    [data-section-id="{{ section.id }}"] .ingredients-grid__list-container {
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
+    }
+  }
+
+  /* Mobile: Override grid for swiper when enabled */
+  @media (max-width: 899px) {
+    [data-section-id="{{ section.id }}"] .ingredients-grid__list[data-swiper] .ingredients-grid__list-container {
+      display: flex;
+      grid-template-columns: none;
+      gap: 0;
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredients-grid__list[data-swiper] [data-swiper-slide] {
+      flex: 0 0 auto;
+      width: calc(100vw - 48px);
+      max-width: 280px;
+      margin-right: 16px;
     }
   }
 
