@@ -97,44 +97,9 @@
     }
   }
 
-  /* Ingredient Grid Layout */
-  [data-section-id="{{ section.id }}"] .wt-multicol__list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  @media (min-width: 768px) {
-    [data-section-id="{{ section.id }}"] .wt-multicol__list {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-  }
-
   /* Override slider container styles for our grid */
   [data-section-id="{{ section.id }}"] .wt-slider__container {
     overflow: visible;
-  }
-
-  /* Desktop: Force grid layout, override any swiper styles */
-  @media (min-width: 900px) {
-    [data-section-id="{{ section.id }}"] .wt-multicol__list {
-      display: grid !important;
-      grid-template-columns: repeat(3, 1fr) !important;
-      gap: 24px !important;
-    }
-  }
-
-  /* Mobile: Override grid for swiper when enabled */
-  @media (max-width: 899px) {
-    [data-section-id="{{ section.id }}"] .wt-multicol[data-swiper] .wt-multicol__list {
-      display: flex;
-      grid-template-columns: none;
-      gap: 0;
-    }
   }
 
   /* Ingredient Cards */
@@ -267,13 +232,9 @@
             data-swiper
             class="wt-slider__container"
           >
-            <ul
-              data-swiper-container
-              class="wt-multicol__list"
-            >
+            <div data-swiper-container>
             {%- for ingredient in ingredients -%}
-              <li data-swiper-slide class="wt-multicol__item">
-                <div class="ingredients-grid__card">
+              <div data-swiper-slide class="ingredients-grid__card">
                   {% if ingredient.image.value %}
                     <div class="ingredients-grid__card-image">
                       {{
@@ -296,9 +257,8 @@
                     {% endif %}
                   </div>
                 </div>
-              </li>
             {%- endfor -%}
-          </ul>
+          </div>
 
           <div class="swiper-scrollbar wt-slider__scrollbar wt-slider__scrollbar--ingredients"></div>
         </div>
