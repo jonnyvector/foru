@@ -312,7 +312,7 @@
     position: fixed;
     background: var(--color-background, white);
     width: 100%;
-    max-width: 40rem;
+    max-width: none;
     height: 100%;
     z-index: 50;
     transform: translateX(100%);
@@ -321,6 +321,12 @@
     display: flex;
     flex-direction: column;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (min-width: 768px) {
+    .ingredient-drawer {
+      max-width: 600px;
+    }
   }
 
   .drawers-animated .ingredient-drawer {
