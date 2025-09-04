@@ -4,8 +4,15 @@
 {% assign all_ingredients = '' | split: ',' %}
 {% assign ingredient_names = '' | split: ',' %}
 
-{% for product in collections.all.products %}
+{% comment %} Debug: Count total products and products with ingredients {% endcomment %}
+{% assign total_products = 0 %}
+{% assign products_with_ingredients = 0 %}
+
+{% comment %} Try different approaches to get all products {% endcomment %}
+{% for product in collections['all'].products limit: 250 %}
+  {% assign total_products = total_products | plus: 1 %}
   {% if product.metafields.custom.ingredients.value %}
+    {% assign products_with_ingredients = products_with_ingredients | plus: 1 %}
     {% for ingredient in product.metafields.custom.ingredients.value %}
       {% unless ingredient_names contains ingredient.name.value %}
         {% assign all_ingredients = all_ingredients | push: ingredient %}
@@ -283,7 +290,18 @@
       </div>
     {% endif %}
       
-    {% if ingredients %}
+    <!-- Debug Info -->
+    <div style="background: #f0f0f0; padding: 10px; margin-bottom: 20px; font-size: 12px;">
+      <strong>Debug:</strong><br>
+      Total products: {{ total_products }}<br>
+      Products with ingredients: {{ products_with_ingredients }}<br>
+      Total unique ingredients found: {{ ingredients.size }}<br>
+      {% if ingredients.size > 0 %}
+        First ingredient name: {{ ingredients[0].name.value }}<br>
+      {% endif %}
+    </div>
+
+    {% if ingredients.size > 0 %}
       <div class="ingredients-grid__list">
         {% for ingredient in ingredients %}
           <details-modal class="ingredient-modal">
@@ -346,6 +364,7 @@
     {% else %}
       <div class="ingredients-grid__empty">
         <p>No ingredients found. Please add ingredients to this product's metafields.</p>
+        <p><small>Total products checked: {{ total_products }}</small></p>
       </div>
     {% endif %}
   </div>
