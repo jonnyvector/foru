@@ -285,10 +285,6 @@
       display: none !important;
     }
 
-    [data-section-id="{{ section.id }}"] .ingredients-grid__dots {
-      display: none !important;
-    }
-
     /* Desktop grid layout */
     [data-section-id="{{ section.id }}"] .ingredients-grid__desktop-grid {
       display: grid;
@@ -446,6 +442,7 @@
         </slideshow-section>
       </div>
 
+      <div class="ingredients-grid__dots"></div>
       <div class="swiper-scrollbar ingredients-grid__scrollbar wt-slider__scrollbar"></div>
     {% else %}
       <div class="ingredients-grid__empty">

@@ -28,10 +28,10 @@
       "settings": {
         "product": "hydration",
         "fallback_title": "INGREDIENTS",
-        "size_heading_mobile": 100,
+        "size_heading_mobile": 120,
         "size_heading": 150,
-        "ingredient_name_size_mobile": 100,
-        "ingredient_name_size_desktop": 100,
+        "ingredient_name_size_mobile": 120,
+        "ingredient_name_size_desktop": 150,
         "text_color": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
         "margin_top": 40,
