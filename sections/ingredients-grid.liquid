@@ -293,114 +293,117 @@
 
 <section data-section-id="{{ section.id }}" class="ingredients-grid">
   <div class="ingredients-grid__container">
-    <div class="ingredients-grid__layout">
-      <!-- Left Column: Product Title -->
-      <div class="ingredients-grid__header">
-        {% if selected_product %}
-          <h2 class="ingredients-grid__title">{{ selected_product.title }}</h2>
-        {% elsif section.settings.fallback_title != blank %}
-          <h2 class="ingredients-grid__title">{{ section.settings.fallback_title }}</h2>
-        {% endif %}
-      </div>
+    <div class="ingredients-grid__header">
+      <div class="ingredients-grid__header-grid">
+        <!-- Column 1: Product Title -->
+        <div class="ingredients-grid__header-col1">
+          {% if selected_product %}
+            <h2 class="ingredients-grid__title">{{ selected_product.title }}</h2>
+          {% elsif section.settings.fallback_title != blank %}
+            <h2 class="ingredients-grid__title">{{ section.settings.fallback_title }}</h2>
+          {% endif %}
+        </div>
 
-      <!-- Right Column: Ingredient Slider -->
-      <div class="ingredients-grid__content">
-        {% if ingredients != blank %}
-          <!-- Ingredients Slider (Desktop & Mobile) -->
-          <div class="ingredients-grid__slider">
-            <slideshow-section data-section-id="{{ section.id }}" class="wt-slider">
-              <script data-swiper-configuration type="text/json">
-                {
+        <!-- Column 2: Empty for now, matching working structure -->
+        <div class="ingredients-grid__header-col2">
+        </div>
+      </div>
+    </div>
+      
+    {% if ingredients != blank %}
+      <!-- Ingredients Slider (Desktop & Mobile) -->
+      <div class="ingredients-grid__slider">
+        <slideshow-section data-section-id="{{ section.id }}" class="wt-slider">
+          <script data-swiper-configuration type="text/json">
+            {
+              "spaceBetween": 16,
+              "slidesPerView": 1.2,
+              "centeredSlides": false,
+              "loop": false,
+              "pagination": {
+                "el": ".ingredients-grid__dots",
+                "clickable": true
+              },
+              "scrollbar": {
+                "el": ".ingredients-grid__scrollbar",
+                "draggable": true
+              },
+              "breakpoints": {
+                "480": {
+                  "slidesPerView": 1.5,
+                  "spaceBetween": 16
+                },
+                "768": {
+                  "slidesPerView": 2,
                   "spaceBetween": 16,
-                  "slidesPerView": 1.2,
-                  "centeredSlides": false,
-                  "loop": false,
                   "pagination": {
                     "el": ".ingredients-grid__dots",
                     "clickable": true
-                  },
-                  "scrollbar": {
-                    "el": ".ingredients-grid__scrollbar",
-                    "draggable": true
-                  },
-                  "breakpoints": {
-                    "480": {
-                      "slidesPerView": 1.5,
-                      "spaceBetween": 16
-                    },
-                    "768": {
-                      "slidesPerView": 2,
-                      "spaceBetween": 16,
-                      "pagination": {
-                        "el": ".ingredients-grid__dots",
-                        "clickable": true
-                      }
-                    },
-                    "1024": {
-                      "slidesPerView": 3,
-                      "spaceBetween": 16,
-                      "pagination": {
-                        "el": ".ingredients-grid__dots",
-                        "clickable": true
-                      }
-                    },
-                    "1200": {
-                      "slidesPerView": 4,
-                      "spaceBetween": 16,
-                      "pagination": {
-                        "el": ".ingredients-grid__dots",
-                        "clickable": true
-                      }
-                    }
+                  }
+                },
+                "1024": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 16,
+                  "pagination": {
+                    "el": ".ingredients-grid__dots",
+                    "clickable": true
+                  }
+                },
+                "1200": {
+                  "slidesPerView": 4,
+                  "spaceBetween": 16,
+                  "pagination": {
+                    "el": ".ingredients-grid__dots",
+                    "clickable": true
                   }
                 }
-              </script>
+              }
+            }
+          </script>
 
-              <div data-swiper class="wt-slider__container">
-                <div data-swiper-container>
-                  {% for ingredient in ingredients %}
-                    <div data-swiper-slide class="ingredients-grid__card">
-                      {% if ingredient.image.value %}
-                        <div class="ingredients-grid__card-image">
-                          {{
-                            ingredient.image.value | image_url: width: 400 | image_tag: loading: 'lazy', sizes: '(min-width: 1200px) 300px, (min-width: 768px) 350px, 280px', widths: '280, 350, 400, 600', alt: ingredient.name.value
-                          }}
-                        </div>
-                      {% endif %}
-
-                      <div class="ingredients-grid__card-content">
-                        {% if ingredient.name.value %}
-                          <h3 class="ingredients-grid__card-name">{{ ingredient.name.value }}</h3>
-                        {% endif %}
-
-                        {% if ingredient.scientific_name.value %}
-                          <div class="ingredients-grid__card-scientific">{{ ingredient.scientific_name.value }}</div>
-                        {% endif %}
-
-                        {% if ingredient.short_description.value %}
-                          <div class="ingredients-grid__card-description">{{ ingredient.short_description.value }}</div>
-                        {% endif %}
-                      </div>
+          <div data-swiper class="wt-slider__container">
+            <div data-swiper-container>
+              {% for ingredient in ingredients %}
+                <div data-swiper-slide class="ingredients-grid__card">
+                  {% if ingredient.image.value %}
+                    <div class="ingredients-grid__card-image">
+                      {{
+                        ingredient.image.value | image_url: width: 400 | image_tag: loading: 'lazy', sizes: '(min-width: 1200px) 300px, (min-width: 768px) 350px, 280px', widths: '280, 350, 400, 600', alt: ingredient.name.value
+                      }}
                     </div>
-                  {% endfor %}
-                </div>
-              </div>
-            </slideshow-section>
-          </div>
+                  {% endif %}
 
-          <div class="ingredients-grid__dots"></div>
-          <div class="swiper-scrollbar ingredients-grid__scrollbar wt-slider__scrollbar"></div>
-        {% else %}
-          <div class="ingredients-grid__empty">
-            {% if section.settings.product %}
-              <p>No ingredients found for this product. Please add ingredients to the product's metafields.</p>
-            {% else %}
-              <p>Please select a product in the section settings to display its ingredients.</p>
-            {% endif %}
+                  <div class="ingredients-grid__card-content">
+                    {% if ingredient.name.value %}
+                      <h3 class="ingredients-grid__card-name">{{ ingredient.name.value }}</h3>
+                    {% endif %}
+
+                    {% if ingredient.scientific_name.value %}
+                      <div class="ingredients-grid__card-scientific">{{ ingredient.scientific_name.value }}</div>
+                    {% endif %}
+
+                    {% if ingredient.short_description.value %}
+                      <div class="ingredients-grid__card-description">{{ ingredient.short_description.value }}</div>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
           </div>
+        </slideshow-section>
+      </div>
+
+      <div class="ingredients-grid__dots"></div>
+      <div class="swiper-scrollbar ingredients-grid__scrollbar wt-slider__scrollbar"></div>
+    {% else %}
+      <div class="ingredients-grid__empty">
+        {% if section.settings.product %}
+          <p>No ingredients found for this product. Please add ingredients to the product's metafields.</p>
+        {% else %}
+          <p>Please select a product in the section settings to display its ingredients.</p>
         {% endif %}
       </div>
-    </div>
+    {% endif %}
   </div>
 </section>
 
