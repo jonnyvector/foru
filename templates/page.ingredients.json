@@ -26,14 +26,14 @@
       "type": "ingredients-grid",
       "name": "Ingredients Grid",
       "settings": {
-        "subtitle": "RECOVERY",
-        "title": "",
+        "product": "hydration",
+        "fallback_title": "INGREDIENTS",
         "size_heading_mobile": 100,
         "size_heading": 100,
         "ingredient_name_size_mobile": 100,
         "ingredient_name_size_desktop": 100,
-        "text_color": "transparent",
-        "background_color": "transparent",
+        "text_color": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
         "margin_top": 40,
         "margin_bottom": 40
       }
