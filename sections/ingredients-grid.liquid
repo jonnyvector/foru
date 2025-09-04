@@ -107,6 +107,8 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    min-width: 0;
+    max-width: 100%;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__card:hover {
@@ -247,7 +249,7 @@
   @media (min-width: 768px) {
     [data-section-id="{{ section.id }}"] .ingredients-grid__header-grid {
       grid-template-columns: 25% 75%;
-      gap: 60px;
+      gap: calc(var(--gap, 8px) * 7);
       align-items: start;
     }
 
@@ -269,7 +271,9 @@
     [data-section-id="{{ section.id }}"] .ingredients-grid__desktop-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: calc(var(--gap, 8px) * 2);
+      width: 100%;
+      max-width: 100%;
     }
   }
 
