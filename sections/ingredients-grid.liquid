@@ -138,9 +138,11 @@
       gap: 0;
     }
 
+    /* Override multicol CSS that sets flex-basis: 100% */
     [data-section-id="{{ section.id }}"] .wt-multicol__item {
       flex-shrink: 0;
-      width: calc(100% - 32px); /* Account for 1.2 slides per view with spaceBetween */
+      flex-basis: auto !important; /* Override multicol flex-basis: 100% */
+      width: auto; /* Let Swiper handle width with slidesPerView: 1.2 */
     }
   }
 
