@@ -114,12 +114,34 @@
     }
   }
 
+  /* Override multicol padding for our grid */
+  [data-section-id="{{ section.id }}"] .wt-multicol {
+    padding: 0;
+    max-width: none;
+    margin: 0;
+  }
+
+  /* Desktop: Force grid layout, override any swiper styles */
+  @media (min-width: 900px) {
+    [data-section-id="{{ section.id }}"] .wt-multicol__list {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 24px !important;
+    }
+  }
+
   /* Mobile: Override grid for swiper when enabled */
   @media (max-width: 899px) {
     [data-section-id="{{ section.id }}"] .wt-multicol[data-swiper] .wt-multicol__list {
       display: flex;
       grid-template-columns: none;
       gap: 0;
+    }
+
+    [data-section-id="{{ section.id }}"] .wt-multicol__item {
+      width: calc(100vw - 48px);
+      max-width: 280px;
+      flex-shrink: 0;
     }
   }
 
