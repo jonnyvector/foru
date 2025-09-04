@@ -243,7 +243,7 @@
     font-style: italic;
   }
 
-  /* Desktop - show dots instead of arrows and 2-column header */
+  /* Desktop - disable slider and use CSS grid */
   @media (min-width: 768px) {
     [data-section-id="{{ section.id }}"] .ingredients-grid__header-grid {
       grid-template-columns: 1fr 1fr;
@@ -251,24 +251,38 @@
       align-items: start;
     }
 
+    /* Hide slider components on desktop */
+    [data-section-id="{{ section.id }}"] .wt-slider {
+      display: none !important;
+    }
+
     [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next,
     [data-section-id="{{ section.id }}"] .ingredients-swiper-button-prev {
       display: none !important;
     }
 
-    /* Hide scrollbar on desktop */
     [data-section-id="{{ section.id }}"] .ingredients-grid__scrollbar {
       display: none !important;
+    }
+
+    /* Desktop grid layout */
+    [data-section-id="{{ section.id }}"] .ingredients-grid__desktop-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
     }
   }
 
   /* Mobile Styles */
   @media (max-width: 767px) {
+    /* Hide desktop grid on mobile */
+    [data-section-id="{{ section.id }}"] .ingredients-grid__desktop-grid {
+      display: none !important;
+    }
 
     [data-section-id="{{ section.id }}"] .ingredients-grid__card-content {
       padding: 0.75rem 0 0 0;
     }
-
 
     [data-section-id="{{ section.id }}"] .ingredients-grid__card-description {
       font-size: calc(var(--font-base-size, 1rem) * 0.7);
@@ -311,7 +325,36 @@
     </div>
       
     {% if ingredients != blank %}
-      <!-- Ingredients Slider (Desktop & Mobile) -->
+      <!-- Desktop Grid Layout -->
+      <div class="ingredients-grid__desktop-grid">
+        {% for ingredient in ingredients %}
+          <div class="ingredients-grid__card">
+            {% if ingredient.image.value %}
+              <div class="ingredients-grid__card-image">
+                {{
+                  ingredient.image.value | image_url: width: 400 | image_tag: loading: 'lazy', sizes: '(min-width: 1200px) 300px, (min-width: 768px) 350px, 280px', widths: '280, 350, 400, 600', alt: ingredient.name.value
+                }}
+              </div>
+            {% endif %}
+
+            <div class="ingredients-grid__card-content">
+              {% if ingredient.name.value %}
+                <h3 class="ingredients-grid__card-name">{{ ingredient.name.value }}</h3>
+              {% endif %}
+
+              {% if ingredient.scientific_name.value %}
+                <div class="ingredients-grid__card-scientific">{{ ingredient.scientific_name.value }}</div>
+              {% endif %}
+
+              {% if ingredient.short_description.value %}
+                <div class="ingredients-grid__card-description">{{ ingredient.short_description.value }}</div>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Mobile Slider -->
       <div class="ingredients-grid__slider">
         <slideshow-section data-section-id="{{ section.id }}" class="wt-slider">
           <script data-swiper-configuration type="text/json">
@@ -332,30 +375,6 @@
                 "480": {
                   "slidesPerView": 1.5,
                   "spaceBetween": 16
-                },
-                "768": {
-                  "slidesPerView": 2,
-                  "spaceBetween": 16,
-                  "pagination": {
-                    "el": ".ingredients-grid__dots",
-                    "clickable": true
-                  }
-                },
-                "1024": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 16,
-                  "pagination": {
-                    "el": ".ingredients-grid__dots",
-                    "clickable": true
-                  }
-                },
-                "1200": {
-                  "slidesPerView": 4,
-                  "spaceBetween": 16,
-                  "pagination": {
-                    "el": ".ingredients-grid__dots",
-                    "clickable": true
-                  }
                 }
               }
             }
