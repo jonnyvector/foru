@@ -101,7 +101,7 @@
   [data-section-id="{{ section.id }}"] .ingredients-grid__card {
     background: transparent;
     border-radius: 0;
-    overflow: visible;
+    overflow: hidden;
     box-shadow: none;
     transition: none;
     height: 100%;
@@ -109,6 +109,8 @@
     flex-direction: column;
     min-width: 0;
     max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__card:hover {
@@ -118,15 +120,17 @@
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__card-image {
     position: relative;
-    aspect-ratio: 1;
     overflow: hidden;
     background: transparent;
     border-radius: var(--border-radius);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__card-image img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     transition: none;
     border-radius: var(--border-radius);
@@ -137,6 +141,9 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__card-name {
