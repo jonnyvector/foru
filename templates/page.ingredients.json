@@ -48,7 +48,7 @@
         "text_cnJxj4"
       ],
       "custom_css": [
-        ".hero__overlay__content{max-width:100rem;}"
+        ".hero__title{max-width:100rem;}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
