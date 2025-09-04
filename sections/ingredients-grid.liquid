@@ -65,8 +65,22 @@
     }
   }
 
+  /* Main layout - Desktop: 25% title, 75% grid */
+  [data-section-id="{{ section.id }}"] .ingredients-grid__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  @media (min-width: 768px) {
+    [data-section-id="{{ section.id }}"] .ingredients-grid__layout {
+      grid-template-columns: 1fr 3fr;
+      gap: 60px;
+    }
+  }
+
   [data-section-id="{{ section.id }}"] .ingredients-grid__header {
-    margin-bottom: 40px;
     text-align: left;
   }
 
@@ -86,7 +100,7 @@
     margin: 0;
   }
 
-  /* Grid Layout */
+  /* Ingredient Grid Layout */
   [data-section-id="{{ section.id }}"] .ingredients-grid__list {
     display: grid;
     grid-template-columns: 1fr;
@@ -275,50 +289,18 @@
 
 <section data-section-id="{{ section.id }}" class="ingredients-grid">
   <div class="ingredients-grid__container">
-    {% if section.settings.subtitle != blank or section.settings.title != blank %}
+    <div class="ingredients-grid__layout">
+      <!-- Left Column: Product Title -->
       <div class="ingredients-grid__header">
         {% if section.settings.subtitle != blank %}
-          <div class="ingredients-grid__subtitle">{{ section.settings.subtitle }}</div>
-        {% endif %}
-
-        {% if section.settings.title != blank %}
-          <h2 class="ingredients-grid__title">{{ section.settings.title }}</h2>
+          <h2 class="ingredients-grid__title">{{ section.settings.subtitle }}</h2>
         {% endif %}
       </div>
-    {% endif %}
-      
-    <!-- Debug Info -->
-    <div style="background: #f0f0f0; padding: 10px; margin-bottom: 20px; font-size: 12px;">
-      <strong>Debug:</strong><br>
-      Total products: {{ total_products }}<br>
-      Products with ingredients: {{ products_with_ingredients }}<br>
-      Total unique ingredients found: {{ ingredients.size }}<br>
-      <br>
-      {% comment %} Show raw data from first product with ingredients {% endcomment %}
-      {% for product in collections['all'].products limit: 1 %}
-        {% if product.metafields.custom.ingredients.value %}
-          <strong>First product with ingredients:</strong><br>
-          Product: {{ product.title }}<br>
-          Raw ingredients metafield: {{ product.metafields.custom.ingredients.value }}<br>
-          Metafield count: {{ product.metafields.custom.ingredients.value.size }}<br>
-          {% assign test_ingredients = product.metafields.custom.ingredients.value %}
-          {% for test_ingredient in test_ingredients limit: 3 %}
-            - Ingredient {{ forloop.index }}: {{ test_ingredient.name.value }} | {{ test_ingredient }}<br>
-          {% endfor %}
-          <br>
-        {% endif %}
-      {% endfor %}
-      <br>
-      Ingredients array: {{ ingredients }}<br>
-      All ingredients array: {{ all_ingredients }}<br>
-      Ingredient names array: {{ ingredient_names }}<br>
-      {% if ingredients != blank %}
-        First ingredient name: {{ ingredients[0].name.value }}<br>
-      {% endif %}
-    </div>
 
-    {% if ingredients != blank %}
-      <div class="ingredients-grid__list">
+      <!-- Right Column: Ingredient Grid -->
+      <div class="ingredients-grid__content">
+        {% if ingredients != blank %}
+          <div class="ingredients-grid__list">
         {% for ingredient in ingredients %}
           <details-modal class="ingredient-modal">
             <details class="modal">
@@ -375,14 +357,16 @@
               </div>
             </details>
           </details-modal>
-        {% endfor %}
+          {% endfor %}
+          </div>
+        {% else %}
+          <div class="ingredients-grid__empty">
+            <p>No ingredients found. Please add ingredients to this product's metafields.</p>
+            <p><small>Total products checked: {{ total_products }}</small></p>
+          </div>
+        {% endif %}
       </div>
-    {% else %}
-      <div class="ingredients-grid__empty">
-        <p>No ingredients found. Please add ingredients to this product's metafields.</p>
-        <p><small>Total products checked: {{ total_products }}</small></p>
-      </div>
-    {% endif %}
+    </div>
   </div>
 </section>
 
@@ -398,13 +382,8 @@
       {
         "type": "text",
         "id": "subtitle",
-        "label": "Subtitle",
+        "label": "Product Title",
         "default": "RECOVERY"
-      },
-      {
-        "type": "text",
-        "id": "title",
-        "label": "Title"
       },
       {
         "type": "header",
