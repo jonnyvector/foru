@@ -1,0 +1,473 @@
+{% assign background_rgb = section.settings.background_color | color_to_rgb %}{% assign text_rgb = section.settings.text_color | color_to_rgb %}
+
+{% comment %} Collect all unique ingredients from all products in the store {% endcomment %}
+{% assign all_ingredients = '' | split: ',' %}
+{% assign ingredient_names = '' | split: ',' %}
+
+{% for product in collections.all.products %}
+  {% if product.metafields.custom.ingredients.value %}
+    {% for ingredient in product.metafields.custom.ingredients.value %}
+      {% unless ingredient_names contains ingredient.name.value %}
+        {% assign all_ingredients = all_ingredients | push: ingredient %}
+        {% assign ingredient_names = ingredient_names | push: ingredient.name.value %}
+      {% endunless %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+
+{% assign ingredients = all_ingredients %}
+
+<style>
+  [data-section-id="{{ section.id }}"] {
+    {% if background_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --color-background: {{ section.settings.background_color }};
+    {% endif %}
+    {% if text_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --color-custom-text: {{ section.settings.text_color }};
+    {% endif %}
+
+    {% if section.settings.margin_top %}
+      --section-gap-top: {{ section.settings.margin_top }}px;
+    {% endif %}
+
+    {% if section.settings.margin_bottom %}
+      --section-gap-bottom: {{ section.settings.margin_bottom }}px;
+    {% endif %}
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid {
+    padding: var(--section-gap-top, 40px) 0 var(--section-gap-bottom, 40px);
+    background-color: var(--color-background, transparent);
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__container {
+    max-width: var(--site-max-width);
+    padding-left: calc(var(--gap, 8px) * 2);
+    padding-right: calc(var(--gap, 8px) * 2);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (min-width: 1200px) {
+    [data-section-id="{{ section.id }}"] .ingredients-grid__container {
+      padding-left: calc(calc(var(--gap, 8px) * 2) + calc(var(--gap, 8px) * 2));
+      padding-right: calc(calc(var(--gap, 8px) * 2) + calc(var(--gap, 8px) * 2));
+    }
+  }
+
+  @media (min-width: 1800px) {
+    [data-section-id="{{ section.id }}"] .ingredients-grid__container {
+      max-width: var(--site-max-width-big);
+    }
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__header {
+    margin-bottom: 40px;
+    text-align: left;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__subtitle {
+    font-size: calc(var(--font-base-size, 1rem) * 0.875);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-custom-text, #666);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__title {
+    --font-headline-scale-desk: {{ section.settings.size_heading | divided_by: 100.0 }};
+    --font-headline-scale: {{ section.settings.size_heading_mobile | divided_by: 100.0 }};
+    line-height: 0.9;
+    margin: 0;
+  }
+
+  /* Grid Layout */
+  [data-section-id="{{ section.id }}"] .ingredients-grid__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  @media (min-width: 768px) {
+    [data-section-id="{{ section.id }}"] .ingredients-grid__list {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+  }
+
+  /* Ingredient Cards */
+  [data-section-id="{{ section.id }}"] .ingredients-grid__card {
+    background: transparent;
+    border-radius: 0;
+    overflow: visible;
+    box-shadow: none;
+    transition: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__card:hover {
+    box-shadow: none;
+    transform: none;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__card-image {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: transparent;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: none;
+    border-radius: var(--border-radius);
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__card-content {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__card-name {
+    --font-headline-scale-desk: {{ section.settings.ingredient_name_size_desktop | divided_by: 100.0 }};
+    --font-headline-scale: {{ section.settings.ingredient_name_size_mobile | divided_by: 100.0 }};
+    font-weight: 700;
+    color: var(--color-custom-text, #000);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    margin: 0 0 8px 0;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__card-scientific {
+    font-size: calc(var(--font-base-size, 1rem) * 0.875);
+    line-height: 1.4;
+    color: var(--color-custom-text, #666);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin: 0 0 12px 0;
+    font-weight: 500;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__card-description {
+    font-size: calc(var(--font-base-size, 1rem) * 0.875);
+    line-height: 1.5;
+    color: #666;
+    margin: 0;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+    font-style: italic;
+  }
+
+  /* Modal Styles */
+  [data-section-id="{{ section.id }}"] .ingredient-modal {
+    position: relative;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredient-modal .modal__content {
+    background: white;
+    max-width: 600px;
+    width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredient-modal__content {
+    padding: 0;
+    position: relative;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredient-modal__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredient-modal__image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredient-modal__body {
+    padding: 24px;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredient-modal__name {
+    font-size: calc(var(--font-h2-size, 1.5rem) * 1.2);
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    margin: 0 0 16px 0;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredient-modal__description {
+    font-size: var(--font-base-size, 1rem);
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredient-modal__description p {
+    margin: 0 0 16px 0;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredient-modal__description p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Mobile modal adjustments */
+  @media (max-width: 767px) {
+    [data-section-id="{{ section.id }}"] .ingredient-modal .modal__content {
+      width: 95vw;
+      max-height: 85vh;
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredient-modal__image {
+      height: 250px;
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredient-modal__body {
+      padding: 20px;
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredient-modal__name {
+      font-size: calc(var(--font-h3-size, 1.25rem) * 1.1);
+    }
+  }
+</style>
+
+<script src="{{ 'details-modal.js' | asset_url }}" defer></script>
+
+<section data-section-id="{{ section.id }}" class="ingredients-grid">
+  <div class="ingredients-grid__container">
+    {% if section.settings.subtitle != blank or section.settings.title != blank %}
+      <div class="ingredients-grid__header">
+        {% if section.settings.subtitle != blank %}
+          <div class="ingredients-grid__subtitle">{{ section.settings.subtitle }}</div>
+        {% endif %}
+
+        {% if section.settings.title != blank %}
+          <h2 class="ingredients-grid__title">{{ section.settings.title }}</h2>
+        {% endif %}
+      </div>
+    {% endif %}
+      
+    {% if ingredients %}
+      <div class="ingredients-grid__list">
+        {% for ingredient in ingredients %}
+          <details-modal class="ingredient-modal">
+            <details class="modal">
+              <summary class="ingredients-grid__card" aria-haspopup="dialog">
+                {% if ingredient.image.value %}
+                  <div class="ingredients-grid__card-image">
+                    {{
+                      ingredient.image.value | image_url: width: 600 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 400px, 600px', widths: '400, 600, 800', alt: ingredient.name.value
+                    }}
+                  </div>
+                {% endif %}
+
+                <div class="ingredients-grid__card-content">
+                  {% if ingredient.name.value %}
+                    <h3 class="ingredients-grid__card-name">{{ ingredient.name.value }}</h3>
+                  {% endif %}
+
+                  {% if ingredient.scientific_name.value %}
+                    <div class="ingredients-grid__card-scientific">{{ ingredient.scientific_name.value }}</div>
+                  {% endif %}
+
+                  {% if ingredient.short_description.value %}
+                    <div class="ingredients-grid__card-description">{{ ingredient.short_description.value }}</div>
+                  {% endif %}
+                </div>
+              </summary>
+
+              <div class="modal__content" role="dialog" aria-modal="true">
+                <div class="ingredient-modal__content" tabindex="-1">
+                  <button type="button" class="ingredient-modal__close" aria-label="Close">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+
+                  {% if ingredient.image.value %}
+                    {{
+                      ingredient.image.value | image_url: width: 800 | image_tag: class: 'ingredient-modal__image', loading: 'lazy', alt: ingredient.name.value
+                    }}
+                  {% endif %}
+
+                  <div class="ingredient-modal__body">
+                    {% if ingredient.name.value %}
+                      <h2 class="ingredient-modal__name">{{ ingredient.name.value }}</h2>
+                    {% endif %}
+
+                    {% if ingredient.long_description.value %}
+                      <div class="ingredient-modal__description">{{ ingredient.long_description.value }}</div>
+                    {% elsif ingredient.short_description.value %}
+                      <div class="ingredient-modal__description">{{ ingredient.short_description.value }}</div>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </details>
+          </details-modal>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="ingredients-grid__empty">
+        <p>No ingredients found. Please add ingredients to this product's metafields.</p>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Ingredients Grid",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle",
+        "default": "RECOVERY"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "header",
+        "content": "Typography"
+      },
+      {
+        "type": "range",
+        "id": "size_heading_mobile",
+        "min": 80,
+        "max": 300,
+        "step": 10,
+        "default": 100,
+        "label": "Title size (mobile)",
+        "unit": "%"
+      },
+      {
+        "type": "range",
+        "id": "size_heading",
+        "min": 100,
+        "max": 500,
+        "step": 10,
+        "default": 100,
+        "label": "Title size (desktop)",
+        "unit": "%"
+      },
+      {
+        "type": "range",
+        "id": "ingredient_name_size_mobile",
+        "min": 80,
+        "max": 300,
+        "step": 10,
+        "default": 100,
+        "label": "Ingredient name size (mobile)",
+        "unit": "%"
+      },
+      {
+        "type": "range",
+        "id": "ingredient_name_size_desktop",
+        "min": 100,
+        "max": 500,
+        "step": 10,
+        "default": 100,
+        "label": "Ingredient name size (desktop)",
+        "unit": "%"
+      },
+      {
+        "type": "header",
+        "content": "Colors"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "transparent"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "transparent"
+      },
+      {
+        "type": "header",
+        "content": "Section spacing"
+      },
+      {
+        "type": "range",
+        "id": "margin_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "default": 40,
+        "unit": "px",
+        "label": "Top margin"
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "default": 40,
+        "unit": "px",
+        "label": "Bottom margin"
+      },
+      {
+        "type": "header",
+        "content": "Instructions"
+      },
+      {
+        "type": "paragraph",
+        "content": "This section automatically pulls ingredient data from the product's 'ingredients' metafield. Each ingredient should be a metaobject with 'ingredient.name', 'ingredient.short_description', 'ingredient.long_description', 'ingredient.scientific_name' and 'ingredient.image' fields. Click any ingredient to view detailed information in a modal."
+      }
+    ],
+    "presets": [
+      {
+        "name": "Ingredients Grid"
+      }
+    ]
+  }
+{% endschema %}
