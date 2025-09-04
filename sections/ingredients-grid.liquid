@@ -10,6 +10,7 @@
 
 {{ 'swiper.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'slider.js' | asset_url }}" defer></script>
+<script src="{{ 'ingredient-drawer.js' | asset_url }}" defer></script>
 
 <style>
   [data-section-id="{{ section.id }}"] {
@@ -106,10 +107,11 @@
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__card {
     background: transparent;
+    border: none;
     border-radius: 0;
     overflow: hidden;
     box-shadow: none;
-    transition: none;
+    transition: opacity 0.2s ease;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -117,11 +119,13 @@
     max-width: 100%;
     width: 100%;
     box-sizing: border-box;
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__card:hover {
-    box-shadow: none;
-    transform: none;
+    opacity: 0.8;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__card-image {
@@ -303,6 +307,102 @@
     }
   }
 
+  /* Ingredient Drawer Styles */
+  .ingredient-drawer {
+    position: fixed;
+    background: var(--color-background, white);
+    width: 100%;
+    max-width: 40rem;
+    height: 100%;
+    z-index: 50;
+    transform: translateX(100%);
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .drawers-animated .ingredient-drawer {
+    transition: transform 0.3s cubic-bezier(0.12, 0.67, 0.53, 1);
+  }
+
+  .ingredient-drawer--open {
+    transform: translateX(0);
+  }
+
+  .page-overlay-ingredient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 49;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .page-overlay-ingredient-on .page-overlay-ingredient {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .ingredient-drawer__header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: calc(var(--gap, 8px) * 2);
+    border-bottom: 1px solid var(--color-border, #e5e5e5);
+  }
+
+  .ingredient-drawer__close {
+    display: inline-block;
+    cursor: pointer;
+    padding: 8px;
+    border: none;
+    background: transparent;
+    color: var(--color-text, #000);
+  }
+
+  .ingredient-drawer__body {
+    padding: calc(var(--gap, 8px) * 3);
+    overflow-y: auto;
+    flex: 1;
+  }
+
+  .ingredient-drawer__image {
+    width: 100%;
+    aspect-ratio: 1;
+    margin-bottom: calc(var(--gap, 8px) * 3);
+    border-radius: var(--border-radius, 8px);
+    overflow: hidden;
+  }
+
+  .ingredient-drawer__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ingredient-drawer__title {
+    font-size: calc(24px * 1.25);
+    font-weight: 700;
+    color: var(--color-text, #000);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    margin: 0 0 calc(var(--gap, 8px) * 2) 0;
+  }
+
+  .ingredient-drawer__description {
+    font-size: var(--font-base-size, 1rem);
+    line-height: 1.6;
+    color: var(--color-text, #333);
+    margin: 0;
+  }
+
   /* Mobile Styles */
   @media (max-width: 767px) {
     /* Hide desktop grid on mobile */
@@ -353,7 +453,12 @@
           {% if ingredients != blank %}
             <div class="ingredients-grid__desktop-grid">
               {% for ingredient in ingredients %}
-                <div class="ingredients-grid__card">
+                <button 
+                  class="ingredients-grid__card ingredient-card-trigger"
+                  data-ingredient-name="{{ ingredient.name.value | escape }}"
+                  data-ingredient-image="{{ ingredient.image.value | image_url: width: 600 }}"
+                  data-ingredient-full-description="{{ ingredient.full_description.value | escape }}"
+                >
                   {% if ingredient.image.value %}
                     <div class="ingredients-grid__card-image">
                       {{
@@ -375,7 +480,7 @@
                       <div class="ingredients-grid__card-description">{{ ingredient.short_description.value }}</div>
                     {% endif %}
                   </div>
-                </div>
+                </button>
               {% endfor %}
             </div>
           {% endif %}
@@ -413,7 +518,13 @@
           <div data-swiper class="wt-slider__container">
             <div data-swiper-container>
               {% for ingredient in ingredients %}
-                <div data-swiper-slide class="ingredients-grid__card">
+                <button 
+                  data-swiper-slide 
+                  class="ingredients-grid__card ingredient-card-trigger"
+                  data-ingredient-name="{{ ingredient.name.value | escape }}"
+                  data-ingredient-image="{{ ingredient.image.value | image_url: width: 600 }}"
+                  data-ingredient-full-description="{{ ingredient.full_description.value | escape }}"
+                >
                   {% if ingredient.image.value %}
                     <div class="ingredients-grid__card-image">
                       {{
@@ -435,7 +546,7 @@
                       <div class="ingredients-grid__card-description">{{ ingredient.short_description.value }}</div>
                     {% endif %}
                   </div>
-                </div>
+                </button>
               {% endfor %}
             </div>
           </div>
@@ -454,6 +565,27 @@
       </div>
     {% endif %}
   </div>
+
+  <!-- Ingredient Drawer -->
+  <ingredient-drawer class="ingredient-drawer-component">
+    <div class="page-overlay-ingredient"></div>
+    <div class="ingredient-drawer">
+      <div class="ingredient-drawer__header">
+        <button class="ingredient-drawer__close" aria-label="Close">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M15 5L5 15M5 5l10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="ingredient-drawer__body">
+        <div class="ingredient-drawer__image">
+          <img src="" alt="" class="ingredient-drawer__img">
+        </div>
+        <h2 class="ingredient-drawer__title"></h2>
+        <div class="ingredient-drawer__description"></div>
+      </div>
+    </div>
+  </ingredient-drawer>
 </section>
 
 {% schema %}
