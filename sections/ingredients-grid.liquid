@@ -98,17 +98,16 @@
   }
 
   /* Ingredient Grid Layout */
-  [data-section-id="{{ section.id }}"] .wt-multicol__list {
+  [data-section-id="{{ section.id }}"] .ingredients-grid__list-container {
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
-    list-style: none;
     padding: 0;
     margin: 0;
   }
 
   @media (min-width: 768px) {
-    [data-section-id="{{ section.id }}"] .wt-multicol__list {
+    [data-section-id="{{ section.id }}"] .ingredients-grid__list-container {
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
@@ -123,7 +122,7 @@
 
   /* Desktop: Force grid layout, override any swiper styles */
   @media (min-width: 900px) {
-    [data-section-id="{{ section.id }}"] .wt-multicol__list {
+    [data-section-id="{{ section.id }}"] .ingredients-grid__list-container {
       display: grid !important;
       grid-template-columns: repeat(3, 1fr) !important;
       gap: 24px !important;
@@ -132,7 +131,7 @@
 
   /* Mobile: Override grid for swiper when enabled */
   @media (max-width: 899px) {
-    [data-section-id="{{ section.id }}"] .wt-multicol[data-swiper] .wt-multicol__list {
+    [data-section-id="{{ section.id }}"] .wt-multicol[data-swiper] .ingredients-grid__list-container {
       display: flex;
       grid-template-columns: none;
       gap: 0;
@@ -367,12 +366,12 @@
             data-swiper
             class="wt-multicol ingredients-grid__list"
           >
-            <ul
+            <div
               data-swiper-container
-              class="wt-multicol__list ingredients-grid__list-container"
+              class="ingredients-grid__list-container"
             >
             {%- for ingredient in ingredients -%}
-              <li data-swiper-slide class="wt-multicol__item">
+              <div data-swiper-slide class="ingredients-grid__slide">
                 <details-modal class="ingredient-modal">
                   <details class="modal">
                     <summary class="ingredients-grid__card" aria-haspopup="dialog">
@@ -428,20 +427,22 @@
                     </div>
                   </details>
                 </details-modal>
-              </li>
+              </div>
             {%- endfor -%}
-          </ul>
+          </div>
 
           <div class="swiper-scrollbar wt-slider__scrollbar wt-slider__scrollbar--ingredients"></div>
         </div>
 
-          {% assign slidesPerView = 1.04 %}
+          {% assign slidesPerView = 1 %}
 
           <script data-swiper-configuration type="text/json">
             {
               "enableOnMedia": "(max-width: 899px)",
               "slidesPerView": {{ slidesPerView }},
               "spaceBetween": 16,
+              "resistanceRatio": 0,
+              "watchOverflow": true,
               "scrollbar": {
                 "el": ".wt-slider__scrollbar--ingredients",
                 "draggable": true
