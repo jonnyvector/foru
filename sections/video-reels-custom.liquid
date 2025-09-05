@@ -95,6 +95,7 @@
         {% render 'icons', id: 'arrow-left' %}
       </div>
       <div class="swiper-pagination wt-slider__pagination"></div>
+      <div class="swiper-scrollbar wt-slider__scrollbar"></div>
     </div>
     <script data-swiper-configuration type="text/json">
       {
@@ -107,17 +108,32 @@
         "loop": true,
         "slideToClickedSlide": true,
         "enableOnMedia": "(min-width: 0px)",
-        "paginationType": "bullets",
+        "scrollbar": {
+          "el": ".swiper-scrollbar",
+          "draggable": true,
+          "hide": false
+        },
         "breakpoints": {
           "600": {
-            "slidesPerView": 1.75
+            "slidesPerView": 1.75,
+            "scrollbar": {
+              "el": ".swiper-scrollbar",
+              "draggable": true,
+              "hide": false
+            }
           },
           "900": {
-            "slidesPerView": 2.5
+            "slidesPerView": 2.5,
+            "scrollbar": {
+              "hide": true
+            }
           },
           "1200": {
             "slidesPerView": 4.5,
-            "spaceBetween": 24
+            "spaceBetween": 24,
+            "scrollbar": {
+              "hide": true
+            }
           }
         },
         "navigation": {
