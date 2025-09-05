@@ -171,29 +171,40 @@
           return;
         }
 
-        // Clean up and reinitialize on any breakpoint change
+        // Track previous loop state to handle transitions properly
+        let previousLoopState = swiper.params.loop;
+        
         swiper.on('breakpoint', function() {
-          const isLoopEnabled = this.params.loop;
+          const currentLoopState = this.params.loop;
           const wrapper = this.wrapperEl;
           
-          console.log(`Breakpoint change - loop: ${isLoopEnabled}`);
+          console.log(`Breakpoint change - previous loop: ${previousLoopState}, current loop: ${currentLoopState}`);
           
-          // Always clean up duplicate slides first
-          const duplicateSlides = wrapper.querySelectorAll('[class*="swiper-slide-duplicate"]');
-          if (duplicateSlides.length > 0) {
-            console.log(`Removing ${duplicateSlides.length} duplicate slides`);
-            duplicateSlides.forEach(slide => slide.remove());
+          // Only clean up duplicates when transitioning FROM loop TO no-loop
+          if (previousLoopState && !currentLoopState) {
+            const duplicateSlides = wrapper.querySelectorAll('[class*="swiper-slide-duplicate"]');
+            if (duplicateSlides.length > 0) {
+              console.log(`Removing ${duplicateSlides.length} duplicate slides (loop → no-loop)`);
+              duplicateSlides.forEach(slide => slide.remove());
+            }
+            
+            // Update after cleanup
+            this.update();
+          }
+          // If staying in loop mode (loop → loop), let Swiper handle it naturally
+          else if (previousLoopState && currentLoopState) {
+            console.log('Staying in loop mode - letting Swiper handle transition');
+            // Just a gentle update, don't interfere with loop mechanics
+            setTimeout(() => this.update(), 50);
+          }
+          // If going from no-loop to loop, let Swiper create the duplicates
+          else if (!previousLoopState && currentLoopState) {
+            console.log('Enabling loop mode');
+            setTimeout(() => this.update(), 50);
           }
           
-          // Force multiple updates with delay to ensure proper recalculation
-          this.update();
-          
-          setTimeout(() => {
-            this.updateSlides();
-            this.updateProgress(); 
-            this.updateSlidesClasses();
-            this.update();
-          }, 100);
+          // Update previous state for next transition
+          previousLoopState = currentLoopState;
         });
       };
 
