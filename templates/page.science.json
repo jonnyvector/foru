@@ -26,17 +26,10 @@
     "image_banner_VXGBYe": {
       "type": "image-banner",
       "blocks": {
-        "subheading_xP64pQ": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Tell you story",
-            "subheading_disable_on_mobile": false
-          }
-        },
         "heading_BXfw7d": {
           "type": "heading",
           "settings": {
-            "heading": "Image banner",
+            "heading": "Third-party testing results",
             "disable_on_mobile": false,
             "size_heading": 100,
             "size_heading_mobile": 100
@@ -45,29 +38,14 @@
         "text_JBTM9E": {
           "type": "text",
           "settings": {
-            "text": "<p>Give customers details about the banner image(s) or content on the template.</p>",
+            "text": "<p>We believe you deserve clarity, not confusion. That’s why every FŌRU batch is independently tested, so you know exactly what’s inside each stick or tablet before you take it.</p>",
             "disable_on_mobile": false
-          }
-        },
-        "button_Efgg43": {
-          "type": "button",
-          "settings": {
-            "button_select": "primary",
-            "button_label": "Button label",
-            "disable_on_mobile": false,
-            "button_link": "/",
-            "second_button_select": "primary",
-            "second_button_label": "Button label",
-            "second_disable_on_mobile": false,
-            "second_button_link": ""
           }
         }
       },
       "block_order": [
-        "subheading_xP64pQ",
         "heading_BXfw7d",
-        "text_JBTM9E",
-        "button_Efgg43"
+        "text_JBTM9E"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
@@ -76,14 +54,16 @@
         "slide_height": "fixed_height",
         "desktop_fixed_height": 320,
         "mobile_fixed_height": 460,
+        "desktop_image": "shopify://shop_images/image_22_4.png",
         "desktop_text_vertical_position": "center",
-        "desktop_text_horizontal_position": "center",
+        "desktop_text_horizontal_position": "left",
+        "mobile_image": "shopify://shop_images/image_22_5.png",
         "mobile_text_vertical_position": "center",
         "mobile_text_horizontal_position": "center",
-        "color-heading": "transparent",
+        "color-heading": "rgba(0,0,0,0)",
         "section-color-overlay": "transparent",
         "section-color-overlay-opacity": 100,
-        "color-body-text": "transparent",
+        "color-body-text": "#ffffff",
         "text-container-color": "transparent",
         "color-overlay-opacity": 100,
         "margin-top": 20,
