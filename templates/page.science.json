@@ -51,7 +51,7 @@
       "settings": {
         "heading": "",
         "full-width-enabled": true,
-        "slide_height": "fixed_height",
+        "slide_height": "adapt_to_first_image",
         "desktop_fixed_height": 320,
         "mobile_fixed_height": 460,
         "desktop_image": "shopify://shop_images/image_22_4.png",
@@ -66,8 +66,8 @@
         "color-body-text": "#ffffff",
         "text-container-color": "transparent",
         "color-overlay-opacity": 100,
-        "margin-top": 20,
-        "margin-bottom": 20
+        "margin-top": 0,
+        "margin-bottom": 0
       }
     }
   },
