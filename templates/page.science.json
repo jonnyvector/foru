@@ -187,12 +187,82 @@
         "margin-top": 0,
         "margin-bottom": 0
       }
+    },
+    "downloadable_documents_FE8dUT": {
+      "type": "downloadable-documents",
+      "blocks": {
+        "document_mXgP7J": {
+          "type": "document",
+          "settings": {
+            "title": "2025/06/18 NSF Certified for Sport Evaluation Report",
+            "file": ""
+          }
+        },
+        "document_t8tNU8": {
+          "type": "document",
+          "settings": {
+            "title": "2025/05/31 Certificate of Analysis 504-0128",
+            "file": ""
+          }
+        },
+        "document_wrD79g": {
+          "type": "document",
+          "settings": {
+            "title": "2025/05/30 Certificate of Analysis 504-0127",
+            "file": ""
+          }
+        },
+        "document_8pVAPW": {
+          "type": "document",
+          "settings": {
+            "title": "2025/05/30 Certificate of Analysis 504-0126",
+            "file": ""
+          }
+        },
+        "document_NE7rWM": {
+          "type": "document",
+          "settings": {
+            "title": "2025/05/30 Certificate of Analysis 504-0125B",
+            "file": ""
+          }
+        },
+        "document_cbqEWD": {
+          "type": "document",
+          "settings": {
+            "title": "2025/05/30 Certificate of Analysis 504-0125A",
+            "file": ""
+          }
+        }
+      },
+      "block_order": [
+        "document_mXgP7J",
+        "document_t8tNU8",
+        "document_wrD79g",
+        "document_8pVAPW",
+        "document_NE7rWM",
+        "document_cbqEWD"
+      ],
+      "name": "Downloadable Documents",
+      "settings": {
+        "title": "",
+        "main_heading": "PROOF IN EVERY BATCH",
+        "description": "We don't just claim quality - we prove it. Every formula is verified by independent labs for purity, safety, and accuracy. Our test reports are open for you to see.",
+        "full-width-enabled": false,
+        "heading_size_mobile": 100,
+        "heading_size_desktop": 100,
+        "section-color-body-text": "transparent",
+        "section-color-overlay": "transparent",
+        "section-color-overlay-opacity": 100,
+        "margin-top": 40,
+        "margin-bottom": 40
+      }
     }
   },
   "order": [
     "main",
     "image_banner_VXGBYe",
     "image_with_text_VdxUNq",
-    "image_text_bullets_DDr6Uy"
+    "image_text_bullets_DDr6Uy",
+    "downloadable_documents_FE8dUT"
   ]
 }
