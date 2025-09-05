@@ -253,8 +253,8 @@
         "section-color-body-text": "rgba(0,0,0,0)",
         "section-color-overlay": "rgba(0,0,0,0)",
         "section-color-overlay-opacity": 100,
-        "margin-top": 40,
-        "margin-bottom": 40
+        "margin-top": 100,
+        "margin-bottom": 100
       }
     }
   },
