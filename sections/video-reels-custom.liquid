@@ -41,6 +41,10 @@
       display: none !important;
     }
   }
+
+  [data-section-id="{{ section.id }}"] .video-reels__container {
+    touch-action: pan-y pinch-zoom;
+  }
 </style>
 
 <video-reels
@@ -50,8 +54,8 @@
   {% render 'headline', title: section.settings.heading %}
 
   <slideshow-section class="wt-slider {% if settings.animations %}scroll-trigger animate--slide-in {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}{% endif %}">
-    <div data-swiper class="wt-slider__container wt-slider__container--video-carousel" data-sound="off">
-      <div data-swiper-container class="video-reels__container">
+    <div data-swiper class="wt-slider__container wt-slider__container--video-carousel" data-section-id="{{ section.id }}" data-sound="off">
+      <div data-swiper-container class="video-reels__container video-reels__container--{{ section.id }}">
         {% for block in section.blocks %}
           <div
             data-swiper-slide
