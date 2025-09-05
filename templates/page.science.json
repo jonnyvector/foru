@@ -216,21 +216,21 @@
           "type": "document",
           "settings": {
             "title": "2025/05/30 Certificate of Analysis 504-0126",
-            "file": ""
+            "file": "#"
           }
         },
         "document_NE7rWM": {
           "type": "document",
           "settings": {
             "title": "2025/05/30 Certificate of Analysis 504-0125B",
-            "file": ""
+            "file": "#"
           }
         },
         "document_cbqEWD": {
           "type": "document",
           "settings": {
             "title": "2025/05/30 Certificate of Analysis 504-0125A",
-            "file": ""
+            "file": "#"
           }
         }
       },
@@ -250,8 +250,8 @@
         "full-width-enabled": false,
         "heading_size_mobile": 100,
         "heading_size_desktop": 100,
-        "section-color-body-text": "transparent",
-        "section-color-overlay": "transparent",
+        "section-color-body-text": "rgba(0,0,0,0)",
+        "section-color-overlay": "rgba(0,0,0,0)",
         "section-color-overlay-opacity": 100,
         "margin-top": 40,
         "margin-bottom": 40
