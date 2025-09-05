@@ -116,13 +116,15 @@
         "centeredSlides": true,
         "loop": true,
         "slideToClickedSlide": true,
-        "watchSlidesProgress": true,
+        "initialSlide": 0,
+        "normalizeSlideIndex": true,
         "enableOnMedia": "(min-width: 0px)",
         "scrollbar": {
           "el": ".swiper-scrollbar",
           "draggable": true,
           "hide": false,
-          "snapOnRelease": true
+          "snapOnRelease": true,
+          "dragSize": "auto"
         },
         "breakpoints": {
           "600": {
@@ -131,7 +133,8 @@
               "el": ".swiper-scrollbar",
               "draggable": true,
               "hide": false,
-              "snapOnRelease": true
+              "snapOnRelease": true,
+              "dragSize": "auto"
             }
           },
           "900": {
