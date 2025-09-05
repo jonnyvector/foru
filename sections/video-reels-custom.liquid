@@ -35,6 +35,12 @@
       --color-price: {{ section.settings.color-body-text }};
     {% endif %}
   }
+
+  @media (min-width: 900px) {
+    [data-section-id="{{ section.id }}"] .swiper-scrollbar {
+      display: none !important;
+    }
+  }
 </style>
 
 <video-reels
