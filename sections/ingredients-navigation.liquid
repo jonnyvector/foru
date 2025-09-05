@@ -105,8 +105,37 @@
     }
   }
 
-  /* Navigation container spacing */
+  /* Site width container and padding */
+  [data-section-id="{{ section.id }}"] .ingredients-navigation__container {
+    width: 100%;
+    max-width: var(--site-max-width);
+    padding-left: calc(var(--gap, 8px) * 2);
+    padding-right: calc(var(--gap, 8px) * 2);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (min-width: 1200px) {
+    [data-section-id="{{ section.id }}"] .ingredients-navigation__container {
+      padding-left: calc(calc(var(--gap, 8px) * 2) + calc(var(--gap, 8px) * 2));
+      padding-right: calc(calc(var(--gap, 8px) * 2) + calc(var(--gap, 8px) * 2));
+    }
+  }
+
+  @media (min-width: 1800px) {
+    [data-section-id="{{ section.id }}"] .ingredients-navigation__container {
+      max-width: var(--site-max-width-big);
+    }
+  }
+
+  /* Section spacing */
   [data-section-id="{{ section.id }}"] .ingredients-navigation {
+    padding: var(--section-gap-top, 40px) 0 var(--section-gap-bottom, 40px);
+    background-color: var(--color-background, transparent);
+  }
+
+  /* Navigation container spacing */
+  [data-section-id="{{ section.id }}"] .ingredients-navigation__inner {
     margin-top: 0;
   }
 
@@ -119,6 +148,11 @@
     /* Extend slider to screen edge on right side */
     [data-section-id="{{ section.id }}"] .secondary-navigation {
       margin-right: calc(0px - calc(var(--gap, 8px) * 2));
+    }
+
+    /* Compensate for container padding on mobile */
+    [data-section-id="{{ section.id }}"] .ingredients-navigation__container {
+      padding-right: 0;
     }
 
     /* Make sure navigation links are properly sized on mobile */
@@ -153,17 +187,18 @@
 <script src="{{ 'secondary-nav.js' | asset_url }}" type="module" defer="defer"></script>
 <script src="{{ 'ingredients-navigation.js' | asset_url }}" type="module" defer="defer"></script>
 
-<div class="{% if settings.animations %} scroll-trigger animate--slide-in {% endif %}" data-section-id="{{ section.id }}">
-  <div class="ingredients-navigation__header">
-    {% if section.settings.subtitle != blank %}
-      <div class="ingredients-navigation__subtitle">{{ section.settings.subtitle }}</div>
-    {% endif %}
-    {% if section.settings.heading != blank %}
-      <h2 class="ingredients-navigation__title">{{ section.settings.heading | newline_to_br }}</h2>
-    {% endif %}
-  </div>
+<section class="ingredients-navigation {% if settings.animations %} scroll-trigger animate--slide-in {% endif %}" data-section-id="{{ section.id }}">
+  <div class="ingredients-navigation__container">
+    <div class="ingredients-navigation__header">
+      {% if section.settings.subtitle != blank %}
+        <div class="ingredients-navigation__subtitle">{{ section.settings.subtitle }}</div>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="ingredients-navigation__title">{{ section.settings.heading | newline_to_br }}</h2>
+      {% endif %}
+    </div>
 
-  <secondary-nav
+    <secondary-nav
     {% if section.settings.desktop_placement == 'center' %}
       data-center-slides
     {% endif %}
@@ -208,7 +243,8 @@
       </div>
     </div>
   </secondary-nav>
-</div>
+  </div>
+</section>
 
 {% schema %}
 {
