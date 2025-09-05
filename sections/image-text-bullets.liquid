@@ -111,7 +111,7 @@
     color: var(--color-text, #333);
   }
 
-  /* Green bullet dots */
+  /* Bullet dots */
   [data-section-id="{{ section.id }}"] .bullet-list li::before {
     content: '';
     position: absolute;
@@ -119,7 +119,7 @@
     top: 8px;
     width: 8px;
     height: 8px;
-    background-color: {{ section.settings.bullet_color | default: '#4CAF50' }};
+    background-color: {{ section.settings.bullet_color | default: '#000000' }};
     border-radius: 50%;
     flex-shrink: 0;
   }
@@ -151,6 +151,24 @@
   }
 
 
+  /* Ensure proper hero grid layout */
+  @media (min-width: 768px) {
+    [data-section-id="{{ section.id }}"] .hero--grid {
+      display: flex;
+    }
+    
+    [data-section-id="{{ section.id }}"] .hero--grid .hero__pic {
+      width: var(--desktop-percentage-image-width, 50%);
+      flex-shrink: 0;
+    }
+    
+    [data-section-id="{{ section.id }}"] .hero--grid .hero__overlay {
+      width: calc(100% - var(--desktop-percentage-image-width, 50%));
+      flex-shrink: 0;
+      position: relative;
+    }
+  }
+
   /* Final text styling */
   [data-section-id="{{ section.id }}"] .closing-text {
     margin-top: 40px;
@@ -180,7 +198,7 @@
   {% render 'headline', title: section.settings.title %}
   <div class="{% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}">
     {% comment %}Manually create the hero structure like the working image-with-text{% endcomment %}
-    <div class="hero hero--video-background {{ customclass }}">
+    <div class="hero {{ customclass }}">
       <div class="hero__pic">
         {% if section.settings.desktop_image != blank %}
           {% if section.settings.mobile_image != blank %}
@@ -196,15 +214,12 @@
         {% endif %}
       </div>
       
-      <div class="hero__overlay" style="position: absolute; top: 0; left: 50%; width: 50%; background: rgba(255,255,255,0.9); z-index: 10;">
+      <div class="hero__overlay hero__overlay--{{ section.settings.desktop_text_vertical_position }}-{{ section.settings.desktop_text_horizontal_position }} hero__overlay--mobile-{{ section.settings.mobile_text_horizontal_position }}">
         <div class="hero__overlay__content">
-          <p style="background: red; color: white; padding: 10px;">DEBUG: Content area visible</p>
           {% if section.settings.main_heading != blank %}
-            <h2 class="hero__heading main-heading" style="background: blue; color: white;">
+            <h2 class="hero__heading main-heading">
               {{ section.settings.main_heading }}
             </h2>
-          {% else %}
-            <p style="background: yellow; color: black;">No main heading set</p>
           {% endif %}
           
           {% if section.settings.intro_text != blank %}
@@ -220,26 +235,20 @@
           {% endif %}
           
           {% if section.blocks.size > 0 %}
-            <p>Debug: {{ section.blocks.size }} blocks found</p>
             <ul class="bullet-list">
               {% for block in section.blocks %}
-                <li data-block-id="{{ block.id }}">
-                  <p>Block type: {{ block.type }}</p>
-                  {% if block.type == 'bullet_point' %}
+                {% if block.type == 'bullet_point' %}
+                  <li data-block-id="{{ block.id }}">
                     {% if block.settings.title != blank %}
                       <strong class="bullet-title">{{ block.settings.title }}</strong>
                     {% endif %}
                     {% if block.settings.description != blank %}
                       <span class="bullet-description">{{ block.settings.description }}</span>
                     {% endif %}
-                  {% else %}
-                    <p>Unknown block type: {{ block.type }}</p>
-                  {% endif %}
-                </li>
+                  </li>
+                {% endif %}
               {% endfor %}
             </ul>
-          {% else %}
-            <p>Debug: No blocks found</p>
           {% endif %}
           
           {% if section.settings.closing_text != blank %}
@@ -428,7 +437,7 @@
     {
       "type": "color",
       "id": "bullet_color",
-      "default": "#4CAF50",
+      "default": "#000000",
       "label": "Bullet point color"
     },
     {
