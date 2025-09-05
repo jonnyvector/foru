@@ -35,6 +35,12 @@
       --color-price: {{ section.settings.color-body-text }};
     {% endif %}
   }
+
+  @media (min-width: 900px) {
+    [data-section-id="{{ section.id }}"] .swiper-scrollbar {
+      display: none !important;
+    }
+  }
 </style>
 
 <video-reels
@@ -94,7 +100,7 @@
       <div class="swiper-button-prev wt-slider__nav-btn wt-slider__nav-prev wt-slider__nav-prev--featured">
         {% render 'icons', id: 'arrow-left' %}
       </div>
-      <div class="swiper-pagination wt-slider__pagination"></div>
+      <div class="swiper-scrollbar wt-slider__scrollbar"></div>
     </div>
     <script data-swiper-configuration type="text/json">
       {
@@ -107,10 +113,21 @@
         "loop": true,
         "slideToClickedSlide": true,
         "enableOnMedia": "(min-width: 0px)",
-        "paginationType": "bullets",
+        "scrollbar": {
+          "el": ".swiper-scrollbar",
+          "draggable": true,
+          "hide": false,
+          "snapOnRelease": false
+        },
         "breakpoints": {
           "600": {
-            "slidesPerView": 1.75
+            "slidesPerView": 1.75,
+            "scrollbar": {
+              "el": ".swiper-scrollbar",
+              "draggable": true,
+              "hide": false,
+              "snapOnRelease": false
+            }
           },
           "900": {
             "slidesPerView": 2.5
