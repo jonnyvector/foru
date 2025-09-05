@@ -153,6 +153,44 @@
         }
       }
     </script>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const container = document.querySelector(
+        '[data-swiper][data-section-id="{{ section.id }}"]'
+      );
+      if (!container) return;
+
+      // Wait for slideshow-section to initialize
+      const checkForSwiper = () => {
+        const slideshowSection = container.closest('slideshow-section');
+        const swiper = slideshowSection?.swiper;
+        
+        if (!swiper) {
+          setTimeout(checkForSwiper, 100);
+          return;
+        }
+
+        // Clean up duplicate slides when transitioning between loop/no-loop modes
+        swiper.on('breakpoint', function() {
+          const isLoopEnabled = this.params.loop;
+          const wrapper = this.wrapperEl;
+          
+          // If loop is disabled, remove any duplicate slides
+          if (!isLoopEnabled) {
+            const duplicateSlides = wrapper.querySelectorAll('[class*="swiper-slide-duplicate"]');
+            console.log(`Removing ${duplicateSlides.length} duplicate slides`);
+            duplicateSlides.forEach(slide => slide.remove());
+          }
+          
+          // Force update after cleanup
+          this.update();
+        });
+      };
+
+      checkForSwiper();
+    });
+    </script>
   </slideshow-section>
 </video-reels>
 
