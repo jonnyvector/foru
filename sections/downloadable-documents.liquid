@@ -131,6 +131,25 @@
     opacity: 0.8;
   }
 
+  /* Download button text/icon visibility */
+  [data-section-id="{{ section.id }}"] .download-text {
+    display: none;
+  }
+
+  [data-section-id="{{ section.id }}"] .download-icon {
+    display: block;
+  }
+
+  @media (min-width: 750px) {
+    [data-section-id="{{ section.id }}"] .download-text {
+      display: block;
+    }
+
+    [data-section-id="{{ section.id }}"] .download-icon {
+      display: none;
+    }
+  }
+
   /* Mobile adjustments */
   @media (max-width: 749px) {
     [data-section-id="{{ section.id }}"] .document-item {
@@ -180,7 +199,8 @@
                    download
                    target="_blank"
                    rel="noopener noreferrer">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <span class="download-text">Download</span>
+                  <svg class="download-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3.33203 16.6666H16.6654M9.9987 11.6666V3.33325M9.9987 11.6666L13.332 8.33325M9.9987 11.6666L6.66536 8.33325" stroke="currentColor" stroke-linecap="square"/>
                   </svg>
                 </a>
