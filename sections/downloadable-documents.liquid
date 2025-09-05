@@ -60,6 +60,11 @@
     [data-section-id="{{ section.id }}"] .documents-heading h2 {
       font-size: calc(48px * {{ section.settings.heading_size_desktop | divided_by: 100.0 }});
       margin: 0;
+      max-width: 400px;
+    }
+    
+    [data-section-id="{{ section.id }}"] .documents-description {
+      align-self: end;
     }
   }
 
