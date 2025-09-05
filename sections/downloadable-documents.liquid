@@ -1,0 +1,364 @@
+{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+
+{% assign background_section_rgb = section.settings['section-color-overlay'] | color_to_rgb %}
+{% assign heading_rgb = section.settings['section-color-body-text'] | color_to_rgb %}
+
+<style>
+    section[id="shopify-section-{{ section.id }}"]{
+        {% if background_section_rgb != 'rgba(0, 0, 0, 0.0)' %}
+            --color-overlay-rgb: {{ section.settings.section-color-overlay | color_to_rgb | remove: 'rgb(' | remove: ')' }};
+            --color-overlay-opacity: {{ section.settings.section-color-overlay-opacity | divided_by: 100.0 }};
+        {% endif %}
+    }
+
+    section[id="shopify-section-{{ section.id }}"] .headline__title{
+      {% if heading_rgb != 'rgba(0, 0, 0, 0.0)' %}
+        --color-custom-text: {{ section.settings.section-color-body-text }};
+      {% endif %}
+    }
+
+  [data-section-id="{{ section.id }}"]
+  {
+      {% if section.settings.full-width-enabled %}
+        --border-radius: 0;
+      {% endif %}
+
+      {% if section.settings.margin-top %}
+        --section-gap-top: {{ section.settings.margin-top }}px;
+      {% endif %}
+
+      {% if section.settings.margin-bottom %}
+        --section-gap-bottom: {{ section.settings.margin-bottom }}px;
+      {% endif %}
+  }
+
+  /* Main layout */
+  [data-section-id="{{ section.id }}"] .documents-layout {
+    display: grid;
+    gap: calc(var(--gap, 8px) * 6);
+  }
+
+  @media (min-width: 750px) {
+    [data-section-id="{{ section.id }}"] .documents-layout {
+      grid-template-columns: 1fr 1fr;
+      gap: calc(var(--gap, 8px) * 8);
+    }
+  }
+
+  /* Heading section */
+  [data-section-id="{{ section.id }}"] .documents-header h2 {
+    font-family: var(--font-headline);
+    font-size: calc(32px * {{ section.settings.heading_size_mobile | divided_by: 100.0 }});
+    font-weight: var(--font-headline-weight);
+    color: var(--color-text, #000);
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin: 0 0 calc(var(--gap, 8px) * 3) 0;
+  }
+
+  @media (min-width: 750px) {
+    [data-section-id="{{ section.id }}"] .documents-header h2 {
+      font-size: calc(48px * {{ section.settings.heading_size_desktop | divided_by: 100.0 }});
+      margin: 0 0 calc(var(--gap, 8px) * 4) 0;
+    }
+  }
+
+  [data-section-id="{{ section.id }}"] .documents-header .description {
+    font-family: var(--font-body);
+    font-size: var(--font-base-size);
+    line-height: 1.6;
+    color: var(--color-text, #333);
+    margin: 0;
+  }
+
+  /* Documents grid */
+  [data-section-id="{{ section.id }}"] .documents-grid {
+    display: grid;
+    gap: calc(var(--gap, 8px) * 3);
+    grid-column: 1 / -1;
+  }
+
+  @media (min-width: 750px) {
+    [data-section-id="{{ section.id }}"] .documents-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: calc(var(--gap, 8px) * 4);
+    }
+  }
+
+  /* Individual document row */
+  [data-section-id="{{ section.id }}"] .document-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: calc(var(--gap, 8px) * 2);
+    padding: calc(var(--gap, 8px) * 2) 0;
+  }
+
+  [data-section-id="{{ section.id }}"] .document-title {
+    font-family: var(--font-body);
+    font-size: var(--font-base-size);
+    color: var(--color-text, #000);
+    margin: 0;
+    flex: 1;
+  }
+
+  /* Download button styling using existing theme button classes */
+  [data-section-id="{{ section.id }}"] .download-btn {
+    background-color: var(--color-text, #000);
+    color: var(--color-background, #fff);
+    padding: calc(var(--gap, 8px) * 1.5) calc(var(--gap, 8px) * 3);
+    border: none;
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-size: var(--font-base-size);
+    font-weight: var(--font-weight-medium, 500);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  [data-section-id="{{ section.id }}"] .download-btn:hover {
+    opacity: 0.8;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 749px) {
+    [data-section-id="{{ section.id }}"] .document-item {
+      gap: calc(var(--gap, 8px) * 1.5);
+    }
+
+    [data-section-id="{{ section.id }}"] .download-btn {
+      padding: calc(var(--gap, 8px) * 1.25) calc(var(--gap, 8px) * 2);
+      font-size: calc(var(--font-base-size) * 0.875);
+    }
+  }
+</style>
+
+{% if section.settings['full-width-enabled'] %}
+  {% assign customwrapperclass = 'hero__wrapper--full' %}
+{% else %}
+  {% assign customwrapperclass = 'hero__wrapper' %}
+{% endif %}
+
+<div
+  data-section-id="{{ section.id }}"
+  class="{{ customwrapperclass }} {% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}"
+>
+  {% render 'headline', title: section.settings.title %}
+  
+  <div class="{% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}">
+    <div class="documents-layout">
+      <div class="documents-header">
+        {% if section.settings.main_heading != blank %}
+          <h2>{{ section.settings.main_heading }}</h2>
+        {% endif %}
+        {% if section.settings.description != blank %}
+          <div class="description">
+            <p>{{ section.settings.description }}</p>
+          </div>
+        {% endif %}
+      </div>
+
+      {% if section.blocks.size > 0 %}
+        <div class="documents-grid">
+          {% for block in section.blocks %}
+            {% if block.type == 'document' and block.settings.file != blank %}
+              <div class="document-item" data-block-id="{{ block.id }}">
+                <span class="document-title">{{ block.settings.title }}</span>
+                <a href="{{ block.settings.file }}" 
+                   class="download-btn" 
+                   download
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  Download
+                </a>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Downloadable Documents",
+  "tag": "section",
+  "class": "section-downloadable-documents",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Section heading",
+      "default": "Downloadable Documents"
+    },
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main heading",
+      "default": "PROOF IN EVERY BATCH"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "We don't just claim quality - we prove it. Every formula is verified by independent labs for purity, safety, and accuracy. Our test reports are open for you to see."
+    },
+    {
+      "type": "checkbox",
+      "id": "full-width-enabled",
+      "label": "Make section full width",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "min": 80,
+      "max": 300,
+      "step": 10,
+      "default": 100,
+      "label": "Heading size (mobile)",
+      "unit": "%",
+      "info": "Based on 32px"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "min": 100,
+      "max": 400,
+      "step": 10,
+      "default": 100,
+      "label": "Heading size (desktop)",
+      "unit": "%",
+      "info": "Based on 48px"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "section-color-body-text",
+      "default": "transparent",
+      "label": "Heading color"
+    },
+    {
+      "type": "color",
+      "id": "section-color-overlay",
+      "default": "transparent",
+      "label": "Section background color"
+    },
+    {
+      "type": "range",
+      "id": "section-color-overlay-opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100,
+      "label": "Background opacity"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin-top",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "step": 4,
+      "default": 40,
+      "label": "Top margin"
+    },
+    {
+      "type": "range",
+      "id": "margin-bottom",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "step": 4,
+      "default": 40,
+      "label": "Bottom margin"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "document",
+      "name": "Document",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Document title",
+          "default": "2025/06/18 NSF Certified for Sport Evaluation Report"
+        },
+        {
+          "type": "url",
+          "id": "file",
+          "label": "Document file",
+          "info": "Upload your PDF file to Shopify Files and paste the URL here"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Downloadable Documents",
+      "blocks": [
+        {
+          "type": "document",
+          "settings": {
+            "title": "2025/06/18 NSF Certified for Sport Evaluation Report"
+          }
+        },
+        {
+          "type": "document",
+          "settings": {
+            "title": "2025/05/31 Certificate of Analysis 504-0128"
+          }
+        },
+        {
+          "type": "document",
+          "settings": {
+            "title": "2025/05/30 Certificate of Analysis 504-0127"
+          }
+        },
+        {
+          "type": "document",
+          "settings": {
+            "title": "2025/05/30 Certificate of Analysis 504-0126"
+          }
+        },
+        {
+          "type": "document",
+          "settings": {
+            "title": "2025/05/30 Certificate of Analysis 504-0125B"
+          }
+        },
+        {
+          "type": "document",
+          "settings": {
+            "title": "2025/05/30 Certificate of Analysis 504-0125A"
+          }
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}
