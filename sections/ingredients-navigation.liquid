@@ -1,0 +1,368 @@
+{% assign background_rgb = section.settings.background_color | color_to_rgb %}
+{% assign text_rgb = section.settings['color-body-text'] | color_to_rgb %}
+{% assign active_background_rgb = section.settings.active_background_color | color_to_rgb %}
+{% assign active_text_rgb = section.settings.active_text_color | color_to_rgb %}
+
+<style>
+  [id="shopify-section-{{ section.id }}"]
+  {
+    {% if background_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --color-background: {{ section.settings.background_color }};
+    {% endif %}
+
+    {% if text_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --color-custom-text: {{ section.settings.color-body-text }};
+    {% endif %}
+
+    {% if active_background_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --color-active-background: {{ section.settings.active_background_color }};
+    {% endif %}
+
+    {% if active_text_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --color-active-text: {{ section.settings.active_text_color }};
+    {% endif %}
+  }
+
+  [data-section-id="{{ section.id }}"]
+  {
+      {% if section.settings.margin_top %}
+          --section-gap-top: {{ section.settings.margin_top }}px;
+      {% endif %}
+
+      {% if section.settings.margin_bottom %}
+          --section-gap-bottom: {{ section.settings.margin_bottom }}px;
+      {% endif %}
+  }
+
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Ingredients navigation specific styles */
+  [data-section-id="{{ section.id }}"] .ingredients-navigation__link {
+    position: relative;
+    border-radius: 50px !important;
+    padding: 12px 24px !important;
+    border: 1px solid #ddd !important;
+    background: white !important;
+    color: #333 !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-navigation__link:hover {
+    border-color: #333 !important;
+    background: #f5f5f5 !important;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-navigation__link--active {
+    background-color: var(--color-active-background, #000) !important;
+    color: var(--color-active-text, white) !important;
+    border-color: var(--color-active-background, #000) !important;
+  }
+
+  /* Override default button styles */
+  [data-section-id="{{ section.id }}"] .hero__button--primary.ingredients-navigation__link,
+  [data-section-id="{{ section.id }}"] .hero__button--secondary.ingredients-navigation__link {
+    border-radius: 50px !important;
+    padding: 12px 24px !important;
+    border: 1px solid #ddd !important;
+    background: white !important;
+    color: #333 !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    min-height: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Subtitle styling */
+  [data-section-id="{{ section.id }}"] .ingredients-navigation__subtitle {
+    font-size: calc(var(--font-base-size, 1rem) * 0.875);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-custom-text, #666);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+
+  /* Main title styling */
+  [data-section-id="{{ section.id }}"] .ingredients-navigation__title {
+    font-size: calc(24px * {{ section.settings.size_heading_mobile | divided_by: 100.0 }});
+    line-height: 0.9;
+    margin: 0 0 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  @media (min-width: 768px) {
+    [data-section-id="{{ section.id }}"] .ingredients-navigation__title {
+      font-size: calc(48px * {{ section.settings.size_heading | divided_by: 100.0 }});
+    }
+  }
+
+  /* Navigation container spacing */
+  [data-section-id="{{ section.id }}"] .ingredients-navigation {
+    margin-top: 0;
+  }
+
+  /* Mobile specific styles */
+  @media (max-width: 767px) {
+    [data-section-id="{{ section.id }}"] .ingredients-navigation__title {
+      margin-bottom: 1.5rem;
+    }
+
+    /* Extend slider to screen edge on right side */
+    [data-section-id="{{ section.id }}"] .secondary-navigation {
+      margin-right: calc(0px - calc(var(--gap, 8px) * 2));
+    }
+
+    /* Make sure navigation links are properly sized on mobile */
+    [data-section-id="{{ section.id }}"] .ingredients-navigation__link {
+      white-space: nowrap;
+      font-size: 13px !important;
+      padding: 10px 20px !important;
+    }
+
+    /* Hide navigation arrows on mobile */
+    [data-section-id="{{ section.id }}"] .swiper-button-prev,
+    [data-section-id="{{ section.id }}"] .swiper-button-next {
+      display: none !important;
+    }
+  }
+
+  /* Desktop specific styles */
+  @media (min-width: 768px) {
+    /* Show navigation arrows on desktop if needed */
+    [data-section-id="{{ section.id }}"] .swiper-button-prev,
+    [data-section-id="{{ section.id }}"] .swiper-button-next {
+      color: var(--color-custom-text, #333);
+    }
+  }
+</style>
+
+{% liquid
+  assign button_select = section.settings.button_select
+  assign navigation_products = page.metafields.custom.ingredients_navigation_products.value
+%}
+
+<script src="{{ 'secondary-nav.js' | asset_url }}" type="module" defer="defer"></script>
+<script src="{{ 'ingredients-navigation.js' | asset_url }}" type="module" defer="defer"></script>
+
+<div class="{% if settings.animations %} scroll-trigger animate--slide-in {% endif %}" data-section-id="{{ section.id }}">
+  <div class="ingredients-navigation__header">
+    {% if section.settings.subtitle != blank %}
+      <div class="ingredients-navigation__subtitle">{{ section.settings.subtitle }}</div>
+    {% endif %}
+    {% if section.settings.heading != blank %}
+      <h2 class="ingredients-navigation__title">{{ section.settings.heading | newline_to_br }}</h2>
+    {% endif %}
+  </div>
+
+  <secondary-nav
+    {% if section.settings.desktop_placement == 'center' %}
+      data-center-slides
+    {% endif %}
+    data-ingredients-nav
+  >
+    <div class="secondary-navigation ingredients-navigation">
+      <div class="secondary-navigation__swiper swiper">
+        <div class="secondary-navigation__swiper-wrapper swiper-wrapper
+            {% if section.settings.desktop_placement == 'center' %}
+              secondary-navigation__swiper-wrapper--center
+            {% endif %}
+          ">
+          {% if navigation_products != blank %}
+            {% for product in navigation_products %}
+              <div class="secondary-navigation__swiper-slide ingredients-navigation__swiper-slide swiper-slide">
+                <a
+                  href="#{{ product.handle }}"
+                  aria-label="{{ product.title }}"
+                  class="hero__button hero__button--primary {% if button_select != 'primary' %} hero__button--secondary{% endif %}{% if button_select == 'link' %} hero__button--link{% endif %}
+                   secondary-navigation__link ingredients-navigation__link"
+                  data-product-handle="{{ product.handle }}"
+                >
+                  {{ product.title }}
+                </a>
+              </div>
+            {% endfor %}
+          {% else %}
+            <!-- Fallback if no products selected -->
+            <div class="secondary-navigation__swiper-slide swiper-slide">
+              <div class="ingredients-navigation__empty">
+                {% if section.settings.empty_state_text != blank %}
+                  {{ section.settings.empty_state_text }}
+                {% else %}
+                  Add products to the page's "Ingredients Navigation Products" metafield to display navigation.
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </secondary-nav>
+</div>
+
+{% schema %}
+{
+  "name": "Ingredients Navigation",
+  "tag": "section",
+  "class": "spaced-section wt-ingredients-nav",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "default": "Ingredients",
+      "label": "Subtitle"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "default": "RESEARCH-BACKED FORMULAS",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "empty_state_text",
+      "label": "Empty state text",
+      "default": "Add products to display navigation",
+      "info": "Text to show when no products are selected in the page metafields"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "size_heading_mobile",
+      "min": 80,
+      "max": 300,
+      "step": 10,
+      "default": 100,
+      "label": "Title size (mobile)",
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "size_heading",
+      "min": 100,
+      "max": 500,
+      "step": 10,
+      "default": 100,
+      "label": "Title size (desktop)",
+      "unit": "%"
+    },
+    {
+      "type": "select",
+      "id": "desktop_placement",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "left",
+      "label": "Desktop alignment"
+    },
+    {
+      "type": "header",
+      "content": "Button Style"
+    },
+    {
+      "type": "select",
+      "id": "button_select",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        }
+      ],
+      "default": "primary",
+      "label": "Button style"
+    },
+    {
+      "type": "color",
+      "id": "active_text_color",
+      "default": "transparent",
+      "label": "Active text color"
+    },
+    {
+      "type": "color",
+      "id": "active_background_color",
+      "default": "transparent",
+      "label": "Active background color"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "color-body-text",
+      "default": "transparent",
+      "label": "Text color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "default": "transparent",
+      "label": "Background color"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 40,
+      "unit": "px",
+      "label": "Top margin"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 40,
+      "unit": "px",
+      "label": "Bottom margin"
+    },
+    {
+      "type": "header",
+      "content": "Instructions"
+    },
+    {
+      "type": "paragraph",
+      "content": "This navigation reads from the page's 'ingredients_navigation_products' metafield. Set up a 'List of product reference' metafield on your page to select which products appear in the navigation."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients Navigation"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}
