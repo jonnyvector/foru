@@ -1,0 +1,623 @@
+{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+
+{% assign background_section_rgb = section.settings['section-color-overlay'] | color_to_rgb %}
+{% assign heading_rgb = section.settings['section-color-body-text'] | color_to_rgb %}
+
+{% assign background_rgb = section.settings['color-overlay'] | color_to_rgb %}
+{% assign text_rgb = section.settings['color-body-text'] | color_to_rgb %}
+
+<style>
+    section[id="shopify-section-{{ section.id }}"]{
+        {% if background_section_rgb != 'rgba(0, 0, 0, 0.0)' %}
+            --color-overlay-rgb: {{ section.settings.section-color-overlay | color_to_rgb | remove: 'rgb(' | remove: ')' }};
+            --color-overlay-opacity: {{ section.settings.section-color-overlay-opacity | divided_by: 100.0 }};
+        {% endif %}
+    }
+
+    section[id="shopify-section-{{ section.id }}"] .headline__title{
+      {% if heading_rgb != 'rgba(0, 0, 0, 0.0)' %}
+        --color-custom-text: {{ section.settings.section-color-body-text }};
+      {% endif %}
+    }
+  [data-section-id="{{ section.id }}"]
+  {
+      {% if background_rgb != 'rgba(0, 0, 0, 0.0)' %}
+        --color-overlay-rgb: {{ section.settings.color-overlay | color_to_rgb | remove: 'rgb(' | remove: ')' }};
+        --color-overlay-opacity: {{ section.settings.color-overlay-opacity | divided_by: 100.0 }};
+      {% endif %}
+
+      {% if section.settings.full-width-enabled %}
+        --border-radius: 0;
+      {% endif %}
+
+      {% if section.settings.margin-top %}
+        --section-gap-top: {{ section.settings.margin-top }}px;
+      {% endif %}
+
+      {% if section.settings.margin-bottom %}
+        --section-gap-bottom: {{ section.settings.margin-bottom }}px;
+      {% endif %}
+
+      --desktop-percentage-image-width: {{ section.settings.desktop-percentage-image-width }}%;
+
+    {% if section.settings.slide_height == 'fixed_height' %}
+    --section-height: {{ section.settings.mobile_fixed_height }}px;
+    --section-height-desk: {{ section.settings.desktop_fixed_height }}px;
+    {% endif %}
+
+    {% if section.settings.slide_height == 'adapt_to_first_image' %}
+        --first-slide-ratio: {{ section.blocks.first.settings.mobile_image.aspect_ratio | default: 1 }};
+        --first-slide-ratio-desk: {{ section.blocks.first.settings.desktop_image.aspect_ratio | default: 2.5 }};
+    {% endif %}
+
+  }
+
+  [data-section-id="{{ section.id }}"] .hero
+    {
+        {% if text_rgb != 'rgba(0, 0, 0, 0.0)' %}
+          --color-custom-text: {{ section.settings.color-body-text }};
+        {% endif %}
+    }
+
+  {%- for block in section.blocks -%}
+  [data-block-id="{{ block.id }}"]
+  {
+
+        --font-headline-scale-desk: {{ block.settings.size_heading | divided_by: 100.0 }};
+        --font-headline-scale: {{ block.settings.size_heading_mobile | divided_by: 100.0 }};
+
+        {% if block.type == 'text' and block.settings.text_style == 'subtitle' %}
+            --font-base: var(--font-headline);
+        {% endif %}
+  }
+  {%- endfor -%}
+
+  /* Bullet list specific styling */
+  [data-section-id="{{ section.id }}"] .bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  [data-section-id="{{ section.id }}"] .bullet-list li {
+    position: relative;
+    padding-left: 0;
+    margin-bottom: 32px;
+  }
+
+  [data-section-id="{{ section.id }}"] .bullet-list li:last-child {
+    margin-bottom: 0;
+  }
+
+  [data-section-id="{{ section.id }}"] .bullet-list .bullet-title {
+    font-family: var(--font-headline);
+    font-size: calc(18px * {{ section.settings.bullet_title_size_mobile | divided_by: 100.0 }});
+    font-weight: var(--font-headline-weight);
+    color: var(--color-text, #000);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    [data-section-id="{{ section.id }}"] .bullet-list .bullet-title {
+      font-size: calc(24px * {{ section.settings.bullet_title_size_desktop | divided_by: 100.0 }});
+    }
+  }
+
+  [data-section-id="{{ section.id }}"] .bullet-list .bullet-description {
+    font-family: var(--font-body);
+    font-size: var(--font-base-size);
+    line-height: 1.6;
+    color: var(--color-text, #333);
+  }
+
+  /* Green bullet dots */
+  [data-section-id="{{ section.id }}"] .bullet-list li::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    background-color: {{ section.settings.bullet_color | default: '#4CAF50' }};
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 767px) {
+    [data-section-id="{{ section.id }}"] .bullet-list li::before {
+      left: -20px;
+      top: 6px;
+      width: 6px;
+      height: 6px;
+    }
+  }
+
+  /* Main heading styling */
+  [data-section-id="{{ section.id }}"] .main-heading {
+    font-family: var(--font-headline);
+    font-size: calc(18px * {{ section.settings.main_heading_size_mobile | divided_by: 100.0 }});
+    font-weight: var(--font-headline-weight);
+    color: var(--color-text, #000);
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+
+  @media (min-width: 768px) {
+    [data-section-id="{{ section.id }}"] .main-heading {
+      font-size: calc(24px * {{ section.settings.main_heading_size_desktop | divided_by: 100.0 }});
+    }
+  }
+
+  /* Final text styling */
+  [data-section-id="{{ section.id }}"] .closing-text {
+    margin-top: 40px;
+    font-family: var(--font-body);
+    font-size: var(--font-base-size);
+    line-height: 1.6;
+    color: var(--color-text, #333);
+  }
+</style>
+
+{% if section.settings.layout == 'text_first' %}
+  {% assign customclass = 'hero--grid hero--grid--rev' %}
+{% else %}
+  {% assign customclass = 'hero--grid' %}
+{% endif %}
+
+{% if section.settings['full-width-enabled'] %}
+  {% assign customwrapperclass = 'hero__wrapper--full' %}
+{% else %}
+  {% assign customwrapperclass = 'hero__wrapper' %}
+{% endif %}
+
+<div
+  data-section-id="{{ section.id }}"
+  class="{{ customwrapperclass }}  {% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}"
+>
+  {% render 'headline', title: section.settings.title %}
+  <div class="{% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}">
+    <div class="hero {{ customclass }}">
+      <div class="hero__media">
+        {% if section.settings.desktop_image != blank %}
+          <picture>
+            {% if section.settings.mobile_image != blank %}
+              <source media="(max-width: 767px)" srcset="{{ section.settings.mobile_image | image_url: width: 800 }}">
+            {% endif %}
+            {{ section.settings.desktop_image | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 50vw, 100vw', widths: '400, 600, 800, 1000, 1200' }}
+          </picture>
+        {% else %}
+          {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+      
+      <div class="hero__text hero__text--{{ section.settings.desktop_text_vertical_position }} hero__text--{{ section.settings.desktop_text_horizontal_position }}">
+        <div class="hero__text-container">
+          {% if section.settings.main_heading != blank %}
+            <h2 class="hero__heading main-heading">
+              {{ section.settings.main_heading }}
+            </h2>
+          {% endif %}
+          
+          {% if section.settings.intro_text != blank %}
+            <div class="hero__text-content">
+              <p>{{ section.settings.intro_text }}</p>
+            </div>
+          {% endif %}
+          
+          {% if section.settings.list_intro != blank %}
+            <div class="hero__text-content">
+              <p>{{ section.settings.list_intro }}</p>
+            </div>
+          {% endif %}
+          
+          {% if section.blocks.size > 0 %}
+            <ul class="bullet-list">
+              {% for block in section.blocks %}
+                {% if block.type == 'bullet_point' %}
+                  <li data-block-id="{{ block.id }}">
+                    {% if block.settings.title != blank %}
+                      <strong class="bullet-title">{{ block.settings.title }}</strong>
+                    {% endif %}
+                    {% if block.settings.description != blank %}
+                      <span class="bullet-description">{{ block.settings.description }}</span>
+                    {% endif %}
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          {% endif %}
+          
+          {% if section.settings.closing_text != blank %}
+            <div class="closing-text">
+              <p>{{ section.settings.closing_text }}</p>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image with Text Bullets",
+  "tag": "section",
+  "class": "section-image-text-bullets",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Section heading",
+      "default": "Image with text bullets"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "image_first",
+          "label": "Image first"
+        },
+        {
+          "value": "text_first",
+          "label": "Text first"
+        }
+      ],
+      "default": "image_first",
+      "label": "Desktop layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop-percentage-image-width",
+      "min": 30,
+      "max": 70,
+      "step": 1,
+      "unit": "%",
+      "default": 50,
+      "label": "Desktop image width"
+    },
+    {
+      "type": "checkbox",
+      "id": "full-width-enabled",
+      "label": "Make section full width",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main heading",
+      "default": "INDEPENDENT TESTING YOU CAN TRUST"
+    },
+    {
+      "type": "textarea",
+      "id": "intro_text",
+      "label": "Intro text",
+      "default": "At FORU, trust isn't optional—it's the baseline. That's why every batch goes through independent third party testing to verify quality, safety, and accuracy."
+    },
+    {
+      "type": "text",
+      "id": "list_intro",
+      "label": "List intro text",
+      "default": "Here's what we test for:"
+    },
+    {
+      "type": "textarea",
+      "id": "closing_text",
+      "label": "Closing text",
+      "default": "Our goal: to give you total confidence in what you're putting into your body."
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "main_heading_size_mobile",
+      "min": 80,
+      "max": 400,
+      "step": 10,
+      "default": 200,
+      "label": "Main heading size (mobile)",
+      "unit": "%",
+      "info": "Based on 18px"
+    },
+    {
+      "type": "range",
+      "id": "main_heading_size_desktop",
+      "min": 100,
+      "max": 500,
+      "step": 10,
+      "default": 200,
+      "label": "Main heading size (desktop)",
+      "unit": "%",
+      "info": "Based on 24px"
+    },
+    {
+      "type": "range",
+      "id": "bullet_title_size_mobile",
+      "min": 80,
+      "max": 300,
+      "step": 10,
+      "default": 100,
+      "label": "Bullet title size (mobile)",
+      "unit": "%",
+      "info": "Based on 18px"
+    },
+    {
+      "type": "range",
+      "id": "bullet_title_size_desktop",
+      "min": 100,
+      "max": 400,
+      "step": 10,
+      "default": 100,
+      "label": "Bullet title size (desktop)",
+      "unit": "%",
+      "info": "Based on 24px"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "section-color-body-text",
+      "default": "transparent",
+      "label": "Heading color"
+    },
+    {
+      "type": "color",
+      "id": "section-color-overlay",
+      "default": "transparent",
+      "label": "Section background color"
+    },
+    {
+      "type": "range",
+      "id": "section-color-overlay-opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100,
+      "label": "Background opacity"
+    },
+    {
+      "type": "color",
+      "id": "color-body-text",
+      "default": "transparent",
+      "label": "Text color"
+    },
+    {
+      "type": "color",
+      "id": "color-overlay",
+      "default": "transparent",
+      "label": "Text container color"
+    },
+    {
+      "type": "range",
+      "id": "color-overlay-opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100,
+      "label": "Background opacity"
+    },
+    {
+      "type": "color",
+      "id": "bullet_color",
+      "default": "#4CAF50",
+      "label": "Bullet point color"
+    },
+    {
+      "type": "header",
+      "content": "Section height"
+    },
+    {
+      "type": "radio",
+      "id": "slide_height",
+      "label": "Section height",
+      "options": [
+        {
+          "value": "adapt_to_first_image",
+          "label": "Adapt to image"
+        },
+        {
+          "value": "fixed_height",
+          "label": "Fixed height"
+        }
+      ],
+      "default": "fixed_height"
+    },
+    {
+      "type": "range",
+      "id": "desktop_fixed_height",
+      "min": 200,
+      "max": 1000,
+      "unit": "px",
+      "step": 20,
+      "default": 600,
+      "label": "Desktop height"
+    },
+    {
+      "type": "range",
+      "id": "mobile_fixed_height",
+      "min": 200,
+      "max": 1000,
+      "unit": "px",
+      "step": 20,
+      "default": 500,
+      "label": "Mobile height"
+    },
+    {
+      "type": "header",
+      "content": "Desktop version"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "desktop_text_vertical_position",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "center",
+      "label": "Text vertical position"
+    },
+    {
+      "type": "select",
+      "id": "desktop_text_horizontal_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "label": "Text horizontal position"
+    },
+    {
+      "type": "header",
+      "content": "Mobile version"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "mobile_text_horizontal_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "label": "Text horizontal position"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin-top",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "step": 4,
+      "default": 40,
+      "label": "Top margin"
+    },
+    {
+      "type": "range",
+      "id": "margin-bottom",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "step": 4,
+      "default": 40,
+      "label": "Bottom margin"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "bullet_point",
+      "name": "Bullet Point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Dosage Accuracy"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Confirms the active ingredients match the label and are delivered in the right amounts."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with Text Bullets",
+      "blocks": [
+        {
+          "type": "bullet_point",
+          "settings": {
+            "title": "Dosage Accuracy",
+            "description": "Confirms the active ingredients match the label and are delivered in the right amounts."
+          }
+        },
+        {
+          "type": "bullet_point",
+          "settings": {
+            "title": "Purity & Safety",
+            "description": "Screens for heavy metals, allergens, and harmful microbes."
+          }
+        },
+        {
+          "type": "bullet_point",
+          "settings": {
+            "title": "Nutrient Integrity",
+            "description": "Verifies potency and micronutrient content, including essential vitamins, minerals, and trace elements."
+          }
+        },
+        {
+          "type": "bullet_point",
+          "settings": {
+            "title": "Special Claims",
+            "description": "Validates functional ingredients like probiotics for potency and efficacy."
+          }
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}
