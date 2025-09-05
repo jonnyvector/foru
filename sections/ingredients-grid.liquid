@@ -482,7 +482,11 @@
   }
 </style>
 
-<section data-section-id="{{ section.id }}" class="ingredients-grid">
+<section 
+  data-section-id="{{ section.id }}" 
+  class="ingredients-grid"
+  {% if selected_product %}id="{{ selected_product.handle }}"{% endif %}
+>
   <div class="ingredients-grid__container">
     <div class="ingredients-grid__header">
       <div class="ingredients-grid__header-grid">
