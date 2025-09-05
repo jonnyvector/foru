@@ -184,8 +184,8 @@
         "desktop_text_vertical_position": "center",
         "desktop_text_horizontal_position": "left",
         "mobile_text_horizontal_position": "left",
-        "margin-top": 40,
-        "margin-bottom": 40
+        "margin-top": 0,
+        "margin-bottom": 0
       }
     }
   },
