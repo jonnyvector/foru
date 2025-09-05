@@ -173,12 +173,12 @@
   [data-section-id="{{ section.id }}"] .text-column {
     display: flex;
     align-items: flex-start;
-    padding: 4rem;
+    padding: calc(var(--gap, 8px) * 5) calc(var(--gap, 8px) * 2);
   }
 
   @media (min-width: 990px) {
     [data-section-id="{{ section.id }}"] .text-column {
-      padding: 6rem 7rem;
+      padding: calc(var(--gap, 8px) * 7.5) calc(var(--gap, 8px) * 8.75);
     }
   }
 
