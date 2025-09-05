@@ -46,7 +46,7 @@
   }
 
   /* Heading section */
-  [data-section-id="{{ section.id }}"] .documents-header h2 {
+  [data-section-id="{{ section.id }}"] .documents-heading h2 {
     font-family: var(--font-headline);
     font-size: calc(32px * {{ section.settings.heading_size_mobile | divided_by: 100.0 }});
     font-weight: var(--font-headline-weight);
@@ -57,13 +57,13 @@
   }
 
   @media (min-width: 750px) {
-    [data-section-id="{{ section.id }}"] .documents-header h2 {
+    [data-section-id="{{ section.id }}"] .documents-heading h2 {
       font-size: calc(48px * {{ section.settings.heading_size_desktop | divided_by: 100.0 }});
-      margin: 0 0 calc(var(--gap, 8px) * 4) 0;
+      margin: 0;
     }
   }
 
-  [data-section-id="{{ section.id }}"] .documents-header .description {
+  [data-section-id="{{ section.id }}"] .documents-description p {
     font-family: var(--font-body);
     font-size: var(--font-base-size);
     line-height: 1.6;
@@ -93,6 +93,7 @@
     gap: calc(var(--gap, 8px) * 2);
     padding: 8px;
     background-color: #f7f7f7;
+    border-radius: var(--border-radius);
   }
 
   [data-section-id="{{ section.id }}"] .document-title {
@@ -118,6 +119,7 @@
     justify-content: center;
     transition: opacity 0.2s ease;
     flex-shrink: 0;
+    border-radius: var(--border-radius-button);
   }
 
   [data-section-id="{{ section.id }}"] .download-btn:hover {
@@ -151,16 +153,16 @@
   
   <div class="{% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}">
     <div class="documents-layout">
-      <div class="documents-header">
-        {% if section.settings.main_heading != blank %}
+      {% if section.settings.main_heading != blank %}
+        <div class="documents-heading">
           <h2>{{ section.settings.main_heading }}</h2>
-        {% endif %}
-        {% if section.settings.description != blank %}
-          <div class="description">
-            <p>{{ section.settings.description }}</p>
-          </div>
-        {% endif %}
-      </div>
+        </div>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <div class="documents-description">
+          <p>{{ section.settings.description }}</p>
+        </div>
+      {% endif %}
 
       {% if section.blocks.size > 0 %}
         <div class="documents-grid">
