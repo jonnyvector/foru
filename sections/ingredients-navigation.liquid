@@ -77,6 +77,7 @@
 
   /* Subtitle styling */
   [data-section-id="{{ section.id }}"] .ingredients-navigation__subtitle {
+    font-family: var(--font-headline);
     font-size: calc(18px * {{ section.settings.size_subtitle_mobile | divided_by: 100.0 }});
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -177,6 +178,15 @@
     [data-section-id="{{ section.id }}"] .swiper-button-next {
       display: none;
     }
+  }
+
+  /* Gap between navigation links */
+  [data-section-id="{{ section.id }}"] .secondary-navigation__swiper-slide {
+    margin-right: 8px;
+  }
+
+  [data-section-id="{{ section.id }}"] .secondary-navigation__swiper-slide:last-child {
+    margin-right: 0;
   }
 
   /* Desktop specific styles */
