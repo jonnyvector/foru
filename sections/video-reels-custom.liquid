@@ -157,6 +157,61 @@
   </slideshow-section>
 </video-reels>
 
+<script>
+(function() {
+  const sectionId = '{{ section.id }}';
+  const swiperContainer = document.querySelector(`[data-section-id="${sectionId}"] .wt-slider__container`);
+  
+  if (!swiperContainer) return;
+  
+  let currentBreakpoint = null;
+  
+  function getCurrentBreakpoint() {
+    const width = window.innerWidth;
+    if (width >= 1200) return 'desktop-large';
+    if (width >= 900) return 'desktop';
+    if (width >= 600) return 'tablet';
+    return 'mobile';
+  }
+  
+  function handleResize() {
+    const newBreakpoint = getCurrentBreakpoint();
+    const crossedLoopBoundary = 
+      (currentBreakpoint === 'mobile' || currentBreakpoint === 'tablet') && 
+      (newBreakpoint === 'desktop' || newBreakpoint === 'desktop-large') ||
+      (currentBreakpoint === 'desktop' || currentBreakpoint === 'desktop-large') && 
+      (newBreakpoint === 'mobile' || newBreakpoint === 'tablet');
+    
+    if (crossedLoopBoundary && swiperContainer.swiper) {
+      // Store current slide index
+      const currentSlide = swiperContainer.swiper.realIndex || swiperContainer.swiper.activeIndex;
+      
+      // Destroy and reinitialize
+      swiperContainer.swiper.destroy(true, true);
+      
+      // Small delay to ensure DOM cleanup
+      setTimeout(() => {
+        // Swiper will reinitialize automatically via slideshow.js
+        // Then navigate to the same slide
+        setTimeout(() => {
+          if (swiperContainer.swiper && currentSlide > 0) {
+            swiperContainer.swiper.slideTo(currentSlide, 0);
+          }
+        }, 100);
+      }, 50);
+    }
+    
+    currentBreakpoint = newBreakpoint;
+  }
+  
+  // Initialize current breakpoint
+  currentBreakpoint = getCurrentBreakpoint();
+  
+  // Add resize listener
+  window.addEventListener('resize', handleResize);
+})();
+</script>
+
 {% schema %}
 {
   "name": "Video Reels Custom",
