@@ -143,10 +143,16 @@
       margin-bottom: 1.5rem;
     }
 
-    /* Extend slider to screen edge on right side - no need to override container since nav is outside it now */
+    /* Extend slider to screen edges on mobile */
     [data-section-id="{{ section.id }}"] .secondary-navigation {
-      margin-left: calc(var(--gap, 8px) * 2);
+      margin-left: calc(0px - calc(var(--gap, 8px) * 2));
       margin-right: calc(0px - calc(var(--gap, 8px) * 2));
+    }
+
+    /* Add padding to slider wrapper to prevent cutoff */
+    [data-section-id="{{ section.id }}"] .secondary-navigation__swiper-wrapper {
+      padding-left: calc(var(--gap, 8px) * 2);
+      padding-right: calc(var(--gap, 8px) * 2);
     }
 
     /* Make sure navigation links are properly sized on mobile */
@@ -165,6 +171,17 @@
 
   /* Desktop specific styles */
   @media (min-width: 768px) {
+    /* Remove mobile overrides on desktop */
+    [data-section-id="{{ section.id }}"] .secondary-navigation {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    [data-section-id="{{ section.id }}"] .secondary-navigation__swiper-wrapper {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
     /* Show navigation arrows on desktop if needed */
     [data-section-id="{{ section.id }}"] .swiper-button-prev,
     [data-section-id="{{ section.id }}"] .swiper-button-next {
@@ -191,9 +208,8 @@
         <h2 class="ingredients-navigation__title">{{ section.settings.heading | newline_to_br }}</h2>
       {% endif %}
     </div>
-  </div>
 
-  <secondary-nav
+    <secondary-nav
     {% if section.settings.desktop_placement == 'center' %}
       data-center-slides
     {% endif %}
@@ -238,6 +254,7 @@
       </div>
     </div>
   </secondary-nav>
+  </div>
 </div>
 
 {% schema %}
