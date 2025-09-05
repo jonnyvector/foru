@@ -36,6 +36,11 @@
     {% endif %}
   }
 
+  @media (min-width: 900px) {
+    [data-section-id="{{ section.id }}"] .swiper-scrollbar {
+      display: none !important;
+    }
+  }
 
   [data-section-id="{{ section.id }}"] .video-reels__container {
     touch-action: pan-y pinch-zoom;
@@ -131,26 +136,14 @@
               "dragSize": "auto"
             }
           },
-          "899": {
-            "slidesPerView": 1.75,
-            "scrollbar": {
-              "el": ".swiper-scrollbar",
-              "draggable": true,
-              "hide": false,
-              "snapOnRelease": true,
-              "dragSize": "auto"
-            }
-          },
           "900": {
             "slidesPerView": 2.5,
-            "loop": true,
-            "scrollbar": false
+            "loop": true
           },
           "1200": {
             "slidesPerView": 4.5,
             "spaceBetween": 24,
-            "loop": true,
-            "scrollbar": false
+            "loop": true
           }
         },
         "navigation": {
