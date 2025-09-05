@@ -485,12 +485,36 @@
             "video_hosted": "shopify://files/videos/6213994-hd_1080_1920_30fps.mp4",
             "featured_product": "hydration"
           }
+        },
+        "product_xeQcVX": {
+          "type": "product",
+          "settings": {
+            "video_hosted": "shopify://files/videos/6213994-hd_1080_1920_30fps.mp4",
+            "featured_product": "hydration"
+          }
+        },
+        "product_Vjp6j6": {
+          "type": "product",
+          "settings": {
+            "video_hosted": "shopify://files/videos/6213994-hd_1080_1920_30fps.mp4",
+            "featured_product": "hydration"
+          }
+        },
+        "product_yVMq83": {
+          "type": "product",
+          "settings": {
+            "video_hosted": "shopify://files/videos/6213994-hd_1080_1920_30fps.mp4",
+            "featured_product": "hydration"
+          }
         }
       },
       "block_order": [
         "product_Y3DkpG",
         "product_zi7QLF",
-        "product_tcM68V"
+        "product_tcM68V",
+        "product_xeQcVX",
+        "product_Vjp6j6",
+        "product_yVMq83"
       ],
       "name": "Video Reels Custom",
       "settings": {
@@ -498,8 +522,8 @@
         "quick-add-enabled": false,
         "hide-brand-name": false,
         "video_button": false,
-        "color-body-text": "transparent",
-        "background_color": "transparent",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
         "margin-top": 20,
         "margin-bottom": 20
       }
