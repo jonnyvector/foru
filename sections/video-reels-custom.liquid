@@ -109,7 +109,7 @@
         "freeMode": false,
         "speed": 150,
         "grabCursor": false,
-        "centeredSlides": true,
+        "centeredSlides": false,
         "loop": true,
         "slideToClickedSlide": true,
         "watchSlidesProgress": true,
@@ -118,24 +118,29 @@
           "el": ".swiper-scrollbar",
           "draggable": true,
           "hide": false,
-          "snapOnRelease": true
+          "snapOnRelease": true,
+          "dragSize": "auto"
         },
         "breakpoints": {
           "600": {
             "slidesPerView": 1.75,
+            "centeredSlides": true,
             "scrollbar": {
               "el": ".swiper-scrollbar",
               "draggable": true,
               "hide": false,
-              "snapOnRelease": true
+              "snapOnRelease": true,
+              "dragSize": "auto"
             }
           },
           "900": {
-            "slidesPerView": 2.5
+            "slidesPerView": 2.5,
+            "centeredSlides": true
           },
           "1200": {
             "slidesPerView": 4.5,
-            "spaceBetween": 24
+            "spaceBetween": 24,
+            "centeredSlides": true
           }
         },
         "navigation": {
