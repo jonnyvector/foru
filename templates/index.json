@@ -461,72 +461,6 @@
         "margin-top": 20,
         "margin-bottom": 100
       }
-    },
-    "video_reels_custom_LBnjxB": {
-      "type": "video-reels-custom",
-      "blocks": {
-        "product_Y3DkpG": {
-          "type": "product",
-          "settings": {
-            "video_hosted": "shopify://files/videos/7191505-uhd_2160_3840_25fps.mp4",
-            "featured_product": "hydration"
-          }
-        },
-        "product_zi7QLF": {
-          "type": "product",
-          "settings": {
-            "video_hosted": "shopify://files/videos/12433200-uhd_2160_3840_30fps.mp4",
-            "featured_product": "hydration"
-          }
-        },
-        "product_tcM68V": {
-          "type": "product",
-          "settings": {
-            "video_hosted": "shopify://files/videos/6213994-hd_1080_1920_30fps.mp4",
-            "featured_product": "hydration"
-          }
-        },
-        "product_xeQcVX": {
-          "type": "product",
-          "settings": {
-            "video_hosted": "shopify://files/videos/6213994-hd_1080_1920_30fps.mp4",
-            "featured_product": "hydration"
-          }
-        },
-        "product_Vjp6j6": {
-          "type": "product",
-          "settings": {
-            "video_hosted": "shopify://files/videos/6213994-hd_1080_1920_30fps.mp4",
-            "featured_product": "hydration"
-          }
-        },
-        "product_yVMq83": {
-          "type": "product",
-          "settings": {
-            "video_hosted": "shopify://files/videos/6213994-hd_1080_1920_30fps.mp4",
-            "featured_product": "hydration"
-          }
-        }
-      },
-      "block_order": [
-        "product_Y3DkpG",
-        "product_zi7QLF",
-        "product_tcM68V",
-        "product_xeQcVX",
-        "product_Vjp6j6",
-        "product_yVMq83"
-      ],
-      "name": "Video Reels Custom",
-      "settings": {
-        "heading": "Shoppable video reels",
-        "quick-add-enabled": false,
-        "hide-brand-name": false,
-        "video_button": false,
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
-        "margin-top": 20,
-        "margin-bottom": 20
-      }
     }
   },
   "order": [
@@ -537,7 +471,6 @@
     "image_with_text_ewadgb",
     "testimonials_custom_kHmmbJ",
     "featured_on_iXfAwg",
-    "blog_posts_Pt33Px",
-    "video_reels_custom_LBnjxB"
+    "blog_posts_Pt33Px"
   ]
 }
