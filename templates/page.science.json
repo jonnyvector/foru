@@ -158,7 +158,7 @@
       ],
       "name": "Image with Text Bullets",
       "settings": {
-        "title": "Image with text bullets",
+        "title": "",
         "layout": "image_first",
         "desktop-percentage-image-width": 50,
         "full-width-enabled": true,
@@ -171,7 +171,7 @@
         "bullet_title_size_mobile": 100,
         "bullet_title_size_desktop": 100,
         "section-color-body-text": "rgba(0,0,0,0)",
-        "section-color-overlay": "rgba(0,0,0,0)",
+        "section-color-overlay": "#f7f7f7",
         "section-color-overlay-opacity": 100,
         "color-body-text": "rgba(0,0,0,0)",
         "color-overlay": "rgba(0,0,0,0)",
