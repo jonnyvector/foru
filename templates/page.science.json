@@ -61,10 +61,10 @@
         "mobile_text_vertical_position": "center",
         "mobile_text_horizontal_position": "center",
         "color-heading": "rgba(0,0,0,0)",
-        "section-color-overlay": "transparent",
+        "section-color-overlay": "rgba(0,0,0,0)",
         "section-color-overlay-opacity": 100,
         "color-body-text": "#ffffff",
-        "text-container-color": "transparent",
+        "text-container-color": "rgba(0,0,0,0)",
         "color-overlay-opacity": 100,
         "margin-top": 0,
         "margin-bottom": 0
@@ -95,6 +95,7 @@
         "heading_iQLkMK",
         "text_qaayMH"
       ],
+      "disabled": true,
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "title": "",
@@ -104,11 +105,11 @@
         "slide_height": "fixed_height",
         "desktop_fixed_height": 320,
         "mobile_fixed_height": 460,
-        "section-color-body-text": "transparent",
-        "section-color-overlay": "transparent",
+        "section-color-body-text": "rgba(0,0,0,0)",
+        "section-color-overlay": "rgba(0,0,0,0)",
         "section-color-overlay-opacity": 100,
-        "color-body-text": "transparent",
-        "color-overlay": "transparent",
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-overlay": "rgba(0,0,0,0)",
         "color-overlay-opacity": 100,
         "desktop_text_vertical_position": "center",
         "desktop_text_horizontal_position": "left",
@@ -116,11 +117,81 @@
         "margin-top": 20,
         "margin-bottom": 20
       }
+    },
+    "image_text_bullets_DDr6Uy": {
+      "type": "image-text-bullets",
+      "blocks": {
+        "bullet_point_9hwkpM": {
+          "type": "bullet_point",
+          "settings": {
+            "title": "Dosage Accuracy",
+            "description": "Confirms the active ingredients match the label and are delivered in the right amounts."
+          }
+        },
+        "bullet_point_YQHX37": {
+          "type": "bullet_point",
+          "settings": {
+            "title": "Purity & Safety",
+            "description": "Screens for heavy metals, allergens, and harmful microbes."
+          }
+        },
+        "bullet_point_UmDacB": {
+          "type": "bullet_point",
+          "settings": {
+            "title": "Nutrient Integrity",
+            "description": "Verifies potency and micronutrient content, including essential vitamins, minerals, and trace elements."
+          }
+        },
+        "bullet_point_WCLFRY": {
+          "type": "bullet_point",
+          "settings": {
+            "title": "Special Claims",
+            "description": "Validates functional ingredients like probiotics for potency and efficacy."
+          }
+        }
+      },
+      "block_order": [
+        "bullet_point_9hwkpM",
+        "bullet_point_YQHX37",
+        "bullet_point_UmDacB",
+        "bullet_point_WCLFRY"
+      ],
+      "name": "Image with Text Bullets",
+      "settings": {
+        "title": "Image with text bullets",
+        "layout": "image_first",
+        "desktop-percentage-image-width": 50,
+        "full-width-enabled": false,
+        "main_heading": "INDEPENDENT TESTING YOU CAN TRUST",
+        "intro_text": "At FORU, trust isn't optional—it's the baseline. That's why every batch goes through independent third party testing to verify quality, safety, and accuracy.",
+        "list_intro": "Here's what we test for:",
+        "closing_text": "Our goal: to give you total confidence in what you're putting into your body.",
+        "main_heading_size_mobile": 200,
+        "main_heading_size_desktop": 200,
+        "bullet_title_size_mobile": 100,
+        "bullet_title_size_desktop": 100,
+        "section-color-body-text": "transparent",
+        "section-color-overlay": "transparent",
+        "section-color-overlay-opacity": 100,
+        "color-body-text": "transparent",
+        "color-overlay": "transparent",
+        "color-overlay-opacity": 100,
+        "bullet_color": "#4CAF50",
+        "slide_height": "fixed_height",
+        "desktop_fixed_height": 600,
+        "mobile_fixed_height": 500,
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "left",
+        "mobile_text_horizontal_position": "left",
+        "margin-top": 40,
+        "margin-bottom": 40
+      }
     }
   },
   "order": [
     "main",
     "image_banner_VXGBYe",
-    "image_with_text_VdxUNq"
+    "image_with_text_VdxUNq",
+    "image_text_bullets_DDr6Uy"
   ]
 }
