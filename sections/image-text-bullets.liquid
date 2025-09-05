@@ -196,7 +196,7 @@
         {% endif %}
       </div>
       
-      <div class="hero__overlay hero__overlay--{{ section.settings.desktop_text_vertical_position }}-{{ section.settings.desktop_text_horizontal_position }} hero__overlay--mobile-{{ section.settings.mobile_text_horizontal_position }}">
+      <div class="hero__overlay" style="position: absolute; top: 0; left: 50%; width: 50%; background: rgba(255,255,255,0.9); z-index: 10;">
         <div class="hero__overlay__content">
           <p style="background: red; color: white; padding: 10px;">DEBUG: Content area visible</p>
           {% if section.settings.main_heading != blank %}
