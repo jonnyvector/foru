@@ -215,7 +215,7 @@
       </div>
       
       <div class="hero__overlay hero__overlay--{{ section.settings.desktop_text_vertical_position }}-{{ section.settings.desktop_text_horizontal_position }} hero__overlay--mobile-{{ section.settings.mobile_text_horizontal_position }}">
-        <div class="hero__overlay__content">
+        <div class="hero__overlay__content hero__overlay__content--{{ section.settings.desktop_text_horizontal_position }} hero__overlay__content--mobile--{{ section.settings.mobile_text_horizontal_position }}">
           {% if section.settings.main_heading != blank %}
             <h2 class="hero__heading main-heading">
               {{ section.settings.main_heading }}
