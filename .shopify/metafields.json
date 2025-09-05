@@ -8,7 +8,18 @@
   "location": [],
   "market": [],
   "order": [],
-  "page": [],
+  "page": [
+    {
+      "key": "ingredients_navigation_products",
+      "namespace": "custom",
+      "name": "Ingredients Navigation Products",
+      "description": "",
+      "type": {
+        "name": "list.product_reference",
+        "category": "REFERENCE"
+      }
+    }
+  ],
   "product": [
     {
       "key": "application-method",
