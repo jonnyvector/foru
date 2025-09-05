@@ -36,6 +36,11 @@
     {% endif %}
   }
 
+  @media (min-width: 900px) {
+    [data-section-id="{{ section.id }}"] .swiper-scrollbar {
+      display: none !important;
+    }
+  }
 
   [data-section-id="{{ section.id }}"] .video-reels__container {
     touch-action: pan-y pinch-zoom;
@@ -113,13 +118,8 @@
         "slideToClickedSlide": true,
         "initialSlide": 0,
         "enableOnMedia": "(min-width: 0px)",
-        "observer": true,
-        "observeParents": true,
-        "resizeObserver": true,
-        "updateOnWindowResize": true,
         "scrollbar": {
           "el": ".swiper-scrollbar",
-          "enabled": true,
           "draggable": true,
           "hide": false,
           "snapOnRelease": true,
@@ -127,18 +127,24 @@
         },
         "breakpoints": {
           "600": {
-            "slidesPerView": 1.75
+            "slidesPerView": 1.75,
+            "loop": false,
+            "scrollbar": {
+              "el": ".swiper-scrollbar",
+              "draggable": true,
+              "hide": false,
+              "snapOnRelease": true,
+              "dragSize": "auto"
+            }
           },
           "900": {
             "slidesPerView": 2.5,
-            "loop": true,
-            "scrollbar": { "enabled": false }
+            "loop": true
           },
           "1200": {
             "slidesPerView": 4.5,
             "spaceBetween": 24,
-            "loop": true,
-            "scrollbar": { "enabled": false }
+            "loop": true
           }
         },
         "navigation": {
@@ -146,45 +152,6 @@
           "prevEl": ".wt-slider__nav-prev--featured"
         }
       }
-    </script>
-    
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const container = document.querySelector(
-        '[data-swiper][data-section-id="{{ section.id }}"]'
-      );
-      if (!container) return;
-
-      // Wait for slideshow-section to initialize
-      const checkForSwiper = () => {
-        const slideshowSection = container.closest('slideshow-section');
-        const swiper = slideshowSection?.swiper;
-        
-        if (!swiper) {
-          setTimeout(checkForSwiper, 100);
-          return;
-        }
-
-        const refresh = () => {
-          swiper.update();
-          if (swiper.scrollbar && swiper.scrollbar.updateSize) {
-            swiper.scrollbar.updateSize();
-          }
-        };
-
-        swiper.on('breakpoint', refresh);
-        swiper.on('resize', refresh);
-
-        // Also refresh when the section is re-rendered in Theme Editor
-        document.addEventListener('shopify:section:load', function (e) {
-          if (e && e.detail && e.detail.sectionId === '{{ section.id }}') {
-            refresh();
-          }
-        });
-      };
-
-      checkForSwiper();
-    });
     </script>
   </slideshow-section>
 </video-reels>
