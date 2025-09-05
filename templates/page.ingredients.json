@@ -48,7 +48,7 @@
         "text_cnJxj4"
       ],
       "custom_css": [
-        ".hero__title{max-width:100rem;}"
+        ".hero__title {max-width: 100rem;}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
@@ -73,6 +73,25 @@
         "margin-bottom": 0
       }
     },
+    "ingredients_navigation_KiDUbm": {
+      "type": "ingredients-navigation",
+      "name": "Ingredients Navigation",
+      "settings": {
+        "subtitle": "Ingredients",
+        "heading": "RESEARCH-BACKED FORMULAS",
+        "empty_state_text": "Add products to display navigation",
+        "size_heading_mobile": 100,
+        "size_heading": 100,
+        "desktop_placement": "left",
+        "button_select": "primary",
+        "active_text_color": "transparent",
+        "active_background_color": "transparent",
+        "color-body-text": "transparent",
+        "background_color": "transparent",
+        "margin_top": 40,
+        "margin_bottom": 40
+      }
+    },
     "ingredients_grid_HcbWNt": {
       "type": "ingredients-grid",
       "name": "Ingredients Grid",
@@ -93,6 +112,7 @@
   "order": [
     "main",
     "image_banner_VVa6tN",
+    "ingredients_navigation_KiDUbm",
     "ingredients_grid_HcbWNt"
   ]
 }
