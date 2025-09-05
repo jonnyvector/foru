@@ -217,20 +217,26 @@
           {% endif %}
           
           {% if section.blocks.size > 0 %}
+            <p>Debug: {{ section.blocks.size }} blocks found</p>
             <ul class="bullet-list">
               {% for block in section.blocks %}
-                {% if block.type == 'bullet_point' %}
-                  <li data-block-id="{{ block.id }}">
+                <li data-block-id="{{ block.id }}">
+                  <p>Block type: {{ block.type }}</p>
+                  {% if block.type == 'bullet_point' %}
                     {% if block.settings.title != blank %}
                       <strong class="bullet-title">{{ block.settings.title }}</strong>
                     {% endif %}
                     {% if block.settings.description != blank %}
                       <span class="bullet-description">{{ block.settings.description }}</span>
                     {% endif %}
-                  </li>
-                {% endif %}
+                  {% else %}
+                    <p>Unknown block type: {{ block.type }}</p>
+                  {% endif %}
+                </li>
               {% endfor %}
             </ul>
+          {% else %}
+            <p>Debug: No blocks found</p>
           {% endif %}
           
           {% if section.settings.closing_text != blank %}
