@@ -1763,6 +1763,14 @@ page-header {
     display: block;
   }
 }
+
+/* Override video section height on mobile */
+@media (max-width: 1199px) {
+  .page-header-image-banner--video {
+    --section-height: 60vh !important;
+  }
+}
+
 .wt-header__sticky-menu-trigger {
   display: flex;
   max-width: 0;
