@@ -2648,6 +2648,16 @@ body:not(.search-overlay-on)
   }
   .wt-header--v5 .wt-header__body {
     position: relative;
+    justify-content: flex-start !important;
+  }
+  .wt-header--v5 .wt-header__logo-wrapper {
+    position: static !important;
+  }
+  .wt-header--v5 .wt-header__logo {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
   }
   .wt-header--fashion .wt-header__nav-teaser--full-menu {
     position: absolute;
