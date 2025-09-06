@@ -1766,7 +1766,7 @@ page-header {
 
 /* Override video section height on mobile */
 @media (max-width: 1199px) {
-  .page-header-image-banner--video {
+  .page-header-image-banner--video .wt-image-banner {
     --section-height: 60vh !important;
   }
 }
