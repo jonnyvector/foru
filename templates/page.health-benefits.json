@@ -103,7 +103,7 @@
       ],
       "name": "Ingredient Cards",
       "settings": {
-        "title": "Our Ingredients",
+        "title": "",
         "full-width-enabled": false,
         "title_size_mobile": 100,
         "title_size_desktop": 100,
