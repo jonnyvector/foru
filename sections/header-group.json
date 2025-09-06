@@ -122,12 +122,39 @@
             "second_disable_on_mobile": false,
             "second_button_link": ""
           }
+        },
+        "usp_CEpaRm": {
+          "type": "usp",
+          "settings": {
+            "icon": "shopify://shop_images/globe.svg",
+            "text": "Globally sourced ingredients",
+            "disable_on_mobile": false
+          }
+        },
+        "usp_h8WTMb": {
+          "type": "usp",
+          "settings": {
+            "icon": "shopify://shop_images/Icons_15.svg",
+            "text": "30-day guarantee",
+            "disable_on_mobile": false
+          }
+        },
+        "info_tooltip_zXwGfh": {
+          "type": "info_tooltip",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_110_73f5963c-cfc9-4561-aee2-996c4f321018.svg",
+            "content": "<p>Return shipping charges not included.See Refund Policy.</p>",
+            "disable_on_mobile": false
+          }
         }
       },
       "block_order": [
         "heading_taknR7",
         "text_EeMXMg",
-        "button_WDHdTN"
+        "button_WDHdTN",
+        "usp_CEpaRm",
+        "usp_h8WTMb",
+        "info_tooltip_zXwGfh"
       ],
       "custom_css": [
         ".hero__title {max-width: 120rem;}"
