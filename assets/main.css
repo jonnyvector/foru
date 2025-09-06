@@ -2935,16 +2935,24 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   }
 }
 
+/* USP and Tooltip Row Container */
+.hero__usps-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
 /* USP Block Styles */
 .hero__usp {
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  margin: 1rem 0;
 }
 .hero__usp-icon img {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
 }
 .hero__usp-text {
@@ -2956,7 +2964,6 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
 .hero__info-tooltip {
   position: relative;
   display: inline-block;
-  margin: 1rem 0;
 }
 .hero__info-tooltip-trigger {
   background: none;
@@ -2967,6 +2974,11 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.hero__info-tooltip-trigger img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
 }
 .hero__info-tooltip-trigger:hover {
   background: rgba(255, 255, 255, 0.1);
@@ -3008,6 +3020,14 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
 }
 
 @media (max-width: 899px) {
+  .hero__usp-icon img {
+    width: 24px;
+    height: 24px;
+  }
+  .hero__info-tooltip-trigger img {
+    width: 24px;
+    height: 24px;
+  }
   .hero__info-tooltip-content {
     position: fixed;
     top: 50%;
