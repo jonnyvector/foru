@@ -2659,10 +2659,7 @@ body:not(.search-overlay-on)
     top: auto !important;
     transform: none !important;
   }
-  .wt-header--v5 .wt-header__panel {
-    margin-left: auto;
-  }
-  .wt-header--v5 .wt-header__localization__triggers {
+  .wt-header--v5 .wt-header__aside {
     margin-left: auto;
   }
   .wt-header--fashion .wt-header__nav-teaser--full-menu {
