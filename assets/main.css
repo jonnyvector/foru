@@ -2926,7 +2926,8 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   .hero__overlay--mobile--top .hero__overlay__content {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 86px);
+    min-height: 50vh;
+    height: auto;
   }
   .hero__overlay--mobile--top .hero__button--gap {
     margin-top: auto;
