@@ -3138,8 +3138,8 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
 .slideshow-section .hero__overlay__content {
   width: auto;
 }
-.wt-image-banner .hero__overlay__content > :not(.hero__button--gap),
-.slideshow-section .hero__overlay__content > :not(.hero__button--gap) {
+.wt-image-banner .hero__overlay__content > :not(.hero__button--gap):not(.hero__usps-row),
+.slideshow-section .hero__overlay__content > :not(.hero__button--gap):not(.hero__usps-row) {
   max-width: 56rem;
 }
 .hero__title {
