@@ -445,7 +445,7 @@
                   <ul class="wt-footer__list">
                     {%- for link in menu_block.settings.links.links -%}
                       <li class="wt-footer__list__item">
-                        <a href="{{ link.url }}" class="{% if link.active %} list-menu__item--active{% endif %}">
+                        <a href="{{ link.url }}" class="slide-hover {% if link.active %} list-menu__item--active{% endif %}">
                           <span class="wt-footer__list__item__text--underline slide-wrapper">
                             <span class="slide-text">{{ link.title }}</span>
                             <span class="slide-text">{{ link.title }}</span>
@@ -460,7 +460,7 @@
                   <ul class="wt-footer__list">
                     {%- for link in menu_block.settings.links.links -%}
                       <li class="wt-footer__list__item">
-                        <a href="{{ link.url }}" class="{% if link.active %} list-menu__item--active{% endif %}">
+                        <a href="{{ link.url }}" class="slide-hover {% if link.active %} list-menu__item--active{% endif %}">
                           <span class="wt-footer__list__item__text--underline slide-wrapper">
                             <span class="slide-text">{{ link.title }}</span>
                             <span class="slide-text">{{ link.title }}</span>
@@ -616,7 +616,7 @@
                 <ul class="wt-footer__list">
                   {%- for link in block.settings.links.links -%}
                     <li class="wt-footer__list__item">
-                      <a href="{{ link.url }}" class="{% if link.active %} list-menu__item--active{% endif %}">
+                      <a href="{{ link.url }}" class="slide-hover {% if link.active %} list-menu__item--active{% endif %}">
                         <span class="wt-footer__list__item__text--underline slide-wrapper">
                           <span class="slide-text">{{ link.title }}</span>
                           <span class="slide-text">{{ link.title }}</span>
@@ -631,7 +631,7 @@
                 <ul class="wt-footer__list">
                   {%- for link in block.settings.links.links -%}
                     <li class="wt-footer__list__item">
-                      <a href="{{ link.url }}" class="{% if link.active %} list-menu__item--active{% endif %}">
+                      <a href="{{ link.url }}" class="slide-hover {% if link.active %} list-menu__item--active{% endif %}">
                         <span class="wt-footer__list__item__text--underline slide-wrapper">
                           <span class="slide-text">{{ link.title }}</span>
                           <span class="slide-text">{{ link.title }}</span>

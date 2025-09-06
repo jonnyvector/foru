@@ -33,7 +33,7 @@
           href="{{ link.url }}"
           tabindex="-1"
           data-menu-level="1"
-          class="wt-page-nav-mega__link wt-page-nav-mega__link--parent {% if link.current %} wt-page-nav-mega__link--active{% endif %}"
+          class="wt-page-nav-mega__link wt-page-nav-mega__link--parent slide-hover {% if link.current %} wt-page-nav-mega__link--active{% endif %}"
         >
           <span class="wt-page-nav-mega__link__text wt-page-nav-mega__link__text--underline slide-wrapper">
             <span class="slide-text">{{- link.title | escape -}}</span>
@@ -153,7 +153,7 @@
           href="{{ link.url }}"
           data-menu-level="1"
           tabindex="-1"
-          class="wt-page-nav-mega__link {% if link.current %} wt-page-nav-mega__link--active{% endif %}"
+          class="wt-page-nav-mega__link slide-hover {% if link.current %} wt-page-nav-mega__link--active{% endif %}"
           {% if link.current %}
             aria-current="page"
           {% endif %}

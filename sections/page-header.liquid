@@ -112,7 +112,7 @@
                 <li class="wt-header__nav-teaser__item {% if is_parent %}wt-header__nav-teaser__item--parent{% endif %}">
                   <a
                     href="{% if link.url %}{{ link.url }}{% else %}#{% endif %}"
-                    class="wt-header__nav-teaser__link {% if is_parent %}wt-header__nav-teaser__link--parent{% endif %} {% if link.current %} wt-header__nav-teaser__link--active{% endif %}"
+                    class="wt-header__nav-teaser__link slide-hover {% if is_parent %}wt-header__nav-teaser__link--parent{% endif %} {% if link.current %} wt-header__nav-teaser__link--active{% endif %}"
                     {% if link.current %}
                       aria-current="page"
                     {% endif %}
