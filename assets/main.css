@@ -2934,6 +2934,89 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
     margin-bottom: 2rem;
   }
 }
+
+/* USP Block Styles */
+.hero__usp {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 1rem 0;
+}
+.hero__usp-icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+.hero__usp-text {
+  font-size: 0.9rem;
+  color: inherit;
+}
+
+/* Info Tooltip Styles */
+.hero__info-tooltip {
+  position: relative;
+  display: inline-block;
+  margin: 1rem 0;
+}
+.hero__info-tooltip-trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero__info-tooltip-trigger:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.hero__info-tooltip-content {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  color: black;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  min-width: 250px;
+  max-width: 300px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+.hero__info-tooltip-content[aria-hidden="false"] {
+  opacity: 1;
+  visibility: visible;
+}
+.hero__info-tooltip-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 899px) {
+  .hero__info-tooltip-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    max-width: none;
+  }
+}
 @media (max-width: 899px) {
   .hero__overlay--mobile--bottom {
     align-items: flex-end;

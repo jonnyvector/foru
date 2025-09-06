@@ -75,6 +75,39 @@
             {{ block.settings.text }}
           </div>
         {% endif %}
+      {%- when 'usp' -%}
+        {% if block.settings.icon or block.settings.text %}
+          <div data-block-id="{{ block.id }}" class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__usp {% if block.settings.disable_on_mobile %}{% if prefix %}{{ prefix }}{% else %}block{% endif %}__usp--mobile{% endif %}">
+            {% if block.settings.icon %}
+              <div class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__usp-icon">
+                {{ block.settings.icon | image_url: width: 40 | image_tag: alt: block.settings.text }}
+              </div>
+            {% endif %}
+            {% if block.settings.text %}
+              <div class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__usp-text">
+                {{ block.settings.text | escape }}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      {%- when 'info_tooltip' -%}
+        {% if block.settings.icon or block.settings.content %}
+          <div data-block-id="{{ block.id }}" class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__info-tooltip {% if block.settings.disable_on_mobile %}{% if prefix %}{{ prefix }}{% else %}block{% endif %}__info-tooltip--mobile{% endif %}">
+            {% if block.settings.icon %}
+              <button type="button" class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__info-tooltip-trigger" aria-describedby="tooltip-{{ block.id }}">
+                {{ block.settings.icon | image_url: width: 24 | image_tag: alt: "Info" }}
+              </button>
+              <div id="tooltip-{{ block.id }}" class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__info-tooltip-content" role="tooltip" aria-hidden="true">
+                {% if block.settings.content %}
+                  <div class="rte">
+                    {{ block.settings.content }}
+                  </div>
+                {% endif %}
+                <button type="button" class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__info-tooltip-close" aria-label="Close">×</button>
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
       {%- when 'button' -%}
         <div class="hero__button--gap">
           {% if block.settings.button_link and block.settings.button_label != blank %}
