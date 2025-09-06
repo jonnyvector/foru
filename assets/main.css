@@ -2976,8 +2976,8 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   justify-content: center;
 }
 .hero__info-tooltip-trigger img {
-  width: 32px;
-  height: 32px;
+  width: 20px;
+  height: 20px;
   object-fit: contain;
 }
 .hero__info-tooltip-trigger:hover {
@@ -3021,10 +3021,6 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
 
 @media (max-width: 899px) {
   .hero__usp-icon img {
-    width: 24px;
-    height: 24px;
-  }
-  .hero__info-tooltip-trigger img {
     width: 24px;
     height: 24px;
   }
