@@ -57,13 +57,49 @@
             "ingredient_name": "CALCIUM",
             "benefits_list": "<ul><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li></ul>"
           }
+        },
+        "ingredient_card_GgxUFj": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "04",
+            "ingredient_name": "CALCIUM",
+            "benefits_list": "<ul><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li></ul>"
+          }
+        },
+        "ingredient_card_9hg7XN": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "04",
+            "ingredient_name": "CALCIUM",
+            "benefits_list": "<ul><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li></ul>"
+          }
+        },
+        "ingredient_card_b3GbQa": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "04",
+            "ingredient_name": "CALCIUM",
+            "benefits_list": "<ul><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li></ul>"
+          }
+        },
+        "ingredient_card_aPH3hh": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "04",
+            "ingredient_name": "CALCIUM",
+            "benefits_list": "<ul><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li></ul>"
+          }
         }
       },
       "block_order": [
         "ingredient_card_iQLNf8",
         "ingredient_card_JAWJ9V",
         "ingredient_card_N8hhQV",
-        "ingredient_card_rAYJfC"
+        "ingredient_card_rAYJfC",
+        "ingredient_card_GgxUFj",
+        "ingredient_card_9hg7XN",
+        "ingredient_card_b3GbQa",
+        "ingredient_card_aPH3hh"
       ],
       "name": "Ingredient Cards",
       "settings": {
@@ -76,12 +112,105 @@
         "card-background-color": "#f7f7f7",
         "section-color-overlay-opacity": 100,
         "margin-top": 40,
+        "margin-bottom": 32
+      }
+    },
+    "ingredient_cards_cXyz8z": {
+      "type": "ingredient-cards",
+      "blocks": {
+        "ingredient_card_NryT7a": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "01",
+            "ingredient_name": "POTASSIUM",
+            "benefits_list": "<ul><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li></ul>"
+          }
+        },
+        "ingredient_card_NVEPnB": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "02",
+            "ingredient_name": "SODIUM / SODIUM CHLORIDE",
+            "benefits_list": "<ul><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li></ul>"
+          }
+        },
+        "ingredient_card_HpEBJB": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "03",
+            "ingredient_name": "MAGNESIUM",
+            "benefits_list": "<ul><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li></ul>"
+          }
+        },
+        "ingredient_card_kKQYYE": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "04",
+            "ingredient_name": "CALCIUM",
+            "benefits_list": "<ul><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li></ul>"
+          }
+        },
+        "ingredient_card_GbEtRe": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "04",
+            "ingredient_name": "CALCIUM",
+            "benefits_list": "<ul><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li></ul>"
+          }
+        },
+        "ingredient_card_KGcRgx": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "04",
+            "ingredient_name": "CALCIUM",
+            "benefits_list": "<ul><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li></ul>"
+          }
+        },
+        "ingredient_card_ctgAJq": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "04",
+            "ingredient_name": "CALCIUM",
+            "benefits_list": "<ul><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li></ul>"
+          }
+        },
+        "ingredient_card_L3z7K9": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "04",
+            "ingredient_name": "CALCIUM",
+            "benefits_list": "<ul><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li><li>What it does: Contributes to normal muscle function and helps maintain normal blood pressure.<br/>Products: Recovery, Daily Hydration</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_card_NryT7a",
+        "ingredient_card_NVEPnB",
+        "ingredient_card_HpEBJB",
+        "ingredient_card_kKQYYE",
+        "ingredient_card_GbEtRe",
+        "ingredient_card_KGcRgx",
+        "ingredient_card_ctgAJq",
+        "ingredient_card_L3z7K9"
+      ],
+      "name": "Ingredient Cards",
+      "settings": {
+        "title": "",
+        "full-width-enabled": false,
+        "title_size_mobile": 100,
+        "title_size_desktop": 100,
+        "section-color-body-text": "transparent",
+        "section-color-overlay": "transparent",
+        "card-background-color": "#f7f7f7",
+        "section-color-overlay-opacity": 100,
+        "margin-top": 0,
         "margin-bottom": 40
       }
     }
   },
   "order": [
     "main",
-    "ingredient_cards_i3AJ9g"
+    "ingredient_cards_i3AJ9g",
+    "ingredient_cards_cXyz8z"
   ]
 }
