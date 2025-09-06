@@ -3030,7 +3030,7 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
     font-size: 12px;
   }
   .wt-image-banner .hero__overlay__content {
-    padding: 0;
+    padding: 0 !important;
   }
   .hero__info-tooltip-content {
     position: fixed;
