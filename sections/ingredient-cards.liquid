@@ -73,7 +73,7 @@
   /* Ingredient name */
   [data-section-id="{{ section.id }}"] .ingredient-card-title {
     font-family: var(--font-headline);
-    font-size: calc(var(--font-h3-size) * {{ section.settings.title_size_mobile | divided_by: 100.0 }});
+    font-size: calc(18px * {{ section.settings.title_size_mobile | divided_by: 100.0 }});
     font-weight: var(--font-headline-weight);
     color: var(--color-text, #000);
     text-transform: uppercase;
@@ -83,7 +83,7 @@
 
   @media (min-width: 750px) {
     [data-section-id="{{ section.id }}"] .ingredient-card-title {
-      font-size: calc(var(--font-h3-size) * {{ section.settings.title_size_desktop | divided_by: 100.0 }});
+      font-size: calc(24px * {{ section.settings.title_size_desktop | divided_by: 100.0 }});
     }
   }
 
@@ -201,7 +201,7 @@
       "default": 100,
       "label": "Card title size (mobile)",
       "unit": "%",
-      "info": "Based on 20px"
+      "info": "Based on 18px"
     },
     {
       "type": "range",
