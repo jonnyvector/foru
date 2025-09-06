@@ -11,15 +11,77 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
+        "compact-size-enabled": true,
         "size_heading": 140,
         "size_heading_mobile": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-bg-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
         "margin-top": 40,
         "margin-bottom": 0
+      }
+    },
+    "ingredient_cards_i3AJ9g": {
+      "type": "ingredient-cards",
+      "blocks": {
+        "ingredient_card_iQLNf8": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "01",
+            "ingredient_name": "POTASSIUM",
+            "benefits_list": "<ul><li><strong>What it does:</strong> Contributes to normal muscle function and helps maintain normal blood pressure.</li><li><strong>Products:</strong> Recovery, Daily Hydration</li></ul>"
+          }
+        },
+        "ingredient_card_JAWJ9V": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "02",
+            "ingredient_name": "SODIUM / SODIUM CHLORIDE",
+            "benefits_list": "<ul><li><strong>What it does:</strong> Contributes to normal muscle function and helps maintain normal blood pressure.</li><li><strong>Products:</strong> Recovery, Daily Hydration</li></ul>"
+          }
+        },
+        "ingredient_card_N8hhQV": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "03",
+            "ingredient_name": "MAGNESIUM",
+            "benefits_list": "<ul><li><strong>What it does:</strong> Contributes to electrolyte balance and helps reduce tiredness and fatigue.</li><li><strong>Products:</strong> Recovery, Daily Hydration</li></ul>"
+          }
+        },
+        "ingredient_card_rAYJfC": {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "04",
+            "ingredient_name": "CALCIUM",
+            "benefits_list": "<ul><li><strong>What it does:</strong> Supports normal muscle function and energy metabolism.</li><li><strong>Products:</strong> Recovery, Daily Hydration</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_card_iQLNf8",
+        "ingredient_card_JAWJ9V",
+        "ingredient_card_N8hhQV",
+        "ingredient_card_rAYJfC"
+      ],
+      "name": "Ingredient Cards",
+      "settings": {
+        "title": "Our Ingredients",
+        "full-width-enabled": false,
+        "title_size_mobile": 100,
+        "title_size_desktop": 100,
+        "section-color-body-text": "transparent",
+        "section-color-overlay": "transparent",
+        "card-background-color": "#f7f7f7",
+        "section-color-overlay-opacity": 100,
+        "margin-top": 40,
+        "margin-bottom": 40
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "ingredient_cards_i3AJ9g"
   ]
 }
