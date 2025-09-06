@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // On mobile, move tooltip to body to prevent clipping
         if (window.innerWidth <= 899 && isHidden) {
           document.body.appendChild(tooltip);
+          tooltip.classList.add('mobile-body-tooltip');
         }
       });
     }

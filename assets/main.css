@@ -3049,6 +3049,17 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
     max-width: none;
     z-index: 9999;
   }
+  .mobile-body-tooltip {
+    position: fixed !important;
+    top: 50vh !important;
+    left: 50vw !important;
+    transform: translate(-50%, -50%) !important;
+    width: 90vw !important;
+    max-width: none !important;
+    z-index: 99999 !important;
+    max-height: 80vh !important;
+    overflow-y: auto !important;
+  }
 }
 @media (max-width: 899px) {
   .hero__overlay--mobile--bottom {
