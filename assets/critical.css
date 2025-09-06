@@ -2660,11 +2660,11 @@ body:not(.search-overlay-on)
     transform: none !important;
   }
   .wt-header--v5 .wt-header__localization__triggers {
-    order: 10;
-  }
-  .wt-header--v5 .wt-header__aside {
     margin-left: auto;
     order: 8;
+  }
+  .wt-header--v5 .wt-header__aside {
+    order: 10;
   }
   .wt-header--v5 .wt-header__panel {
     order: 12;
