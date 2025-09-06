@@ -110,8 +110,7 @@
 
       function isTransparentHeaderEnabled() {
         const header = document.querySelector('.wt-header');
-        const isDesktop = window.innerWidth >= 1200;
-        return isValidSectionsOrder() && Boolean(header?.dataset.transparent) && isDesktop;
+        return isValidSectionsOrder() && Boolean(header?.dataset.transparent);
       }
 
       function calculateOffset() {
@@ -130,16 +129,9 @@
         currentSection.style.marginTop = `-${offset}px`;
       }
 
-      function handleResize() {
-        if (isTransparentHeaderEnabled()) {
-          setTopMargin();
-        } else {
-          currentSection.style.marginTop = '';
-        }
+      if (isTransparentHeaderEnabled()) {
+        setTopMargin();
       }
-
-      handleResize();
-      window.addEventListener('resize', handleResize);
     })();
   </script>
 {% endif %}
