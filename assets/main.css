@@ -2921,7 +2921,7 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
 @media (max-width: 899px) {
   .hero__overlay--mobile--top {
     align-items: flex-start;
-    padding-top: 16px;
+    padding-top: 86px;
   }
 }
 @media (max-width: 899px) {
