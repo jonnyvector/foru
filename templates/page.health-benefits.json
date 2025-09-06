@@ -197,8 +197,8 @@
       "settings": {
         "title": "",
         "full-width-enabled": false,
-        "title_size_mobile": 100,
-        "title_size_desktop": 100,
+        "title_size_mobile": 130,
+        "title_size_desktop": 150,
         "section-color-body-text": "rgba(0,0,0,0)",
         "section-color-overlay": "rgba(0,0,0,0)",
         "card-background-color": "#f7f7f7",
