@@ -2942,6 +2942,10 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   gap: 2rem;
   margin: 1rem 0;
   flex-wrap: wrap;
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* USP Block Styles */
