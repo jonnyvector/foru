@@ -3017,6 +3017,11 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
 }
 
 @media (max-width: 899px) {
+  .hero__usps-row {
+    bottom: 32px;
+    flex-wrap: nowrap;
+    gap: 1rem;
+  }
   .hero__usp-icon img {
     width: 24px;
     height: 24px;
