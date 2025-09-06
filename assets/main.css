@@ -2963,7 +2963,8 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
 /* Info Tooltip Styles */
 .hero__info-tooltip {
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
 }
 .hero__info-tooltip-trigger {
   background: none;
