@@ -1764,10 +1764,10 @@ page-header {
   }
 }
 
-/* Mobile-specific styles for image banner to sit below opaque header */
+/* Mobile-specific styles to push banner content below opaque header */
 @media (max-width: 1199px) {
-  .section-image-banner--header {
-    margin-top: 60px;
+  .section-image-banner--header .hero {
+    padding-top: 80px;
   }
 }
 
