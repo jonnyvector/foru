@@ -142,7 +142,7 @@
         "desktop_text_vertical_position": "center",
         "desktop_text_horizontal_position": "center",
         "mobile_image": "shopify://shop_images/image_21_3.png",
-        "mobile_text_vertical_position": "center",
+        "mobile_text_vertical_position": "top",
         "mobile_text_horizontal_position": "center",
         "color-body-text": "#ffffff",
         "text-container-color": "rgba(0,0,0,0)",
