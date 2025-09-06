@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
           if (tooltip.parentElement === document.body) {
             const tooltipContainer = trigger.parentElement;
             tooltipContainer.appendChild(tooltip);
+            tooltip.classList.remove('mobile-body-tooltip');
           }
         }
       });
@@ -72,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
           if (tooltip.parentElement === document.body) {
             const tooltipContainer = trigger.parentElement;
             tooltipContainer.appendChild(tooltip);
+            tooltip.classList.remove('mobile-body-tooltip');
           }
         }
       });
