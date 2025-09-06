@@ -2647,7 +2647,9 @@ body:not(.search-overlay-on)
     --clr-underline: var(--color-header-text);
   }
   .wt-header--fashion .wt-header__nav-teaser--full-menu {
-    margin-left: auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
   .wt-header--fashion
     .wt-header__nav-teaser--full-menu
