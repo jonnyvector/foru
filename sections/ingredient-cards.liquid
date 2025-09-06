@@ -54,7 +54,7 @@
 
   /* Individual ingredient card */
   [data-section-id="{{ section.id }}"] .ingredient-card {
-    background-color: #f7f7f7;
+    background-color: {% if section.settings.card-background-color != 'transparent' %}{{ section.settings.card-background-color }}{% else %}#f7f7f7{% endif %};
     padding: calc(var(--gap, 8px) * 3);
     border-radius: var(--border-radius);
     position: relative;
@@ -229,6 +229,12 @@
       "id": "section-color-overlay",
       "default": "transparent",
       "label": "Section background color"
+    },
+    {
+      "type": "color",
+      "id": "card-background-color",
+      "default": "#f7f7f7",
+      "label": "Card background color"
     },
     {
       "type": "range",
