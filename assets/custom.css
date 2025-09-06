@@ -114,3 +114,39 @@
     max-width: 250px;
   }
 }
+
+/* Reusable slide animation classes */
+.slide-wrapper {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slide-text,
+.slide-icon {
+  grid-area: 1 / 1;
+  transform: translateY(0);
+  transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Second copy starts below */
+.slide-text:last-child,
+.slide-icon:last-child {
+  transform: translateY(100%);
+}
+
+/* Hover animation trigger - parent element with .slide-hover class */
+@media (hover: hover) {
+  .slide-hover:hover .slide-text:first-child,
+  .slide-hover:hover .slide-icon:first-child {
+    transform: translateY(-100%);
+  }
+
+  .slide-hover:hover .slide-text:last-child,
+  .slide-hover:hover .slide-icon:last-child {
+    transform: translateY(0);
+  }
+}

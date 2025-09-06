@@ -131,41 +131,6 @@
     opacity: 0.8;
   }
 
-  /* Slide animation setup */
-  [data-section-id="{{ section.id }}"] .slide-wrapper {
-    display: grid;
-    place-items: center;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  [data-section-id="{{ section.id }}"] .slide-text,
-  [data-section-id="{{ section.id }}"] .slide-icon {
-    grid-area: 1 / 1;
-    transform: translateY(0);
-    transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
-    will-change: transform;
-    backface-visibility: hidden;
-  }
-
-  /* Second copy starts below */
-  [data-section-id="{{ section.id }}"] .slide-text:last-child,
-  [data-section-id="{{ section.id }}"] .slide-icon:last-child {
-    transform: translateY(100%);
-  }
-
-  /* Hover animation - slide both copies up */
-  @media (hover: hover) {
-    [data-section-id="{{ section.id }}"] .download-btn:hover .slide-text:first-child,
-    [data-section-id="{{ section.id }}"] .download-btn:hover .slide-icon:first-child {
-      transform: translateY(-100%);
-    }
-
-    [data-section-id="{{ section.id }}"] .download-btn:hover .slide-text:last-child,
-    [data-section-id="{{ section.id }}"] .download-btn:hover .slide-icon:last-child {
-      transform: translateY(0);
-    }
-  }
 
   /* Download button text/icon visibility */
   [data-section-id="{{ section.id }}"] .download-text {
@@ -231,7 +196,7 @@
               <div class="document-item" data-block-id="{{ block.id }}">
                 <span class="document-title">{{ block.settings.title }}</span>
                 <a href="{{ block.settings.file }}" 
-                   class="download-btn" 
+                   class="download-btn slide-hover" 
                    download
                    target="_blank"
                    rel="noopener noreferrer">
