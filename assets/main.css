@@ -3029,6 +3029,9 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   .hero__usp-text {
     font-size: 12px;
   }
+  .wt-image-banner .hero__overlay__content {
+    padding: 0;
+  }
   .hero__info-tooltip-content {
     position: fixed;
     top: 50%;
