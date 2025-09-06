@@ -134,12 +134,12 @@
         if (isTransparentHeaderEnabled()) {
           setTopMargin();
         } else {
-          // On mobile with opaque header, push banner below header
+          // On mobile with opaque header, use minimal spacing to avoid excessive gap
           const header = document.querySelector('header');
           const headerHeight = header.offsetHeight;
-          const announcement = document.querySelector('.wt-announcement');
-          const announcementHeight = announcement ? announcement.offsetHeight : 0;
-          currentSection.style.marginTop = `${headerHeight + announcementHeight}px`;
+          // Use only 60% of calculated height to reduce excessive spacing
+          const reducedSpacing = Math.floor(headerHeight * 0.6);
+          currentSection.style.marginTop = `${reducedSpacing}px`;
         }
       }
 
