@@ -3015,20 +3015,6 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   opacity: 1;
   visibility: visible;
 }
-.hero__info-tooltip-close {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 @media (max-width: 899px) {
   .hero__usp-icon img {

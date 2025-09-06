@@ -29,17 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
         tooltip.setAttribute('aria-hidden', isHidden ? 'false' : 'true');
         trigger.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
       });
-      
-      // Close tooltip on close button click
-      const closeBtn = tooltip.querySelector('.hero__info-tooltip-close');
-      if (closeBtn) {
-        closeBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          tooltip.setAttribute('aria-hidden', 'true');
-          trigger.setAttribute('aria-expanded', 'false');
-        });
-      }
     }
   });
   
