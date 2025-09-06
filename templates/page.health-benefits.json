@@ -48,7 +48,7 @@
         "text_peBGRG"
       ],
       "custom_css": [
-        ".hero__title{max-width:80rem;}"
+        ".hero__title {max-width: 80rem;}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
@@ -254,7 +254,7 @@
         "card-background-color": "#f7f7f7",
         "section-color-overlay-opacity": 100,
         "margin-top": 0,
-        "margin-bottom": 40
+        "margin-bottom": 100
       }
     }
   },
