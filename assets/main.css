@@ -2939,13 +2939,16 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
 .hero__usps-row {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 3rem;
   margin: 1rem 0;
   flex-wrap: wrap;
   position: absolute;
   bottom: 64px;
   left: 50%;
   transform: translateX(-50%);
+  width: 100%;
+  max-width: 90vw;
+  justify-content: center;
 }
 
 /* USP Block Styles */
@@ -2953,6 +2956,7 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   display: flex;
   align-items: center;
   gap: 0.8rem;
+  flex-shrink: 0;
 }
 .hero__usp-icon img {
   width: 32px;
@@ -2962,6 +2966,7 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
 .hero__usp-text {
   font-size: var(--font-base-size);
   color: inherit;
+  white-space: nowrap;
 }
 
 /* Info Tooltip Styles */
