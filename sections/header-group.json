@@ -138,7 +138,6 @@
         "desktop_fixed_height": 320,
         "mobile_fixed_height": 380,
         "video_hosted": "shopify://files/videos/Foru Main Screen (1).mp4",
-        "video_hosted_mobile": "shopify://files/videos/foru-mobile.mp4",
         "desktop_image": "shopify://shop_images/image_21_2.png",
         "desktop_text_vertical_position": "center",
         "desktop_text_horizontal_position": "center",
