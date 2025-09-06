@@ -28,6 +28,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const isHidden = tooltip.getAttribute('aria-hidden') === 'true';
         tooltip.setAttribute('aria-hidden', isHidden ? 'false' : 'true');
         trigger.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+        
+        // On mobile, move tooltip to body to prevent clipping
+        if (window.innerWidth <= 899 && isHidden) {
+          document.body.appendChild(tooltip);
+        }
       });
     }
   });
@@ -41,6 +46,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (tooltip) {
           tooltip.setAttribute('aria-hidden', 'true');
           trigger.setAttribute('aria-expanded', 'false');
+          
+          // Move tooltip back to original container if it was moved to body
+          if (tooltip.parentElement === document.body) {
+            const tooltipContainer = trigger.parentElement;
+            tooltipContainer.appendChild(tooltip);
+          }
         }
       });
     }
@@ -55,6 +66,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (tooltip) {
           tooltip.setAttribute('aria-hidden', 'true');
           trigger.setAttribute('aria-expanded', 'false');
+          
+          // Move tooltip back to original container if it was moved to body
+          if (tooltip.parentElement === document.body) {
+            const tooltipContainer = trigger.parentElement;
+            tooltipContainer.appendChild(tooltip);
+          }
         }
       });
     }
