@@ -47,7 +47,9 @@
         "heading_c9yHwE",
         "text_peBGRG"
       ],
-      "custom_css": [],
+      "custom_css": [
+        ".hero__title{max-width:80rem;}"
+      ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "heading": "",
