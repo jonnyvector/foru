@@ -131,6 +131,42 @@
     opacity: 0.8;
   }
 
+  /* Slide animation setup */
+  [data-section-id="{{ section.id }}"] .slide-wrapper {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  [data-section-id="{{ section.id }}"] .slide-text,
+  [data-section-id="{{ section.id }}"] .slide-icon {
+    grid-area: 1 / 1;
+    transform: translateY(0);
+    transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  /* Second copy starts below */
+  [data-section-id="{{ section.id }}"] .slide-text:last-child,
+  [data-section-id="{{ section.id }}"] .slide-icon:last-child {
+    transform: translateY(100%);
+  }
+
+  /* Hover animation - slide both copies up */
+  @media (hover: hover) {
+    [data-section-id="{{ section.id }}"] .download-btn:hover .slide-text:first-child,
+    [data-section-id="{{ section.id }}"] .download-btn:hover .slide-icon:first-child {
+      transform: translateY(-100%);
+    }
+
+    [data-section-id="{{ section.id }}"] .download-btn:hover .slide-text:last-child,
+    [data-section-id="{{ section.id }}"] .download-btn:hover .slide-icon:last-child {
+      transform: translateY(0);
+    }
+  }
+
   /* Download button text/icon visibility */
   [data-section-id="{{ section.id }}"] .download-text {
     display: none;
@@ -199,10 +235,26 @@
                    download
                    target="_blank"
                    rel="noopener noreferrer">
-                  <span class="download-text">Download</span>
-                  <svg class="download-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3.33203 16.6666H16.6654M9.9987 11.6666V3.33325M9.9987 11.6666L13.332 8.33325M9.9987 11.6666L6.66536 8.33325" stroke="currentColor" stroke-linecap="square"/>
-                  </svg>
+                  <span class="download-text">
+                    <span class="slide-wrapper">
+                      <span class="slide-text">Download</span>
+                      <span class="slide-text">Download</span>
+                    </span>
+                  </span>
+                  <span class="download-icon">
+                    <span class="slide-wrapper">
+                      <span class="slide-icon">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3.33203 16.6666H16.6654M9.9987 11.6666V3.33325M9.9987 11.6666L13.332 8.33325M9.9987 11.6666L6.66536 8.33325" stroke="currentColor" stroke-linecap="square"/>
+                        </svg>
+                      </span>
+                      <span class="slide-icon">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3.33203 16.6666H16.6654M9.9987 11.6666V3.33325M9.9987 11.6666L13.332 8.33325M9.9987 11.6666L6.66536 8.33325" stroke="currentColor" stroke-linecap="square"/>
+                        </svg>
+                      </span>
+                    </span>
+                  </span>
                 </a>
               </div>
             {% endif %}
