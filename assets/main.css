@@ -3013,7 +3013,7 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   background: white;
   color: black;
   padding: 1rem;
-  border-radius: var(--border-radius) !important;
+  border-radius: 4px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   min-width: 325px;
   max-width: 300px;
