@@ -226,7 +226,7 @@
   box-shadow: none;
   pointer-events: none;
   position: absolute;
-  bottom: 8px;
+  bottom: calc(8px + var(--gap, 8px) * 2);
   left: calc(var(--gap, 8px) * 2);
   right: calc(var(--gap, 8px) * 2);
   z-index: 7;
