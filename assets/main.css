@@ -3041,7 +3041,7 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
     font-size: 12px;
   }
   .hero__info-tooltip-content {
-    position: fixed;
+    position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90vw;
@@ -3049,7 +3049,7 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
     z-index: 9999;
   }
   .mobile-body-tooltip {
-    position: fixed !important;
+    position: absolute !important;
     left: 50vw !important;
     width: 90vw !important;
     max-width: none !important;

@@ -34,12 +34,13 @@ document.addEventListener('DOMContentLoaded', function() {
           document.body.appendChild(tooltip);
           tooltip.classList.add('mobile-body-tooltip');
           
-          // Position tooltip at hero section bottom boundary relative to viewport
+          // Position tooltip at hero section bottom boundary relative to document
           const heroSection = document.querySelector('.page-header-image-banner, .wt-image-banner--header');
           if (heroSection) {
             const heroRect = heroSection.getBoundingClientRect();
-            // Use viewport-relative positioning instead of absolute positioning
-            tooltip.style.top = `${heroRect.bottom}px`;
+            // Position absolutely relative to document, not viewport
+            const heroBottom = heroRect.bottom + window.scrollY;
+            tooltip.style.top = `${heroBottom}px`;
             tooltip.style.transform = 'translate(-50%, -50%)';
           }
         }
