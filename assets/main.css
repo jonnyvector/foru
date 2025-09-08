@@ -10828,10 +10828,16 @@ main#root > .wt-featured-nav {
   padding-top: calc(var(--gap, 8px) * 11);
 }
 
-/* When mobile header is non-transparent, reduce page-header-image-banner padding */
+/* When mobile header is non-transparent, push content below header and reduce padding */
 @media (max-width: 899px) {
+  .mobile-header-opaque .wt-image-banner--header {
+    margin-top: 80px; /* Account for header height */
+  }
+  .mobile-header-opaque .page-header-image-banner {
+    margin-top: 80px; /* Account for header height */
+  }
   .mobile-header-opaque .page-header-image-banner .hero__overlay--top {
-    padding-top: calc(var(--gap, 8px) * 4);
+    padding-top: calc(var(--gap, 8px) * 2);
   }
 }
 
