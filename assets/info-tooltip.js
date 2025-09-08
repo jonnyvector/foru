@@ -33,6 +33,15 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.innerWidth <= 899 && isHidden) {
           document.body.appendChild(tooltip);
           tooltip.classList.add('mobile-body-tooltip');
+          
+          // Position tooltip at hero section bottom boundary
+          const heroSection = document.querySelector('.page-header-image-banner, .wt-image-banner--header');
+          if (heroSection) {
+            const heroRect = heroSection.getBoundingClientRect();
+            const heroBottom = heroRect.bottom + window.scrollY;
+            tooltip.style.top = `${heroBottom}px`;
+            tooltip.style.transform = 'translate(-50%, -50%)';
+          }
         }
       });
     }
@@ -53,6 +62,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const tooltipContainer = trigger.parentElement;
             tooltipContainer.appendChild(tooltip);
             tooltip.classList.remove('mobile-body-tooltip');
+            tooltip.style.top = '';
+            tooltip.style.transform = '';
           }
         }
       });
@@ -74,6 +85,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const tooltipContainer = trigger.parentElement;
             tooltipContainer.appendChild(tooltip);
             tooltip.classList.remove('mobile-body-tooltip');
+            tooltip.style.top = '';
+            tooltip.style.transform = '';
           }
         }
       });
