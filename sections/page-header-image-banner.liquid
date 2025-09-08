@@ -126,8 +126,14 @@
       }
 
       function setTopMargin() {
-        const offset = calculateOffset();
-        currentSection.style.marginTop = `-${offset}px`;
+        // Only apply negative margin on desktop (900px and above)
+        if (window.innerWidth >= 900) {
+          const offset = calculateOffset();
+          currentSection.style.marginTop = `-${offset}px`;
+        } else {
+          // Reset margin on mobile
+          currentSection.style.marginTop = '0';
+        }
       }
 
       if (isTransparentHeaderEnabled()) {
