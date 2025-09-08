@@ -310,15 +310,18 @@
     transition: none;
   }
 
-  /* Loading state - maintain button size and center spinner */
+  /* Loading state - maintain button size by keeping layout but hiding content */
+  .custom-button-text-{{ unique_id }}.loading {
+    position: relative;
+    min-width: 120px; /* Ensure minimum width for "Add to cart" */
+  }
+
   .custom-button-text-{{ unique_id }}.loading .slide-wrapper {
-    opacity: 0;
-    pointer-events: none;
+    visibility: hidden;
   }
 
   .custom-button-arrow-{{ unique_id }}.loading .slide-wrapper {
-    opacity: 0;
-    pointer-events: none;
+    visibility: hidden;
   }
 
   .custom-button-text-{{ unique_id }}.loading .loading-overlay__spinner,
