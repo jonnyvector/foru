@@ -2994,7 +2994,10 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   object-fit: contain;
 }
 .hero__info-tooltip-trigger:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: white;
+}
+.hero__info-tooltip-trigger:hover img {
+  filter: brightness(0);
 }
 .hero__info-tooltip-trigger[aria-expanded="true"] {
   background: white;
@@ -3010,9 +3013,9 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   background: white;
   color: black;
   padding: 1rem;
-  border-radius: var(--border-radius);
+  border-radius: var(--border-radius) !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  min-width: 250px;
+  min-width: 325px;
   max-width: 300px;
   min-height: 56px;
   text-align: center;
