@@ -26,17 +26,21 @@
       totalHeight += announcementBar.offsetHeight;
     }
     
+    // Add small buffer to prevent content from being too tight to header
+    const bufferPadding = 16;
+    totalHeight += bufferPadding;
+    
     // Set CSS custom property for banner sections to use
     document.documentElement.style.setProperty('--dynamic-header-height', totalHeight + 'px');
     
-    console.log('Dynamic header height set to:', totalHeight + 'px');
+    console.log('Dynamic header height set to:', totalHeight + 'px', '(with announcement bar:', announcementBar?.offsetHeight || 0, 'px)');
   }
   
   // Debounced calculation to prevent excessive calls
   let debounceTimer;
   function debouncedCalculate() {
     clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(calculateHeaderHeight, 100);
+    debounceTimer = setTimeout(calculateHeaderHeight, 300);
   }
   
   // Initialize on DOM ready
