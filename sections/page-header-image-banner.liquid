@@ -125,12 +125,17 @@
         return offset;
       }
 
+      function isMobile() {
+        // Use media query to match CSS breakpoint exactly
+        return window.matchMedia('(max-width: 899px)').matches;
+      }
+
       function setTopMargin() {
-        // Only apply negative margin on desktop (900px and above)
-        if (window.innerWidth >= 900) {
+        // Only apply negative margin on desktop
+        if (!isMobile()) {
           const offset = calculateOffset();
           currentSection.style.marginTop = `-${offset}px`;
-          console.log('Desktop: Applied negative margin:', `-${offset}px`);
+          console.log('Desktop: Applied negative margin:', `-${offset}px`, 'Width:', window.innerWidth);
         } else {
           // Reset margin on mobile
           currentSection.style.marginTop = '0';
