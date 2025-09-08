@@ -131,15 +131,19 @@
       }
 
       function setTopMargin() {
-        // Only apply negative margin on desktop
-        if (!isMobile()) {
+        // Multiple mobile checks for reliability
+        const isMobile = window.matchMedia('(max-width: 899px)').matches || 
+                        window.innerWidth <= 899 || 
+                        /Mobi|Android/i.test(navigator.userAgent);
+        
+        if (!isMobile) {
           const offset = calculateOffset();
           currentSection.style.marginTop = `-${offset}px`;
-          console.log('Desktop: Applied negative margin:', `-${offset}px`, 'Width:', window.innerWidth);
+          console.log('Desktop: Applied negative margin:', `-${offset}px`);
         } else {
-          // Reset margin on mobile
-          currentSection.style.marginTop = '0';
-          console.log('Mobile: Reset margin to 0, window width:', window.innerWidth);
+          // Force reset margin on mobile
+          currentSection.style.marginTop = '0 !important';
+          console.log('Mobile detected: Reset margin to 0, UA:', navigator.userAgent.substring(0, 50));
         }
       }
 
