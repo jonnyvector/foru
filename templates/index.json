@@ -479,7 +479,7 @@
       "settings": {
         "heading": "Shoppable video reels",
         "quick-add-enabled": false,
-        "hide-brand-name": false,
+        "hide-brand-name": true,
         "video_button": false,
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
