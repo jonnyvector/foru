@@ -126,23 +126,20 @@
       }
 
       function isMobile() {
-        // Use media query to match CSS breakpoint exactly
-        return window.matchMedia('(max-width: 899px)').matches;
+        // Multiple mobile checks for reliability
+        return window.matchMedia('(max-width: 899px)').matches || 
+               window.innerWidth <= 899 || 
+               /Mobi|Android/i.test(navigator.userAgent);
       }
 
       function setTopMargin() {
-        // Multiple mobile checks for reliability
-        const isMobile = window.matchMedia('(max-width: 899px)').matches || 
-                        window.innerWidth <= 899 || 
-                        /Mobi|Android/i.test(navigator.userAgent);
-        
-        if (!isMobile) {
+        if (!isMobile()) {
           const offset = calculateOffset();
           currentSection.style.marginTop = `-${offset}px`;
           console.log('Desktop: Applied negative margin:', `-${offset}px`);
         } else {
-          // Force reset margin on mobile
-          currentSection.style.marginTop = '0 !important';
+          // Reset margin on mobile
+          currentSection.style.marginTop = '0';
           console.log('Mobile detected: Reset margin to 0, UA:', navigator.userAgent.substring(0, 50));
         }
       }
