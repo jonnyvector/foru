@@ -213,7 +213,7 @@
   border-radius: var(--border-radius);
   overflow: hidden;
   width: 100%;
-  height: 80%;
+  height: 100%;
   transition: height 0.3s ease-in-out;
   position: relative;
 }
@@ -266,9 +266,6 @@
 .video-reels [data-swiper-slide] .wt-video__movie--placeholder svg {
   height: 100%;
   width: 100%;
-}
-.video-reels [data-swiper-slide].active low-power-video {
-  height: 100%;
 }
 .video-reels [data-swiper-slide].active .wt-video__sound-toggle,
 .video-reels [data-swiper-slide].active .shoppable-video__control-button {
