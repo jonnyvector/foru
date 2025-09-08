@@ -80,6 +80,7 @@
         "menu": "main-menu",
         "teaser_menu": "main-menu",
         "mobile_footer_menu": "",
+        "transparent_logo": "shopify://shop_images/Frame_154_1.svg",
         "transparent_header_color": "#ffffff",
         "show_country_selector": true,
         "show_country_selector_label": false,
