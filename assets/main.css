@@ -3041,21 +3041,16 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
     font-size: 12px;
   }
   .hero__info-tooltip-content {
-    position: absolute;
-    left: 50%;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
     transform: translate(-50%, -50%);
+    bottom: auto;
     width: 90vw;
     max-width: none;
+    max-height: 50vh;
+    overflow-y: auto;
     z-index: 9999;
-  }
-  .mobile-body-tooltip {
-    position: absolute !important;
-    left: 50vw !important;
-    width: 90vw !important;
-    max-width: none !important;
-    z-index: 99999 !important;
-    max-height: 50vh !important;
-    overflow-y: auto !important;
   }
 }
 @media (max-width: 899px) {

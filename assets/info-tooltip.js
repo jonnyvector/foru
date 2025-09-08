@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         e.stopPropagation();
         
-        // Close other tooltips and reset their triggers
+        // Close other tooltips
         document.querySelectorAll('.hero__info-tooltip-trigger').forEach(otherTrigger => {
           if (otherTrigger !== trigger) {
             const otherTooltipId = otherTrigger.getAttribute('aria-describedby');
@@ -28,22 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const isHidden = tooltip.getAttribute('aria-hidden') === 'true';
         tooltip.setAttribute('aria-hidden', isHidden ? 'false' : 'true');
         trigger.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
-        
-        // On mobile, move tooltip to body to prevent clipping
-        if (window.innerWidth <= 899 && isHidden) {
-          document.body.appendChild(tooltip);
-          tooltip.classList.add('mobile-body-tooltip');
-          
-          // Position tooltip at hero section bottom boundary relative to document
-          const heroSection = document.querySelector('.page-header-image-banner, .wt-image-banner--header');
-          if (heroSection) {
-            const heroRect = heroSection.getBoundingClientRect();
-            // Position absolutely relative to document, not viewport
-            const heroBottom = heroRect.bottom + window.scrollY;
-            tooltip.style.top = `${heroBottom}px`;
-            tooltip.style.transform = 'translate(-50%, -50%)';
-          }
-        }
       });
     }
   });
@@ -57,15 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (tooltip) {
           tooltip.setAttribute('aria-hidden', 'true');
           trigger.setAttribute('aria-expanded', 'false');
-          
-          // Move tooltip back to original container if it was moved to body
-          if (tooltip.parentElement === document.body) {
-            const tooltipContainer = trigger.parentElement;
-            tooltipContainer.appendChild(tooltip);
-            tooltip.classList.remove('mobile-body-tooltip');
-            tooltip.style.top = '';
-            tooltip.style.transform = '';
-          }
         }
       });
     }
@@ -80,15 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (tooltip) {
           tooltip.setAttribute('aria-hidden', 'true');
           trigger.setAttribute('aria-expanded', 'false');
-          
-          // Move tooltip back to original container if it was moved to body
-          if (tooltip.parentElement === document.body) {
-            const tooltipContainer = trigger.parentElement;
-            tooltipContainer.appendChild(tooltip);
-            tooltip.classList.remove('mobile-body-tooltip');
-            tooltip.style.top = '';
-            tooltip.style.transform = '';
-          }
         }
       });
     }
