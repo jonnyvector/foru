@@ -3022,6 +3022,9 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
 }
 
 @media (max-width: 899px) {
+  .hero__overlay__content {
+    height: 100%;
+  }
   .hero__usps-row {
     flex-wrap: nowrap;
     gap: 1rem;
