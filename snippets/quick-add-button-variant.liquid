@@ -18,12 +18,19 @@
         {% render 'component-counter' %}
       {% endif %}
       <input type="hidden" name="id" value="{{ card_variant.id }}">
+      {% comment %} Debug: Check what we have {% endcomment %}
+      <!-- Debug: card_variant.available = {{ card_variant.available }} -->
+      <!-- Debug: card_variant.inventory_quantity = {{ card_variant.inventory_quantity }} -->
+      <!-- Debug: card_variant.inventory_policy = {{ card_variant.inventory_policy }} -->
+      
       {% if card_variant.available %}
         {% assign button_text = 'products.product.add_to_cart' | t %}
         {% assign button_aria = 'products.product.add_to_cart' | t %}
+        {% assign is_disabled = false %}
       {% else %}
         {% assign button_text = 'products.product.sold_out' | t %}
         {% assign button_aria = 'products.product.sold_out' | t %}
+        {% assign is_disabled = true %}
       {% endif %}
       
       {% render 'custom-button',
@@ -33,7 +40,7 @@
         aria_label: button_aria,
         class: 'button--full-width',
         id: section.id | append: '-variant-' | append: card_variant.id,
-        disabled: card_variant.available == false
+        disabled: is_disabled
       %}
     </div>
   {%- endform -%}
