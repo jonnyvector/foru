@@ -28,7 +28,10 @@
             <div data-block-id="{{ tooltip_block.id }}" class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__info-tooltip {% if tooltip_block.settings.disable_on_mobile %}{% if prefix %}{{ prefix }}{% else %}block{% endif %}__info-tooltip--mobile{% endif %}">
               {% if tooltip_block.settings.icon %}
                 <button type="button" class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__info-tooltip-trigger" aria-describedby="tooltip-{{ tooltip_block.id }}">
-                  {{ tooltip_block.settings.icon | image_url: width: 24 | image_tag: alt: "Info" }}
+                  {{ tooltip_block.settings.icon | image_url: width: 24 | image_tag: alt: "Info", class: "default-icon" }}
+                  {% if tooltip_block.settings.hover_icon %}
+                    {{ tooltip_block.settings.hover_icon | image_url: width: 24 | image_tag: alt: "Info", class: "hover-icon" }}
+                  {% endif %}
                 </button>
                 <div id="tooltip-{{ tooltip_block.id }}" class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__info-tooltip-content" role="tooltip" aria-hidden="true">
                   {% if tooltip_block.settings.content %}

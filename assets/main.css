@@ -2992,18 +2992,28 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   width: 20px;
   height: 20px;
   object-fit: contain;
+  position: absolute;
+}
+.hero__info-tooltip-trigger .hover-icon {
+  opacity: 0;
 }
 .hero__info-tooltip-trigger:hover {
   background: white;
 }
-.hero__info-tooltip-trigger:hover img {
-  filter: brightness(0);
+.hero__info-tooltip-trigger:hover .default-icon {
+  opacity: 0;
+}
+.hero__info-tooltip-trigger:hover .hover-icon {
+  opacity: 1;
 }
 .hero__info-tooltip-trigger[aria-expanded="true"] {
   background: white;
 }
-.hero__info-tooltip-trigger[aria-expanded="true"] img {
-  filter: brightness(0);
+.hero__info-tooltip-trigger[aria-expanded="true"] .default-icon {
+  opacity: 0;
+}
+.hero__info-tooltip-trigger[aria-expanded="true"] .hover-icon {
+  opacity: 1;
 }
 .hero__info-tooltip-content {
   position: absolute;
