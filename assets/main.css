@@ -2922,6 +2922,7 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   .hero__overlay--mobile--top {
     align-items: flex-start;
     padding-top: var(--dynamic-header-height, 6.5vh);
+    transition: padding-top 0.3s ease;
   }
   .hero__overlay--mobile--top .hero__overlay__content {
     display: flex;
@@ -10828,6 +10829,7 @@ main#root > .wt-featured-nav {
 @media (max-width: 899px) {
   .page-header-image-banner .hero__overlay--top {
     padding-top: var(--dynamic-header-height, calc(var(--gap, 8px) * 11));
+    transition: padding-top 0.3s ease;
   }
 }
 
