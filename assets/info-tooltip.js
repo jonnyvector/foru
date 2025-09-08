@@ -40,6 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
             tooltip.style.top = `${heroBottom}px`;
             tooltip.style.left = '50%';
             tooltip.style.transform = 'translate(-50%, -50%)';
+            tooltip.style.width = '90vw';
+            tooltip.style.maxHeight = '50vh';
+            tooltip.style.height = 'auto';
           }
         }
       });
@@ -64,6 +67,9 @@ document.addEventListener('DOMContentLoaded', function() {
             tooltip.style.top = '';
             tooltip.style.left = '';
             tooltip.style.transform = '';
+            tooltip.style.width = '';
+            tooltip.style.maxHeight = '';
+            tooltip.style.height = '';
           }
         }
       });
@@ -88,6 +94,9 @@ document.addEventListener('DOMContentLoaded', function() {
             tooltip.style.top = '';
             tooltip.style.left = '';
             tooltip.style.transform = '';
+            tooltip.style.width = '';
+            tooltip.style.maxHeight = '';
+            tooltip.style.height = '';
           }
         }
       });
@@ -121,6 +130,9 @@ document.addEventListener('DOMContentLoaded', function() {
             tooltip.style.top = `${heroBottom}px`;
             tooltip.style.left = '50%';
             tooltip.style.transform = 'translate(-50%, -50%)';
+            tooltip.style.width = '90vw';
+            tooltip.style.maxHeight = '50vh';
+            tooltip.style.height = 'auto';
           }
         }
       }
