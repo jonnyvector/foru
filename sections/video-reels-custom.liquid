@@ -141,7 +141,7 @@
             "slidesPerView": 2.5,
             "spaceBetween": 16,
             "loop": true,
-            "loopedSlides": 6
+            "loopedSlides": {{ section.blocks.size | at_most: 6 }}
           },
           "1200": {
             "slidesPerView": 4.5,
