@@ -93,4 +93,37 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
+  
+  // Handle screen resize
+  window.addEventListener('resize', function() {
+    document.querySelectorAll('.hero__info-tooltip-trigger').forEach(trigger => {
+      const tooltipId = trigger.getAttribute('aria-describedby');
+      const tooltip = document.getElementById(tooltipId);
+      
+      if (tooltip && tooltip.getAttribute('aria-hidden') === 'false') {
+        // If switching from mobile to desktop (screen width > 899px)
+        if (window.innerWidth > 899 && tooltip.parentElement === document.body) {
+          const tooltipContainer = trigger.parentElement;
+          tooltipContainer.appendChild(tooltip);
+          tooltip.style.position = '';
+          tooltip.style.top = '';
+          tooltip.style.left = '';
+          tooltip.style.transform = '';
+        }
+        // If switching from desktop to mobile (screen width <= 899px)
+        else if (window.innerWidth <= 899 && tooltip.parentElement !== document.body) {
+          const heroSection = document.querySelector('.page-header-image-banner, .wt-image-banner--header');
+          if (heroSection) {
+            document.body.appendChild(tooltip);
+            const heroRect = heroSection.getBoundingClientRect();
+            const heroBottom = heroRect.bottom + window.scrollY;
+            tooltip.style.position = 'absolute';
+            tooltip.style.top = `${heroBottom}px`;
+            tooltip.style.left = '50%';
+            tooltip.style.transform = 'translate(-50%, -50%)';
+          }
+        }
+      }
+    });
+  });
 });
