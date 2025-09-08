@@ -2981,7 +2981,6 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
 .hero__info-tooltip-trigger {
   background: none;
   border: none;
-  outline: none;
   cursor: pointer;
   padding: 4px;
   border-radius: 50%;
@@ -2989,23 +2988,22 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   align-items: center;
   justify-content: center;
 }
-.hero__info-tooltip-trigger {
-  width: 28px;
-  height: 28px;
-  font-size: 14px;
-  font-weight: bold;
-  color: white;
-}
-.hero__info-tooltip-trigger::before {
-  content: "?";
+.hero__info-tooltip-trigger img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }
 .hero__info-tooltip-trigger:hover {
   background: white;
-  color: black;
+}
+.hero__info-tooltip-trigger:hover img {
+  filter: brightness(0);
 }
 .hero__info-tooltip-trigger[aria-expanded="true"] {
   background: white;
-  color: black;
+}
+.hero__info-tooltip-trigger[aria-expanded="true"] img {
+  filter: brightness(0);
 }
 .hero__info-tooltip-content {
   position: absolute;
