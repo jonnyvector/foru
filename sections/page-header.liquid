@@ -26,7 +26,24 @@
     --header-bg-blur: {{ section.settings.header_bg_blur }}px;
   }
   {% endif %}
+
+  {% if section.settings.mobile_non_transparent_header %}
+  @media (max-width: 899px) {
+    header[id="shopify-section-{{ section.id }}"] {
+      --header-bg-opacity: 1;
+      background-color: var(--color-base-background-1, #ffffff);
+      position: relative;
+    }
+  }
+  {% endif %}
 </style>
+
+{% if section.settings.mobile_non_transparent_header %}
+<script>
+  // Add mobile-header-opaque class to body for styling purposes
+  document.documentElement.classList.add('mobile-header-opaque');
+</script>
+{% endif %}
 
 {% assign layout_options = 'option_3,option_4' | split: ',' %}
 <script>
@@ -595,6 +612,13 @@
       "default": false,
       "label": "t:sections.header.settings.header_always_blurred.label",
       "info": "t:sections.header.settings.header_always_blurred.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_non_transparent_header",
+      "default": false,
+      "label": "Non-transparent header on mobile",
+      "info": "Makes the header opaque on mobile devices to prevent overlap with banner content. Useful when announcement bar causes header positioning issues."
     },
     {
       "type": "checkbox",

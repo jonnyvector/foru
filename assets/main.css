@@ -2923,6 +2923,10 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
     align-items: flex-start;
     padding-top: 6.5vh;
   }
+  /* When mobile header is non-transparent, reduce padding */
+  .mobile-header-opaque .hero__overlay--mobile--top {
+    padding-top: 2vh;
+  }
   .hero__overlay--mobile--top .hero__overlay__content {
     display: flex;
     flex-direction: column;
@@ -10822,6 +10826,13 @@ main#root > .wt-featured-nav {
 
 .page-header-image-banner .hero__overlay--top {
   padding-top: calc(var(--gap, 8px) * 11);
+}
+
+/* When mobile header is non-transparent, reduce page-header-image-banner padding */
+@media (max-width: 899px) {
+  .mobile-header-opaque .page-header-image-banner .hero__overlay--top {
+    padding-top: calc(var(--gap, 8px) * 4);
+  }
 }
 
 .benefits-product-section {
