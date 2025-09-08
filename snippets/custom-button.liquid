@@ -73,6 +73,7 @@
         <span class="slide-text">{{ button_text }}</span>
         <span class="slide-text">{{ button_text }}</span>
       </span>
+      {% render 'button-loading-indicator' %}
     </button>
 
     <button
@@ -111,6 +112,7 @@
           </svg>
         </span>
       </span>
+      {% render 'button-loading-indicator' %}
     </button>
   {% endif %}
 </div>
@@ -306,6 +308,27 @@
   .custom-button-wrapper-{{ unique_id }}:has(:disabled):hover .slide-arrow {
     transform: none;
     transition: none;
+  }
+
+  /* Loading state - hide slide content and show spinner */
+  .custom-button-text-{{ unique_id }}.loading .slide-wrapper,
+  .custom-button-arrow-{{ unique_id }}.loading .slide-wrapper {
+    opacity: 0;
+  }
+
+  .custom-button-text-{{ unique_id }}.loading .loading-overlay__spinner,
+  .custom-button-arrow-{{ unique_id }}.loading .loading-overlay__spinner {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Default state - hide loading spinner */
+  .custom-button-text-{{ unique_id }} .loading-overlay__spinner,
+  .custom-button-arrow-{{ unique_id }} .loading-overlay__spinner {
+    display: none;
   }
 
   /* Mobile adjustments */

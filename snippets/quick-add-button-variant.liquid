@@ -18,11 +18,6 @@
         {% render 'component-counter' %}
       {% endif %}
       <input type="hidden" name="id" value="{{ card_variant.id }}">
-      {% comment %} Debug: Check what we have {% endcomment %}
-      <!-- Debug: card_variant.available = {{ card_variant.available }} -->
-      <!-- Debug: card_variant.inventory_quantity = {{ card_variant.inventory_quantity }} -->
-      <!-- Debug: card_variant.inventory_policy = {{ card_variant.inventory_policy }} -->
-      
       {% if card_variant.available %}
         {% assign button_text = 'products.product.add_to_cart' | t %}
         {% assign button_aria = 'products.product.add_to_cart' | t %}
