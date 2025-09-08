@@ -24,11 +24,12 @@
     // Add announcement bar height if visible
     if (announcementBar && announcementBar.offsetHeight > 0) {
       totalHeight += announcementBar.offsetHeight;
+      // When announcement bar is present, use smaller buffer
+      totalHeight += 16;
+    } else {
+      // When no announcement bar, add more padding to maintain visual spacing
+      totalHeight += 40;
     }
-    
-    // Add small buffer to prevent content from being too tight to header
-    const bufferPadding = 16;
-    totalHeight += bufferPadding;
     
     // Set CSS custom property for banner sections to use
     document.documentElement.style.setProperty('--dynamic-header-height', totalHeight + 'px');
