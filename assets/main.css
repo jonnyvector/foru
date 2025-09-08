@@ -2977,22 +2977,31 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   position: relative;
   display: flex;
   align-items: center;
+  width: 28px;
+  height: 28px;
 }
 .hero__info-tooltip-trigger {
   background: none;
   border: none;
+  outline: none;
   cursor: pointer;
   padding: 4px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 28px;
+  height: 28px;
+  position: relative;
 }
 .hero__info-tooltip-trigger img {
   width: 20px;
   height: 20px;
   object-fit: contain;
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .hero__info-tooltip-trigger .hover-icon {
   opacity: 0;
