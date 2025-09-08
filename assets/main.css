@@ -2929,7 +2929,7 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
     min-height: 50vh;
     /* height: auto; */
     height: 100%;
-    margin-top: 24px;
+    margin-top: 12px;
   }
   .hero__overlay--mobile--top .hero__button--gap {
     margin-top: auto;
