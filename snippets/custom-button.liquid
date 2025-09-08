@@ -310,10 +310,15 @@
     transition: none;
   }
 
-  /* Loading state - hide slide content and show spinner */
-  .custom-button-text-{{ unique_id }}.loading .slide-wrapper,
+  /* Loading state - maintain button size and center spinner */
+  .custom-button-text-{{ unique_id }}.loading .slide-wrapper {
+    opacity: 0;
+    pointer-events: none;
+  }
+
   .custom-button-arrow-{{ unique_id }}.loading .slide-wrapper {
     opacity: 0;
+    pointer-events: none;
   }
 
   .custom-button-text-{{ unique_id }}.loading .loading-overlay__spinner,
@@ -323,6 +328,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 1;
   }
 
   /* Default state - hide loading spinner */
