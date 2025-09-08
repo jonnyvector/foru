@@ -3026,6 +3026,7 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
     bottom: 32px;
     flex-wrap: nowrap;
     gap: 1rem;
+    position: relative;
   }
   .wt-image-banner {
     overflow: visible;
@@ -3041,11 +3042,10 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
     font-size: 12px;
   }
   .hero__info-tooltip-content {
-    position: fixed;
-    top: 25vh;
-    left: 50vw;
+    position: absolute;
+    top: 100%;
+    left: 50%;
     transform: translateX(-50%);
-    bottom: auto;
     width: 90vw;
     max-width: none;
     max-height: 50vh;
