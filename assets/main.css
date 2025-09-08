@@ -3006,6 +3006,9 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
 .hero__info-tooltip-trigger .hover-icon {
   opacity: 0;
 }
+.hero__info-tooltip-trigger:hover {
+  background: none !important;
+}
 .hero__info-tooltip-trigger:hover .default-icon {
   opacity: 0;
 }
