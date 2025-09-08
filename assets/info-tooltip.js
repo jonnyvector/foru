@@ -28,6 +28,20 @@ document.addEventListener('DOMContentLoaded', function() {
         const isHidden = tooltip.getAttribute('aria-hidden') === 'true';
         tooltip.setAttribute('aria-hidden', isHidden ? 'false' : 'true');
         trigger.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+        
+        // On mobile, move tooltip to body and position at hero bottom
+        if (window.innerWidth <= 899 && isHidden) {
+          const heroSection = document.querySelector('.page-header-image-banner, .wt-image-banner--header');
+          if (heroSection) {
+            document.body.appendChild(tooltip);
+            const heroRect = heroSection.getBoundingClientRect();
+            const heroBottom = heroRect.bottom + window.scrollY;
+            tooltip.style.position = 'absolute';
+            tooltip.style.top = `${heroBottom}px`;
+            tooltip.style.left = '50%';
+            tooltip.style.transform = 'translate(-50%, -50%)';
+          }
+        }
       });
     }
   });
@@ -41,6 +55,16 @@ document.addEventListener('DOMContentLoaded', function() {
         if (tooltip) {
           tooltip.setAttribute('aria-hidden', 'true');
           trigger.setAttribute('aria-expanded', 'false');
+          
+          // Move tooltip back to original container if moved to body
+          if (tooltip.parentElement === document.body) {
+            const tooltipContainer = trigger.parentElement;
+            tooltipContainer.appendChild(tooltip);
+            tooltip.style.position = '';
+            tooltip.style.top = '';
+            tooltip.style.left = '';
+            tooltip.style.transform = '';
+          }
         }
       });
     }
@@ -55,6 +79,16 @@ document.addEventListener('DOMContentLoaded', function() {
         if (tooltip) {
           tooltip.setAttribute('aria-hidden', 'true');
           trigger.setAttribute('aria-expanded', 'false');
+          
+          // Move tooltip back to original container if moved to body
+          if (tooltip.parentElement === document.body) {
+            const tooltipContainer = trigger.parentElement;
+            tooltipContainer.appendChild(tooltip);
+            tooltip.style.position = '';
+            tooltip.style.top = '';
+            tooltip.style.left = '';
+            tooltip.style.transform = '';
+          }
         }
       });
     }
