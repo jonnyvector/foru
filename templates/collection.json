@@ -60,6 +60,7 @@
     },
     "separator_frYThK": {
       "type": "separator",
+      "disabled": true,
       "settings": {
         "heading": "",
         "show-separator-line": true,
@@ -99,6 +100,7 @@
         "heading_NTnUcB",
         "text_pBGP8D"
       ],
+      "disabled": true,
       "settings": {
         "desktop_text_horizontal_position": "center",
         "color-body-text": "rgba(0,0,0,0)",
@@ -199,6 +201,7 @@
     },
     "separator_Jcjt8c": {
       "type": "separator",
+      "disabled": true,
       "settings": {
         "heading": "",
         "show-separator-line": true,
@@ -259,6 +262,7 @@
         "video_hCjN8e",
         "video_WqdeYe"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Real Stories, Real Results",
         "video_button": false,
@@ -272,6 +276,7 @@
     },
     "separator_rHYLqF": {
       "type": "separator",
+      "disabled": true,
       "settings": {
         "heading": "",
         "show-separator-line": true,
@@ -310,6 +315,7 @@
         "heading_3Maim8",
         "button_nJVPqF"
       ],
+      "disabled": true,
       "settings": {
         "heading": "",
         "full-width-enabled": true,
@@ -333,6 +339,7 @@
     },
     "separator_DqVUNA": {
       "type": "separator",
+      "disabled": true,
       "settings": {
         "heading": "",
         "show-separator-line": true,
@@ -388,10 +395,14 @@
         "image_yX8NnD",
         "image_qgFzka"
       ],
+      "disabled": true,
       "settings": {
         "heading": "",
         "size_heading_mobile": 70,
         "size_heading": 70,
+        "headline_font_size_mobile": 100,
+        "headline_font_size_desktop": 100,
+        "headline_text_case": "normal",
         "icon_width_mobile": 44,
         "icon_width_desktop": 64,
         "icon_layout": "center",
@@ -407,6 +418,7 @@
     },
     "separator_MbnYTC": {
       "type": "separator",
+      "disabled": true,
       "settings": {
         "heading": "",
         "show-separator-line": true,
@@ -447,6 +459,7 @@
         "paragraph_7Ewqgk",
         "email_form_atJULD"
       ],
+      "disabled": true,
       "settings": {
         "slide_height": "fixed_height",
         "desktop_fixed_height": 480,
