@@ -130,14 +130,24 @@
         if (window.innerWidth >= 900) {
           const offset = calculateOffset();
           currentSection.style.marginTop = `-${offset}px`;
+          console.log('Desktop: Applied negative margin:', `-${offset}px`);
         } else {
           // Reset margin on mobile
           currentSection.style.marginTop = '0';
+          console.log('Mobile: Reset margin to 0, window width:', window.innerWidth);
+        }
+      }
+
+      function handleResize() {
+        if (isTransparentHeaderEnabled()) {
+          setTopMargin();
         }
       }
 
       if (isTransparentHeaderEnabled()) {
         setTopMargin();
+        // Also listen for resize events
+        window.addEventListener('resize', handleResize);
       }
     })();
   </script>
