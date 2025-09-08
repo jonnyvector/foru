@@ -143,6 +143,7 @@
           "type": "info_tooltip",
           "settings": {
             "icon": "shopify://shop_images/Frame_110_73f5963c-cfc9-4561-aee2-996c4f321018.svg",
+            "hover_icon": "shopify://shop_images/Frame_110_1.svg",
             "content": "<p>Return shipping charges not included.<br/>See Refund Policy.</p>",
             "disable_on_mobile": false
           }
