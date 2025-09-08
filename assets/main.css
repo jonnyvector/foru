@@ -3015,6 +3015,7 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   min-width: 250px;
   max-width: 300px;
   min-height: 56px;
+  text-align: center;
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
