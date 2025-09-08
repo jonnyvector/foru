@@ -3022,18 +3022,12 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
 }
 
 @media (max-width: 899px) {
-  .hero__overlay__content {
-    justify-content: space-between;
-    padding-top: 32px;
-    padding-bottom: 32px;
-    min-height: 60vh;
-  }
   .hero__usps-row {
     flex-wrap: nowrap;
     gap: 1rem;
     position: relative;
     bottom: auto;
-    margin-top: 0;
+    margin-top: 2rem;
   }
   .wt-image-banner {
     overflow: visible;
