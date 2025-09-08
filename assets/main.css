@@ -2927,7 +2927,8 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
     display: flex;
     flex-direction: column;
     min-height: 50vh;
-    height: auto;
+    /* height: auto; */
+    height: 100%;
   }
   .hero__overlay--mobile--top .hero__button--gap {
     margin-top: auto;
@@ -3153,8 +3154,12 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
 .slideshow-section .hero__overlay__content {
   width: auto;
 }
-.wt-image-banner .hero__overlay__content > :not(.hero__button--gap):not(.hero__usps-row),
-.slideshow-section .hero__overlay__content > :not(.hero__button--gap):not(.hero__usps-row) {
+.wt-image-banner
+  .hero__overlay__content
+  > :not(.hero__button--gap):not(.hero__usps-row),
+.slideshow-section
+  .hero__overlay__content
+  > :not(.hero__button--gap):not(.hero__usps-row) {
   max-width: 56rem;
 }
 .hero__title {
