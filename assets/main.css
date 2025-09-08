@@ -3073,7 +3073,6 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
     width: 90vw;
     max-width: none;
     max-height: 50vh;
-    overflow-y: auto;
     z-index: 9999;
   }
 }
