@@ -18,11 +18,19 @@
         {% render 'component-counter' %}
       {% endif %}
       <input type="hidden" name="id" value="{{ card_variant.id }}">
+      {% if card_variant.available %}
+        {% assign button_text = 'products.product.add_to_cart' | t %}
+        {% assign button_aria = 'products.product.add_to_cart' | t %}
+      {% else %}
+        {% assign button_text = 'products.product.sold_out' | t %}
+        {% assign button_aria = 'products.product.sold_out' | t %}
+      {% endif %}
+      
       {% render 'custom-button',
-        text: card_variant.available ? 'products.product.add_to_cart' | t : 'products.product.sold_out' | t,
+        text: button_text,
         type: 'submit',
         style: 'secondary',
-        aria_label: card_variant.available ? 'products.product.add_to_cart' | t : 'products.product.sold_out' | t,
+        aria_label: button_aria,
         class: 'button--full-width',
         id: section.id | append: '-variant-' | append: card_variant.id,
         disabled: card_variant.available == false
