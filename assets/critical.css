@@ -3629,12 +3629,12 @@ body.mobile-nav .wt-page-nav-mega__link__text--underline {
     .wt-page-nav-mega__item--parent
     .wt-page-nav-mega__sublist__wrapper
     > .wt-page-nav-mega__sublist {
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: none;
+    width: 100%;
+    padding-left: calc(var(--gap)*2);
+    padding-right: calc(var(--gap)*2);
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 @media (min-width: 1200px) and (min-width: 1200px) {
@@ -3651,6 +3651,7 @@ body.mobile-nav .wt-page-nav-mega__link__text--underline {
     .wt-page-nav-mega__item--parent
     .wt-page-nav-mega__sublist__wrapper
     > .wt-page-nav-mega__sublist {
+    max-width: none;
   }
 }
 @media (min-width: 1200px) {
