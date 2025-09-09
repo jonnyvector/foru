@@ -2617,7 +2617,7 @@ page-header {
 @media (min-width: 1200px) {
   .wt-header--fashion .wt-header__body {
     max-width: 100%;
-    justify-content: flex-end;
+    justify-content: center;
   }
   .wt-header--fashion .wt-header__menu-trigger {
     display: none;
@@ -2682,10 +2682,6 @@ page-header {
     order: 12;
   }
   .wt-header--fashion .wt-header__nav-teaser--full-menu {
-    position: absolute;
-    left: 50%;
-    width: max-content;
-    margin-left: -50%;
   }
   .wt-header--fashion
     .wt-header__nav-teaser--full-menu
