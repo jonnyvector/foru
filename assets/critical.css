@@ -3526,7 +3526,8 @@ body.mobile-nav .wt-page-nav-mega__link__text--underline {
     z-index: 20;
     top: var(--navbar-height);
     left: 0;
-    width: 100%;
+    right: 0;
+    width: 100vw;
     font-size: var(--font-base-size);
     font-family: var(--font-base);
     font-style: var(--font-base-style);
