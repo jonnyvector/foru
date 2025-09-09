@@ -117,18 +117,15 @@
             max-height: 0;
             transition: max-height .2s ease-out;
             background: white;
-            position: absolute;
+            position: fixed;
             z-index: 20;
             top: var(--navbar-height);
             left: 0;
-            width: 100%; }
+            right: 0;
+            width: 100vw; }
             body:not(.mobile-nav) .wt-page-nav-mega__item--parent .wt-page-nav-mega__sublist__wrapper > .wt-page-nav-mega__sublist {
               padding-left: 0;
-              padding-right: 0;
-              margin-left: auto;
-              margin-right: auto;
-              margin-left: auto;
-              margin-right: auto; } }
+              padding-right: 0; } }
           @media (min-width: 1200px) and (min-width: 1200px) {
             body:not(.mobile-nav) .wt-page-nav-mega__item--parent .wt-page-nav-mega__sublist__wrapper > .wt-page-nav-mega__sublist {
               padding-left: calc(0 + calc(var(--gap)*1));
