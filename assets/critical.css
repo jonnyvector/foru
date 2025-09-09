@@ -2623,7 +2623,7 @@ page-header {
     display: none;
   }
   .wt-header--fashion .wt-header__nav-teaser {
-    margin-right: auto;
+    margin: 0 auto;
     display: flex;
     color: var(--color-header-text);
   }
