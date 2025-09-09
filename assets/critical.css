@@ -2682,7 +2682,10 @@ page-header {
     order: 12;
   }
   .wt-header--fashion .wt-header__nav-teaser--full-menu {
-    margin-left: auto;
+    position: absolute;
+    left: 50%;
+    width: max-content;
+    margin-left: -50%;
   }
   .wt-header--fashion
     .wt-header__nav-teaser--full-menu
