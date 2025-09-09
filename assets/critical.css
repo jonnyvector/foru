@@ -3629,7 +3629,6 @@ body.mobile-nav .wt-page-nav-mega__link__text--underline {
     .wt-page-nav-mega__item--parent
     .wt-page-nav-mega__sublist__wrapper
     > .wt-page-nav-mega__sublist {
-    max-width: var(--site-max-width);
     padding-left: 0;
     padding-right: 0;
     margin-left: auto;
@@ -3652,7 +3651,6 @@ body.mobile-nav .wt-page-nav-mega__link__text--underline {
     .wt-page-nav-mega__item--parent
     .wt-page-nav-mega__sublist__wrapper
     > .wt-page-nav-mega__sublist {
-    max-width: var(--site-max-width-big);
   }
 }
 @media (min-width: 1200px) {
