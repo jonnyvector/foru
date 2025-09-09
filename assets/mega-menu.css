@@ -142,7 +142,7 @@
       body:not(.mobile-nav) .wt-page-nav-mega__sublist {
         max-height: 699px;
         transition: max-height .4s ease-in;
-        left: 0;
+        left: calc(var(--gap)*-2);
         width: 100%;
         white-space: nowrap;
         background: white;
