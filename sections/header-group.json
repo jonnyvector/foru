@@ -41,6 +41,7 @@
           "settings": {
             "title": "Shop",
             "promo_section_width": 6,
+            "desktop_image_1": "shopify://shop_images/Rectangle_801.png",
             "heading_1": "",
             "text_1": "View All Products",
             "link_1": "",
