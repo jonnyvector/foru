@@ -3064,9 +3064,6 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   .wt-image-banner {
     overflow: visible;
   }
-  .page-header-image-banner {
-    overflow: visible;
-  }
   .hero__usp-icon img {
     width: 24px;
     height: 24px;
