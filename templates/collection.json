@@ -133,343 +133,43 @@
         "margin-bottom": 0
       }
     },
-    "grid_view_BXTHwF": {
-      "type": "grid-view",
+    "testimonials_custom_JzhtLN": {
+      "type": "testimonials-custom",
       "blocks": {
-        "image_qGUDCf": {
-          "type": "image",
+        "testimonial_xkUd3D": {
+          "type": "testimonial",
           "settings": {
-            "heading": "energy boost",
-            "heading_disable_on_mobile": false,
-            "size_heading": 200,
-            "size_heading_mobile": 100,
-            "text": "",
-            "text_disable_on_mobile": false,
-            "button_select": "link",
-            "button_label": "Button label",
-            "button_disable_on_mobile": false,
-            "button_link": "",
-            "button_link_in_new_window": false,
-            "color-body-text": "#ffffff",
-            "color-overlay": "rgba(0,0,0,0)",
-            "color-overlay-opacity": 0,
-            "desktop_text_vertical_position": "top",
-            "desktop_text_horizontal_position": "center",
-            "mobile_text_vertical_position": "top",
-            "mobile_text_horizontal_position": "center"
+            "expert_image": "shopify://shop_images/Rectangle_774_0a56476c-34cd-4d6d-9b35-6e747cd46008.png",
+            "expert_name": "Dr. Olivia Martins",
+            "expert_title": "PhD, Clinical Biochemist & Wellness Researcher",
+            "expert_description": "For more than 12 years he has been involved in scientific work at universities in the UK and Germany, specializing in the development of functional nutrition and adaptogens for recovery from mental and physical fatigue.",
+            "testimonial_text": "I started taking Electrolyte Cums on the recommendation of my coach to recover faster after intensive training. At first I was confused by the name, but the product itself turned out to be of very high quality. Excellent replenishes electrolytes, increases endurance and really helps to avoid cramps after exercise. The flavor is neutral, dissolves well. I will order more!",
+            "background_color": "#f7f7f7"
           }
         },
-        "image_hLke4K": {
-          "type": "image",
+        "testimonial_KVxYyq": {
+          "type": "testimonial",
           "settings": {
-            "heading": "Column",
-            "heading_disable_on_mobile": false,
-            "size_heading": 100,
-            "size_heading_mobile": 100,
-            "text": "Give customers details about the image or content on the template.",
-            "text_disable_on_mobile": false,
-            "button_select": "link",
-            "button_label": "Button label",
-            "button_disable_on_mobile": false,
-            "button_link": "",
-            "button_link_in_new_window": false,
-            "color-body-text": "#ffffff",
-            "color-overlay": "rgba(0,0,0,0)",
-            "color-overlay-opacity": 0,
-            "desktop_text_vertical_position": "top",
-            "desktop_text_horizontal_position": "center",
-            "mobile_text_vertical_position": "top",
-            "mobile_text_horizontal_position": "center"
+            "expert_image": "shopify://shop_images/Rectangle_785.png",
+            "expert_name": "Dr. Samuel E. Carter",
+            "expert_title": "Chief Nutrition Scientist",
+            "expert_description": "Dr. Carter is a medical nutritionist and sports medicine specialist with over 18 years of experience in recovery and nutrition. During his career, he has worked with U.S. Olympic teams, developing formulas for recovery drinks and customized supplements for athletes and people with high levels of physical activity.",
+            "testimonial_text": "I started using Electrolyte Cums after tough workouts, and despite the unusual name, the results speak for themselves. It helps me stay hydrated, recover faster, and I’ve noticed way fewer muscle cramps. The formula is clean, easy to mix, and doesn't have a weird aftertaste. Definitely a solid addition to my training routine — will be reordering!",
+            "background_color": "#f7f7f7"
           }
         }
       },
       "block_order": [
-        "image_qGUDCf",
-        "image_hLke4K"
+        "testimonial_xkUd3D",
+        "testimonial_KVxYyq"
       ],
-      "disabled": true,
+      "name": "Testimonials Custom",
       "settings": {
-        "title": "",
-        "swipe_on_mobile": false,
-        "full-width-enabled": true,
-        "image_ratio": "adapt",
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "separator_Jcjt8c": {
-      "type": "separator",
-      "disabled": true,
-      "settings": {
-        "heading": "",
-        "show-separator-line": true,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "testimonial_video_reels_hiBrzk": {
-      "type": "testimonial-video-reels",
-      "blocks": {
-        "video_DGJbX8": {
-          "type": "video",
-          "settings": {
-            "rating": "5",
-            "testimonial": "<p>\"I was skeptical at first, but after just a few weeks, I noticed a huge difference in my energy and mood!\"</p>",
-            "author": "Mark D."
-          }
-        },
-        "video_L6bHnN": {
-          "type": "video",
-          "settings": {
-            "rating": "5",
-            "testimonial": "<p>\"I’ve tried so many supplements, but nothing compares to these. I feel like the best version of myself!\"</p>",
-            "author": "Hubert E."
-          }
-        },
-        "video_bHRgk8": {
-          "type": "video",
-          "settings": {
-            "rating": "4",
-            "testimonial": "<p>\"A game-changer for my daily routine. I wake up refreshed and ready to take on the day like never before!\"</p>",
-            "author": "Olivia R."
-          }
-        },
-        "video_hCjN8e": {
-          "type": "video",
-          "settings": {
-            "rating": "4.5",
-            "testimonial": "<p>\"A game-changer for my daily routine. I wake up refreshed and ready to take on the day like never before!\"</p>",
-            "author": "Martha W."
-          }
-        },
-        "video_WqdeYe": {
-          "type": "video",
-          "settings": {
-            "rating": "5",
-            "testimonial": "<p>\"These supplements have truly changed my life! I feel healthier, more energetic, and confident every day.\"</p>",
-            "author": "Emma T."
-          }
-        }
-      },
-      "block_order": [
-        "video_DGJbX8",
-        "video_L6bHnN",
-        "video_bHRgk8",
-        "video_hCjN8e",
-        "video_WqdeYe"
-      ],
-      "disabled": true,
-      "settings": {
-        "heading": "Real Stories, Real Results",
-        "video_button": false,
-        "text_alignment": "center",
-        "text_style": "body",
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
-        "margin-top": 52,
-        "margin-bottom": 40
-      }
-    },
-    "separator_rHYLqF": {
-      "type": "separator",
-      "disabled": true,
-      "settings": {
-        "heading": "",
-        "show-separator-line": true,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "scrolling_text_banner_kRzYk3": {
-      "type": "scrolling-text-banner",
-      "blocks": {
-        "heading_3Maim8": {
-          "type": "heading",
-          "settings": {
-            "heading": "Empowering Your Health Naturall",
-            "size_heading": 600,
-            "size_heading_mobile": 250
-          }
-        },
-        "button_nJVPqF": {
-          "type": "button",
-          "settings": {
-            "button_select": "secondary",
-            "button_label": "about us",
-            "disable_on_mobile": false,
-            "button_link": "/",
-            "second_button_select": "primary",
-            "second_button_label": "Button label",
-            "second_disable_on_mobile": false,
-            "second_button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "heading_3Maim8",
-        "button_nJVPqF"
-      ],
-      "disabled": true,
-      "settings": {
-        "heading": "",
-        "full-width-enabled": true,
-        "animation_speed": 4,
-        "slide_height": "adapt_to_first_image",
-        "desktop_fixed_height": 320,
-        "mobile_fixed_height": 460,
-        "desktop_text_vertical_position": "center",
-        "desktop_text_horizontal_position": "center",
-        "mobile_text_vertical_position": "center",
-        "mobile_text_horizontal_position": "center",
-        "color-heading": "rgba(0,0,0,0)",
-        "section-color-overlay": "rgba(0,0,0,0)",
-        "section-color-overlay-opacity": 100,
-        "color-body-text": "#ffffff",
-        "text-container-color": "rgba(0,0,0,0)",
-        "color-overlay-opacity": 100,
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "separator_DqVUNA": {
-      "type": "separator",
-      "disabled": true,
-      "settings": {
-        "heading": "",
-        "show-separator-line": true,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "features_banner_hADmFT": {
-      "type": "features-banner",
-      "blocks": {
-        "image_bf9aR9": {
-          "type": "image",
-          "settings": {
-            "select_icon": "user",
-            "heading": "Third-party tested",
-            "text": "<p>We hold ourselves and our ingredients to the highest standards.</p>",
-            "link": ""
-          }
-        },
-        "image_gcNmVy": {
-          "type": "image",
-          "settings": {
-            "select_icon": "bag",
-            "heading": "Quality ingredients",
-            "text": "<p>We're dedicated to using scientifically backed, high-quality natural ingredients.</p>",
-            "link": ""
-          }
-        },
-        "image_yX8NnD": {
-          "type": "image",
-          "settings": {
-            "select_icon": "star",
-            "heading": "Non-GMO",
-            "text": "<p>We carefully evaluate every ingredient, ensuring they are non-GMO.</p>",
-            "link": ""
-          }
-        },
-        "image_qgFzka": {
-          "type": "image",
-          "settings": {
-            "select_icon": "search",
-            "heading": "vegan",
-            "text": "<p>We ensure the highest standards with 100% vegan, cruelty-free formulations.</p>",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_bf9aR9",
-        "image_gcNmVy",
-        "image_yX8NnD",
-        "image_qgFzka"
-      ],
-      "disabled": true,
-      "settings": {
-        "heading": "",
-        "size_heading_mobile": 70,
-        "size_heading": 70,
-        "headline_font_size_mobile": 100,
-        "headline_font_size_desktop": 100,
-        "headline_text_case": "normal",
-        "icon_width_mobile": 44,
-        "icon_width_desktop": 64,
-        "icon_layout": "center",
-        "columns_desktop": "4",
-        "icon_layout_mobile": "grid",
-        "color_body_icon": "rgba(0,0,0,0)",
-        "color_background_icon": "rgba(0,0,0,0)",
-        "color_body_text": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
-        "margin-top": 40,
-        "margin-bottom": 52
-      }
-    },
-    "separator_MbnYTC": {
-      "type": "separator",
-      "disabled": true,
-      "settings": {
-        "heading": "",
-        "show-separator-line": true,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "newsletter_with_image_nHAiyT": {
-      "type": "newsletter-with-image",
-      "blocks": {
-        "heading_PkCEBm": {
-          "type": "heading",
-          "settings": {
-            "heading": "Join Our Circle & Save!",
-            "heading_disable_on_mobile": false,
-            "size_heading": 200,
-            "size_heading_mobile": 140
-          }
-        },
-        "paragraph_7Ewqgk": {
-          "type": "paragraph",
-          "settings": {
-            "paragraph": "<p>Sign up now for 10% off your first order – because you deserve it!</p>",
-            "text_disable_on_mobile": false
-          }
-        },
-        "email_form_atJULD": {
-          "type": "email_form",
-          "settings": {
-            "button_select": "primary"
-          }
-        }
-      },
-      "block_order": [
-        "heading_PkCEBm",
-        "paragraph_7Ewqgk",
-        "email_form_atJULD"
-      ],
-      "disabled": true,
-      "settings": {
-        "slide_height": "fixed_height",
-        "desktop_fixed_height": 480,
-        "mobile_fixed_height": 460,
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "#ffffff",
-        "background_color_opacity": 54,
-        "background_blur": 13,
-        "margin-top": 0,
-        "margin-bottom": 0
+        "heading": "<p>Built by Experts,<br/>Proven by Athletes</p>",
+        "full_width_enabled": false,
+        "color_body_text": "#1a1c1c",
+        "background_color": "transparent",
+        "quote_icon": "shopify://shop_images/Frame_1.svg"
       }
     }
   },
@@ -480,14 +180,6 @@
     "separator_frYThK",
     "rich_text_with_image_cXNFjY",
     "product-grid",
-    "grid_view_BXTHwF",
-    "separator_Jcjt8c",
-    "testimonial_video_reels_hiBrzk",
-    "separator_rHYLqF",
-    "scrolling_text_banner_kRzYk3",
-    "separator_DqVUNA",
-    "features_banner_hADmFT",
-    "separator_MbnYTC",
-    "newsletter_with_image_nHAiyT"
+    "testimonials_custom_JzhtLN"
   ]
 }
