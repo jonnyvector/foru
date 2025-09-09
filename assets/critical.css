@@ -3522,7 +3522,7 @@ body.mobile-nav .wt-page-nav-mega__link__text--underline {
     max-height: 0;
     transition: max-height 0.2s ease-out, margin 0.2s ease-in;
     background: var(--color-background);
-    position: absolute;
+    position: fixed;
     z-index: 20;
     top: var(--navbar-height);
     left: 0;

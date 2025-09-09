@@ -117,7 +117,7 @@
             max-height: 0;
             transition: max-height .2s ease-out;
             background: white;
-            position: absolute;
+            position: fixed;
             z-index: 20;
             top: var(--navbar-height);
             left: 0;
