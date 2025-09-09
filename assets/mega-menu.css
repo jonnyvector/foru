@@ -121,8 +121,7 @@
             z-index: 20;
             top: var(--navbar-height);
             left: 0;
-            right: 0;
-            width: 100vw; }
+            width: 100%; }
             body:not(.mobile-nav) .wt-page-nav-mega__item--parent .wt-page-nav-mega__sublist__wrapper > .wt-page-nav-mega__sublist {
               max-width: none;
               width: 100%;

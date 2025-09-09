@@ -2684,8 +2684,8 @@ page-header {
   .wt-header--fashion .wt-header__nav-teaser--full-menu {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
+    width: max-content;
+    margin-left: -50%;
   }
   .wt-header--fashion
     .wt-header__nav-teaser--full-menu
@@ -3526,8 +3526,7 @@ body.mobile-nav .wt-page-nav-mega__link__text--underline {
     z-index: 20;
     top: var(--navbar-height);
     left: 0;
-    right: 0;
-    width: 100vw;
+    width: 100%;
     font-size: var(--font-base-size);
     font-family: var(--font-base);
     font-style: var(--font-base-style);
