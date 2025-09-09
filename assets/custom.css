@@ -102,3 +102,9 @@
     transform: translateY(0);
   }
 }
+
+/* Policy styles */
+
+.shopify-policy__container {
+  max-width: 930px;
+}
