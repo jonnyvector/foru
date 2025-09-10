@@ -109,6 +109,53 @@
         "margin-bottom": 20
       }
     },
+    "image_banner_z8BmqB": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_dWmnLw": {
+          "type": "heading",
+          "settings": {
+            "heading": "Choose your protocol",
+            "disable_on_mobile": false,
+            "size_heading": 330,
+            "size_heading_mobile": 180
+          }
+        },
+        "text_QT6maj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>No dairy, gluten, or animal products. Pure, clean fuel.</p>",
+            "disable_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_dWmnLw",
+        "text_QT6maj"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "heading": "",
+        "full-width-enabled": true,
+        "slide_height": "adapt_to_first_image",
+        "desktop_fixed_height": 320,
+        "mobile_fixed_height": 460,
+        "desktop_image": "shopify://shop_images/image_22_8.png",
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "left",
+        "mobile_image": "shopify://shop_images/image_22_9.png",
+        "mobile_text_vertical_position": "center",
+        "mobile_text_horizontal_position": "center",
+        "color-heading": "transparent",
+        "section-color-overlay": "transparent",
+        "section-color-overlay-opacity": 100,
+        "color-body-text": "#ffffff",
+        "text-container-color": "transparent",
+        "color-overlay-opacity": 100,
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
@@ -168,7 +215,7 @@
         "heading": "<p>Built by Experts,<br/>Proven by Athletes</p>",
         "full_width_enabled": false,
         "color_body_text": "#1a1c1c",
-        "background_color": "transparent",
+        "background_color": "rgba(0,0,0,0)",
         "quote_icon": "shopify://shop_images/Frame_1.svg"
       }
     }
@@ -179,6 +226,7 @@
     "title",
     "separator_frYThK",
     "rich_text_with_image_cXNFjY",
+    "image_banner_z8BmqB",
     "product-grid",
     "testimonials_custom_JzhtLN"
   ]
