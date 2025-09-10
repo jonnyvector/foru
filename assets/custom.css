@@ -126,7 +126,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: calc(var(--gap) * 3);
+  padding: 0 calc(var(--gap) * 3);
   text-align: left;
 }
 
