@@ -1052,6 +1052,7 @@ button[disabled] {
   height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 .card__container .product-form__error-message-wrapper span {
   background: var(--color-button-secondary-background);
