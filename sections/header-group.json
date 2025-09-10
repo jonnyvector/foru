@@ -36,8 +36,19 @@
     "header": {
       "type": "page-header",
       "blocks": {
+        "products_H7Dxjr": {
+          "type": "products",
+          "settings": {
+            "title": "",
+            "product_1": "hydration",
+            "product_2": "recovery",
+            "product_3": "whey-protein",
+            "product_4": ""
+          }
+        },
         "column_yVYQQ3": {
           "type": "column",
+          "disabled": true,
           "settings": {
             "title": "Shop",
             "promo_section_width": 6,
@@ -67,6 +78,7 @@
         }
       },
       "block_order": [
+        "products_H7Dxjr",
         "column_yVYQQ3"
       ],
       "settings": {
