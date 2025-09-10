@@ -312,6 +312,9 @@ mega-menu-section {
   flex-shrink: 0;
   text-align: center;
 }
+.mega-menu__gallery__item .card__title {
+  text-align: left;
+}
 @media (min-width: 1200px) {
   body:not(.mobile-nav) .mega-menu__gallery__item {
     flex-shrink: 1;
