@@ -236,13 +236,11 @@ mega-menu-section {
 /* Product Mega Menu - Shop All Column */
 .mega-menu__shop-all-column {
   display: none; /* Hidden on mobile by default */
-  text-align: left !important; /* Override gallery item center alignment */
 }
 
 @media (min-width: 1200px) {
   body:not(.mobile-nav) .mega-menu__shop-all-column {
     display: block;
-    text-align: left !important; /* Override gallery item center alignment */
   }
 }
 
