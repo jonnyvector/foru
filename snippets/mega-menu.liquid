@@ -160,7 +160,7 @@
                   {% for i in (1..4) %}
                     {% assign product_key = 'product_' | append: i %}
                     {% assign current_product = product_mega_block.settings[product_key] %}
-                    {% if current_product %}
+                    {% if current_product != blank %}
                       <li class="mega-menu__gallery__item">
                         <a href="{{ current_product.url }}" class="mega-menu__gallery__link" data-menu-level="2" tabindex="-1">
                           <picture class="mega-menu__gallery__picture">
