@@ -176,3 +176,8 @@
 .mega-menu__gallery__item:not(.mega-menu__shop-all-column) .mega-menu__gallery__picture {
   margin-bottom: calc(var(--gap) * 1.5);
 }
+
+/* Mega Menu Gallery Caption Alignment */
+.mega-menu__gallery__caption {
+  text-align: left;
+}
