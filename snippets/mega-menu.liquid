@@ -154,46 +154,43 @@
             {% if show_product_mega %}
               <li
                 data-block-id="{{ product_mega_block.id }}"
-                class="wt-page-nav-mega__sublist__item wt-page-nav-mega__sublist__item--products"
+                class="wt-page-nav-mega__sublist__item wt-page-nav-mega__sublist__item--gallery"
               >
-                <div class="mega-menu__products">
-                  <div class="mega-menu__products-grid">
-                    {% for i in (1..4) %}
-                      {% assign product_key = 'product_' | append: i %}
-                      {% assign current_product = product_mega_block.settings[product_key] %}
-                      {% if current_product %}
-                        <div class="mega-menu__product-card">
-                          <a href="{{ current_product.url }}" class="mega-menu__product-link" data-menu-level="2" tabindex="-1">
-                            <div class="mega-menu__product-image">
-                              {% if current_product.featured_image %}
-                                <img
-                                  class="mega-menu__product-img"
-                                  srcset="
-                                    {% if current_product.featured_image.width >= 200 %}{{ current_product.featured_image | image_url: width: 200 }} 200w,{% endif %}
-                                    {% if current_product.featured_image.width >= 400 %}{{ current_product.featured_image | image_url: width: 400 }} 400w,{% endif %}
-                                    {{ current_product.featured_image | image_url: width: 200 }} 200w
-                                  "
-                                  sizes="200px"
-                                  src="{{ current_product.featured_image | image_url: width: 200 }}"
-                                  alt="{{ current_product.featured_image.alt | escape }}"
-                                  loading="lazy"
-                                >
-                              {% else %}
-                                {{ 'product-apparel-1' | placeholder_svg_tag: 'mega-menu__product-img mega-menu__product-img--placeholder' }}
-                              {% endif %}
-                            </div>
-                            <div class="mega-menu__product-info">
-                              {% if current_product.vendor and current_product.vendor != blank %}
-                                <div class="mega-menu__product-vendor">{{ current_product.vendor }}</div>
-                              {% endif %}
-                              <h4 class="mega-menu__product-title">{{ current_product.title }}</h4>
-                            </div>
-                          </a>
-                        </div>
-                      {% endif %}
-                    {% endfor %}
-                  </div>
-                </div>
+                <ul class="mega-menu__gallery">
+                  {% for i in (1..4) %}
+                    {% assign product_key = 'product_' | append: i %}
+                    {% assign current_product = product_mega_block.settings[product_key] %}
+                    {% if current_product %}
+                      <li class="mega-menu__gallery__item">
+                        <a href="{{ current_product.url }}" class="mega-menu__gallery__link" data-menu-level="2" tabindex="-1">
+                          <picture class="mega-menu__gallery__picture">
+                            {% if current_product.featured_image %}
+                              <img
+                                class="mega-menu__gallery__img"
+                                srcset="
+                                  {% if current_product.featured_image.width >= 400 %}{{ current_product.featured_image | image_url: width: 400 }} 400w, {% endif %}
+                                  {% if current_product.featured_image.width >= 800 %}{{ current_product.featured_image | image_url: width: 800 }} 800w, {% endif %}
+                                  {% if current_product.featured_image.width >= 1200 %}{{ current_product.featured_image | image_url: width: 1200 }} 1200w, {% endif %}
+                                  {{ current_product.featured_image | image_url: width: 800 }} 800w
+                                "
+                                sizes="(min-width: 800px) 800px, 100vw"
+                                src="{{ current_product.featured_image | image_url: width: 800 }}"
+                                alt="{{ current_product.featured_image.alt | escape }}"
+                                loading="lazy"
+                              >
+                            {% else %}
+                              {{ 'product-apparel-1' | placeholder_svg_tag: 'mega-menu__gallery__img' }}
+                            {% endif %}
+                            {% if current_product.vendor and current_product.vendor != blank %}
+                              <span class="mega-menu__gallery__heading wt-page-nav-mega__decorated">{{ current_product.vendor }}</span>
+                            {% endif %}
+                            <p class="mega-menu__gallery__caption">{{ current_product.title }}</p>
+                          </picture>
+                        </a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
               </li>
             {% endif %}
           </ul>
