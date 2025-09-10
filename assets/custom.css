@@ -164,3 +164,15 @@
   display: flex;
   flex-direction: column;
 }
+
+/* Mega-menu Product Card Background */
+.mega-menu__gallery__item {
+  background-color: #f7f7f7;
+  border-radius: var(--border-radius, 8px);
+  padding: calc(var(--gap) * 2);
+  overflow: hidden;
+}
+
+.mega-menu__gallery__item .mega-menu__gallery__picture {
+  margin-bottom: calc(var(--gap) * 1.5);
+}
