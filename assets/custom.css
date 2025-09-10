@@ -171,6 +171,7 @@
   border-radius: var(--border-radius, 8px);
   padding: calc(var(--gap) * 2);
   overflow: hidden;
+  text-align: left;
 }
 
 .mega-menu__gallery__item:not(.mega-menu__shop-all-column) .mega-menu__gallery__picture {
