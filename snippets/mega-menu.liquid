@@ -197,7 +197,16 @@
                             {% else %}
                               {{ 'product-apparel-1' | placeholder_svg_tag: 'mega-menu__gallery__img' }}
                             {% endif %}
-                            <p class="mega-menu__gallery__caption">{{ current_product.title }}</p>
+                            <div class="mega-menu__gallery__info">
+                              <p class="mega-menu__gallery__caption">{{ current_product.title }}</p>
+                              <p class="mega-menu__gallery__price">
+                                {% if settings.currency_code_enabled %}
+                                  {{ current_product.price | money_with_currency }}
+                                {% else %}
+                                  {{ current_product.price | money }}
+                                {% endif %}
+                              </p>
+                            </div>
                           </picture>
                         </a>
                       </li>

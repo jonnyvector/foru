@@ -181,4 +181,26 @@
 .mega-menu__gallery__caption {
   text-align: left;
   font-weight: 600;
+  margin: 0;
+  flex: 1;
+}
+
+/* Mega Menu Gallery Info Container */
+.mega-menu__gallery__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: calc(var(--gap, 8px) * 1);
+}
+
+/* Mega Menu Gallery Price */
+.mega-menu__gallery__price {
+  margin: 0;
+  font-size: var(--font-price-size);
+  font-family: var(--font-price);
+  font-style: var(--font-price-style);
+  font-weight: var(--font-price-weight);
+  color: var(--color-custom-text);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
