@@ -1308,7 +1308,7 @@ button[disabled] {
   }
 }
 .card__quick-add-container button {
-  height: 32px;
+  /* height: 32px; */
   font-size: calc(var(--font-button-size) - 2px);
 }
 @media (max-width: 599px) {
