@@ -1315,6 +1315,10 @@ button[disabled] {
   /* .card__quick-add-container button {
     padding: 1px 8px;
   } */
+
+  .card__quick-add-container {
+    align-items: center;
+  }
 }
 .card__quick-add-container quick-add {
   width: 100%;
