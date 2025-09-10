@@ -5,6 +5,8 @@
     {% assign menu_class = '--simple' %}
     {% assign show_mega = false %}
     {% assign promo_blocks = false %}
+    {% assign show_product_mega = false %}
+    {% assign product_mega_block = null %}
 
     {% if blocks.size > 0 %}
       {% for block in blocks %}
@@ -13,7 +15,11 @@
           {% assign show_mega = true %}
           {% assign mega_block = block %}
           {% assign menu_class = '--mega' %}
-          {% if mega_block.settings.desktop_image_1
+          
+          {% if block.type == 'products' %}
+            {% assign show_product_mega = true %}
+            {% assign product_mega_block = block %}
+          {% elsif mega_block.settings.desktop_image_1
             or mega_block.settings.desktop_image_2
             or mega_block.settings.desktop_image_3
             or mega_block.settings.desktop_image_4
@@ -25,7 +31,7 @@
         {% endif %}
       {% endfor %}
     {% endif %}
-    {%- if link.links != blank or promo_blocks -%}
+    {%- if link.links != blank or promo_blocks or show_product_mega -%}
       <li
         class="wt-page-nav-mega__item wt-page-nav-mega__item--parent wt-page-nav-mega__item{{ menu_class }}"
       >
@@ -43,7 +49,8 @@
           {% render 'icons', id: 'arrow-down' %}
         </a>
         <div class="wt-page-nav-mega__sublist__wrapper wt-page-nav-mega__sublist__wrapper{{ menu_class }}">
-          <ul class="wt-page-nav-mega__sublist">
+          <ul class="wt-page-nav-mega__sublist{% if show_product_mega and link.links == blank %} wt-page-nav-mega__sublist--products-only{% endif %}">
+            {%- unless show_product_mega and link.links == blank -%}
             {%- for childlink in link.links -%}
               {%- if childlink.links == blank -%}
                 <li class="wt-page-nav-mega__sublist__item wt-page-nav-mega__sublist__item--child">
@@ -88,6 +95,7 @@
                 </li>
               {%- endif -%}
             {%- endfor -%}
+            {%- endunless -%}
             {% if show_mega %}
               <li
                 data-block-id="{{ mega_block.id }}"
@@ -142,6 +150,51 @@
                   }
                 </style>
               {% endif %}
+            {% endif %}
+            {% if show_product_mega %}
+              <li
+                data-block-id="{{ product_mega_block.id }}"
+                class="wt-page-nav-mega__sublist__item wt-page-nav-mega__sublist__item--products"
+              >
+                <div class="mega-menu__products">
+                  <div class="mega-menu__products-grid">
+                    {% for i in (1..4) %}
+                      {% assign product_key = 'product_' | append: i %}
+                      {% assign current_product = product_mega_block.settings[product_key] %}
+                      {% if current_product %}
+                        <div class="mega-menu__product-card">
+                          <a href="{{ current_product.url }}" class="mega-menu__product-link" data-menu-level="2" tabindex="-1">
+                            <div class="mega-menu__product-image">
+                              {% if current_product.featured_image %}
+                                <img
+                                  class="mega-menu__product-img"
+                                  srcset="
+                                    {% if current_product.featured_image.width >= 200 %}{{ current_product.featured_image | image_url: width: 200 }} 200w,{% endif %}
+                                    {% if current_product.featured_image.width >= 400 %}{{ current_product.featured_image | image_url: width: 400 }} 400w,{% endif %}
+                                    {{ current_product.featured_image | image_url: width: 200 }} 200w
+                                  "
+                                  sizes="200px"
+                                  src="{{ current_product.featured_image | image_url: width: 200 }}"
+                                  alt="{{ current_product.featured_image.alt | escape }}"
+                                  loading="lazy"
+                                >
+                              {% else %}
+                                {{ 'product-apparel-1' | placeholder_svg_tag: 'mega-menu__product-img mega-menu__product-img--placeholder' }}
+                              {% endif %}
+                            </div>
+                            <div class="mega-menu__product-info">
+                              {% if current_product.vendor and current_product.vendor != blank %}
+                                <div class="mega-menu__product-vendor">{{ current_product.vendor }}</div>
+                              {% endif %}
+                              <h4 class="mega-menu__product-title">{{ current_product.title }}</h4>
+                            </div>
+                          </a>
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+              </li>
             {% endif %}
           </ul>
         </div>
