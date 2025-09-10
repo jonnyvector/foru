@@ -235,33 +235,41 @@ mega-menu-section {
 
 /* Product Mega Menu Styles */
 .mega-menu__products {
-  padding: calc(var(--gap)*2);
+  padding: calc(var(--gap)*3);
 }
 
 .mega-menu__products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: flex;
   gap: calc(var(--gap)*2);
+  overflow-y: auto;
   width: 100%;
+  padding-bottom: calc(var(--gap)*1);
+  padding-left: calc(var(--gap)*1);
 }
 
-/* Mobile: Show as slider on very small screens */
-@media (max-width: 768px) {
-  .mega-menu__products-grid {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  .mega-menu__product-card {
-    flex: 0 0 80%;
-    scroll-snap-align: start;
+@media (min-width: 1200px) {
+  body:not(.mobile-nav) .mega-menu__products-grid {
+    padding-left: calc(var(--gap)*0);
+    padding-right: calc(var(--gap)*0);
   }
 }
 
 .mega-menu__product-card {
+  width: 80%;
+  flex-shrink: 0;
   text-align: center;
+}
+
+@media (min-width: 1200px) {
+  body:not(.mobile-nav) .mega-menu__product-card {
+    flex-shrink: 1;
+    flex-grow: 1;
+    width: 25%;
+  }
+  
+  body:not(.mobile-nav) .mega-menu__product-card:last-child {
+    margin-right: 0;
+  }
 }
 
 .mega-menu__product-link {
@@ -320,11 +328,11 @@ mega-menu-section {
 
 /* Desktop: Adjust spacing and aspect ratio */
 @media (min-width: 1200px) {
-  .mega-menu__products-grid {
+  body:not(.mobile-nav) .mega-menu__products-grid {
     gap: calc(var(--gap)*3);
   }
   
-  .mega-menu__product-image {
+  body:not(.mobile-nav) .mega-menu__product-image {
     aspect-ratio: 4/5;
   }
 }
