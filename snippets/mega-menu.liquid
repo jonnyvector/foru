@@ -157,6 +157,22 @@
                 class="wt-page-nav-mega__sublist__item wt-page-nav-mega__sublist__item--gallery"
               >
                 <ul class="mega-menu__gallery">
+                  <!-- Desktop Shop All Column -->
+                  <li class="mega-menu__gallery__item mega-menu__shop-all-column">
+                    <div class="mega-menu__shop-all">
+                      <h3 class="mega-menu__shop-all-title">{{ link.title | upcase }}</h3>
+                      {% render 'custom-button', 
+                        text: 'Shop All',
+                        type: 'link',
+                        url: link.url,
+                        style: 'primary',
+                        id: 'mega-menu-shop-all',
+                        class: 'mega-menu__shop-all-button'
+                      %}
+                    </div>
+                  </li>
+                  
+                  <!-- Product Cards -->
                   {% for i in (1..4) %}
                     {% assign product_key = 'product_' | append: i %}
                     {% assign current_product = product_mega_block.settings[product_key] %}

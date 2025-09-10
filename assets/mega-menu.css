@@ -233,3 +233,37 @@ mega-menu-section {
       margin-bottom: calc(var(--gap)*1);
       border-radius: var(--border-radius); }
 
+/* Product Mega Menu - Shop All Column */
+.mega-menu__shop-all-column {
+  display: none; /* Hidden on mobile by default */
+}
+
+@media (min-width: 1200px) {
+  body:not(.mobile-nav) .mega-menu__shop-all-column {
+    display: block;
+  }
+}
+
+.mega-menu__shop-all {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: calc(var(--gap)*3);
+  text-align: left;
+}
+
+.mega-menu__shop-all-title {
+  font-family: var(--font-headline);
+  font-size: calc(var(--font-h2-size) * 0.8);
+  font-weight: var(--font-headline-weight);
+  color: var(--color-text);
+  margin: 0 0 calc(var(--gap)*2) 0;
+  line-height: 1.2;
+}
+
+.mega-menu__shop-all .mega-menu__shop-all-button {
+  margin-top: auto;
+}
+
