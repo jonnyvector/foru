@@ -358,6 +358,7 @@ mega-menu-section {
   color: var(--color-text);
   margin: 0 0 calc(var(--gap) * 2) 0;
   line-height: 1.2;
+  text-align: left;
 }
 
 .mega-menu__shop-all .mega-menu__shop-all-button {
