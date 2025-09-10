@@ -177,29 +177,16 @@
                     {% assign product_key = 'product_' | append: i %}
                     {% assign current_product = product_mega_block.settings[product_key] %}
                     {% if current_product != blank %}
-                      <li class="mega-menu__gallery__item">
-                        <a href="{{ current_product.url }}" class="mega-menu__gallery__link" data-menu-level="2" tabindex="-1">
-                          <picture class="mega-menu__gallery__picture">
-                            {% if current_product.featured_image %}
-                              <img
-                                class="mega-menu__gallery__img"
-                                srcset="
-                                  {% if current_product.featured_image.width >= 400 %}{{ current_product.featured_image | image_url: width: 400 }} 400w, {% endif %}
-                                  {% if current_product.featured_image.width >= 800 %}{{ current_product.featured_image | image_url: width: 800 }} 800w, {% endif %}
-                                  {% if current_product.featured_image.width >= 1200 %}{{ current_product.featured_image | image_url: width: 1200 }} 1200w, {% endif %}
-                                  {{ current_product.featured_image | image_url: width: 800 }} 800w
-                                "
-                                sizes="(min-width: 800px) 800px, 100vw"
-                                src="{{ current_product.featured_image | image_url: width: 800 }}"
-                                alt="{{ current_product.featured_image.alt | escape }}"
-                                loading="lazy"
-                              >
-                            {% else %}
-                              {{ 'product-apparel-1' | placeholder_svg_tag: 'mega-menu__gallery__img' }}
-                            {% endif %}
-                            <p class="mega-menu__gallery__caption">{{ current_product.title }}</p>
-                          </picture>
-                        </a>
+                      <li class="mega-menu__gallery__item mega-menu__product-card">
+                        {% render 'card',
+                          card_product: current_product,
+                          product: current_product,
+                          img: current_product.featured_image,
+                          title: current_product.title,
+                          card_url: current_product.url,
+                          lazy_load: true,
+                          media_aspect_ratio: 'portrait'
+                        %}
                       </li>
                     {% endif %}
                   {% endfor %}
