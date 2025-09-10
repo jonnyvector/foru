@@ -1132,6 +1132,14 @@ button[disabled] {
   min-height: 160px;
   background-color: var(--color-border);
 }
+.card__title-price-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: calc(var(--gap, 8px) * 1);
+  margin-top: calc(var(--gap, 8px) * 2);
+}
+
 .card__title {
   font-size: var(--font-base-size);
   font-family: var(--font-base);
@@ -1140,11 +1148,11 @@ button[disabled] {
   text-transform: var(--font-base-transform, none);
   letter-spacing: var(--font-base-letter-spacing, normal);
   line-height: var(--font-base-line-height, normal);
-  margin-top: calc(var(--gap, 8px) * 2);
-  margin-bottom: 0;
+  margin: 0;
   color: var(--color-custom-text);
   overflow-wrap: break-word; /* Ensures that the words can be broken at arbitrary points if necessary */
   hyphens: auto; /* Enables automatic hyphenation */
+  flex: 1;
 }
 .card__labels {
   margin: 10px 0;
@@ -1217,9 +1225,10 @@ button[disabled] {
   font-weight: var(--font-price-weight);
   text-transform: var(--font-price-transform, none);
   letter-spacing: var(--font-price-letter-spacing, normal);
-  margin-top: calc(var(--gap, 8px) * 0.5);
-  margin-bottom: calc(var(--gap, 8px) * 0.5);
+  margin: 0;
   color: var(--color-custom-text);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .card__price__old {
   display: inline-flex;
