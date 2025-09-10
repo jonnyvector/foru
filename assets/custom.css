@@ -212,4 +212,7 @@
   body:not(.mobile-nav) .mega-menu__gallery__info {
     justify-content: flex-start;
   }
+  body:not(.mobile-nav) .mega-menu__gallery__item:not(.mega-menu__shop-all-column) {
+    padding-right: calc(var(--gap) * 2);
+  }
 }
