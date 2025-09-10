@@ -312,7 +312,7 @@ mega-menu-section {
   flex-shrink: 0;
   text-align: center;
 }
-.mega-menu__gallery__item .card__title {
+.mega-menu__gallery__caption {
   text-align: left;
 }
 @media (min-width: 1200px) {
