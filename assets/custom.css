@@ -154,3 +154,13 @@
 .mega-menu__gallery::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
 }
+
+/* Product Card Background */
+.card__container {
+  background-color: #f7f7f7;
+  border-radius: var(--border-radius, 8px);
+  padding: calc(var(--gap) * 2);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
