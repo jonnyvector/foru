@@ -1312,9 +1312,9 @@ button[disabled] {
   font-size: calc(var(--font-button-size) - 2px);
 }
 @media (max-width: 599px) {
-  .card__quick-add-container button {
+  /* .card__quick-add-container button {
     padding: 1px 8px;
-  }
+  } */
 }
 .card__quick-add-container quick-add {
   width: 100%;
