@@ -1311,14 +1311,16 @@ button[disabled] {
   /* height: 32px; */
   font-size: calc(var(--font-button-size) - 2px);
 }
+
+@media (max-width: 899px) {
+  .card__quick-add-container {
+    align-items: center;
+  }
+}
 @media (max-width: 599px) {
   /* .card__quick-add-container button {
     padding: 1px 8px;
   } */
-
-  .card__quick-add-container {
-    align-items: center;
-  }
 }
 .card__quick-add-container quick-add {
   width: 100%;
