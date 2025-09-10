@@ -1144,7 +1144,7 @@ button[disabled] {
   font-size: var(--font-base-size);
   font-family: var(--font-base);
   font-style: var(--font-base-style);
-  font-weight: var(--font-base-weight);
+  font-weight: 600;
   text-transform: var(--font-base-transform, none);
   letter-spacing: var(--font-base-letter-spacing, normal);
   line-height: var(--font-base-line-height, normal);
