@@ -209,4 +209,7 @@
   body:not(.mobile-nav) .mega-menu__gallery__price {
     display: none;
   }
+  body:not(.mobile-nav) .mega-menu__gallery__info {
+    justify-content: center;
+  }
 }
