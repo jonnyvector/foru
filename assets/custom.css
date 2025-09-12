@@ -27,8 +27,8 @@
   justify-content: center;
 }
 
-.featured-collection-variant .custom-button-wrapper--secondary [class*="custom-button-text-"],
-.featured-collection-variant .custom-button-wrapper--secondary [class*="custom-button-arrow-"] {
+[data-section-id*="featured_collection_variant"] .custom-button-wrapper--secondary [class*="custom-button-text-"],
+[data-section-id*="featured_collection_variant"] .custom-button-wrapper--secondary [class*="custom-button-arrow-"] {
   background-color: #e8e8e8 !important;
   border-color: transparent !important;
 }
