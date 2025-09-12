@@ -86,19 +86,6 @@
       </span>
       {% render 'button-loading-indicator' %}
     </button>
-    
-    <script>
-      // Set min-width to prevent shrinking during loading
-      (function() {
-        const btn = document.querySelector('.custom-button-text-{{ unique_id }}');
-        if (btn) {
-          // Wait for fonts to load, then set min-width
-          setTimeout(() => {
-            btn.style.minWidth = btn.offsetWidth + 'px';
-          }, 100);
-        }
-      })();
-    </script>
 
     <button
       style="padding:0"
@@ -174,26 +161,31 @@
     transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, filter 0.25s ease;
   }
 
-  /* Text half - flexbox like arrow button for consistent centering */
+  /* Both halves (padding defines size) - copy from original */
+  .custom-button-text-{{ unique_id }},
+  .custom-button-arrow-{{ unique_id }} {
+    border: 1px solid;
+    border-radius: var(--border-radius-button);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, filter 0.25s ease;
+  }
+
+  /* Text half (padding-based) - copy from original */
   .custom-button-text-{{ unique_id }} {
     padding: 22px 40px;
     max-height: 64px;
     font-family: var(--font-headline);
     font-size: var(--font-button-size);
     font-weight: var(--font-button-weight);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
   }
 
-  /* Label stays in normal flow - will be centered by flexbox */
-  .custom-button-text-{{ unique_id }} > .btn__label {
-    /* Flexbox centers this automatically */
-  }
-
-  /* Only spinner overlays absolutely */
-  .custom-button-text-{{ unique_id }} > .loading-overlay__spinner {
+  /* Loading overlay positioning */
+  .custom-button-text-{{ unique_id }} .loading-overlay__spinner {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -254,13 +246,8 @@
   }
 
   /* Loading states - hide text when spinner is visible */
-  .custom-button-text-{{ unique_id }}:has(.loading-overlay__spinner:not(.hidden)) .btn__label {
-    opacity: 0;
-  }
-
-  /* Ensure loading spinner is visible and centered */
-  .custom-button-text-{{ unique_id }} .loading-overlay__spinner {
-    z-index: 10;
+  .custom-button-text-{{ unique_id }}:has(.loading-overlay__spinner:not(.hidden)) .slide-wrapper {
+    visibility: hidden;
   }
 
   /* Hover color changes */
