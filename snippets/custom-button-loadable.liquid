@@ -161,42 +161,34 @@
     transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, filter 0.25s ease;
   }
 
-  /* Text half - flexbox container with relative positioning for overlays */
+  /* Text half - grid with proper ghost sizer */
   .custom-button-text-{{ unique_id }} {
     padding: 22px 40px;
     max-height: 64px;
     font-family: var(--font-headline);
     font-size: var(--font-button-size);
     font-weight: var(--font-button-weight);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-grid;
+    place-items: center;
     position: relative;
+    width: fit-content;
   }
 
-  /* Ghost sizer - maintains minimum width */
-  .custom-button-text-{{ unique_id }}::before {
+  /* Ghost sizer - invisible but takes up space for stable width */
+  .custom-button-text-{{ unique_id }}::after {
     content: attr(data-label);
     visibility: hidden;
+    grid-area: 1 / 1;
     font: inherit;
     white-space: nowrap;
-    height: 0;
-    overflow: hidden;
-    display: block;
+    pointer-events: none;
   }
 
-  /* Label stays in normal flow for proper centering */
-  .custom-button-text-{{ unique_id }} > .btn__label {
-    /* Normal flow - centered by parent flexbox */
-  }
-
-  /* Only spinner is absolutely positioned to overlay */
+  /* Label and spinner overlay on the ghost sizer */
+  .custom-button-text-{{ unique_id }} > .btn__label,
   .custom-button-text-{{ unique_id }} > .loading-overlay__spinner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
+    grid-area: 1 / 1;
+    place-self: center;
   }
 
   /* Arrow half (fixed size) */
