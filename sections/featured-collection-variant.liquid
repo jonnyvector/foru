@@ -198,7 +198,18 @@
       </div>
     </slideshow-section>
 
-    {% if section.settings.show_view_all and section.settings.collection.products_count > section.settings.products_to_show and section.settings.product_list == empty
+    {%- comment -%} Calculate total available variants {%- endcomment -%}
+    {%- assign total_variants = 0 -%}
+    {%- for product in products_source -%}
+      {%- assign product_variants = product.variants | size -%}
+      {%- if product_variants > section.settings.variants_per_product -%}
+        {%- assign total_variants = total_variants | plus: section.settings.variants_per_product -%}
+      {%- else -%}
+        {%- assign total_variants = total_variants | plus: product_variants -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {% if section.settings.show_view_all and total_variants > section.settings.products_to_show and section.settings.product_list == empty
     %}
       <div class="wt-featured-collection__button-container wt-button__container">
         {% render 'custom-view-all',
