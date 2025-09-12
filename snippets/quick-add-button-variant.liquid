@@ -28,14 +28,15 @@
         {% assign is_disabled = true %}
       {% endif %}
       
-      {% render 'custom-button',
+      {% render 'custom-button-loadable',
         text: button_text,
         type: 'submit',
         style: 'secondary',
         aria_label: button_aria,
         class: 'button--full-width',
         id: section.id | append: '-variant-' | append: card_variant.id,
-        disabled: is_disabled
+        disabled: is_disabled,
+        align: 'center'
       %}
     </div>
   {%- endform -%}
