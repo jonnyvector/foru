@@ -201,12 +201,12 @@
     {% if section.settings.show_view_all and section.settings.collection.products_count > section.settings.products_to_show and section.settings.product_list == empty
     %}
       <div class="wt-featured-collection__button-container wt-button__container">
-        <button
-          aria-label="{{ 'aria-label.featured-collection' | t }}"
-          class="hero__button--primary {% if section.settings.button_select != 'primary' %} hero__button--secondary {% endif %}{% if section.settings.button_select == 'link' %} hero__button--link {% endif %}"
-          onclick='location.href="{{ routes.collections_url }}/{{ section.settings.collection.handle }}"'>
-          <span class="wt-newsletter__send__text">{{ 'aria-label.featured-collection' | t }}</span>
-        </button>
+        {% render 'custom-view-all',
+          text: 'aria-label.featured-collection' | t,
+          url: routes.collections_url | append: '/' | append: section.settings.collection.handle,
+          aria_label: 'aria-label.featured-collection' | t,
+          id: section.id | append: '-view-all'
+        %}
       </div>
     {% endif %}
   </div>
