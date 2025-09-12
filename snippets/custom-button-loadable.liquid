@@ -86,6 +86,19 @@
       </span>
       {% render 'button-loading-indicator' %}
     </button>
+    
+    <script>
+      // Set min-width to prevent shrinking during loading
+      (function() {
+        const btn = document.querySelector('.custom-button-text-{{ unique_id }}');
+        if (btn) {
+          // Wait for fonts to load, then set min-width
+          setTimeout(() => {
+            btn.style.minWidth = btn.offsetWidth + 'px';
+          }, 100);
+        }
+      })();
+    </script>
 
     <button
       style="padding:0"
@@ -161,34 +174,31 @@
     transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, filter 0.25s ease;
   }
 
-  /* Text half - grid with proper ghost sizer */
+  /* Text half - flexbox like arrow button for consistent centering */
   .custom-button-text-{{ unique_id }} {
     padding: 22px 40px;
     max-height: 64px;
     font-family: var(--font-headline);
     font-size: var(--font-button-size);
     font-weight: var(--font-button-weight);
-    display: inline-grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    width: fit-content;
   }
 
-  /* Ghost sizer - invisible but takes up space for stable width */
-  .custom-button-text-{{ unique_id }}::after {
-    content: attr(data-label);
-    visibility: hidden;
-    grid-area: 1 / 1;
-    font: inherit;
-    white-space: nowrap;
-    pointer-events: none;
+  /* Label stays in normal flow - will be centered by flexbox */
+  .custom-button-text-{{ unique_id }} > .btn__label {
+    /* Flexbox centers this automatically */
   }
 
-  /* Label and spinner overlay on the ghost sizer */
-  .custom-button-text-{{ unique_id }} > .btn__label,
+  /* Only spinner overlays absolutely */
   .custom-button-text-{{ unique_id }} > .loading-overlay__spinner {
-    grid-area: 1 / 1;
-    place-self: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
   }
 
   /* Arrow half (fixed size) */
