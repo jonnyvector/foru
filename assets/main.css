@@ -7322,12 +7322,12 @@ input.disabled + .f-swatch__list__link .f-swatch__list__link__content {
 .wt-product__add-to-cart_form .js-add-to-cart.loading {
   color: transparent;
 }
-@media (max-width: 399px) {
+/* @media (max-width: 399px) {
   .wt-product__add-to-cart_form .js-add-to-cart {
     padding-left: calc(var(--gap, 8px) * 2);
     padding-right: calc(var(--gap, 8px) * 2);
   }
-}
+} */
 .wt-product__add-to-cart_form .js-add-to-cart .loading-overlay__spinner {
   color: var(--color-button-primary-text);
 }
