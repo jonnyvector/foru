@@ -938,10 +938,10 @@ button[disabled] {
 .price__sale.visible {
   display: flex;
   flex-direction: column-reverse;
+  align-items: start;
 }
 @media (min-width: 1200px) {
   .price__sale.visible {
-    align-items: start;
     /* flex-direction: row-reverse; */
     flex-wrap: wrap-reverse;
     justify-content: flex-end;
