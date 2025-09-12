@@ -32,7 +32,9 @@
 [data-section-id*="main-collection-product-grid"] .custom-button-wrapper--secondary [class*="custom-button-text-"],
 [data-section-id*="main-collection-product-grid"] .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
 .custom-button-wrapper--secondary [class*="custom-button-text-custom-btn-"],
-.custom-button-wrapper--secondary [class*="custom-button-arrow-custom-btn-"] {
+.custom-button-wrapper--secondary [class*="custom-button-arrow-custom-btn-"],
+.custom-button-wrapper--secondary [class*="custom-button-text-loadable-btn-"],
+.custom-button-wrapper--secondary [class*="custom-button-arrow-loadable-btn-"] {
   background-color: #e8e8e8 !important;
   border-color: transparent !important;
 }

@@ -1,0 +1,330 @@
+{% comment %}
+  Custom Loadable Button Snippet - Two-part button with ghost sizer for stable loading states
+  Parameters:
+  - text: Button text (default: "Click Me")
+  - type: Button type - "button", "submit", or "link" (default: "button")
+  - url: URL for links (only used if type is "link")
+  - target: Link target (only used if type is "link")
+  - aria_label: Accessibility label (default: uses text)
+  - class: Additional CSS classes
+  - id: Optional ID for the button wrapper
+  - style: Style variant - "primary" or "secondary" (default: "primary")
+  - disabled: Boolean to disable the button (default: false)
+  - name: Name attribute for form buttons
+  - data_product_url: Data attribute for product URL
+  - button_id: ID attribute for the button elements
+  - align: Button alignment - "center", "left", or "right" (default: "left")
+{% endcomment %}
+
+{% assign button_text = text | default: 'Click Me' %}
+{% assign button_type = type | default: 'button' %}
+{% assign button_style = style | default: 'primary' %}
+{% assign button_align = align | default: 'left' %}
+{% assign unique_id = id | default: section.id | default: 'default' | prepend: 'loadable-btn-' %}
+
+<div class="custom-button-wrapper-{{ unique_id }} custom-button-wrapper--{{ button_style }} custom-button-wrapper--align-{{ button_align }} {{ class }}">
+  {% if button_type == 'link' %}
+    <a
+      href="{{ url | default: '#' }}"
+      class="custom-button-text-{{ unique_id }}"
+      {% if target %}
+      target="{{ target }}"
+      {% endif %}
+      aria-label="{{ aria_label | default: button_text }}">
+      <span class="slide-wrapper">
+        <span class="slide-text">{{ button_text }}</span>
+        <span class="slide-text">{{ button_text }}</span>
+      </span>
+    </a>
+
+    <a
+      href="{{ url | default: '#' }}"
+      class="custom-button-arrow-{{ unique_id }}"
+      {% if target %}
+      target="{{ target }}"
+      {% endif %}
+      aria-label="{{ aria_label | default: button_text }}">
+      <span class="slide-wrapper">
+        <span class="slide-arrow">
+          <svg
+            class="custom-button-arrow-icon-{{ unique_id }}"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+        </span>
+        <span class="slide-arrow">
+          <svg
+            class="custom-button-arrow-icon-{{ unique_id }}"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+        </span>
+      </span>
+    </a>
+  {% else %}
+    <button
+      type="{{ button_type }}"
+      class="custom-button-text-{{ unique_id }}"
+      aria-label="{{ aria_label | default: button_text }}"
+      data-label="{{ button_text }}"
+      aria-live="polite"
+      aria-busy="false"
+      {% if name %}name="{{ name }}"{% endif %}
+      {% if data_product_url %}data-product-url="{{ data_product_url }}"{% endif %}
+      {% if button_id %}id="{{ button_id }}"{% endif %}
+      {% if disabled %}
+      disabled{% endif %}>
+      <span class="btn__label slide-wrapper">
+        <span class="slide-text">{{ button_text }}</span>
+        <span class="slide-text">{{ button_text }}</span>
+      </span>
+      <span class="btn__spinner" aria-hidden="true"></span>
+    </button>
+
+    <button
+      style="padding:0"
+      type="{{ button_type }}"
+      class="custom-button-arrow-{{ unique_id }}"
+      aria-label="{{ aria_label | default: button_text }}"
+      {% if name %}name="{{ name }}"{% endif %}
+      {% if data_product_url %}data-product-url="{{ data_product_url }}"{% endif %}
+      {% if disabled %}
+      disabled{% endif %}>
+      <span class="slide-wrapper">
+        <span class="slide-arrow">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M6.57227 16H25.4284M25.4284 16L16.9432 7.51472M25.4284 16L16.9432 24.4853"
+              stroke="currentColor"
+              stroke-width="2" />
+          </svg>
+        </span>
+        <span class="slide-arrow">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M6.57227 16H25.4284M25.4284 16L16.9432 7.51472M25.4284 16L16.9432 24.4853"
+              stroke="currentColor"
+              stroke-width="2" />
+          </svg>
+        </span>
+      </span>
+    </button>
+  {% endif %}
+</div>
+
+<style>
+  /* Wrapper */
+  .custom-button-wrapper-{{ unique_id }} {
+    display: flex;
+    gap: 1rem;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  /* Alignment options */
+  .custom-button-wrapper--align-center {
+    justify-content: center;
+  }
+
+  .custom-button-wrapper--align-left {
+    justify-content: flex-start;
+  }
+
+  .custom-button-wrapper--align-right {
+    justify-content: flex-end;
+  }
+
+  /* Both halves (padding defines size) */
+  .custom-button-text-{{ unique_id }},
+  .custom-button-arrow-{{ unique_id }} {
+    border: 1px solid;
+    border-radius: var(--border-radius-button);
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, filter 0.25s ease;
+  }
+
+  /* Text half with ghost sizer grid layout */
+  .custom-button-text-{{ unique_id }} {
+    display: inline-grid;
+    place-items: center;
+    white-space: nowrap;
+    padding: 22px 40px;
+    max-height: 64px;
+    font-family: var(--font-headline);
+    font-size: var(--font-button-size);
+    font-weight: var(--font-button-weight);
+  }
+
+  /* Ghost sizer - invisible copy that maintains button width */
+  .custom-button-text-{{ unique_id }}::after {
+    content: attr(data-label);
+    visibility: hidden;
+    grid-area: 1 / 1;
+    font: inherit;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /* Overlap the label and spinner */
+  .custom-button-text-{{ unique_id }} > .btn__label,
+  .custom-button-text-{{ unique_id }} > .btn__spinner {
+    grid-area: 1 / 1;
+  }
+
+  /* Arrow half (fixed size) */
+  .custom-button-arrow-{{ unique_id }} {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Theme variants */
+  .custom-button-wrapper--primary .custom-button-text-{{ unique_id }},
+  .custom-button-wrapper--primary .custom-button-arrow-{{ unique_id }} {
+    background: var(--color-button-primary-background);
+    color: var(--color-button-primary-text);
+    border-color: transparent;
+  }
+
+  .custom-button-wrapper--secondary .custom-button-text-{{ unique_id }},
+  .custom-button-wrapper--secondary .custom-button-arrow-{{ unique_id }} {
+    background: var(--color-button-secondary-background);
+    color: var(--color-button-secondary-text);
+    border-color: var(--color-button-secondary-border);
+  }
+
+  /* Slide mechanics (grid overlay) */
+  .custom-button-text-{{ unique_id }} .slide-wrapper,
+  .custom-button-arrow-{{ unique_id }} .slide-wrapper {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .custom-button-text-{{ unique_id }} .slide-text,
+  .custom-button-arrow-{{ unique_id }} .slide-arrow {
+    grid-area: 1 / 1;
+    transform: translateY(0);
+    transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: transform;
+    backface-visibility: hidden;
+    color: inherit;
+    font-family: var(--font-headline);
+    font-size: var(--font-button-size);
+    font-weight: var(--font-button-weight);
+  }
+
+  /* Second copy starts below */
+  .custom-button-text-{{ unique_id }} .slide-text:last-child,
+  .custom-button-arrow-{{ unique_id }} .slide-arrow:last-child {
+    transform: translateY(100%);
+  }
+
+  /* Custom spinner */
+  .btn__spinner {
+    width: 1em;
+    height: 1em;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    opacity: 0;
+    animation: btn-spin .7s linear infinite;
+  }
+
+  /* Loading states */
+  .custom-button-text-{{ unique_id }}.loading .btn__label {
+    opacity: 0;
+  }
+
+  .custom-button-text-{{ unique_id }}.loading .btn__spinner {
+    opacity: 1;
+  }
+
+  @keyframes btn-spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* Hover color changes */
+  @media (hover: hover) {
+    .custom-button-wrapper--primary:hover .custom-button-text-{{ unique_id }},
+    .custom-button-wrapper--primary:hover .custom-button-arrow-{{ unique_id }} {
+      color: var(--color-button-primary-text-hover);
+    }
+
+    .custom-button-wrapper--secondary:hover .custom-button-text-{{ unique_id }},
+    .custom-button-wrapper--secondary:hover .custom-button-arrow-{{ unique_id }} {
+      color: var(--color-button-secondary-text-hover);
+    }
+  }
+
+  /* Hover → animate both halves */
+  .custom-button-wrapper-{{ unique_id }}:hover .slide-text:first-child,
+  .custom-button-wrapper-{{ unique_id }}:hover .slide-arrow:first-child {
+    transform: translateY(-100%);
+  }
+
+  .custom-button-wrapper-{{ unique_id }}:hover .slide-text:last-child,
+  .custom-button-wrapper-{{ unique_id }}:hover .slide-arrow:last-child {
+    transform: translateY(0);
+  }
+
+  /* Icon size */
+  .custom-button-arrow-{{ unique_id }} svg {
+    width: 32px;
+    height: 32px;
+    display: block;
+  }
+
+  /* Focus-visible for a11y */
+  .custom-button-text-{{ unique_id }}:focus-visible,
+  .custom-button-arrow-{{ unique_id }}:focus-visible {
+    outline: 2px solid #6aa3ff;
+    outline-offset: 2px;
+  }
+
+  /* Disabled state */
+  .custom-button-text-{{ unique_id }}:disabled,
+  .custom-button-arrow-{{ unique_id }}:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* Mobile adjustments */
+  @media screen and (max-width: 749px) {
+    .custom-button-text-{{ unique_id }} {
+      max-height: 48px;
+    }
+
+    .custom-button-arrow-{{ unique_id }} {
+      max-height: 48px;
+      max-width: 48px;
+      overflow: hidden;
+    }
+    
+    .custom-button-arrow-{{ unique_id }} svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+</style>

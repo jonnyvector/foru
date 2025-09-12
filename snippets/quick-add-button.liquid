@@ -8,7 +8,7 @@
       {% assign option_button_disabled = true %}
     {%- endif -%}
     
-    {% render 'custom-button'
+    {% render 'custom-button-loadable'
       , text: option_button_text
       , type: 'button'
       , style: 'secondary'
@@ -49,7 +49,7 @@
           {% assign button_disabled = true %}
         {%- endif -%}
         
-        {% render 'custom-button'
+        {% render 'custom-button-loadable'
           , text: button_text
           , type: 'submit'
           , style: 'secondary'
