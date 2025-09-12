@@ -10,6 +10,9 @@
   - id: Optional ID for the button wrapper
   - style: Style variant - "primary" or "secondary" (default: "primary")
   - disabled: Boolean to disable the button (default: false)
+  - name: Name attribute for form buttons
+  - data_product_url: Data attribute for product URL
+  - button_id: ID attribute for the button elements
 {% endcomment %}
 
 {% assign button_text = text | default: 'Click Me' %}
@@ -67,6 +70,9 @@
       type="{{ button_type }}"
       class="custom-button-text-{{ unique_id }}"
       aria-label="{{ aria_label | default: button_text }}"
+      {% if name %}name="{{ name }}"{% endif %}
+      {% if data_product_url %}data-product-url="{{ data_product_url }}"{% endif %}
+      {% if button_id %}id="{{ button_id }}"{% endif %}
       {% if disabled %}
       disabled{% endif %}>
       <span class="slide-wrapper">
@@ -81,6 +87,8 @@
       type="{{ button_type }}"
       class="custom-button-arrow-{{ unique_id }}"
       aria-label="{{ aria_label | default: button_text }}"
+      {% if name %}name="{{ name }}"{% endif %}
+      {% if data_product_url %}data-product-url="{{ data_product_url }}"{% endif %}
       {% if disabled %}
       disabled{% endif %}>
       <span class="slide-wrapper">

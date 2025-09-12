@@ -16,6 +16,8 @@
       , aria_label: option_button_text
       , disabled: option_button_disabled
       , id: card_product.handle
+      , name: 'commit'
+      , data_product_url: card_product.url
     %}
   </quick-add>
 {% elsif product %}
@@ -54,6 +56,8 @@
           , aria_label: button_text
           , disabled: button_disabled
           , id: section.id
+          , name: 'add'
+          , button_id: 'ProductSubmitButton-' | append: section.id
         %}
       </div>
     {%- endform -%}
