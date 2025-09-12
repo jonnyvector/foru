@@ -184,15 +184,16 @@
     font-weight: var(--font-button-weight);
   }
 
-  /* Ghost sizer - maintains button width during loading */
-  .custom-button-text-{{ unique_id }}::after {
+  /* Ghost sizer - in normal flow but invisible */
+  .custom-button-text-{{ unique_id }}::before {
     content: attr(data-label);
-    visibility: hidden;
-    white-space: nowrap;
     font: inherit;
-    position: absolute;
-    z-index: -1;
-    pointer-events: none;
+    white-space: nowrap;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    display: block;
+    line-height: 0;
   }
 
   /* Arrow half (fixed size) */
