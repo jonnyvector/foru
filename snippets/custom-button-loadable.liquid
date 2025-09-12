@@ -192,17 +192,17 @@
     z-index: -1;
   }
 
-  /* Label and spinner positioning */
-  .custom-button-text-{{ unique_id }} > .btn__label,
+  /* Keep label in normal flow, only position spinner absolutely */
+  .custom-button-text-{{ unique_id }} > .btn__label {
+    /* Normal flow - takes up space for ghost sizer */
+  }
+
   .custom-button-text-{{ unique_id }} > .btn__spinner {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
   }
 
   /* Arrow half (fixed size) */
@@ -261,12 +261,12 @@
   .btn__spinner {
     width: 18px;
     height: 18px;
-    border: 2px solid currentColor;
+    border: 2px solid #000000;
     border-right-color: transparent;
     border-radius: 50%;
     opacity: 0;
     animation: btn-spin .7s linear infinite;
-    z-index: 2;
+    background: transparent;
   }
 
   /* Loading states */
