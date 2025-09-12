@@ -27,9 +27,10 @@
   justify-content: center;
 }
 
-.featured-collection-variant [class*="custom-button-text-"],
-.featured-collection-variant [class*="custom-button-arrow-"] {
-  background-color: #e8e8e8;
+.featured-collection-variant .custom-button-wrapper--secondary [class*="custom-button-text-"],
+.featured-collection-variant .custom-button-wrapper--secondary [class*="custom-button-arrow-"] {
+  background-color: #e8e8e8 !important;
+  border-color: transparent !important;
 }
 
 .wt-collapse__trigger .wt-icon {
