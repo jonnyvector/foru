@@ -214,7 +214,7 @@
       <div class="wt-featured-collection__button-container wt-button__container">
         {% render 'custom-view-all',
           text: 'View all',
-          url: '/collections/' | append: section.settings.collection.handle,
+          url: '{{ routes.collections_url }}/{{ section.settings.collection.handle }}',
           aria_label: 'View all',
           id: section.id | append: '-view-all'
         %}
