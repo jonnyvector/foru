@@ -2,8 +2,10 @@
   <quick-add data-product-handle="{{ card_product.handle }}">
     {%- if card_product.available -%}
       {% assign option_button_text = 'products.product.choose_option' | t %}
+      {% assign option_button_disabled = false %}
     {%- else -%}
       {% assign option_button_text = 'products.product.sold_out' | t %}
+      {% assign option_button_disabled = true %}
     {%- endif -%}
     
     {% render 'custom-button'
@@ -12,7 +14,7 @@
       , style: 'secondary'
       , class: 'button--full-width'
       , aria_label: option_button_text
-      , disabled: card_product.available == false
+      , disabled: option_button_disabled
       , id: card_product.handle
     %}
   </quick-add>
@@ -38,8 +40,10 @@
         <input type="hidden" name="id" value="{{ card_product.selected_or_first_available_variant.id }}">
         {%- if card_product.selected_or_first_available_variant.available -%}
           {% assign button_text = 'products.product.add_to_cart' | t %}
+          {% assign button_disabled = false %}
         {%- else -%}
           {% assign button_text = 'products.product.sold_out' | t %}
+          {% assign button_disabled = true %}
         {%- endif -%}
         
         {% render 'custom-button'
@@ -48,7 +52,7 @@
           , style: 'secondary'
           , class: 'button--full-width'
           , aria_label: button_text
-          , disabled: card_product.selected_or_first_available_variant.available == false
+          , disabled: button_disabled
           , id: section.id
         %}
       </div>
