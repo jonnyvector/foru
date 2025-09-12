@@ -23,6 +23,10 @@
   margin-top: 1rem;
 }
 
+.contact-form__button .custom-button-wrapper {
+  justify-content: center;
+}
+
 .wt-collapse__trigger .wt-icon {
   width: 48px;
   height: 48px;
