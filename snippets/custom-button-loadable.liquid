@@ -161,7 +161,7 @@
     transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, filter 0.25s ease;
   }
 
-  /* Both halves (padding defines size) - copy from original */
+  /* Both halves - exact same flexbox centering */
   .custom-button-text-{{ unique_id }},
   .custom-button-arrow-{{ unique_id }} {
     border: 1px solid;
@@ -175,7 +175,7 @@
     transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, filter 0.25s ease;
   }
 
-  /* Text half (padding-based) - copy from original */
+  /* Text half - same as arrow but with padding */
   .custom-button-text-{{ unique_id }} {
     padding: 22px 40px;
     max-height: 64px;
@@ -184,13 +184,15 @@
     font-weight: var(--font-button-weight);
   }
 
-  /* Loading overlay positioning */
-  .custom-button-text-{{ unique_id }} .loading-overlay__spinner {
+  /* Ghost sizer - maintains button width during loading */
+  .custom-button-text-{{ unique_id }}::after {
+    content: attr(data-label);
+    visibility: hidden;
+    white-space: nowrap;
+    font: inherit;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
+    z-index: -1;
+    pointer-events: none;
   }
 
   /* Arrow half (fixed size) */
@@ -247,7 +249,16 @@
 
   /* Loading states - hide text when spinner is visible */
   .custom-button-text-{{ unique_id }}:has(.loading-overlay__spinner:not(.hidden)) .slide-wrapper {
-    visibility: hidden;
+    opacity: 0;
+  }
+
+  /* Loading overlay positioning */
+  .custom-button-text-{{ unique_id }} .loading-overlay__spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
   }
 
   /* Hover color changes */
