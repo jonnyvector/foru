@@ -407,7 +407,8 @@
                   style: newsletter_block.settings.button_type,
                   aria_label: newsletter_button_text,
                   class: 'wt-newsletter__send',
-                  id: section.id | prepend: 'newsletter-'
+                  id: section.id | prepend: 'newsletter-',
+                  align: 'right'
                 %}
               </div>
               {%- if form.errors -%}
@@ -700,7 +701,8 @@
                     style: block.settings.button_type,
                     aria_label: newsletter_button_text,
                     class: 'wt-newsletter__send',
-                    id: section.id | prepend: 'newsletter-legacy-'
+                    id: section.id | prepend: 'newsletter-legacy-',
+                    align: 'right'
                   %}
                 </div>
 
