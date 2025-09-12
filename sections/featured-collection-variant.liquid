@@ -212,9 +212,10 @@
     {% if section.settings.show_view_all and total_variants > section.settings.products_to_show and section.settings.product_list == empty
     %}
       <div class="wt-featured-collection__button-container wt-button__container">
+        {% assign collection_url = routes.collections_url | append: '/' | append: section.settings.collection.handle %}
         {% render 'custom-view-all',
           text: 'View all',
-          url: {{ routes.collections_url }}/{{ section.settings.collection.handle }},
+          url: collection_url,
           aria_label: 'View all',
           id: section.id | append: '-view-all'
         %}
