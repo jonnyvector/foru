@@ -941,7 +941,8 @@ button[disabled] {
 }
 @media (min-width: 1200px) {
   .price__sale.visible {
-    flex-direction: row-reverse;
+    align-items: start;
+    /* flex-direction: row-reverse; */
     flex-wrap: wrap-reverse;
     justify-content: flex-end;
   }
