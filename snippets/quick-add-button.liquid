@@ -18,6 +18,7 @@
       , id: card_product.handle
       , name: 'commit'
       , data_product_url: card_product.url
+      , align: 'center'
     %}
   </quick-add>
 {% elsif product %}
@@ -58,6 +59,7 @@
           , id: section.id
           , name: 'add'
           , button_id: 'ProductSubmitButton-' | append: section.id
+          , align: 'center'
         %}
       </div>
     {%- endform -%}

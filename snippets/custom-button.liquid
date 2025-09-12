@@ -13,14 +13,16 @@
   - name: Name attribute for form buttons
   - data_product_url: Data attribute for product URL
   - button_id: ID attribute for the button elements
+  - align: Button alignment - "center", "left", or "right" (default: "left")
 {% endcomment %}
 
 {% assign button_text = text | default: 'Click Me' %}
 {% assign button_type = type | default: 'button' %}
 {% assign button_style = style | default: 'primary' %}
+{% assign button_align = align | default: 'left' %}
 {% assign unique_id = id | default: section.id | default: 'default' | prepend: 'custom-btn-' %}
 
-<div class="custom-button-wrapper-{{ unique_id }} custom-button-wrapper--{{ button_style }} {{ class }}">
+<div class="custom-button-wrapper-{{ unique_id }} custom-button-wrapper--{{ button_style }} custom-button-wrapper--align-{{ button_align }} {{ class }}">
   {% if button_type == 'link' %}
     <a
       href="{{ url | default: '#' }}"
@@ -132,6 +134,19 @@
     gap: 1rem;
     align-items: stretch;
     width: 100%;
+  }
+
+  /* Alignment options */
+  .custom-button-wrapper--align-center {
+    justify-content: center;
+  }
+
+  .custom-button-wrapper--align-left {
+    justify-content: flex-start;
+  }
+
+  .custom-button-wrapper--align-right {
+    justify-content: flex-end;
   }
 
   /* Ensure gap is maintained in all scenarios */
