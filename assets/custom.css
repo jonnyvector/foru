@@ -33,24 +33,6 @@
   border-color: transparent !important;
 }
 
-[data-section-id*="featured_collection_variant"] .price__container,
-[data-section-id*="main-collection-product-grid"] .price__container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-[data-section-id*="featured_collection_variant"] .price__sale .price__sale__details-wrapper,
-[data-section-id*="main-collection-product-grid"] .price__sale .price__sale__details-wrapper {
-  order: 2;
-}
-
-[data-section-id*="featured_collection_variant"] .price__sale .price-item--regular,
-[data-section-id*="main-collection-product-grid"] .price__sale .price-item--regular {
-  order: 1;
-  margin-bottom: 4px;
-}
-
 .wt-collapse__trigger .wt-icon {
   width: 48px;
   height: 48px;
