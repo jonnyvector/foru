@@ -34,6 +34,10 @@
 
     }
 
+    [data-section-id="{{ section.id }}"] .headline__title {
+      font-size: var(--font-h5-size);
+    }
+
     [data-section-id="{{ section.id }}"] {
       {% if text_rgb != 'rgba(0, 0, 0, 0.0)' %}
         --color-custom-text: {{ section.settings.color-body-text }};
