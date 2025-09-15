@@ -175,7 +175,17 @@
     }
   }
 
+  [data-section-id="{{ section.id }}"] .ingredients-grid__card-scientific {
+    font-family: var(--font-body);
+    font-size: calc(var(--font-base-size, 1rem) * 0.85);
+    font-style: italic;
+    line-height: 1.4;
+    color: #666;
+    margin: 4px 0;
+  }
+
   [data-section-id="{{ section.id }}"] .ingredients-grid__card-description {
+    font-family: var(--font-body);
     font-size: calc(var(--font-base-size, 1rem) * 0.75);
     line-height: 1.4;
     color: #666;
@@ -426,6 +436,7 @@
   }
 
   .ingredient-drawer__description {
+    font-family: var(--font-body);
     font-size: var(--font-base-size, 1rem);
     line-height: 1.6;
     color: var(--color-text, #333);
