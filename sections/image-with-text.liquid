@@ -18,7 +18,15 @@
       {% if heading_rgb != 'rgba(0, 0, 0, 0.0)' %}
         --color-custom-text: {{ section.settings.section-color-body-text }};
       {% endif %}
-      font-size: var(--font-h2-size) !important;
+    }
+
+    section[id="shopify-section-{{ section.id }}"] .hero__title {
+      font-size: var(--font-h2-size);
+    }
+
+    section[id="shopify-section-{{ section.id }}"] .hero__subheading {
+      font-size: var(--font-h5-size);
+      text-transform: none;
     }
   [data-section-id="{{ section.id }}"]
   {
