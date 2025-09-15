@@ -45,6 +45,15 @@
     margin-top: 0;
     margin-bottom: 0;
   }
+
+  @media (max-width: 899px) {
+    [data-section-id="{{ section.id }}"] .video-reels__subheading,
+    [data-section-id="{{ section.id }}"] .headline__title {
+      text-align: left;
+      padding-left: calc(var(--gap, 8px) * 2);
+      padding-right: calc(var(--gap, 8px) * 2);
+    }
+  }
 </style>
 
 <video-reels
