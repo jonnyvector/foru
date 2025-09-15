@@ -22,6 +22,7 @@
 
     section[id="shopify-section-{{ section.id }}"] .hero__title {
       font-size: var(--font-h2-size);
+      margin-bottom: 24px;
     }
 
     section[id="shopify-section-{{ section.id }}"] .hero__subheading {
@@ -33,6 +34,10 @@
     @media (min-width: 900px) {
       section[id="shopify-section-{{ section.id }}"] .hero__subheading {
         margin-bottom: 40px;
+      }
+
+      section[id="shopify-section-{{ section.id }}"] .hero__title {
+        margin-bottom: 32px;
       }
     }
   [data-section-id="{{ section.id }}"]
