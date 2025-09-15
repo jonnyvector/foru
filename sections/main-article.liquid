@@ -19,6 +19,7 @@
         .main-article__title {
           --font-headline-scale-desk: {{ block.settings.size_heading | divided_by: 100.0 }};
           --font-headline-scale: {{ block.settings.size_heading_mobile | divided_by: 100.0 }};
+          font-size: var(--font-h4-size);
 
           {% if text_rgb != 'rgba(0, 0, 0, 0.0)' %}
             --color-body-text: {{ block.settings.color-body-text }};
