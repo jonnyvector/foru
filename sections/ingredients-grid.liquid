@@ -308,7 +308,8 @@
     [data-section-id="{{ section.id }}"] .ingredients-grid__desktop-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: calc(var(--gap, 8px) * 2);
+      column-gap: calc(var(--gap, 8px) * 2);
+      row-gap: 40px;
       width: 100%;
       max-width: 100%;
       box-sizing: border-box;
