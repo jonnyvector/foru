@@ -191,6 +191,7 @@
       ],
       "name": "Video Reels Custom",
       "settings": {
+        "subheading": "Testimonials",
         "heading": "What our community says",
         "quick-add-enabled": false,
         "hide-brand-name": true,
