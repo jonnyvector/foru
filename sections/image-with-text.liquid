@@ -27,6 +27,13 @@
     section[id="shopify-section-{{ section.id }}"] .hero__subheading {
       font-size: var(--font-h5-size);
       text-transform: none;
+      margin-bottom: 32px;
+    }
+
+    @media (min-width: 900px) {
+      section[id="shopify-section-{{ section.id }}"] .hero__subheading {
+        margin-bottom: 40px;
+      }
     }
   [data-section-id="{{ section.id }}"]
   {
