@@ -57,10 +57,8 @@
 
   <div data-section-id="{{ section.id }}" class="wt-featured-collection wt-slider {% if section.settings.disable_on_mobile %}wt-featured-collection--disable-on-mobile{% endif %}">
     {% if section.settings.title != blank %}
-      <div class="headline {% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %} {% if section.settings.heading_disable_on_mobile == true %} hero__title--mobile{% endif %}  {% if section.settings.disable_on_mobile %}disable-on-mobile{% endif %}">
-        {% render 'simple-block'
-          , prefix: 'headline'
-          , title: section.settings.title %}
+      <div class="headline {% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %} {% if section.settings.heading_disable_on_mobile == true %} hero__title--mobile{% endif %}  {% if section.settings.disable_on_mobile %}disable-on-mobile{% endif %}" style="text-align: left;">
+        <h5 class="headline__title">{{ section.settings.title }}</h5>
       </div>
     {% endif %}
 
