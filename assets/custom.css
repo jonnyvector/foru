@@ -1,0 +1,244 @@
+@font-face {
+  font-family: "Trim";
+  src: url("https://cdn.shopify.com/s/files/1/0945/2853/6887/files/trim_regular.ttf?v=1755669695")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter-Tight";
+  src: url("https://cdn.shopify.com/s/files/1/0945/2853/6887/files/inter_tight.ttf?v=1755669706")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.contact-form__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.contact-form__button .custom-button-wrapper--primary {
+  justify-content: center;
+}
+
+/* Quick add buttons on product cards should have gray background */
+[data-section-id*="featured_collection_variant"] .custom-button-wrapper--secondary [class*="custom-button-text-"],
+[data-section-id*="featured_collection_variant"] .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
+[data-section-id*="main-collection-product-grid"] .custom-button-wrapper--secondary [class*="custom-button-text-"],
+[data-section-id*="main-collection-product-grid"] .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
+.wt-card .custom-button-wrapper--secondary [class*="custom-button-text-"],
+.wt-card .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
+.card .custom-button-wrapper--secondary [class*="custom-button-text-"],
+.card .custom-button-wrapper--secondary [class*="custom-button-arrow-"] {
+  background-color: #e8e8e8 !important;
+  border-color: transparent !important;
+}
+
+.wt-collapse__trigger .wt-icon {
+  width: 48px;
+  height: 48px;
+  background-color: #e3e3e3;
+  border-radius: var(--border-radius);
+  transition: background 0.3s ease-in, color 0.3s ease-in;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.wt-collapse__trigger:hover .wt-icon,
+.wt-collapse__trigger--active .wt-icon,
+.wt-collapse__trigger[data-open="true"] .wt-icon,
+.wt-collapse__trigger[aria-expanded="true"] .wt-icon {
+  background: var(--color-button-primary-background);
+  color: white;
+}
+
+/* Disable underline animation - only use sliding text effect */
+.wt-page-nav-mega__decorated,
+.wt-page-nav-mega__link__text--underline,
+.wt-footer__list__item__text--underline {
+  background-image: none;
+  background-size: 0% 1px;
+}
+
+.wt-page-nav-mega__decorated:hover,
+.wt-page-nav-mega__link__text--underline:hover,
+.wt-footer__list__item__text--underline:hover {
+  background-size: 0% 1px;
+}
+
+/* Footer links should be left-aligned */
+.wt-footer__list__item__text--underline.slide-wrapper {
+  place-items: start;
+}
+
+/* Benefits product icon item wrapper responsive styling */
+@media (min-width: 900px) and (max-width: 1199px) {
+  .wt-benefits-product__icon-item-wrapper {
+    max-width: 250px;
+  }
+}
+
+/* Reusable slide animation classes */
+.slide-wrapper {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slide-text,
+.slide-icon {
+  grid-area: 1 / 1;
+  transform: translateY(0);
+  transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Second copy starts below */
+.slide-text:last-child,
+.slide-icon:last-child {
+  transform: translateY(100%);
+}
+
+/* Hover animation trigger - parent element with .slide-hover class */
+@media (hover: hover) {
+  .slide-hover:hover .slide-text:first-child,
+  .slide-hover:hover .slide-icon:first-child {
+    transform: translateY(-100%);
+  }
+
+  .slide-hover:hover .slide-text:last-child,
+  .slide-hover:hover .slide-icon:last-child {
+    transform: translateY(0);
+  }
+}
+
+/* Policy styles */
+
+.shopify-policy__container {
+  max-width: 930px;
+}
+
+/* Mega Menu - Shop All Column Styles */
+.mega-menu__shop-all-column {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  body:not(.mobile-nav) .mega-menu__shop-all-column {
+    display: block;
+  }
+}
+
+.mega-menu__shop-all {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0 calc(var(--gap) * 3);
+  text-align: left;
+}
+
+.mega-menu__shop-all-title {
+  font-family: var(--font-headline);
+  font-size: var(--font-h2-size);
+  font-weight: var(--font-headline-weight);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.mega-menu__shop-all .mega-menu__shop-all-button {
+  margin-top: 40px;
+}
+
+/* Hide horizontal scrollbar on mobile mega-menu gallery */
+.mega-menu__gallery {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.mega-menu__gallery::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+/* Product Card Background */
+.card__container {
+  background-color: #f7f7f7;
+  border-radius: var(--border-radius, 8px);
+  padding: calc(var(--gap) * 2);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mega-menu Product Card Background - exclude shop-all column */
+.mega-menu__gallery__item:not(.mega-menu__shop-all-column) {
+  background-color: #f7f7f7;
+  border-radius: var(--border-radius, 8px);
+  padding: calc(var(--gap) * 2);
+  overflow: hidden;
+}
+
+.mega-menu__gallery__item:not(.mega-menu__shop-all-column)
+  .mega-menu__gallery__picture {
+  margin-bottom: calc(var(--gap) * 1.5);
+}
+
+/* Mega Menu Gallery Caption Alignment */
+.mega-menu__gallery__caption {
+  text-align: left;
+  font-weight: 600;
+  margin: 0;
+  flex: 1;
+}
+
+/* Mega Menu Gallery Info Container */
+.mega-menu__gallery__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: calc(var(--gap, 8px) * 1);
+}
+
+/* Mega Menu Gallery Price */
+.mega-menu__gallery__price {
+  margin: 0;
+  font-size: var(--font-price-size);
+  font-family: var(--font-price);
+  font-style: var(--font-price-style);
+  font-weight: var(--font-price-weight);
+  color: var(--color-custom-text);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Mobile navigation slide-wrapper alignment */
+@media (max-width: 1199px) {
+  .wt-page-nav-mega .slide-wrapper {
+    place-items: start;
+  }
+}
+
+@media (min-width: 1200px) {
+  body:not(.mobile-nav) .mega-menu__gallery__price {
+    display: none;
+  }
+  body:not(.mobile-nav) .mega-menu__gallery__info {
+    justify-content: flex-start;
+  }
+  body:not(.mobile-nav)
+    .mega-menu__gallery__item:not(.mega-menu__shop-all-column) {
+    padding-right: calc(var(--gap) * 2);
+  }
+}

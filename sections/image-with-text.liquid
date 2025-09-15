@@ -19,6 +19,35 @@
         --color-custom-text: {{ section.settings.section-color-body-text }};
       {% endif %}
     }
+
+    section[id="shopify-section-{{ section.id }}"] .hero__title {
+      font-size: var(--font-h2-size);
+      margin-bottom: 24px;
+    }
+
+    section[id="shopify-section-{{ section.id }}"] .hero__subheading {
+      font-size: var(--font-h5-size);
+      text-transform: none;
+      margin-bottom: 32px;
+    }
+
+    section[id="shopify-section-{{ section.id }}"] .hero__text {
+      margin-bottom: 18px;
+    }
+
+    @media (min-width: 900px) {
+      section[id="shopify-section-{{ section.id }}"] .hero__subheading {
+        margin-bottom: 40px;
+      }
+
+      section[id="shopify-section-{{ section.id }}"] .hero__title {
+        margin-bottom: 32px;
+      }
+
+      section[id="shopify-section-{{ section.id }}"] .hero__text {
+        margin-bottom: 24px;
+      }
+    }
   [data-section-id="{{ section.id }}"]
   {
       {% if background_rgb != 'rgba(0, 0, 0, 0.0)' %}
@@ -486,6 +515,73 @@
           "id": "button_link",
           "label": "t:sections.settings.settings.link.label",
           "default": "/"
+        },
+        {
+          "type": "checkbox",
+          "id": "disable_on_mobile",
+          "label": "t:sections.global.disable_on_mobile",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "trust_badge",
+      "name": "Trust Badge",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "percentage_text",
+          "default": "100%", 
+          "label": "Percentage Text"
+        },
+        {
+          "type": "text",
+          "id": "subtitle_text",
+          "default": "Ingredients Made Traceable",
+          "label": "Subtitle Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Custom Icon (leave empty to use built-in icons)"
+        },
+        {
+          "type": "select",
+          "id": "icon_type",
+          "label": "Built-in Icon Type",
+          "options": [
+            {
+              "value": "lab_flask",
+              "label": "Lab Flask"
+            },
+            {
+              "value": "checkmark", 
+              "label": "Checkmark"
+            }
+          ],
+          "default": "lab_flask",
+          "info": "Only shown if no custom icon is uploaded above"
+        },
+        {
+          "type": "range",
+          "id": "padding_top_desktop",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "default": 0,
+          "label": "Desktop Top Spacing"
+        },
+        {
+          "type": "range", 
+          "id": "padding_top_mobile",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "default": 0,
+          "label": "Mobile Top Spacing"
         },
         {
           "type": "checkbox",

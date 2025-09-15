@@ -88,17 +88,19 @@
         <span>{{ 'blogs.article.comments' | t: count: article.comments_count }}</span>
       </div>
     {%- endif -%}
-    <div class="wt-blog__read article-card__footer" {{ block.shopify_attributes }}>
-      <a href="{{ article.url }}"
-        ><button
-          aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title | escape }}"
-          class="hero__button {% if button_disable_on_mobile %}hero__button--mobile {% endif %} hero__button--primary {% if block.settings.button_select == 'secondary' or button_type == 'secondary' %} hero__button--secondary{% endif %}{% if block.settings.button_select == 'link' or button_type == 'link' %} hero__button--link{% endif %}"
+    {% unless hide_read_more %}
+      <div class="wt-blog__read article-card__footer" {{ block.shopify_attributes }}>
+        <a href="{{ article.url }}"
+          ><button
+            aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title | escape }}"
+            class="hero__button {% if button_disable_on_mobile %}hero__button--mobile {% endif %} hero__button--primary {% if block.settings.button_select == 'secondary' or button_type == 'secondary' %} hero__button--secondary{% endif %}{% if block.settings.button_select == 'link' or button_type == 'link' %} hero__button--link{% endif %}"
+          >
+            <span>
+              {{ 'blogs.article.read_more' | t }}
+            </span>
+          </button></a
         >
-          <span>
-            {{ 'blogs.article.read_more' | t }}
-          </span>
-        </button></a
-      >
-    </div>
+      </div>
+    {% endunless %}
   </div>
 </article>

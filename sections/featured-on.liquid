@@ -1,0 +1,337 @@
+{{ 'section-featured-on.css' | asset_url | stylesheet_tag }}
+{{ 'swiper.css' | asset_url | stylesheet_tag }}
+
+{% assign background_rgb = section.settings.background_color | color_to_rgb %}
+{% assign text_rgb = section.settings['color-body-text'] | color_to_rgb %}
+
+<style>
+  [data-section-id="{{ section.id }}"]
+  {
+  {% if section.settings.margin-top %}
+    --section-gap-top: {{ section.settings.margin-top }}px;
+  {% endif %}
+
+  {% if section.settings.margin-bottom %}
+    --section-gap-bottom: {{ section.settings.margin-bottom }}px;
+  {% endif %}
+
+  {% if background_rgb != 'rgba(0, 0, 0, 0.0)' %}
+    --color-background: {{ section.settings.background_color }};
+  {% endif %}
+
+  {% if text_rgb != 'rgba(0, 0, 0, 0.0)' %}
+    --color-custom-text: {{ section.settings.color-body-text }};
+  {% endif %}
+
+  {% assign container_bg_rgb = section.settings.logo_container_color | color_to_rgb %}
+  {% if container_bg_rgb != 'rgba(0, 0, 0, 0.0)' %}
+    --logo-container-bg: {{ section.settings.logo_container_color }};
+  {% endif %}
+
+    --font-headline-scale-desk: {{ section.settings.size_heading | divided_by: 100.0 }};
+    --font-headline-scale: {{ section.settings.size_heading_mobile | divided_by: 100.0 }};
+  }
+
+  [data-section-id="{{ section.id }}"] .headline__title {
+    text-align: {{ section.settings.text_alignment }};
+    font-size: var(--font-h5-size);
+  }
+</style>
+
+<div
+  data-section-id="{{ section.id }}"
+  class="wt-slider wt-featured-on__container"
+>
+  {% render 'headline', title: section.settings.heading %}
+
+  <!-- Desktop: Regular grid layout -->
+  <div class="wt-featured-on__desktop-wrapper">
+    <div class="wt-featured-on wt-featured-on--desktop-grid">
+      {% for block in section.blocks %}
+        <div class="wt-featured-on__item">
+          <div
+            {% if settings.animations %}
+              data-cascade
+              style="--animation-order: {{ forloop.index }};"
+            {% endif %}
+          >
+            {% if block.settings.link != blank %}
+              <a
+                href="{{ block.settings.link }}"
+                class="wt-featured-on__link"
+                aria-label="Visit {{ block.settings.logo.alt | default: 'partner site' }}"
+                {% if block.settings.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+              >
+            {% endif %}
+              {% if block.settings.logo != blank %}
+                {% assign alt_text = block.settings.logo.alt | escape %}
+                {{
+                  block.settings.logo
+                  | image_url: width: 200
+                  | image_tag:
+                    sizes: '(max-width: 768px) 120px, 200px',
+                    widths: '120, 200, 400',
+                    alt: alt_text,
+                    loading: 'lazy',
+                    class: 'wt-featured-on__logo'
+                }}
+              {% else %}
+                <div class="wt-featured-on__logo wt-featured-on__logo--placeholder">
+                  {{ 'image' | placeholder_svg_tag: 'wt-featured-on__logo-placeholder' }}
+                </div>
+              {% endif %}
+            {% if block.settings.link != blank %}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Mobile: Marquee auto-scroll -->
+  <div class="wt-featured-on__mobile-wrapper">
+    <div class="wt-featured-on__marquee">
+      <div class="wt-featured-on__marquee-content wt-featured-on__marquee-content--1">
+        {% for i in (1..2) %}
+          {% for block in section.blocks %}
+            <div class="wt-featured-on__item">
+              <div
+                {% if settings.animations %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+                {% if block.settings.link != blank %}
+                  <a
+                    href="{{ block.settings.link }}"
+                    class="wt-featured-on__link"
+                    aria-label="Visit {{ block.settings.logo.alt | default: 'partner site' }}"
+                    {% if block.settings.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+                    tabindex="-1"
+                  >
+                {% endif %}
+                  {% if block.settings.logo != blank %}
+                    {% assign alt_text = block.settings.logo.alt | escape %}
+                    {{
+                      block.settings.logo
+                      | image_url: width: 200
+                      | image_tag:
+                        sizes: '120px',
+                        widths: '120, 200, 400',
+                        alt: alt_text,
+                        loading: 'lazy',
+                        class: 'wt-featured-on__logo'
+                    }}
+                  {% else %}
+                    <div class="wt-featured-on__logo wt-featured-on__logo--placeholder">
+                      {{ 'image' | placeholder_svg_tag: 'wt-featured-on__logo-placeholder' }}
+                    </div>
+                  {% endif %}
+                {% if block.settings.link != blank %}
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Tablet: Manual scroll -->
+  <div class="wt-featured-on__tablet-wrapper">
+    <div class="wt-featured-on__tablet-scroll">
+      <div class="wt-featured-on__tablet-content">
+        {% for block in section.blocks %}
+          <div class="wt-featured-on__item">
+            <div
+              {% if settings.animations %}
+                data-cascade
+                style="--animation-order: {{ forloop.index }};"
+              {% endif %}
+            >
+              {% if block.settings.link != blank %}
+                <a
+                  href="{{ block.settings.link }}"
+                  class="wt-featured-on__link"
+                  aria-label="Visit {{ block.settings.logo.alt | default: 'partner site' }}"
+                  {% if block.settings.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+                >
+              {% endif %}
+                {% if block.settings.logo != blank %}
+                  {% assign alt_text = block.settings.logo.alt | escape %}
+                  {{
+                    block.settings.logo
+                    | image_url: width: 200
+                    | image_tag:
+                      sizes: '220px',
+                      widths: '220, 400',
+                      alt: alt_text,
+                      loading: 'lazy',
+                      class: 'wt-featured-on__logo'
+                  }}
+                {% else %}
+                  <div class="wt-featured-on__logo wt-featured-on__logo--placeholder">
+                    {{ 'image' | placeholder_svg_tag: 'wt-featured-on__logo-placeholder' }}
+                  </div>
+                {% endif %}
+              {% if block.settings.link != blank %}
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Featured On",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Featured On"
+    },
+    {
+      "type": "range",
+      "id": "size_heading",
+      "min": 50,
+      "max": 300,
+      "step": 10,
+      "default": 100,
+      "label": "t:sections.settings.settings.size-heading.label",
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "size_heading_mobile",
+      "min": 80,
+      "max": 300,
+      "step": 10,
+      "default": 100,
+      "label": "t:sections.settings.settings.size-heading-mobile.label",
+      "unit": "%"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "center",
+          "label": "t:sections.featured-collection.settings.text_alignment.center.label"
+        },
+        {
+          "value": "left",
+          "label": "t:sections.featured-collection.settings.text_alignment.left.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.featured-collection.settings.text_alignment.label"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "color-body-text",
+      "default": "transparent",
+      "label": "Text color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "default": "transparent",
+      "label": "Background color"
+    },
+    {
+      "type": "color",
+      "id": "logo_container_color",
+      "default": "transparent",
+      "label": "Logo container background"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin-top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 20,
+      "unit": "px",
+      "label": "Top margin"
+    },
+    {
+      "type": "range",
+      "id": "margin-bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 20,
+      "unit": "px",
+      "label": "Bottom margin"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_in_new_tab",
+          "label": "Open link in new tab",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured On",
+      "blocks": [
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}

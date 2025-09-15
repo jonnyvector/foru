@@ -1,0 +1,310 @@
+{% assign hb = product.metafields.custom.healt_benefits_section.value | default: product.metafields.custom.health_benefits_section.value %}
+
+{% if hb %}
+  <style>
+    [data-section-id="{{ section.id }}"] {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      {% if section.settings.background_color != blank %}
+        background-color: {{ section.settings.background_color }};
+      {% endif %}
+    }
+
+    [data-section-id="{{ section.id }}"] .health-benefits {
+      max-width: var(--site-max-width, 1200px);
+      margin: 0 auto;
+      padding: 0 calc(var(--gap, 8px) * 2);
+    }
+
+    [data-section-id="{{ section.id }}"] .health-benefits__container {
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--gap, 8px) * 3);
+    }
+
+    @media (min-width: 900px) {
+      [data-section-id="{{ section.id }}"] .health-benefits__container {
+        flex-direction: row;
+        align-items: stretch;
+        gap: calc(var(--gap, 8px) * 4);
+      }
+    }
+
+    [data-section-id="{{ section.id }}"] .health-benefits__media {
+      flex: 0 0 auto;
+    }
+
+    [data-section-id="{{ section.id }}"] .health-benefits__media img {
+      width: 100%;
+      height: auto;
+    }
+
+    @media (min-width: 900px) {
+      [data-section-id="{{ section.id }}"] .health-benefits__media {
+        flex: 0 0 50%;
+        max-width: 50%;
+        display: flex;
+        align-items: stretch;
+      }
+
+      [data-section-id="{{ section.id }}"] .health-benefits__media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        flex: 1;
+      }
+    }
+
+    [data-section-id="{{ section.id }}"] .health-benefits__content {
+      flex: 1;
+      padding: 0 calc(var(--gap, 8px) * 2);
+    }
+
+    @media (min-width: 900px) and (max-width: 1024px) {
+      [data-section-id="{{ section.id }}"] .health-benefits__content {
+        padding: 0 4.5rem;
+      }
+    }
+
+    @media (min-width: 900px) {
+      [data-section-id="{{ section.id }}"] .health-benefits__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media (min-width: 1025px) {
+      [data-section-id="{{ section.id }}"] .health-benefits__content {
+        padding: 0 7rem;
+      }
+    }
+
+    /* Common styles for text elements */
+    [data-section-id="{{ section.id }}"] .health-benefits__eyebrow,
+    [data-section-id="{{ section.id }}"] .health-benefits__title,
+    [data-section-id="{{ section.id }}"] .health-benefits__body {
+      color: var(--color-custom-text, inherit);
+    }
+
+    [data-section-id="{{ section.id }}"] .health-benefits__eyebrow,
+    [data-section-id="{{ section.id }}"] .health-benefits__title {
+      font-family: var(--font-headline, inherit);
+      font-weight: var(--font-headline-weight, 600);
+      margin-bottom: 16px;
+    }
+
+    [data-section-id="{{ section.id }}"] .health-benefits__eyebrow {
+      font-size: calc(var(--font-base-size) * 0.875);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 24px;
+    }
+
+    [data-section-id="{{ section.id }}"] .health-benefits__title {
+      font-size: calc(var(--font-base-size) * 2);
+      line-height: 1.2;
+    }
+
+    @media (min-width: 900px) {
+      [data-section-id="{{ section.id }}"] .health-benefits__title {
+        font-size: calc(var(--font-base-size) * 2.5);
+      }
+    }
+
+    [data-section-id="{{ section.id }}"] .health-benefits__body {
+      font-family: var(--font-base, inherit);
+      font-size: var(--font-base-size);
+      line-height: var(--font-base-line-height, 1.5);
+      margin-bottom: 32px;
+    }
+
+
+    [data-section-id="{{ section.id }}"] .health-benefits__body p {
+      margin-bottom: calc(var(--gap, 8px));
+    }
+
+    /* Override RTE default margins */
+    [data-section-id="{{ section.id }}"] .health-benefits__title.rte,
+    [data-section-id="{{ section.id }}"] .health-benefits__title.rte *,
+    [data-section-id="{{ section.id }}"] .health-benefits__body.rte,
+    [data-section-id="{{ section.id }}"] .health-benefits__body.rte * {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+
+    [data-section-id="{{ section.id }}"] .health-benefits__title.rte {
+      margin-bottom: 16px !important;
+    }
+
+    [data-section-id="{{ section.id }}"] .health-benefits__body.rte {
+      margin-bottom: 32px !important;
+    }
+
+    /* Force override for all heading elements in title */
+    [data-section-id="{{ section.id }}"] .health-benefits__title.rte h1,
+    [data-section-id="{{ section.id }}"] .health-benefits__title.rte h2,
+    [data-section-id="{{ section.id }}"] .health-benefits__title.rte h3,
+    [data-section-id="{{ section.id }}"] .health-benefits__title.rte h4,
+    [data-section-id="{{ section.id }}"] .health-benefits__title.rte h5,
+    [data-section-id="{{ section.id }}"] .health-benefits__title.rte h6 {
+      margin: 0 !important;
+    }
+
+
+    [data-section-id="{{ section.id }}"] .health-benefits__list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: calc(var(--gap, 8px) * 2);
+      margin-bottom: 32px !important;
+    }
+
+    @media (min-width: 900px) {
+      [data-section-id="{{ section.id }}"] .health-benefits__list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: calc(var(--gap, 8px) * 3) calc(var(--gap, 8px) * 3);
+        align-items: start;
+      }
+    }
+
+    [data-section-id="{{ section.id }}"] .health-benefits__item {
+      display: flex;
+      align-items: flex-start;
+      gap: calc(var(--gap, 8px) * 1.5);
+    }
+
+    @media (min-width: 900px) {
+      [data-section-id="{{ section.id }}"] .health-benefits__item {
+        display: block;
+      }
+    }
+
+    [data-section-id="{{ section.id }}"] .health-benefits__icon {
+      flex: 0 0 auto;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 900px) {
+      [data-section-id="{{ section.id }}"] .health-benefits__icon {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    [data-section-id="{{ section.id }}"] .health-benefits__icon img,
+    [data-section-id="{{ section.id }}"] .health-benefits__icon svg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    [data-section-id="{{ section.id }}"] .health-benefits__text {
+      flex: 1;
+      font-family: var(--font-base, inherit);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--color-custom-text, inherit);
+      margin-top: 4px;
+    }
+
+    [data-section-id="{{ section.id }}"] .health-benefits__cta {
+      display: inline-block;
+      margin-bottom: 24px;
+    }
+  </style>
+
+  <div data-section-id="{{ section.id }}" class="health-benefits">
+    <div class="health-benefits__container">
+      {% if hb.hero_media %}
+        <div class="health-benefits__media">
+          {{ hb.hero_media | image_url: width: 600 | image_tag: loading: 'lazy', alt: hb.hero_media.alt | default: hb.title }}
+        </div>
+      {% endif %}
+
+      <div class="health-benefits__content">
+        {% if hb.eyebrow %}
+          <div class="health-benefits__eyebrow">{{ hb.eyebrow }}</div>
+        {% endif %}
+
+        {% if hb.title %}
+
+          <div class="health-benefits__title rte">
+            {{ hb.title | metafield_tag }}
+          </div>
+        {% endif %}
+
+        {% if hb.body %}
+          <div class="health-benefits__body rte">
+            {{ hb.body | metafield_tag }}
+          </div>
+        {% endif %}
+
+        {%- assign benefits = hb.benefits.value -%}
+        {% if benefits %}
+          <div class="health-benefits__list">
+            {% for benefit in benefits %}
+              {% if benefit.title and benefit.title != blank %}
+                <div class="health-benefits__item">
+                  {% if benefit.icon %}
+                    <div class="health-benefits__icon">
+                      {{ benefit.icon | image_url: width: 64 | image_tag: loading: 'lazy', alt: benefit.title }}
+                    </div>
+                  {% endif %}
+                  <div class="health-benefits__text">
+                    <strong>{{ benefit.title }}</strong>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if section.settings.cta_label and section.settings.cta_label != blank and section.settings.cta_link and section.settings.cta_link != blank %}
+          <div class="health-benefits__cta">
+            {% render 'custom-button'
+              , text: section.settings.cta_label
+              , type: 'link'
+              , url: section.settings.cta_link
+              , style: 'primary' %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Health Benefits",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Content background color",
+        "info": "Background color for the text content area"
+      },
+      {
+        "type": "text",
+        "id": "cta_label",
+        "label": "CTA label",
+        "default": "See all"
+      }, {
+        "type": "url",
+        "id": "cta_link",
+        "label": "CTA link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Health Benefits"
+      }
+    ]
+  }
+{% endschema %}

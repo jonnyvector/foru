@@ -67,6 +67,7 @@
   {% assign width_line = 'hero__wrapper--full' %}
 
   <script src="{{ 'page-header-image-banner.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'info-tooltip.js' | asset_url }}" defer="defer"></script>
 
   <page-header-image-banner class="page-header-image-banner {% if section.settings.video_hosted != null %}page-header-image-banner--video{%- endif -%}">
     <div
@@ -499,6 +500,60 @@
           "label": "t:sections.settings.settings.link.label"
         }
       ]
+    },
+    {
+      "type": "usp",
+      "name": "USP with Icon",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "USP Text",
+          "default": "Feature benefit"
+        },
+        {
+          "type": "checkbox",
+          "id": "disable_on_mobile",
+          "label": "t:sections.global.disable_on_mobile",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "info_tooltip",
+      "name": "Info Tooltip",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Info Icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "hover_icon",
+          "label": "Info Icon (Hover State)",
+          "info": "Optional: Icon to show on hover/click. If not set, the default icon will be used with a filter effect."
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Tooltip Content",
+          "default": "<p>Additional information about your product or service.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "disable_on_mobile",
+          "label": "t:sections.global.disable_on_mobile",
+          "default": false
+        }
+      ]
     }
   ],
   "enabled_on": {
@@ -516,6 +571,15 @@
         },
         {
           "type": "text"
+        },
+        {
+          "type": "usp"
+        },
+        {
+          "type": "usp"
+        },
+        {
+          "type": "info_tooltip"
         },
         {
           "type": "button"

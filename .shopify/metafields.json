@@ -1,0 +1,57 @@
+{
+  "article": [],
+  "blog": [],
+  "brand": [],
+  "collection": [],
+  "company": [],
+  "company_location": [],
+  "location": [],
+  "market": [],
+  "order": [],
+  "page": [
+    {
+      "key": "ingredients_navigation_products",
+      "namespace": "custom",
+      "name": "Ingredients Navigation Products",
+      "description": "",
+      "type": {
+        "name": "list.product_reference",
+        "category": "REFERENCE"
+      }
+    }
+  ],
+  "product": [
+    {
+      "key": "application-method",
+      "namespace": "shopify",
+      "name": "Application method",
+      "description": "Defines how a product is applied or used, e.g. gel, liquid, spray",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "ingredients",
+      "namespace": "custom",
+      "name": "Ingredients",
+      "description": "List of ingredient metaobjects",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "health_benefits_section",
+      "namespace": "custom",
+      "name": "Health Benefits Section",
+      "description": "",
+      "type": {
+        "name": "metaobject_reference",
+        "category": "REFERENCE"
+      }
+    }
+  ],
+  "variant": [],
+  "shop": []
+}

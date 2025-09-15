@@ -1,0 +1,394 @@
+{% comment %}
+  Custom Testimonials Section - Expert testimonials with profiles
+  Layout: Two-column grid with expert profiles and testimonials
+{% endcomment %}
+
+{% assign background_rgb = section.settings.background_color | color_to_rgb %}
+{% assign text_rgb = section.settings.color_body_text | color_to_rgb %}
+
+<div class="testimonials-custom{% if section.settings.full_width_enabled %} testimonials-custom--full-width{% endif %}" data-section-id="{{ section.id }}">
+  <div class="{% unless section.settings.full_width_enabled %}page-width{% endunless %}">
+    {% if section.settings.heading != blank %}
+      <div class="testimonials-custom__heading">{{ section.settings.heading }}</div>
+    {% endif %}
+
+    <div class="testimonials-custom__grid">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'testimonial' %}
+            {% assign block_background_rgb = block.settings.background_color | color_to_rgb %}
+              <div
+              class="testimonial-card"
+              {{ block.shopify_attributes }}
+              {% if block_background_rgb != 'rgba(0, 0, 0, 0.0)' %}
+              style="background-color: {{ block.settings.background_color }}; padding: 2rem; border-radius: var(--border-radius);"
+              {% endif %}>
+              <!-- Expert Profile -->
+              <div class="expert-profile">
+                {% if block.settings.expert_image != blank %}
+                  <div class="expert-profile__image">
+                    {{ block.settings.expert_image | image_url: width: 500 | image_tag: alt: block.settings.expert_name, loading: 'lazy' }}
+                  </div>
+                {% endif %}
+
+                <div class="expert-profile__content">
+                  {% if block.settings.expert_name != blank %}
+                    <h3 class="expert-profile__name">{{ block.settings.expert_name }}</h3>
+                  {% endif %}
+
+                  {% if block.settings.expert_title != blank %}
+                    <p class="expert-profile__title">{{ block.settings.expert_title }}</p>
+                  {% endif %}
+
+                  {% if block.settings.expert_description != blank %}
+                    <p class="expert-profile__description">{{ block.settings.expert_description }}</p>
+                  {% endif %}
+                </div>
+              </div>
+
+              <!-- Testimonial Quote -->
+              {% if block.settings.testimonial_text != blank %}
+                <div class="testimonial-quote">
+                  {% if section.settings.quote_icon != blank %}
+                    <div class="testimonial-quote__icon">
+                      {{ section.settings.quote_icon | image_url: width: 100 | image_tag: alt: 'Quote', loading: 'lazy' }}
+                    </div>
+                  {% else %}
+                    <div class="testimonial-quote__marks">"</div>
+                  {% endif %}
+                  <p class="testimonial-quote__text">{{ block.settings.testimonial_text }}</p>
+                </div>
+              {% endif %}
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  [data-section-id="{{ section.id }}"] {
+    {% if background_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --color-background: {{ section.settings.background_color }};
+    {% endif %}
+
+    {% if text_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --color-custom-text: {{ section.settings.color_body_text }};
+    {% endif %}
+
+    {% if section.settings.full_width_enabled %}
+      --border-radius: 0;
+    {% endif %}
+  }
+
+  .testimonials-custom {
+    padding: 5rem 0;
+    background: var(--color-background);
+  }
+
+  .testimonials-custom .page-width {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    padding-left: calc(var(--gap, 8px) * 2);
+    padding-right: calc(var(--gap, 8px) * 2);
+  }
+
+  /* Desktop responsive padding - matches theme standard */
+  @media (min-width: 1200px) {
+    .testimonials-custom .page-width {
+      padding-left: calc(calc(var(--gap, 8px) * 2) + calc(var(--gap, 8px) * 2));
+      padding-right: calc(calc(var(--gap, 8px) * 2) + calc(var(--gap, 8px) * 2));
+    }
+  }
+
+  /* Full width layout adjustments */
+  .testimonials-custom--full-width .testimonials-custom__grid {
+    padding: 0 5rem;
+  }
+
+  @media screen and (max-width: 989px) {
+    .testimonials-custom--full-width .testimonials-custom__grid {
+      padding: 0 3rem;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .testimonials-custom--full-width .testimonials-custom__grid {
+      padding: 0 1.5rem;
+    }
+  }
+
+  .testimonials-custom__heading {
+    font-family: var(--font-headline);
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: var(--font-headline-line-height);
+    margin-bottom: 4rem;
+    text-align: left;
+    color: var(--color-custom-text, var(--color-foreground));
+  }
+
+  .testimonials-custom__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  @media screen and (max-width: 749px) {
+    .testimonials-custom__grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  .testimonial-card {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  /* Expert Profile Styles */
+  .expert-profile {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .expert-profile__image {
+    flex-shrink: 0;
+    width: 244px;
+    height: 244px;
+    overflow: hidden;
+  }
+
+  .expert-profile__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .expert-profile__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 244px;
+  }
+
+  .expert-profile__name {
+    font-family: var(--font-headline);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+    color: var(--color-custom-text, var(--color-foreground));
+  }
+
+  .expert-profile__title {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-custom-text, var(--color-foreground-75));
+    font-weight: 500;
+  }
+
+  .expert-profile__description {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: var(--color-custom-text, var(--color-foreground));
+    margin-top: auto;
+  }
+
+  /* Testimonial Quote Styles */
+  .testimonial-quote {
+    position: relative;
+  }
+
+  .testimonial-quote__marks {
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-custom-text, var(--color-foreground));
+    margin-bottom: 1rem;
+  }
+
+  .testimonial-quote__icon {
+    width: 56px;
+    height: 56px;
+    margin: 1.5rem 0 4rem;
+  }
+
+  @media screen and (max-width: 767px) {
+    .testimonial-quote__icon {
+      width: 24px;
+      height: 24px;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-card {
+      gap: 0.5rem;
+    }
+  }
+
+  .testimonial-quote__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .testimonial-quote__text {
+    font-size: 2rem;
+    line-height: 140%;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--color-custom-text, var(--color-foreground));
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .testimonial-quote__text {
+      font-size: 1rem;
+    }
+  }
+
+  /* Responsive adjustments */
+  @media screen and (max-width: 1023px) {
+    .testimonials-custom__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .expert-profile__description {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .testimonials-custom {
+      padding: 3rem 0;
+    }
+
+    .testimonials-custom__heading {
+      font-size: 2.4rem;
+      margin-bottom: 3rem;
+    }
+
+    .expert-profile {
+      flex-direction: row;
+      text-align: left;
+      gap: 1.5rem;
+    }
+
+    .expert-profile__image {
+      width: 100px;
+      height: 100px;
+    }
+
+    .expert-profile__content {
+      height: 100px;
+      justify-content: space-between;
+    }
+
+    .expert-profile__name {
+      margin-bottom: 0;
+    }
+
+    .expert-profile__title {
+      margin-bottom: 0;
+    }
+
+
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Testimonials Custom",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "heading",
+        "label": "Heading",
+        "default": "<p>Built by Experts,<br>Proven by Athletes</p>"
+      },
+      {
+        "type": "checkbox",
+        "id": "full_width_enabled",
+        "label": "t:sections.settings.settings.section-full-width.label",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "t:sections.global.colors",
+        "info": "t:sections.global.colors-info"
+      },
+      {
+        "type": "color",
+        "id": "color_body_text",
+        "default": "transparent",
+        "label": "t:sections.settings.settings.text-color.label"
+      }, {
+        "type": "color",
+        "id": "background_color",
+        "default": "transparent",
+        "label": "t:sections.settings.settings.background-color.label"
+      }, {
+        "type": "image_picker",
+        "id": "quote_icon",
+        "label": "Custom Quote Icon (SVG recommended)"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "testimonial",
+        "name": "Expert Testimonial",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "expert_image",
+            "label": "Expert Photo"
+          },
+          {
+            "type": "text",
+            "id": "expert_name",
+            "label": "Expert Name",
+            "default": "Dr. Expert Name"
+          },
+          {
+            "type": "text",
+            "id": "expert_title",
+            "label": "Expert Title",
+            "default": "PhD, Specialist Title"
+          },
+          {
+            "type": "textarea",
+            "id": "expert_description",
+            "label": "Expert Description",
+            "default": "Expert background and credentials description."
+          }, {
+            "type": "textarea",
+            "id": "testimonial_text",
+            "label": "Testimonial Quote",
+            "default": "Add the testimonial quote here."
+          }, {
+            "type": "color",
+            "id": "background_color",
+            "default": "transparent",
+            "label": "Background Color"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Testimonials Custom",
+        "blocks": [
+          {
+            "type": "testimonial"
+          }, {
+            "type": "testimonial"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

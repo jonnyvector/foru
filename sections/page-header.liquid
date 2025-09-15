@@ -112,13 +112,14 @@
                 <li class="wt-header__nav-teaser__item {% if is_parent %}wt-header__nav-teaser__item--parent{% endif %}">
                   <a
                     href="{% if link.url %}{{ link.url }}{% else %}#{% endif %}"
-                    class="wt-header__nav-teaser__link {% if is_parent %}wt-header__nav-teaser__link--parent{% endif %} {% if link.current %} wt-header__nav-teaser__link--active{% endif %}"
+                    class="wt-header__nav-teaser__link slide-hover {% if is_parent %}wt-header__nav-teaser__link--parent{% endif %} {% if link.current %} wt-header__nav-teaser__link--active{% endif %}"
                     {% if link.current %}
                       aria-current="page"
                     {% endif %}
                   >
-                    <span class="wt-header__nav-teaser__link-text wt-page-nav-mega__decorated">
-                      {{- link.title | escape -}}
+                    <span class="wt-header__nav-teaser__link-text wt-page-nav-mega__decorated slide-wrapper">
+                      <span class="slide-text">{{- link.title | escape -}}</span>
+                      <span class="slide-text">{{- link.title | escape -}}</span>
                     </span>
                   </a>
                 </li>
@@ -910,6 +911,38 @@
           "id": "link_6",
           "type": "url",
           "label": "t:sections.settings.settings.link.label"
+        }
+      ]
+    },
+    {
+      "type": "products",
+      "name": "Product Mega Menu",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Menu item name",
+          "info": "The name of the main-level menu link this product mega menu should appear under"
+        },
+        {
+          "type": "product",
+          "id": "product_1",
+          "label": "Product 1"
+        },
+        {
+          "type": "product",
+          "id": "product_2",
+          "label": "Product 2"
+        },
+        {
+          "type": "product",
+          "id": "product_3",
+          "label": "Product 3"
+        },
+        {
+          "type": "product",
+          "id": "product_4",
+          "label": "Product 4"
         }
       ]
     }

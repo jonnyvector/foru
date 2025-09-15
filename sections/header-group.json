@@ -36,21 +36,35 @@
     "header": {
       "type": "page-header",
       "blocks": {
+        "products_H7Dxjr": {
+          "type": "products",
+          "settings": {
+            "title": "Shop",
+            "product_1": "hydration",
+            "product_2": "recovery",
+            "product_3": "whey-protein",
+            "product_4": "whey-protein"
+          }
+        },
         "column_yVYQQ3": {
           "type": "column",
+          "disabled": true,
           "settings": {
             "title": "Shop",
             "promo_section_width": 6,
-            "desktop_image_1": "shopify://shop_images/image_22_5.png",
-            "heading_1": "",
+            "desktop_image_1": "shopify://shop_images/Rectangle_801.png",
+            "heading_1": "Creatine",
             "text_1": "View All Products",
             "link_1": "",
+            "desktop_image_2": "shopify://shop_images/image_22_3.png",
             "heading_2": "",
             "text_2": "Women's Multi Capsules",
             "link_2": "",
+            "desktop_image_3": "shopify://shop_images/image_56_1.png",
             "heading_3": "",
             "text_3": "Immunity Boost Capsules",
             "link_3": "",
+            "desktop_image_4": "shopify://shop_images/image_22_7.png",
             "heading_4": "",
             "text_4": "Natural Collagen Capsules",
             "link_4": "",
@@ -64,15 +78,16 @@
         }
       },
       "block_order": [
+        "products_H7Dxjr",
         "column_yVYQQ3"
       ],
       "settings": {
         "layout": "option_5",
         "sticky_header": true,
         "sticky_header_always": false,
-        "header_bg_opacity": 44,
-        "header_bg_blur": 30,
-        "header_always_blurred": true,
+        "header_bg_opacity": 100,
+        "header_bg_blur": 0,
+        "header_always_blurred": false,
         "show_line_separator": false,
         "show_shadow": false,
         "logo": "shopify://shop_images/Foru_-_Logo_Black_8x_49f03106-ee9e-4c87-bc98-8d095825fadd.png",
@@ -82,72 +97,107 @@
         "teaser_menu": "main-menu",
         "mobile_footer_menu": "",
         "transparent_logo": "shopify://shop_images/Frame_154_1.svg",
-        "transparent_header_color": "rgba(0,0,0,0)",
+        "transparent_header_color": "#ffffff",
         "show_country_selector": true,
         "show_country_selector_label": false,
         "show_country_selector_flag": true,
-        "show_language_selector": true,
+        "show_language_selector": false,
         "drawer_title": "Hello!",
         "typing_search": "Search...",
         "suggestions_title": "most popular",
         "suggestions_menu": ""
       }
     },
-    "page_header_image_video_fECwHG": {
-      "type": "page-header-image-video",
+    "page_header_image_banner_rCVqwY": {
+      "type": "page-header-image-banner",
       "blocks": {
-        "text_RCbiGj": {
+        "heading_taknR7": {
+          "type": "heading",
+          "settings": {
+            "heading": "certified clean nutrition systems",
+            "disable_on_mobile": false,
+            "size_heading": 500,
+            "size_heading_mobile": 210
+          }
+        },
+        "text_EeMXMg": {
           "type": "text",
           "settings": {
-            "text": "<p>The Future of Wellness</p>",
+            "text": "<p>Third-party tested formulas built for daily habits and specific performance goals. Travel-ready sticks that fit your routine, backed by real science and trusted by top performers.</p>",
             "disable_on_mobile": false
           }
         },
-        "heading_XQM4jQ": {
-          "type": "heading",
-          "settings": {
-            "heading": "Gear up for great health",
-            "disable_on_mobile": false,
-            "size_heading": 300,
-            "size_heading_mobile": 220
-          }
-        },
-        "button_B63KwX": {
+        "button_WDHdTN": {
           "type": "button",
           "settings": {
             "button_select": "secondary",
-            "button_label": "check now",
-            "button_link": "/",
-            "button_link_in_new_window": false,
+            "button_label": "Shop Now",
+            "disable_on_mobile": false,
+            "button_link": "shopify://collections/all",
+            "second_button_select": "primary",
+            "second_button_label": "Button label",
+            "second_disable_on_mobile": false,
+            "second_button_link": ""
+          }
+        },
+        "usp_CEpaRm": {
+          "type": "usp",
+          "settings": {
+            "icon": "shopify://shop_images/globe.svg",
+            "text": "Globally sourced ingredients",
+            "disable_on_mobile": false
+          }
+        },
+        "usp_h8WTMb": {
+          "type": "usp",
+          "settings": {
+            "icon": "shopify://shop_images/Icons_15.svg",
+            "text": "30-day guarantee",
+            "disable_on_mobile": false
+          }
+        },
+        "info_tooltip_zXwGfh": {
+          "type": "info_tooltip",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_110_73f5963c-cfc9-4561-aee2-996c4f321018.svg",
+            "hover_icon": "shopify://shop_images/Frame_110_1.svg",
+            "content": "<p>Return shipping charges not included.<br/>See Refund Policy.</p>",
             "disable_on_mobile": false
           }
         }
       },
       "block_order": [
-        "text_RCbiGj",
-        "heading_XQM4jQ",
-        "button_B63KwX"
+        "heading_taknR7",
+        "text_EeMXMg",
+        "button_WDHdTN",
+        "usp_CEpaRm",
+        "usp_h8WTMb",
+        "info_tooltip_zXwGfh"
       ],
+      "custom_css": [
+        ".hero__title {max-width: 120rem;}"
+      ],
+      "name": "Image banner for transparent header",
       "settings": {
-        "content_position": "over_image",
-        "slide_height": "adapt_to_first_image",
-        "desktop_fixed_height": 560,
-        "mobile_fixed_height": 460,
-        "layout_mobile": "video",
-        "layout": "video_first",
-        "color-body-text": "#000000",
-        "color-overlay": "#cef5fd",
-        "color-overlay-opacity": 100,
-        "desktop_text_vertical_position": "bottom",
-        "desktop_text_horizontal_position": "left",
-        "mobile_text_vertical_position": "center",
-        "mobile_text_horizontal_position": "center"
+        "slide_height": "fixed_height",
+        "desktop_fixed_height": 320,
+        "mobile_fixed_height": 380,
+        "video_hosted": "shopify://files/videos/Foru Main Screen (1).mp4",
+        "desktop_image": "shopify://shop_images/image_21_2.png",
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "center",
+        "mobile_image": "shopify://shop_images/image_21_3.png",
+        "mobile_text_vertical_position": "top",
+        "mobile_text_horizontal_position": "center",
+        "color-body-text": "#ffffff",
+        "text-container-color": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100
       }
     }
   },
   "order": [
     "announcement-bar",
     "header",
-    "page_header_image_video_fECwHG"
+    "page_header_image_banner_rCVqwY"
   ]
 }

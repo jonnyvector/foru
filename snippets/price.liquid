@@ -87,15 +87,17 @@
         <div class="price__details">
           <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
         </div>
-        <span>
-          <s class="price-item price-item--regular {% if main_product != true %}price-item--lower{% endif %} wt-product__price__compare {% if compare_at_price <= price %}hidden{% endif %}">
-            {% if settings.currency_code_enabled %}
-              {{ compare_at_price | money_with_currency }}
-            {% else %}
-              {{ compare_at_price | money }}
-            {% endif %}
-          </s>
-        </span>
+        {%- if show_compare_at_price != false -%}
+          <span>
+            <s class="price-item price-item--regular {% if main_product != true %}price-item--lower{% endif %} wt-product__price__compare {% if compare_at_price <= price %}hidden{% endif %}">
+              {% if settings.currency_code_enabled %}
+                {{ compare_at_price | money_with_currency }}
+              {% else %}
+                {{ compare_at_price | money }}
+              {% endif %}
+            </s>
+          </span>
+        {%- endif -%}
       {%- endunless -%}
     </div>
     <small class="unit-price caption{% if product.selected_or_first_available_variant.unit_price_measurement == nil %} hidden{% endif %}">

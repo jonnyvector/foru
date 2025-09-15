@@ -9,155 +9,36 @@
  */
 {
   "sections": {
-    "separator_aVXGVH": {
-      "type": "separator",
+    "featured_collection_variant_W7pFMg": {
+      "type": "featured-collection-variant",
+      "name": "Collection Variants",
       "settings": {
-        "heading": "",
-        "show-separator-line": true,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "rich_text_with_image_d9iPb9": {
-      "type": "rich-text-with-image",
-      "blocks": {
-        "heading_xqAqaP": {
-          "type": "heading",
-          "settings": {
-            "subheading": "<p>Plant Powered</p>",
-            "font_uppercase": "none",
-            "disable_on_mobile": false
-          }
-        },
-        "text_yXHg9h": {
-          "type": "text",
-          "settings": {
-            "text": "daily  PICTURE1     supplements with\nbenefits <br> for you  to PICTURE2 feel good",
-            "font_uppercase": "uppercase",
-            "disable_on_mobile": false,
-            "size_heading": 160,
-            "size_heading_mobile": 120,
-            "line_height": 1.5,
-            "button_link1": "",
-            "button_link2": "",
-            "button_link3": ""
-          }
-        }
-      },
-      "block_order": [
-        "heading_xqAqaP",
-        "text_yXHg9h"
-      ],
-      "settings": {
-        "desktop_text_horizontal_position": "center",
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
-        "margin-top": 8,
-        "margin-bottom": 0
-      }
-    },
-    "featured_collection_98txhK": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "",
+        "title": "Find Your Protocol",
         "disable_on_mobile": false,
         "hide_empty_section": false,
-        "collection": "",
+        "collection": "frontpage",
         "product_list": [],
-        "products_to_show": 8,
+        "products_to_show": 4,
+        "variants_per_product": 3,
         "enable_stack_products": false,
         "show_view_all": true,
-        "button_select": "link",
-        "number_of_column_desktop": 3,
-        "spacing_desktop": "8",
-        "make_products_full_width": false,
-        "number_of_column_mobile": 1.3,
+        "button_select": "primary",
+        "number_of_column_desktop": 4,
+        "spacing_desktop": "16",
+        "make_products_full_width": true,
+        "number_of_column_mobile": 1.1,
         "spacing_mobile": "16",
-        "text_alignment": "center",
-        "image_ratio": "adapt",
+        "text_alignment": "left",
+        "image_ratio": "square",
         "show_video": false,
-        "show_secondary_image": true,
+        "show_secondary_image": false,
         "show_vendor": false,
         "show_product_rating": false,
         "enable_quick_add_button": true,
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
-        "margin-top": 0,
-        "margin-bottom": 44
-      }
-    },
-    "separator_b68976": {
-      "type": "separator",
-      "settings": {
-        "heading": "",
-        "show-separator-line": true,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "scrolling_text_banner_37jGnf": {
-      "type": "scrolling-text-banner",
-      "blocks": {
-        "heading_e8khMB": {
-          "type": "heading",
-          "settings": {
-            "heading": "your Wellness, \u0003Our Priority!",
-            "size_heading": 610,
-            "size_heading_mobile": 300
-          }
-        },
-        "button_epiDF9": {
-          "type": "button",
-          "settings": {
-            "button_select": "secondary",
-            "button_label": "boost energy",
-            "disable_on_mobile": false,
-            "button_link": "/",
-            "second_button_select": "primary",
-            "second_button_label": "Button label",
-            "second_disable_on_mobile": false,
-            "second_button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "heading_e8khMB",
-        "button_epiDF9"
-      ],
-      "settings": {
-        "heading": "",
-        "full-width-enabled": true,
-        "animation_speed": 5,
-        "slide_height": "adapt_to_first_image",
-        "desktop_fixed_height": 320,
-        "mobile_fixed_height": 380,
-        "desktop_text_vertical_position": "center",
-        "desktop_text_horizontal_position": "center",
-        "mobile_text_vertical_position": "center",
-        "mobile_text_horizontal_position": "center",
-        "color-heading": "rgba(0,0,0,0)",
-        "section-color-overlay": "rgba(0,0,0,0)",
-        "section-color-overlay-opacity": 100,
-        "color-body-text": "#ffffff",
-        "text-container-color": "rgba(0,0,0,0)",
-        "color-overlay-opacity": 100,
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "separator_BCPCLk": {
-      "type": "separator",
-      "settings": {
-        "heading": "",
-        "show-separator-line": true,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "margin-top": 0,
-        "margin-bottom": 0
+        "margin-top": 20,
+        "margin-bottom": 20
       }
     },
     "benefits_product_DGyBfk": {
@@ -166,43 +47,55 @@
         "benefit_UTArkc": {
           "type": "benefit",
           "settings": {
-            "item_heading": "Non-GMO",
-            "text": "<p>We carefully evaluate every ingredient, ensuring they are non-GMO.</p>"
+            "image": "shopify://shop_images/Icons_4_6e3ff6e8-ee04-4021-81fe-4e7d63bf44d7.svg",
+            "item_heading": "<h3>100% Ingredient <br/>Transparency</h3>",
+            "text": "<p>Every compound listed. No blends. No guessing.</p>",
+            "alignment": "right"
           }
         },
         "benefit_8VaYPT": {
           "type": "benefit",
           "settings": {
-            "item_heading": "Quality ingredients",
-            "text": "<p>We're dedicated to using scientifically backed, high-quality natural ingredients.</p>"
+            "image": "shopify://shop_images/Icons_6_e49fd3fa-d99b-4646-a98e-399579c8ba73.svg",
+            "item_heading": "<h3>Clinician-Led<br/>Formulation</h3>",
+            "text": "<p>Developed with doctors and health scientists. Ingredients with purpose, not trends.</p>",
+            "alignment": "left"
           }
         },
         "benefit_H479zA": {
           "type": "benefit",
           "settings": {
-            "item_heading": "Engineered for Effectiveness",
-            "text": "<p>Our formulations are crafted to maximize potency and absorption.</p>"
+            "image": "shopify://shop_images/Icons_5.svg",
+            "item_heading": "<h3>Third-party <br/>tested</h3>",
+            "text": "<p>Every batch tested for banned substances and trusted by professionals.</p>",
+            "alignment": "right"
           }
         },
         "benefit_rJ3fVn": {
           "type": "benefit",
           "settings": {
-            "item_heading": "Third-party tested",
-            "text": "<p>We hold ourselves and our ingredients to the highest standards.</p>"
+            "image": "shopify://shop_images/Icons_7.svg",
+            "item_heading": "<h3>Designed for <br/>Daily Use</h3>",
+            "text": "<p>No megadoses. No crashes. Just balanced, functional support.</p>",
+            "alignment": "left"
           }
         },
         "benefit_Pbt4Uh": {
           "type": "benefit",
           "settings": {
-            "item_heading": "Vegan",
-            "text": "<p>We ensure the highest standards with 100% vegan, cruelty-free formulations.</p>"
+            "image": "shopify://shop_images/Frame_40.svg",
+            "item_heading": "<h3>Full-System <br/>Protocols</h3>",
+            "text": "<p>Hydration. Focus. Recovery. Each protocol fits your life and biology.</p>",
+            "alignment": "right"
           }
         },
         "benefit_jfRQhb": {
           "type": "benefit",
           "settings": {
-            "item_heading": "No heavy metals",
-            "text": "<p>We guarantee the highest purity, ensuring our products are free from heavy metals.</p>"
+            "image": "shopify://shop_images/Icons_8.svg",
+            "item_heading": "<h3>Vegan & <br/>Gluten-Free</h3>",
+            "text": "<p>No dairy, gluten, or animal products. Pure, clean fuel.</p>",
+            "alignment": "left"
           }
         }
       },
@@ -214,631 +107,396 @@
         "benefit_Pbt4Uh",
         "benefit_jfRQhb"
       ],
+      "custom_css": [
+        "h3 {line-height: 90%;}",
+        ".wt-benefits-product__custom-heading {margin-bottom: 0;}",
+        "@media (min-width: 1100px) {.wt-benefits-product__icon-list {height: 80%; } .wt-benefits-product__icon-item-heading {margin: 1rem 0; }}",
+        ".wt-benefits-product__icon-item:nth-of-type(1),.wt-benefits-product__icon-item:nth-of-type(2),.wt-benefits-product__icon-item:nth-of-type(5),.wt-benefits-product__icon-item:nth-of-type(6) {align-items: center;}"
+      ],
       "settings": {
-        "heading": "Science-Driven Confidence Boost",
+        "subheading": "Wellness Made Smarter",
+        "heading": "THE FORU STANDARD",
         "full-width-enabled": false,
-        "desktop_width": 60,
+        "video_hosted": "shopify://files/videos/benfits-video.mp4",
+        "desktop_width": 44,
         "desktop_max_width": 800,
         "button_label": "",
         "button_link": "",
         "quick_buy_product": "",
         "button_select": "primary",
-        "size_heading": 110,
+        "icon_width": 40,
+        "size_heading": 100,
         "size_heading_mobile": 90,
         "color-body-heading": "rgba(0,0,0,0)",
-        "color-overlay": "#fcf8f2",
+        "color-overlay": "#ffffff",
         "color-overlay-opacity": 100,
         "color-body-text": "rgba(0,0,0,0)",
         "margin-top": 64,
         "margin-bottom": 56
       }
     },
-    "separator_TmXRib": {
-      "type": "separator",
-      "settings": {
-        "heading": "",
-        "show-separator-line": true,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "product_slider_p83PNB": {
-      "type": "product-slider",
+    "video_reels_custom_LBnjxB": {
+      "type": "video-reels-custom",
       "blocks": {
-        "product_tQ8tWA": {
+        "product_Y3DkpG": {
           "type": "product",
           "settings": {
-            "slider_product": "",
-            "text_color": "#ffffff",
-            "background_color": "#fe4e4e",
-            "heading": "Boost Your Energy Levels!",
-            "text": "",
-            "promo_text_color": "",
-            "desktop_text_vertical_position": "bottom",
-            "desktop_text_horizontal_position": "left",
-            "mobile_text_horizontal_position": "center"
+            "video_hosted": "shopify://files/videos/7191505-uhd_2160_3840_25fps.mp4",
+            "featured_product": "hydration"
           }
         },
-        "product_pgDE3W": {
+        "product_zi7QLF": {
           "type": "product",
           "settings": {
-            "slider_product": "",
-            "text_color": "#ffffff",
-            "background_color": "#00a352",
-            "heading": "Relax Naturally, Live Fully!",
-            "text": "",
-            "promo_text_color": "",
-            "desktop_text_vertical_position": "bottom",
-            "desktop_text_horizontal_position": "left",
-            "mobile_text_horizontal_position": "center"
+            "video_hosted": "shopify://files/videos/12433200-uhd_2160_3840_30fps.mp4",
+            "featured_product": "hydration"
           }
         },
-        "product_JaMgAK": {
+        "product_tcM68V": {
           "type": "product",
           "settings": {
-            "slider_product": "",
-            "text_color": "#151515",
-            "background_color": "#ffc1cb",
-            "heading": "Complete care for your health!",
-            "text": "",
-            "promo_text_color": "#fbfaf6",
-            "desktop_text_vertical_position": "bottom",
-            "desktop_text_horizontal_position": "left",
-            "mobile_text_horizontal_position": "center"
+            "video_hosted": "shopify://files/videos/6213994-hd_1080_1920_30fps.mp4",
+            "featured_product": "hydration"
+          }
+        },
+        "product_yjMH6a": {
+          "type": "product",
+          "settings": {
+            "video_hosted": "shopify://files/videos/6213994-hd_1080_1920_30fps.mp4",
+            "featured_product": "hydration"
+          }
+        },
+        "product_KQLaJR": {
+          "type": "product",
+          "settings": {
+            "video_hosted": "shopify://files/videos/6213994-hd_1080_1920_30fps.mp4",
+            "featured_product": "hydration"
+          }
+        },
+        "product_e494Yf": {
+          "type": "product",
+          "settings": {
+            "video_hosted": "shopify://files/videos/6213994-hd_1080_1920_30fps.mp4",
+            "featured_product": "hydration"
           }
         }
       },
       "block_order": [
-        "product_tQ8tWA",
-        "product_pgDE3W",
-        "product_JaMgAK"
+        "product_Y3DkpG",
+        "product_zi7QLF",
+        "product_tcM68V",
+        "product_yjMH6a",
+        "product_KQLaJR",
+        "product_e494Yf"
       ],
+      "name": "Video Reels Custom",
       "settings": {
-        "heading": "",
-        "full-width-enabled": true,
-        "text_alignment": "center",
-        "product_name_style": "body",
-        "show_vendor": false,
-        "show_rating": false,
-        "layout": "left",
-        "size_heading": 280,
-        "size_heading_mobile": 160,
-        "color-heading-text": "rgba(0,0,0,0)",
-        "section-color-overlay": "rgba(0,0,0,0)",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "separator_wAY8Ld": {
-      "type": "separator",
-      "settings": {
-        "heading": "",
-        "show-separator-line": true,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "video_reels_kb4KdA": {
-      "type": "video-reels",
-      "blocks": {
-        "product_dRNtaT": {
-          "type": "product",
-          "settings": {
-            "featured_product": ""
-          }
-        },
-        "product_4zdjEq": {
-          "type": "product",
-          "settings": {
-            "featured_product": ""
-          }
-        },
-        "product_CAAJBg": {
-          "type": "product",
-          "settings": {
-            "featured_product": ""
-          }
-        },
-        "product_wrYgbH": {
-          "type": "product",
-          "settings": {
-            "featured_product": ""
-          }
-        },
-        "product_nziX76": {
-          "type": "product",
-          "settings": {
-            "featured_product": ""
-          }
-        },
-        "product_cFgPyj": {
-          "type": "product",
-          "settings": {
-            "featured_product": ""
-          }
-        }
-      },
-      "block_order": [
-        "product_dRNtaT",
-        "product_4zdjEq",
-        "product_CAAJBg",
-        "product_wrYgbH",
-        "product_nziX76",
-        "product_cFgPyj"
-      ],
-      "settings": {
-        "heading": "Real Stores, Real Recommendations!",
-        "quick-add-enabled": true,
+        "subheading": "Testimonials",
+        "heading": "What our community says",
+        "quick-add-enabled": false,
         "hide-brand-name": true,
-        "video_button": true,
+        "video_button": false,
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
-        "margin-top": 56,
+        "margin-top": 20,
         "margin-bottom": 20
       }
     },
-    "scrolling_text_banner_7ziGpd": {
-      "type": "scrolling-text-banner",
-      "blocks": {
-        "heading_6UV6EX": {
-          "type": "heading",
-          "settings": {
-            "heading": "+10000 happy customers",
-            "size_heading": 90,
-            "size_heading_mobile": 90
-          }
-        }
-      },
-      "block_order": [
-        "heading_6UV6EX"
-      ],
-      "settings": {
-        "heading": "",
-        "full-width-enabled": true,
-        "animation_speed": 2,
-        "slide_height": "fixed_height_no_img",
-        "desktop_fixed_height": 100,
-        "mobile_fixed_height": 100,
-        "desktop_text_vertical_position": "center",
-        "desktop_text_horizontal_position": "center",
-        "mobile_text_vertical_position": "center",
-        "mobile_text_horizontal_position": "center",
-        "color-heading": "rgba(0,0,0,0)",
-        "section-color-overlay": "rgba(0,0,0,0)",
-        "section-color-overlay-opacity": 100,
-        "color-body-text": "rgba(0,0,0,0)",
-        "text-container-color": "rgba(0,0,0,0)",
-        "color-overlay-opacity": 100,
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "separator_niFemL": {
-      "type": "separator",
-      "settings": {
-        "heading": "",
-        "show-separator-line": true,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "image_with_text_BNnxzt": {
+    "image_with_text_3rdT8b": {
       "type": "image-with-text",
       "blocks": {
-        "subheading_3aVmpN": {
+        "subheading_eE7ezQ": {
           "type": "subheading",
           "settings": {
-            "subheading": "our mission",
+            "subheading": "Mission",
             "subheading_disable_on_mobile": false
           }
         },
-        "heading_hQwmXw": {
+        "heading_gBBLFe": {
           "type": "heading",
           "settings": {
-            "heading": "There’s a science to the science.",
+            "heading": "Built for Consistency, Not Perfection",
             "disable_on_mobile": false,
-            "size_heading": 280,
-            "size_heading_mobile": 160
+            "size_heading": 260,
+            "size_heading_mobile": 150
           }
         },
-        "text_qwc3Pd": {
+        "text_ciLkej": {
           "type": "text",
           "settings": {
-            "text": "<p>We have worked tirelessly, refining countless formulations, processes, and tests to ensure that each supplement and mint we create fulfills our promise of helping you achieve the right state of mind at the perfect moment.</p>",
+            "text": "<p>We build clean, intelligent systems for modern health, made to streamline your routine and support real progress. Already trusted by top trainers, nutritionists, and founders who demand more from their wellness.</p>",
             "text_style": "body",
             "disable_on_mobile": false
           }
         },
-        "button_Ypx3ee": {
+        "button_qQzJAz": {
           "type": "button",
           "settings": {
-            "button_select": "link",
-            "button_label": "read more",
-            "button_link": "/",
+            "button_select": "primary",
+            "button_label": "About Us",
+            "button_link": "shopify://pages/about",
             "disable_on_mobile": false
           }
         }
       },
       "block_order": [
-        "subheading_3aVmpN",
-        "heading_hQwmXw",
-        "text_qwc3Pd",
-        "button_Ypx3ee"
+        "subheading_eE7ezQ",
+        "heading_gBBLFe",
+        "text_ciLkej",
+        "button_qQzJAz"
       ],
+      "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "title": "",
-        "layout": "image_first",
+        "layout": "text_first",
         "desktop-percentage-image-width": 50,
         "full-width-enabled": true,
-        "slide_height": "adapt_to_first_image",
-        "desktop_fixed_height": 320,
+        "slide_height": "fixed_height",
+        "desktop_fixed_height": 900,
         "mobile_fixed_height": 460,
         "section-color-body-text": "rgba(0,0,0,0)",
         "section-color-overlay": "rgba(0,0,0,0)",
         "section-color-overlay-opacity": 100,
         "color-body-text": "rgba(0,0,0,0)",
-        "color-overlay": "#ffffff",
+        "color-overlay": "rgba(0,0,0,0)",
         "color-overlay-opacity": 100,
+        "desktop_image": "shopify://shop_images/image_55.png",
         "desktop_text_vertical_position": "center",
         "desktop_text_horizontal_position": "left",
-        "mobile_text_horizontal_position": "center",
-        "margin-top": 0,
+        "mobile_text_horizontal_position": "left",
+        "margin-top": 20,
         "margin-bottom": 0
       }
     },
-    "separator_TDXcTt": {
-      "type": "separator",
-      "settings": {
-        "heading": "",
-        "show-separator-line": true,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "parallax_daqd4B": {
-      "type": "parallax",
+    "image_with_text_ewadgb": {
+      "type": "image-with-text",
       "blocks": {
-        "heading_6hUkf8": {
-          "type": "heading",
+        "subheading_FjRKag": {
+          "type": "subheading",
           "settings": {
-            "heading": "Empowering Your Health Naturally",
-            "disable_on_mobile": false,
-            "size_heading": 420,
-            "size_heading_mobile": 180
+            "subheading": "Transparency",
+            "subheading_disable_on_mobile": false
           }
         },
-        "text_NrYcbg": {
+        "heading_R3tMLH": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Science Behind the System",
+            "disable_on_mobile": false,
+            "size_heading": 290,
+            "size_heading_mobile": 150
+          }
+        },
+        "text_r8TFeH": {
           "type": "text",
           "settings": {
-            "text": "<p>At Wellness, we believe that true vitality starts from within. That's why we create high-quality, natural supplements designed to support your well-being, enhance your energy, and help you thrive every day.</p>",
+            "text": "<p>Each formula is built from the ground up using research-backed ingredients and clinically relevant doses. Designed with expert input for real-world results. Every batch is third party tested for quality, consistency, and purity - and refined through ongoing formulation reviews.</p>",
+            "text_style": "body",
             "disable_on_mobile": false
           }
         },
-        "button_BcWPje": {
+        "button_KcR4tg": {
           "type": "button",
           "settings": {
             "button_select": "primary",
-            "button_label": "about us",
-            "button_link": "/",
+            "button_label": "Check Our Ingredients",
+            "button_link": "shopify://pages/ingredients",
+            "disable_on_mobile": false
+          }
+        },
+        "trust_badge_JjCUfP": {
+          "type": "trust_badge",
+          "settings": {
+            "percentage_text": "100%",
+            "subtitle_text": "Ingredients Made Traceable",
+            "custom_icon": "shopify://shop_images/415900663_c80bd758-9595-44f8-8eb7-ad393f99b33d_1.svg",
+            "icon_type": "lab_flask",
+            "padding_top_desktop": 100,
+            "padding_top_mobile": 20,
             "disable_on_mobile": false
           }
         }
       },
       "block_order": [
-        "heading_6hUkf8",
-        "text_NrYcbg",
-        "button_BcWPje"
+        "subheading_FjRKag",
+        "heading_R3tMLH",
+        "text_r8TFeH",
+        "button_KcR4tg",
+        "trust_badge_JjCUfP"
       ],
+      "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "desktop_text_horizontal_position": "center",
-        "rotation": 30,
-        "button_link1": "",
-        "button_link2": "",
-        "color-body-text": "#151515",
-        "background_color": "rgba(0,0,0,0)",
+        "title": "",
+        "layout": "image_first",
+        "desktop-percentage-image-width": 50,
+        "full-width-enabled": true,
+        "slide_height": "fixed_height",
+        "desktop_fixed_height": 900,
+        "mobile_fixed_height": 460,
+        "section-color-body-text": "rgba(0,0,0,0)",
+        "section-color-overlay": "rgba(0,0,0,0)",
+        "section-color-overlay-opacity": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "desktop_image": "shopify://shop_images/image_56.png",
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "left",
+        "mobile_text_horizontal_position": "left",
         "margin-top": 0,
         "margin-bottom": 0
       }
     },
-    "brands_EbRKxC": {
-      "type": "brands",
+    "testimonials_custom_kHmmbJ": {
+      "type": "testimonials-custom",
       "blocks": {
-        "image_xk7Hnb": {
-          "type": "image",
+        "testimonial_4rtYRV": {
+          "type": "testimonial",
           "settings": {
-            "link": ""
+            "expert_image": "shopify://shop_images/Rectangle_774_0a56476c-34cd-4d6d-9b35-6e747cd46008.png",
+            "expert_name": "Dr. Olivia Martins",
+            "expert_title": "PhD, Clinical Biochemist & Wellness Researcher",
+            "expert_description": "For more than 12 years he has been involved in scientific work at universities in the UK and Germany, specializing in the development of functional nutrition and adaptogens for recovery from mental and physical fatigue.",
+            "testimonial_text": "I started taking Electrolyte Cums on the recommendation of my coach to recover faster after intensive training. At first I was confused by the name, but the product itself turned out to be of very high quality. Excellent replenishes electrolytes, increases endurance and really helps to avoid cramps after exercise. The flavor is neutral, dissolves well. I will order more!",
+            "background_color": "#f7f7f7"
           }
         },
-        "image_VqDGCi": {
-          "type": "image",
+        "testimonial_rPVGwC": {
+          "type": "testimonial",
           "settings": {
-            "link": ""
-          }
-        },
-        "image_WQgepn": {
-          "type": "image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "image_4GEQyc": {
-          "type": "image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "image_GB3yab": {
-          "type": "image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "image_arYjif": {
-          "type": "image",
-          "settings": {
-            "link": ""
+            "expert_image": "shopify://shop_images/Rectangle_785.png",
+            "expert_name": "Dr. Samuel E. Carter",
+            "expert_title": "Chief Nutrition Scientist",
+            "expert_description": "Dr. Carter is a medical nutritionist and sports medicine specialist with over 18 years of experience in recovery and nutrition. During his career, he has worked with U.S. Olympic teams, developing formulas for recovery drinks and customized supplements for athletes and people with high levels of physical activity.",
+            "testimonial_text": "I started using Electrolyte Cums after tough workouts, and despite the unusual name, the results speak for themselves. It helps me stay hydrated, recover faster, and I’ve noticed way fewer muscle cramps. The formula is clean, easy to mix, and doesn't have a weird aftertaste. Definitely a solid addition to my training routine — will be reordering!",
+            "background_color": "#f7f7f7"
           }
         }
       },
       "block_order": [
-        "image_xk7Hnb",
-        "image_VqDGCi",
-        "image_WQgepn",
-        "image_4GEQyc",
-        "image_GB3yab",
-        "image_arYjif"
+        "testimonial_4rtYRV",
+        "testimonial_rPVGwC"
       ],
+      "name": "Testimonials Custom",
       "settings": {
-        "heading": "FEATURED ON",
-        "animation": "marquee",
-        "animation_speed": "100",
+        "heading": "<h2>Built by Experts, <br/>Proven by Athletes</h2>",
+        "full_width_enabled": false,
+        "color_body_text": "#1a1c1c",
+        "background_color": "rgba(0,0,0,0)",
+        "quote_icon": "shopify://shop_images/Frame_1_41d73260-6314-4618-a31f-a5cb2b91c3e4.svg"
+      }
+    },
+    "featured_on_iXfAwg": {
+      "type": "featured-on",
+      "blocks": {
+        "logo_Hr3w9V": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_10.svg",
+            "link": "",
+            "open_in_new_tab": false
+          }
+        },
+        "logo_FPLd3B": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_11.svg",
+            "link": "",
+            "open_in_new_tab": false
+          }
+        },
+        "logo_drUPkX": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_12_1.svg",
+            "link": "",
+            "open_in_new_tab": false
+          }
+        },
+        "logo_maKhTR": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_15.svg",
+            "link": "",
+            "open_in_new_tab": false
+          }
+        },
+        "logo_PNrBWk": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_13_1.svg",
+            "link": "",
+            "open_in_new_tab": false
+          }
+        },
+        "logo_KyDUhz": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_14_1.svg",
+            "link": "",
+            "open_in_new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "logo_Hr3w9V",
+        "logo_FPLd3B",
+        "logo_drUPkX",
+        "logo_maKhTR",
+        "logo_PNrBWk",
+        "logo_KyDUhz"
+      ],
+      "name": "Featured On",
+      "settings": {
+        "heading": "Featured On",
+        "size_heading": 120,
+        "size_heading_mobile": 100,
+        "text_alignment": "left",
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
-        "margin-top": 40,
-        "margin-bottom": 8
+        "logo_container_color": "#f0f0f0",
+        "margin-top": 20,
+        "margin-bottom": 20
       }
     },
-    "separator_ahAFNc": {
-      "type": "separator",
-      "settings": {
-        "heading": "",
-        "show-separator-line": true,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "blog_posts_9bVbNW": {
+    "blog_posts_Pt33Px": {
       "type": "blog-posts",
+      "name": "t:sections.blog-posts.presets.name",
       "settings": {
-        "heading": "",
+        "heading": "Blog posts",
         "swipe_on_mobile": true,
-        "full-width-enabled": true,
-        "blog": "",
+        "full-width-enabled": false,
+        "blog": "health",
         "post_limit": 3,
         "show_date": true,
         "show_author": false,
         "show_view_all": true,
         "view_all_button_select": "link",
         "show_image": true,
+        "hide_read_more": true,
         "image_ratio": "adapt",
         "column_alignment": "left",
-        "button_select": "link",
-        "size_heading": 80,
-        "size_heading_mobile": 90,
+        "button_select": "primary",
+        "size_heading": 100,
+        "size_heading_mobile": 100,
+        "section_heading_size": 120,
+        "section_heading_size_mobile": 100,
+        "text_alignment": "left",
         "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "#ffffff",
-        "margin-top": 0,
-        "margin-bottom": 40
-      }
-    },
-    "separator_8zNNU6": {
-      "type": "separator",
-      "settings": {
-        "heading": "",
-        "show-separator-line": true,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "background_video_AVWJen": {
-      "type": "background-video",
-      "blocks": {
-        "text_iHLUtH": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Fuel Your Body, Sustain the Planet</p>",
-            "disable_on_mobile": false
-          }
-        },
-        "heading_TLrfJr": {
-          "type": "heading",
-          "settings": {
-            "heading": "Sustainable Solutions for a Healthier Life.",
-            "disable_on_mobile": false,
-            "size_heading": 250,
-            "size_heading_mobile": 140
-          }
-        },
-        "button_iNMeDi": {
-          "type": "button",
-          "settings": {
-            "button_select": "secondary",
-            "button_label": "Our mission",
-            "disable_on_mobile": false,
-            "button_link": "",
-            "second_button_select": "primary",
-            "second_button_label": "Button label",
-            "second_disable_on_mobile": false,
-            "second_button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "text_iHLUtH",
-        "heading_TLrfJr",
-        "button_iNMeDi"
-      ],
-      "settings": {
-        "heading": "",
-        "full-width-enabled": true,
-        "autoplay": true,
-        "video_controls": false,
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "original_ratio": "fixed_height",
-        "desktop_fixed_height": 600,
-        "mobile_fixed_height": 400,
-        "color-body-heading": "rgba(0,0,0,0)",
-        "color-overlay": "#ffffff",
-        "color-overlay-opacity": 100,
-        "color-body-text": "#ffffff",
-        "desktop_text_horizontal_position": "center",
-        "mobile_text_horizontal_position": "center",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "separator_BRpzCT": {
-      "type": "separator",
-      "settings": {
-        "heading": "",
-        "show-separator-line": true,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "testimonials_AqAx9w": {
-      "type": "testimonials",
-      "blocks": {
-        "image_qnywrw": {
-          "type": "image",
-          "settings": {
-            "icon_select": "100",
-            "text": "<p>\"Finally, a product that delivers on its promises. My skin glows, and I feel amazing inside and out!\"</p>",
-            "large_screen_logo_width": 110,
-            "mobile_screen_logo_width": 80,
-            "author": "Martin B."
-          }
-        },
-        "image_6hLQP3": {
-          "type": "image",
-          "settings": {
-            "icon_select": "100",
-            "text": "<p>\"A game-changer for my daily routine. I wake up refreshed and ready to take on the day like never before!\"</p>",
-            "large_screen_logo_width": 110,
-            "mobile_screen_logo_width": 100,
-            "author": "Hanna S."
-          }
-        }
-      },
-      "block_order": [
-        "image_qnywrw",
-        "image_6hLQP3"
-      ],
-      "settings": {
-        "heading": "",
-        "image_shape": "circle",
-        "testimonial_text_size_desktop": 200,
-        "testimonial_text_size": 140,
-        "text_color": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
-        "margin-top": 36,
-        "margin-bottom": 40
-      }
-    },
-    "separator_zAdH4N": {
-      "type": "separator",
-      "settings": {
-        "heading": "",
-        "show-separator-line": true,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "newsletter_with_image_igfz4M": {
-      "type": "newsletter-with-image",
-      "blocks": {
-        "heading_fLfJ3Y": {
-          "type": "heading",
-          "settings": {
-            "heading": "Join Our Circle & Save!",
-            "heading_disable_on_mobile": false,
-            "size_heading": 200,
-            "size_heading_mobile": 140
-          }
-        },
-        "paragraph_ghzhhf": {
-          "type": "paragraph",
-          "settings": {
-            "paragraph": "<p>Sign up now for 10% off your first order – because you deserve it!</p>",
-            "text_disable_on_mobile": false
-          }
-        },
-        "email_form_rnPxnB": {
-          "type": "email_form",
-          "settings": {
-            "button_select": "primary"
-          }
-        }
-      },
-      "block_order": [
-        "heading_fLfJ3Y",
-        "paragraph_ghzhhf",
-        "email_form_rnPxnB"
-      ],
-      "settings": {
-        "slide_height": "fixed_height",
-        "desktop_fixed_height": 480,
-        "mobile_fixed_height": 460,
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "#ffffff",
-        "background_color_opacity": 56,
-        "background_blur": 9,
-        "margin-top": 0,
-        "margin-bottom": 0
+        "margin-top": 20,
+        "margin-bottom": 100
       }
     }
   },
   "order": [
-    "separator_aVXGVH",
-    "rich_text_with_image_d9iPb9",
-    "featured_collection_98txhK",
-    "separator_b68976",
-    "scrolling_text_banner_37jGnf",
-    "separator_BCPCLk",
+    "featured_collection_variant_W7pFMg",
     "benefits_product_DGyBfk",
-    "separator_TmXRib",
-    "product_slider_p83PNB",
-    "separator_wAY8Ld",
-    "video_reels_kb4KdA",
-    "scrolling_text_banner_7ziGpd",
-    "separator_niFemL",
-    "image_with_text_BNnxzt",
-    "separator_TDXcTt",
-    "parallax_daqd4B",
-    "brands_EbRKxC",
-    "separator_ahAFNc",
-    "blog_posts_9bVbNW",
-    "separator_8zNNU6",
-    "background_video_AVWJen",
-    "separator_BRpzCT",
-    "testimonials_AqAx9w",
-    "separator_zAdH4N",
-    "newsletter_with_image_igfz4M"
+    "video_reels_custom_LBnjxB",
+    "image_with_text_3rdT8b",
+    "image_with_text_ewadgb",
+    "testimonials_custom_kHmmbJ",
+    "featured_on_iXfAwg",
+    "blog_posts_Pt33Px"
   ]
 }

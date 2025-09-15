@@ -1,0 +1,58 @@
+{% comment %}Debug version with inline styles and gap{% endcomment %}
+
+<div style="display: inline-flex; align-items: stretch; gap: 1rem; min-height: 52px;">
+  
+  {% if type %}
+    <button type="{{ type }}" style="display: flex; align-items: center; padding: 16px 20px; background: #2a2a2a; color: white; border: none; font-size: 16px; cursor: pointer; border-radius: 8px;">
+      <span style="position: relative; display: block; width: 100%; height: 100%; overflow: hidden;">
+        <span style="display: flex; align-items: center; justify-content: center;">{{ text | default: 'Send Message' }}</span>
+      </span>
+    </button>
+  {% else %}
+    <a href="{{ url | default: '#' }}" style="display: flex; align-items: center; padding: 16px 20px; background: #2a2a2a; color: white; text-decoration: none; font-size: 16px; border-radius: 8px;">
+      <span style="position: relative; display: block; width: 100%; height: 100%; overflow: hidden;">
+        <span style="display: flex; align-items: center; justify-content: center;">{{ text | default: 'Shop Now' }}</span>
+      </span>
+    </a>
+  {% endif %}
+
+  <div style="display: flex; align-items: center; justify-content: center; padding: 16px; min-width: 52px; height: 52px; background: #2a2a2a; color: white; border-radius: 8px; cursor: pointer;">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+      <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6-6 6-1.41-1.41z"/>
+    </svg>
+  </div>
+
+</div>
+
+<script>
+// Make arrow clickable and sync with button
+document.addEventListener('DOMContentLoaded', function() {
+  const wrapper = document.querySelector('.shop-button-wrapper');
+  if (wrapper) {
+    const button = wrapper.querySelector('button, a');
+    const arrow = wrapper.querySelector('div[style*="cursor: pointer"]');
+    
+    if (button && arrow) {
+      // Make arrow click trigger button
+      arrow.addEventListener('click', function() {
+        if (button.tagName === 'BUTTON') {
+          button.click();
+        } else {
+          window.location.href = button.href;
+        }
+      });
+      
+      // Sync hover states
+      wrapper.addEventListener('mouseenter', function() {
+        button.style.background = '#1a1a1a';
+        arrow.style.background = '#1a1a1a';
+      });
+      
+      wrapper.addEventListener('mouseleave', function() {
+        button.style.background = '#2a2a2a';
+        arrow.style.background = '#2a2a2a';
+      });
+    }
+  }
+});
+</script>

@@ -53,7 +53,7 @@ if (!customElements.get("slideshow-section")) {
                 .forEach((el) => {
                   el.setAttribute(
                     "tabindex",
-                    el.hasAttribute("data-omit-tabindex") ? "-1" : "0",
+                    el.hasAttribute("data-omit-tabindex") ? "-1" : "0"
                   );
                 });
             }
@@ -63,7 +63,7 @@ if (!customElements.get("slideshow-section")) {
             slide.querySelectorAll(focusableSelectors).forEach((el) => {
               el.setAttribute(
                 "tabindex",
-                el.hasAttribute("data-omit-tabindex") ? "-1" : "0",
+                el.hasAttribute("data-omit-tabindex") ? "-1" : "0"
               );
             });
           });
@@ -104,7 +104,7 @@ if (!customElements.get("slideshow-section")) {
         if (this.dataset.brands === "true") {
           window.addEventListener(
             "resize",
-            this.initializeOrDestroySwiperForBrands,
+            this.initializeOrDestroySwiperForBrands
           );
         } else if (this.configuration.enableOnMedia) {
           window.addEventListener("resize", this.matchResolution.bind(this)); // Using bind directly here
@@ -121,7 +121,7 @@ if (!customElements.get("slideshow-section")) {
       disconnectedCallback() {
         window.removeEventListener(
           "resize",
-          this.initializeOrDestroySwiperForBrands,
+          this.initializeOrDestroySwiperForBrands
         );
         window.removeEventListener("resize", this.centerNavigation);
         window.removeEventListener("keydown", this.handleKeyboard);
@@ -137,7 +137,7 @@ if (!customElements.get("slideshow-section")) {
         if (window.innerWidth < 900 || this.shouldSkipCenterNavMethod) return;
 
         const picture = this.querySelector("picture")?.classList.contains(
-          "hero__pic--mobile",
+          "hero__pic--mobile"
         )
           ? this.querySelectorAll("picture")[1]
           : this.querySelector("picture");
@@ -148,7 +148,7 @@ if (!customElements.get("slideshow-section")) {
           const btns = this.querySelectorAll(".wt-slider__nav-btn");
           btns.forEach(
             (btn) =>
-              (btn.style.top = `${22 + boundingClientRectPic.height / 2}px`),
+              (btn.style.top = `${22 + boundingClientRectPic.height / 2}px`)
           );
         }
       }
@@ -174,7 +174,7 @@ if (!customElements.get("slideshow-section")) {
             afterInit: (swiper) => {
               const dataSwiper = this.querySelector("[data-swiper]");
               const dataSwiperContainer = this.querySelector(
-                "[data-swiper-container]",
+                "[data-swiper-container]"
               );
               dataSwiper?.classList.remove("loading");
               dataSwiperContainer?.classList.remove("loading");
@@ -189,7 +189,7 @@ if (!customElements.get("slideshow-section")) {
         };
 
         const get_custom_configuration = this.querySelector(
-          "[data-swiper-configuration]",
+          "[data-swiper-configuration]"
         )?.innerHTML;
         const custom_configuration = get_custom_configuration
           ? JSON.parse(get_custom_configuration)
@@ -227,11 +227,11 @@ if (!customElements.get("slideshow-section")) {
         const container = this.querySelector("[data-swiper]");
         this.querySelector("[data-swiper]").classList.add(
           "swiper",
-          "wt-slider__container",
+          "wt-slider__container"
         );
         this.querySelector("[data-swiper-container]").classList.add(
           "swiper-wrapper",
-          "wt-slider__wrapper",
+          "wt-slider__wrapper"
         );
         this.querySelectorAll("[data-swiper-slide]").forEach(function (e) {
           e.classList.add("swiper-slide", "wt-slider__slide");
@@ -242,11 +242,11 @@ if (!customElements.get("slideshow-section")) {
       swiperDestroy() {
         this.querySelector("[data-swiper]").classList.remove(
           "swiper",
-          "wt-slider__container",
+          "wt-slider__container"
         );
         this.querySelector("[data-swiper-container]").classList.remove(
           "swiper-wrapper",
-          "wt-slider__wrapper",
+          "wt-slider__wrapper"
         );
         this.querySelectorAll("[data-swiper-slide]").forEach(function (e) {
           e.classList.remove("swiper-slide", "wt-slider__slide");
@@ -262,6 +262,6 @@ if (!customElements.get("slideshow-section")) {
         const index = Array.from(slide.parentNode.children).indexOf(slide);
         this.swiper.slideTo(index);
       }
-    },
+    }
   );
 }

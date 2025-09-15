@@ -1,0 +1,174 @@
+{% comment %}
+  Shop Button Component - Following Reference Code Exactly
+{% endcomment %}
+
+{% assign unique_id = 'shop-btn-' | append: section.id | default: 'shop-btn-default' %}
+
+<div class="shop-button-wrapper-{{ unique_id }} shop-button-wrapper--{{ style | default: 'dark' }}">
+  
+  {% if type %}
+    <button type="{{ type }}" class="shop-button-text-{{ unique_id }}">
+      <span class="slide-wrapper">
+        <span class="slide-text">{{ text | default: 'Shop Now' }}</span>
+        <span class="slide-text">{{ text | default: 'Shop Now' }}</span>
+      </span>
+    </button>
+
+    <button type="{{ type }}" class="shop-button-arrow-{{ unique_id }}" aria-label="{{ aria_label | default: 'Submit' }}">
+      <span class="slide-wrapper">
+        <span class="slide-arrow">
+          <svg class="shop-button-arrow-icon-{{ unique_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </span>
+        <span class="slide-arrow">
+          <svg class="shop-button-arrow-icon-{{ unique_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </span>
+    </button>
+  {% else %}
+    <a href="{{ url | default: '#' }}" class="shop-button-text-{{ unique_id }}"
+       {% if target %}target="{{ target }}"{% endif %}
+       {% if aria_label %}aria-label="{{ aria_label }}"{% endif %}>
+      <span class="slide-wrapper">
+        <span class="slide-text">{{ text | default: 'Shop Now' }}</span>
+        <span class="slide-text">{{ text | default: 'Shop Now' }}</span>
+      </span>
+    </a>
+
+    <a href="{{ url | default: '#' }}" class="shop-button-arrow-{{ unique_id }}"
+       {% if target %}target="{{ target }}"{% endif %}
+       aria-label="{{ aria_label | default: 'Go' }}">
+      <span class="slide-wrapper">
+        <span class="slide-arrow">
+          <svg class="shop-button-arrow-icon-{{ unique_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </span>
+        <span class="slide-arrow">
+          <svg class="shop-button-arrow-icon-{{ unique_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </span>
+    </a>
+  {% endif %}
+</div>
+
+<style>
+/* Wrapper styling */
+.shop-button-wrapper-{{ unique_id }} {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+/* Text button styling */
+.shop-button-text-{{ unique_id }} {
+  padding: 0 24px;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  border: 1px solid;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 8px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+}
+
+/* Arrow button styling */
+.shop-button-arrow-{{ unique_id }} {
+  width: 60px;
+  height: 52px;
+  position: relative;
+  border: 1px solid;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* Dark variant colors */
+.shop-button-wrapper--dark .shop-button-text-{{ unique_id }},
+.shop-button-wrapper--dark .shop-button-arrow-{{ unique_id }} {
+  background: #2a2a2a;
+  color: white;
+  border-color: #2a2a2a;
+}
+
+/* Light variant colors */
+.shop-button-wrapper--light .shop-button-text-{{ unique_id }},
+.shop-button-wrapper--light .shop-button-arrow-{{ unique_id }} {
+  background: white;
+  color: #2a2a2a;
+  border-color: #e0e0e0;
+}
+
+/* Hover effects */
+.shop-button-wrapper-{{ unique_id }}:hover .shop-button-text-{{ unique_id }},
+.shop-button-wrapper-{{ unique_id }}:hover .shop-button-arrow-{{ unique_id }} {
+  background: #1a1a1a !important;
+  color: white !important;
+}
+
+.shop-button-wrapper--light.shop-button-wrapper-{{ unique_id }}:hover .shop-button-text-{{ unique_id }},
+.shop-button-wrapper--light.shop-button-wrapper-{{ unique_id }}:hover .shop-button-arrow-{{ unique_id }} {
+  background: #f8f8f8 !important;
+  color: #2a2a2a !important;
+}
+
+/* Slide animation structure */
+.shop-button-text-{{ unique_id }} .slide-wrapper,
+.shop-button-arrow-{{ unique_id }} .slide-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 52px;
+  overflow: hidden;
+}
+
+.shop-button-text-{{ unique_id }} .slide-text,
+.shop-button-arrow-{{ unique_id }} .slide-arrow {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateY(0);
+  color: inherit;
+}
+
+/* Second copy starts below */
+.shop-button-text-{{ unique_id }} .slide-text:last-child,
+.shop-button-arrow-{{ unique_id }} .slide-arrow:last-child {
+  transform: translateY(100%);
+}
+
+/* On hover they swap */
+.shop-button-wrapper-{{ unique_id }}:hover .slide-text:first-child,
+.shop-button-wrapper-{{ unique_id }}:hover .slide-arrow:first-child {
+  transform: translateY(-100%);
+}
+
+.shop-button-wrapper-{{ unique_id }}:hover .slide-text:last-child,
+.shop-button-wrapper-{{ unique_id }}:hover .slide-arrow:last-child {
+  transform: translateY(0);
+}
+
+/* Arrow icon styling */
+.shop-button-arrow-icon-{{ unique_id }} {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+</style>

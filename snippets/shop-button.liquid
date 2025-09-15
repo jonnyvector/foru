@@ -1,0 +1,83 @@
+{% comment %}
+  Shop Button Component with Sliding Animation - Separated Structure
+  
+  Usage Examples:
+  {% render 'shop-button', text: 'Shop Now', style: 'light', url: '/collections/all' %}
+  {% render 'shop-button', text: 'Buy Now', style: 'dark', url: '/cart' %}
+  {% render 'shop-button', text: 'Add to Cart', style: 'light', url: '#', class: 'product-form__cart-submit' %}
+  {% render 'shop-button', text: 'Send Message', style: 'dark', type: 'submit' %}
+  
+  Parameters:
+  - text: Button text (default: 'Shop Now')
+  - style: 'light' or 'dark' (default: 'light')
+  - url: Button link (default: '#') - not used if type is set
+  - type: Button type ('submit', 'button') - creates <button> instead of <a>
+  - class: Additional CSS classes
+  - target: Link target (_blank, _self, etc.)
+  - id: Button ID attribute
+  - aria_label: Accessibility label
+{% endcomment %}
+
+{% assign unique_id = 'shop-btn-' | append: section.id | default: 'shop-btn-default' %}
+
+<div class="shop-button-wrapper shop-button-wrapper--{{ style | default: 'light' }} {{ unique_id }}{% if class %} {{ class }}{% endif %}">
+  
+  {% if type %}
+    <button type="{{ type }}" 
+            class="shop-button__text-btn shop-button__text-btn--{{ style | default: 'light' }}"
+            {% if id %}id="{{ id }}"{% endif %}
+            {% if aria_label %}aria-label="{{ aria_label }}"{% endif %}>
+      <span class="slide-wrapper">
+        <span class="slide-text">{{ text | default: 'Shop Now' }}</span>
+        <span class="slide-text">{{ text | default: 'Shop Now' }}</span>
+      </span>
+    </button>
+
+    <button type="{{ type }}" 
+            class="shop-button__arrow shop-button__arrow--{{ style | default: 'light' }}"
+            {% if aria_label %}aria-label="{{ aria_label }}"{% endif %}>
+      <span class="slide-wrapper">
+        <span class="slide-arrow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+            <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6-6 6-1.41-1.41z"/>
+          </svg>
+        </span>
+        <span class="slide-arrow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+            <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6-6 6-1.41-1.41z"/>
+          </svg>
+        </span>
+      </span>
+    </button>
+  {% else %}
+    <a href="{{ url | default: '#' }}" 
+       class="shop-button__text-btn shop-button__text-btn--{{ style | default: 'light' }}"
+       {% if target %}target="{{ target }}"{% endif %}
+       {% if id %}id="{{ id }}"{% endif %}
+       {% if aria_label %}aria-label="{{ aria_label }}"{% endif %}>
+      <span class="slide-wrapper">
+        <span class="slide-text">{{ text | default: 'Shop Now' }}</span>
+        <span class="slide-text">{{ text | default: 'Shop Now' }}</span>
+      </span>
+    </a>
+
+    <a href="{{ url | default: '#' }}" 
+       class="shop-button__arrow shop-button__arrow--{{ style | default: 'light' }}"
+       {% if target %}target="{{ target }}"{% endif %}
+       {% if aria_label %}aria-label="{{ aria_label }}"{% endif %}>
+      <span class="slide-wrapper">
+        <span class="slide-arrow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+            <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6-6 6-1.41-1.41z"/>
+          </svg>
+        </span>
+        <span class="slide-arrow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+            <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6-6 6-1.41-1.41z"/>
+          </svg>
+        </span>
+      </span>
+    </a>
+  {% endif %}
+
+</div>

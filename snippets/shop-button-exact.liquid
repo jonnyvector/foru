@@ -1,0 +1,160 @@
+{% comment %}
+  Shop Button - Following Working Example EXACTLY
+{% endcomment %}
+
+{% assign unique_id = 'shop-btn-' | append: section.id | default: 'shop-btn-default' %}
+
+<div class="shop-button-wrapper-{{ unique_id }}">
+  
+  {% if type %}
+    <button {% if type %}type="{{ type }}"{% endif %} class="shop-button-{{ unique_id }}">
+      <span class="slide-wrapper">
+        <span class="slide-text">{{ text | default: 'Shop Now' }}</span>
+        <span class="slide-text">{{ text | default: 'Shop Now' }}</span>
+      </span>
+    </button>
+
+    <button type="button" class="shop-arrow-{{ unique_id }}" aria-label="{{ aria_label | default: 'Submit' }}">
+      <span class="slide-wrapper">
+        <span class="slide-arrow">
+          <svg class="shop-arrow-icon-{{ unique_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </span>
+        <span class="slide-arrow">
+          <svg class="shop-arrow-icon-{{ unique_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </span>
+    </button>
+  {% else %}
+    <a href="{{ url | default: '#' }}" class="shop-button-{{ unique_id }}"
+       {% if target %}target="{{ target }}"{% endif %}
+       {% if aria_label %}aria-label="{{ aria_label }}"{% endif %}>
+      <span class="slide-wrapper">
+        <span class="slide-text">{{ text | default: 'Shop Now' }}</span>
+        <span class="slide-text">{{ text | default: 'Shop Now' }}</span>
+      </span>
+    </a>
+
+    <a href="{{ url | default: '#' }}" class="shop-arrow-{{ unique_id }}"
+       {% if target %}target="{{ target }}"{% endif %}
+       aria-label="{{ aria_label | default: 'Go' }}">
+      <span class="slide-wrapper">
+        <span class="slide-arrow">
+          <svg class="shop-arrow-icon-{{ unique_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </span>
+        <span class="slide-arrow">
+          <svg class="shop-arrow-icon-{{ unique_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </span>
+    </a>
+  {% endif %}
+</div>
+
+<style>
+.shop-button-wrapper-{{ unique_id }} {
+  display: flex;
+  gap: 1rem;
+}
+
+.shop-button-{{ unique_id }},
+.shop-arrow-{{ unique_id }} {
+  background-color: #2a2a2a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color .3s ease, color .3s ease;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  text-decoration: none;
+}
+
+.shop-button-{{ unique_id }} {
+  flex: 1;
+  padding: 0 24px;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+}
+
+.shop-arrow-{{ unique_id }} {
+  width: 60px;
+  position: relative;
+}
+
+/* Light variant colors */
+.shop-button-wrapper--light .shop-button-{{ unique_id }},
+.shop-button-wrapper--light .shop-arrow-{{ unique_id }} {
+  background-color: white;
+  color: #2a2a2a;
+  border: 1px solid #e0e0e0;
+}
+
+/* Hover effects */
+.shop-button-wrapper-{{ unique_id }}:hover .shop-button-{{ unique_id }},
+.shop-button-wrapper-{{ unique_id }}:hover .shop-arrow-{{ unique_id }} {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+.shop-button-wrapper--light.shop-button-wrapper-{{ unique_id }}:hover .shop-button-{{ unique_id }},
+.shop-button-wrapper--light.shop-button-wrapper-{{ unique_id }}:hover .shop-arrow-{{ unique_id }} {
+  background-color: #f8f8f8;
+  color: #2a2a2a;
+}
+
+/* -------- SLIDE ANIMATION (absolute layers, centered) -------- */
+.slide-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%; /* match the 52px parent */
+  overflow: hidden; /* clip offscreen copy */
+}
+
+.slide-text,
+.slide-arrow {
+  position: absolute;
+  inset: 0; /* top:0 right:0 bottom:0 left:0 */
+  display: flex;
+  align-items: center; /* vertical centering */
+  justify-content: center; /* horizontal centering */
+  transition: transform .32s cubic-bezier(.22,.61,.36,1);
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateY(0);
+}
+
+/* second copy starts just below the container height */
+.slide-text:last-child,
+.slide-arrow:last-child {
+  transform: translateY(100%);
+}
+
+/* on hover they swap */
+.shop-button-wrapper-{{ unique_id }}:hover .slide-text:first-child,
+.shop-button-wrapper-{{ unique_id }}:hover .slide-arrow:first-child {
+  transform: translateY(-100%);
+}
+
+.shop-button-wrapper-{{ unique_id }}:hover .slide-text:last-child,
+.shop-button-wrapper-{{ unique_id }}:hover .slide-arrow:last-child {
+  transform: translateY(0);
+}
+
+.shop-arrow-icon-{{ unique_id }} {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+</style>

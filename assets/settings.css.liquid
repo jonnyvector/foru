@@ -2,7 +2,7 @@
     --aspect-ratio: auto;
     --aspect-ratio-portait: 0.67;
 
-    --font-base: {{ settings.type_body_font.family }},{{ settings.type_body_font.fallback_families }};
+    --font-base: "Inter-Tight", {{ settings.type_body_font.family }},{{ settings.type_body_font.fallback_families }};
     --font-base-style: {{ settings.type_body_font.style }};
     --font-base-weight: {{ settings.type_body_font.weight }};
     --font-base-size: {{ settings.type_body_font_size }}px;
@@ -17,7 +17,7 @@
     --font-breadcrumbs-size: {{ settings.type_body_font_size_breadcrumbs }}px;
     --font-breadcrumbs-letter-spacing: {{ settings.type_body_font_size_breadcrumbs_letter_spacing }}px;
 
-    --font-headline: {{ settings.type_headings_font.family }},{{ settings.type_headings_font.fallback_families }};
+    --font-headline: "Trim", {{ settings.type_headings_font.family }},{{ settings.type_headings_font.fallback_families }};
     --font-headline-style: {{ settings.type_headings_font.style }};
     --font-headline-weight: {{ settings.type_headings_font.weight }};
     --font-headline-size: {{ settings.type_headings_font_size }}px;
@@ -25,21 +25,29 @@
     --font-headline-letter-spacing: {{ settings.type_headings_font_letter_spacing }}px;
     --font-headline-line-height: {{ settings.type_headings_font_line_height }};
 
-    --font-navigation: {{ settings.type_navigation_font.family }},{{ settings.type_navigation_font.fallback_families }};
+    /* Individual heading sizes */
+    --font-h1-size: 80px;
+    --font-h2-size: 48px;
+    --font-h3-size: 36px;
+    --font-h4-size: 28px;
+    --font-h5-size: 24px;
+    --font-h6-size: 18px;
+
+    --font-navigation: "Inter-Tight", {{ settings.type_navigation_font.family }},{{ settings.type_navigation_font.fallback_families }};
     --font-navigation-style: {{ settings.type_navigation_font.style }};
     --font-navigation-weight: {{ settings.type_navigation_font.weight }};
     --font-navigation-size: {{ settings.type_navigation_font_size }}px;
     --font-navigation-transform: {{ settings.type_navigation_font_uppercase }};
     --font-navigation-letter-spacing: {{ settings.type_navigation_font_letter_spacing }}px;
 
-    --font-button: {{ settings.type_buttons_font.family }},{{ settings.type_buttons_font.fallback_families }};
+    --font-button: "Trim", {{ settings.type_buttons_font.family }},{{ settings.type_buttons_font.fallback_families }};
     --font-button-style: {{ settings.type_buttons_font.style }};
     --font-button-weight: {{ settings.type_buttons_font.weight }};
     --font-button-size: {{ settings.type_button_font_size }}px;
     --font-button-transform: {{ settings.button_font_uppercase }};
     --font-button-letter-spacing: {{ settings.type_button_font_letter_spacing }}px;
 
-    --font-price: {{ settings.type_price_font.family }},{{ settings.type_price_font.fallback_families }};
+    --font-price: "Inter-Tight", {{ settings.type_price_font.family }},{{ settings.type_price_font.fallback_families }};
     --font-price-style: {{ settings.type_price_font.style }};
     --font-price-weight: {{ settings.type_price_font.weight }};
     --font-price-size: {{ settings.type_price_font_size }}px;
@@ -216,6 +224,14 @@ html[dir="rtl"] {
 
         --font-headline-size: {{ settings.type_headings_font_size_desk }}px;
         --font-navigation-size: {{ settings.type_navigation_font_size_desk }}px;
+
+        /* Individual heading sizes (desktop) */
+        --font-h1-size: 120px;
+        --font-h2-size: 64px;
+        --font-h3-size: 36px;
+        --font-h4-size: 32px;
+        --font-h5-size: 28px;
+        --font-h6-size: 24px;
 
         --height-chip: 3.2rem;
     }

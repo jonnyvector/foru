@@ -1,0 +1,775 @@
+{% assign background_rgb = section.settings.background_color | color_to_rgb %}{% assign text_rgb = section.settings.text_color | color_to_rgb %}
+
+{% comment %} Get ingredients from selected product {% endcomment %}
+{% if section.settings.product %}
+  {% assign selected_product = section.settings.product %}
+  {% assign ingredients = selected_product.metafields.custom.ingredients.value %}
+{% else %}
+  {% assign ingredients = null %}
+{% endif %}
+
+{{ 'swiper.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'slider.js' | asset_url }}" defer></script>
+<script src="{{ 'ingredient-drawer.js' | asset_url }}" defer></script>
+
+<style>
+  [data-section-id="{{ section.id }}"] {
+    {% if background_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --color-background: {{ section.settings.background_color }};
+    {% endif %}
+    {% if text_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --color-custom-text: {{ section.settings.text_color }};
+    {% endif %}
+
+    {% if section.settings.margin_top %}
+      --section-gap-top: {{ section.settings.margin_top }}px;
+    {% endif %}
+
+    {% if section.settings.margin_bottom %}
+      --section-gap-bottom: {{ section.settings.margin_bottom }}px;
+    {% endif %}
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid {
+    padding: var(--section-gap-top, 40px) 0 var(--section-gap-bottom, 40px);
+    background-color: var(--color-background, transparent);
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__container {
+    width: 100%;
+    max-width: var(--site-max-width);
+    padding-left: calc(var(--gap, 8px) * 2);
+    padding-right: calc(var(--gap, 8px) * 2);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (min-width: 1200px) {
+    [data-section-id="{{ section.id }}"] .ingredients-grid__container {
+      padding-left: calc(calc(var(--gap, 8px) * 2) + calc(var(--gap, 8px) * 2));
+      padding-right: calc(calc(var(--gap, 8px) * 2) + calc(var(--gap, 8px) * 2));
+    }
+  }
+
+  @media (min-width: 1800px) {
+    [data-section-id="{{ section.id }}"] .ingredients-grid__container {
+      max-width: var(--site-max-width-big);
+    }
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__header {
+    margin-bottom: 40px;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__header-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__subtitle {
+    font-size: calc(var(--font-base-size, 1rem) * 0.875);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-custom-text, #666);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__title {
+    font-size: calc(18px * {{ section.settings.size_heading_mobile | divided_by: 100.0 }});
+    line-height: 0.9;
+    margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    [data-section-id="{{ section.id }}"] .ingredients-grid__title {
+      font-size: calc(24px * {{ section.settings.size_heading | divided_by: 100.0 }});
+    }
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__description {
+    font-size: var(--font-base-size, 1rem);
+    line-height: 1.6;
+    color: var(--color-custom-text, #666);
+    margin-bottom: 20px;
+  }
+
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__slider {
+    position: relative;
+  }
+
+  [data-section-id="{{ section.id }}"] .wt-slider__container {
+    overflow: hidden;
+    position: relative;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__card {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+    transition: opacity 0.2s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__card:hover {
+    opacity: 0.8;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__card-image {
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    border-radius: var(--border-radius);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__card-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: none;
+    border-radius: var(--border-radius);
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__card-content {
+    padding: 0.75rem 0 0;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__card-name {
+    font-size: calc(18px * {{ section.settings.ingredient_name_size_mobile | divided_by: 100.0 }});
+    font-weight: 700;
+    color: var(--color-custom-text, #000);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    margin: 0;
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  @media (min-width: 768px) {
+    [data-section-id="{{ section.id }}"] .ingredients-grid__card-name {
+      font-size: calc(24px * {{ section.settings.ingredient_name_size_desktop | divided_by: 100.0 }});
+    }
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__card-scientific {
+    font-family: var(--font-base);
+    font-weight: var(--font-base-weight);
+    font-size: calc(var(--font-base-size, 1rem) * 0.85);
+    font-style: italic;
+    line-height: var(--font-base-line-height);
+    letter-spacing: var(--font-base-letter-spacing);
+    color: var(--color-text);
+    margin: 4px 0;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__card-description {
+    font-family: var(--font-base);
+    font-weight: var(--font-base-weight);
+    font-style: var(--font-base-style);
+    font-size: var(--font-base-size);
+    line-height: var(--font-base-line-height);
+    letter-spacing: var(--font-base-letter-spacing);
+    color: var(--color-text);
+    margin: 8px 0 0;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__dots {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 20px;
+  }
+
+  /* Style the swiper pagination bullets */
+  [data-section-id="{{ section.id }}"] .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background: #ddd;
+    opacity: 1;
+    margin: 0 4px;
+  }
+
+  [data-section-id="{{ section.id }}"] .swiper-pagination-bullet-active {
+    background: var(--color-custom-text, #000);
+  }
+
+  /* Scrollbar styling for mobile */
+  [data-section-id="{{ section.id }}"] .ingredients-grid__scrollbar {
+    height: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    margin-top: 20px;
+    position: relative;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__scrollbar .swiper-scrollbar-drag {
+    background: var(--color-custom-text, #000);
+    border-radius: 2px;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  /* Navigation Arrows */
+  [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next,
+  [data-section-id="{{ section.id }}"] .ingredients-swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background: white;
+    border: 2px solid var(--color-custom-text, #000);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    color: var(--color-custom-text, #000);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next:hover,
+  [data-section-id="{{ section.id }}"] .ingredients-swiper-button-prev:hover {
+    background: var(--color-custom-text, #000);
+    color: white;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next {
+    right: -22px;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-swiper-button-prev {
+    left: -22px;
+  }
+
+  /* Ensure slider wrapper doesn't have extra margin/padding affecting alignment */
+  [data-section-id="{{ section.id }}"] .wt-slider {
+    margin: 0;
+    padding: 0;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredients-grid__empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+    font-style: italic;
+  }
+
+  /* Desktop - disable slider and use CSS grid */
+  @media (min-width: 768px) {
+    [data-section-id="{{ section.id }}"] .ingredients-grid__header-grid {
+      grid-template-columns: 1fr 3fr;
+      gap: calc(var(--gap, 8px) * 7);
+      align-items: start;
+    }
+
+    /* Hide slider components on desktop */
+    [data-section-id="{{ section.id }}"] .wt-slider {
+      display: none !important;
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next,
+    [data-section-id="{{ section.id }}"] .ingredients-swiper-button-prev {
+      display: none !important;
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredients-grid__scrollbar {
+      display: none !important;
+    }
+
+    /* Desktop grid layout */
+    [data-section-id="{{ section.id }}"] .ingredients-grid__desktop-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: calc(var(--gap, 8px) * 2);
+      row-gap: 40px;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredients-grid__header-col2 {
+      min-width: 0;
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  /* Ingredient Drawer Styles */
+  .ingredient-drawer {
+    position: fixed;
+    background: var(--color-background, white);
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    z-index: 50;
+    transform: translateX(100%);
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    visibility: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .ingredient-drawer {
+      max-width: 600px;
+    }
+  }
+
+  .drawers-animated .ingredient-drawer {
+    transition: transform 0.3s cubic-bezier(0.12, 0.67, 0.53, 1);
+  }
+
+  .ingredient-drawer--open {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .page-overlay-ingredient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 49;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .page-overlay-ingredient-on .page-overlay-ingredient {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .ingredient-drawer__header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+    border-bottom: none;
+    position: relative;
+    height: 0;
+  }
+
+  .ingredient-drawer__close {
+    position: absolute;
+    left: -88px;
+    top: 32px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: none;
+    background: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .ingredient-drawer__close:hover {
+    background: #f5f5f5;
+  }
+
+  .ingredient-drawer__close svg {
+    width: 28px;
+    height: 28px;
+    transform: scale(2.0);
+  }
+
+  .ingredient-drawer__body {
+    padding: 32px calc(var(--gap, 8px) * 3) calc(var(--gap, 8px) * 3);
+    overflow-y: auto;
+    flex: 1;
+  }
+
+  .ingredient-drawer__image {
+    width: 100%;
+    aspect-ratio: 1;
+    margin-bottom: calc(var(--gap, 8px) * 3);
+    border-radius: var(--border-radius, 8px);
+    overflow: hidden;
+  }
+
+  .ingredient-drawer__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ingredient-drawer__title {
+    font-size: calc(24px * 1.25);
+    font-weight: 700;
+    color: var(--color-text, #000);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    margin: 0 0 calc(var(--gap, 8px) * 2);
+  }
+
+  .ingredient-drawer__description {
+    font-family: var(--font-base);
+    font-weight: var(--font-base-weight);
+    font-style: var(--font-base-style);
+    font-size: var(--font-base-size, 1rem);
+    line-height: var(--font-base-line-height);
+    letter-spacing: var(--font-base-letter-spacing);
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 767px) {
+    /* Hide desktop grid on mobile */
+    [data-section-id="{{ section.id }}"] .ingredients-grid__desktop-grid {
+      display: none !important;
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredients-grid__card-content {
+      padding: 0.75rem 0 0;
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredients-grid__card-description {
+      font-size: var(--font-base-size);
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next,
+    [data-section-id="{{ section.id }}"] .ingredients-swiper-button-prev {
+      display: none !important;
+    }
+
+    /* Hide dots on mobile, show scrollbar */
+    [data-section-id="{{ section.id }}"] .ingredients-grid__dots {
+      display: none !important;
+    }
+
+    /* Extend slider to screen edge on right side */
+    [data-section-id="{{ section.id }}"] .ingredients-grid__slider {
+      margin-right: calc(0px - calc(var(--gap, 8px) * 2));
+    }
+
+    /* Mobile drawer close button */
+    .ingredient-drawer__close {
+      left: auto;
+      right: 16px;
+      top: 16px;
+      transform: scale(0.75);
+      border: 1px solid #ddd;
+      box-shadow: none;
+    }
+
+    .ingredient-drawer__close svg {
+      transform: scale(2.5);
+    }
+
+    .ingredient-drawer__body {
+      padding-top: 80px;
+    }
+  }
+</style>
+
+<section 
+  data-section-id="{{ section.id }}" 
+  class="ingredients-grid"
+  {% if selected_product %}id="{{ selected_product.handle }}"{% endif %}
+>
+  <div class="ingredients-grid__container">
+    <div class="ingredients-grid__header">
+      <div class="ingredients-grid__header-grid">
+        <!-- Column 1: Product Title -->
+        <div class="ingredients-grid__header-col1">
+          {% if selected_product %}
+            <h2 class="ingredients-grid__title">{{ selected_product.title }}</h2>
+          {% elsif section.settings.fallback_title != blank %}
+            <h2 class="ingredients-grid__title">{{ section.settings.fallback_title }}</h2>
+          {% endif %}
+        </div>
+
+        <!-- Column 2: Desktop Ingredients Grid -->
+        <div class="ingredients-grid__header-col2">
+          {% if ingredients != blank %}
+            <div class="ingredients-grid__desktop-grid">
+              {% for ingredient in ingredients %}
+                <button
+                  class="ingredients-grid__card ingredient-card-trigger"
+                  data-ingredient-name="{{ ingredient.name.value | escape }}"
+                  data-ingredient-image="{{ ingredient.image.value | image_url: width: 600 }}"
+                  data-ingredient-full-description="{{ ingredient.full_description | metafield_tag | escape }}">
+                  {% if ingredient.image.value %}
+                    <div class="ingredients-grid__card-image">
+                      {{
+                        ingredient.image.value | image_url: width: 400 | image_tag: loading: 'lazy', sizes: '(min-width: 1200px) 300px, (min-width: 768px) 350px, 280px', widths: '280, 350, 400, 600', alt: ingredient.name.value
+                      }}
+                    </div>
+                  {% endif %}
+
+                  <div class="ingredients-grid__card-content">
+                    {% if ingredient.name.value %}
+                      <h3 class="ingredients-grid__card-name">{{ ingredient.name.value }}</h3>
+                    {% endif %}
+
+                    {% if ingredient.scientific_name.value %}
+                      <div class="ingredients-grid__card-scientific">{{ ingredient.scientific_name.value }}</div>
+                    {% endif %}
+
+                    {% if ingredient.short_description.value %}
+                      <div class="ingredients-grid__card-description">{{ ingredient.short_description.value }}</div>
+                    {% endif %}
+                  </div>
+                </button>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    {% if ingredients != blank %}
+      <!-- Mobile Slider -->
+      <div class="ingredients-grid__slider">
+        <slideshow-section data-section-id="{{ section.id }}" class="wt-slider">
+          <script data-swiper-configuration type="text/json">
+            {
+              "spaceBetween": 16,
+              "slidesPerView": 1.2,
+              "centeredSlides": false,
+              "loop": false,
+              "scrollbar": {
+                "el": ".ingredients-grid__scrollbar",
+                "draggable": true
+              },
+              "breakpoints": {
+                "480": {
+                  "slidesPerView": 1.5,
+                  "spaceBetween": 16
+                }
+              }
+            }
+          </script>
+
+          <div data-swiper class="wt-slider__container">
+            <div data-swiper-container>
+              {% for ingredient in ingredients %}
+                <button
+                  data-swiper-slide
+                  class="ingredients-grid__card ingredient-card-trigger"
+                  data-ingredient-name="{{ ingredient.name.value | escape }}"
+                  data-ingredient-image="{{ ingredient.image.value | image_url: width: 600 }}"
+                  data-ingredient-full-description="{{ ingredient.full_description | metafield_tag | escape }}">
+                  {% if ingredient.image.value %}
+                    <div class="ingredients-grid__card-image">
+                      {{
+                        ingredient.image.value | image_url: width: 400 | image_tag: loading: 'lazy', sizes: '(min-width: 1200px) 300px, (min-width: 768px) 350px, 280px', widths: '280, 350, 400, 600', alt: ingredient.name.value
+                      }}
+                    </div>
+                  {% endif %}
+
+                  <div class="ingredients-grid__card-content">
+                    {% if ingredient.name.value %}
+                      <h3 class="ingredients-grid__card-name">{{ ingredient.name.value }}</h3>
+                    {% endif %}
+
+                    {% if ingredient.scientific_name.value %}
+                      <div class="ingredients-grid__card-scientific">{{ ingredient.scientific_name.value }}</div>
+                    {% endif %}
+
+                    {% if ingredient.short_description.value %}
+                      <div class="ingredients-grid__card-description">{{ ingredient.short_description.value }}</div>
+                    {% endif %}
+                  </div>
+                </button>
+              {% endfor %}
+            </div>
+          </div>
+        </slideshow-section>
+      </div>
+
+      <div class="swiper-scrollbar ingredients-grid__scrollbar wt-slider__scrollbar"></div>
+    {% else %}
+      <div class="ingredients-grid__empty">
+        {% if section.settings.product %}
+          <p>No ingredients found for this product. Please add ingredients to the product's metafields.</p>
+        {% else %}
+          <p>Please select a product in the section settings to display its ingredients.</p>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- Ingredient Drawer -->
+  <ingredient-drawer class="ingredient-drawer-component">
+    <div class="page-overlay-ingredient"></div>
+    <div class="ingredient-drawer">
+      <div class="ingredient-drawer__header">
+        <button class="ingredient-drawer__close" aria-label="Close">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none">
+            <path
+              d="M15 5L5 15M5 5l10 10"
+              stroke="#000"
+              stroke-width="0.3"
+              stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+      <div class="ingredient-drawer__body">
+        <div class="ingredient-drawer__image">
+          <img
+            src=""
+            alt=""
+            class="ingredient-drawer__img">
+        </div>
+        <h2 class="ingredient-drawer__title"></h2>
+        <div class="ingredient-drawer__description"></div>
+      </div>
+    </div>
+  </ingredient-drawer>
+</section>
+
+{% schema %}
+  {
+    "name": "Ingredients Grid",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "product",
+        "id": "product",
+        "label": "Product",
+        "info": "Select the product whose ingredients you want to display"
+      },
+      {
+        "type": "text",
+        "id": "fallback_title",
+        "label": "Fallback Title",
+        "default": "INGREDIENTS",
+        "info": "Title to show if no product is selected"
+      },
+      {
+        "type": "header",
+        "content": "Typography"
+      }, {
+        "type": "range",
+        "id": "size_heading_mobile",
+        "min": 80,
+        "max": 300,
+        "step": 10,
+        "default": 100,
+        "label": "Title size (mobile)",
+        "unit": "%"
+      }, {
+        "type": "range",
+        "id": "size_heading",
+        "min": 100,
+        "max": 500,
+        "step": 10,
+        "default": 100,
+        "label": "Title size (desktop)",
+        "unit": "%"
+      }, {
+        "type": "range",
+        "id": "ingredient_name_size_mobile",
+        "min": 80,
+        "max": 300,
+        "step": 10,
+        "default": 100,
+        "label": "Ingredient name size (mobile)",
+        "unit": "%"
+      }, {
+        "type": "range",
+        "id": "ingredient_name_size_desktop",
+        "min": 100,
+        "max": 500,
+        "step": 10,
+        "default": 100,
+        "label": "Ingredient name size (desktop)",
+        "unit": "%"
+      }, {
+        "type": "header",
+        "content": "Colors"
+      }, {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "transparent"
+      }, {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "transparent"
+      }, {
+        "type": "header",
+        "content": "Section spacing"
+      }, {
+        "type": "range",
+        "id": "margin_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "default": 40,
+        "unit": "px",
+        "label": "Top margin"
+      }, {
+        "type": "range",
+        "id": "margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "default": 40,
+        "unit": "px",
+        "label": "Bottom margin"
+      }, {
+        "type": "header",
+        "content": "Instructions"
+      }, {
+        "type": "paragraph",
+        "content": "This section displays ingredients from the selected product's 'ingredients' metafield. Each ingredient should be a metaobject with 'ingredient.name', 'ingredient.short_description', 'ingredient.scientific_name' and 'ingredient.image' fields."
+      }
+    ],
+    "presets": [
+      {
+        "name": "Ingredients Grid"
+      }
+    ]
+  }
+{% endschema %}

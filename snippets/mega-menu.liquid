@@ -5,6 +5,8 @@
     {% assign menu_class = '--simple' %}
     {% assign show_mega = false %}
     {% assign promo_blocks = false %}
+    {% assign show_product_mega = false %}
+    {% assign product_mega_block = null %}
 
     {% if blocks.size > 0 %}
       {% for block in blocks %}
@@ -13,7 +15,11 @@
           {% assign show_mega = true %}
           {% assign mega_block = block %}
           {% assign menu_class = '--mega' %}
-          {% if mega_block.settings.desktop_image_1
+          
+          {% if block.type == 'products' %}
+            {% assign show_product_mega = true %}
+            {% assign product_mega_block = block %}
+          {% elsif mega_block.settings.desktop_image_1
             or mega_block.settings.desktop_image_2
             or mega_block.settings.desktop_image_3
             or mega_block.settings.desktop_image_4
@@ -25,7 +31,7 @@
         {% endif %}
       {% endfor %}
     {% endif %}
-    {%- if link.links != blank or promo_blocks -%}
+    {%- if link.links != blank or promo_blocks or show_product_mega -%}
       <li
         class="wt-page-nav-mega__item wt-page-nav-mega__item--parent wt-page-nav-mega__item{{ menu_class }}"
       >
@@ -33,16 +39,18 @@
           href="{{ link.url }}"
           tabindex="-1"
           data-menu-level="1"
-          class="wt-page-nav-mega__link wt-page-nav-mega__link--parent {% if link.current %} wt-page-nav-mega__link--active{% endif %}"
+          class="wt-page-nav-mega__link wt-page-nav-mega__link--parent slide-hover {% if link.current %} wt-page-nav-mega__link--active{% endif %}"
         >
-          <span class="wt-page-nav-mega__link__text wt-page-nav-mega__link__text--underline">
-            {{- link.title | escape -}}
+          <span class="wt-page-nav-mega__link__text wt-page-nav-mega__link__text--underline slide-wrapper">
+            <span class="slide-text">{{- link.title | escape -}}</span>
+            <span class="slide-text">{{- link.title | escape -}}</span>
           </span>
           {% render 'icons', id: 'plus' %}
           {% render 'icons', id: 'arrow-down' %}
         </a>
         <div class="wt-page-nav-mega__sublist__wrapper wt-page-nav-mega__sublist__wrapper{{ menu_class }}">
-          <ul class="wt-page-nav-mega__sublist">
+          <ul class="wt-page-nav-mega__sublist{% if show_product_mega and link.links == blank %} wt-page-nav-mega__sublist--products-only{% endif %}">
+            {%- unless show_product_mega and link.links == blank -%}
             {%- for childlink in link.links -%}
               {%- if childlink.links == blank -%}
                 <li class="wt-page-nav-mega__sublist__item wt-page-nav-mega__sublist__item--child">
@@ -87,6 +95,7 @@
                 </li>
               {%- endif -%}
             {%- endfor -%}
+            {%- endunless -%}
             {% if show_mega %}
               <li
                 data-block-id="{{ mega_block.id }}"
@@ -142,6 +151,70 @@
                 </style>
               {% endif %}
             {% endif %}
+            {% if show_product_mega %}
+              <li
+                data-block-id="{{ product_mega_block.id }}"
+                class="wt-page-nav-mega__sublist__item wt-page-nav-mega__sublist__item--gallery"
+              >
+                <ul class="mega-menu__gallery">
+                  <!-- Desktop Shop All Column -->
+                  <li class="mega-menu__gallery__item mega-menu__shop-all-column">
+                    <div class="mega-menu__shop-all">
+                      <h2 class="mega-menu__shop-all-title">{{ link.title | upcase }}</h2>
+                      {% render 'custom-button', 
+                        text: 'Shop All',
+                        type: 'link',
+                        url: link.url,
+                        style: 'primary',
+                        id: 'mega-menu-shop-all',
+                        class: 'mega-menu__shop-all-button'
+                      %}
+                    </div>
+                  </li>
+                  
+                  <!-- Product Cards -->
+                  {% for i in (1..4) %}
+                    {% assign product_key = 'product_' | append: i %}
+                    {% assign current_product = product_mega_block.settings[product_key] %}
+                    {% if current_product != blank %}
+                      <li class="mega-menu__gallery__item">
+                        <a href="{{ current_product.url }}" class="mega-menu__gallery__link" data-menu-level="2" tabindex="-1">
+                          <picture class="mega-menu__gallery__picture">
+                            {% if current_product.featured_image %}
+                              <img
+                                class="mega-menu__gallery__img"
+                                srcset="
+                                  {% if current_product.featured_image.width >= 400 %}{{ current_product.featured_image | image_url: width: 400 }} 400w, {% endif %}
+                                  {% if current_product.featured_image.width >= 800 %}{{ current_product.featured_image | image_url: width: 800 }} 800w, {% endif %}
+                                  {% if current_product.featured_image.width >= 1200 %}{{ current_product.featured_image | image_url: width: 1200 }} 1200w, {% endif %}
+                                  {{ current_product.featured_image | image_url: width: 800 }} 800w
+                                "
+                                sizes="(min-width: 800px) 800px, 100vw"
+                                src="{{ current_product.featured_image | image_url: width: 800 }}"
+                                alt="{{ current_product.featured_image.alt | escape }}"
+                                loading="lazy"
+                              >
+                            {% else %}
+                              {{ 'product-apparel-1' | placeholder_svg_tag: 'mega-menu__gallery__img' }}
+                            {% endif %}
+                            <div class="mega-menu__gallery__info">
+                              <p class="mega-menu__gallery__caption">{{ current_product.title }}</p>
+                              <p class="mega-menu__gallery__price">
+                                {% if settings.currency_code_enabled %}
+                                  {{ current_product.price | money_with_currency }}
+                                {% else %}
+                                  {{ current_product.price | money }}
+                                {% endif %}
+                              </p>
+                            </div>
+                          </picture>
+                        </a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </li>
+            {% endif %}
           </ul>
         </div>
       </li>
@@ -152,13 +225,14 @@
           href="{{ link.url }}"
           data-menu-level="1"
           tabindex="-1"
-          class="wt-page-nav-mega__link {% if link.current %} wt-page-nav-mega__link--active{% endif %}"
+          class="wt-page-nav-mega__link slide-hover {% if link.current %} wt-page-nav-mega__link--active{% endif %}"
           {% if link.current %}
             aria-current="page"
           {% endif %}
         >
-          <span class="wt-page-nav-mega__link__text wt-page-nav-mega__link__text--underline">
-            {{- link.title | escape -}}
+          <span class="wt-page-nav-mega__link__text wt-page-nav-mega__link__text--underline slide-wrapper">
+            <span class="slide-text">{{- link.title | escape -}}</span>
+            <span class="slide-text">{{- link.title | escape -}}</span>
           </span>
         </a>
       </li>

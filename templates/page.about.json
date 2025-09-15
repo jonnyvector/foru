@@ -1,0 +1,232 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "compact-size-enabled": true,
+        "size_heading": 140,
+        "size_heading_mobile": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-bg-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "margin-top": 40,
+        "margin-bottom": 0
+      }
+    },
+    "rich_text_nAycx3": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_ThTR3h": {
+          "type": "heading",
+          "settings": {
+            "heading": "About Us",
+            "disable_on_mobile": false,
+            "size_heading": 290,
+            "size_heading_mobile": 150
+          }
+        }
+      },
+      "block_order": [
+        "heading_ThTR3h"
+      ],
+      "custom_css": [
+        ".hero,.hero__overlay {padding-left: 0;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_width": "regular",
+        "desktop_text_horizontal_position": "left",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 20,
+        "margin-bottom": 0
+      }
+    },
+    "image_with_text_m4DHjY": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_Gdtcxk": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why We Started Foru",
+            "disable_on_mobile": false,
+            "size_heading": 290,
+            "size_heading_mobile": 150
+          }
+        },
+        "text_3wBXnc": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our founder grew up in professional ice hockey, working side by side with team nutritionists and doctors. Every day came with a stack of pills - ten or more - split across the day. He always wondered: why does it have to be this complicated?<br/><br/>Most people today are in the same boat, guessing what to take, when, and why - usually based on something they saw online.<br/><br/>After his playing days ended, the question stuck. So he reconnected with the doctors he trusted most to build something better: behavior-based, goal-driven systems that remove the guesswork. Easy to take anywhere, designed like a pro’s program, and made only with ingredients that actually matter, never just copied from the latest “miracle powder.”</p>",
+            "text_style": "body",
+            "disable_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_Gdtcxk",
+        "text_3wBXnc"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "title": "",
+        "layout": "image_first",
+        "desktop-percentage-image-width": 50,
+        "full-width-enabled": true,
+        "slide_height": "adapt_to_first_image",
+        "desktop_fixed_height": 320,
+        "mobile_fixed_height": 460,
+        "section-color-body-text": "rgba(0,0,0,0)",
+        "section-color-overlay": "#f7f7f7",
+        "section-color-overlay-opacity": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "desktop_image": "shopify://shop_images/image_55.png",
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "left",
+        "mobile_text_horizontal_position": "left",
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
+    "image_with_text_xmd83Y": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_we7fMb": {
+          "type": "heading",
+          "settings": {
+            "heading": "Who We Are",
+            "disable_on_mobile": false,
+            "size_heading": 290,
+            "size_heading_mobile": 150
+          }
+        },
+        "text_g7CUWE": {
+          "type": "text",
+          "settings": {
+            "text": "<p>FŌRU is built in Dubai by a small team of performance doctors, nutritionists, and athletes who believe supplements should be simple, effective, and enjoyable to take. Every product is third-party tested, made with clean ingredients, and designed to fit into real life. from your morning commute to your hardest workout.<br/><br/>We don’t believe in throwing random powders in a tub and calling it “science.” We believe in building systems you can trust, because they’re the same kind we use ourselves, every single day.</p>",
+            "text_style": "body",
+            "disable_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_we7fMb",
+        "text_g7CUWE"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "title": "",
+        "layout": "text_first",
+        "desktop-percentage-image-width": 50,
+        "full-width-enabled": true,
+        "slide_height": "adapt_to_first_image",
+        "desktop_fixed_height": 320,
+        "mobile_fixed_height": 460,
+        "section-color-body-text": "rgba(0,0,0,0)",
+        "section-color-overlay": "#f7f7f7",
+        "section-color-overlay-opacity": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "desktop_image": "shopify://shop_images/image_56.png",
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "left",
+        "mobile_text_horizontal_position": "left",
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
+    "featured_on_pnLGNC": {
+      "type": "featured-on",
+      "blocks": {
+        "logo_KCYHte": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_10.svg",
+            "link": "",
+            "open_in_new_tab": false
+          }
+        },
+        "logo_bhd7TU": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_11.svg",
+            "link": "",
+            "open_in_new_tab": false
+          }
+        },
+        "logo_QPARVg": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_12_1.svg",
+            "link": "",
+            "open_in_new_tab": false
+          }
+        },
+        "logo_qzpz7Y": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_15_42f394cf-ac7c-4b33-bea8-91dd6da09b23.svg",
+            "link": "",
+            "open_in_new_tab": false
+          }
+        },
+        "logo_HqhdxN": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_13_1.svg",
+            "link": "",
+            "open_in_new_tab": false
+          }
+        },
+        "logo_UW7gRe": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_14_1.svg",
+            "link": "",
+            "open_in_new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "logo_KCYHte",
+        "logo_bhd7TU",
+        "logo_QPARVg",
+        "logo_qzpz7Y",
+        "logo_HqhdxN",
+        "logo_UW7gRe"
+      ],
+      "name": "Featured On",
+      "settings": {
+        "heading": "Featured On",
+        "size_heading": 100,
+        "size_heading_mobile": 100,
+        "text_alignment": "left",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "logo_container_color": "#f7f7f7",
+        "margin-top": 80,
+        "margin-bottom": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_nAycx3",
+    "image_with_text_m4DHjY",
+    "image_with_text_xmd83Y",
+    "featured_on_pnLGNC"
+  ]
+}

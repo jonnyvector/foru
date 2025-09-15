@@ -1,0 +1,346 @@
+{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+
+{% assign background_section_rgb = section.settings['section-color-overlay'] | color_to_rgb %}
+{% assign heading_rgb = section.settings['section-color-body-text'] | color_to_rgb %}
+
+<style>
+    section[id="shopify-section-{{ section.id }}"]{
+        {% if background_section_rgb != 'rgba(0, 0, 0, 0.0)' %}
+            --color-overlay-rgb: {{ section.settings.section-color-overlay | color_to_rgb | remove: 'rgb(' | remove: ')' }};
+            --color-overlay-opacity: {{ section.settings.section-color-overlay-opacity | divided_by: 100.0 }};
+        {% endif %}
+    }
+
+    section[id="shopify-section-{{ section.id }}"] .headline__title{
+      {% if heading_rgb != 'rgba(0, 0, 0, 0.0)' %}
+        --color-custom-text: {{ section.settings.section-color-body-text }};
+      {% endif %}
+    }
+
+  [data-section-id="{{ section.id }}"]
+  {
+      {% if section.settings.full-width-enabled %}
+        --border-radius: 0;
+      {% endif %}
+
+      {% if section.settings.margin-top %}
+        --section-gap-top: {{ section.settings.margin-top }}px;
+      {% endif %}
+
+      {% if section.settings.margin-bottom %}
+        --section-gap-bottom: {{ section.settings.margin-bottom }}px;
+      {% endif %}
+  }
+
+  /* Main grid layout */
+  [data-section-id="{{ section.id }}"] .ingredient-cards-grid {
+    display: grid;
+    gap: calc(var(--gap, 8px) * 3);
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 750px) {
+    [data-section-id="{{ section.id }}"] .ingredient-cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: calc(var(--gap, 8px) * 4);
+    }
+  }
+
+  @media (min-width: 1200px) {
+    [data-section-id="{{ section.id }}"] .ingredient-cards-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* Individual ingredient card */
+  [data-section-id="{{ section.id }}"] .ingredient-card {
+    background-color: {% if section.settings.card-background-color != 'transparent' %}{{ section.settings.card-background-color }}{% else %}#f7f7f7{% endif %};
+    padding: calc(var(--gap, 8px) * 3);
+    border-radius: var(--border-radius);
+    position: relative;
+  }
+
+  /* Card number */
+  [data-section-id="{{ section.id }}"] .ingredient-card-number {
+    font-family: var(--font-body);
+    font-size: calc(var(--font-base-size) * 0.875);
+    font-weight: var(--font-weight-medium, 500);
+    color: var(--color-text, #666);
+    margin: 0 0 calc(var(--gap, 8px) * 1.5) 0;
+    opacity: 0.8;
+  }
+
+  /* Ingredient name */
+  [data-section-id="{{ section.id }}"] .ingredient-card-title {
+    font-family: var(--font-headline);
+    font-size: calc(18px * {{ section.settings.title_size_mobile | divided_by: 100.0 }});
+    font-weight: var(--font-headline-weight);
+    color: var(--color-text, #000);
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin: 0 0 calc(var(--gap, 8px) * 2) 0;
+  }
+
+  @media (min-width: 750px) {
+    [data-section-id="{{ section.id }}"] .ingredient-card-title {
+      font-size: calc(24px * {{ section.settings.title_size_desktop | divided_by: 100.0 }});
+    }
+  }
+
+  /* Benefits list */
+  [data-section-id="{{ section.id }}"] .ingredient-card-benefits {
+    font-family: var(--font-body);
+    font-size: calc(var(--font-base-size) * 0.875);
+    line-height: 1.5;
+    color: var(--color-text, #333);
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredient-card-benefits ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredient-card-benefits li {
+    margin-bottom: calc(var(--gap, 8px) * 1.5);
+    position: relative;
+    padding-left: calc(var(--gap, 8px) * 2);
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredient-card-benefits li:last-child {
+    margin-bottom: 0;
+  }
+
+  [data-section-id="{{ section.id }}"] .ingredient-card-benefits li::before {
+    content: "●";
+    position: absolute;
+    left: 0;
+    color: var(--color-text, #000);
+    font-weight: var(--font-weight-bold, bold);
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 749px) {
+    [data-section-id="{{ section.id }}"] .ingredient-card {
+      padding: calc(var(--gap, 8px) * 2);
+    }
+  }
+</style>
+
+{% if section.settings['full-width-enabled'] %}
+  {% assign customwrapperclass = 'hero__wrapper--full' %}
+{% else %}
+  {% assign customwrapperclass = 'hero__wrapper' %}
+{% endif %}
+
+<div
+  data-section-id="{{ section.id }}"
+  class="{{ customwrapperclass }} {% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}"
+>
+  {% if section.settings.title != blank %}
+    {% render 'headline', title: section.settings.title %}
+  {% endif %}
+  
+  <div class="{% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}">
+    {% if section.blocks.size > 0 %}
+      <div class="ingredient-cards-grid">
+        {% for block in section.blocks %}
+          {% if block.type == 'ingredient_card' %}
+            <div class="ingredient-card" data-block-id="{{ block.id }}">
+              {% if block.settings.number != blank %}
+                <div class="ingredient-card-number">{{ block.settings.number }}</div>
+              {% endif %}
+              {% if block.settings.ingredient_name != blank %}
+                <h3 class="ingredient-card-title">{{ block.settings.ingredient_name }}</h3>
+              {% endif %}
+              {% if block.settings.benefits_list != blank %}
+                <div class="ingredient-card-benefits">
+                  {{ block.settings.benefits_list }}
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Ingredient Cards",
+  "tag": "section",
+  "class": "section-ingredient-cards",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Section heading",
+      "default": "Our Ingredients"
+    },
+    {
+      "type": "checkbox",
+      "id": "full-width-enabled",
+      "label": "Make section full width",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "min": 80,
+      "max": 200,
+      "step": 10,
+      "default": 100,
+      "label": "Card title size (mobile)",
+      "unit": "%",
+      "info": "Based on 18px"
+    },
+    {
+      "type": "range",
+      "id": "title_size_desktop",
+      "min": 80,
+      "max": 200,
+      "step": 10,
+      "default": 100,
+      "label": "Card title size (desktop)",
+      "unit": "%",
+      "info": "Based on 24px"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "section-color-body-text",
+      "default": "transparent",
+      "label": "Heading color"
+    },
+    {
+      "type": "color",
+      "id": "section-color-overlay",
+      "default": "transparent",
+      "label": "Section background color"
+    },
+    {
+      "type": "color",
+      "id": "card-background-color",
+      "default": "#f7f7f7",
+      "label": "Card background color"
+    },
+    {
+      "type": "range",
+      "id": "section-color-overlay-opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100,
+      "label": "Background opacity"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin-top",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "step": 4,
+      "default": 40,
+      "label": "Top margin"
+    },
+    {
+      "type": "range",
+      "id": "margin-bottom",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "step": 4,
+      "default": 40,
+      "label": "Bottom margin"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient_card",
+      "name": "Ingredient Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Card number",
+          "default": "01",
+          "info": "Optional number displayed at top of card"
+        },
+        {
+          "type": "text",
+          "id": "ingredient_name",
+          "label": "Ingredient name",
+          "default": "POTASSIUM",
+          "info": "Will be displayed in uppercase"
+        },
+        {
+          "type": "richtext",
+          "id": "benefits_list",
+          "label": "Benefits list",
+          "default": "<ul><li><strong>What it does:</strong> Contributes to normal muscle function and helps maintain normal blood pressure.</li><li><strong>Products:</strong> Recovery, Daily Hydration</li></ul>",
+          "info": "Use bullet points for each benefit. HTML formatting supported."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredient Cards",
+      "blocks": [
+        {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "01",
+            "ingredient_name": "POTASSIUM",
+            "benefits_list": "<ul><li><strong>What it does:</strong> Contributes to normal muscle function and helps maintain normal blood pressure.</li><li><strong>Products:</strong> Recovery, Daily Hydration</li></ul>"
+          }
+        },
+        {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "02",
+            "ingredient_name": "SODIUM / SODIUM CHLORIDE",
+            "benefits_list": "<ul><li><strong>What it does:</strong> Contributes to normal muscle function and helps maintain normal blood pressure.</li><li><strong>Products:</strong> Recovery, Daily Hydration</li></ul>"
+          }
+        },
+        {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "03",
+            "ingredient_name": "MAGNESIUM",
+            "benefits_list": "<ul><li><strong>What it does:</strong> Contributes to electrolyte balance and helps reduce tiredness and fatigue.</li><li><strong>Products:</strong> Recovery, Daily Hydration</li></ul>"
+          }
+        },
+        {
+          "type": "ingredient_card",
+          "settings": {
+            "number": "04",
+            "ingredient_name": "CALCIUM",
+            "benefits_list": "<ul><li><strong>What it does:</strong> Supports normal muscle function and energy metabolism.</li><li><strong>Products:</strong> Recovery, Daily Hydration</li></ul>"
+          }
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}

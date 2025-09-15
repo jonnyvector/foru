@@ -25,11 +25,10 @@
   <div class="card__container" style="--aspect-ratio: {{ aspect_ratio }};">
     <div class="card__picture-container">
       <a
-        href="{{ url | default: '#' }}"
+        href="{{ card_url | default: url | default: '#' }}"
         class="card{% if text_alignment %} card--{{ text_alignment }}{% endif %}"
         tabindex="0"
-        aria-label="{{ 'aria-label.card-url' | t }}"
-      >
+        aria-label="{{ 'aria-label.card-url' | t }}">
         <picture class="card__picture" data-uri="{{uri}}">
           <div class="card__loader hidden"></div>
           {% if img == 'hide' %}
@@ -38,15 +37,7 @@
             {% assign card_alt = img.alt | escape %}
 
             {{
-              img
-              | image_url: width: 1000
-              | image_tag:
-                loading: loading,
-                sizes: '(min-width: 1000px) 620px, 100vw',
-                width: null,
-                widths: '375, 750, 1000, 1440',
-                alt: card_alt,
-                class: card_classes
+              img | image_url: width: 1000 | image_tag: loading: loading, sizes: '(min-width: 1000px) 620px, 100vw', width: null, widths: '375, 750, 1000, 1440', alt: card_alt, class: card_classes
             }}
           {% elsif img %}
             {% assign is_video_exist = false %}
@@ -76,8 +67,7 @@
                 alt="{{ alt }}"
                 loading="{{ loading }}"
                 width="{{ img.width }}"
-                height="{{ img.height }}"
-              >
+                height="{{ img.height }}">
             {% else %}
               <img
                 class="card__img hidden"
@@ -93,8 +83,7 @@
                 alt="{{ alt }}"
                 loading="{{ loading }}"
                 width="{{ img.width }}"
-                height="{{ img.height }}"
-              >
+                height="{{ img.height }}">
             {% endif %}
 
             {% if img_hover %}
@@ -112,22 +101,17 @@
                 alt="{{ alt }}"
                 loading="{{ loading }}"
                 width="{{ img_hover.width }}"
-                height="{{ img_hover.height }}"
-              >
+                height="{{ img_hover.height }}">
             {% endif %}
           {% else %}
             {% unless url %}
               {% if placeholder_image_index %}
                 {{
-                  'product-apparel-'
-                  | append: placeholder_image_index
-                  | placeholder_svg_tag: 'card__img card__img--placeholder'
+                  'product-apparel-' | append: placeholder_image_index | placeholder_svg_tag: 'card__img card__img--placeholder'
                 }}
               {% else %}
                 {{
-                  'collection-apparel-1'
-                  | append: placeholder_image_index
-                  | placeholder_svg_tag: 'card__img card__img--placeholder'
+                  'collection-apparel-1' | append: placeholder_image_index | placeholder_svg_tag: 'card__img card__img--placeholder'
                 }}
               {% endif %}
             {% else %}
@@ -201,17 +185,24 @@
 
       {% if enable_quick_add_button %}
         <div class="card__quick-add-container--desktop">
-          {% render 'quick-add-button', card_product: product, product: card_product %}
+          {% if variant_context %}
+            {% render 'quick-add-button-variant'
+              , card_variant: card_variant
+              , product: product %}
+          {% else %}
+            {% render 'quick-add-button'
+              , card_product: product
+              , product: card_product %}
+          {% endif %}
         </div>
       {% endif %}
     </div>
 
     <a
-      href="{{ url }}"
+      href="{{ card_url | default: url }}"
       tabindex="-1"
       data-omit-tabindex
-      class="card{% if text_alignment %} card--{{ text_alignment }}{% endif %}"
-    >
+      class="card{% if text_alignment %} card--{{ text_alignment }}{% endif %}">
       {% if section.settings.show_vendor == true %}
         <p class="card__subtitle">{{ subtitle }}</p>
       {% endif %}
@@ -220,53 +211,53 @@
         <p class="card__subtitle">{{ subtitle }}</p>
       {% endif %}
 
-      <{{ title_tag }} class="card__title">
-        {% if title %}
-          {{ title }}
-        {% else %}
-          {% if default_title %}{{ default_title }}{% else %}{{ placeholder_title }}{% endif %}
-        {% endif %}
-      </{{ title_tag }}>
-      {% if price and collection_list != true %}
-        <div class="card__price">
-          {% if price_old -%}
-            <span class="card__price__old">{{ price_old }}</span>
-          {%- endif %}
-          {% if settings.currency_code_enabled %}
-            {{ price | money_with_currency }}
+      <div class="card__title-price-container">
+        <{{ title_tag }} class="card__title">
+          {% if title %}
+            {{ title }}
           {% else %}
-            {{ price | money }}
+            {% if default_title %}
+              {{ default_title }}
+            {% else %}
+              {{ placeholder_title }}{% endif %}
           {% endif %}
-        </div>
-      {% elsif product and collection_list != true %}
-        <div class="card__price">
-          {% render 'price', product: product, show_compare_at_price: true, price_class: '' %}
-        </div>
-      {% endif %}
+        </{{ title_tag }}>
+        {% if price and collection_list != true %}
+          <div class="card__price">
+            {% if price_old -%}
+              <span class="card__price__old">{{ price_old }}</span>
+            {%- endif %}
+            {% if settings.currency_code_enabled %}
+              {{ price | money_with_currency }}
+            {% else %}
+              {{ price | money }}
+            {% endif %}
+          </div>
+        {% elsif product and collection_list != true %}
+          <div class="card__price">
+            {% render 'price'
+              , product: product
+              , show_compare_at_price: true
+              , price_class: '' %}
+          </div>
+        {% endif %}
+      </div>
 
       {% if rating and reviews %}
-        {% render 'rating', reviews: reviews, text_alignment: text_alignment %}
+        {% render 'rating'
+          , reviews: reviews
+          , text_alignment: text_alignment %}
       {% endif %}
     </a>
 
     {% if settings.enable_color_swatch %}
       {%- comment -%}1. Build array with colour‑option names{%- endcomment -%}
       {% if settings.variant_picture_swatch_names != blank %}
-        {% assign options_as_color_swatches = settings.variant_picture_swatch_names
-          | downcase
-          | newline_to_br
-          | strip_newlines
-          | split: '<br />'
-          | uniq
+        {% assign options_as_color_swatches = settings.variant_picture_swatch_names | downcase | newline_to_br | strip_newlines | split: '<br />' | uniq
         %}
         {% assign is_variant_picture = true %}
       {% else %}
-        {% assign options_as_color_swatches = settings.color_swatch_names
-          | downcase
-          | newline_to_br
-          | strip_newlines
-          | split: '<br />'
-          | uniq
+        {% assign options_as_color_swatches = settings.color_swatch_names | downcase | newline_to_br | strip_newlines | split: '<br />' | uniq
         %}
       {% endif %}
 
@@ -278,8 +269,7 @@
         "
         tabindex="-1"
         data-options-as-color-swatches="{{ options_as_color_swatches | join: ',' }}"
-        data-omit-tabindex
-      >
+        data-omit-tabindex>
         {%- comment -%}2. Iterate through colour‑option names{%- endcomment -%}
         {% for color_swatch_option in options_as_color_swatches %}
           {%- comment -%}Find real option name & its index (1/2/3){%- endcomment -%}
@@ -326,7 +316,7 @@
 
             {% unless rep_variant %}
               {% continue %}
-            {% endunless %}
+          {% endunless %}
 
             {%- comment -%}Optional hover image{%- endcomment -%}
             {% assign new_hover_image = null %}
@@ -341,14 +331,12 @@
             {%- assign swatches_config = settings.swatches_config | newline_to_br | split: '<br />' -%}
 
             {%- comment -%}4. Render swatch{%- endcomment -%}
-            <div
-              class="
+            <div class="
                 color-swatcher--wrapper
                 {% if is_variant_picture %} variant-image {% endif %}
                 {% unless color_available %}unavailable{% endunless %}
                 {% if settings.enable_round_color_swatches %} rounded {% endif %}
-              "
-            >
+              ">
               <div
                 class="
                   color-swatcher
@@ -367,7 +355,7 @@
                     {{ rep_variant.image | image_url: width: 1000 }} 1000w
                   {% endif %}
                 "
-                data-href="{{ rep_variant.url }}"
+                data-href="{% if variant_context %}{{ product.url }}?variant={{ rep_variant.id }}{% else %}{{ rep_variant.url }}{% endif %}"
                 data-hover="{% if new_hover_image %}{{ new_hover_image | image_url: width: 1000 }}{% endif %}"
                 style="
                   {% if is_variant_picture %}
@@ -376,8 +364,7 @@
                       {% render 'color-swatch-style', swatches_config: swatches_config, value: color %};
                   {% endif %}
                 "
-                tabindex="0"
-              ></div>
+                tabindex="0"></div>
 
               <span class="color-swatcher--tooltip hidden">{{ color }}</span>
               {% unless color_available %}
@@ -392,7 +379,15 @@
 
     {% if enable_quick_add_button %}
       <div class="card__quick-add-container">
-        {% render 'quick-add-button', card_product: product, product: card_product %}
+        {% if variant_context %}
+          {% render 'quick-add-button-variant'
+            , card_variant: card_variant
+            , product: product %}
+        {% else %}
+          {% render 'quick-add-button'
+            , card_product: product
+            , product: card_product %}
+        {% endif %}
       </div>
     {% endif %}
   </div>

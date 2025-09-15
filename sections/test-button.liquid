@@ -1,0 +1,30 @@
+<!-- Test section to debug shop button -->
+<div style="padding: 40px; background: #f5f5f5;">
+  <h3>Shop Button Test</h3>
+  
+  <!-- Test 1: Basic light button -->
+  <div style="margin: 20px 0;">
+    <p>Light button test:</p>
+    {% render 'shop-button', text: 'Test Light', style: 'light', url: '#' %}
+  </div>
+  
+  <!-- Test 2: Basic dark button -->
+  <div style="margin: 20px 0;">
+    <p>Dark button test:</p>
+    {% render 'shop-button', text: 'Test Dark', style: 'dark', url: '#' %}
+  </div>
+  
+  <!-- Test 3: Submit button -->
+  <div style="margin: 20px 0;">
+    <p>Submit button test:</p>
+    {% render 'shop-button', text: 'Test Submit', style: 'dark', type: 'submit' %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Test Button",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

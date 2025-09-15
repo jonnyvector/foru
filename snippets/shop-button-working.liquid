@@ -1,0 +1,150 @@
+{% comment %}
+  Working shop button - text visible, hover effects, no complex animations initially
+{% endcomment %}
+
+{% assign unique_id = 'shop-btn-' | append: section.id | default: 'shop-btn-default' %}
+
+<div class="shop-button-wrapper-{{ unique_id }}">
+  
+  {% if type %}
+    <button type="{{ type }}" class="shop-button-text-{{ unique_id }}">
+      <span class="slide-wrapper">
+        <span class="slide-text">{{ text | default: 'Shop Now' }}</span>
+        <span class="slide-text">{{ text | default: 'Shop Now' }}</span>
+      </span>
+    </button>
+
+    <button type="{{ type }}" class="shop-button-arrow-{{ unique_id }}" aria-label="{{ aria_label | default: 'Submit' }}">
+      <span class="slide-wrapper">
+        <span class="slide-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </span>
+        <span class="slide-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </span>
+    </button>
+  {% else %}
+    <a href="{{ url | default: '#' }}" class="shop-button-text-{{ unique_id }}"
+       {% if target %}target="{{ target }}"{% endif %}
+       {% if aria_label %}aria-label="{{ aria_label }}"{% endif %}>
+      {{ text | default: 'Shop Now' }}
+    </a>
+
+    <a href="{{ url | default: '#' }}" class="shop-button-arrow-{{ unique_id }}"
+       {% if target %}target="{{ target }}"{% endif %}
+       aria-label="{{ aria_label | default: 'Go' }}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+  {% endif %}
+</div>
+
+<style>
+/* Wrapper */
+.shop-button-wrapper-{{ unique_id }} {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+/* Text button */
+.shop-button-text-{{ unique_id }} {
+  padding: 0 24px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 1px solid #2a2a2a;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 8px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  background: #2a2a2a;
+  color: white;
+}
+
+/* Arrow button */
+.shop-button-arrow-{{ unique_id }} {
+  width: 60px;
+  height: 52px;
+  border: 1px solid #2a2a2a;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: #2a2a2a;
+  color: white;
+}
+
+.shop-button-arrow-{{ unique_id }} svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Light variant */
+.shop-button-wrapper--light .shop-button-text-{{ unique_id }},
+.shop-button-wrapper--light .shop-button-arrow-{{ unique_id }} {
+  background: white;
+  color: #2a2a2a;
+  border-color: #e0e0e0;
+}
+
+/* Hover effects */
+.shop-button-wrapper-{{ unique_id }}:hover .shop-button-text-{{ unique_id }},
+.shop-button-wrapper-{{ unique_id }}:hover .shop-button-arrow-{{ unique_id }} {
+  background: #1a1a1a;
+  color: white;
+}
+
+.shop-button-wrapper--light.shop-button-wrapper-{{ unique_id }}:hover .shop-button-text-{{ unique_id }},
+.shop-button-wrapper--light.shop-button-wrapper-{{ unique_id }}:hover .shop-button-arrow-{{ unique_id }} {
+  background: #f8f8f8;
+  color: #2a2a2a;
+}
+
+/* Slide Animation */
+.slide-wrapper {
+  position: relative;
+  width: 100%;
+  height: 52px;
+  overflow: hidden;
+}
+
+.slide-text,
+.slide-arrow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transform: translateY(0);
+}
+
+.slide-text:last-child,
+.slide-arrow:last-child {
+  transform: translateY(100%);
+}
+
+.shop-button-wrapper-{{ unique_id }}:hover .slide-text:first-child,
+.shop-button-wrapper-{{ unique_id }}:hover .slide-arrow:first-child {
+  transform: translateY(-100%);
+}
+
+.shop-button-wrapper-{{ unique_id }}:hover .slide-text:last-child,
+.shop-button-wrapper-{{ unique_id }}:hover .slide-arrow:last-child {
+  transform: translateY(0);
+}
+</style>

@@ -1,0 +1,164 @@
+{% comment %}
+  Custom View All Button Snippet - Reusable button with sliding text and rotating plus icon
+  Parameters:
+  - text: Button text (default: "View all")
+  - url: URL for the link (required)
+  - target: Link target (optional)
+  - aria_label: Accessibility label (default: uses text)
+  - class: Additional CSS classes
+  - id: Optional ID for the button wrapper
+{% endcomment %}
+
+{% assign button_text = text | default: 'View all' %}
+{% assign unique_id = id | default: section.id | default: 'default' | prepend: 'view-all-btn-' %}
+
+<div class="custom-view-all-wrapper-{{ unique_id }} {{ class }}">
+  <a
+    href="{{ url | default: '#' }}"
+    class="custom-view-all-{{ unique_id }}"
+    {% if target %}
+    target="{{ target }}"
+    {% endif %}
+    aria-label="{{ aria_label | default: button_text }}">
+    
+    <span class="custom-view-all-text-{{ unique_id }}">
+      <span class="slide-wrapper">
+        <span class="slide-text">{{ button_text }}</span>
+        <span class="slide-text">{{ button_text }}</span>
+      </span>
+    </span>
+
+    <span class="custom-view-all-icon-{{ unique_id }}">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M12 5V19M5 12H19"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+      </svg>
+    </span>
+  </a>
+</div>
+
+<style>
+  /* Wrapper */
+  .custom-view-all-wrapper-{{ unique_id }} {
+    display: inline-flex;
+    align-items: center;
+    width: auto;
+  }
+
+  /* Main button container */
+  .custom-view-all-{{ unique_id }} {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  /* Text part */
+  .custom-view-all-text-{{ unique_id }} {
+    font-family: var(--font-body);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Icon part */
+  .custom-view-all-icon-{{ unique_id }} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: var(--color-text);
+    border-radius: 4px;
+    transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .custom-view-all-icon-{{ unique_id }} svg {
+    width: 16px;
+    height: 16px;
+    color: var(--color-background);
+    transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  /* Slide mechanics for text */
+  .custom-view-all-text-{{ unique_id }} .slide-wrapper {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .custom-view-all-text-{{ unique_id }} .slide-text {
+    grid-area: 1 / 1;
+    transform: translateY(0);
+    transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: transform;
+    backface-visibility: hidden;
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  /* Second copy starts below */
+  .custom-view-all-text-{{ unique_id }} .slide-text:last-child {
+    transform: translateY(100%);
+  }
+
+  /* Hover animations */
+  .custom-view-all-wrapper-{{ unique_id }}:hover .slide-text:first-child {
+    transform: translateY(-100%);
+  }
+
+  .custom-view-all-wrapper-{{ unique_id }}:hover .slide-text:last-child {
+    transform: translateY(0);
+  }
+
+  /* Plus icon rotation on hover */
+  .custom-view-all-wrapper-{{ unique_id }}:hover .custom-view-all-icon-{{ unique_id }} svg {
+    transform: rotate(90deg);
+  }
+
+  /* Focus-visible for a11y */
+  .custom-view-all-{{ unique_id }}:focus-visible {
+    outline: 2px solid #6aa3ff;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Mobile responsive adjustments */
+  @media screen and (max-width: 749px) {
+    .custom-view-all-icon-{{ unique_id }} {
+      width: 23px;
+      height: 23px;
+    }
+
+    .custom-view-all-icon-{{ unique_id }} svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    .custom-view-all-text-{{ unique_id }} {
+      font-size: 14px;
+    }
+
+    .custom-view-all-text-{{ unique_id }} .slide-text {
+      font-size: 14px;
+    }
+  }
+</style>

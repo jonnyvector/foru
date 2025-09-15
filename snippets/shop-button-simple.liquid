@@ -1,0 +1,19 @@
+{% comment %}Simple test version{% endcomment %}
+
+<div class="shop-button-wrapper shop-button-wrapper--{{ style | default: 'dark' }}" style="background: #2a2a2a !important; color: white !important; padding: 16px 20px !important; border-radius: 8px !important; display: inline-flex !important; align-items: center !important; gap: 12px !important;">
+  {% if type %}
+    <button type="{{ type }}" class="shop-button" style="background: none !important; border: none !important; color: inherit !important; font-size: inherit !important;">
+      {{ text | default: 'Shop Now' }}
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </button>
+  {% else %}
+    <a href="{{ url | default: '#' }}" class="shop-button" style="background: none !important; border: none !important; color: inherit !important; text-decoration: none !important; display: flex !important; align-items: center !important; gap: 12px !important;">
+      {{ text | default: 'Shop Now' }}
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+  {% endif %}
+</div>

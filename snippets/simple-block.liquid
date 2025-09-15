@@ -1,52 +1,83 @@
 {% if blocks %}
+  {% assign usp_tooltip_blocks = blocks | where: 'type', 'usp' %}
+  {% assign tooltip_blocks = blocks | where: 'type', 'info_tooltip' %}
+  {% assign usp_tooltip_rendered = false %}
+  
   {%- for block in blocks -%}
-    {%- case block.type -%}
+    {% if block.type == 'usp' or block.type == 'info_tooltip' %}
+      {% unless usp_tooltip_rendered %}
+        <div class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__usps-row">
+        {% for usp_block in usp_tooltip_blocks %}
+          {% if usp_block.settings.icon or usp_block.settings.text %}
+            <div data-block-id="{{ usp_block.id }}" class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__usp {% if usp_block.settings.disable_on_mobile %}{% if prefix %}{{ prefix }}{% else %}block{% endif %}__usp--mobile{% endif %}">
+              {% if usp_block.settings.icon %}
+                <div class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__usp-icon">
+                  {{ usp_block.settings.icon | image_url: width: 40 | image_tag: alt: usp_block.settings.text }}
+                </div>
+              {% endif %}
+              {% if usp_block.settings.text %}
+                <div class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__usp-text">
+                  {{ usp_block.settings.text | escape }}
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+        {% for tooltip_block in tooltip_blocks %}
+          {% if tooltip_block.settings.icon or tooltip_block.settings.content %}
+            <div data-block-id="{{ tooltip_block.id }}" class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__info-tooltip {% if tooltip_block.settings.disable_on_mobile %}{% if prefix %}{{ prefix }}{% else %}block{% endif %}__info-tooltip--mobile{% endif %}">
+              {% if tooltip_block.settings.icon %}
+                <button type="button" class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__info-tooltip-trigger" aria-describedby="tooltip-{{ tooltip_block.id }}">
+                  {{ tooltip_block.settings.icon | image_url: width: 24 | image_tag: alt: "Info", class: "default-icon" }}
+                  {% if tooltip_block.settings.hover_icon %}
+                    {{ tooltip_block.settings.hover_icon | image_url: width: 24 | image_tag: alt: "Info", class: "hover-icon" }}
+                  {% endif %}
+                </button>
+                <div id="tooltip-{{ tooltip_block.id }}" class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__info-tooltip-content" role="tooltip" aria-hidden="true">
+                  {% if tooltip_block.settings.content %}
+                    <div class="rte">
+                      {{ tooltip_block.settings.content }}
+                    </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+        </div>
+        {% assign usp_tooltip_rendered = true %}
+      {% endunless %}
+    {% else %}
+      {%- case block.type -%}
       {%- when 'subheading' -%}
         {% if block.settings.subheading %}
-          <h2
-            data-block-id="{{ block.id }}"
-            class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__subheading {% if prefix %}{{ prefix }}{% else %}block{% endif %}{% if block.settings.subheading_disable_on_mobile %}__subheading--mobile{% endif %}"
-          >
+          <h2 data-block-id="{{ block.id }}" class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__subheading {% if prefix %}{{ prefix }}{% else %}block{% endif %}{% if block.settings.subheading_disable_on_mobile %}__subheading--mobile{% endif %}">
             {{ block.settings.subheading | escape | newline_to_br }}
           </h2>
         {% endif %}
       {%- when 'heading' -%}
         {% if block.settings.heading %}
-          <h2
-            data-block-id="{{ block.id }}"
-            class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__title {% if prefix %}{{ prefix }}{% else %}block{% endif %}{% if block.settings.disable_on_mobile %}__title--mobile{% endif %}"
-          >
+          <h2 data-block-id="{{ block.id }}" class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__title {% if prefix %}{{ prefix }}{% else %}block{% endif %}{% if block.settings.disable_on_mobile %}__title--mobile{% endif %}">
             {{ block.settings.heading | escape | newline_to_br }}
           </h2>
         {% endif %}
         {% if block.settings.subheading %}
-          <div
-            data-block-id="{{ block.id }}"
-            class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__text {% if block.settings.disable_on_mobile %}hero__title--mobile{% endif %}"
-          >
+          <div data-block-id="{{ block.id }}" class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__text {% if block.settings.disable_on_mobile %}hero__title--mobile{% endif %}">
             {{ block.settings.subheading }}
           </div>
         {% endif %}
       {%- when 'text' -%}
         {% if block.settings.text and rich_text_with_image == true %}
-          <div
-            class="rich-text-image {% if block.settings.disable_on_mobile %}hero__title--mobile{% endif %}"
-            data-block-id="{{ block.id }}"
-          >
+          <div class="rich-text-image {% if block.settings.disable_on_mobile %}hero__title--mobile{% endif %}" data-block-id="{{ block.id }}">
             {% assign text = block.settings.text %}
             {{ block.settings.button_link }}
 
-            {% if block.settings.picture1 == null
-              and block.settings.picture2 == null
-              and block.settings.picture3 == null
+            {% if block.settings.picture1 == null and block.settings.picture2 == null and block.settings.picture3 == null
             %}
               {% assign pic1url = 'product-1' | placeholder_svg_tag %}
               {% assign pic2url = 'product-2' | placeholder_svg_tag %}
               {% assign pic3url = 'product-3' | placeholder_svg_tag %}
-              {% assign text = text
-                | replace: 'PICTURE1', pic1url
-                | replace: 'PICTURE2', pic2url
-                | replace: 'PICTURE3', pic3url
+              {% assign text = text | replace: 'PICTURE1', pic1url | replace: 'PICTURE2', pic2url | replace: 'PICTURE3', pic3url
               %}
             {% endif %}
 
@@ -88,49 +119,94 @@
             </h3>
           </div>
         {% elsif block.settings.text %}
-          <div
-            data-block-id="{{ block.id }}"
-            class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__text {% if block.settings.disable_on_mobile %}{% if prefix %}{{ prefix }}{% else %}block{% endif %}__text--mobile{% endif %} rte"
-          >
+          <div data-block-id="{{ block.id }}" class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__text {% if block.settings.disable_on_mobile %}{% if prefix %}{{ prefix }}{% else %}block{% endif %}__text--mobile{% endif %} rte">
             {{ block.settings.text }}
           </div>
         {% endif %}
       {%- when 'button' -%}
         <div class="hero__button--gap">
           {% if block.settings.button_link and block.settings.button_label != blank %}
-            <a
-              href="{{ block.settings.button_link }}"
-              {% if block.settings.button_link_in_new_window %}
-                target="_blank" rel="noreferrer noopener"
-                tabindex="0"
-              {% endif %}
-              aria-label="{{ block.settings.button_label }}"
-              class="hero__button--primary {% if block.settings.button_select != 'primary' %} hero__button--secondary {% endif %}{% if block.settings.button_select == 'link' %} hero__button--link {% endif %}{% if prefix %}{{ prefix }}{% else %}block{% endif %}__button {% if prefix %}{{ prefix }}{% else %}block{% endif %}{% if block.settings.disable_on_mobile %}__button--mobile{% endif %}"
-            >
-              <span>{{ block.settings.button_label }}</span>
-            </a>
+            {% comment %} <a
+                                                                                                                                                                        href="{{ block.settings.button_link }}"
+                                                                                                                                                                        {% if block.settings.button_link_in_new_window %}
+                                                                                                                                                                        target="_blank"
+                                                                                                                                                                        rel="noreferrer noopener"
+                                                                                                                                                                        tabindex="0"
+                                                                                                                                                                        {% endif %}
+                                                                                                                                                                        aria-label="{{ block.settings.button_label }}"
+                                                                                                                                                                        class="hero__button--primary {% if block.settings.button_select != 'primary' %} hero__button--secondary {% endif %}{% if block.settings.button_select == 'link' %} hero__button--link {% endif %}{% if prefix %}{{ prefix }}{% else %}block{% endif %}__button {% if prefix %}{{ prefix }}{% else %}block{% endif %}{% if block.settings.disable_on_mobile %}__button--mobile{% endif %}">
+                                                                                                                                                                        <span>{{ block.settings.button_label }}</span>
+                                                                                                                                                </a> {% endcomment %}
+            {% render 'custom-button'
+              , text: block.settings.button_label
+              , type: 'link'
+              , url: block.settings.button_link
+              , style: block.settings.button_select
+              , id: block.id %}
           {% endif %}
 
           {% if block.settings.second_button_link %}
-            <a
-              href="{{ block.settings.second_button_link }}"
-              {% if button_link_in_new_window %}
-                target="_blank" rel="noreferrer noopener"
-              {% endif %}
-              ><button
-                aria-label="{{ block.settings.second_button_label }}"
-                class="hero__button--primary {% if block.settings.second_button_select != 'primary' %} hero__button--secondary {% endif %}{% if block.settings.second_button_select == 'link' %} hero__button--link {% endif %}{% if prefix %}{{ prefix }}{% else %}block{% endif %}__button {% if prefix %}{{ prefix }}{% else %}block{% endif %}{% if block.settings.second_disable_on_mobile %}__button--mobile{% endif %}"
-              >
-                <span>
-                  {{ block.settings.second_button_label }}
-                </span>
-              </button></a
-            >
+            {% comment %} <a
+                                                                      href="{{ block.settings.second_button_link }}"
+                                                                      {% if button_link_in_new_window %}
+                                                                      target="_blank"
+                                                                      rel="noreferrer noopener"
+                                                                      {% endif %}>
+                                                                      <button aria-label="{{ block.settings.second_button_label }}" class="hero__button--primary {% if block.settings.second_button_select != 'primary' %} hero__button--secondary {% endif %}{% if block.settings.second_button_select == 'link' %} hero__button--link {% endif %}{% if prefix %}{{ prefix }}{% else %}block{% endif %}__button {% if prefix %}{{ prefix }}{% else %}block{% endif %}{% if block.settings.second_disable_on_mobile %}__button--mobile{% endif %}">
+                                                                        <span>
+                                                                          {{ block.settings.second_button_label }}
+                                                                        </span>
+                                                                      </button>
+                                                            </a> {% endcomment %}
+            {% render 'custom-button'
+              , text: block.settings.second_button_label
+              , type: 'submit'
+              , url: block.settings.second_button_link
+              , style: block.settings.second_button_select
+              , id: block.id %}
           {% endif %}
         </div>
+      {%- when 'trust_badge' -%}
+        {% if block.settings.badge_text or block.settings.percentage_text or block.settings.subtitle_text %}
+          <div data-block-id="{{ block.id }}" class="trust-badge {% if block.settings.disable_on_mobile %}trust-badge--mobile{% endif %}" 
+               style="transform: translateY({{ block.settings.padding_top_desktop | default: 0 }}px); --trust-badge-transform-mobile: translateY({{ block.settings.padding_top_mobile | default: 0 }}px);">
+            <div class="trust-badge__content">
+              <div class="trust-badge__icon-container">
+                {% if block.settings.custom_icon %}
+                  {{ block.settings.custom_icon | image_url: width: 80 | image_tag: class: 'trust-badge__icon-only', alt: block.settings.badge_text }}
+                {% elsif block.settings.icon_type == 'checkmark' %}
+                  <div class="trust-badge__icon-only">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                {% else %}
+                  <div class="trust-badge__icon-only">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9 3V8.5L4.5 17C4.22 17.54 4.46 18.21 5 18.5C5.17 18.58 5.34 18.62 5.5 18.62H18.5C19.05 18.62 19.5 18.17 19.5 17.62C19.5 17.45 19.46 17.28 19.38 17.12L15 8.5V3H9Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <circle cx="12" cy="12" r="1" fill="currentColor"/>
+                      <circle cx="10" cy="14" r="0.5" fill="currentColor"/>
+                      <circle cx="14" cy="13" r="0.5" fill="currentColor"/>
+                    </svg>
+                  </div>
+                {% endif %}
+              </div>
+              <div class="trust-badge__info">
+                {% if block.settings.percentage_text %}
+                  <div class="trust-badge__percentage h2">{{ block.settings.percentage_text }}</div>
+                {% endif %}
+                {% if block.settings.subtitle_text %}
+                  <div class="trust-badge__subtitle">{{ block.settings.subtitle_text }}</div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endif %}
       {%- when 'countdown_timer' %}
-        {% render 'countdown-timer', block: block %}
-    {%- endcase -%}
+        {% render 'countdown-timer'
+          , block: block %}
+      {%- endcase -%}
+    {% endif %}
   {%- endfor -%}
 {% else %}
   {% if title %}
@@ -147,9 +223,9 @@
       class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__button"
       href="{{ buttonUrl }}"
       {% if button_link_in_new_window %}
-        target="_blank" rel="noreferrer noopener"
-      {% endif %}
-    >
+      target="_blank"
+      rel="noreferrer noopener"
+      {% endif %}>
       {{- buttonText -}}
     </a>
   {%- endif %}
