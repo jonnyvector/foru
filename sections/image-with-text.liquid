@@ -18,6 +18,7 @@
       {% if heading_rgb != 'rgba(0, 0, 0, 0.0)' %}
         --color-custom-text: {{ section.settings.section-color-body-text }};
       {% endif %}
+      font-size: var(--font-h2-size);
     }
   [data-section-id="{{ section.id }}"]
   {
