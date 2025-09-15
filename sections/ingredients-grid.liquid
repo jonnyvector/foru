@@ -190,7 +190,7 @@
     font-family: var(--font-base);
     font-weight: var(--font-base-weight);
     font-style: var(--font-base-style);
-    font-size: calc(var(--font-base-size, 1rem) * 0.75);
+    font-size: var(--font-base-size);
     line-height: var(--font-base-line-height);
     letter-spacing: var(--font-base-letter-spacing);
     color: var(--color-text);
@@ -463,7 +463,7 @@
     }
 
     [data-section-id="{{ section.id }}"] .ingredients-grid__card-description {
-      font-size: calc(var(--font-base-size, 1rem) * 0.7);
+      font-size: var(--font-base-size);
     }
 
     [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next,
