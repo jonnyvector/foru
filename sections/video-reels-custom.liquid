@@ -38,14 +38,26 @@
 
   [data-section-id="{{ section.id }}"] .headline__title {
     font-size: var(--font-h2-size);
-    margin-bottom: 40px;
+    margin-bottom: 32px;
+  }
+
+  @media (min-width: 900px) {
+    [data-section-id="{{ section.id }}"] .headline__title {
+      margin-bottom: 40px;
+    }
   }
 
   [data-section-id="{{ section.id }}"] .video-reels__subheading {
     text-align: center;
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 20px;
     text-transform: none;
+  }
+
+  @media (min-width: 900px) {
+    [data-section-id="{{ section.id }}"] .video-reels__subheading {
+      margin-bottom: 28px;
+    }
   }
 
   @media (max-width: 899px) {
