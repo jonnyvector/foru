@@ -35,12 +35,20 @@
       --color-price: {{ section.settings.color-body-text }};
     {% endif %}
   }
+
+  [data-section-id="{{ section.id }}"] .headline__title {
+    font-size: var(--font-h2-size);
+  }
 </style>
 
 <video-reels
   data-section-id="{{ section.id }}"
   class="section-content video-reels wt-slider--wrapper {% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}"
 >
+  {% if section.settings.subheading != blank %}
+    <h5 class="video-reels__subheading">{{ section.settings.subheading }}</h5>
+  {% endif %}
+
   {% render 'headline', title: section.settings.heading %}
 
   <slideshow-section class="wt-slider {% if settings.animations %}scroll-trigger animate--slide-in {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}{% endif %}">
@@ -140,6 +148,11 @@
       "type": "header",
       "content": "t:sections.shoppable-video-reels.settings.important-information.content",
       "info": "t:sections.shoppable-video-reels.settings.important-information.info"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
     },
     {
       "type": "textarea",
