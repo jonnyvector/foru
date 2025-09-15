@@ -26,12 +26,12 @@
     --font-headline-line-height: {{ settings.type_headings_font_line_height }};
 
     /* Individual heading sizes */
-    --font-h1-size: {{ settings.type_h1_font_size | default: 32 }}px;
-    --font-h2-size: {{ settings.type_h2_font_size | default: 28 }}px;
-    --font-h3-size: {{ settings.type_h3_font_size | default: 24 }}px;
-    --font-h4-size: {{ settings.type_h4_font_size | default: 20 }}px;
-    --font-h5-size: {{ settings.type_h5_font_size | default: 18 }}px;
-    --font-h6-size: {{ settings.type_h6_font_size | default: 16 }}px;
+    --font-h1-size: 80px;
+    --font-h2-size: 48px;
+    --font-h3-size: 36px;
+    --font-h4-size: 28px;
+    --font-h5-size: 24px;
+    --font-h6-size: 18px;
 
     --font-navigation: "Inter-Tight", {{ settings.type_navigation_font.family }},{{ settings.type_navigation_font.fallback_families }};
     --font-navigation-style: {{ settings.type_navigation_font.style }};
@@ -226,12 +226,12 @@ html[dir="rtl"] {
         --font-navigation-size: {{ settings.type_navigation_font_size_desk }}px;
 
         /* Individual heading sizes (desktop) */
-        --font-h1-size: {{ settings.type_h1_font_size_desk | default: 48 }}px;
-        --font-h2-size: {{ settings.type_h2_font_size_desk | default: 40 }}px;
-        --font-h3-size: {{ settings.type_h3_font_size_desk | default: 32 }}px;
-        --font-h4-size: {{ settings.type_h4_font_size_desk | default: 28 }}px;
-        --font-h5-size: {{ settings.type_h5_font_size_desk | default: 24 }}px;
-        --font-h6-size: {{ settings.type_h6_font_size_desk | default: 20 }}px;
+        --font-h1-size: 120px;
+        --font-h2-size: 64px;
+        --font-h3-size: 48px;
+        --font-h4-size: 36px;
+        --font-h5-size: 32px;
+        --font-h6-size: 24px;
 
         --height-chip: 3.2rem;
     }
