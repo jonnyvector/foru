@@ -35,16 +35,6 @@
       --color-price: {{ section.settings.color-body-text }};
     {% endif %}
   }
-
-  @media (min-width: 900px) {
-    [data-section-id="{{ section.id }}"] .swiper-scrollbar {
-      display: none !important;
-    }
-  }
-
-  [data-section-id="{{ section.id }}"] .video-reels__container {
-    touch-action: pan-y pinch-zoom;
-  }
 </style>
 
 <video-reels
@@ -54,8 +44,8 @@
   {% render 'headline', title: section.settings.heading %}
 
   <slideshow-section class="wt-slider {% if settings.animations %}scroll-trigger animate--slide-in {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}{% endif %}">
-    <div data-swiper class="wt-slider__container wt-slider__container--video-carousel" data-section-id="{{ section.id }}" data-sound="off">
-      <div data-swiper-container class="video-reels__container video-reels__container--{{ section.id }}">
+    <div data-swiper class="wt-slider__container wt-slider__container--video-carousel" data-sound="off">
+      <div data-swiper-container class="video-reels__container">
         {% for block in section.blocks %}
           <div
             data-swiper-slide
@@ -104,7 +94,7 @@
       <div class="swiper-button-prev wt-slider__nav-btn wt-slider__nav-prev wt-slider__nav-prev--featured">
         {% render 'icons', id: 'arrow-left' %}
       </div>
-      <div class="swiper-scrollbar wt-slider__scrollbar"></div>
+      <div class="swiper-pagination wt-slider__pagination"></div>
     </div>
     <script data-swiper-configuration type="text/json">
       {
@@ -114,39 +104,20 @@
         "speed": 150,
         "grabCursor": false,
         "centeredSlides": true,
-        "loop": false,
+        "loop": true,
         "slideToClickedSlide": true,
-        "initialSlide": 0,
         "enableOnMedia": "(min-width: 0px)",
-        "scrollbar": {
-          "el": ".swiper-scrollbar",
-          "draggable": true,
-          "hide": false,
-          "snapOnRelease": true,
-          "dragSize": "auto"
-        },
+        "paginationType": "bullets",
         "breakpoints": {
           "600": {
-            "slidesPerView": 1.75,
-            "loop": false,
-            "scrollbar": {
-              "el": ".swiper-scrollbar",
-              "draggable": true,
-              "hide": false,
-              "snapOnRelease": true,
-              "dragSize": "auto"
-            }
+            "slidesPerView": 1.75
           },
           "900": {
-            "slidesPerView": 2.5,
-            "spaceBetween": 16,
-            "loop": true,
-            "loopedSlides": {{ section.blocks.size | at_most: 6 }}
+            "slidesPerView": 2.5
           },
           "1200": {
             "slidesPerView": 4.5,
-            "spaceBetween": 24,
-            "loop": true
+            "spaceBetween": 24
           }
         },
         "navigation": {
@@ -154,64 +125,6 @@
           "prevEl": ".wt-slider__nav-prev--featured"
         }
       }
-    </script>
-    
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const container = document.querySelector(
-        '[data-swiper][data-section-id="{{ section.id }}"]'
-      );
-      if (!container) return;
-
-      // Wait for slideshow-section to initialize
-      const checkForSwiper = () => {
-        const slideshowSection = container.closest('slideshow-section');
-        const swiper = slideshowSection?.swiper;
-        
-        if (!swiper) {
-          setTimeout(checkForSwiper, 100);
-          return;
-        }
-
-        // Track previous loop state to handle transitions properly
-        let previousLoopState = swiper.params.loop;
-        
-        swiper.on('breakpoint', function() {
-          const currentLoopState = this.params.loop;
-          const wrapper = this.wrapperEl;
-          
-          console.log(`Breakpoint change - previous loop: ${previousLoopState}, current loop: ${currentLoopState}`);
-          
-          // Only clean up duplicates when transitioning FROM loop TO no-loop
-          if (previousLoopState && !currentLoopState) {
-            const duplicateSlides = wrapper.querySelectorAll('[class*="swiper-slide-duplicate"]');
-            if (duplicateSlides.length > 0) {
-              console.log(`Removing ${duplicateSlides.length} duplicate slides (loop → no-loop)`);
-              duplicateSlides.forEach(slide => slide.remove());
-            }
-            
-            // Update after cleanup
-            this.update();
-          }
-          // If staying in loop mode (loop → loop), let Swiper handle it naturally
-          else if (previousLoopState && currentLoopState) {
-            console.log('Staying in loop mode - letting Swiper handle transition');
-            // Just a gentle update, don't interfere with loop mechanics
-            setTimeout(() => this.update(), 50);
-          }
-          // If going from no-loop to loop, let Swiper create the duplicates
-          else if (!previousLoopState && currentLoopState) {
-            console.log('Enabling loop mode');
-            setTimeout(() => this.update(), 50);
-          }
-          
-          // Update previous state for next transition
-          previousLoopState = currentLoopState;
-        });
-      };
-
-      checkForSwiper();
-    });
     </script>
   </slideshow-section>
 </video-reels>
