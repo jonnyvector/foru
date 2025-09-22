@@ -85,16 +85,18 @@
     border-radius: var(--border-radius) !important;
   }
 
-  /* White background override for transparent headers (only on homepage when not hovering header) */
-  .template-index body:not(.dropdown-open-desk) .wt-header--transparent:not(:hover) .wt-header__nav-teaser--full-menu .wt-page-nav-mega__link--parent {
-    background-color: rgba(255, 255, 255, 0.25) !important;
-  }
-
   /* Header link padding for all navigation links */
   .wt-header--v3 .wt-header__nav-teaser--full-menu .wt-page-nav-mega__link,
   .wt-header--v5 .wt-header__nav-teaser--full-menu .wt-page-nav-mega__link {
     padding: 15px 24px !important;
     min-height: 54px !important;
+  }
+}
+
+/* Transparent header white background override */
+@media (min-width: 1200px) {
+  .template-index body:not(.dropdown-open-desk) .wt-header--transparent:not(:hover) .wt-page-nav-mega__link--parent.wt-page-nav-mega__link--parent {
+    background-color: rgba(255, 255, 255, 0.25) !important;
   }
 }
 
