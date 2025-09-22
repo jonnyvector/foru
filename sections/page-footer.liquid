@@ -524,7 +524,7 @@
                     {% assign payment_image = payment_block.settings[icon_key] %}
                     {% if payment_image %}
                       <li class="wt-footer__aside-list__item">
-                        {{ payment_image | image_url: width: 60 | image_tag: loading: 'lazy', alt: icon_key | replace: '_icon', '' | capitalize, class: 'payment-icon' }}
+                        {{ payment_image | image_url: width: 60 | image_tag: loading: 'lazy', alt: (icon_key | replace: '_icon', '' | capitalize), class: 'payment-icon' }}
                       </li>
                     {% endif %}
                   {% endfor %}
