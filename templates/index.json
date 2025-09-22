@@ -464,7 +464,7 @@
       "type": "blog-posts",
       "name": "t:sections.blog-posts.presets.name",
       "settings": {
-        "heading": "Blog posts",
+        "heading": "Blog",
         "swipe_on_mobile": true,
         "full-width-enabled": false,
         "blog": "health",
