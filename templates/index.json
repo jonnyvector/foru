@@ -384,7 +384,9 @@
         "full_width_enabled": false,
         "color_body_text": "#1a1c1c",
         "background_color": "rgba(0,0,0,0)",
-        "quote_icon": "shopify://shop_images/Frame_1_41d73260-6314-4618-a31f-a5cb2b91c3e4.svg"
+        "quote_icon": "shopify://shop_images/Frame_1_41d73260-6314-4618-a31f-a5cb2b91c3e4.svg",
+        "margin-top": 100,
+        "margin-bottom": 0
       }
     },
     "featured_on_iXfAwg": {
@@ -456,8 +458,8 @@
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
         "logo_container_color": "#f0f0f0",
-        "margin-top": 20,
-        "margin-bottom": 20
+        "margin-top": 100,
+        "margin-bottom": 0
       }
     },
     "blog_posts_Pt33Px": {
@@ -485,7 +487,7 @@
         "text_alignment": "left",
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
-        "margin-top": 20,
+        "margin-top": 100,
         "margin-bottom": 100
       }
     }
