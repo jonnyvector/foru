@@ -196,6 +196,7 @@
         "quick-add-enabled": false,
         "hide-brand-name": true,
         "video_button": false,
+        "show_pagination": false,
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
         "margin-top": 20,
