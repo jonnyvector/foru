@@ -86,7 +86,7 @@
   }
 
   /* White background override for transparent headers (only on homepage when not hovering header) */
-  body:not(.dropdown-open-desk) .template-index .wt-header--transparent:not(:hover) .wt-page-nav-mega__link--parent {
+  .template-index body:not(.dropdown-open-desk) .wt-header--transparent:not(:hover) .wt-header__nav-teaser--full-menu .wt-page-nav-mega__link--parent {
     background-color: rgba(255, 255, 255, 0.25) !important;
   }
 
