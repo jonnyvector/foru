@@ -87,7 +87,7 @@
     }
 
     .wt-footer__grid-item--disclaimer {
-      text-align: right;
+      text-align: left;
     }
   }
 
@@ -502,16 +502,7 @@
     </div>
 
     <!-- Desktop Row 3 / Mobile Rows 4-5: Payment + Disclaimer -->
-    <div class="wt-footer__row wt-footer__row--secondary">      
-      <!-- Disclaimer -->
-      {% for disclaimer_block in disclaimer_blocks %}
-        <div class="wt-footer__grid-item wt-footer__grid-item--disclaimer">
-          <section class="wt-footer__disclaimer">
-            <div class="wt-footer__disclaimer-text rte">{{ disclaimer_block.settings.text }}</div>
-          </section>
-        </div>
-      {% endfor %}
-      
+    <div class="wt-footer__row wt-footer__row--secondary">
       <!-- Payment Icons -->
       {% for payment_block in payment_blocks %}
         {% if payment_block.settings.show_payment_icons %}
@@ -585,6 +576,15 @@
             </section>
           </div>
         {% endif %}
+      {% endfor %}
+
+      <!-- Disclaimer -->
+      {% for disclaimer_block in disclaimer_blocks %}
+        <div class="wt-footer__grid-item wt-footer__grid-item--disclaimer">
+          <section class="wt-footer__disclaimer">
+            <div class="wt-footer__disclaimer-text rte">{{ disclaimer_block.settings.text }}</div>
+          </section>
+        </div>
       {% endfor %}
     </div>
 
