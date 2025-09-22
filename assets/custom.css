@@ -86,6 +86,7 @@
   /* Header link padding for all navigation links */
   .template-index .wt-header--transparent.wt-header--v3 .wt-header__nav-teaser--full-menu .wt-page-nav-mega__link {
     padding: 15px 24px !important;
+    min-height: 54px !important;
   }
 }
 
