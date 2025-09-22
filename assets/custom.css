@@ -86,8 +86,7 @@
   }
 
   /* Opaque header mega menu background */
-  .wt-header--v3:not(.wt-header--transparent) .wt-header__nav-teaser--full-menu .wt-page-nav-mega__item--parent .wt-page-nav-mega__link--parent,
-  .wt-header--v5:not(.wt-header--transparent) .wt-header__nav-teaser--full-menu .wt-page-nav-mega__item--parent .wt-page-nav-mega__link--parent {
+  .wt-header__nav-teaser--full-menu .wt-page-nav-mega__item--parent .wt-page-nav-mega__link--parent {
     background-color: rgba(183, 183, 183, 0.25) !important;
     border-radius: var(--border-radius) !important;
   }
