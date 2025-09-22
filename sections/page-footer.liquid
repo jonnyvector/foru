@@ -553,6 +553,8 @@
                           {% if payment_block.settings.show_discover %}{% assign show_icon = true %}{% endif %}
                         {% when 'paypal' %}
                           {% if payment_block.settings.show_paypal %}{% assign show_icon = true %}{% endif %}
+                        {% when 'paypal_express_checkout' %}
+                          {% if payment_block.settings.show_paypal %}{% assign show_icon = true %}{% endif %}
                         {% when 'apple_pay' %}
                           {% if payment_block.settings.show_apple_pay %}{% assign show_icon = true %}{% endif %}
                         {% when 'google_pay' %}
@@ -844,6 +846,8 @@
                           {% when 'discover' %}
                             {% if block.settings.show_discover %}{% assign show_icon = true %}{% endif %}
                           {% when 'paypal' %}
+                            {% if block.settings.show_paypal %}{% assign show_icon = true %}{% endif %}
+                          {% when 'paypal_express_checkout' %}
                             {% if block.settings.show_paypal %}{% assign show_icon = true %}{% endif %}
                           {% when 'apple_pay' %}
                             {% if block.settings.show_apple_pay %}{% assign show_icon = true %}{% endif %}
