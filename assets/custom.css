@@ -109,7 +109,7 @@
     display: none !important;
   }
 
-  .dropdown-open-desk .wt-header--transparent .wt-header__logo__img:not(.wt-header__logo__img--transparent) {
+  .dropdown-open-desk .wt-header--transparent .wt-header__logo__img {
     display: block !important;
   }
 }
