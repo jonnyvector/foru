@@ -387,8 +387,8 @@
         "show_pagination": true,
         "color-body-text": "transparent",
         "background_color": "transparent",
-        "margin-top": 20,
-        "margin-bottom": 20
+        "margin-top": 100,
+        "margin-bottom": 0
       }
     },
     "collapsible_menu_dHQ3TK": {
@@ -452,8 +452,8 @@
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
         "compact-size-enabled": true,
-        "margin-top": 20,
-        "margin-bottom": 20
+        "margin-top": 100,
+        "margin-bottom": 100
       }
     },
     "split_banner_jgRFr4": {
