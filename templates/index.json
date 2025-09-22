@@ -37,7 +37,7 @@
         "enable_quick_add_button": true,
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
-        "margin-top": 20,
+        "margin-top": 100,
         "margin-bottom": 20
       }
     },
@@ -131,8 +131,8 @@
         "color-overlay": "#ffffff",
         "color-overlay-opacity": 100,
         "color-body-text": "rgba(0,0,0,0)",
-        "margin-top": 64,
-        "margin-bottom": 56
+        "margin-top": 100,
+        "margin-bottom": 0
       }
     },
     "video_reels_custom_LBnjxB": {
@@ -200,7 +200,7 @@
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
         "margin-top": 20,
-        "margin-bottom": 20
+        "margin-bottom": 100
       }
     },
     "image_with_text_3rdT8b": {
@@ -265,7 +265,7 @@
         "desktop_text_vertical_position": "center",
         "desktop_text_horizontal_position": "left",
         "mobile_text_horizontal_position": "left",
-        "margin-top": 20,
+        "margin-top": 0,
         "margin-bottom": 0
       }
     },
