@@ -180,6 +180,11 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  transition: background-color 0.3s ease;
+}
+
+.card__container:hover {
+  background-color: #e5e5e5;
 }
 
 /* Mega-menu Product Card Background - exclude shop-all column */
