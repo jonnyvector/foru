@@ -79,17 +79,18 @@
 
 /* Header mega menu background styling */
 @media (min-width: 1200px) {
-  /* Default mega menu background (for opaque headers) */
-  .wt-header--v3:not(.wt-header--transparent) .wt-header__nav-teaser--full-menu .wt-page-nav-mega__item--parent .wt-page-nav-mega__link--parent,
-  .wt-header--v5:not(.wt-header--transparent) .wt-header__nav-teaser--full-menu .wt-page-nav-mega__item--parent .wt-page-nav-mega__link--parent {
+  /* Test: Simple selector to see if it works at all */
+  .wt-page-nav-mega__link--parent {
     background-color: rgba(183, 183, 183, 0.25) !important;
     border-radius: var(--border-radius) !important;
   }
 
-  /* Transparent header mega menu background - override */
+  /* Commented out for testing - transparent header override */
+  /*
   .wt-header--transparent.wt-header--v3 .wt-header__nav-teaser--full-menu .wt-page-nav-mega__item--parent .wt-page-nav-mega__link--parent {
     background-color: rgba(255, 255, 255, 0.25) !important;
   }
+  */
 
   /* Header link padding for all navigation links */
   .wt-header--v3 .wt-header__nav-teaser--full-menu .wt-page-nav-mega__link,
