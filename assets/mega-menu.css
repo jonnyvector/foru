@@ -159,9 +159,8 @@
 
   /* Different background for transparent header */
   .wt-header--transparent body:not(.mobile-nav)
-    .wt-page-nav-mega__item--parent
     .wt-page-nav-mega__link {
-    background: rgba(0, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 0.25);
   }
   body:not(.mobile-nav) .wt-page-nav-mega__item--parent {
     position: static;
