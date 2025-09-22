@@ -134,7 +134,9 @@
       <div class="swiper-button-prev wt-slider__nav-btn wt-slider__nav-prev wt-slider__nav-prev--featured">
         {% render 'icons', id: 'arrow-left' %}
       </div>
-      <div class="swiper-pagination wt-slider__pagination"></div>
+      {% if section.settings.show_pagination %}
+        <div class="swiper-pagination wt-slider__pagination"></div>
+      {% endif %}
     </div>
     <script data-swiper-configuration type="text/json">
       {
@@ -147,7 +149,11 @@
         "loop": true,
         "slideToClickedSlide": true,
         "enableOnMedia": "(min-width: 0px)",
-        "paginationType": "bullets",
+        {% if section.settings.show_pagination %}"pagination": {
+          "el": ".wt-slider__pagination",
+          "type": "bullets",
+          "clickable": true
+        },{% endif %}
         "breakpoints": {
           "600": {
             "slidesPerView": 1.75
@@ -209,6 +215,12 @@
       "id": "video_button",
       "label": "t:sections.shoppable-video.settings.video-button.label",
       "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination",
+      "label": "Show pagination dots",
+      "default": true
     },
     {
       "type": "header",
