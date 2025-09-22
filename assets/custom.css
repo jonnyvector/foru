@@ -79,16 +79,15 @@
 
 /* Header mega menu background styling */
 @media (min-width: 1200px) {
-  /* Transparent header mega menu background */
-  .wt-header--transparent.wt-header--v3 .wt-header__nav-teaser--full-menu .wt-page-nav-mega__item--parent .wt-page-nav-mega__link--parent {
-    background-color: rgba(255, 255, 255, 0.25) !important;
-    border-radius: var(--border-radius) !important;
-  }
-
-  /* Opaque header mega menu background */
+  /* Default mega menu background (for opaque headers) */
   .wt-header__nav-teaser--full-menu .wt-page-nav-mega__item--parent .wt-page-nav-mega__link--parent {
     background-color: rgba(183, 183, 183, 0.25) !important;
     border-radius: var(--border-radius) !important;
+  }
+
+  /* Transparent header mega menu background - override */
+  .wt-header--transparent.wt-header--v3 .wt-header__nav-teaser--full-menu .wt-page-nav-mega__item--parent .wt-page-nav-mega__link--parent {
+    background-color: rgba(255, 255, 255, 0.25) !important;
   }
 
   /* Header link padding for all navigation links */
