@@ -508,6 +508,9 @@
         {% if payment_block.settings.show_payment_icons %}
           <div class="wt-footer__grid-item wt-footer__grid-item--payment">
             <section class="wt-footer__payment">
+              {%- if payment_block.settings.heading != blank -%}
+                <div class="wt-footer__title">{{ payment_block.settings.heading }}</div>
+              {%- endif -%}
               <div class="wt-footer__payment-icons">
                 <ul class="wt-footer__aside-list" role="list">
                   {% assign payment_icons = 'visa_icon,mastercard_icon,amex_icon,discover_icon,paypal_icon,apple_pay_icon,google_pay_icon,shop_pay_icon' | split: ',' %}
@@ -807,6 +810,9 @@
           {%- when 'payment_icons' -%}
             {% if block.settings.show_payment_icons %}
               <section class="wt-footer__payment">
+                {%- if block.settings.heading != blank -%}
+                  <div class="wt-footer__title">{{ block.settings.heading }}</div>
+                {%- endif -%}
                 <div class="wt-footer__payment-icons">
                   <ul class="wt-footer__aside-list" role="list">
                     {% assign payment_icons = 'visa_icon,mastercard_icon,amex_icon,discover_icon,paypal_icon,apple_pay_icon,google_pay_icon,shop_pay_icon' | split: ',' %}
@@ -1163,6 +1169,12 @@
       "type": "payment_icons",
       "name": "Payment Methods",
       "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "We Accept"
+        },
         {
           "type": "checkbox",
           "id": "show_payment_icons",
