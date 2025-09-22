@@ -51,6 +51,7 @@
         "payment_icons_wa8hQg": {
           "type": "payment_icons",
           "settings": {
+            "heading": "Payment systems",
             "show_payment_icons": true,
             "show_visa": true,
             "show_mastercard": true,
