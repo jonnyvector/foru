@@ -285,6 +285,13 @@
     align-items: center;
   }
 
+  .wt-footer__payment-icons .payment-icon {
+    max-width: 40px;
+    max-height: 24px;
+    object-fit: contain;
+    border-radius: 2px;
+  }
+
   /* Disclaimer Text */
   .wt-footer__disclaimer-text {
     font-size: 0.9rem;
@@ -507,19 +514,46 @@
       
       <!-- Payment Icons -->
       {% for payment_block in payment_blocks %}
-        <div class="wt-footer__grid-item wt-footer__grid-item--payment">
-          <section class="wt-footer__payment">
-            <div class="wt-footer__payment-icons">
-              <ul class="wt-footer__aside-list" role="list">
-                {%- for type in shop.enabled_payment_types -%}
-                  <li class="wt-footer__aside-list__item">
-                    {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
-                  </li>
-                {%- endfor -%}
-              </ul>
-            </div>
-          </section>
-        </div>
+        {% if payment_block.settings.show_payment_icons %}
+          <div class="wt-footer__grid-item wt-footer__grid-item--payment">
+            <section class="wt-footer__payment">
+              <div class="wt-footer__payment-icons">
+                <ul class="wt-footer__aside-list" role="list">
+                  {% assign payment_icons = 'visa_icon,mastercard_icon,amex_icon,discover_icon,paypal_icon,apple_pay_icon,google_pay_icon,shop_pay_icon' | split: ',' %}
+                  {% for icon_key in payment_icons %}
+                    {% assign payment_image = payment_block.settings[icon_key] %}
+                    {% if payment_image %}
+                      <li class="wt-footer__aside-list__item">
+                        {{
+                          payment_image
+                          | image_url: width: 60
+                          | image_tag: loading: 'lazy', alt: icon_key | replace: '_icon', '' | capitalize, class: 'payment-icon'
+                        }}
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+
+                  {% comment %} Fallback to Shopify payment types if no custom icons {% endcomment %}
+                  {% assign has_custom_icons = false %}
+                  {% for icon_key in payment_icons %}
+                    {% if payment_block.settings[icon_key] %}
+                      {% assign has_custom_icons = true %}
+                      {% break %}
+                    {% endif %}
+                  {% endfor %}
+
+                  {% unless has_custom_icons %}
+                    {%- for type in shop.enabled_payment_types -%}
+                      <li class="wt-footer__aside-list__item">
+                        {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                      </li>
+                    {%- endfor -%}
+                  {% endunless %}
+                </ul>
+              </div>
+            </section>
+          </div>
+        {% endif %}
       {% endfor %}
     </div>
 
@@ -740,17 +774,44 @@
             </section>
 
           {%- when 'payment_icons' -%}
-            <section class="wt-footer__payment">
-              <div class="wt-footer__payment-icons">
-                <ul class="wt-footer__aside-list" role="list">
-                  {%- for type in shop.enabled_payment_types -%}
-                    <li class="wt-footer__aside-list__item">
-                      {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
-                    </li>
-                  {%- endfor -%}
-                </ul>
-              </div>
-            </section>
+            {% if block.settings.show_payment_icons %}
+              <section class="wt-footer__payment">
+                <div class="wt-footer__payment-icons">
+                  <ul class="wt-footer__aside-list" role="list">
+                    {% assign payment_icons = 'visa_icon,mastercard_icon,amex_icon,discover_icon,paypal_icon,apple_pay_icon,google_pay_icon,shop_pay_icon' | split: ',' %}
+                    {% for icon_key in payment_icons %}
+                      {% assign payment_image = block.settings[icon_key] %}
+                      {% if payment_image %}
+                        <li class="wt-footer__aside-list__item">
+                          {{
+                            payment_image
+                            | image_url: width: 60
+                            | image_tag: loading: 'lazy', alt: icon_key | replace: '_icon', '' | capitalize, class: 'payment-icon'
+                          }}
+                        </li>
+                      {% endif %}
+                    {% endfor %}
+
+                    {% comment %} Fallback to Shopify payment types if no custom icons {% endcomment %}
+                    {% assign has_custom_icons = false %}
+                    {% for icon_key in payment_icons %}
+                      {% if block.settings[icon_key] %}
+                        {% assign has_custom_icons = true %}
+                        {% break %}
+                      {% endif %}
+                    {% endfor %}
+
+                    {% unless has_custom_icons %}
+                      {%- for type in shop.enabled_payment_types -%}
+                        <li class="wt-footer__aside-list__item">
+                          {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                        </li>
+                      {%- endfor -%}
+                    {% endunless %}
+                  </ul>
+                </div>
+              </section>
+            {% endif %}
 
           {%- when 'disclaimer' -%}
             <section class="wt-footer__disclaimer">
@@ -1034,7 +1095,59 @@
     },
     {
       "type": "payment_icons",
-      "name": "Payment Methods"
+      "name": "Payment Methods",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_payment_icons",
+          "label": "Show payment icons",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "Custom Payment Icons"
+        },
+        {
+          "type": "image_picker",
+          "id": "visa_icon",
+          "label": "Visa"
+        },
+        {
+          "type": "image_picker",
+          "id": "mastercard_icon",
+          "label": "Mastercard"
+        },
+        {
+          "type": "image_picker",
+          "id": "amex_icon",
+          "label": "American Express"
+        },
+        {
+          "type": "image_picker",
+          "id": "discover_icon",
+          "label": "Discover"
+        },
+        {
+          "type": "image_picker",
+          "id": "paypal_icon",
+          "label": "PayPal"
+        },
+        {
+          "type": "image_picker",
+          "id": "apple_pay_icon",
+          "label": "Apple Pay"
+        },
+        {
+          "type": "image_picker",
+          "id": "google_pay_icon",
+          "label": "Google Pay"
+        },
+        {
+          "type": "image_picker",
+          "id": "shop_pay_icon",
+          "label": "Shop Pay"
+        }
+      ]
     },
     {
       "type": "disclaimer",
