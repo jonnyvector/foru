@@ -212,7 +212,7 @@
 
 .article-card:hover .article-card__image-wrapper img,
 .article-card:hover .article-card__image-wrapper picture {
-  transform: scale(1.5);
+  transform: scale(1.1);
 }
 
 .article-card:hover .article-card__image-wrapper::after {
