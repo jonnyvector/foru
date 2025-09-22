@@ -187,6 +187,38 @@
   background-color: #e5e5e5;
 }
 
+/* Blog Post Article Card Image Hover Effects */
+.article-card__image-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.article-card__image-wrapper img,
+.article-card__image-wrapper picture {
+  transition: transform 0.3s ease;
+}
+
+.article-card__image-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease;
+  pointer-events: none;
+}
+
+.article-card:hover .article-card__image-wrapper img,
+.article-card:hover .article-card__image-wrapper picture {
+  transform: scale(1.5);
+}
+
+.article-card:hover .article-card__image-wrapper::after {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 /* Mega-menu Product Card Background - exclude shop-all column */
 .mega-menu__gallery__item:not(.mega-menu__shop-all-column) {
   background-color: #f7f7f7;
