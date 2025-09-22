@@ -79,7 +79,7 @@
 
 /* Transparent header mega menu background */
 @media (min-width: 1200px) {
-  .template-index .wt-header--transparent.wt-header--v3 .wt-header__nav-teaser--full-menu .wt-page-nav-mega .wt-page-nav-mega__link {
+  .template-index .wt-header--transparent.wt-header--v3 .wt-header__nav-teaser--full-menu .wt-page-nav-mega .wt-page-nav-mega__sublist .wt-page-nav-mega__link {
     background-color: rgba(255, 255, 255, 0.25) !important;
   }
 }
