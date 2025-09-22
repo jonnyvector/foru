@@ -109,8 +109,12 @@
     display: none !important;
   }
 
-  .dropdown-open-desk .wt-header--transparent .wt-header__logo__img {
+  .dropdown-open-desk .wt-header--transparent .wt-header__logo__img:not(.wt-header__logo__img--mobile):not(.wt-header__logo__img--transparent) {
     display: block !important;
+  }
+
+  .dropdown-open-desk .wt-header--transparent .wt-header__logo__img--mobile {
+    display: none !important;
   }
 }
 
