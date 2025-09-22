@@ -100,7 +100,7 @@
   }
 
   /* Gray background when mega menu is open on homepage */
-  .dropdown-open-desk .template-index .wt-page-nav-mega__link--parent {
+  .template-index .wt-page-nav-mega__item--parent.dropdown-opened .wt-page-nav-mega__link--parent {
     background-color: rgba(183, 183, 183, 0.25) !important;
   }
 }
