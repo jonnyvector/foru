@@ -103,6 +103,15 @@
   .template-index .wt-page-nav-mega__item--parent.dropdown-opened .wt-page-nav-mega__link--parent {
     background-color: rgba(183, 183, 183, 0.25) !important;
   }
+
+  /* Switch to opaque logo when dropdown is open */
+  .dropdown-open-desk .wt-header--transparent .wt-header__logo__img--transparent {
+    display: none !important;
+  }
+
+  .dropdown-open-desk .wt-header--transparent .wt-header__logo__img {
+    display: block !important;
+  }
 }
 
 /* Benefits product icon item wrapper responsive styling */
