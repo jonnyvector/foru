@@ -253,7 +253,7 @@
 }
 
 .card:hover .card-colored .overlay-card {
-  background-color: rgba(var(--color-card-hover), 0.06);
+  background-color: rgba(217, 217, 217, 0.4);
 }
 
 @media screen and (min-width: 990px) {
@@ -303,7 +303,7 @@
   }
   
   .card-wrapper:hover .card.card--search {
-    background-color: rgba(var(--color-card-hover), 0.06);
+    background-color: rgba(217, 217, 217, 0.4);
     transition: background-color var(--duration-long) ease;
   }
 }
