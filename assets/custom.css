@@ -337,7 +337,7 @@
   }
 }
 
-.selling_plan_app_container .purchase-option {
+.selling_plan_app_container {
   border-radius: var(--border-radius) !important;
   padding: 24px !important;
 }
