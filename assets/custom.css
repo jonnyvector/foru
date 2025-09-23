@@ -48,6 +48,18 @@
   border-color: transparent !important;
 }
 
+/* Add extra padding only to custom button text on product cards */
+[data-section-id*="featured_collection_variant"]
+  .custom-button-wrapper--secondary
+  [class*="custom-button-text-"],
+[data-section-id*="main-collection-product-grid"]
+  .custom-button-wrapper--secondary
+  [class*="custom-button-text-"],
+.wt-card .custom-button-wrapper--secondary [class*="custom-button-text-"],
+.card .custom-button-wrapper--secondary [class*="custom-button-text-"] {
+  padding: 22px !important;
+}
+
 .wt-collapse__trigger .wt-icon {
   width: 48px;
   height: 48px;
