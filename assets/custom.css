@@ -338,6 +338,6 @@
 }
 
 .selling_plan_app_container .purchase-option {
-  border-radius: var(--border-radius);
-  padding: 24px;
+  border-radius: var(--border-radius) !important;
+  padding: 24px !important;
 }
