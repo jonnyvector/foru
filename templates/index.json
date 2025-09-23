@@ -41,25 +41,6 @@
         "margin-bottom": 20
       }
     },
-    "17586025241e93d27c": {
-      "type": "apps",
-      "blocks": {
-        "easy_subscriptions_subscription_collection_x8cgFz": {
-          "type": "shopify://apps/easy-subscriptions/blocks/subscription-collection/62ae0f16-e4ee-41c3-a62d-125b812e0b06",
-          "settings": {
-            "pcolor": "#ffffff",
-            "scolor": "#303030",
-            "bcolor": "rgba(0,0,0,0)"
-          }
-        }
-      },
-      "block_order": [
-        "easy_subscriptions_subscription_collection_x8cgFz"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
     "benefits_product_DGyBfk": {
       "type": "benefits-product",
       "blocks": {
@@ -544,7 +525,6 @@
   },
   "order": [
     "featured_collection_variant_W7pFMg",
-    "17586025241e93d27c",
     "benefits_product_DGyBfk",
     "video_reels_custom_LBnjxB",
     "image_with_text_3rdT8b",
