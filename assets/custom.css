@@ -57,7 +57,10 @@
   [class*="custom-button-text-"],
 .wt-card .custom-button-wrapper--secondary [class*="custom-button-text-"],
 .card .custom-button-wrapper--secondary [class*="custom-button-text-"] {
-  padding: 22px !important;
+  padding-top: 22px !important;
+  padding-right: 22px !important;
+  padding-bottom: 22px !important;
+  padding-left: 22px !important;
 }
 
 .wt-collapse__trigger .wt-icon {
