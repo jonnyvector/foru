@@ -31,18 +31,16 @@
     {% render 'icon-common', id: id, icon_id: icon_id, icon_class: icon_class, url: url, link_class: link_class, shared_svg_attrs: shared_svg_attrs %}
 
     {% if id == 'bag' %}
-        <svg {{ shared_svg_attrs }} width="28" height="28" viewBox="0 0 28 28">
+        <svg {{ shared_svg_attrs }} width="28" height="28" viewBox="0 0 24 24">
             {{ icon_title }}
-            <!-- PLACEHOLDER: Replace with your custom bag/cart icon SVG path -->
-            <path d="M20.578,23,18,5.787a.708.708,0,0,0-.7-.634H14.67V4.379a4.379,4.379,0,0,0-8.758,0v.775H3.029a.708.708,0,0,0-.7.634L0,23a.708.708,0,0,0,.7.782H19.874a.708.708,0,0,0,.7-.782ZM7.327,4.379a2.963,2.963,0,0,1,5.927,0v.775H7.327ZM1.493,22.366l2.173-15.8H5.912v.659a.708.708,0,0,0,1.416,0V6.569h5.927v.659a.708.708,0,0,0,1.416,0V6.569h1.988l2.431,15.8Zm0,0" transform="translate(3.647 1.967)"/>
+            <path d="M9 6L10.4 7.86667C11.2 8.93333 12.8 8.93333 13.6 7.86667L15 6M4.36092 21H19.6391C20.875 21 21.815 19.8903 21.6119 18.6712L19.2785 4.6712C19.1178 3.70683 18.2834 3 17.3057 3H6.69425C5.71658 3 4.8822 3.70683 4.72147 4.6712L2.38813 18.6712C2.18496 19.8903 3.12504 21 4.36092 21Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
         </svg>
     {% endif %}
 
     {% if id == 'user' %}
-        <svg {{ shared_svg_attrs }} width="28" height="28" viewBox="0 0 28 28">
+        <svg {{ shared_svg_attrs }} width="28" height="28" viewBox="0 0 24 24">
             {{ icon_title }}
-            <!-- PLACEHOLDER: Replace with your custom user/account icon SVG path -->
-            <path d="M11.23,8a11.23,11.23,0,1,0,11.23,11.23A11.228,11.228,0,0,0,11.23,8Zm5.8,19.092a9.709,9.709,0,0,1-11.593,0v-.616a2.9,2.9,0,0,1,2.9-2.9h5.8a2.9,2.9,0,0,1,2.9,2.9Zm1.386-1.245a4.333,4.333,0,0,0-4.284-3.718h-5.8a4.333,4.333,0,0,0-4.284,3.718,9.781,9.781,0,1,1,14.364,0ZM11.23,13.072a3.985,3.985,0,1,0,3.985,3.985A3.985,3.985,0,0,0,11.23,13.072Zm0,6.521a2.536,2.536,0,1,1,2.536-2.536A2.538,2.538,0,0,1,11.23,19.593Z" transform="translate(2.738 -5.362)"/>
+            <path d="M6 21V19C6 17.9391 6.42143 16.9217 7.17157 16.1716C7.92172 15.4214 8.93913 15 10 15H14C15.0609 15 16.0783 15.4214 16.8284 16.1716C17.5786 16.9217 18 17.9391 18 19V21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round" fill="none"/>
         </svg>
     {% endif %}
 
