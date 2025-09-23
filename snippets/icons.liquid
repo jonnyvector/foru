@@ -41,4 +41,15 @@
     link_class: link_class,
     tabindex: tabindex
   %}
+
+{% elsif settings.iconset == 'custom' %}
+  {% render 'icon-set_custom',
+    id: id,
+    style: style,
+    icon_id: icon_id,
+    icon_class: icon_class,
+    url: url,
+    link_class: link_class,
+    tabindex: tabindex
+  %}
 {% endif %}

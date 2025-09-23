@@ -1017,6 +1017,10 @@
           {
             "value": "option_4",
             "label": "t:settings_schema.iconset.settings.iconset.option_4.label"
+          },
+          {
+            "value": "custom",
+            "label": "Custom Icons"
           }
         ],
         "default": "option_1"

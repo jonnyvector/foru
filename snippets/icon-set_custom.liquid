@@ -1,0 +1,80 @@
+{% if url %}
+  <a
+    href="{{ url }}"
+    class="{{ link_class }}"
+    {% if tabindex %}
+      tabindex="0"
+    {% endif %}
+  >
+{% endif %}
+
+{%- capture icon -%}
+    {%- capture shared_svg_attrs -%}
+        class="svg-icon svg-icon--{{ id | replace: '_', '-' }} {% if icon_class %}{{ icon_class }}{% endif %}"
+        aria-hidden="true"
+        id="{{ icon_id }}"
+        focusable="false"
+        role="presentation"
+        xmlns="http://www.w3.org/2000/svg"
+        data-icon-theme="custom"
+        fill="currentColor"
+    {%- endcapture -%}
+
+    {% assign icon_name = id | replace: '-', '_' %}
+    {% assign icon_name = 'general.icons.' | append: icon_name %}
+    {% assign icon_name = icon_name | t %}
+
+    {% capture icon_title %}
+        <title>{{ 'general.icons.icon_title' | t: name: icon_name }}</title>
+    {% endcapture %}
+
+    {% render 'icon-common', id: id, icon_id: icon_id, icon_class: icon_class, url: url, link_class: link_class, shared_svg_attrs: shared_svg_attrs %}
+
+    {% if id == 'bag' %}
+        <svg {{ shared_svg_attrs }} width="28" height="28" viewBox="0 0 28 28">
+            {{ icon_title }}
+            <!-- PLACEHOLDER: Replace with your custom bag/cart icon SVG path -->
+            <path d="M20.578,23,18,5.787a.708.708,0,0,0-.7-.634H14.67V4.379a4.379,4.379,0,0,0-8.758,0v.775H3.029a.708.708,0,0,0-.7.634L0,23a.708.708,0,0,0,.7.782H19.874a.708.708,0,0,0,.7-.782ZM7.327,4.379a2.963,2.963,0,0,1,5.927,0v.775H7.327ZM1.493,22.366l2.173-15.8H5.912v.659a.708.708,0,0,0,1.416,0V6.569h5.927v.659a.708.708,0,0,0,1.416,0V6.569h1.988l2.431,15.8Zm0,0" transform="translate(3.647 1.967)"/>
+        </svg>
+    {% endif %}
+
+    {% if id == 'user' %}
+        <svg {{ shared_svg_attrs }} width="28" height="28" viewBox="0 0 28 28">
+            {{ icon_title }}
+            <!-- PLACEHOLDER: Replace with your custom user/account icon SVG path -->
+            <path d="M11.23,8a11.23,11.23,0,1,0,11.23,11.23A11.228,11.228,0,0,0,11.23,8Zm5.8,19.092a9.709,9.709,0,0,1-11.593,0v-.616a2.9,2.9,0,0,1,2.9-2.9h5.8a2.9,2.9,0,0,1,2.9,2.9Zm1.386-1.245a4.333,4.333,0,0,0-4.284-3.718h-5.8a4.333,4.333,0,0,0-4.284,3.718,9.781,9.781,0,1,1,14.364,0ZM11.23,13.072a3.985,3.985,0,1,0,3.985,3.985A3.985,3.985,0,0,0,11.23,13.072Zm0,6.521a2.536,2.536,0,1,1,2.536-2.536A2.538,2.538,0,0,1,11.23,19.593Z" transform="translate(2.738 -5.362)"/>
+        </svg>
+    {% endif %}
+
+    {% if id == 'bars' %}
+        <svg {{ shared_svg_attrs }} width="28" height="28" viewBox="0 0 28 28">
+            {{ icon_title }}
+            <!-- PLACEHOLDER: Replace with your custom menu/hamburger icon SVG path -->
+            <g>
+                <rect x="4" y="6" rx="1" height="2" width="20"/>
+                <rect x="4" y="13" rx="1" height="2" width="20"/>
+                <rect x="4" y="20" rx="1" height="2" width="20"/>
+            </g>
+        </svg>
+    {% endif %}
+
+    {% if id == 'search' %}
+        <svg {{ shared_svg_attrs }} width="28" height="28" viewBox="0 0 24 24">
+            {{ icon_title }}
+            <path d="M22 22L20 20M2 11.5C2 6.25329 6.25329 2 11.5 2C16.7467 2 21 6.25329 21 11.5C21 16.7467 16.7467 21 11.5 21C6.25329 21 2 16.7467 2 11.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round" fill="none"/>
+        </svg>
+    {% endif %}
+
+{%- endcapture -%}
+
+{% if style %}
+  <div style="{{ style }}">
+    {{ icon }}
+  </div>
+{% else %}
+  {{ icon }}
+{% endif %}
+
+{% if url %}
+  </a>
+{% endif %}
