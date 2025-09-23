@@ -90,8 +90,8 @@
         "active_background_color": "rgba(0,0,0,0)",
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
-        "margin_top": 40,
-        "margin_bottom": 40
+        "margin_top": 100,
+        "margin_bottom": 0
       }
     },
     "ingredients_grid_HcbWNt": {

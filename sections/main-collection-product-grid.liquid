@@ -2,9 +2,11 @@
   [data-section-id="{{ section.id }}"]
   {
 
+      {% comment %}
       {% if section.settings.full-width-enabled %}
           --border-radius: 0;
       {% endif %}
+      {% endcomment %}
 
       {% if section.settings.margin-top %}
         --section-gap-top: {{ section.settings.margin-top }}px;

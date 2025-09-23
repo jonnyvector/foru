@@ -47,6 +47,26 @@
           "settings": {
             "text": "<p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</p>"
           }
+        },
+        "payment_icons_wa8hQg": {
+          "type": "payment_icons",
+          "settings": {
+            "heading": "Payment systems",
+            "show_payment_icons": true,
+            "show_visa": true,
+            "show_mastercard": true,
+            "show_amex": true,
+            "show_discover": false,
+            "show_paypal": true,
+            "show_apple_pay": false,
+            "show_google_pay": false,
+            "show_shop_pay": true,
+            "show_diners_club": false,
+            "show_jcb": false,
+            "show_unionpay": false,
+            "show_elo": false,
+            "show_maestro": false
+          }
         }
       },
       "block_order": [
@@ -54,7 +74,8 @@
         "menu_bB7XxG",
         "menu_FVzkic",
         "social_links_fXc63c",
-        "disclaimer_eWdnfE"
+        "disclaimer_eWdnfE",
+        "payment_icons_wa8hQg"
       ],
       "settings": {
         "show-social-media-icons": true,
@@ -65,7 +86,7 @@
         "enable_follow_on_shop": false,
         "show-payments-icons": true,
         "show-copyright": true,
-        "text": "© 2025 Wonder-theme. Powered by Shopify.",
+        "text": "© Copyright 2025, FORU",
         "big-logo-width": 100,
         "margin-top": 0,
         "margin-bottom": 0

@@ -69,7 +69,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: calc(var(--gap, 8px) * 3);
-      align-items: center;
+      align-items: end;
     }
 
     /* Row 4: Copyright + Policies (2 columns) */
@@ -87,7 +87,7 @@
     }
 
     .wt-footer__grid-item--disclaimer {
-      text-align: right;
+      text-align: left;
     }
   }
 
@@ -135,7 +135,7 @@
 
     .wt-footer__grid-item--payment {
       grid-area: payment;
-      text-align: center;
+      text-align: left;
     }
 
     .wt-footer__row--footer {
@@ -160,7 +160,8 @@
 
   /* Menu Title Styles */
   .wt-footer__grid-item--menu .wt-footer__title,
-  .wt-footer__grid-item--social .wt-footer__title {
+  .wt-footer__grid-item--social .wt-footer__title,
+  .wt-footer__grid-item--payment .wt-footer__title {
     font-family: var(--font-body);
     font-size: var(--font-body-size);
     color: rgba(255, 255, 255, 0.3);
@@ -276,7 +277,7 @@
 
   @media (max-width: 749px) {
     .wt-footer__payment-icons .wt-footer__aside-list {
-      justify-content: center;
+      justify-content: flex-start;
     }
   }
 
@@ -285,10 +286,23 @@
     align-items: center;
   }
 
+  .wt-footer__payment-icons .payment-icon {
+    max-width: 40px;
+    max-height: 24px;
+    object-fit: contain;
+    border-radius: 2px;
+  }
+
   /* Disclaimer Text */
   .wt-footer__disclaimer-text {
-    font-size: 0.9rem;
-    opacity: 0.8;
+    font-size: var(--font-body-size);
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  /* Copyright Text */
+  .wt-footer__aside__copy {
+    font-size: var(--font-body-size);
+    color: rgba(255, 255, 255, 0.3);
   }
 
   /* Hide empty rows */
@@ -495,29 +509,90 @@
     </div>
 
     <!-- Desktop Row 3 / Mobile Rows 4-5: Payment + Disclaimer -->
-    <div class="wt-footer__row wt-footer__row--secondary">      
+    <div class="wt-footer__row wt-footer__row--secondary">
+      <!-- Payment Icons -->
+      {% for payment_block in payment_blocks %}
+        {% if payment_block.settings.show_payment_icons %}
+          <div class="wt-footer__grid-item wt-footer__grid-item--payment">
+            <section class="wt-footer__payment">
+              {%- if payment_block.settings.heading != blank -%}
+                <div class="wt-footer__title">{{ payment_block.settings.heading }}</div>
+              {%- endif -%}
+              <div class="wt-footer__payment-icons">
+                <ul class="wt-footer__aside-list" role="list">
+                  {% assign payment_icons = 'visa_icon,mastercard_icon,amex_icon,discover_icon,paypal_icon,apple_pay_icon,google_pay_icon,shop_pay_icon' | split: ',' %}
+                  {% for icon_key in payment_icons %}
+                    {% assign payment_image = payment_block.settings[icon_key] %}
+                    {% if payment_image %}
+                      <li class="wt-footer__aside-list__item">
+                        {% assign payment_alt = icon_key | replace: '_icon', '' | replace: '_', ' ' | capitalize %}
+                        {{ payment_image | image_url: width: 60 | image_tag: alt: payment_alt, loading: 'lazy', class: 'payment-icon' }}
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+
+                  {% comment %} Fallback to Shopify payment types if no custom icons {% endcomment %}
+                  {% assign has_custom_icons = false %}
+                  {% for icon_key in payment_icons %}
+                    {% if payment_block.settings[icon_key] %}
+                      {% assign has_custom_icons = true %}
+                      {% break %}
+                    {% endif %}
+                  {% endfor %}
+
+                  {% unless has_custom_icons %}
+                    {%- for type in shop.enabled_payment_types -%}
+                      {% assign show_icon = false %}
+                      {% case type %}
+                        {% when 'visa' %}
+                          {% if payment_block.settings.show_visa %}{% assign show_icon = true %}{% endif %}
+                        {% when 'master' %}
+                          {% if payment_block.settings.show_mastercard %}{% assign show_icon = true %}{% endif %}
+                        {% when 'american_express' %}
+                          {% if payment_block.settings.show_amex %}{% assign show_icon = true %}{% endif %}
+                        {% when 'discover' %}
+                          {% if payment_block.settings.show_discover %}{% assign show_icon = true %}{% endif %}
+                        {% when 'paypal' %}
+                          {% if payment_block.settings.show_paypal %}{% assign show_icon = true %}{% endif %}
+                        {% when 'paypal_express_checkout' %}
+                          {% if payment_block.settings.show_paypal %}{% assign show_icon = true %}{% endif %}
+                        {% when 'apple_pay' %}
+                          {% if payment_block.settings.show_apple_pay %}{% assign show_icon = true %}{% endif %}
+                        {% when 'google_pay' %}
+                          {% if payment_block.settings.show_google_pay %}{% assign show_icon = true %}{% endif %}
+                        {% when 'shopify_pay' %}
+                          {% if payment_block.settings.show_shop_pay %}{% assign show_icon = true %}{% endif %}
+                        {% when 'diners_club' %}
+                          {% if payment_block.settings.show_diners_club %}{% assign show_icon = true %}{% endif %}
+                        {% when 'jcb' %}
+                          {% if payment_block.settings.show_jcb %}{% assign show_icon = true %}{% endif %}
+                        {% when 'unionpay' %}
+                          {% if payment_block.settings.show_unionpay %}{% assign show_icon = true %}{% endif %}
+                        {% when 'elo' %}
+                          {% if payment_block.settings.show_elo %}{% assign show_icon = true %}{% endif %}
+                        {% when 'maestro' %}
+                          {% if payment_block.settings.show_maestro %}{% assign show_icon = true %}{% endif %}
+                      {% endcase %}
+
+                      {% if show_icon %}
+                        <li class="wt-footer__aside-list__item">
+                          {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                        </li>
+                      {% endif %}
+                    {%- endfor -%}
+                  {% endunless %}
+                </ul>
+              </div>
+            </section>
+          </div>
+        {% endif %}
+      {% endfor %}
+
       <!-- Disclaimer -->
       {% for disclaimer_block in disclaimer_blocks %}
         <div class="wt-footer__grid-item wt-footer__grid-item--disclaimer">
           <section class="wt-footer__disclaimer">
             <div class="wt-footer__disclaimer-text rte">{{ disclaimer_block.settings.text }}</div>
-          </section>
-        </div>
-      {% endfor %}
-      
-      <!-- Payment Icons -->
-      {% for payment_block in payment_blocks %}
-        <div class="wt-footer__grid-item wt-footer__grid-item--payment">
-          <section class="wt-footer__payment">
-            <div class="wt-footer__payment-icons">
-              <ul class="wt-footer__aside-list" role="list">
-                {%- for type in shop.enabled_payment_types -%}
-                  <li class="wt-footer__aside-list__item">
-                    {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
-                  </li>
-                {%- endfor -%}
-              </ul>
-            </div>
           </section>
         </div>
       {% endfor %}
@@ -740,17 +815,82 @@
             </section>
 
           {%- when 'payment_icons' -%}
-            <section class="wt-footer__payment">
-              <div class="wt-footer__payment-icons">
-                <ul class="wt-footer__aside-list" role="list">
-                  {%- for type in shop.enabled_payment_types -%}
-                    <li class="wt-footer__aside-list__item">
-                      {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
-                    </li>
-                  {%- endfor -%}
-                </ul>
-              </div>
-            </section>
+            {% if block.settings.show_payment_icons %}
+              <section class="wt-footer__payment">
+                {%- if block.settings.heading != blank -%}
+                  <div class="wt-footer__title">{{ block.settings.heading }}</div>
+                {%- endif -%}
+                <div class="wt-footer__payment-icons">
+                  <ul class="wt-footer__aside-list" role="list">
+                    {% assign payment_icons = 'visa_icon,mastercard_icon,amex_icon,discover_icon,paypal_icon,apple_pay_icon,google_pay_icon,shop_pay_icon' | split: ',' %}
+                    {% for icon_key in payment_icons %}
+                      {% assign payment_image = block.settings[icon_key] %}
+                      {% if payment_image %}
+                        <li class="wt-footer__aside-list__item">
+                          {% assign payment_alt = icon_key | replace: '_icon', '' | replace: '_', ' ' | capitalize %}
+                          {{ payment_image
+                            | image_url: width: 60
+                            | image_tag: alt: payment_alt, loading: 'lazy', class: 'payment-icon'
+                          }}
+                          
+                        </li>
+                      {% endif %}
+                    {% endfor %}
+
+                    {% comment %} Fallback to Shopify payment types if no custom icons {% endcomment %}
+                    {% assign has_custom_icons = false %}
+                    {% for icon_key in payment_icons %}
+                      {% if block.settings[icon_key] %}
+                        {% assign has_custom_icons = true %}
+                        {% break %}
+                      {% endif %}
+                    {% endfor %}
+
+                    {% unless has_custom_icons %}
+                      {%- for type in shop.enabled_payment_types -%}
+                        {% assign show_icon = false %}
+                        {% case type %}
+                          {% when 'visa' %}
+                            {% if block.settings.show_visa %}{% assign show_icon = true %}{% endif %}
+                          {% when 'master' %}
+                            {% if block.settings.show_mastercard %}{% assign show_icon = true %}{% endif %}
+                          {% when 'american_express' %}
+                            {% if block.settings.show_amex %}{% assign show_icon = true %}{% endif %}
+                          {% when 'discover' %}
+                            {% if block.settings.show_discover %}{% assign show_icon = true %}{% endif %}
+                          {% when 'paypal' %}
+                            {% if block.settings.show_paypal %}{% assign show_icon = true %}{% endif %}
+                          {% when 'paypal_express_checkout' %}
+                            {% if block.settings.show_paypal %}{% assign show_icon = true %}{% endif %}
+                          {% when 'apple_pay' %}
+                            {% if block.settings.show_apple_pay %}{% assign show_icon = true %}{% endif %}
+                          {% when 'google_pay' %}
+                            {% if block.settings.show_google_pay %}{% assign show_icon = true %}{% endif %}
+                          {% when 'shopify_pay' %}
+                            {% if block.settings.show_shop_pay %}{% assign show_icon = true %}{% endif %}
+                          {% when 'diners_club' %}
+                            {% if block.settings.show_diners_club %}{% assign show_icon = true %}{% endif %}
+                          {% when 'jcb' %}
+                            {% if block.settings.show_jcb %}{% assign show_icon = true %}{% endif %}
+                          {% when 'unionpay' %}
+                            {% if block.settings.show_unionpay %}{% assign show_icon = true %}{% endif %}
+                          {% when 'elo' %}
+                            {% if block.settings.show_elo %}{% assign show_icon = true %}{% endif %}
+                          {% when 'maestro' %}
+                            {% if block.settings.show_maestro %}{% assign show_icon = true %}{% endif %}
+                        {% endcase %}
+
+                        {% if show_icon %}
+                          <li class="wt-footer__aside-list__item">
+                            {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                          </li>
+                        {% endif %}
+                      {%- endfor -%}
+                    {% endunless %}
+                  </ul>
+                </div>
+              </section>
+            {% endif %}
 
           {%- when 'disclaimer' -%}
             <section class="wt-footer__disclaimer">
@@ -784,7 +924,7 @@
 {
   "name": "t:sections.footer.name",
   "tag": "section",
-  "max_blocks": 5,
+  "max_blocks": 10,
   "settings": [
     {
       "type": "header",
@@ -1034,7 +1174,147 @@
     },
     {
       "type": "payment_icons",
-      "name": "Payment Methods"
+      "name": "Payment Methods",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "We Accept"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_icons",
+          "label": "Show payment icons",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "Custom Payment Icons"
+        },
+        {
+          "type": "image_picker",
+          "id": "visa_icon",
+          "label": "Visa"
+        },
+        {
+          "type": "image_picker",
+          "id": "mastercard_icon",
+          "label": "Mastercard"
+        },
+        {
+          "type": "image_picker",
+          "id": "amex_icon",
+          "label": "American Express"
+        },
+        {
+          "type": "image_picker",
+          "id": "discover_icon",
+          "label": "Discover"
+        },
+        {
+          "type": "image_picker",
+          "id": "paypal_icon",
+          "label": "PayPal"
+        },
+        {
+          "type": "image_picker",
+          "id": "apple_pay_icon",
+          "label": "Apple Pay"
+        },
+        {
+          "type": "image_picker",
+          "id": "google_pay_icon",
+          "label": "Google Pay"
+        },
+        {
+          "type": "image_picker",
+          "id": "shop_pay_icon",
+          "label": "Shop Pay"
+        },
+        {
+          "type": "header",
+          "content": "Payment Method Toggles"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_visa",
+          "label": "Show Visa",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_mastercard",
+          "label": "Show Mastercard",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_amex",
+          "label": "Show American Express",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_discover",
+          "label": "Show Discover",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_paypal",
+          "label": "Show PayPal",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_apple_pay",
+          "label": "Show Apple Pay",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_google_pay",
+          "label": "Show Google Pay",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_shop_pay",
+          "label": "Show Shop Pay",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_diners_club",
+          "label": "Show Diners Club",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "show_jcb",
+          "label": "Show JCB",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "show_unionpay",
+          "label": "Show UnionPay",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "show_elo",
+          "label": "Show Elo",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "show_maestro",
+          "label": "Show Maestro",
+          "default": false
+        }
+      ]
     },
     {
       "type": "disclaimer",

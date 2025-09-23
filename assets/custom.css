@@ -77,6 +77,47 @@
   place-items: start;
 }
 
+/* Header mega menu background styling */
+@media (min-width: 1200px) {
+  /* Default gray background for all mega menu parent links */
+  .wt-page-nav-mega__link--parent {
+    background-color: rgba(183, 183, 183, 0.25) !important;
+    border-radius: var(--border-radius) !important;
+  }
+
+  /* Header link padding for all navigation links */
+  .wt-header--v3 .wt-header__nav-teaser--full-menu .wt-page-nav-mega__link,
+  .wt-header--v5 .wt-header__nav-teaser--full-menu .wt-page-nav-mega__link {
+    padding: 15px 24px !important;
+    min-height: 54px !important;
+  }
+}
+
+/* Transparent header white background override */
+@media (min-width: 1200px) {
+  .template-index .wt-page-nav-mega__link--parent {
+    background-color: rgba(255, 255, 255, 0.25) !important;
+  }
+
+  /* Gray background when mega menu is open on homepage */
+  .template-index .wt-page-nav-mega__item--parent.dropdown-opened .wt-page-nav-mega__link--parent {
+    background-color: rgba(183, 183, 183, 0.25) !important;
+  }
+
+  /* Switch to opaque logo when dropdown is open */
+  .dropdown-open-desk .wt-header--transparent .wt-header__logo__img--transparent {
+    display: none !important;
+  }
+
+  .dropdown-open-desk .wt-header--transparent .wt-header__logo__img:not(.wt-header__logo__img--mobile):not(.wt-header__logo__img--transparent) {
+    display: block !important;
+  }
+
+  .dropdown-open-desk .wt-header--transparent .wt-header__logo__img--mobile {
+    display: none !important;
+  }
+}
+
 /* Benefits product icon item wrapper responsive styling */
 @media (min-width: 900px) and (max-width: 1199px) {
   .wt-benefits-product__icon-item-wrapper {
@@ -175,11 +216,48 @@
 /* Product Card Background */
 .card__container {
   background-color: #f7f7f7;
-  border-radius: var(--border-radius, 8px);
+  border-radius: 4px;
   padding: calc(var(--gap) * 2);
   height: 100%;
   display: flex;
   flex-direction: column;
+  transition: background-color 0.3s ease;
+}
+
+.card__container:hover {
+  background-color: #e5e5e5;
+}
+
+/* Blog Post Article Card Image Hover Effects */
+.article-card__image-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.article-card__image-wrapper img,
+.article-card__image-wrapper picture {
+  transition: transform 0.3s ease;
+}
+
+.article-card__image-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease;
+  pointer-events: none;
+}
+
+.article-card:hover .article-card__image-wrapper img,
+.article-card:hover .article-card__image-wrapper picture {
+  transform: scale(1.1);
+}
+
+.article-card:hover .article-card__image-wrapper::after {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Mega-menu Product Card Background - exclude shop-all column */
