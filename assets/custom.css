@@ -53,6 +53,13 @@
   padding: 22px !important;
 }
 
+/* Fix footer policy links alignment on mobile */
+@media (max-width: 749px) {
+  .wt-footer__grid-item--policies {
+    text-align: left !important;
+  }
+}
+
 .wt-collapse__trigger .wt-icon {
   width: 48px;
   height: 48px;
