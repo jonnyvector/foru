@@ -2935,7 +2935,7 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
     justify-content: flex-end;
   }
 }
-@media (max-width: 899px) {
+@media (max-width: 600px) {
   /* Force banner to stay below header on mobile */
   .section-image-banner--header {
     margin-top: 0 !important;
@@ -3108,7 +3108,7 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   }
 }
 
-@media (max-width: 749px) {
+@media (max-width: 898px) {
   .hero__info-tooltip-content {
     min-height: 64px;
   }
