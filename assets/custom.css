@@ -48,19 +48,9 @@
   border-color: transparent !important;
 }
 
-/* Add extra padding only to custom button text on product cards */
-[data-section-id*="featured_collection_variant"]
-  .custom-button-wrapper--secondary
-  [class*="custom-button-text-"],
-[data-section-id*="main-collection-product-grid"]
-  .custom-button-wrapper--secondary
-  [class*="custom-button-text-"],
-.wt-card .custom-button-wrapper--secondary [class*="custom-button-text-"],
-.card .custom-button-wrapper--secondary [class*="custom-button-text-"] {
-  padding-top: 22px !important;
-  padding-right: 22px !important;
-  padding-bottom: 22px !important;
-  padding-left: 22px !important;
+/* Add 22px padding to specific custom button text */
+.custom-button-wrapper--secondary [class*="custom-button-text-loadable-btn-"] {
+  padding: 22px !important;
 }
 
 .wt-collapse__trigger .wt-icon {
