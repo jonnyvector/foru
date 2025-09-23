@@ -201,6 +201,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   padding: 0 calc(var(--gap) * 3);
+  padding-left: 1rem;
   text-align: left;
 }
 
