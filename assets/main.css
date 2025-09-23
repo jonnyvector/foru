@@ -3055,7 +3055,7 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   min-width: 325px;
   max-width: 300px;
-  min-height: 56px;
+  /* min-height: 56px; */
   text-align: center;
   z-index: 1000;
   opacity: 0;
@@ -3067,7 +3067,7 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   visibility: visible;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1515px) {
   .hero__info-tooltip-content {
     bottom: calc(100% + 1rem);
     top: auto;
