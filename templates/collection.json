@@ -146,11 +146,11 @@
         "mobile_image": "shopify://shop_images/image_22_9.png",
         "mobile_text_vertical_position": "center",
         "mobile_text_horizontal_position": "center",
-        "color-heading": "transparent",
-        "section-color-overlay": "transparent",
+        "color-heading": "rgba(0,0,0,0)",
+        "section-color-overlay": "rgba(0,0,0,0)",
         "section-color-overlay-opacity": 100,
         "color-body-text": "#ffffff",
-        "text-container-color": "transparent",
+        "text-container-color": "rgba(0,0,0,0)",
         "color-overlay-opacity": 100,
         "margin-top": 0,
         "margin-bottom": 0
@@ -177,7 +177,7 @@
         "enable_filtering": false,
         "filter_position": "drawer",
         "margin-top": 100,
-        "margin-bottom": 0
+        "margin-bottom": 80
       }
     },
     "testimonials_custom_JzhtLN": {
@@ -216,7 +216,9 @@
         "full_width_enabled": false,
         "color_body_text": "#1a1c1c",
         "background_color": "rgba(0,0,0,0)",
-        "quote_icon": "shopify://shop_images/Frame_1.svg"
+        "quote_icon": "shopify://shop_images/Frame_1.svg",
+        "margin-top": 20,
+        "margin-bottom": 100
       }
     }
   },
