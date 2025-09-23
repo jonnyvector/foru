@@ -110,6 +110,19 @@
             "margin-bottom": 8
           }
         },
+        "easy_subscriptions_subscription_widget_E3thWB": {
+          "type": "shopify://apps/easy-subscriptions/blocks/subscription-widget/62ae0f16-e4ee-41c3-a62d-125b812e0b06",
+          "settings": {
+            "pcolor": "#FFFFFF",
+            "scolor": "#303030",
+            "bcolor": "rgba(0,0,0,0)",
+            "easy-is-currency-code": false,
+            "widget-feature-product": "",
+            "eca-title-font-size": 15,
+            "eca-text-font-size": 16,
+            "eca-price-font-size": 16
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -215,6 +228,7 @@
         "separator_xgqTJM",
         "price",
         "variant_picker_fHUhmX",
+        "easy_subscriptions_subscription_widget_E3thWB",
         "buy_buttons",
         "promo_wBVFy3",
         "description",
@@ -385,8 +399,8 @@
         "hide-brand-name": false,
         "video_button": false,
         "show_pagination": true,
-        "color-body-text": "transparent",
-        "background_color": "transparent",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
         "margin-top": 100,
         "margin-bottom": 0
       }
