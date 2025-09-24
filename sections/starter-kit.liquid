@@ -166,7 +166,7 @@
 
   .starter-kit__item-price {
     font-weight: 600;
-    color: #22c55e;
+    color: var(--color-text);
   }
 
   .starter-kit__total {
@@ -223,16 +223,9 @@
       <div class="starter-kit__label">{{ section.settings.label }}</div>
     {% endif %}
 
-    <!-- Title with Icon -->
+    <!-- Title -->
     <h2 class="starter-kit__title">
       <div>{{ section.settings.heading | default: product.title }}</div>
-      {% if section.settings.show_checkmark %}
-        <div class="starter-kit__icon">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-      {% endif %}
     </h2>
 
     <!-- Product Info -->
@@ -253,7 +246,7 @@
       <div class="starter-kit__price">
         {{ product.selected_or_first_available_variant.price | money }}
         {% if section.settings.show_subscription_frequency %}
-          <span style="font-size: 14px; font-weight: normal;">/ {{ section.settings.subscription_frequency | default: 'mo' }} {{ 'currency.usd' | t | default: 'USD' }}</span>
+          <span style="font-size: 14px; font-weight: normal;">/ {{ section.settings.subscription_frequency | default: 'mo' }}</span>
         {% endif %}
       </div>
 
@@ -302,7 +295,7 @@
         <div class="starter-kit__total-price">
           {{ product.selected_or_first_available_variant.price | money }}
           {% if section.settings.show_subscription_frequency %}
-            <span style="font-size: 14px; font-weight: normal;">/ {{ section.settings.subscription_frequency | default: 'mo' }} {{ 'currency.usd' | t | default: 'USD' }}</span>
+            <span style="font-size: 14px; font-weight: normal;">/ {{ section.settings.subscription_frequency | default: 'mo' }}</span>
           {% endif %}
         </div>
       </div>
