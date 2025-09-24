@@ -135,58 +135,6 @@
         "margin-bottom": 0
       }
     },
-    "starter_kit_TjFAiC": {
-      "type": "starter-kit",
-      "blocks": {
-        "included_item_i8RwzN": {
-          "type": "included_item",
-          "settings": {
-            "item_name": "Welcome Kit",
-            "item_description": "Shaker, Scoop, and Canister",
-            "item_price": "Free"
-          }
-        },
-        "included_item_r7LF8n": {
-          "type": "included_item",
-          "settings": {
-            "item_name": "Travel Packs (10 count)",
-            "item_description": "10 individual servings",
-            "item_price": "Free"
-          }
-        },
-        "included_item_CbDHbN": {
-          "type": "included_item",
-          "settings": {
-            "item_name": "Delivery",
-            "item_description": "Free delivery with every purchase",
-            "item_price": "Free"
-          }
-        }
-      },
-      "block_order": [
-        "included_item_i8RwzN",
-        "included_item_r7LF8n",
-        "included_item_CbDHbN"
-      ],
-      "name": "Starter Kit",
-      "settings": {
-        "product": "hydration",
-        "label": "Products",
-        "heading": "Your Complete Starter Kit",
-        "show_checkmark": true,
-        "show_subscription_frequency": true,
-        "subscription_frequency": "mo",
-        "includes_heading": "First time subscription includes:",
-        "show_total": true,
-        "total_label": "Total",
-        "button_text": "Buy Now",
-        "button_style": "primary",
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "#f7f7f7",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
     "video_reels_custom_LBnjxB": {
       "type": "video-reels-custom",
       "blocks": {
@@ -400,6 +348,47 @@
         "margin-bottom": 0
       }
     },
+    "testimonials_custom_kHmmbJ": {
+      "type": "testimonials-custom",
+      "blocks": {
+        "testimonial_4rtYRV": {
+          "type": "testimonial",
+          "settings": {
+            "expert_image": "shopify://shop_images/Rectangle_774_0a56476c-34cd-4d6d-9b35-6e747cd46008.png",
+            "expert_name": "Dr. Olivia Martins",
+            "expert_title": "PhD, Clinical Biochemist & Wellness Researcher",
+            "expert_description": "For more than 12 years he has been involved in scientific work at universities in the UK and Germany, specializing in the development of functional nutrition and adaptogens for recovery from mental and physical fatigue.",
+            "testimonial_text": "I started taking Electrolyte Cums on the recommendation of my coach to recover faster after intensive training. At first I was confused by the name, but the product itself turned out to be of very high quality. Excellent replenishes electrolytes, increases endurance and really helps to avoid cramps after exercise. The flavor is neutral, dissolves well. I will order more!",
+            "background_color": "#f7f7f7"
+          }
+        },
+        "testimonial_rPVGwC": {
+          "type": "testimonial",
+          "settings": {
+            "expert_image": "shopify://shop_images/Rectangle_785.png",
+            "expert_name": "Dr. Samuel E. Carter",
+            "expert_title": "Chief Nutrition Scientist",
+            "expert_description": "Dr. Carter is a medical nutritionist and sports medicine specialist with over 18 years of experience in recovery and nutrition. During his career, he has worked with U.S. Olympic teams, developing formulas for recovery drinks and customized supplements for athletes and people with high levels of physical activity.",
+            "testimonial_text": "I started using Electrolyte Cums after tough workouts, and despite the unusual name, the results speak for themselves. It helps me stay hydrated, recover faster, and I’ve noticed way fewer muscle cramps. The formula is clean, easy to mix, and doesn't have a weird aftertaste. Definitely a solid addition to my training routine — will be reordering!",
+            "background_color": "#f7f7f7"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_4rtYRV",
+        "testimonial_rPVGwC"
+      ],
+      "name": "Testimonials Custom",
+      "settings": {
+        "heading": "<h2>Built by Experts, <br/>Proven by Athletes</h2>",
+        "full_width_enabled": false,
+        "color_body_text": "#1a1c1c",
+        "background_color": "rgba(0,0,0,0)",
+        "quote_icon": "shopify://shop_images/Frame_1_41d73260-6314-4618-a31f-a5cb2b91c3e4.svg",
+        "margin-top": 100,
+        "margin-bottom": 0
+      }
+    },
     "featured_on_iXfAwg": {
       "type": "featured-on",
       "blocks": {
@@ -473,47 +462,6 @@
         "margin-bottom": 0
       }
     },
-    "testimonials_custom_kHmmbJ": {
-      "type": "testimonials-custom",
-      "blocks": {
-        "testimonial_4rtYRV": {
-          "type": "testimonial",
-          "settings": {
-            "expert_image": "shopify://shop_images/Rectangle_774_0a56476c-34cd-4d6d-9b35-6e747cd46008.png",
-            "expert_name": "Dr. Olivia Martins",
-            "expert_title": "PhD, Clinical Biochemist & Wellness Researcher",
-            "expert_description": "For more than 12 years he has been involved in scientific work at universities in the UK and Germany, specializing in the development of functional nutrition and adaptogens for recovery from mental and physical fatigue.",
-            "testimonial_text": "I started taking Electrolyte Cums on the recommendation of my coach to recover faster after intensive training. At first I was confused by the name, but the product itself turned out to be of very high quality. Excellent replenishes electrolytes, increases endurance and really helps to avoid cramps after exercise. The flavor is neutral, dissolves well. I will order more!",
-            "background_color": "#f7f7f7"
-          }
-        },
-        "testimonial_rPVGwC": {
-          "type": "testimonial",
-          "settings": {
-            "expert_image": "shopify://shop_images/Rectangle_785.png",
-            "expert_name": "Dr. Samuel E. Carter",
-            "expert_title": "Chief Nutrition Scientist",
-            "expert_description": "Dr. Carter is a medical nutritionist and sports medicine specialist with over 18 years of experience in recovery and nutrition. During his career, he has worked with U.S. Olympic teams, developing formulas for recovery drinks and customized supplements for athletes and people with high levels of physical activity.",
-            "testimonial_text": "I started using Electrolyte Cums after tough workouts, and despite the unusual name, the results speak for themselves. It helps me stay hydrated, recover faster, and I’ve noticed way fewer muscle cramps. The formula is clean, easy to mix, and doesn't have a weird aftertaste. Definitely a solid addition to my training routine — will be reordering!",
-            "background_color": "#f7f7f7"
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_4rtYRV",
-        "testimonial_rPVGwC"
-      ],
-      "name": "Testimonials Custom",
-      "settings": {
-        "heading": "<h2>Built by Experts, <br/>Proven by Athletes</h2>",
-        "full_width_enabled": false,
-        "color_body_text": "#1a1c1c",
-        "background_color": "rgba(0,0,0,0)",
-        "quote_icon": "shopify://shop_images/Frame_1_41d73260-6314-4618-a31f-a5cb2b91c3e4.svg",
-        "margin-top": 100,
-        "margin-bottom": 0
-      }
-    },
     "blog_posts_Pt33Px": {
       "type": "blog-posts",
       "name": "t:sections.blog-posts.presets.name",
@@ -542,17 +490,69 @@
         "margin-top": 100,
         "margin-bottom": 100
       }
+    },
+    "starter_kit_TjFAiC": {
+      "type": "starter-kit",
+      "blocks": {
+        "included_item_i8RwzN": {
+          "type": "included_item",
+          "settings": {
+            "item_name": "Welcome Kit",
+            "item_description": "Shaker, Scoop, and Canister",
+            "item_price": "Free"
+          }
+        },
+        "included_item_r7LF8n": {
+          "type": "included_item",
+          "settings": {
+            "item_name": "Travel Packs (10 count)",
+            "item_description": "10 individual servings",
+            "item_price": "Free"
+          }
+        },
+        "included_item_CbDHbN": {
+          "type": "included_item",
+          "settings": {
+            "item_name": "Delivery",
+            "item_description": "Free delivery with every purchase",
+            "item_price": "Free"
+          }
+        }
+      },
+      "block_order": [
+        "included_item_i8RwzN",
+        "included_item_r7LF8n",
+        "included_item_CbDHbN"
+      ],
+      "name": "Starter Kit",
+      "settings": {
+        "product": "hydration",
+        "label": "Products",
+        "heading": "Your Complete Starter Kit",
+        "show_checkmark": true,
+        "show_subscription_frequency": true,
+        "subscription_frequency": "mo",
+        "includes_heading": "First time subscription includes:",
+        "show_total": true,
+        "total_label": "Total",
+        "button_text": "Buy Now",
+        "button_style": "primary",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "#f0f0f0",
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
     }
   },
   "order": [
     "featured_collection_variant_W7pFMg",
     "benefits_product_DGyBfk",
-    "starter_kit_TjFAiC",
     "video_reels_custom_LBnjxB",
     "image_with_text_3rdT8b",
     "image_with_text_ewadgb",
-    "featured_on_iXfAwg",
     "testimonials_custom_kHmmbJ",
-    "blog_posts_Pt33Px"
+    "featured_on_iXfAwg",
+    "blog_posts_Pt33Px",
+    "starter_kit_TjFAiC"
   ]
 }
