@@ -371,13 +371,18 @@
     <!-- CTA Button -->
     {% comment %} For products with multiple variants OR subscription plans, redirect to product page {% endcomment %}
     {% if product.variants.size > 1 or product.selling_plan_groups.size > 0 %}
-      <a href="{{ product.url }}" class="custom-button custom-button--{{ section.settings.button_style | default: 'primary' }}">
-        {% if product.variants.size > 1 %}
-          {{ 'products.product.choose_option' | t }}
-        {% else %}
-          {{ section.settings.button_text | default: 'Subscribe Now' }}
-        {% endif %}
-      </a>
+      {% if product.variants.size > 1 %}
+        {% assign button_text = 'products.product.choose_option' | t %}
+      {% else %}
+        {% assign button_text = section.settings.button_text | default: 'Subscribe Now' %}
+      {% endif %}
+
+      {% render 'custom-button',
+        text: button_text,
+        type: 'link',
+        url: product.url,
+        style: section.settings.button_style | default: 'primary',
+        id: section.id %}
     {% else %}
       {% comment %} Simple products without variants or subscriptions {% endcomment %}
       <product-form class="product-form" data-hide-errors="{{ section.settings.hide_variants_sold_out }}">
