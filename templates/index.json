@@ -538,7 +538,7 @@
         "button_text": "Buy Now",
         "button_style": "primary",
         "color-body-text": "transparent",
-        "background_color": "transparent",
+        "background_color": "#f0f0f0",
         "margin-top": 36,
         "margin-bottom": 36
       }
