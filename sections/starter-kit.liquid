@@ -93,7 +93,7 @@
     margin-bottom: calc(var(--gap, 8px) * 1);
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
   }
 
   .starter-kit__rating {
@@ -102,7 +102,7 @@
 
   .starter-kit__pricing {
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     gap: calc(var(--gap, 8px) * 2);
   }
 
@@ -115,6 +115,9 @@
   .starter-kit__price {
     font-size: var(--font-h3-size);
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: calc(var(--gap, 8px) * 1);
   }
 
   .starter-kit__original-price {
@@ -250,9 +253,17 @@
         <div class="starter-kit__pricing">
           <div class="starter-kit__price-container">
             <div class="starter-kit__price">
-              {{ product.selected_or_first_available_variant.price | money }}
-              {% if section.settings.show_subscription_frequency %}
-                <span style="font-size: 14px; font-weight: normal;">/ {{ section.settings.subscription_frequency | default: 'mo' }}</span>
+              <span>
+                {{ product.selected_or_first_available_variant.price | money }}
+                {% if section.settings.show_subscription_frequency %}
+                  <span style="font-size: 14px; font-weight: normal;">/ {{ section.settings.subscription_frequency | default: 'mo' }}</span>
+                {% endif %}
+              </span>
+
+              {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+                <div class="starter-kit__discount">
+                  -{{ product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round }}%
+                </div>
               {% endif %}
             </div>
 
@@ -262,12 +273,6 @@
               </div>
             {% endif %}
           </div>
-
-          {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
-            <div class="starter-kit__discount">
-              -{{ product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round }}%
-            </div>
-          {% endif %}
         </div>
       </div>
 
