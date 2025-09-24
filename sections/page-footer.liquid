@@ -265,7 +265,13 @@
   }
 
   .wt-footer__social-icons .social-link:hover {
-    opacity: 0.5;
+    opacity: 0.5 !important;
+    transition: opacity 0.3s ease;
+  }
+
+  .wt-footer__social-icons .social-link:hover .svg-icon,
+  .wt-footer__social-icons .social-link:hover svg {
+    opacity: 0.5 !important;
     transition: opacity 0.3s ease;
   }
 
