@@ -780,8 +780,8 @@ button[disabled] {
 .wt-rating__star::before {
   content: "";
   display: inline-block;
-  width: 1em;
-  height: 1em;
+  width: 26px;
+  height: 25px;
   background-image: url("data:image/svg+xml,%3Csvg width='27' height='26' viewBox='0 0 27 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.3307 0.690982C12.6301 -0.230329 13.9335 -0.230326 14.2328 0.690984L16.6495 8.12868C16.7833 8.5407 17.1673 8.81966 17.6005 8.81966H25.421C26.3897 8.81966 26.7925 10.0593 26.0088 10.6287L19.6819 15.2254C19.3314 15.4801 19.1847 15.9314 19.3186 16.3435L21.7353 23.7812C22.0346 24.7025 20.9801 25.4686 20.1964 24.8992L13.8695 20.3024C13.5191 20.0478 13.0445 20.0478 12.694 20.3024L6.3671 24.8992C5.58338 25.4686 4.52891 24.7025 4.82826 23.7812L7.24491 16.3435C7.37879 15.9314 7.23213 15.4801 6.88164 15.2254L0.554756 10.6287C-0.228958 10.0593 0.17382 8.81966 1.14254 8.81966H8.963C9.39622 8.81966 9.78018 8.5407 9.91405 8.12868L12.3307 0.690982Z' fill='none' stroke='%23ddd' stroke-width='1.5'/%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;
@@ -790,8 +790,8 @@ button[disabled] {
 .wt-rating__star-fill::before {
   content: "";
   display: inline-block;
-  width: 1em;
-  height: 1em;
+  width: 26px;
+  height: 25px;
   background-image: url("data:image/svg+xml,%3Csvg width='27' height='26' viewBox='0 0 27 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.3307 0.690982C12.6301 -0.230329 13.9335 -0.230326 14.2328 0.690984L16.6495 8.12868C16.7833 8.5407 17.1673 8.81966 17.6005 8.81966H25.421C26.3897 8.81966 26.7925 10.0593 26.0088 10.6287L19.6819 15.2254C19.3314 15.4801 19.1847 15.9314 19.3186 16.3435L21.7353 23.7812C22.0346 24.7025 20.9801 25.4686 20.1964 24.8992L13.8695 20.3024C13.5191 20.0478 13.0445 20.0478 12.694 20.3024L6.3671 24.8992C5.58338 25.4686 4.52891 24.7025 4.82826 23.7812L7.24491 16.3435C7.37879 15.9314 7.23213 15.4801 6.88164 15.2254L0.554756 10.6287C-0.228958 10.0593 0.17382 8.81966 1.14254 8.81966H8.963C9.39622 8.81966 9.78018 8.5407 9.91405 8.12868L12.3307 0.690982Z' fill='%23F9E616'/%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;
@@ -885,6 +885,12 @@ button[disabled] {
 
   .social-proof__rating .wt-rating__stars {
     font-size: 12px;
+  }
+
+  .wt-rating__star::before,
+  .wt-rating__star-fill::before {
+    width: 16px;
+    height: 15px;
   }
 }
 
