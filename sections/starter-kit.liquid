@@ -29,7 +29,7 @@
     }
   {% endif %}
 
-  .starter-kit {
+  [data-section-id="{{ section.id }}"] .starter-kit {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: calc(var(--gap, 8px) * 8);
