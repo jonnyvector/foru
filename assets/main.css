@@ -1,4 +1,16 @@
 @charset "UTF-8";
+
+@font-face {
+  font-family: "icomoon";
+  src: url("https://cdn.shopify.com/s/files/1/0945/2853/6887/files/icomoon.eot") format("embedded-opentype"),
+       url("https://cdn.shopify.com/s/files/1/0945/2853/6887/files/icomoon.woff") format("woff"),
+       url("https://cdn.shopify.com/s/files/1/0945/2853/6887/files/icomoon.ttf") format("truetype"),
+       url("https://cdn.shopify.com/s/files/1/0945/2853/6887/files/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 .wt-footer {
   padding-top: 1px;
   padding-bottom: 1px;
@@ -778,13 +790,13 @@ button[disabled] {
   color: var(--color-star-rating);
 }
 .wt-rating__star::before {
-  content: "☆";
+  content: "\e9d7";
 }
 .wt-rating__star-fill::before {
-  content: "★";
+  content: "\e9d9";
 }
 .wt-rating__stars {
-  font-family: inherit;
+  font-family: "icomoon";
   font-size: 18px;
   display: inline-flex;
   position: relative;
