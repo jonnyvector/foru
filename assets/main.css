@@ -782,16 +782,20 @@ button[disabled] {
   display: inline-block;
   width: 1em;
   height: 1em;
-  background-color: #ddd;
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  background-image: url("star-empty.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .wt-rating__star-fill::before {
   content: "";
   display: inline-block;
   width: 1em;
   height: 1em;
-  background-color: #f9e616;
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  background-image: url("star-filled.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .wt-rating__stars {
   font-family: inherit;
