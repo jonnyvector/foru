@@ -827,10 +827,7 @@ button[disabled] {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 6px;
   padding: 8px 16px;
-  backdrop-filter: blur(4px);
   max-width: fit-content;
   margin: 0 auto;
 }
@@ -847,8 +844,8 @@ button[disabled] {
 }
 
 .social-proof__rating-text {
-  font-size: 0.875rem;
-  color: white;
+  font-size: var(--font-base-size);
+  color: var(--color-custom-text, var(--color-text));
   font-weight: 500;
   white-space: nowrap;
 }
@@ -864,7 +861,7 @@ button[disabled] {
   }
 
   .social-proof__rating-text {
-    font-size: 0.8rem;
+    font-size: var(--font-base-size);
   }
 
   .social-proof__rating .wt-rating__stars {
