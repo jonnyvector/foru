@@ -1644,10 +1644,10 @@ body.no-focus-visible .card__container:has(button:focus-visible) {
 .card__badges {
   position: absolute;
   top: calc(var(--gap, 8px) * 1);
-  left: calc(var(--gap, 8px) * 1);
+  right: calc(var(--gap, 8px) * 1);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 8px;
   opacity: 1;
   transition: opacity 0.1s ease-out;
@@ -1655,13 +1655,13 @@ body.no-focus-visible .card__container:has(button:focus-visible) {
 @media (min-width: 900px) {
   .card__badges {
     top: 12px;
-    left: 12px;
+    right: 12px;
   }
 }
 @media (min-width: 1200px) {
   .card__badges--product {
     top: calc(var(--gap, 8px) * 2);
-    left: calc(var(--gap, 8px) * 2);
+    right: calc(var(--gap, 8px) * 2);
   }
 }
 .card__badges--product .card__badges--item {
