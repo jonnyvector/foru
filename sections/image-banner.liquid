@@ -529,6 +529,46 @@
       ]
     },
     {
+      "type": "social_proof",
+      "name": "Social Proof",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "default": 49,
+          "label": "Rating (out of 50)",
+          "info": "Rating will be displayed as X.X stars (e.g., 49 = 4.9 stars)"
+        },
+        {
+          "type": "number",
+          "id": "review_count",
+          "default": 100,
+          "label": "Number of reviews"
+        },
+        {
+          "type": "number",
+          "id": "member_count",
+          "default": 1000,
+          "label": "Number of members"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_plus_on_members",
+          "label": "Show '+' after member count",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "disable_on_mobile",
+          "label": "t:sections.global.disable_on_mobile",
+          "default": false
+        }
+      ]
+    },
+    {
       "type": "countdown_timer",
       "name": "t:blocks.countdown_timer.name",
       "settings": [

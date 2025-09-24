@@ -205,6 +205,41 @@
       {%- when 'countdown_timer' %}
         {% render 'countdown-timer'
           , block: block %}
+      {%- when 'social_proof' -%}
+        {% comment %} Try to get dynamic data from Shopify standard metafields first {% endcomment %}
+        {% assign dynamic_rating = product.metafields.reviews.rating.value %}
+        {% assign dynamic_review_count = product.metafields.reviews.rating_count.value %}
+        {% assign dynamic_member_count = shop.metafields.social_proof.member_count.value %}
+
+        {% comment %} Fallback to static settings if no dynamic data {% endcomment %}
+        {% if dynamic_rating and dynamic_rating > 0 %}
+          {% assign final_rating = dynamic_rating %}
+          {% assign final_review_count = dynamic_review_count | default: 0 %}
+          {% assign final_member_count = dynamic_member_count | default: 0 %}
+          {% assign show_plus = true %}
+        {% elsif block.settings.rating > 0 %}
+          {% assign final_rating = block.settings.rating | divided_by: 10.0 %}
+          {% assign final_review_count = block.settings.review_count %}
+          {% assign final_member_count = block.settings.member_count %}
+          {% assign show_plus = block.settings.show_plus_on_members %}
+        {% endif %}
+
+        {% if final_rating and final_rating > 0 %}
+          {% assign rating_percent = final_rating | times: 20 %}
+          <div data-block-id="{{ block.id }}" class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__social-proof {% if block.settings.disable_on_mobile %}{% if prefix %}{{ prefix }}{% else %}block{% endif %}__social-proof--mobile{% endif %}">
+            <div class="social-proof__content">
+              <div class="social-proof__rating">
+                {% render 'rating-stars', percent: rating_percent %}
+                <span class="social-proof__rating-text">
+                  {{ final_rating }} stars from {{ final_review_count }} reviews
+                  {% if final_member_count > 0 %}
+                    | {{ final_member_count }}{% if show_plus %}+{% endif %} members
+                  {% endif %}
+                </span>
+              </div>
+            </div>
+          </div>
+        {% endif %}
       {%- endcase -%}
     {% endif %}
   {%- endfor -%}
