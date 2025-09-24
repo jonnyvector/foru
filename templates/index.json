@@ -135,6 +135,58 @@
         "margin-bottom": 0
       }
     },
+    "starter_kit_TjFAiC": {
+      "type": "starter-kit",
+      "blocks": {
+        "included_item_i8RwzN": {
+          "type": "included_item",
+          "settings": {
+            "item_name": "Welcome Kit",
+            "item_description": "Shaker, Scoop, and Canister",
+            "item_price": "Free"
+          }
+        },
+        "included_item_r7LF8n": {
+          "type": "included_item",
+          "settings": {
+            "item_name": "Travel Packs (10 count)",
+            "item_description": "10 individual servings",
+            "item_price": "Free"
+          }
+        },
+        "included_item_CbDHbN": {
+          "type": "included_item",
+          "settings": {
+            "item_name": "Delivery",
+            "item_description": "Free delivery with every purchase",
+            "item_price": "Free"
+          }
+        }
+      },
+      "block_order": [
+        "included_item_i8RwzN",
+        "included_item_r7LF8n",
+        "included_item_CbDHbN"
+      ],
+      "name": "Starter Kit",
+      "settings": {
+        "product": "hydration",
+        "label": "Products",
+        "heading": "Your Complete Starter Kit",
+        "show_checkmark": true,
+        "show_subscription_frequency": true,
+        "subscription_frequency": "mo",
+        "includes_heading": "First time subscription includes:",
+        "show_total": true,
+        "total_label": "Total",
+        "button_text": "Buy Now",
+        "button_style": "primary",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "#f0f0f0",
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
     "video_reels_custom_LBnjxB": {
       "type": "video-reels-custom",
       "blocks": {
@@ -490,69 +542,17 @@
         "margin-top": 100,
         "margin-bottom": 100
       }
-    },
-    "starter_kit_TjFAiC": {
-      "type": "starter-kit",
-      "blocks": {
-        "included_item_i8RwzN": {
-          "type": "included_item",
-          "settings": {
-            "item_name": "Welcome Kit",
-            "item_description": "Shaker, Scoop, and Canister",
-            "item_price": "Free"
-          }
-        },
-        "included_item_r7LF8n": {
-          "type": "included_item",
-          "settings": {
-            "item_name": "Travel Packs (10 count)",
-            "item_description": "10 individual servings",
-            "item_price": "Free"
-          }
-        },
-        "included_item_CbDHbN": {
-          "type": "included_item",
-          "settings": {
-            "item_name": "Delivery",
-            "item_description": "Free delivery with every purchase",
-            "item_price": "Free"
-          }
-        }
-      },
-      "block_order": [
-        "included_item_i8RwzN",
-        "included_item_r7LF8n",
-        "included_item_CbDHbN"
-      ],
-      "name": "Starter Kit",
-      "settings": {
-        "product": "hydration",
-        "label": "Products",
-        "heading": "Your Complete Starter Kit",
-        "show_checkmark": true,
-        "show_subscription_frequency": true,
-        "subscription_frequency": "mo",
-        "includes_heading": "First time subscription includes:",
-        "show_total": true,
-        "total_label": "Total",
-        "button_text": "Buy Now",
-        "button_style": "primary",
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "#f0f0f0",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
     }
   },
   "order": [
     "featured_collection_variant_W7pFMg",
     "benefits_product_DGyBfk",
+    "starter_kit_TjFAiC",
     "video_reels_custom_LBnjxB",
     "image_with_text_3rdT8b",
     "image_with_text_ewadgb",
     "testimonials_custom_kHmmbJ",
     "featured_on_iXfAwg",
-    "blog_posts_Pt33Px",
-    "starter_kit_TjFAiC"
+    "blog_posts_Pt33Px"
   ]
 }
