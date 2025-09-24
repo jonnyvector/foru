@@ -542,6 +542,30 @@
         "margin-top": 100,
         "margin-bottom": 100
       }
+    },
+    "175871913999699128": {
+      "type": "apps",
+      "blocks": {
+        "easy_subscriptions_subscription_widget_Kn7V4B": {
+          "type": "shopify://apps/easy-subscriptions/blocks/subscription-widget/62ae0f16-e4ee-41c3-a62d-125b812e0b06",
+          "settings": {
+            "pcolor": "#FFFFFF",
+            "scolor": "#303030",
+            "bcolor": "rgba(0,0,0,0)",
+            "easy-is-currency-code": false,
+            "widget-feature-product": "",
+            "eca-title-font-size": 15,
+            "eca-text-font-size": 16,
+            "eca-price-font-size": 16
+          }
+        }
+      },
+      "block_order": [
+        "easy_subscriptions_subscription_widget_Kn7V4B"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -553,6 +577,7 @@
     "image_with_text_ewadgb",
     "testimonials_custom_kHmmbJ",
     "featured_on_iXfAwg",
-    "blog_posts_Pt33Px"
+    "blog_posts_Pt33Px",
+    "175871913999699128"
   ]
 }
