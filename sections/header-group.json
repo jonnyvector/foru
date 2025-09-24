@@ -111,6 +111,16 @@
     "page_header_image_banner_rCVqwY": {
       "type": "page-header-image-banner",
       "blocks": {
+        "social_proof_hb4yPK": {
+          "type": "social_proof",
+          "settings": {
+            "rating": 49,
+            "review_count": 100,
+            "member_count": 1000,
+            "show_plus_on_members": true,
+            "disable_on_mobile": false
+          }
+        },
         "heading_taknR7": {
           "type": "heading",
           "settings": {
@@ -167,6 +177,7 @@
         }
       },
       "block_order": [
+        "social_proof_hb4yPK",
         "heading_taknR7",
         "text_EeMXMg",
         "button_WDHdTN",
