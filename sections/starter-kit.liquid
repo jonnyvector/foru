@@ -38,10 +38,6 @@
     background-color: var(--color-background);
   }
 
-  [data-section-id="{{ section.id }}"] .starter-kit {
-    margin-top: var(--section-gap-top, 0);
-    margin-bottom: var(--section-gap-bottom, 0);
-  }
 
   .starter-kit__content {
     order: 1;
@@ -236,7 +232,8 @@
 </style>
 
 {% if product != blank %}
-<div class="starter-kit" data-section-id="{{ section.id }}">
+<div data-section-id="{{ section.id }}" style="margin-top: var(--section-gap-top, 0); margin-bottom: var(--section-gap-bottom, 0);">
+<div class="starter-kit">
   <div class="starter-kit__content">
     <!-- Label -->
     {% if section.settings.label != blank %}
@@ -361,6 +358,7 @@
       {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
     {% endif %}
   </div>
+</div>
 </div>
 {% endif %}
 
