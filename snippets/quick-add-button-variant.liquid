@@ -1,103 +1,23 @@
-{% comment %} Quick add button specifically for variant context - always treats as single variant {% endcomment %}
+{% comment %} Quick add button for variant context - uses quick-add functionality like regular products {% endcomment %}
+<quick-add data-product-handle="{{ product.handle }}">
+  {%- if card_variant.available -%}
+    {% assign button_text = 'products.product.add_to_cart' | t %}
+    {% assign button_disabled = false %}
+  {%- else -%}
+    {% assign button_text = 'products.product.sold_out' | t %}
+    {% assign button_disabled = true %}
+  {%- endif -%}
 
-<style>
-.selling-plan-selector {
-  margin-bottom: 1.6rem;
-}
-
-.selling-plan-selector .form-label {
-  font-size: var(--font-body-size);
-  margin-bottom: 0.8rem;
-  display: block;
-  font-weight: 500;
-  color: var(--color-text);
-}
-
-.selling-plan-selector .form-select {
-  width: 100%;
-  padding: 1.2rem;
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  font-size: var(--font-body-size);
-  background-color: var(--color-background);
-  color: var(--color-text);
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='%23666' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 1.2rem center;
-  background-size: 12px;
-  cursor: pointer;
-}
-
-.selling-plan-selector .form-select:focus {
-  outline: 2px solid var(--color-links);
-  outline-offset: -2px;
-}
-</style>
-<product-form class="wt-product__add-to-cart" data-hide-errors="{{ gift_card_recipient_feature_active }}">
-  <div class="product-form__error-message-wrapper" role="alert" hidden>
-    <span class="product-form__error-message"></span>
-  </div>
-  {%- form 'product',
-    product,
-    id: product_form_id,
-    class: 'wt-product__add-to-cart_form form',
-    novalidate: 'novalidate',
-    data-type: 'add-to-cart-form'
-  -%}
-    {% if block.settings.show_gift_card_recipient and product.gift_card? %}
-      {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
-    {% endif %}
-    <div class="wt-product__add-to-cart_form--wrapper">
-      {% if block.settings.show_qty_selector %}
-        {% render 'component-counter' %}
-      {% endif %}
-      <input type="hidden" name="id" value="{{ card_variant.id }}">
-
-      {% comment %} Add selling plan selection if product has subscription options {% endcomment %}
-      {% if product.selling_plan_groups.size > 0 %}
-        <div class="selling-plan-selector">
-          <label for="selling-plan-{{ card_variant.id }}" class="form-label">Purchase Type:</label>
-          <select id="selling-plan-{{ card_variant.id }}" name="selling_plan" class="form-select">
-            {% comment %} Check if one-time purchase is allowed {% endcomment %}
-            {% assign requires_selling_plan = product.requires_selling_plan | default: false %}
-            {% unless requires_selling_plan %}
-              <option value="">One-time purchase</option>
-            {% endunless %}
-            {% for selling_plan_group in product.selling_plan_groups %}
-              {% for selling_plan in selling_plan_group.selling_plans %}
-                <option value="{{ selling_plan.id }}" {% if requires_selling_plan and forloop.first %}selected{% endif %}>
-                  {{ selling_plan.name }}
-                  {% if selling_plan.price_adjustments.first.value > 0 %}
-                    ({{ selling_plan.price_adjustments.first.value }}% off)
-                  {% endif %}
-                </option>
-              {% endfor %}
-            {% endfor %}
-          </select>
-        </div>
-      {% endif %}
-
-      {% if card_variant.available %}
-        {% assign button_text = 'products.product.add_to_cart' | t %}
-        {% assign button_aria = 'products.product.add_to_cart' | t %}
-        {% assign is_disabled = false %}
-      {% else %}
-        {% assign button_text = 'products.product.sold_out' | t %}
-        {% assign button_aria = 'products.product.sold_out' | t %}
-        {% assign is_disabled = true %}
-      {% endif %}
-      
-      {% render 'custom-button-loadable',
-        text: button_text,
-        type: 'submit',
-        style: 'secondary',
-        aria_label: button_aria,
-        class: 'button--full-width',
-        id: section.id | append: '-variant-' | append: card_variant.id,
-        disabled: is_disabled,
-        align: 'center'
-      %}
-    </div>
-  {%- endform -%}
-</product-form>
+  {% render 'custom-button-loadable'
+    , text: button_text
+    , type: 'button'
+    , style: 'secondary'
+    , class: 'button--full-width'
+    , aria_label: button_text
+    , disabled: button_disabled
+    , id: product.handle
+    , name: 'commit'
+    , data_product_url: product.url | append: '?variant=' | append: card_variant.id
+    , align: 'center'
+  %}
+</quick-add>
