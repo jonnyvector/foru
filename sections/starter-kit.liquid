@@ -29,13 +29,16 @@
     }
   {% endif %}
 
-  [data-section-id="{{ section.id }}"] .starter-kit {
+  .starter-kit {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: calc(var(--gap, 8px) * 8);
     align-items: center;
     padding: calc(var(--gap, 8px) * 6) 0;
     background-color: var(--color-background);
+  }
+
+  [data-section-id="{{ section.id }}"] .starter-kit {
     margin-top: var(--section-gap-top, 0);
     margin-bottom: var(--section-gap-bottom, 0);
   }
