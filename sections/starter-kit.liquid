@@ -369,11 +369,37 @@
     {% endif %}
 
     <!-- CTA Button -->
-    <div class="starter-kit__quick-add-container">
-      {% render 'quick-add-button',
-        card_product: product,
-        product: product %}
-    </div>
+    {% comment %} For products with multiple variants OR subscription plans, redirect to product page {% endcomment %}
+    {% if product.variants.size > 1 or product.selling_plan_groups.size > 0 %}
+      <a href="{{ product.url }}" class="custom-button custom-button--{{ section.settings.button_style | default: 'primary' }}">
+        {% if product.variants.size > 1 %}
+          {{ 'products.product.choose_option' | t }}
+        {% else %}
+          {{ section.settings.button_text | default: 'Subscribe Now' }}
+        {% endif %}
+      </a>
+    {% else %}
+      {% comment %} Simple products without variants or subscriptions {% endcomment %}
+      <product-form class="product-form" data-hide-errors="{{ section.settings.hide_variants_sold_out }}">
+        <div class="product-form__error-message-wrapper" role="alert" hidden>
+          <svg aria-hidden="true" focusable="false" class="icon icon-error" viewBox="0 0 13 13">
+            <circle cx="6.5" cy="6.5" r="5.85" stroke="white" stroke-width="1.3"/>
+            <path d="m5.8 3.6h1.4L7 8.2H6.4L5.8 3.6Zm2.25 7c0-.544-.458-.99-1.025-.99S6 9.956 6 10.5c0 .544.458.99 1.025.99S8.05 11.044 8.05 10.5Z" fill="white"/>
+          </svg>
+          <span class="product-form__error-message"></span>
+        </div>
+
+        <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data" id="product-form-{{ section.id }}" class="form" novalidate="novalidate" data-type="add-to-cart-form">
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+          {% render 'custom-button',
+            text: section.settings.button_text | default: 'Buy Now',
+            type: 'submit',
+            style: section.settings.button_style | default: 'primary',
+            id: section.id %}
+        </form>
+      </product-form>
+    {% endif %}
   </div>
 
   <!-- Product Image -->
