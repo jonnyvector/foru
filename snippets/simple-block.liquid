@@ -231,9 +231,9 @@
               <div class="social-proof__rating">
                 {% render 'rating-stars', percent: rating_percent %}
                 <span class="social-proof__rating-text">
-                  {{ final_rating }} stars from {{ final_review_count }} reviews
+                  <span class="social-proof__number">{{ final_rating }}</span> stars from <span class="social-proof__number">{{ final_review_count }}</span> reviews
                   {% if final_member_count > 0 %}
-                    | {{ final_member_count }}{% if show_plus %}+{% endif %} members
+                    | <span class="social-proof__number">{{ final_member_count }}{% if show_plus %}+{% endif %}</span> members
                   {% endif %}
                 </span>
               </div>
