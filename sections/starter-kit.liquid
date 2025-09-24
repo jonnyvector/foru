@@ -102,8 +102,14 @@
 
   .starter-kit__pricing {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     gap: calc(var(--gap, 8px) * 2);
+  }
+
+  .starter-kit__price-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .starter-kit__price {
@@ -118,7 +124,7 @@
   }
 
   .starter-kit__discount {
-    background-color: #ef4444;
+    background-color: #000000;
     color: white;
     padding: 4px 8px;
     border-radius: 4px;
@@ -242,17 +248,22 @@
         <span>{{ product.title }}</span>
         <!-- Pricing -->
         <div class="starter-kit__pricing">
-          <div class="starter-kit__price">
-            {{ product.selected_or_first_available_variant.price | money }}
-            {% if section.settings.show_subscription_frequency %}
-              <span style="font-size: 14px; font-weight: normal;">/ {{ section.settings.subscription_frequency | default: 'mo' }}</span>
+          <div class="starter-kit__price-container">
+            <div class="starter-kit__price">
+              {{ product.selected_or_first_available_variant.price | money }}
+              {% if section.settings.show_subscription_frequency %}
+                <span style="font-size: 14px; font-weight: normal;">/ {{ section.settings.subscription_frequency | default: 'mo' }}</span>
+              {% endif %}
+            </div>
+
+            {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+              <div class="starter-kit__original-price">
+                {{ product.selected_or_first_available_variant.compare_at_price | money }}
+              </div>
             {% endif %}
           </div>
 
           {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
-            <div class="starter-kit__original-price">
-              {{ product.selected_or_first_available_variant.compare_at_price | money }}
-            </div>
             <div class="starter-kit__discount">
               -{{ product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round }}%
             </div>
