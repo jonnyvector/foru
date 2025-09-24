@@ -860,6 +860,11 @@ button[disabled] {
     padding: 6px 12px;
   }
 
+  .social-proof__rating {
+    flex-direction: column;
+    gap: 4px;
+  }
+
   .social-proof__rating-text {
     font-size: var(--font-base-size);
   }
