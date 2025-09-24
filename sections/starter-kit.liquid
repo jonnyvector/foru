@@ -105,14 +105,12 @@
     display: flex;
     align-items: flex-start;
     gap: calc(var(--gap, 8px) * 2);
-    justify-content: flex-end;
   }
 
   .starter-kit__price-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    text-align: right;
+    align-items: flex-start;
   }
 
   .starter-kit__price {
@@ -165,8 +163,8 @@
   }
 
   .starter-kit__item-price {
-    text-align: right;
-    min-width: 60px;
+    font-weight: 600;
+    color: var(--color-text);
   }
 
   .starter-kit__item-info h3 {
