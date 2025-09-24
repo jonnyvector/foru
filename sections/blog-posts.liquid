@@ -209,6 +209,20 @@
     display: none !important;
   }
 }
+
+{% unless section.settings.full-width-enabled %}
+@media (max-width: 899px) {
+  #shopify-section-{{ section.id }} .wt-slider__scrollbar--featured {
+    max-width: calc(100% - calc(var(--gap, 8px) * 4));
+  }
+}
+
+@media (max-width: 899px) and (min-width: 1200px) {
+  #shopify-section-{{ section.id }} .wt-slider__scrollbar--featured {
+    max-width: calc(100% - calc(var(--gap, 8px) * 8));
+  }
+}
+{% endunless %}
 </style>
 {% endif %}
 
