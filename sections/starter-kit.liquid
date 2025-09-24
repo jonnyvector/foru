@@ -91,6 +91,9 @@
   .starter-kit__product-name {
     font-size: var(--font-body-size);
     margin-bottom: calc(var(--gap, 8px) * 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .starter-kit__rating {
@@ -101,7 +104,6 @@
     display: flex;
     align-items: center;
     gap: calc(var(--gap, 8px) * 2);
-    margin-bottom: calc(var(--gap, 8px) * 3);
   }
 
   .starter-kit__price {
@@ -236,32 +238,33 @@
 
     <!-- Product Info -->
     <div class="starter-kit__product-info">
-      <div class="starter-kit__product-name">{{ product.title }}</div>
+      <div class="starter-kit__product-name">
+        <span>{{ product.title }}</span>
+        <!-- Pricing -->
+        <div class="starter-kit__pricing">
+          <div class="starter-kit__price">
+            {{ product.selected_or_first_available_variant.price | money }}
+            {% if section.settings.show_subscription_frequency %}
+              <span style="font-size: 14px; font-weight: normal;">/ {{ section.settings.subscription_frequency | default: 'mo' }}</span>
+            {% endif %}
+          </div>
+
+          {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+            <div class="starter-kit__original-price">
+              {{ product.selected_or_first_available_variant.compare_at_price | money }}
+            </div>
+            <div class="starter-kit__discount">
+              -{{ product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round }}%
+            </div>
+          {% endif %}
+        </div>
+      </div>
 
       {% if product.metafields.reviews.rating.value %}
         <div class="starter-kit__rating">
           {% render 'rating',
             reviews: product.metafields.reviews,
             text_alignment: 'left' %}
-        </div>
-      {% endif %}
-    </div>
-
-    <!-- Pricing -->
-    <div class="starter-kit__pricing">
-      <div class="starter-kit__price">
-        {{ product.selected_or_first_available_variant.price | money }}
-        {% if section.settings.show_subscription_frequency %}
-          <span style="font-size: 14px; font-weight: normal;">/ {{ section.settings.subscription_frequency | default: 'mo' }}</span>
-        {% endif %}
-      </div>
-
-      {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
-        <div class="starter-kit__original-price">
-          {{ product.selected_or_first_available_variant.compare_at_price | money }}
-        </div>
-        <div class="starter-kit__discount">
-          -{{ product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round }}%
         </div>
       {% endif %}
     </div>
