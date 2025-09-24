@@ -52,6 +52,10 @@
       {% endif %}
       --grid-gap-mobile: {{ section.settings.spacing_mobile }}px;
     }
+
+    [data-section-id="{{ section.id }}"] .wt-slider__scrollbar--featured {
+      margin-top: 16px;
+    }
   </style>
   {% if section.settings.enable_quick_add_button %}
     <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
