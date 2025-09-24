@@ -217,6 +217,12 @@
     object-fit: cover;
   }
 
+  @media screen and (min-width: 750px) {
+    .starter-kit__content {
+      padding: calc(var(--gap, 8px) * 8) calc(var(--gap, 8px) * 4);
+    }
+  }
+
   @media screen and (max-width: 749px) {
     .starter-kit {
       grid-template-columns: 1fr;
