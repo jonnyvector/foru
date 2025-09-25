@@ -110,10 +110,16 @@
             "margin-bottom": 8
           }
         },
+        "seal_subscriptions_subscription_widget_pTJDc6": {
+          "type": "shopify://apps/seal-subscriptions/blocks/subscription-widget/13b25004-a140-4ab7-b5fe-29918f759699",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
         "easy_subscriptions_subscription_widget_E3thWB": {
           "type": "shopify://apps/easy-subscriptions/blocks/subscription-widget/62ae0f16-e4ee-41c3-a62d-125b812e0b06",
           "settings": {
-            "pcolor": "#FFFFFF",
+            "pcolor": "#ffffff",
             "scolor": "#303030",
             "bcolor": "rgba(0,0,0,0)",
             "easy-is-currency-code": false,
@@ -228,6 +234,7 @@
         "separator_xgqTJM",
         "price",
         "variant_picker_fHUhmX",
+        "seal_subscriptions_subscription_widget_pTJDc6",
         "easy_subscriptions_subscription_widget_E3thWB",
         "buy_buttons",
         "promo_wBVFy3",
