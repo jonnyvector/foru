@@ -542,6 +542,61 @@
         "margin-top": 100,
         "margin-bottom": 100
       }
+    },
+    "featured_collection_HNLYAF": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "title": "Featured collection",
+        "disable_on_mobile": false,
+        "hide_empty_section": false,
+        "collection": "frontpage",
+        "product_list": [],
+        "products_to_show": 4,
+        "enable_stack_products": false,
+        "show_view_all": true,
+        "button_select": "primary",
+        "number_of_column_desktop": 4,
+        "spacing_desktop": "16",
+        "make_products_full_width": true,
+        "number_of_column_mobile": 2.1,
+        "spacing_mobile": "16",
+        "text_alignment": "left",
+        "image_ratio": "square",
+        "show_video": false,
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_product_rating": false,
+        "enable_quick_add_button": true,
+        "color-body-text": "transparent",
+        "background_color": "transparent",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
+    "17587767322f1fc4da": {
+      "type": "apps",
+      "blocks": {
+        "easy_subscriptions_subscription_widget_q6eeTP": {
+          "type": "shopify://apps/easy-subscriptions/blocks/subscription-widget/62ae0f16-e4ee-41c3-a62d-125b812e0b06",
+          "settings": {
+            "pcolor": "#FFFFFF",
+            "scolor": "#303030",
+            "bcolor": "rgba(0,0,0,0)",
+            "easy-is-currency-code": false,
+            "widget-feature-product": "",
+            "eca-title-font-size": 15,
+            "eca-text-font-size": 16,
+            "eca-price-font-size": 16
+          }
+        }
+      },
+      "block_order": [
+        "easy_subscriptions_subscription_widget_q6eeTP"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -553,6 +608,8 @@
     "image_with_text_ewadgb",
     "testimonials_custom_kHmmbJ",
     "featured_on_iXfAwg",
-    "blog_posts_Pt33Px"
+    "blog_posts_Pt33Px",
+    "featured_collection_HNLYAF",
+    "17587767322f1fc4da"
   ]
 }
