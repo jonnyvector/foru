@@ -568,8 +568,8 @@
         "show_vendor": false,
         "show_product_rating": false,
         "enable_quick_add_button": true,
-        "color-body-text": "transparent",
-        "background_color": "transparent",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
         "margin-top": 20,
         "margin-bottom": 20
       }
