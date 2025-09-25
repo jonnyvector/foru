@@ -70,7 +70,7 @@
         </div>
       {%- elsif cart_page -%}
         <div class="product-option">
-          <span class="cart-item__price">{{ item.original_price | money }}</span>
+          <span class="cart-item__price">{{ item.final_price | money }}</span>
         </div>
       {%- endif -%}
       <cart-remove-button
