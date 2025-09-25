@@ -65,7 +65,7 @@
             {{ 'products.product.price.sale_price' | t }}
           </span>
           <span class="price price--end price--end-sale">
-            {{ item.variant.price | money }}
+            {{ item.final_price | money }}
           </span>
         </div>
       {%- elsif cart_page -%}
@@ -230,7 +230,7 @@
               {{ 'products.product.price.sale_price' | t }}
             </span>
             <span class="price price--end price--end-sale">
-              {{ item.variant.price | times: item.quantity | money }}
+              {{ item.final_line_price | money }}
             </span>
           </div>
         {%- else -%}
