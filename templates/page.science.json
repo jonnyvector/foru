@@ -47,6 +47,9 @@
         "heading_BXfw7d",
         "text_JBTM9E"
       ],
+      "custom_css": [
+        ".hero__overlay__content{max-width:64rem;}"
+      ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "heading": "",
