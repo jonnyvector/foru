@@ -124,9 +124,11 @@
     text-align: left;
   }
 
-  [data-section-id="{{ section.id }}"] .ingredients-grid__card:hover {
-    opacity: 0.8;
-  }
+  {% if section.settings.enable_hover_effect %}
+    [data-section-id="{{ section.id }}"] .ingredients-grid__card:hover {
+      opacity: 0.8;
+    }
+  {% endif %}
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__card-image {
     position: relative;
