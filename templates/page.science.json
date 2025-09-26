@@ -48,7 +48,7 @@
         "text_JBTM9E"
       ],
       "custom_css": [
-        ".hero__overlay__content,.hero__title, .hero__text {max-width: 70rem;}"
+        ".hero__overlay__content,.hero__title,.hero__text {max-width: 70rem;}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
@@ -252,7 +252,7 @@
         "description": "We don't just claim quality - we prove it. Every formula is verified by independent labs for purity, safety, and accuracy. Our test reports are open for you to see.",
         "full-width-enabled": false,
         "heading_size_mobile": 100,
-        "heading_size_desktop": 100,
+        "heading_size_desktop": 130,
         "section-color-body-text": "rgba(0,0,0,0)",
         "section-color-overlay": "rgba(0,0,0,0)",
         "section-color-overlay-opacity": 100,
