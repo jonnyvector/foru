@@ -250,9 +250,7 @@
         "easy_subscriptions_subscription_collection_iGQtJd",
         "easy_subscriptions_subscription_widget_3Ax7Qh"
       ],
-      "custom_css": [
-        ".wt-apps__wrapper {display: none;}"
-      ],
+      "custom_css": [],
       "settings": {
         "include_margins": true
       }

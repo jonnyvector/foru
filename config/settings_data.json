@@ -504,7 +504,8 @@
   },
   "platform_customizations": {
     "custom_css": [
-      ".eca_selling_plan_container {padding: 0;}"
+      ".eca_selling_plan_container {padding: 0;}",
+      ".wt-apps__wrapper:has([id*=\"easy_subscriptions\"]) {display: none;}"
     ]
   }
 }
