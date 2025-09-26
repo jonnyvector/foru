@@ -63,8 +63,9 @@
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__subtitle {
+    font-family: var(--font-headline);
     font-size: calc(var(--font-base-size, 1rem) * 0.875);
-    text-transform: uppercase;
+    text-transform: none;
     letter-spacing: 1px;
     color: var(--color-custom-text, #666);
     margin-bottom: 0.75rem;
@@ -81,7 +82,7 @@
   [data-section-id="{{ section.id }}"] .ingredients-product__description {
     font-size: var(--font-base-size, 1rem);
     line-height: 1.6;
-    color: var(--color-custom-text, #666);
+    color: var(--color-text);
     margin-bottom: 20px;
   }
 
