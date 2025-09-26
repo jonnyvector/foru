@@ -48,7 +48,7 @@
         "text_JBTM9E"
       ],
       "custom_css": [
-        ".hero__overlay__content,.hero__title {max-width: 70rem;}"
+        ".hero__overlay__content,.hero__title, .hero__text {max-width: 70rem;}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
