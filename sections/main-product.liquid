@@ -463,7 +463,7 @@
   mobile-image-size="{{ section.settings.mobile-image }}"
   desktop-ratio="{{ section.settings.desktop-image-ratio }}"
 >
-  <div class="wt-product wt-product--{{ desktop_layout }}">
+  <div class="wt-product wt-product--{{ desktop_layout }}" id="shopify-section-{{ section.id }}">
     {% render 'product-head' %}
 
     <gallery-section
