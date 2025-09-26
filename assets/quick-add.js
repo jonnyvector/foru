@@ -274,6 +274,15 @@ if (!customElements.get("quick-add")) {
             this.close_button.focus();
 
             document.addEventListener("click", this.handleInteractionOutside);
+
+            // element.querySelectorAll('script').forEach((oldScriptTag) => {
+            //   const newScriptTag = document.createElement('script');
+            //   Array.from(oldScriptTag.attributes).forEach((attribute) => {
+            //     newScriptTag.setAttribute(attribute.name, attribute.value);
+            //   });
+            //   newScriptTag.appendChild(document.createTextNode(oldScriptTag.innerHTML));
+            //   oldScriptTag.parentNode.replaceChild(newScriptTag, oldScriptTag);
+            // });
           })
           .catch((error) => {
             if (error.name === "AbortError") {
