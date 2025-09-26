@@ -501,5 +501,10 @@
       "always_mobile_navigation": false,
       "colors_solid_button_labels": "#d43c3c"
     }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      ".eca_selling_plan_container {padding: 0;}"
+    ]
   }
 }
