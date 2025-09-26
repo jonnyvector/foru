@@ -67,9 +67,9 @@
     font-size: calc(var(--font-base-size, 1rem) * 0.875);
     text-transform: none;
     letter-spacing: 1px;
-    color: var(--color-custom-text, #666);
+    color: var(--color-text);
     margin-bottom: 0.75rem;
-    font-weight: 500;
+    font-weight: var(--font-headline-weight);
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__title {
@@ -246,7 +246,7 @@
     [data-section-id="{{ section.id }}"] .ingredients-product__header-grid {
       grid-template-columns: 1fr 1fr;
       gap: 60px;
-      align-items: start;
+      align-items: end;
     }
 
     [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next,
