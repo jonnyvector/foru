@@ -223,8 +223,6 @@
 
   .starter-kit__quick-add-container {
     width: 100%;
-    display: flex;
-    justify-content: flex-start;
   }
 
   @media screen and (min-width: 900px) {
@@ -385,6 +383,7 @@
         type: 'link',
         url: product.url,
         style: section.settings.button_style | default: 'primary',
+        class: 'custom-button-wrapper--fit-content',
         id: section.id %}
     {% else %}
       {% comment %} Simple products without variants or subscriptions {% endcomment %}
@@ -404,6 +403,7 @@
             text: section.settings.button_text | default: 'Buy Now',
             type: 'submit',
             style: section.settings.button_style | default: 'primary',
+            class: 'custom-button-wrapper--fit-content',
             id: section.id %}
         </form>
       </product-form>

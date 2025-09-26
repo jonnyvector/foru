@@ -125,9 +125,10 @@
               {% comment %}</a>{% endcomment %}
               <div class="contact-form__button">
                 {% render 'custom-button'
-                  , text: block.settings.button_label 
+                  , text: block.settings.button_label
                   , type: 'submit'
                   , style: block.settings.button_select
+                  , class: 'custom-button-wrapper--fit-content custom-button-wrapper--align-center'
                   , id: block.id %}
               </div>
             {% endform %}
