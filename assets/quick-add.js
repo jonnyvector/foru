@@ -276,7 +276,7 @@ if (!customElements.get("quick-add")) {
             document.addEventListener("click", this.handleInteractionOutside);
 
             const element = document.querySelector('.wt__quick-buy');
-            if(element)
+            if(element) {
               element.querySelectorAll('script').forEach((oldScriptTag) => {
                 const newScriptTag = document.createElement('script');
                 Array.from(oldScriptTag.attributes).forEach((attribute) => {
