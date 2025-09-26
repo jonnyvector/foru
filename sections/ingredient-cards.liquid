@@ -58,7 +58,38 @@
     padding: calc(var(--gap, 8px) * 3);
     border-radius: var(--border-radius);
     position: relative;
+    {% if section.settings.enable_hover_effect %}
+      transition: transform 0.3s ease;
+    {% endif %}
   }
+
+  {% if section.settings.enable_hover_effect %}
+    /* Hover effect for ingredient cards - matches blog-card effect */
+    [data-section-id="{{ section.id }}"] .ingredient-card {
+      overflow: hidden;
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredient-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0);
+      border-radius: var(--border-radius);
+      transition: background-color 0.3s ease;
+      pointer-events: none;
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredient-card:hover {
+      transform: scale(1.05);
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredient-card:hover::after {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  {% endif %}
 
   /* Card number */
   [data-section-id="{{ section.id }}"] .ingredient-card-number {
@@ -213,6 +244,17 @@
       "label": "Card title size (desktop)",
       "unit": "%",
       "info": "Based on 24px"
+    },
+    {
+      "type": "header",
+      "content": "Effects"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_hover_effect",
+      "label": "Enable hover effect",
+      "default": false,
+      "info": "Add a subtle lift and overlay effect when hovering over cards"
     },
     {
       "type": "header",
