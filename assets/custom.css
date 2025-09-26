@@ -7,6 +7,12 @@
   font-display: swap;
 }
 
+/* Theme-wide heading line-height */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  line-height: 0.9 !important;
+}
+
 @font-face {
   font-family: "Inter-Tight";
   src: url("https://cdn.shopify.com/s/files/1/0945/2853/6887/files/inter_tight.ttf?v=1755669706")
