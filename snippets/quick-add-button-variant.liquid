@@ -1,43 +1,18 @@
-{% comment %} Quick add button specifically for variant context - always treats as single variant {% endcomment %}
-<product-form class="wt-product__add-to-cart" data-hide-errors="{{ gift_card_recipient_feature_active }}">
-  <div class="product-form__error-message-wrapper" role="alert" hidden>
-    <span class="product-form__error-message"></span>
-  </div>
-  {%- form 'product',
-    product,
-    id: product_form_id,
-    class: 'wt-product__add-to-cart_form form',
-    novalidate: 'novalidate',
-    data-type: 'add-to-cart-form'
-  -%}
-    {% if block.settings.show_gift_card_recipient and product.gift_card? %}
-      {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
-    {% endif %}
-    <div class="wt-product__add-to-cart_form--wrapper">
-      {% if block.settings.show_qty_selector %}
-        {% render 'component-counter' %}
-      {% endif %}
-      <input type="hidden" name="id" value="{{ card_variant.id }}">
-      {% if card_variant.available %}
-        {% assign button_text = 'products.product.add_to_cart' | t %}
-        {% assign button_aria = 'products.product.add_to_cart' | t %}
-        {% assign is_disabled = false %}
-      {% else %}
-        {% assign button_text = 'products.product.sold_out' | t %}
-        {% assign button_aria = 'products.product.sold_out' | t %}
-        {% assign is_disabled = true %}
-      {% endif %}
-      
-      {% render 'custom-button-loadable',
-        text: button_text,
-        type: 'submit',
-        style: 'secondary',
-        aria_label: button_aria,
-        class: 'button--full-width',
-        id: section.id | append: '-variant-' | append: card_variant.id,
-        disabled: is_disabled,
-        align: 'center'
-      %}
-    </div>
-  {%- endform -%}
-</product-form>
+{% comment %} Quick add button for variant context - redirect to product page with variant pre-selected {% endcomment %}
+{%- if card_variant.available -%}
+  {% assign button_text = 'products.product.add_to_cart' | t %}
+{%- else -%}
+  {% assign button_text = 'products.product.sold_out' | t %}
+{%- endif -%}
+
+{% render 'custom-button-loadable'
+  , text: button_text
+  , type: 'link'
+  , url: product.url | append: '?variant=' | append: card_variant.id
+  , style: 'secondary'
+  , class: 'button--full-width'
+  , aria_label: button_text
+  , disabled: card_variant.available == false
+  , id: product.handle | append: '-' | append: card_variant.id
+  , align: 'center'
+%}

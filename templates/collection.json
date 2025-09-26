@@ -177,7 +177,7 @@
         "enable_filtering": false,
         "filter_position": "drawer",
         "margin-top": 100,
-        "margin-bottom": 0
+        "margin-bottom": 80
       }
     },
     "testimonials_custom_JzhtLN": {
@@ -218,7 +218,7 @@
         "background_color": "rgba(0,0,0,0)",
         "quote_icon": "shopify://shop_images/Frame_1.svg",
         "margin-top": 20,
-        "margin-bottom": 20
+        "margin-bottom": 100
       }
     },
     "1758602103df3c4bd7": {

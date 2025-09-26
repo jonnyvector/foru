@@ -100,6 +100,7 @@
       "settings": {
         "product": "hydration",
         "fallback_title": "INGREDIENTS",
+        "enable_hover_effect": true,
         "size_heading_mobile": 120,
         "size_heading": 150,
         "ingredient_name_size_mobile": 120,

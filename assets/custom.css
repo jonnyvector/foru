@@ -28,16 +28,51 @@
 }
 
 /* Quick add buttons on product cards should have gray background */
-[data-section-id*="featured_collection_variant"] .custom-button-wrapper--secondary [class*="custom-button-text-"],
-[data-section-id*="featured_collection_variant"] .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
-[data-section-id*="main-collection-product-grid"] .custom-button-wrapper--secondary [class*="custom-button-text-"],
-[data-section-id*="main-collection-product-grid"] .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
+[data-section-id*="featured_collection_variant"]
+  .custom-button-wrapper--secondary
+  [class*="custom-button-text-"],
+[data-section-id*="featured_collection_variant"]
+  .custom-button-wrapper--secondary
+  [class*="custom-button-arrow-"],
+[data-section-id*="main-collection-product-grid"]
+  .custom-button-wrapper--secondary
+  [class*="custom-button-text-"],
+[data-section-id*="main-collection-product-grid"]
+  .custom-button-wrapper--secondary
+  [class*="custom-button-arrow-"],
 .wt-card .custom-button-wrapper--secondary [class*="custom-button-text-"],
 .wt-card .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
 .card .custom-button-wrapper--secondary [class*="custom-button-text-"],
 .card .custom-button-wrapper--secondary [class*="custom-button-arrow-"] {
   background-color: #e8e8e8 !important;
   border-color: transparent !important;
+}
+
+/* Add 22px padding to specific custom button text */
+.custom-button-wrapper--secondary [class*="custom-button-text-loadable-btn-"] {
+  padding: 22px !important;
+}
+
+/* Fix footer policy links alignment on mobile */
+@media (max-width: 749px) {
+  .wt-footer__grid-item--policies {
+    text-align: left !important;
+  }
+
+  .wt-footer__policies-list {
+    justify-content: flex-start !important;
+  }
+
+  .wt-footer__policies-item {
+    text-align: left !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+  }
+
+  .wt-footer__policies-link {
+    text-align: left !important;
+    justify-self: flex-start !important;
+  }
 }
 
 .wt-collapse__trigger .wt-icon {
@@ -100,16 +135,24 @@
   }
 
   /* Gray background when mega menu is open on homepage */
-  .template-index .wt-page-nav-mega__item--parent.dropdown-opened .wt-page-nav-mega__link--parent {
+  .template-index
+    .wt-page-nav-mega__item--parent.dropdown-opened
+    .wt-page-nav-mega__link--parent {
     background-color: rgba(183, 183, 183, 0.25) !important;
   }
 
   /* Switch to opaque logo when dropdown is open */
-  .dropdown-open-desk .wt-header--transparent .wt-header__logo__img--transparent {
+  .dropdown-open-desk
+    .wt-header--transparent
+    .wt-header__logo__img--transparent {
     display: none !important;
   }
 
-  .dropdown-open-desk .wt-header--transparent .wt-header__logo__img:not(.wt-header__logo__img--mobile):not(.wt-header__logo__img--transparent) {
+  .dropdown-open-desk
+    .wt-header--transparent
+    .wt-header__logo__img:not(.wt-header__logo__img--mobile):not(
+      .wt-header__logo__img--transparent
+    ) {
     display: block !important;
   }
 
@@ -185,6 +228,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   padding: 0 calc(var(--gap) * 3);
+  padding-left: 1rem;
   text-align: left;
 }
 
@@ -240,7 +284,7 @@
 }
 
 .article-card__image-wrapper::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -319,4 +363,14 @@
     .mega-menu__gallery__item:not(.mega-menu__shop-all-column) {
     padding-right: calc(var(--gap) * 2);
   }
+}
+
+.selling_plan_app_container .purchase-option,
+.selling_plan_app_container .esa_subscription_text {
+  border-radius: var(--border-radius) !important;
+  padding: 24px !important;
+}
+
+.subscription-options {
+  border-radius: var(--border-radius) !important;
 }

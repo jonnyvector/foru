@@ -1,0 +1,617 @@
+{{ 'section-multicol.css' | asset_url | stylesheet_tag }}
+
+{% assign product = all_products[section.settings.product] %}
+
+<script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'variant-dropdown.js' | asset_url }}" defer="defer"></script>
+{% assign background_rgb = section.settings.background_color | color_to_rgb %}
+{% assign text_rgb = section.settings['color-body-text'] | color_to_rgb %}
+
+<style>
+  [data-section-id="{{ section.id }}"] {
+    {% if background_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --color-background: {{ section.settings.background_color }};
+    {% endif %}
+
+    {% if section.settings.margin-top %}
+      --section-gap-top: {{ section.settings.margin-top }}px;
+    {% endif %}
+
+    {% if section.settings.margin-bottom %}
+      --section-gap-bottom: {{ section.settings.margin-bottom }}px;
+    {% endif %}
+
+    {% if text_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --color-custom-text: {{ section.settings.color-body-text }};
+    {% endif %}
+  }
+
+  {% if text_rgb != 'rgba(0, 0, 0, 0.0)' %}
+    [data-section-id="{{ section.id }}"] a {
+      --color-links: {{ section.settings.color-body-text }};
+    }
+  {% endif %}
+
+  .starter-kit {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: calc(var(--gap, 8px) * 8);
+    align-items: flex-start;
+    background-color: var(--color-background);
+    padding: 0 1.5rem;
+  }
+
+
+  .starter-kit__content {
+    order: 1;
+    padding: calc(var(--gap, 8px) * 8) 0;
+  }
+
+  .starter-kit__image {
+    order: 2;
+  }
+
+  .starter-kit__label {
+    font-family: var(--font-headline);
+    font-size: var(--font-body-size);
+    color: var(--color-text-secondary);
+    margin-bottom: calc(var(--gap, 8px) * 1);
+  }
+
+  .starter-kit__title {
+    font-family: var(--font-headline);
+    font-size: var(--font-h2-size);
+    font-weight: var(--font-headline-weight);
+    line-height: 1.2;
+    margin: 0 0 calc(var(--gap, 8px) * 2) 0;
+    display: flex;
+    align-items: flex-start;
+    gap: calc(var(--gap, 8px) * 2);
+  }
+
+  .starter-kit__icon {
+    width: 32px;
+    height: 32px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .starter-kit__icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+    stroke-width: 3;
+  }
+
+  .starter-kit__product-info {
+    margin-bottom: calc(var(--gap, 8px) * 3);
+  }
+
+  .starter-kit__product-name {
+    font-size: var(--font-body-size);
+    margin-bottom: calc(var(--gap, 8px) * 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: calc(var(--gap, 8px) * 2);
+  }
+
+  .starter-kit__rating {
+    margin-bottom: calc(var(--gap, 8px) * 2);
+  }
+
+  .starter-kit__pricing {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: calc(var(--gap, 8px) * 2);
+  }
+
+  .starter-kit__price-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .starter-kit__price {
+    font-size: var(--font-body-size);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: calc(var(--gap, 8px) * 1);
+  }
+
+  .starter-kit__original-price {
+    font-size: var(--font-body-size);
+    text-decoration: line-through;
+    color: var(--color-text-secondary);
+  }
+
+  .starter-kit__discount {
+    background-color: #000000;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .starter-kit__includes {
+    margin-bottom: calc(var(--gap, 8px) * 3);
+    border-top: 1px solid #D0d0d0;
+    padding-top: calc(var(--gap, 8px) * 3);
+  }
+
+  .starter-kit__includes-title {
+    font-size: var(--font-body-size);
+    font-weight: normal;
+    margin-bottom: calc(var(--gap, 8px) * 2);
+    opacity: 0.5;
+  }
+
+  .starter-kit__includes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .starter-kit__includes-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: calc(var(--gap, 8px) * 2) 0;
+    gap: calc(var(--gap, 8px) * 2);
+  }
+
+  .starter-kit__item-price {
+    font-weight: 600;
+    color: var(--color-text);
+    text-align: left;
+  }
+
+  .starter-kit__item-info h3 {
+    font-size: var(--font-body-size);
+    font-weight: 600;
+    margin: 0 0 4px 0;
+  }
+
+  .starter-kit__item-info p {
+    font-size: var(--font-body-size);
+    color: var(--color-text-secondary);
+    margin: 0;
+    opacity: 0.5;
+  }
+
+
+  .starter-kit__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--gap, 8px) * 3) 0;
+    margin-bottom: calc(var(--gap, 8px) * 3);
+    border-top: 1px solid #D0d0d0;
+    border-bottom: 1px solid #D0d0d0;
+    gap: calc(var(--gap, 8px) * 2);
+  }
+
+  .starter-kit__total-label {
+    font-size: var(--font-body-size);
+    color: var(--color-text-secondary);
+  }
+
+  .starter-kit__total-price {
+    font-size: 56px;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  .starter-kit__image {
+    height: 100%;
+  }
+
+  .starter-kit__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .starter-kit__quick-add-container {
+    width: 100%;
+  }
+
+  .starter-kit__quick-add-container .custom-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  @media screen and (min-width: 900px) {
+    .starter-kit__content {
+      padding: calc(var(--gap, 8px) * 8) calc(var(--gap, 8px) * 4);
+    }
+  }
+
+  @media screen and (max-width: 899px) {
+    .starter-kit {
+      grid-template-columns: 1fr;
+      gap: calc(var(--gap, 8px) * 4);
+    }
+
+    .starter-kit__content {
+      order: 2;
+      padding: calc(var(--gap, 8px) * 4) 0;
+    }
+
+    .starter-kit__image {
+      order: 1;
+    }
+
+    .starter-kit__title {
+      font-size: var(--font-h3-size);
+    }
+
+    .starter-kit__total-price {
+      font-size: 32px;
+    }
+
+    .starter-kit__product-name {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: calc(var(--gap, 8px) * 1);
+    }
+
+    .starter-kit__includes-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: calc(var(--gap, 8px) * 1);
+    }
+
+    .starter-kit__total {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: calc(var(--gap, 8px) * 1);
+    }
+  }
+</style>
+
+{% if product != blank %}
+<div data-section-id="{{ section.id }}" style="margin-top: var(--section-gap-top, 0); margin-bottom: var(--section-gap-bottom, 0);">
+<div class="starter-kit">
+  <div class="starter-kit__content">
+    <!-- Label -->
+    {% if section.settings.label != blank %}
+      <div class="starter-kit__label">{{ section.settings.label }}</div>
+    {% endif %}
+
+    <!-- Title -->
+    <h2 class="starter-kit__title">
+      <div>{{ section.settings.heading | default: product.title }}</div>
+    </h2>
+
+    <!-- Product Info -->
+    <div class="starter-kit__product-info">
+      <div class="starter-kit__product-name">
+        <span>{{ product.title }}</span>
+        <!-- Pricing -->
+        <div class="starter-kit__pricing">
+          <div class="starter-kit__price-container">
+            <div class="starter-kit__price">
+              <span>
+                {{ product.selected_or_first_available_variant.price | money }}
+                {% if section.settings.show_subscription_frequency %}
+                  <span style="font-size: 14px; font-weight: normal;">/ {{ section.settings.subscription_frequency | default: 'mo' }}</span>
+                {% endif %}
+              </span>
+
+              {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+                <div class="starter-kit__discount">
+                  -{{ product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round }}%
+                </div>
+              {% endif %}
+            </div>
+
+            {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+              <div class="starter-kit__original-price">
+                {{ product.selected_or_first_available_variant.compare_at_price | money }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      {% if product.metafields.reviews.rating.value %}
+        <div class="starter-kit__rating">
+          {% render 'rating',
+            reviews: product.metafields.reviews,
+            text_alignment: 'left' %}
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- What's Included -->
+    {% if section.settings.includes_heading != blank or section.blocks.size > 0 %}
+      <div class="starter-kit__includes">
+        <div class="starter-kit__includes-title">
+          {{ section.settings.includes_heading | default: 'First time subscription includes:' }}
+        </div>
+
+        <ul class="starter-kit__includes-list">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'included_item' %}
+                <li class="starter-kit__includes-item" data-block-id="{{ block.id }}">
+                  <div class="starter-kit__item-info">
+                    <h3>{{ block.settings.item_name }}</h3>
+                    {% if block.settings.item_description != blank %}
+                      <p>{{ block.settings.item_description }}</p>
+                    {% endif %}
+                  </div>
+                  <div class="starter-kit__item-price">
+                    {{ block.settings.item_price | default: 'Free' }}
+                  </div>
+                </li>
+            {% endcase %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    <!-- Total -->
+    {% if section.settings.show_total %}
+      <div class="starter-kit__total">
+        <div class="starter-kit__total-label">{{ section.settings.total_label | default: 'Total' }}</div>
+        <div class="starter-kit__total-price">
+          {{ product.selected_or_first_available_variant.price | money }}
+          {% if section.settings.show_subscription_frequency %}
+            <span style="font-size: 14px; font-weight: normal;">/ {{ section.settings.subscription_frequency | default: 'mo' }}</span>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- CTA Button -->
+    {% comment %} For products with multiple variants OR subscription plans, redirect to product page {% endcomment %}
+    {% if product.variants.size > 1 or product.selling_plan_groups.size > 0 %}
+      {% if product.variants.size > 1 %}
+        {% assign button_text = 'products.product.choose_option' | t %}
+      {% else %}
+        {% assign button_text = section.settings.button_text | default: 'Subscribe Now' %}
+      {% endif %}
+
+      {% render 'custom-button',
+        text: button_text,
+        type: 'link',
+        url: product.url,
+        style: section.settings.button_style | default: 'primary',
+        id: section.id %}
+    {% else %}
+      {% comment %} Simple products without variants or subscriptions {% endcomment %}
+      <product-form class="product-form" data-hide-errors="{{ section.settings.hide_variants_sold_out }}">
+        <div class="product-form__error-message-wrapper" role="alert" hidden>
+          <svg aria-hidden="true" focusable="false" class="icon icon-error" viewBox="0 0 13 13">
+            <circle cx="6.5" cy="6.5" r="5.85" stroke="white" stroke-width="1.3"/>
+            <path d="m5.8 3.6h1.4L7 8.2H6.4L5.8 3.6Zm2.25 7c0-.544-.458-.99-1.025-.99S6 9.956 6 10.5c0 .544.458.99 1.025.99S8.05 11.044 8.05 10.5Z" fill="white"/>
+          </svg>
+          <span class="product-form__error-message"></span>
+        </div>
+
+        <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data" id="product-form-{{ section.id }}" class="form" novalidate="novalidate" data-type="add-to-cart-form">
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+          {% render 'custom-button',
+            text: section.settings.button_text | default: 'Buy Now',
+            type: 'submit',
+            style: section.settings.button_style | default: 'primary',
+            id: section.id %}
+        </form>
+      </product-form>
+    {% endif %}
+  </div>
+
+  <!-- Product Image -->
+  <div class="starter-kit__image">
+    {% if section.settings.custom_image != blank %}
+      {{ section.settings.custom_image | image_url: width: 600 | image_tag: alt: section.settings.custom_image.alt | default: product.title }}
+    {% elsif product.featured_image %}
+      {{ product.featured_image | image_url: width: 600 | image_tag: alt: product.featured_image.alt | default: product.title }}
+    {% else %}
+      {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    {% endif %}
+  </div>
+</div>
+</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Starter Kit",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "Products"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Your Complete Starter Kit"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_checkmark",
+      "label": "Show checkmark icon",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_subscription_frequency",
+      "label": "Show subscription frequency",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "subscription_frequency",
+      "label": "Subscription frequency",
+      "default": "mo",
+      "info": "e.g., mo, month, week"
+    },
+    {
+      "type": "text",
+      "id": "includes_heading",
+      "label": "Includes section heading",
+      "default": "First time subscription includes:"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_total",
+      "label": "Show total section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "total_label",
+      "label": "Total label",
+      "default": "Total"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Buy Now"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        }
+      ],
+      "default": "primary",
+      "label": "Button style"
+    },
+    {
+      "type": "image_picker",
+      "id": "custom_image",
+      "label": "Custom Image",
+      "info": "Optional. If not set, will use product featured image"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "color-body-text",
+      "default": "transparent",
+      "label": "Text color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "default": "transparent",
+      "label": "Background color"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin-top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 36,
+      "unit": "px",
+      "label": "Top margin"
+    },
+    {
+      "type": "range",
+      "id": "margin-bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 36,
+      "unit": "px",
+      "label": "Bottom margin"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "included_item",
+      "name": "Included Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "item_name",
+          "label": "Item name",
+          "default": "Welcome Kit"
+        },
+        {
+          "type": "text",
+          "id": "item_description",
+          "label": "Item description",
+          "default": "Shaker, Scoop, and Canister"
+        },
+        {
+          "type": "text",
+          "id": "item_price",
+          "label": "Item price/badge",
+          "default": "Free"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Starter Kit",
+      "blocks": [
+        {
+          "type": "included_item",
+          "settings": {
+            "item_name": "Welcome Kit",
+            "item_description": "Shaker, Scoop, and Canister",
+            "item_price": "Free"
+          }
+        },
+        {
+          "type": "included_item",
+          "settings": {
+            "item_name": "Travel Packs (10 count)",
+            "item_description": "10 individual servings",
+            "item_price": "Free"
+          }
+        },
+        {
+          "type": "included_item",
+          "settings": {
+            "item_name": "Delivery",
+            "item_description": "Free delivery with every purchase",
+            "item_price": "Free"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

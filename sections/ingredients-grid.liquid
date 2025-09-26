@@ -124,9 +124,6 @@
     text-align: left;
   }
 
-  [data-section-id="{{ section.id }}"] .ingredients-grid__card:hover {
-    opacity: 0.8;
-  }
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__card-image {
     position: relative;
@@ -142,9 +139,33 @@
     width: 100%;
     height: auto;
     object-fit: cover;
-    transition: none;
+    transition: {% if section.settings.enable_hover_effect %}transform 0.3s ease{% else %}none{% endif %};
     border-radius: var(--border-radius);
   }
+
+  {% if section.settings.enable_hover_effect %}
+    /* Hover effect matching blog-card */
+    [data-section-id="{{ section.id }}"] .ingredients-grid__card-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0);
+      border-radius: var(--border-radius);
+      transition: background-color 0.3s ease;
+      pointer-events: none;
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredients-grid__card:hover .ingredients-grid__card-image img {
+      transform: scale(1.1);
+    }
+
+    [data-section-id="{{ section.id }}"] .ingredients-grid__card:hover .ingredients-grid__card-image::after {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  {% endif %}
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__card-content {
     padding: 0.75rem 0 0;
@@ -684,6 +705,17 @@
         "label": "Fallback Title",
         "default": "INGREDIENTS",
         "info": "Title to show if no product is selected"
+      },
+      {
+        "type": "header",
+        "content": "Effects"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_hover_effect",
+        "label": "Enable hover effect",
+        "default": false,
+        "info": "Add zoom and overlay effect when hovering over ingredient cards"
       },
       {
         "type": "header",
