@@ -58,7 +58,7 @@
         "number_of_column_desktop": 4,
         "spacing_desktop": "16",
         "make_products_full_width": true,
-        "number_of_column_mobile": 2.1,
+        "number_of_column_mobile": 1.1,
         "spacing_mobile": "16",
         "text_alignment": "left",
         "image_ratio": "square",
@@ -70,7 +70,7 @@
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
         "margin-top": 20,
-        "margin-bottom": 20
+        "margin-bottom": 100
       }
     },
     "benefits_product_DGyBfk": {
@@ -164,7 +164,7 @@
         "color-overlay-opacity": 100,
         "color-body-text": "rgba(0,0,0,0)",
         "margin-top": 100,
-        "margin-bottom": 0
+        "margin-bottom": 100
       }
     },
     "starter_kit_TjFAiC": {
@@ -283,7 +283,7 @@
         "show_pagination": false,
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
-        "margin-top": 20,
+        "margin-top": 100,
         "margin-bottom": 100
       }
     },
@@ -571,8 +571,8 @@
         "show_vendor": true,
         "show_product_rating": true,
         "enable_quick_add_button": true,
-        "color-body-text": "transparent",
-        "background_color": "transparent",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
         "margin-top": 20,
         "margin-bottom": 20
       }
