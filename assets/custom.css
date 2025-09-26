@@ -168,6 +168,13 @@
   }
 }
 
+/* Mobile gap for benefits product icon list */
+@media (max-width: 749px) {
+  .wt-benefits-product__icon-list {
+    gap: 32px;
+  }
+}
+
 /* Reusable slide animation classes */
 .slide-wrapper {
   display: grid;
