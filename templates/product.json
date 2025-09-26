@@ -349,7 +349,7 @@
         "text_color": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
         "margin_top": 100,
-        "margin_bottom": 0
+        "margin_bottom": 100
       }
     },
     "health_benefits_aBfLBK": {
