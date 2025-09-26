@@ -218,7 +218,7 @@
         "background_color": "rgba(0,0,0,0)",
         "quote_icon": "shopify://shop_images/Frame_1.svg",
         "margin-top": 20,
-        "margin-bottom": 100
+        "margin-bottom": 48
       }
     },
     "1758602103df3c4bd7": {
@@ -227,7 +227,7 @@
         "easy_subscriptions_subscription_collection_iGQtJd": {
           "type": "shopify://apps/easy-subscriptions/blocks/subscription-collection/62ae0f16-e4ee-41c3-a62d-125b812e0b06",
           "settings": {
-            "pcolor": "#FFFFFF",
+            "pcolor": "#ffffff",
             "scolor": "#303030",
             "bcolor": "rgba(0,0,0,0)"
           }
