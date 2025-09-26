@@ -330,7 +330,7 @@
         "color_body_text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
         "margin-top": 100,
-        "margin-bottom": 0
+        "margin-bottom": 100
       }
     },
     "ingredients_product_nVPErd": {
