@@ -26,7 +26,7 @@
             "heading": "Contact",
             "disable_on_mobile": false,
             "size_heading": 300,
-            "size_heading_mobile": 100
+            "size_heading_mobile": 130
           }
         },
         "text_Gb67mF": {
@@ -70,7 +70,7 @@
         "desktop_fixed_height": 520,
         "mobile_fixed_height": 460,
         "color-body-heading": "#ffffff",
-        "color-overlay": "transparent",
+        "color-overlay": "rgba(0,0,0,0)",
         "color-overlay-opacity": 100,
         "color-body-text": "#ffffff",
         "desktop_text_horizontal_position": "center",
@@ -115,6 +115,7 @@
         "e44258d7-7299-4647-b930-6950bb2f925b": {
           "type": "email_form",
           "settings": {
+            "button_label": "Send form",
             "button_select": "primary"
           }
         }
