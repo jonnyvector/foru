@@ -1903,7 +1903,7 @@
                         disabled: disable_button
                       %}
                     </div>
-                    <input name="selling_plan" class="selected-selling-plan-id" type="hidden" value="">
+                    
                     {% if block.settings.show_dynamic_checkout and product.gift_card? != true %}
                       {{ form | payment_button }}
                     {% endif %}
