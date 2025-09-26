@@ -33,6 +33,7 @@
       novalidate: 'novalidate',
       data-type: 'add-to-cart-form'
     -%}
+      <div class="easy-dynamic-subscription-container" data-product-object='{{ product | json | escape }}' style="display: none;" ></div>
       {% if block.settings.show_gift_card_recipient and product.gift_card? %}
         {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
       {% endif %}
