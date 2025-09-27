@@ -370,13 +370,9 @@
     {% endif %}
 
     <!-- CTA Button -->
-    {% comment %} For products with multiple variants OR subscription plans, redirect to product page {% endcomment %}
-    {% if product.variants.size > 1 or product.selling_plan_groups.size > 0 %}
-      {% if product.variants.size > 1 %}
-        {% assign button_text = 'products.product.choose_option' | t %}
-      {% else %}
-        {% assign button_text = section.settings.button_text | default: 'Subscribe Now' %}
-      {% endif %}
+    {% if product.variants.size > 1 %}
+      {% comment %} Multiple variants - redirect to product page {% endcomment %}
+      {% assign button_text = 'products.product.choose_option' | t %}
 
       {% render 'custom-button',
         text: button_text,
@@ -385,6 +381,20 @@
         style: section.settings.button_style | default: 'primary',
         class: 'custom-button-wrapper--fit-content',
         id: section.id %}
+    {% elsif product.selling_plan_groups.size > 0 %}
+      {% comment %} Single variant with selling plans - use quick-add with pre-selected selling plan {% endcomment %}
+      {% assign first_variant = product.selected_or_first_available_variant %}
+      {% assign first_selling_plan = product.selling_plan_groups[0].selling_plans[0] %}
+
+      <quick-add data-product-handle="{{ product.handle }}" data-variant-id="{{ first_variant.id }}" data-selling-plan-id="{{ first_selling_plan.id }}">
+        {% render 'custom-button',
+          text: section.settings.button_text | default: 'Subscribe Now',
+          type: 'button',
+          style: section.settings.button_style | default: 'primary',
+          class: 'custom-button-wrapper--fit-content',
+          data_product_url: product.url,
+          id: section.id %}
+      </quick-add>
     {% else %}
       {% comment %} Simple products without variants or subscriptions {% endcomment %}
       <product-form class="product-form" data-hide-errors="{{ section.settings.hide_variants_sold_out }}">
