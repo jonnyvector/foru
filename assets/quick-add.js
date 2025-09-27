@@ -471,33 +471,47 @@ if (!customElements.get("quick-add")) {
       }
 
       preselectVariant(variantId) {
-        // Find and trigger the variant option that matches the pre-selected variant ID
         const variantOptions = this.quick_add_wrapper.querySelector("variant-options");
-        if (variantOptions) {
-          // Look for radio buttons or other inputs that correspond to this variant
-          const variantInputs = variantOptions.querySelectorAll('input[type="radio"], input[type="checkbox"], option');
-          for (const input of variantInputs) {
-            if (input.value === variantId || input.getAttribute('data-variant-id') === variantId) {
-              if (input.type === 'radio' || input.type === 'checkbox') {
-                input.checked = true;
-                input.dispatchEvent(new Event('change', { bubbles: true }));
-              } else if (input.tagName === 'OPTION') {
-                input.selected = true;
-                input.parentElement.dispatchEvent(new Event('change', { bubbles: true }));
-              }
+        if (!variantOptions) return;
+
+        // Get the variants data from the JSON script tag
+        const variantScript = variantOptions.querySelector('script[type="application/json"]');
+        if (!variantScript) return;
+
+        let variants;
+        try {
+          variants = JSON.parse(variantScript.textContent);
+        } catch (e) {
+          console.error('Could not parse variants JSON:', e);
+          return;
+        }
+
+        // Find the specific variant by ID
+        const targetVariant = variants.find(variant => variant.id.toString() === variantId.toString());
+        if (!targetVariant) return;
+
+        // Select the radio inputs that match this variant's option values
+        targetVariant.options.forEach((optionValue, index) => {
+          // Find radio inputs for this option position
+          const radioInputs = variantOptions.querySelectorAll(`input[type="radio"]`);
+          for (const input of radioInputs) {
+            if (input.value === optionValue) {
+              input.checked = true;
+              // Trigger change event to update the UI
+              input.dispatchEvent(new Event('change', { bubbles: true }));
               break;
             }
           }
+        });
 
-          // Also directly set the variant ID on the variant-options element
-          variantOptions.setAttribute('data-variant-id', variantId);
+        // Set the variant ID on the variant-options element for other code to use
+        variantOptions.setAttribute('data-variant-id', variantId);
 
-          // Update the hidden form input
-          const formInput = this.quick_add_wrapper.querySelector('form input[name="id"]');
-          if (formInput) {
-            formInput.value = variantId;
-            formInput.setAttribute('value', variantId);
-          }
+        // Update the hidden form input
+        const formInput = this.quick_add_wrapper.querySelector('form input[name="id"]');
+        if (formInput) {
+          formInput.value = variantId;
+          formInput.setAttribute('value', variantId);
         }
       }
 
