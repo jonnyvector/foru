@@ -3,13 +3,7 @@
   <div class="product-form__error-message-wrapper" role="alert" hidden>
     <span class="product-form__error-message"></span>
   </div>
-  {%- form 'product',
-    product,
-    id: 'quick-add-' | append: product.handle | append: '-' | append: card_variant.id,
-    class: 'wt-product__add-to-cart_form form',
-    novalidate: 'novalidate',
-    data-type: 'add-to-cart-form'
-  -%}
+  {%- form 'product', product, id: 'quick-add-' | append: product.handle | append: '-' | append: card_variant.id, class: 'wt-product__add-to-cart_form form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
     <input type="hidden" name="id" value="{{ card_variant.id }}">
     {%- if card_variant.available -%}
       {% assign button_text = 'products.product.add_to_cart' | t %}
