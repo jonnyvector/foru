@@ -1,18 +1,35 @@
-{% comment %} Quick add button for variant context - redirect to product page with variant pre-selected {% endcomment %}
-{%- if card_variant.available -%}
-  {% assign button_text = 'products.product.add_to_cart' | t %}
-{%- else -%}
-  {% assign button_text = 'products.product.sold_out' | t %}
-{%- endif -%}
+{% comment %} Quick add button for variant context - add specific variant directly to cart {% endcomment %}
+<product-form class="wt-product__add-to-cart" data-hide-errors="true">
+  <div class="product-form__error-message-wrapper" role="alert" hidden>
+    <span class="product-form__error-message"></span>
+  </div>
+  {%- form 'product',
+    product,
+    id: 'quick-add-' | append: product.handle | append: '-' | append: card_variant.id,
+    class: 'wt-product__add-to-cart_form form',
+    novalidate: 'novalidate',
+    data-type: 'add-to-cart-form'
+  -%}
+    <input type="hidden" name="id" value="{{ card_variant.id }}">
+    {%- if card_variant.available -%}
+      {% assign button_text = 'products.product.add_to_cart' | t %}
+      {% assign button_disabled = false %}
+    {%- else -%}
+      {% assign button_text = 'products.product.sold_out' | t %}
+      {% assign button_disabled = true %}
+    {%- endif -%}
 
-{% render 'custom-button-loadable'
-  , text: button_text
-  , type: 'link'
-  , url: product.url | append: '?variant=' | append: card_variant.id
-  , style: 'secondary'
-  , class: 'button--full-width'
-  , aria_label: button_text
-  , disabled: card_variant.available == false
-  , id: product.handle | append: '-' | append: card_variant.id
-  , align: 'center'
-%}
+    {% render 'custom-button-loadable'
+      , text: button_text
+      , type: 'submit'
+      , style: 'secondary'
+      , class: 'button--full-width'
+      , aria_label: button_text
+      , disabled: button_disabled
+      , id: product.handle | append: '-' | append: card_variant.id
+      , name: 'add'
+      , button_id: 'ProductSubmitButton-' | append: product.handle | append: '-' | append: card_variant.id
+      , align: 'center'
+    %}
+  {%- endform -%}
+</product-form>
