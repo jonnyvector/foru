@@ -23,6 +23,8 @@ if (!customElements.get("quick-add")) {
         this.isMobile = window.innerWidth < 768;
         if (this.add_button)
           this.product_url = this.add_button.getAttribute("data-product-url");
+        // Get the variant ID to pre-select
+        this.preselected_variant_id = this.getAttribute("data-variant-id");
         if (this.add_button)
           this.add_button.addEventListener("click", (e) => {
             const button = e.currentTarget;
@@ -270,6 +272,11 @@ if (!customElements.get("quick-add")) {
             this.addViewAllDetailsButton();
             this.isDrawerOpen = true;
 
+            // Pre-select variant if specified
+            if (this.preselected_variant_id) {
+              this.preselectVariant(this.preselected_variant_id);
+            }
+
             this.close_button.setAttribute("tabindex", "0");
             this.close_button.focus();
 
@@ -461,6 +468,37 @@ if (!customElements.get("quick-add")) {
 
       disconnectObserver() {
         this.observer?.disconnect();
+      }
+
+      preselectVariant(variantId) {
+        // Find and trigger the variant option that matches the pre-selected variant ID
+        const variantOptions = this.quick_add_wrapper.querySelector("variant-options");
+        if (variantOptions) {
+          // Look for radio buttons or other inputs that correspond to this variant
+          const variantInputs = variantOptions.querySelectorAll('input[type="radio"], input[type="checkbox"], option');
+          for (const input of variantInputs) {
+            if (input.value === variantId || input.getAttribute('data-variant-id') === variantId) {
+              if (input.type === 'radio' || input.type === 'checkbox') {
+                input.checked = true;
+                input.dispatchEvent(new Event('change', { bubbles: true }));
+              } else if (input.tagName === 'OPTION') {
+                input.selected = true;
+                input.parentElement.dispatchEvent(new Event('change', { bubbles: true }));
+              }
+              break;
+            }
+          }
+
+          // Also directly set the variant ID on the variant-options element
+          variantOptions.setAttribute('data-variant-id', variantId);
+
+          // Update the hidden form input
+          const formInput = this.quick_add_wrapper.querySelector('form input[name="id"]');
+          if (formInput) {
+            formInput.value = variantId;
+            formInput.setAttribute('value', variantId);
+          }
+        }
       }
 
       removeButtonEventListener() {
