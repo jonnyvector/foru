@@ -6846,9 +6846,10 @@ input.disabled + .f-swatch__list__link .f-swatch__list__link__content {
   }
 }
 .wt-product__brand__name {
-  text-transform: uppercase;
+  text-transform: none;
   color: var(--color-brand);
-  font-size: calc(var(--font-base-size) - 4px);
+  font-size: var(--font-base-size);
+  font-weight: 600;
   letter-spacing: 1px;
   display: block;
   text-align: start;

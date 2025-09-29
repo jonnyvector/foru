@@ -8,8 +8,18 @@
 }
 
 /* Theme-wide heading line-height */
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
   line-height: 0.9 !important;
 }
 
@@ -389,27 +399,51 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Product page custom button hover fix - higher specificity to override subscription app conflicts */
-.main-product .wt-product__add-to-cart_form.main-product__buy-buttons--container .custom-button-wrapper-custom-btn-ProductSubmitButton-template--23169100300583__main:hover .slide-text:first-child,
-.main-product .wt-product__add-to-cart_form.main-product__buy-buttons--container .custom-button-wrapper-custom-btn-ProductSubmitButton-template--23169100300583__main:hover .slide-arrow:first-child {
+.main-product
+  .wt-product__add-to-cart_form.main-product__buy-buttons--container
+  .custom-button-wrapper-custom-btn-ProductSubmitButton-template--23169100300583__main:hover
+  .slide-text:first-child,
+.main-product
+  .wt-product__add-to-cart_form.main-product__buy-buttons--container
+  .custom-button-wrapper-custom-btn-ProductSubmitButton-template--23169100300583__main:hover
+  .slide-arrow:first-child {
   transform: translateY(-100%) !important;
   transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1) !important;
 }
 
-.main-product .wt-product__add-to-cart_form.main-product__buy-buttons--container .custom-button-wrapper-custom-btn-ProductSubmitButton-template--23169100300583__main:hover .slide-text:last-child,
-.main-product .wt-product__add-to-cart_form.main-product__buy-buttons--container .custom-button-wrapper-custom-btn-ProductSubmitButton-template--23169100300583__main:hover .slide-arrow:last-child {
+.main-product
+  .wt-product__add-to-cart_form.main-product__buy-buttons--container
+  .custom-button-wrapper-custom-btn-ProductSubmitButton-template--23169100300583__main:hover
+  .slide-text:last-child,
+.main-product
+  .wt-product__add-to-cart_form.main-product__buy-buttons--container
+  .custom-button-wrapper-custom-btn-ProductSubmitButton-template--23169100300583__main:hover
+  .slide-arrow:last-child {
   transform: translateY(0) !important;
   transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1) !important;
 }
 
 /* Generic product page custom button hover fix for all product forms */
-.main-product .wt-product__add-to-cart_form [class*="custom-button-wrapper-custom-btn-"]:hover .slide-text:first-child,
-.main-product .wt-product__add-to-cart_form [class*="custom-button-wrapper-custom-btn-"]:hover .slide-arrow:first-child {
+.main-product
+  .wt-product__add-to-cart_form
+  [class*="custom-button-wrapper-custom-btn-"]:hover
+  .slide-text:first-child,
+.main-product
+  .wt-product__add-to-cart_form
+  [class*="custom-button-wrapper-custom-btn-"]:hover
+  .slide-arrow:first-child {
   transform: translateY(-100%) !important;
   transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1) !important;
 }
 
-.main-product .wt-product__add-to-cart_form [class*="custom-button-wrapper-custom-btn-"]:hover .slide-text:last-child,
-.main-product .wt-product__add-to-cart_form [class*="custom-button-wrapper-custom-btn-"]:hover .slide-arrow:last-child {
+.main-product
+  .wt-product__add-to-cart_form
+  [class*="custom-button-wrapper-custom-btn-"]:hover
+  .slide-text:last-child,
+.main-product
+  .wt-product__add-to-cart_form
+  [class*="custom-button-wrapper-custom-btn-"]:hover
+  .slide-arrow:last-child {
   transform: translateY(0) !important;
   transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1) !important;
 }
