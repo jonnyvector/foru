@@ -3045,7 +3045,7 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
 .hero__usps-row {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 3rem;
   margin: 1rem 0;
   flex-wrap: wrap;
   position: absolute;
@@ -3055,9 +3055,6 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   width: 100%;
   max-width: 90vw;
   justify-content: center;
-}
-.hero__usp:not(:last-of-type) {
-  margin-right: calc(3rem - 8px);
 }
 
 /* USP Block Styles */
