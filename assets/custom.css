@@ -433,7 +433,7 @@ h1, h2, h3, h4, h5, h6,
   font-family: var(--font-navigation);
   font-size: var(--font-base-size);
   font-weight: 600;
-  color: var(--color-foreground);
+  color: var(--color-body-text);
   text-decoration: underline;
   text-align: left;
   padding: calc(var(--gap) * 1.5) calc(var(--gap) * 2);
