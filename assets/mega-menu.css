@@ -380,3 +380,10 @@ mega-menu-section {
 .mega-menu__shop-all .mega-menu__shop-all-button {
   margin-top: auto;
 }
+
+/* Mobile styling for products-only mega menu */
+@media (max-width: 1199px) {
+  .wt-page-nav-mega__sublist--products-only .mega-menu__gallery__item {
+    width: 90%;
+  }
+}
