@@ -450,4 +450,10 @@ h1, h2, h3, h4, h5, h6,
   .mega-menu__mobile-shop-all {
     padding-left: 32px;
   }
+
+  /* All links in mobile mega menu should be 18px */
+  .wt-page-nav-mega__sublist__link,
+  .mega-menu__mobile-shop-all-link {
+    font-size: 18px;
+  }
 }
