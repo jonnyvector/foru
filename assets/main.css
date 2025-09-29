@@ -3988,6 +3988,7 @@ body .wt-grid-box__container--full[data-swiper] .wt-grid-box__item {
   font-size: calc(var(--font-headline-size) * var(--font-headline-scale, 1));
   word-break: break-word;
   padding: 0 16px;
+  padding-bottom: calc(var(--gap, 8px) * 1);
 }
 @media (min-width: 1200px) {
   .wt-keys__title {
@@ -4002,7 +4003,7 @@ body .wt-grid-box__container--full[data-swiper] .wt-grid-box__item {
 }
 @media (min-width: 1200px) {
   .wt-keys__title {
-    padding-bottom: calc(var(--gap, 8px) * 0.5);
+    padding-bottom: calc(var(--gap, 8px) * 1.25);
   }
 }
 .wt-keys__text {
