@@ -320,7 +320,7 @@
         "heading": "The Foru Standard",
         "size_heading_mobile": 110,
         "size_heading": 160,
-        "headline_font_size_mobile": 90,
+        "headline_font_size_mobile": 140,
         "headline_font_size_desktop": 130,
         "headline_text_case": "normal",
         "icon_width_mobile": 32,
@@ -459,8 +459,8 @@
         "collapsible_tab_fUb36k"
       ],
       "custom_css": [
-        ".wt-collapse__trigger__title{font-size:20px;}",
-        "@media(min-width:1200px){.wt-collapse__trigger__title {font-size:32px; }}"
+        ".wt-collapse__trigger__title {font-size: 20px;}",
+        "@media (min-width: 1200px) {.wt-collapse__trigger__title {font-size: 32px; }}"
       ],
       "name": "t:sections.collapsible_menu.presets.name",
       "settings": {
