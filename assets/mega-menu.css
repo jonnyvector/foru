@@ -388,33 +388,3 @@ mega-menu-section {
   }
 }
 
-/* Mobile Shop All Link */
-.mega-menu__mobile-shop-all {
-  display: block;
-  padding: calc(var(--gap) * 2) calc(var(--gap) * 3);
-  border-top: 1px solid #eee;
-  margin-top: calc(var(--gap) * 2);
-}
-
-@media (min-width: 1200px) {
-  body:not(.mobile-nav) .mega-menu__mobile-shop-all {
-    display: none;
-  }
-}
-
-.mega-menu__mobile-shop-all-link {
-  display: block;
-  font-family: var(--font-navigation);
-  font-size: var(--font-base-size);
-  font-weight: 600;
-  color: var(--color-menu-text);
-  text-decoration: underline;
-  text-align: center;
-  padding: calc(var(--gap) * 1.5) calc(var(--gap) * 2);
-  margin-left: 24px;
-  transition: opacity 0.3s ease;
-}
-
-.mega-menu__mobile-shop-all-link:hover {
-  opacity: 0.7;
-}
