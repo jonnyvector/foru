@@ -491,3 +491,9 @@ h6,
     font-size: 18px;
   }
 }
+
+@media (min-width: 900px) and (max-width: 1199px) {
+  .wt-product__quantity-section {
+    align-items: flex-start;
+  }
+}
