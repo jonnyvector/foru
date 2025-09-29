@@ -4159,6 +4159,14 @@ mega-menu-section {
   transform: translateX(-100%);
   opacity: 0;
 }
+
+/* Mobile drawer should start below header */
+@media (max-width: 1199px) {
+  .wt-drawer--nav {
+    top: var(--dynamic-header-height, 88px);
+    height: calc(100vh - var(--dynamic-header-height, 88px));
+  }
+}
 [dir="rtl"] .wt-drawer {
   right: 0;
   left: unset;
