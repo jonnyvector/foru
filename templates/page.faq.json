@@ -152,7 +152,9 @@
         ".wt-collapse__wrapper .wt-collapse:not(:last-child) {border: none;}",
         ".wt-collapse {border-radius: 4px; background-color: #f7f7f7; margin: 2rem 0; padding: 0 2rem;}",
         ".wt-collapse__trigger {padding: 1rem 0; padding-bottom: 0;}",
-        "p {padding-bottom: 1rem;}"
+        "p {padding-bottom: 1rem;}",
+        ".wt-collapse__trigger__title {font-size: 20px;}",
+        "@media (min-width: 1200px) {.wt-collapse__trigger__title {font-size: 32px; }}"
       ],
       "settings": {
         "heading": "",
