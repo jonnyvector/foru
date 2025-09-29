@@ -318,7 +318,7 @@
       "name": "t:sections.features-banner.settings.presets.name",
       "settings": {
         "heading": "The Foru Standard",
-        "size_heading_mobile": 110,
+        "size_heading_mobile": 100,
         "size_heading": 150,
         "headline_font_size_mobile": 110,
         "headline_font_size_desktop": 120,
