@@ -41,7 +41,7 @@
       ],
       "custom_css": [
         ".hero,.hero__overlay {padding-left: 0;}",
-        "@media (min-width: 768px) {.hero__overlay {padding-bottom: 0.75rem; }}"
+        "@media (min-width: 768px) {.hero__overlay {padding-bottom: 2rem; }}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
