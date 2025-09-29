@@ -4163,8 +4163,8 @@ mega-menu-section {
 /* Mobile drawer should start below header */
 @media (max-width: 1199px) {
   .wt-drawer--nav {
-    top: var(--dynamic-header-height, 88px);
-    height: calc(100vh - var(--dynamic-header-height, 88px));
+    top: var(--dynamic-header-height, 64px);
+    height: calc(100vh - var(--dynamic-header-height, 64px));
   }
 
   /* Ensure header stays above drawer when menu is open on mobile */
