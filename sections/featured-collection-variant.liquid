@@ -75,7 +75,7 @@
   <div data-section-id="{{ section.id }}" class="wt-featured-collection wt-slider {% if section.settings.disable_on_mobile %}wt-featured-collection--disable-on-mobile{% endif %}">
     {% if section.settings.title != blank %}
       <div class="headline {% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %} {% if section.settings.heading_disable_on_mobile == true %} hero__title--mobile{% endif %}  {% if section.settings.disable_on_mobile %}disable-on-mobile{% endif %}" style="text-align: left;">
-        <h5 class="headline__title">{{ section.settings.title }}</h5>
+        <h4 class="headline__title">{{ section.settings.title }}</h4>
       </div>
     {% endif %}
 
@@ -211,7 +211,7 @@
           }
         </script>
       </div>
-    </slideshow-section>
+  </slideshow-section>
 
     {%- comment -%} Calculate total available variants {%- endcomment -%}
     {%- assign total_variants = 0 -%}
@@ -228,11 +228,7 @@
     %}
       <div class="wt-featured-collection__button-container wt-button__container">
         {% assign collection_url = routes.collections_url | append: '/' | append: section.settings.collection.handle %}
-        {% render 'custom-view-all',
-          text: 'View all',
-          url: collection_url,
-          aria_label: 'View all',
-          id: section.id | append: '-view-all'
+        {% render 'custom-view-all', text: 'View all', url: collection_url, aria_label: 'View all', id: section.id | append: '-view-all'
         %}
       </div>
     {% endif %}
