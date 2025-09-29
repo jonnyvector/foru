@@ -3917,7 +3917,7 @@ mega-menu-section {
   outline-offset: 2px !important;
 }
 .mega-menu__gallery__item {
-  width: 60%;
+  width: 90%;
   flex-shrink: 0;
   text-align: center;
 }
