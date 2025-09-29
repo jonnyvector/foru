@@ -4236,7 +4236,7 @@ mega-menu-section {
   }
 }
 .nav-drawer-big .wt-drawer__title {
-  display: flex;
+  display: none;
 }
 .nav-drawer-big.page-overlay-cart-on .wt-drawer--nav {
   z-index: 10;
