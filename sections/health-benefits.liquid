@@ -95,7 +95,7 @@
     }
 
     [data-section-id="{{ section.id }}"] .health-benefits__eyebrow {
-      font-size: calc(var(--font-base-size) * 0.875);
+      /* font-size: calc(var(--font-base-size) * 0.875); */
       letter-spacing: 0.1em;
       margin-top: 24px;
     }
@@ -218,7 +218,7 @@
 
       <div class="health-benefits__content">
         {% if hb.eyebrow %}
-          <div class="health-benefits__eyebrow">{{ hb.eyebrow }}</div>
+          <div class="health-benefits__eyebrow h5">{{ hb.eyebrow }}</div>
         {% endif %}
 
         {% if hb.title %}
