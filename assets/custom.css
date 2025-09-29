@@ -498,6 +498,6 @@ h6,
   }
 }
 
-.shopify-policy__title {
+.shopify-policy__title > h1 {
   font-size: var(--font-h2-size);
 }
