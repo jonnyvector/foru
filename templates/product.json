@@ -240,6 +240,9 @@
         "collapsible_tab_cAT6Ne",
         "separator_LgmQMx"
       ],
+      "custom_css": [
+        ".wt-collapse__trigger {margin-bottom: 0; padding-left: 0;}"
+      ],
       "settings": {
         "enable_sticky_buy_button": true,
         "full-width-enabled": false,
