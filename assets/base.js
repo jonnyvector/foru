@@ -142,6 +142,10 @@ class DrawerNavSection extends HTMLElement {
     document.body.classList.toggle(activeNavBodyClass);
     document.body.classList.toggle(activeOverlayBodyClass);
     drawerBodeEl.style.setProperty("padding-top", drawerTopPadding);
+
+    // Set CSS variable for dynamic header height positioning
+    const headerHeight = this.getHeaderHeight();
+    document.documentElement.style.setProperty('--dynamic-header-height', `${headerHeight}px`);
   }
 
   toggleMenuButtonAttr() {

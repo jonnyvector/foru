@@ -185,7 +185,7 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
     line-height: 1.2;
-    margin: 0;
+    margin: 18px 0 0;
     flex: 1;
     display: flex;
     align-items: flex-start;
@@ -194,6 +194,7 @@
   @media (min-width: 768px) {
     [data-section-id="{{ section.id }}"] .ingredients-grid__card-name {
       font-size: calc(24px * {{ section.settings.ingredient_name_size_desktop | divided_by: 100.0 }});
+      margin-top: 24px;
     }
   }
 

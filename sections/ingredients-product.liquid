@@ -157,7 +157,7 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
     line-height: 1.2;
-    margin: 0;
+    margin: 24px 0 0 0;
     flex: 1;
     display: flex;
     align-items: flex-start;
@@ -172,7 +172,7 @@
   [data-section-id="{{ section.id }}"] .ingredients-product__card-description {
     font-size: calc(var(--font-base-size, 1rem) * 0.75);
     line-height: 1.4;
-    color: #666;
+    color: var(--color-body-text);
     margin: 8px 0 0 0;
   }
 
@@ -287,6 +287,10 @@
       padding: 0.75rem 0 0 0;
     }
 
+
+    [data-section-id="{{ section.id }}"] .ingredients-product__card-name {
+      margin: 24px 0 0 0;
+    }
 
     [data-section-id="{{ section.id }}"] .ingredients-product__card-description {
       font-size: calc(var(--font-base-size, 1rem) * 0.7);

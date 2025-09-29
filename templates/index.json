@@ -204,7 +204,7 @@
       "settings": {
         "product": "ag-1-pouch-30-servings",
         "label": "Products",
-        "heading": "Your Complete Starter Kit",
+        "heading": "Your Complete FORU Starter Kit",
         "show_checkmark": true,
         "show_subscription_frequency": true,
         "subscription_frequency": "mo",
@@ -330,6 +330,7 @@
         "text_ciLkej",
         "button_qQzJAz"
       ],
+      "custom_css": [],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "title": "",
@@ -432,47 +433,6 @@
         "margin-bottom": 0
       }
     },
-    "testimonials_custom_kHmmbJ": {
-      "type": "testimonials-custom",
-      "blocks": {
-        "testimonial_4rtYRV": {
-          "type": "testimonial",
-          "settings": {
-            "expert_image": "shopify://shop_images/Rectangle_774_0a56476c-34cd-4d6d-9b35-6e747cd46008.png",
-            "expert_name": "Dr. Olivia Martins",
-            "expert_title": "PhD, Clinical Biochemist & Wellness Researcher",
-            "expert_description": "For more than 12 years he has been involved in scientific work at universities in the UK and Germany, specializing in the development of functional nutrition and adaptogens for recovery from mental and physical fatigue.",
-            "testimonial_text": "I started taking Electrolyte Cums on the recommendation of my coach to recover faster after intensive training. At first I was confused by the name, but the product itself turned out to be of very high quality. Excellent replenishes electrolytes, increases endurance and really helps to avoid cramps after exercise. The flavor is neutral, dissolves well. I will order more!",
-            "background_color": "#f7f7f7"
-          }
-        },
-        "testimonial_rPVGwC": {
-          "type": "testimonial",
-          "settings": {
-            "expert_image": "shopify://shop_images/Rectangle_785.png",
-            "expert_name": "Dr. Samuel E. Carter",
-            "expert_title": "Chief Nutrition Scientist",
-            "expert_description": "Dr. Carter is a medical nutritionist and sports medicine specialist with over 18 years of experience in recovery and nutrition. During his career, he has worked with U.S. Olympic teams, developing formulas for recovery drinks and customized supplements for athletes and people with high levels of physical activity.",
-            "testimonial_text": "I started using Electrolyte Cums after tough workouts, and despite the unusual name, the results speak for themselves. It helps me stay hydrated, recover faster, and I’ve noticed way fewer muscle cramps. The formula is clean, easy to mix, and doesn't have a weird aftertaste. Definitely a solid addition to my training routine — will be reordering!",
-            "background_color": "#f7f7f7"
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_4rtYRV",
-        "testimonial_rPVGwC"
-      ],
-      "name": "Testimonials Custom",
-      "settings": {
-        "heading": "<h2>Built by Experts, <br/>Proven by Athletes</h2>",
-        "full_width_enabled": false,
-        "color_body_text": "#1a1c1c",
-        "background_color": "rgba(0,0,0,0)",
-        "quote_icon": "shopify://shop_images/Frame_1_41d73260-6314-4618-a31f-a5cb2b91c3e4.svg",
-        "margin-top": 100,
-        "margin-bottom": 0
-      }
-    },
     "featured_on_iXfAwg": {
       "type": "featured-on",
       "blocks": {
@@ -546,35 +506,45 @@
         "margin-bottom": 0
       }
     },
-    "featured_collection_jUyKy9": {
-      "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
+    "testimonials_custom_kHmmbJ": {
+      "type": "testimonials-custom",
+      "blocks": {
+        "testimonial_4rtYRV": {
+          "type": "testimonial",
+          "settings": {
+            "expert_image": "shopify://shop_images/Rectangle_774_0a56476c-34cd-4d6d-9b35-6e747cd46008.png",
+            "expert_name": "Dr. Olivia Martins",
+            "expert_title": "PhD, Clinical Biochemist & Wellness Researcher",
+            "expert_description": "For more than 12 years he has been involved in scientific work at universities in the UK and Germany, specializing in the development of functional nutrition and adaptogens for recovery from mental and physical fatigue.",
+            "testimonial_text": "I started taking Electrolyte Cums on the recommendation of my coach to recover faster after intensive training. At first I was confused by the name, but the product itself turned out to be of very high quality. Excellent replenishes electrolytes, increases endurance and really helps to avoid cramps after exercise. The flavor is neutral, dissolves well. I will order more!",
+            "background_color": "#f7f7f7"
+          }
+        },
+        "testimonial_rPVGwC": {
+          "type": "testimonial",
+          "settings": {
+            "expert_image": "shopify://shop_images/Rectangle_785.png",
+            "expert_name": "Dr. Samuel E. Carter",
+            "expert_title": "Chief Nutrition Scientist",
+            "expert_description": "Dr. Carter is a medical nutritionist and sports medicine specialist with over 18 years of experience in recovery and nutrition. During his career, he has worked with U.S. Olympic teams, developing formulas for recovery drinks and customized supplements for athletes and people with high levels of physical activity.",
+            "testimonial_text": "I started using Electrolyte Cums after tough workouts, and despite the unusual name, the results speak for themselves. It helps me stay hydrated, recover faster, and I’ve noticed way fewer muscle cramps. The formula is clean, easy to mix, and doesn't have a weird aftertaste. Definitely a solid addition to my training routine — will be reordering!",
+            "background_color": "#f7f7f7"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_4rtYRV",
+        "testimonial_rPVGwC"
+      ],
+      "name": "Testimonials Custom",
       "settings": {
-        "title": "Featured collection",
-        "disable_on_mobile": false,
-        "hide_empty_section": false,
-        "collection": "frontpage",
-        "product_list": [],
-        "products_to_show": 4,
-        "enable_stack_products": false,
-        "show_view_all": true,
-        "button_select": "primary",
-        "number_of_column_desktop": 4,
-        "spacing_desktop": "16",
-        "make_products_full_width": true,
-        "number_of_column_mobile": 2.1,
-        "spacing_mobile": "16",
-        "text_alignment": "left",
-        "image_ratio": "square",
-        "show_video": false,
-        "show_secondary_image": false,
-        "show_vendor": true,
-        "show_product_rating": true,
-        "enable_quick_add_button": true,
-        "color-body-text": "rgba(0,0,0,0)",
+        "heading": "<h2>Built by Experts, <br/>Proven by Athletes</h2>",
+        "full_width_enabled": false,
+        "color_body_text": "#1a1c1c",
         "background_color": "rgba(0,0,0,0)",
-        "margin-top": 20,
-        "margin-bottom": 20
+        "quote_icon": "shopify://shop_images/Frame_1_41d73260-6314-4618-a31f-a5cb2b91c3e4.svg",
+        "margin-top": 100,
+        "margin-bottom": 0
       }
     },
     "blog_posts_Pt33Px": {
@@ -612,7 +582,7 @@
         "easy_subscriptions_subscription_collection_kFq9xJ": {
           "type": "shopify://apps/easy-subscriptions/blocks/subscription-collection/62ae0f16-e4ee-41c3-a62d-125b812e0b06",
           "settings": {
-            "pcolor": "#FFFFFF",
+            "pcolor": "#ffffff",
             "scolor": "#303030",
             "bcolor": "rgba(0,0,0,0)"
           }
@@ -620,7 +590,7 @@
         "easy_subscriptions_subscription_widget_imYQ4T": {
           "type": "shopify://apps/easy-subscriptions/blocks/subscription-widget/62ae0f16-e4ee-41c3-a62d-125b812e0b06",
           "settings": {
-            "pcolor": "#FFFFFF",
+            "pcolor": "#ffffff",
             "scolor": "#303030",
             "bcolor": "rgba(0,0,0,0)",
             "easy-is-currency-code": false,
@@ -680,9 +650,8 @@
     "video_reels_custom_LBnjxB",
     "image_with_text_3rdT8b",
     "image_with_text_ewadgb",
-    "testimonials_custom_kHmmbJ",
     "featured_on_iXfAwg",
-    "featured_collection_jUyKy9",
+    "testimonials_custom_kHmmbJ",
     "blog_posts_Pt33Px",
     "1759117549c8402d37",
     "featured_collection_variant_YtNKNt"

@@ -184,8 +184,9 @@
   }
 
   .expert-profile__name {
-    font-family: var(--font-headline);
-    font-size: 1.8rem;
+    font-family: var(--font-base);
+    text-transform: none;
+    font-size: 24px;
     font-weight: 600;
     margin-bottom: 0.5rem;
     margin-top: 0;
@@ -193,14 +194,14 @@
   }
 
   .expert-profile__title {
-    font-size: 1.4rem;
+    font-size: var(--font-base-size);
     margin-bottom: 1.5rem;
     color: var(--color-custom-text, var(--color-foreground-75));
     font-weight: 500;
   }
 
   .expert-profile__description {
-    font-size: 1.4rem;
+    font-size: var(--font-base-size);
     line-height: 1.5;
     color: var(--color-custom-text, var(--color-foreground));
     margin-top: auto;
@@ -244,7 +245,7 @@
   }
 
   .testimonial-quote__text {
-    font-size: 2rem;
+    font-size: 32px;
     line-height: 140%;
     font-style: italic;
     font-weight: 500;
@@ -252,9 +253,15 @@
     margin: 0;
   }
 
+  @media screen and (min-width: 1200px) {
+    .testimonial-quote__text {
+      padding-right: 10rem;
+    }
+  }
+
   @media screen and (max-width: 749px) {
     .testimonial-quote__text {
-      font-size: 1rem;
+      font-size: 16px;
     }
   }
 
@@ -297,6 +304,7 @@
     }
 
     .expert-profile__name {
+      font-size: 16px;
       margin-bottom: 0;
     }
 
@@ -345,12 +353,10 @@
         "type": "image_picker",
         "id": "quote_icon",
         "label": "Custom Quote Icon (SVG recommended)"
-      },
-      {
+      }, {
         "type": "header",
         "content": "t:sections.global.section_spacing"
-      },
-      {
+      }, {
         "type": "range",
         "id": "margin-top",
         "min": 0,
@@ -359,8 +365,7 @@
         "default": 20,
         "unit": "px",
         "label": "t:sections.global.margin-top"
-      },
-      {
+      }, {
         "type": "range",
         "id": "margin-bottom",
         "min": 0,

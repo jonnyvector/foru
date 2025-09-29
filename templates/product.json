@@ -240,6 +240,9 @@
         "collapsible_tab_cAT6Ne",
         "separator_LgmQMx"
       ],
+      "custom_css": [
+        ".wt-collapse__trigger {margin-bottom: 0; padding-left: 0; padding: 1rem 0;}"
+      ],
       "settings": {
         "enable_sticky_buy_button": true,
         "full-width-enabled": false,
@@ -455,11 +458,15 @@
         "collapsible_tab_9kz7pN",
         "collapsible_tab_fUb36k"
       ],
+      "custom_css": [
+        ".wt-collapse__trigger__title{font-size:20px;}",
+        "@media(min-width:1200px){.wt-collapse__trigger__title {font-size:32px; }}"
+      ],
       "name": "t:sections.collapsible_menu.presets.name",
       "settings": {
         "heading": "FAQ",
-        "heading_size": 120,
-        "heading_size_mobile": 100,
+        "heading_size": 270,
+        "heading_size_mobile": 180,
         "text_alignment": "left",
         "full-width-enabled": true,
         "hide_bottom_border": true,

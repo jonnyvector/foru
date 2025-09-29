@@ -36,16 +36,16 @@
   .starter-kit {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: calc(var(--gap, 8px) * 8);
-    align-items: flex-start;
+    /* gap: calc(var(--gap, 8px) * 8); */
+    align-items: center;
     background-color: var(--color-background);
-    padding: 0 1.5rem;
+    /* padding: 0 1.5rem; */
   }
 
 
   .starter-kit__content {
     order: 1;
-    padding: calc(var(--gap, 8px) * 8) 0;
+    padding: calc(var(--gap, 8px) * 8) calc(var(--gap, 8px) * 2);
   }
 
   .starter-kit__image {
@@ -54,9 +54,15 @@
 
   .starter-kit__label {
     font-family: var(--font-headline);
-    font-size: var(--font-body-size);
+    font-size: 20px;
     color: var(--color-text-secondary);
     margin-bottom: calc(var(--gap, 8px) * 1);
+  }
+
+  @media screen and (min-width: 1200px) {
+    .starter-kit__label {
+      font-size: 28px;
+    }
   }
 
   .starter-kit__title {
@@ -95,6 +101,7 @@
 
   .starter-kit__product-name {
     font-size: var(--font-body-size);
+    font-weight: 600;
     margin-bottom: calc(var(--gap, 8px) * 1);
     display: flex;
     justify-content: space-between;
@@ -129,13 +136,15 @@
 
   .starter-kit__original-price {
     font-size: var(--font-body-size);
+    font-weight: 400;
     text-decoration: line-through;
     color: var(--color-text-secondary);
+    opacity: 0.5;
   }
 
   .starter-kit__discount {
-    background-color: #000000;
-    color: white;
+    background-color: var(--color-button-primary-background);
+    color: var(--color-button-primary-text);
     padding: 4px 8px;
     border-radius: 4px;
     font-size: 14px;
@@ -176,8 +185,10 @@
   }
 
   .starter-kit__item-info h3 {
+    font-family: var(--font-body);
     font-size: var(--font-body-size);
     font-weight: 600;
+    text-transform: none;
     margin: 0 0 4px 0;
   }
 
@@ -203,6 +214,7 @@
   .starter-kit__total-label {
     font-size: var(--font-body-size);
     color: var(--color-text-secondary);
+    opacity: 0.5;
   }
 
   .starter-kit__total-price {
@@ -227,7 +239,7 @@
 
   @media screen and (min-width: 900px) {
     .starter-kit__content {
-      padding: calc(var(--gap, 8px) * 8) calc(var(--gap, 8px) * 4);
+      padding: calc(var(--gap, 8px) * 8) calc(var(--gap, 8px) * 12);
     }
   }
 
@@ -239,7 +251,7 @@
 
     .starter-kit__content {
       order: 2;
-      padding: calc(var(--gap, 8px) * 4) 0;
+      padding: calc(var(--gap, 8px) * 4) calc(var(--gap, 8px) * 2) calc(var(--gap, 8px) * 8);
     }
 
     .starter-kit__image {
@@ -254,17 +266,6 @@
       font-size: 32px;
     }
 
-    .starter-kit__product-name {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: calc(var(--gap, 8px) * 1);
-    }
-
-    .starter-kit__includes-item {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: calc(var(--gap, 8px) * 1);
-    }
 
     .starter-kit__total {
       flex-direction: column;
@@ -291,7 +292,7 @@
     <!-- Product Info -->
     <div class="starter-kit__product-info">
       <div class="starter-kit__product-name">
-        <span>{{ product.title }}</span>
+        <span style="margin-top:4px">{{ product.title }}</span>
         <!-- Pricing -->
         <div class="starter-kit__pricing">
           <div class="starter-kit__price-container">

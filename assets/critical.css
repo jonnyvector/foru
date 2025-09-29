@@ -3386,8 +3386,8 @@ body.mobile-nav .wt-page-nav-mega__link__text--underline {
   padding: calc(var(--gap, 8px) * 1.5) 0;
 }
 .wt-page-nav-mega__aside {
-  background-color: var(--color-footer-background);
-  color: var(--color-footer-text);
+  background-color: var(--color-background);
+  color: var(--color-body-text);
   padding: calc(var(--gap, 8px) * 3) calc(var(--gap, 8px) * 4);
   margin-top: auto;
 }
@@ -3917,7 +3917,7 @@ mega-menu-section {
   outline-offset: 2px !important;
 }
 .mega-menu__gallery__item {
-  width: 60%;
+  width: 90%;
   flex-shrink: 0;
   text-align: center;
 }
@@ -4159,6 +4159,20 @@ mega-menu-section {
   transform: translateX(-100%);
   opacity: 0;
 }
+
+/* Mobile drawer should start below header */
+@media (max-width: 1199px) {
+  .wt-drawer--nav {
+    top: var(--dynamic-header-height, 64px);
+    height: calc(100vh - var(--dynamic-header-height, 64px));
+  }
+
+  /* Ensure header stays above drawer when menu is open on mobile */
+  .menu-open .page-header {
+    z-index: 101 !important;
+    position: relative !important;
+  }
+}
 [dir="rtl"] .wt-drawer {
   right: 0;
   left: unset;
@@ -4222,7 +4236,7 @@ mega-menu-section {
   }
 }
 .nav-drawer-big .wt-drawer__title {
-  display: flex;
+  display: none;
 }
 .nav-drawer-big.page-overlay-cart-on .wt-drawer--nav {
   z-index: 10;
@@ -4275,7 +4289,7 @@ mega-menu-section {
   margin: 0;
   height: 100%;
   background: white;
-  z-index: 110;
+  z-index: 150;
   transform: translateX(0);
   opacity: 1;
   padding: 0;

@@ -214,7 +214,7 @@
   text-transform: var(--font-headline-transform, initial);
   line-height: 1.2;
   line-height: 1.2;
-  font-size: calc(var(--font-base-size) * 1.1);
+  /* font-size: calc(var(--font-base-size) * 1.1); */
   padding-top: calc(var(--gap, 8px) * 2.5);
   padding-bottom: calc(var(--gap, 8px) * 2.5);
 }
@@ -224,11 +224,11 @@
     padding-bottom: calc(var(--gap, 8px) * 2.5);
   }
 }
-@media (min-width: 1200px) {
+/* @media (min-width: 1200px) {
   .wt-footer__title {
     font-size: calc(var(--font-base-size) * 1.25);
   }
-}
+} */
 @media (min-width: 900px) {
   .wt-footer__title__icon {
     opacity: 0;
@@ -2115,12 +2115,14 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   transform: scaleY(0);
 }
 .wt-collapse__trigger__title {
-  font-size: calc(var(--font-base-size) * 1.1);
+  /* font-size: calc(var(--font-base-size) * 1.1); */
+  font-size: 18px;
   margin: calc(var(--gap, 8px) * 1) 0;
 }
 @media (min-width: 1200px) {
   .wt-collapse__trigger__title {
-    font-size: calc(var(--font-base-size) * 1);
+    /* font-size: calc(var(--font-base-size) * 1); */
+    font-size: 24px;
   }
   .wt-collapse-menu .wt-collapse__trigger__title {
     font-size: calc(var(--font-base-size) * 1.25);
@@ -2730,7 +2732,7 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
 }
 .hero__subheading {
   font-size: max(1.2rem, calc(var(--font-base-size) - 2px));
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
   line-height: var(--font-headline-line-height, normal);
   font-style: var(--font-headline-style);
   margin: 4px 0 4px 0;
@@ -3032,7 +3034,7 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
     min-height: 50vh;
     /* height: auto; */
     height: 100%;
-    margin-top: 12px;
+    /* margin-top: 12px; */
   }
   .hero__overlay--mobile--top .hero__button--gap {
     margin-top: auto;
@@ -3064,6 +3066,11 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   gap: 0.8rem;
   flex-shrink: 0;
 }
+.hero__usp-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .hero__usp-icon img {
   width: 32px;
   height: 32px;
@@ -3073,6 +3080,7 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   font-size: var(--font-base-size);
   color: inherit;
   white-space: nowrap;
+  font-weight: 700;
 }
 
 /* Info Tooltip Styles */
@@ -3192,6 +3200,7 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
 @media (max-width: 898px) {
   .hero__info-tooltip-content {
     min-height: 64px;
+    padding: 1rem 5rem;
   }
 }
 @media (max-width: 899px) {
@@ -3979,6 +3988,7 @@ body .wt-grid-box__container--full[data-swiper] .wt-grid-box__item {
   font-size: calc(var(--font-headline-size) * var(--font-headline-scale, 1));
   word-break: break-word;
   padding: 0 16px;
+  padding-bottom: calc(var(--gap, 8px) * 1);
 }
 @media (min-width: 1200px) {
   .wt-keys__title {
@@ -3993,7 +4003,7 @@ body .wt-grid-box__container--full[data-swiper] .wt-grid-box__item {
 }
 @media (min-width: 1200px) {
   .wt-keys__title {
-    padding-bottom: calc(var(--gap, 8px) * 0.5);
+    padding-bottom: calc(var(--gap, 8px) * 1.25);
   }
 }
 .wt-keys__text {
@@ -6839,12 +6849,14 @@ input.disabled + .f-swatch__list__link .f-swatch__list__link__content {
   }
 }
 .wt-product__brand__name {
-  text-transform: uppercase;
+  text-transform: none;
   color: var(--color-brand);
-  font-size: calc(var(--font-base-size) - 4px);
+  font-size: var(--font-base-size);
+  font-weight: 600;
   letter-spacing: 1px;
   display: block;
   text-align: start;
+  margin-bottom: 24px;
 }
 .wt-product__price {
   line-height: normal;
@@ -10206,7 +10218,7 @@ recipient-form .form__message svg path:nth-child(2n) {
 }
 @media (max-width: 599px) {
   .section-image-with-text .hero__overlay {
-    padding: 24px;
+    padding: 64px 16px;
   }
 }
 
@@ -10934,7 +10946,7 @@ main#root > .wt-featured-nav {
 }
 @media (max-width: 899px) {
   .wt-image-banner .hero__overlay__content {
-    padding: 24px 0;
+    padding: 12px 0;
   }
 }
 
