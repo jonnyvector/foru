@@ -11,25 +11,23 @@
 {% assign text_rgb = section.settings['color-body-text'] | color_to_rgb %}
 
 <style>
-  [data-section-id="{{ section.id }}"]
-  {
+  [data-section-id="{{ section.id }}"] {
 
-  {% if section.settings.margin-top %}
+    {% if section.settings.margin-top %}
       --section-gap-top: {{ section.settings.margin-top }}px;
-  {% endif %}
+    {% endif %}
 
-  {% if section.settings.margin-bottom %}
+    {% if section.settings.margin-bottom %}
       --section-gap-bottom: {{ section.settings.margin-bottom }}px;
-  {% endif %}
+    {% endif %}
 
-  {% if background_rgb != 'rgba(0, 0, 0, 0.0)' %}
-    --color-background: {{ section.settings.background_color }};
-  {% endif %}
+    {% if background_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --color-background: {{ section.settings.background_color }};
+    {% endif %}
 
   }
 
-  [data-section-id="{{ section.id }}"]
-  {
+  [data-section-id="{{ section.id }}"] {
     {% if text_rgb != 'rgba(0, 0, 0, 0.0)' %}
       --color-custom-text: {{ section.settings.color-body-text }};
       --color-price: {{ section.settings.color-body-text }};
@@ -73,38 +71,36 @@
   }
 </style>
 
-<video-reels
-  data-section-id="{{ section.id }}"
-  class="section-content video-reels wt-slider--wrapper {% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}"
->
+<video-reels data-section-id="{{ section.id }}" class="section-content video-reels wt-slider--wrapper {% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}">
   {% if section.settings.subheading != blank %}
-    <h5 class="video-reels__subheading">{{ section.settings.subheading }}</h5>
+    <h4 class="video-reels__subheading">{{ section.settings.subheading }}</h4>
   {% endif %}
 
-  {% render 'headline', title: section.settings.heading %}
+  {% render 'headline'
+    , title: section.settings.heading %}
 
   <slideshow-section class="wt-slider {% if settings.animations %}scroll-trigger animate--slide-in {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}{% endif %}">
-    <div data-swiper class="wt-slider__container wt-slider__container--video-carousel" data-sound="off">
+    <div
+      data-swiper
+      class="wt-slider__container wt-slider__container--video-carousel"
+      data-sound="off">
       <div data-swiper-container class="video-reels__container">
         {% for block in section.blocks %}
           <div
             data-swiper-slide
             data-block-id="{{ block.id }}"
-            class="video-carousel"
-          >
-            <div
-              class="video-container"
-            >
+            class="video-carousel">
+            <div class="video-container">
               <low-power-video>
                 <video-controls data-video-click="false">
                   <div class="wt-video__movie wt-video__movie--shopify-video wt-video__item {% if block.settings.video_hosted == nil %} wt-video__movie--placeholder {% endif %}">
                     {% if section.settings.video_button %}
-                      {% render 'play-pause-button', classname: '' %}
+                      {% render 'play-pause-button'
+                        , classname: '' %}
                     {% endif %}
                     {% if block.settings.video_hosted %}
                       {{
-                        block.settings.video_hosted
-                        | video_tag: autoplay: false, loop: true, muted: true, controls: false, image_size: '600x'
+                        block.settings.video_hosted | video_tag: autoplay: false, loop: true, muted: true, controls: false, image_size: '600x'
                       }}
                     {% else %}
                       {% comment %} {% assign my_counter = forloop.index | modulo: 3 | plus: 1 %} {% endcomment %}
@@ -115,24 +111,29 @@
                 <button
                   aria-label="{{ 'aria-label.video-reels-toggle-sound' | t }}"
                   class="wt-video__sound-toggle"
-                  data-sound="off"
-                >
-                  {% render 'icons', id: 'volume' %}
-                  {% render 'icons', id: 'volume-muted' %}
+                  data-sound="off">
+                  {% render 'icons'
+                    , id: 'volume' %}
+                  {% render 'icons'
+                    , id: 'volume-muted' %}
                 </button>
               </low-power-video>
             </div>
 
-            {% render 'shoppable-video-product', block: block, hide_brand: section.settings['hide-brand-name'] %}
+            {% render 'shoppable-video-product'
+              , block: block
+              , hide_brand: section.settings['hide-brand-name'] %}
           </div>
         {% endfor %}
       </div>
 
       <div class="swiper-button-next wt-slider__nav-btn wt-slider__nav-next wt-slider__nav-next--featured">
-        {% render 'icons', id: 'arrow-right' %}
+        {% render 'icons'
+          , id: 'arrow-right' %}
       </div>
       <div class="swiper-button-prev wt-slider__nav-btn wt-slider__nav-prev wt-slider__nav-prev--featured">
-        {% render 'icons', id: 'arrow-left' %}
+        {% render 'icons'
+          , id: 'arrow-left' %}
       </div>
       {% if section.settings.show_pagination %}
         <div class="swiper-pagination wt-slider__pagination"></div>
@@ -172,140 +173,128 @@
 </video-reels>
 
 {% schema %}
-{
-  "name": "Video Reels Custom",
-  "tag": "section",
-  "class": "spaced-section collection-list-section",
-  "max_blocks": 12,
-  "settings": [
-    {
-      "type": "header",
-      "content": "t:sections.shoppable-video-reels.settings.important-information.content",
-      "info": "t:sections.shoppable-video-reels.settings.important-information.info"
-    },
-    {
-      "type": "text",
-      "id": "subheading",
-      "label": "Subheading"
-    },
-    {
-      "type": "textarea",
-      "id": "heading",
-      "label": "t:sections.settings.settings.heading.label",
-      "default": "Shoppable video reels"
-    },
-    {
-      "type": "checkbox",
-      "id": "quick-add-enabled",
-      "label": "Enable quick add button",
-      "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "hide-brand-name",
-      "label": "t:sections.shoppable-video.settings.hide-brand-name.label",
-      "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "video_button",
-      "label": "t:sections.shoppable-video.settings.video-button.label",
-      "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "show_pagination",
-      "label": "Show pagination dots",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "t:sections.global.colors",
-      "info": "t:sections.global.colors-info"
-    },
-    {
-      "type": "color",
-      "id": "color-body-text",
-      "default": "transparent",
-      "label": "t:sections.settings.settings.text-color.label"
-    },
-    {
-      "type": "color",
-      "id": "background_color",
-      "default": "transparent",
-      "label": "t:sections.settings.settings.background-color.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.global.section_spacing"
-    },
-    {
-      "type": "range",
-      "id": "margin-top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "default": 20,
-      "unit": "px",
-      "label": "t:sections.settings.settings.distance-top.label"
-    },
-    {
-      "type": "range",
-      "id": "margin-bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "default": 20,
-      "unit": "px",
-      "label": "t:sections.settings.settings.distance-bottom.label",
-      "info": "t:sections.settings.settings.distance-bottom.info"
+  {
+    "name": "Video Reels Custom",
+    "tag": "section",
+    "class": "spaced-section collection-list-section",
+    "max_blocks": 12,
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:sections.shoppable-video-reels.settings.important-information.content",
+        "info": "t:sections.shoppable-video-reels.settings.important-information.info"
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Subheading"
+      },
+      {
+        "type": "textarea",
+        "id": "heading",
+        "label": "t:sections.settings.settings.heading.label",
+        "default": "Shoppable video reels"
+      },
+      {
+        "type": "checkbox",
+        "id": "quick-add-enabled",
+        "label": "Enable quick add button",
+        "default": false
+      }, {
+        "type": "checkbox",
+        "id": "hide-brand-name",
+        "label": "t:sections.shoppable-video.settings.hide-brand-name.label",
+        "default": false
+      }, {
+        "type": "checkbox",
+        "id": "video_button",
+        "label": "t:sections.shoppable-video.settings.video-button.label",
+        "default": false
+      }, {
+        "type": "checkbox",
+        "id": "show_pagination",
+        "label": "Show pagination dots",
+        "default": true
+      }, {
+        "type": "header",
+        "content": "t:sections.global.colors",
+        "info": "t:sections.global.colors-info"
+      }, {
+        "type": "color",
+        "id": "color-body-text",
+        "default": "transparent",
+        "label": "t:sections.settings.settings.text-color.label"
+      }, {
+        "type": "color",
+        "id": "background_color",
+        "default": "transparent",
+        "label": "t:sections.settings.settings.background-color.label"
+      }, {
+        "type": "header",
+        "content": "t:sections.global.section_spacing"
+      }, {
+        "type": "range",
+        "id": "margin-top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "default": 20,
+        "unit": "px",
+        "label": "t:sections.settings.settings.distance-top.label"
+      }, {
+        "type": "range",
+        "id": "margin-bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "default": 20,
+        "unit": "px",
+        "label": "t:sections.settings.settings.distance-bottom.label",
+        "info": "t:sections.settings.settings.distance-bottom.info"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "product",
+        "name": "t:sections.shoppable-video-reels.blocks.product.name",
+        "settings": [
+          {
+            "type": "video",
+            "id": "video_hosted",
+            "label": "t:sections.logo-banner.settings.video-hosted.label"
+          }, {
+            "type": "product",
+            "id": "featured_product",
+            "label": "t:sections.shoppable-image.settings.dot.featured_product.label"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Video Reels Custom",
+        "blocks": [
+          {
+            "type": "product"
+          },
+          {
+            "type": "product"
+          },
+          {
+            "type": "product"
+          },
+          {
+            "type": "product"
+          }, {
+            "type": "product"
+          }, {
+            "type": "product"
+          }
+        ]
+      }
+    ],
+    "disabled_on": {
+      "groups": ["header", "footer"]
     }
-  ],
-  "blocks": [
-    {
-      "type": "product",
-      "name": "t:sections.shoppable-video-reels.blocks.product.name",
-      "settings": [
-        {
-          "type": "video",
-          "id": "video_hosted",
-          "label": "t:sections.logo-banner.settings.video-hosted.label"
-        },
-        {
-          "type": "product",
-          "id": "featured_product",
-          "label": "t:sections.shoppable-image.settings.dot.featured_product.label"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Video Reels Custom",
-      "blocks": [
-        {
-          "type": "product"
-        },
-        {
-          "type": "product"
-        },
-        {
-          "type": "product"
-        },
-        {
-          "type": "product"
-        },
-        {
-          "type": "product"
-        },
-        {
-          "type": "product"
-        }
-      ]
-    }
-  ],
-  "disabled_on": {
-    "groups": ["header", "footer"]
   }
-}
 {% endschema %}
