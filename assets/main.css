@@ -6853,6 +6853,7 @@ input.disabled + .f-swatch__list__link .f-swatch__list__link__content {
   letter-spacing: 1px;
   display: block;
   text-align: start;
+  margin-bottom: 16px;
 }
 .wt-product__price {
   line-height: normal;
