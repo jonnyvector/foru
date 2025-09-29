@@ -54,9 +54,15 @@
 
   .starter-kit__label {
     font-family: var(--font-headline);
-    font-size: var(--font-body-size);
+    font-size: 20px;
     color: var(--color-text-secondary);
     margin-bottom: calc(var(--gap, 8px) * 1);
+  }
+
+  @media screen and (min-width: 1200px) {
+    .starter-kit__label {
+      font-size: 28px;
+    }
   }
 
   .starter-kit__title {
