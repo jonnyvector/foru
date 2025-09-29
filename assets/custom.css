@@ -418,8 +418,6 @@ h1, h2, h3, h4, h5, h6,
 .mega-menu__mobile-shop-all {
   display: block;
   padding: calc(var(--gap) * 2) calc(var(--gap) * 3);
-  border-top: 1px solid #eee;
-  margin-top: calc(var(--gap) * 2);
 }
 
 @media (min-width: 1200px) {
