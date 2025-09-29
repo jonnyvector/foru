@@ -1,4 +1,4 @@
-{% assign hb = product.metafields.custom.healt_benefits_section.value | default: product.metafields.custom.health_benefits_section.value %}
+{% assign hb = product.metafields.custom.health_benefits_section.value | default: product.metafields.custom.health_benefits_section.value %}
 
 {% if hb %}
   <style>
@@ -295,7 +295,8 @@
         "id": "cta_label",
         "label": "CTA label",
         "default": "See all"
-      }, {
+      },
+      {
         "type": "url",
         "id": "cta_link",
         "label": "CTA link"
