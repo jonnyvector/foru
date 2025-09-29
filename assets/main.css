@@ -214,7 +214,7 @@
   text-transform: var(--font-headline-transform, initial);
   line-height: 1.2;
   line-height: 1.2;
-  font-size: calc(var(--font-base-size) * 1.1);
+  /* font-size: calc(var(--font-base-size) * 1.1); */
   padding-top: calc(var(--gap, 8px) * 2.5);
   padding-bottom: calc(var(--gap, 8px) * 2.5);
 }
@@ -224,11 +224,11 @@
     padding-bottom: calc(var(--gap, 8px) * 2.5);
   }
 }
-@media (min-width: 1200px) {
+/* @media (min-width: 1200px) {
   .wt-footer__title {
     font-size: calc(var(--font-base-size) * 1.25);
   }
-}
+} */
 @media (min-width: 900px) {
   .wt-footer__title__icon {
     opacity: 0;
