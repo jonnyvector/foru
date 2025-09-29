@@ -501,3 +501,7 @@ h6,
 .shopify-policy__title > h1 {
   font-size: var(--font-h2-size) !important;
 }
+
+.shopify-policy__container {
+  max-width: 930px !important;
+}
