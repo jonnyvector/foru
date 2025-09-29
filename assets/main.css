@@ -3198,6 +3198,7 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
 @media (max-width: 898px) {
   .hero__info-tooltip-content {
     min-height: 64px;
+    padding: 1rem 5rem;
   }
 }
 @media (max-width: 899px) {
