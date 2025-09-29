@@ -494,6 +494,6 @@ h6,
 
 @media (min-width: 900px) and (max-width: 1199px) {
   .wt-product__quantity-section {
-    align-items: flex-start;
+    align-items: flex-start !important;
   }
 }
