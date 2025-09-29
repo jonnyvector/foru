@@ -102,7 +102,7 @@
         "show_country_selector_label": false,
         "show_country_selector_flag": true,
         "show_language_selector": false,
-        "drawer_title": "Hello!",
+        "drawer_title": "hello",
         "typing_search": "Search...",
         "suggestions_title": "most popular",
         "suggestions_menu": ""
