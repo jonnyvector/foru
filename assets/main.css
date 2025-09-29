@@ -2732,7 +2732,7 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
 }
 .hero__subheading {
   font-size: max(1.2rem, calc(var(--font-base-size) - 2px));
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
   line-height: var(--font-headline-line-height, normal);
   font-style: var(--font-headline-style);
   margin: 4px 0 4px 0;
