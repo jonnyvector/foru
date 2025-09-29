@@ -433,11 +433,10 @@ h1, h2, h3, h4, h5, h6,
   font-family: var(--font-navigation);
   font-size: var(--font-base-size);
   font-weight: 600;
-  color: var(--color-menu-text);
+  color: var(--color-foreground);
   text-decoration: underline;
   text-align: left;
   padding: calc(var(--gap) * 1.5) calc(var(--gap) * 2);
-  margin-left: 24px;
   transition: opacity 0.3s ease;
 }
 
