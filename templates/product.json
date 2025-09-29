@@ -345,7 +345,7 @@
         "description": "<p>Each component is precisely selected and dosed based on clinical research. Clean formulas designed to work together, not just work alone.</p>",
         "view_all_text": "View all",
         "view_all_link": "shopify://pages/ingredients",
-        "size_heading_mobile": 130,
+        "size_heading_mobile": 180,
         "size_heading": 270,
         "ingredient_name_size_mobile": 130,
         "ingredient_name_size_desktop": 150,
