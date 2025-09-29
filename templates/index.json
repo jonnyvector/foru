@@ -611,6 +611,7 @@
     },
     "featured_collection_variant_YtNKNt": {
       "type": "featured-collection-variant",
+      "disabled": true,
       "name": "Collection Variants",
       "settings": {
         "title": "Featured variants",
