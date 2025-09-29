@@ -146,7 +146,7 @@
                   class="wt-slider__card-wrapper"
                   {% endif %}>
                   {% comment %} Combine product title and variant title with line break {% endcomment %}
-                {% capture combined_title %}{{ product.title }}<br><p style="font-size:1.4rem; font-weight: var(--font-base-weight);">{{ variant.title }}</p>{% endcapture %}
+                {% capture combined_title %}{{ product.title }}<br><p style="margin-top:1.5rem; font-size:1.4rem; font-weight: var(--font-base-weight);">{{ variant.title }}</p>{% endcapture %}
                   {% comment %} Create a single-variant product for quick-add by overriding the available property {% endcomment %}
                   {% assign variant_as_product = product %}
                   {% render 'card', card_variant: variant, img: variant_image, img_hover: image_hover, title: combined_title, subtitle: product.vendor, rating: section.settings.show_product_rating, reviews: product.metafields.reviews, options: false, card_url: variant_url, uri: product.handle | append: '?variant=' | append: variant.id, text_alignment: section.settings.text_alignment, variants: product.variants, product_options: product.options, product: variant_as_product, card_product: product, media_aspect_ratio: section.settings.image_ratio, enable_quick_add_button: section.settings.enable_quick_add_button, show_video: section.settings.show_video, price: variant.price, compare_at_price: variant.compare_at_price, variant_context: true
