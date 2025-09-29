@@ -411,7 +411,7 @@
       {% for newsletter_block in newsletter_blocks %}
         <div class="wt-footer__grid-item wt-footer__grid-item--newsletter">
           <section class="wt-newsletter wt-footer__additional">
-            <div class="wt-footer__title wt-newsletter__title">{{ newsletter_block.settings.heading_newsletter }}</div>
+            <div class="wt-footer__title wt-newsletter__title h2">{{ newsletter_block.settings.heading_newsletter }}</div>
             <div class="wt-footer__text rte">{{ newsletter_block.settings.text_newsletter }}</div>
 
             {% form 'customer', class: 'newsletter-form wt-newsletter__form wt-footer__additional__form' %}
