@@ -31,7 +31,7 @@
           "settings": {
             "heading": "About Us",
             "disable_on_mobile": false,
-            "size_heading": 290,
+            "size_heading": 330,
             "size_heading_mobile": 150
           }
         }
@@ -60,7 +60,7 @@
           "settings": {
             "heading": "Why We Started Foru",
             "disable_on_mobile": false,
-            "size_heading": 290,
+            "size_heading": 270,
             "size_heading_mobile": 150
           }
         },
@@ -108,7 +108,7 @@
           "settings": {
             "heading": "Who We Are",
             "disable_on_mobile": false,
-            "size_heading": 290,
+            "size_heading": 270,
             "size_heading_mobile": 150
           }
         },

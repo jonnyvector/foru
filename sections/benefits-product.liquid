@@ -39,9 +39,13 @@
   }
 
   section[id="shopify-section-{{ section.id }}"] .wt-benefits-product__subheading {
+    margin-bottom: 1.5rem;
     text-align: center;
   }
 
+  section[id="shopify-section-{{ section.id }}"] .wt-benefits-product__icon-item-heading {
+    font-size: calc(var(--font-h3-size) * var(--font-icon-headline-scale-desk));
+  }
 
   section[id="shopify-section-{{ section.id }}"] .h2 {
     text-align: center;
@@ -50,10 +54,17 @@
   @media(max-width: 899px) {
     section[id="shopify-section-{{ section.id }}"] .wt-benefits-product__subheading {
       text-align: left;
+      font-size: 20px;
     }
 
     section[id="shopify-section-{{ section.id }}"] .wt-benefits-product__custom-heading {
+
+      font-size: 32px;
       text-align: left;
+    }
+
+    section[id="shopify-section-{{ section.id }}"] .wt-benefits-product__icon-item-heading {
+      font-size: calc(var(--font-h3-size) * var(--font-icon-headline-scale));
     }
 
   }

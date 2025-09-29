@@ -63,25 +63,39 @@
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__subtitle {
-    font-size: calc(var(--font-base-size, 1rem) * 0.875);
-    text-transform: uppercase;
+    font-family: var(--font-headline);
+    font-size: 20px;
+    text-transform: none;
     letter-spacing: 1px;
-    color: var(--color-custom-text, #666);
+    color: var(--color-text);
     margin-bottom: 0.75rem;
-    font-weight: 500;
+    font-weight: var(--font-headline-weight);
+  }
+
+  @media (min-width: 1200px) {
+    [data-section-id="{{ section.id }}"] .ingredients-product__subtitle {
+      font-size: 28px;
+    }
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__title {
     --font-headline-scale-desk: {{ section.settings.size_heading | divided_by: 100.0 }};
     --font-headline-scale: {{ section.settings.size_heading_mobile | divided_by: 100.0 }};
+    font-size: calc(var(--font-headline-size) * var(--font-headline-scale, 1));
     line-height: 0.9;
     margin: 0;
+  }
+
+  @media (min-width: 1200px) {
+    [data-section-id="{{ section.id }}"] .ingredients-product__title {
+      font-size: calc(var(--font-headline-size) * var(--font-headline-scale-desk, 1));
+    }
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__description {
     font-size: var(--font-base-size, 1rem);
     line-height: 1.6;
-    color: var(--color-custom-text, #666);
+    color: var(--color-text);
     margin-bottom: 20px;
   }
 
@@ -137,6 +151,7 @@
   [data-section-id="{{ section.id }}"] .ingredients-product__card-name {
     --font-headline-scale-desk: {{ section.settings.ingredient_name_size_desktop | divided_by: 100.0 }};
     --font-headline-scale: {{ section.settings.ingredient_name_size_mobile | divided_by: 100.0 }};
+    font-size: calc(var(--font-headline-size) * var(--font-headline-scale, 1));
     font-weight: 700;
     color: var(--color-custom-text, #000);
     text-transform: uppercase;
@@ -146,6 +161,12 @@
     flex: 1;
     display: flex;
     align-items: flex-start;
+  }
+
+  @media (min-width: 1200px) {
+    [data-section-id="{{ section.id }}"] .ingredients-product__card-name {
+      font-size: calc(var(--font-headline-size) * var(--font-headline-scale-desk, 1));
+    }
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__card-description {
@@ -245,7 +266,7 @@
     [data-section-id="{{ section.id }}"] .ingredients-product__header-grid {
       grid-template-columns: 1fr 1fr;
       gap: 60px;
-      align-items: start;
+      align-items: end;
     }
 
     [data-section-id="{{ section.id }}"] .ingredients-swiper-button-next,

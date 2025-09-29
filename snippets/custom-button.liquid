@@ -149,6 +149,10 @@
     justify-content: flex-end;
   }
 
+  .custom-button-wrapper--fit-content {
+    width: fit-content;
+  }
+
   /* Ensure gap is maintained in all scenarios */
   .custom-button-wrapper-{{ unique_id }}* {
     box-sizing: border-box;
@@ -368,7 +372,7 @@
   }
 
   /* Mobile adjustments */
-  @media screen and (max-width: 749px) {
+  @media screen and (max-width: 1199px) {
     .custom-button-text-{{ unique_id }} {
       max-height: 48px;
     }
@@ -378,7 +382,7 @@
       max-width: 48px;
       overflow: hidden;
     }
-    
+
     .custom-button-arrow-{{ unique_id }} svg {
       width: 24px;
       height: 24px;

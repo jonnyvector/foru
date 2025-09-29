@@ -1,18 +1,23 @@
-{% comment %} Quick add button for variant context - redirect to product page with variant pre-selected {% endcomment %}
-{%- if card_variant.available -%}
-  {% assign button_text = 'products.product.add_to_cart' | t %}
-{%- else -%}
-  {% assign button_text = 'products.product.sold_out' | t %}
-{%- endif -%}
+{% comment %} Quick add button for variant context - open quick-add with specific variant pre-selected {% endcomment %}
+<quick-add data-product-handle="{{ product.handle }}" data-variant-id="{{ card_variant.id }}">
+  {%- if card_variant.available -%}
+    {% assign button_text = 'products.product.add_to_cart' | t %}
+    {% assign button_disabled = false %}
+  {%- else -%}
+    {% assign button_text = 'products.product.sold_out' | t %}
+    {% assign button_disabled = true %}
+  {%- endif -%}
 
-{% render 'custom-button-loadable'
-  , text: button_text
-  , type: 'link'
-  , url: product.url | append: '?variant=' | append: card_variant.id
-  , style: 'secondary'
-  , class: 'button--full-width'
-  , aria_label: button_text
-  , disabled: card_variant.available == false
-  , id: product.handle | append: '-' | append: card_variant.id
-  , align: 'center'
-%}
+  {% render 'custom-button-loadable'
+    , text: button_text
+    , type: 'button'
+    , style: 'secondary'
+    , class: 'button--full-width'
+    , aria_label: button_text
+    , disabled: button_disabled
+    , id: product.handle | append: '-' | append: card_variant.id
+    , name: 'commit'
+    , data_product_url: product.url
+    , align: 'center'
+  %}
+</quick-add>

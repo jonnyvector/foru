@@ -31,7 +31,7 @@
           "settings": {
             "heading": "FAQ",
             "disable_on_mobile": false,
-            "size_heading": 290,
+            "size_heading": 330,
             "size_heading_mobile": 150
           }
         }
@@ -151,7 +151,7 @@
         ".wt-collapse__wrapper--compact {max-width: none;}",
         ".wt-collapse__wrapper .wt-collapse:not(:last-child) {border: none;}",
         ".wt-collapse {border-radius: 4px; background-color: #f7f7f7; margin: 2rem 0; padding: 0 2rem;}",
-        ".wt-collapse__trigger {padding: 1rem 0; padding-bottom:0;}",
+        ".wt-collapse__trigger {padding: 1rem 0; padding-bottom: 0;}",
         "p {padding-bottom: 1rem;}"
       ],
       "settings": {

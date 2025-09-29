@@ -11,7 +11,6 @@
   "sections": {
     "featured_collection_variant_W7pFMg": {
       "type": "featured-collection-variant",
-      "disabled": true,
       "name": "Collection Variants",
       "settings": {
         "title": "Find Your Protocol",
@@ -44,6 +43,7 @@
     },
     "featured_collection_HNLYAF": {
       "type": "featured-collection",
+      "disabled": true,
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "title": "Featured collection",
@@ -606,21 +606,21 @@
         "margin-bottom": 100
       }
     },
-    "1758869935d3b43f5d": {
+    "1759117549c8402d37": {
       "type": "apps",
       "blocks": {
-        "easy_subscriptions_subscription_collection_EtQwCi": {
+        "easy_subscriptions_subscription_collection_kFq9xJ": {
           "type": "shopify://apps/easy-subscriptions/blocks/subscription-collection/62ae0f16-e4ee-41c3-a62d-125b812e0b06",
           "settings": {
-            "pcolor": "#ffffff",
+            "pcolor": "#FFFFFF",
             "scolor": "#303030",
             "bcolor": "rgba(0,0,0,0)"
           }
         },
-        "easy_subscriptions_subscription_widget_m97GcM": {
+        "easy_subscriptions_subscription_widget_imYQ4T": {
           "type": "shopify://apps/easy-subscriptions/blocks/subscription-widget/62ae0f16-e4ee-41c3-a62d-125b812e0b06",
           "settings": {
-            "pcolor": "#ffffff",
+            "pcolor": "#FFFFFF",
             "scolor": "#303030",
             "bcolor": "rgba(0,0,0,0)",
             "easy-is-currency-code": false,
@@ -632,8 +632,8 @@
         }
       },
       "block_order": [
-        "easy_subscriptions_subscription_collection_EtQwCi",
-        "easy_subscriptions_subscription_widget_m97GcM"
+        "easy_subscriptions_subscription_collection_kFq9xJ",
+        "easy_subscriptions_subscription_widget_imYQ4T"
       ],
       "settings": {
         "include_margins": true
@@ -684,7 +684,7 @@
     "featured_on_iXfAwg",
     "featured_collection_jUyKy9",
     "blog_posts_Pt33Px",
-    "1758869935d3b43f5d",
+    "1759117549c8402d37",
     "featured_collection_variant_YtNKNt"
   ]
 }

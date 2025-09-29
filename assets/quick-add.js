@@ -23,6 +23,9 @@ if (!customElements.get("quick-add")) {
         this.isMobile = window.innerWidth < 768;
         if (this.add_button)
           this.product_url = this.add_button.getAttribute("data-product-url");
+        // Get the variant ID and selling plan ID to pre-select
+        this.preselected_variant_id = this.getAttribute("data-variant-id");
+        this.preselected_selling_plan_id = this.getAttribute("data-selling-plan-id");
         if (this.add_button)
           this.add_button.addEventListener("click", (e) => {
             const button = e.currentTarget;
@@ -270,6 +273,11 @@ if (!customElements.get("quick-add")) {
             this.addViewAllDetailsButton();
             this.isDrawerOpen = true;
 
+            // Pre-select variant and selling plan if specified
+            if (this.preselected_variant_id) {
+              this.preselectVariant(this.preselected_variant_id, this.preselected_selling_plan_id);
+            }
+
             this.close_button.setAttribute("tabindex", "0");
             this.close_button.focus();
 
@@ -473,6 +481,84 @@ if (!customElements.get("quick-add")) {
 
       disconnectObserver() {
         this.observer?.disconnect();
+      }
+
+      preselectVariant(variantId, sellingPlanId) {
+        const variantOptions = this.quick_add_wrapper.querySelector("variant-options");
+        if (!variantOptions) return;
+
+        // Get the variants data from the JSON script tag
+        const variantScript = variantOptions.querySelector('script[type="application/json"]');
+        if (!variantScript) return;
+
+        let variants;
+        try {
+          variants = JSON.parse(variantScript.textContent);
+        } catch (e) {
+          console.error('Could not parse variants JSON:', e);
+          return;
+        }
+
+        // Find the specific variant by ID
+        const targetVariant = variants.find(variant => variant.id.toString() === variantId.toString());
+        if (!targetVariant) return;
+
+        // Select the radio inputs that match this variant's option values
+        targetVariant.options.forEach((optionValue, index) => {
+          // Find radio inputs for this option position
+          const radioInputs = variantOptions.querySelectorAll(`input[type="radio"]`);
+          for (const input of radioInputs) {
+            if (input.value === optionValue) {
+              input.checked = true;
+              // Trigger change event to update the UI
+              input.dispatchEvent(new Event('change', { bubbles: true }));
+              break;
+            }
+          }
+        });
+
+        // Set the variant ID on the variant-options element for other code to use
+        variantOptions.setAttribute('data-variant-id', variantId);
+
+        // Update the hidden form input
+        const formInput = this.quick_add_wrapper.querySelector('form input[name="id"]');
+        if (formInput) {
+          formInput.value = variantId;
+          formInput.setAttribute('value', variantId);
+        }
+
+        // Pre-select selling plan if specified
+        if (sellingPlanId) {
+          this.preselectSellingPlan(sellingPlanId);
+        }
+      }
+
+      preselectSellingPlan(sellingPlanId) {
+        // Look for selling plan radio inputs or selects
+        const sellingPlanInputs = this.quick_add_wrapper.querySelectorAll('input[name="selling_plan"], select[name="selling_plan"]');
+
+        for (const input of sellingPlanInputs) {
+          if (input.type === 'radio' && input.value === sellingPlanId) {
+            input.checked = true;
+            input.dispatchEvent(new Event('change', { bubbles: true }));
+            break;
+          } else if (input.tagName === 'SELECT') {
+            const option = input.querySelector(`option[value="${sellingPlanId}"]`);
+            if (option) {
+              option.selected = true;
+              input.value = sellingPlanId;
+              input.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+            break;
+          }
+        }
+
+        // Also update any hidden selling plan input
+        const hiddenSellingPlanInput = this.quick_add_wrapper.querySelector('input[type="hidden"][name="selling_plan"]');
+        if (hiddenSellingPlanInput) {
+          hiddenSellingPlanInput.value = sellingPlanId;
+          hiddenSellingPlanInput.setAttribute('value', sellingPlanId);
+        }
       }
 
       removeButtonEventListener() {

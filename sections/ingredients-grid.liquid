@@ -133,11 +133,12 @@
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    aspect-ratio: 1;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-grid__card-image img {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
     transition: {% if section.settings.enable_hover_effect %}transform 0.3s ease{% else %}none{% endif %};
     border-radius: var(--border-radius);
