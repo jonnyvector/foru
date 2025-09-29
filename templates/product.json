@@ -462,7 +462,7 @@
       "settings": {
         "heading": "FAQ",
         "heading_size": 270,
-        "heading_size_mobile": 170,
+        "heading_size_mobile": 180,
         "text_alignment": "left",
         "full-width-enabled": true,
         "hide_bottom_border": true,
