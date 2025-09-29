@@ -148,8 +148,6 @@
         "77e8081d-3216-4f92-9f1e-bab5a6656d97"
       ],
       "custom_css": [
-        ".wt-collapse__wrapper--compact {max-width: none;}",
-        ".wt-collapse__wrapper .wt-collapse:not(:last-child) {border: none;}",
         ".wt-collapse {border-radius: 4px; background-color: #f7f7f7; margin: 2rem 0; padding: 0 2rem;}",
         ".wt-collapse__trigger {padding: 1rem 0; padding-bottom: 0;}",
         "p {padding-bottom: 1rem;}",
@@ -162,10 +160,10 @@
         "heading_size_mobile": 100,
         "text_alignment": "center",
         "full-width-enabled": false,
-        "hide_bottom_border": false,
+        "hide_bottom_border": true,
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "#ffffff",
-        "compact-size-enabled": true,
+        "compact-size-enabled": false,
         "margin-top": 0,
         "margin-bottom": 60
       }
