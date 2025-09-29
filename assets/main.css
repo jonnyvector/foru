@@ -3064,6 +3064,11 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   gap: 0.8rem;
   flex-shrink: 0;
 }
+.hero__usp-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .hero__usp-icon img {
   width: 32px;
   height: 32px;
