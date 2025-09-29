@@ -2115,7 +2115,8 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
   transform: scaleY(0);
 }
 .wt-collapse__trigger__title {
-  font-size: calc(var(--font-base-size) * 1.1);
+  /* font-size: calc(var(--font-base-size) * 1.1); */
+  font-size: 18px;
   margin: calc(var(--gap, 8px) * 1) 0;
 }
 @media (min-width: 1200px) {
