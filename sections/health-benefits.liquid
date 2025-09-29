@@ -13,7 +13,7 @@
     [data-section-id="{{ section.id }}"] .health-benefits {
       max-width: var(--site-max-width, 1200px);
       margin: 0 auto;
-      padding: 0 calc(var(--gap, 8px) * 2);
+      padding: 0 calc(var(--gap, 8px) *;
     }
 
     [data-section-id="{{ section.id }}"] .health-benefits__container {
@@ -57,7 +57,7 @@
 
     [data-section-id="{{ section.id }}"] .health-benefits__content {
       flex: 1;
-      padding: 0 calc(var(--gap, 8px) * 2);
+      padding: 0 calc(var(--gap, 8px) *;
     }
 
     @media (min-width: 900px) and (max-width: 1024px) {
@@ -105,11 +105,6 @@
       line-height: 1.2;
     }
 
-    @media (min-width: 900px) {
-      [data-section-id="{{ section.id }}"] .health-benefits__title {
-        font-size: calc(var(--font-base-size) * 2.5);
-      }
-    }
 
     [data-section-id="{{ section.id }}"] .health-benefits__body {
       font-family: var(--font-base, inherit);
@@ -288,14 +283,12 @@
         "id": "background_color",
         "label": "Content background color",
         "info": "Background color for the text content area"
-      },
-      {
+      }, {
         "type": "text",
         "id": "cta_label",
         "label": "CTA label",
         "default": "See all"
-      },
-      {
+      }, {
         "type": "url",
         "id": "cta_link",
         "label": "CTA link"
