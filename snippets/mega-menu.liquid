@@ -96,7 +96,7 @@
               {%- endif -%}
             {%- endfor -%}
             {%- endunless -%}
-            {% if show_mega %}
+            {% if show_mega and show_product_mega == false %}
               <li
                 data-block-id="{{ mega_block.id }}"
                 class="wt-page-nav-mega__sublist__item wt-page-nav-mega__sublist__item--gallery"
