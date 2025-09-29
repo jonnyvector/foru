@@ -10211,11 +10211,11 @@ recipient-form .form__message svg path:nth-child(2n) {
 .section-image-with-text .hero .hero__pic__link {
   height: 100%;
 }
-@media (max-width: 599px) {
+/* @media (max-width: 599px) {
   .section-image-with-text .hero__overlay {
     padding: 24px;
   }
-}
+} */
 
 .main-collection-list {
   --cols: 1;
