@@ -3386,8 +3386,8 @@ body.mobile-nav .wt-page-nav-mega__link__text--underline {
   padding: calc(var(--gap, 8px) * 1.5) 0;
 }
 .wt-page-nav-mega__aside {
-  background-color: var(--color-footer-background);
-  color: var(--color-footer-text);
+  background-color: var(--color-foreground);
+  color: var(--color-body-text);
   padding: calc(var(--gap, 8px) * 3) calc(var(--gap, 8px) * 4);
   margin-top: auto;
 }
