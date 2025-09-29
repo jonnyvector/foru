@@ -80,6 +80,20 @@ class CartDrawerSection extends HTMLElement {
     }
   }
 
+  closeMobileMenuDrawer() {
+    // Check if mobile menu is open and close it
+    if (this.body.classList.contains('menu-open')) {
+      const mobileDrawer = document.querySelector('drawer-nav');
+      if (mobileDrawer) {
+        // Trigger the mobile menu close by simulating a click on the close button
+        const closeButton = mobileDrawer.querySelector('.wt-drawer__close');
+        if (closeButton) {
+          closeButton.click();
+        }
+      }
+    }
+  }
+
   toggleDrawerClasses() {
     this.onToggle();
     this.drawer.classList.toggle(this.classDrawerActive);
@@ -112,6 +126,10 @@ class CartDrawerSection extends HTMLElement {
     this.triggers().forEach((trigger) => {
       trigger.addEventListener("click", (e) => {
         e.preventDefault();
+
+        // Close mobile menu drawer if it's open
+        this.closeMobileMenuDrawer();
+
         this.toggleDrawerClasses();
       });
     });
