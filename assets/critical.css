@@ -4166,6 +4166,12 @@ mega-menu-section {
     top: var(--dynamic-header-height, 88px);
     height: calc(100vh - var(--dynamic-header-height, 88px));
   }
+
+  /* Ensure header stays above drawer when menu is open on mobile */
+  .menu-open .page-header {
+    z-index: 101 !important;
+    position: relative !important;
+  }
 }
 [dir="rtl"] .wt-drawer {
   right: 0;
