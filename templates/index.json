@@ -38,7 +38,7 @@
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
         "margin-top": 100,
-        "margin-bottom": 20
+        "margin-bottom": 32
       }
     },
     "featured_collection_HNLYAF": {
@@ -216,7 +216,7 @@
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "#f0f0f0",
         "margin-top": 0,
-        "margin-bottom": 0
+        "margin-bottom": 20
       }
     },
     "video_reels_custom_LBnjxB": {
@@ -472,7 +472,7 @@
         "button_9bbhDc"
       ],
       "custom_css": [
-        ".hero__overlay__content{width:100%;}"
+        ".hero__overlay__content {width: 100%;}"
       ],
       "name": "Background video custom",
       "settings": {
@@ -494,7 +494,7 @@
         "mobile_text_horizontal_position": "left",
         "mobile_text_vertical_position": "bottom",
         "margin-top": 0,
-        "margin-bottom": 0
+        "margin-bottom": 20
       }
     },
     "featured_on_iXfAwg": {
@@ -608,7 +608,7 @@
         "background_color": "rgba(0,0,0,0)",
         "quote_icon": "shopify://shop_images/Frame_1_41d73260-6314-4618-a31f-a5cb2b91c3e4.svg",
         "margin-top": 100,
-        "margin-bottom": 0
+        "margin-bottom": 20
       }
     },
     "blog_posts_Pt33Px": {
