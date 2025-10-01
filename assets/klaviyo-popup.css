@@ -72,8 +72,6 @@
 .klaviyo-popup-content form,
 .klaviyo-popup-content > div {
   font-family: var(--font-body);
-  width: 100% !important;
-  max-width: 100% !important;
 }
 
 .klaviyo-popup-content input[type="email"],
