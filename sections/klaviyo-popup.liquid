@@ -91,16 +91,19 @@
 
   // Transform submit button to custom button style
   function transformSubmitButton() {
-    const submitBtn = popup.querySelector('.go1284576775');
-    if (submitBtn && !submitBtn.dataset.transformed) {
-      const buttonText = submitBtn.textContent;
-      submitBtn.textContent = '';
-      submitBtn.setAttribute('data-button-text', buttonText);
-      submitBtn.dataset.transformed = 'true';
-
-      // Add text content via data attribute for CSS to use
-      submitBtn.style.setProperty('--button-text', `"${buttonText}"`);
-    }
+    const allButtons = popup.querySelectorAll('button.go1284576775');
+    allButtons.forEach(btn => {
+      if (!btn.dataset.transformed) {
+        const buttonText = btn.textContent.trim();
+        // Only transform the submit button (last button or contains "SIGN" text)
+        if (buttonText.includes('SIGN') || buttonText.includes('Submit') || btn === allButtons[allButtons.length - 1]) {
+          btn.textContent = '';
+          btn.setAttribute('data-button-text', buttonText);
+          btn.dataset.transformed = 'true';
+          btn.classList.add('klaviyo-submit-button');
+        }
+      }
+    });
   }
 
   // Watch for button to be added by Klaviyo

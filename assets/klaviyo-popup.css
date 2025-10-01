@@ -123,7 +123,7 @@
 }
 
 /* Submit button with custom button style (two-part with sliding animation) */
-.klaviyo-popup-content button.go1284576775 {
+.klaviyo-popup-content button.klaviyo-submit-button {
   display: flex !important;
   align-items: stretch !important;
   gap: 0 !important;
@@ -142,7 +142,7 @@
 }
 
 /* Text part - left side */
-.klaviyo-popup-content button.go1284576775::before {
+.klaviyo-popup-content button.klaviyo-submit-button::before {
   content: attr(data-button-text) !important;
   flex: 1 !important;
   display: grid !important;
@@ -159,7 +159,7 @@
 }
 
 /* Arrow part - right side */
-.klaviyo-popup-content button.go1284576775::after {
+.klaviyo-popup-content button.klaviyo-submit-button::after {
   content: "" !important;
   width: 64px !important;
   height: 64px !important;
