@@ -114,7 +114,7 @@
           "type": "shopify://apps/easy-subscriptions/blocks/subscription-widget/62ae0f16-e4ee-41c3-a62d-125b812e0b06",
           "settings": {
             "pcolor": "#ffffff",
-            "scolor": "#303030",
+            "scolor": "#1a1c1c",
             "bcolor": "rgba(0,0,0,0)",
             "easy-is-currency-code": true,
             "widget-feature-product": "",
