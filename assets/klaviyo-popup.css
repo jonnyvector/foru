@@ -141,8 +141,18 @@
 
 /* Mobile responsiveness */
 @media (max-width: 899px) {
-  .klaviyo-popup-content img {
+  /* Hide the image container/column in Klaviyo forms */
+  .klaviyo-popup-content .kl-private-reset-css-Xuajs1[style*="flex"] > div:first-child,
+  .klaviyo-popup-content .kl-private-reset-css-Xuajs1 > div:has(img),
+  .klaviyo-popup-content [class*="kl-private"] > div:has(img) {
     display: none !important;
+  }
+
+  /* Make form full width when image container is hidden */
+  .klaviyo-popup-content .kl-private-reset-css-Xuajs1[style*="flex"] > div:last-child,
+  .klaviyo-popup-content .kl-private-reset-css-Xuajs1 > div:not(:has(img)) {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 }
 
