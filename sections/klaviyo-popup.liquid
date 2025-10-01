@@ -73,17 +73,34 @@
     isFormReady = true;
   }
 
+  let retryCount = 0;
+  const maxRetries = 10; // Try for up to 5 seconds (10 * 500ms)
+
   function showPopup() {
     if (showOnce && localStorage.getItem(storageKey)) return;
 
-    // Only show popup if form is ready
-    if (!isFormReady) {
-      console.warn('Klaviyo form not ready yet, waiting...');
-      // Retry after a short delay
-      setTimeout(showPopup, 500);
-      return;
+    // Check again if form became ready
+    if (!isFormReady && waitForKlaviyoForm()) {
+      isFormReady = true;
     }
 
+    // Only show popup if form is ready
+    if (!isFormReady) {
+      console.warn('Klaviyo form not ready yet, waiting... (attempt ' + (retryCount + 1) + '/' + maxRetries + ')');
+
+      if (retryCount < maxRetries) {
+        // Retry after a short delay - DO NOT show popup yet
+        retryCount++;
+        setTimeout(showPopup, 500);
+        return;
+      } else {
+        console.error('Klaviyo form never loaded after ' + maxRetries + ' attempts. Aborting popup.');
+        return;
+      }
+    }
+
+    // Form is ready - NOW show the popup
+    console.log('[POPUP] Showing popup - form is ready');
     popup.classList.add('active');
     document.body.style.overflow = 'hidden';
     if (showOnce) localStorage.setItem(storageKey, 'true');
