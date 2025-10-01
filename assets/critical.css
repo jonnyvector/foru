@@ -1611,6 +1611,7 @@ page-header {
     .page-header.sticky-enabled
     .wt-header__body::before {
     z-index: -1;
+    background: transparent !important;
   }
 }
 
