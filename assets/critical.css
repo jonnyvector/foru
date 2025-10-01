@@ -4170,7 +4170,9 @@ mega-menu-section {
   /* Ensure header stays above drawer when menu is open on mobile */
   .menu-open .page-header {
     z-index: 101 !important;
-    position: relative !important;
+    position: sticky !important;
+    top: 0 !important;
+    transform: translateY(0) !important;
   }
 }
 [dir="rtl"] .wt-drawer {
