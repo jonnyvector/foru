@@ -1893,40 +1893,15 @@
                       {%- else -%}
                         {%- assign button_text = 'products.product.sold_out' | t -%}
                       {%- endif -%}
-                      {% assign unique_id = 'ProductSubmitButton-' | default: section.id | default: 'default' | prepend: 'custom-btn-' %}
-                      <button
-                        type="submit"
-                        class="js-add-to-cart product-form__submit button--full-width custom-button-text-{{ section.id }}"
-                        aria-label="{{ button_text }}"
-                        id="ProductSubmitButton-{{ section.id }}"
-                        {% if disable_button %}disabled{% endif %}>
-                        <span class="slide-wrapper">
-                          <span class="slide-text">{{ button_text }}</span>
-                          <span class="slide-text">{{ button_text }}</span>
-                        </span>
-                        <button
-                          style="padding:0"
-                          type="submit"
-                          class="custom-button-arrow-{{ unique_id }}"
-                          aria-label="{{ button_text }}"
-                          id="ProductSubmitButton-{{ section.id }}"
-                          {% if disable_button %}disabled{% endif %}>
-                          <span class="slide-wrapper">
-                            <span class="slide-arrow">
-                              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6.57227 16H25.4284M25.4284 16L16.9432 7.51472M25.4284 16L16.9432 24.4853" stroke="currentColor" stroke-width="2" />
-                              </svg>
-                            </span>
-                            <span class="slide-arrow">
-                              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6.57227 16H25.4284M25.4284 16L16.9432 7.51472M25.4284 16L16.9432 24.4853" stroke="currentColor" stroke-width="2" />
-                              </svg>
-                            </span>
-                          </span>
-                          {% render 'button-loading-indicator' %}
-                        </button>
-                      </button>
-
+                      {% render 'custom-button',
+                        text: button_text,
+                        type: 'submit',
+                        aria_label: button_text,
+                        class: 'js-add-to-cart product-form__submit button--full-width',
+                        id: 'ProductSubmitButton-' | append: section.id,
+                        style: 'primary',
+                        disabled: disable_button
+                      %}
                     </div>
                     <input name="selling_plan" class="selected-selling-plan-id" type="hidden" value="">
                     {% if block.settings.show_dynamic_checkout and product.gift_card? != true %}
