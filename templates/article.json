@@ -99,13 +99,12 @@
         "paragraph_JnBgp9",
         "email_form_zNfxPV"
       ],
+      "disabled": true,
       "settings": {
         "slide_height": "fixed_height",
         "desktop_fixed_height": 420,
         "mobile_fixed_height": 460,
-
-
-        "color-body-text": "transparent",
+        "color-body-text": "rgba(0,0,0,0)",
         "background_color": "#ffffff",
         "background_color_opacity": 58,
         "background_blur": 18,
