@@ -675,7 +675,6 @@
     },
     "klaviyo_popup_D43Wkh": {
       "type": "klaviyo-popup",
-      "disabled": true,
       "name": "Klaviyo Popup",
       "settings": {
         "enable_popup": true,
