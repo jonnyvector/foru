@@ -690,7 +690,7 @@
             "heading": "Every ingredient\nhas an origin story.\nWe know ours.",
             "disable_on_mobile": false,
             "size_heading": 330,
-            "size_heading_mobile": 100
+            "size_heading_mobile": 180
           }
         },
         "button_9bbhDc": {
@@ -727,7 +727,7 @@
         "color-overlay": "rgba(0,0,0,0)",
         "color-overlay-opacity": 100,
         "color-body-text": "#ffffff",
-        "desktop_text_horizontal_position": "right",
+        "desktop_text_horizontal_position": "left",
         "desktop_text_vertical_position": "bottom",
         "mobile_text_horizontal_position": "left",
         "mobile_text_vertical_position": "bottom",
