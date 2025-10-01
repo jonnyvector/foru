@@ -109,8 +109,8 @@
   right: 8px !important;
   top: 50% !important;
   transform: translateY(-50%) !important;
-  width: 56px !important;
-  height: 48px !important;
+  width: 52px !important;
+  height: 52px !important;
   background: white url('data:image/svg+xml;utf8,<svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.929688 7H15.0718M15.0718 7L8.70786 0.636039M15.0718 7L8.70786 13.364" stroke="%231A1C1C" stroke-width="1.5"/></svg>') no-repeat center center !important;
   background-size: 17px 14px !important;
   border-radius: var(--border-radius, 4px) !important;
