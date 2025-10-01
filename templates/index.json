@@ -608,6 +608,19 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "klaviyo_popup_D43Wkh": {
+      "type": "klaviyo-popup",
+      "name": "Klaviyo Popup",
+      "settings": {
+        "enable_popup": true,
+        "klaviyo_embed_code": "<div class=\"klaviyo-form-XnQuBp\"></div>",
+        "popup_trigger": "delay",
+        "popup_delay": 5,
+        "scroll_percentage": 50,
+        "exit_intent": false,
+        "show_once": true
+      }
     }
   },
   "order": [
@@ -621,6 +634,7 @@
     "featured_on_iXfAwg",
     "testimonials_custom_kHmmbJ",
     "blog_posts_Pt33Px",
-    "1759117549c8402d37"
+    "1759117549c8402d37",
+    "klaviyo_popup_D43Wkh"
   ]
 }
