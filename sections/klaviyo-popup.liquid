@@ -214,9 +214,33 @@
     console.log('[PHONE VALIDATION] All buttons found:', allButtons);
 
     allButtons.forEach(button => {
+      // Store original onclick if it exists
+      const originalOnClick = button.onclick;
+
+      // Override the button's onclick completely
+      button.onclick = function(e) {
+        console.log('[PHONE VALIDATION] Button onclick override triggered');
+        const phoneValue = phoneInput.value.trim();
+
+        if (phoneValue && !validatePhoneNumber(phoneValue)) {
+          console.log('[PHONE VALIDATION] BLOCKING via onclick override - invalid phone');
+          e.preventDefault();
+          e.stopPropagation();
+          errorMsg.style.display = 'block';
+          phoneInput.style.borderColor = '#d43c3c';
+          phoneInput.focus();
+          return false;
+        }
+
+        // Call original onclick if it existed
+        if (originalOnClick) {
+          return originalOnClick.call(this, e);
+        }
+      };
+
       // Add click listener with capture phase
       button.addEventListener('click', function(e) {
-        console.log('[PHONE VALIDATION] Button clicked:', button);
+        console.log('[PHONE VALIDATION] Button clicked (capture):', button);
         const phoneValue = phoneInput.value.trim();
         console.log('[PHONE VALIDATION] Phone value on click:', phoneValue);
 
@@ -248,6 +272,25 @@
           return false;
         }
       }, true);
+
+      // Nuclear option: listen to ALL events on the button
+      ['pointerdown', 'touchstart'].forEach(eventType => {
+        button.addEventListener(eventType, function(e) {
+          console.log('[PHONE VALIDATION] Button ' + eventType + ':', button);
+          const phoneValue = phoneInput.value.trim();
+
+          if (phoneValue && !validatePhoneNumber(phoneValue)) {
+            console.log('[PHONE VALIDATION] BLOCKING ' + eventType + ' - invalid phone');
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            errorMsg.style.display = 'block';
+            phoneInput.style.borderColor = '#d43c3c';
+            phoneInput.focus();
+            return false;
+          }
+        }, true);
+      });
     });
 
     // Clear error on input
