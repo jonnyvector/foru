@@ -96,6 +96,7 @@
   cursor: pointer !important;
   transition: all 0.3s ease !important;
   width: 100% !important;
+  max-height: 64px !important;
 }
 
 .klaviyo-popup-content h1,
