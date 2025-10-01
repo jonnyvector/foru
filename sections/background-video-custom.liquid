@@ -63,6 +63,11 @@
     margin-bottom: auto;
   }
 
+  [data-section-id="{{ section.id }}"] .shoppable-video__control-button {
+    left: auto;
+    right: 16px;
+  }
+
   {%- for block in section.blocks -%}
   [data-block-id="{{ block.id }}"]
   {
