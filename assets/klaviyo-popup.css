@@ -87,8 +87,8 @@
   box-sizing: border-box !important;
 }
 
-/* Default button styles (non-submit buttons) */
-.klaviyo-popup-content button[type="button"]:not(.go1284576775) {
+.klaviyo-popup-content button[type="submit"],
+.klaviyo-popup-content button[type="button"] {
   font-family: var(--font-headline) !important;
   font-weight: 700 !important;
   border-radius: var(--border-radius, 4px) !important;
@@ -102,7 +102,8 @@
   text-align: center !important;
 }
 
-.klaviyo-popup-content button[type="button"]:not(.go1284576775)::after {
+.klaviyo-popup-content button[type="submit"]::after,
+.klaviyo-popup-content button[type="button"]::after {
   content: "" !important;
   position: absolute !important;
   right: 8px !important;
@@ -118,59 +119,9 @@
   pointer-events: none !important;
 }
 
-.klaviyo-popup-content button[type="button"]:not(.go1284576775):hover::after {
+.klaviyo-popup-content button[type="submit"]:hover::after,
+.klaviyo-popup-content button[type="button"]:hover::after {
   opacity: 1 !important;
-}
-
-/* Submit button with custom button style (two-part with sliding animation) */
-.klaviyo-popup-content button.klaviyo-submit-button {
-  display: flex !important;
-  align-items: stretch !important;
-  gap: 0 !important;
-  padding: 0 !important;
-  overflow: hidden !important;
-  border-radius: var(--border-radius, 4px) !important;
-  background: transparent !important;
-  border: none !important;
-  width: 100% !important;
-  height: 64px !important;
-  position: relative !important;
-  font-family: var(--font-headline) !important;
-  color: white !important;
-  text-align: left !important;
-  letter-spacing: 0 !important;
-}
-
-/* Text part - left side */
-.klaviyo-popup-content button.klaviyo-submit-button::before {
-  content: attr(data-button-text) !important;
-  flex: 1 !important;
-  display: grid !important;
-  place-items: center !important;
-  background: var(--color-button-primary-background, #1a1c1c) !important;
-  color: var(--color-button-primary-text, white) !important;
-  padding: 0 24px !important;
-  font-family: var(--font-headline) !important;
-  font-weight: var(--font-headline-weight) !important;
-  font-size: var(--font-base-size) !important;
-  border-radius: var(--border-radius, 4px) !important;
-  transition: background-color 0.3s ease !important;
-  overflow: hidden !important;
-}
-
-/* Arrow part - right side */
-.klaviyo-popup-content button.klaviyo-submit-button::after {
-  content: "" !important;
-  width: 64px !important;
-  height: 64px !important;
-  display: grid !important;
-  place-items: center !important;
-  background: var(--color-button-primary-background, #1a1c1c) url('data:image/svg+xml;utf8,<svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.929688 7H15.0718M15.0718 7L8.70786 0.636039M15.0718 7L8.70786 13.364" stroke="white" stroke-width="1.5"/></svg>') no-repeat center center !important;
-  background-size: 17px 14px !important;
-  border-radius: var(--border-radius, 4px) !important;
-  border-left: 1px solid rgba(255, 255, 255, 0.2) !important;
-  flex-shrink: 0 !important;
-  transition: background-color 0.3s ease !important;
 }
 
 .klaviyo-popup-content h1,
