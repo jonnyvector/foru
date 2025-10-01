@@ -1893,15 +1893,6 @@
                       {%- else -%}
                         {%- assign button_text = 'products.product.sold_out' | t -%}
                       {%- endif -%}
-                      {% render 'custom-button',
-                        text: button_text,
-                        type: 'submit',
-                        aria_label: button_text,
-                        class: 'js-add-to-cart product-form__submit button--full-width',
-                        id: 'ProductSubmitButton-' | append: section.id,
-                        style: 'primary',
-                        disabled: disable_button
-                      %}
                       <button
                         type="submit"
                         class="js-add-to-cart product-form__submit button--full-width custom-button-text-{{ section.id }}"
