@@ -616,7 +616,7 @@
         "enable_popup": true,
         "klaviyo_embed_code": "<div class=\"klaviyo-form-XnQuBp\"></div>",
         "popup_trigger": "delay",
-        "popup_delay": 5,
+        "popup_delay": 3,
         "scroll_percentage": 50,
         "exit_intent": false,
         "show_once": true
