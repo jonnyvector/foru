@@ -239,37 +239,6 @@
       <script src="{{ 'countdown-timer.js' | asset_url }}" defer="defer"></script>
       <script src="{{ 'img-comparison-slider-v8.js' | asset_url }}" defer="defer"></script>
     {% endif %}
-
-    <!-- Klaviyo Form Font Customization -->
-    <script>
-      (function() {
-        const applyKlaviyoFonts = () => {
-          const buttons = document.querySelectorAll('.klaviyo-form-WHjrSp button');
-          if (buttons.length > 0) {
-            buttons.forEach(btn => {
-              btn.style.fontFamily = getComputedStyle(document.documentElement).getPropertyValue('--font-headline').trim();
-            });
-            return true;
-          }
-          return false;
-        };
-
-        // Try immediately
-        if (!applyKlaviyoFonts()) {
-          // Watch for Klaviyo form to appear
-          const observer = new MutationObserver(() => {
-            if (applyKlaviyoFonts()) {
-              observer.disconnect();
-            }
-          });
-          observer.observe(document.body, { childList: true, subtree: true });
-
-          // Stop observing after 10 seconds
-          setTimeout(() => observer.disconnect(), 10000);
-        }
-      })();
-    </script>
-
     <!-- Wonder Theme v2.0.0 -->
   </body>
 </html>
