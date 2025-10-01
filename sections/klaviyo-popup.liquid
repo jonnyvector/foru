@@ -88,6 +88,27 @@
       closePopup();
     }
   });
+
+  // Transform submit button to custom button style
+  function transformSubmitButton() {
+    const submitBtn = popup.querySelector('.go1284576775');
+    if (submitBtn && !submitBtn.dataset.transformed) {
+      const buttonText = submitBtn.textContent;
+      submitBtn.textContent = '';
+      submitBtn.setAttribute('data-button-text', buttonText);
+      submitBtn.dataset.transformed = 'true';
+
+      // Add text content via data attribute for CSS to use
+      submitBtn.style.setProperty('--button-text', `"${buttonText}"`);
+    }
+  }
+
+  // Watch for button to be added by Klaviyo
+  const buttonObserver = new MutationObserver(transformSubmitButton);
+  buttonObserver.observe(popup, { childList: true, subtree: true });
+
+  // Try immediately in case button already exists
+  setTimeout(transformSubmitButton, 500);
 })();
 </script>
 {%- endif -%}
