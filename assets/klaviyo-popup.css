@@ -107,6 +107,7 @@
 
 .klaviyo-popup-content span:first-of-type {
   font-family: var(--font-headline) !important;
+  font-weight: var(--font-headline-weight) !important;
 }
 
 .klaviyo-popup-content p {
