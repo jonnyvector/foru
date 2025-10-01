@@ -523,3 +523,13 @@ h6,
 .klaviyo-form-WHjrSp button.kl-private-reset-css-Xuajs1 {
   font-family: var(--font-headline) !important;
 }
+
+.hero__info-tooltip {
+  margin-left: -0.25rem;
+}
+
+@media (min-width: 765px) {
+  .hero__info-tooltip {
+    margin-left: -1.5rem;
+  }
+}

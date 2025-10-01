@@ -3158,9 +3158,9 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
 
 @media (min-width: 1515px) {
   .hero__info-tooltip-content {
-    bottom: calc(100% + 1rem);
+    bottom: calc(100% + 0.5rem);
     top: auto;
-    left: calc(100% + 1rem);
+    left: calc(100% + 0.5rem);
     transform: none;
     white-space: nowrap;
     min-width: auto;
