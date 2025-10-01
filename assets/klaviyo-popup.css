@@ -44,8 +44,8 @@
   position: absolute;
   top: 20px;
   left: 20px;
-  background: rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
   cursor: pointer;
   width: 40px;
   height: 40px;
@@ -55,13 +55,11 @@
   border-radius: 50%;
   transition: all 0.2s ease;
   z-index: 2;
-  color: var(--color-text, #1a1c1c);
+  color: #1a1c1c;
 }
 
 .klaviyo-popup-close:hover {
-  background: rgba(0, 0, 0, 0.2);
-  border-color: rgba(0, 0, 0, 0.2);
-  transform: scale(1.05);
+  opacity: 0.8;
 }
 
 .klaviyo-popup-content {
