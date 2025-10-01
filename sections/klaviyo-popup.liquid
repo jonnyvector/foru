@@ -1,0 +1,175 @@
+{{ 'klaviyo-popup.css' | asset_url | stylesheet_tag }}
+
+{%- if section.settings.enable_popup -%}
+{%- if section.settings.klaviyo_api_key != blank -%}
+<script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id={{ section.settings.klaviyo_api_key }}"></script>
+{%- endif -%}
+<div
+  class="klaviyo-popup-modal"
+  id="klaviyo-popup-{{ section.id }}"
+  data-popup-delay="{{ section.settings.popup_delay }}"
+  data-popup-trigger="{{ section.settings.popup_trigger }}"
+  data-scroll-percentage="{{ section.settings.scroll_percentage }}"
+  data-exit-intent="{{ section.settings.exit_intent }}"
+  data-show-once="{{ section.settings.show_once }}"
+>
+  <div class="klaviyo-popup-overlay"></div>
+  <div class="klaviyo-popup-container">
+    <button class="klaviyo-popup-close" aria-label="Close popup">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div class="klaviyo-popup-content">
+      {{ section.settings.klaviyo_embed_code }}
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const popup = document.getElementById('klaviyo-popup-{{ section.id }}');
+  if (!popup) return;
+
+  const overlay = popup.querySelector('.klaviyo-popup-overlay');
+  const closeBtn = popup.querySelector('.klaviyo-popup-close');
+  const trigger = popup.dataset.popupTrigger;
+  const delay = parseInt(popup.dataset.popupDelay) * 1000;
+  const scrollPercentage = parseInt(popup.dataset.scrollPercentage);
+  const exitIntent = popup.dataset.exitIntent === 'true';
+  const showOnce = popup.dataset.showOnce === 'true';
+  const storageKey = 'klaviyo-popup-{{ section.id }}-shown';
+
+  function showPopup() {
+    if (showOnce && localStorage.getItem(storageKey)) return;
+    popup.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (showOnce) localStorage.setItem(storageKey, 'true');
+  }
+
+  function closePopup() {
+    popup.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Close handlers
+  closeBtn.addEventListener('click', closePopup);
+  overlay.addEventListener('click', closePopup);
+
+  // Trigger logic
+  if (trigger === 'delay') {
+    setTimeout(showPopup, delay);
+  } else if (trigger === 'scroll') {
+    window.addEventListener('scroll', function() {
+      const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      if (scrolled >= scrollPercentage) {
+        showPopup();
+        window.removeEventListener('scroll', arguments.callee);
+      }
+    });
+  } else if (trigger === 'immediate') {
+    setTimeout(showPopup, 500);
+  }
+
+  // Exit intent
+  if (exitIntent) {
+    document.addEventListener('mouseout', function(e) {
+      if (e.clientY < 0) {
+        showPopup();
+        document.removeEventListener('mouseout', arguments.callee);
+      }
+    });
+  }
+
+  // ESC key to close
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && popup.classList.contains('active')) {
+      closePopup();
+    }
+  });
+})();
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Klaviyo Popup",
+  "tag": "section",
+  "class": "section-klaviyo-popup",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_popup",
+      "label": "Enable popup",
+      "default": true
+    },
+    {
+      "type": "html",
+      "id": "klaviyo_embed_code",
+      "label": "Klaviyo embed code",
+      "info": "Paste your Klaviyo embedded form code here"
+    },
+    {
+      "type": "select",
+      "id": "popup_trigger",
+      "label": "Popup trigger",
+      "options": [
+        {
+          "value": "immediate",
+          "label": "Immediate (on page load)"
+        },
+        {
+          "value": "delay",
+          "label": "Time delay"
+        },
+        {
+          "value": "scroll",
+          "label": "Scroll percentage"
+        }
+      ],
+      "default": "delay"
+    },
+    {
+      "type": "range",
+      "id": "popup_delay",
+      "label": "Delay (seconds)",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "default": 5,
+      "info": "Only applies when 'Time delay' is selected"
+    },
+    {
+      "type": "range",
+      "id": "scroll_percentage",
+      "label": "Scroll percentage",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 50,
+      "unit": "%",
+      "info": "Only applies when 'Scroll percentage' is selected"
+    },
+    {
+      "type": "checkbox",
+      "id": "exit_intent",
+      "label": "Enable exit intent",
+      "default": false,
+      "info": "Show popup when user moves cursor to leave the page"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_once",
+      "label": "Show only once per visitor",
+      "default": true,
+      "info": "Uses browser localStorage to remember if popup was shown"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Klaviyo Popup"
+    }
+  ]
+}
+{% endschema %}

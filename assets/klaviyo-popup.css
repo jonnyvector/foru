@@ -1,0 +1,196 @@
+/* Klaviyo Popup Modal Styles */
+.klaviyo-popup-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.klaviyo-popup-modal.active {
+  display: flex;
+}
+
+.klaviyo-popup-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+}
+
+.klaviyo-popup-container {
+  position: relative;
+  background-color: var(--color-background, #ffffff);
+  border-radius: var(--border-radius, 8px);
+  max-width: 780px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  padding: 0;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.klaviyo-popup-close {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #ffffff !important;
+  border: 1px solid #d0d0d0 !important;
+  cursor: pointer;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50% !important;
+  transition: all 0.2s ease;
+  z-index: 2;
+  padding: 0 !important;
+}
+
+.klaviyo-popup-close svg {
+  width: 20px !important;
+  height: 20px !important;
+  stroke: #1a1c1c !important;
+  stroke-width: 2 !important;
+}
+
+.klaviyo-popup-close:hover {
+  opacity: 0.8;
+}
+
+.klaviyo-popup-content {
+  position: relative;
+  width: 100%;
+}
+
+/* Klaviyo Form Customization */
+.klaviyo-popup-content .klaviyo-form,
+.klaviyo-popup-content form,
+.klaviyo-popup-content > div {
+  font-family: var(--font-body);
+}
+
+.klaviyo-popup-content input[type="email"],
+.klaviyo-popup-content input[type="text"],
+.klaviyo-popup-content input[type="tel"] {
+  font-family: var(--font-body) !important;
+  font-size: var(--font-base-size, 16px) !important;
+  border-radius: var(--border-radius, 4px) !important;
+  padding: 12px 16px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.klaviyo-popup-content button[type="submit"],
+.klaviyo-popup-content button[type="button"] {
+  font-family: var(--font-headline) !important;
+  font-weight: 700 !important;
+  border-radius: var(--border-radius, 4px) !important;
+  padding: 7px 32px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  width: 100% !important;
+  max-height: 64px !important;
+  position: relative !important;
+  overflow: visible !important;
+  text-align: center !important;
+}
+
+.klaviyo-popup-content button[type="submit"]::after,
+.klaviyo-popup-content button[type="button"]::after {
+  content: "" !important;
+  position: absolute !important;
+  right: 8px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 52px !important;
+  height: 52px !important;
+  background: white url('data:image/svg+xml;utf8,<svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.929688 7H15.0718M15.0718 7L8.70786 0.636039M15.0718 7L8.70786 13.364" stroke="%231A1C1C" stroke-width="1.5"/></svg>') no-repeat center center !important;
+  background-size: 17px 14px !important;
+  border-radius: var(--border-radius, 4px) !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+  pointer-events: none !important;
+}
+
+.klaviyo-popup-content button[type="submit"]:hover::after,
+.klaviyo-popup-content button[type="button"]:hover::after {
+  opacity: 1 !important;
+}
+
+.klaviyo-popup-content h1,
+.klaviyo-popup-content h2,
+.klaviyo-popup-content h3 {
+  font-family: var(--font-headline) !important;
+  line-height: 1.2 !important;
+}
+
+.klaviyo-popup-content span:first-of-type {
+  font-family: var(--font-headline) !important;
+  font-weight: var(--font-headline-weight) !important;
+}
+
+.klaviyo-popup-content p {
+  font-family: var(--font-body) !important;
+  font-size: var(--font-base-size, 16px) !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 899px) {
+  /* Hide the second child div (image container) in Klaviyo form */
+  .klaviyo-popup-content .klaviyo-form > div:nth-child(2) {
+    display: none !important;
+  }
+
+  /* Make first child (form content) full width */
+  .klaviyo-popup-content .klaviyo-form > div:nth-child(1) {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-right: 0 !important;
+  }
+
+  /* Remove form padding on mobile */
+  .klaviyo-popup-content .klaviyo-form {
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 749px) {
+  .klaviyo-popup-container {
+    padding: 24px;
+    max-width: 100%;
+  }
+
+  .klaviyo-popup-modal {
+    padding: 16px;
+  }
+}
+
+/* Animation */
+@keyframes klaviyoPopupFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.klaviyo-popup-modal.active .klaviyo-popup-container {
+  animation: klaviyoPopupFadeIn 0.3s ease-out;
+}

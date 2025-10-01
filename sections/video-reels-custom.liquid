@@ -39,9 +39,7 @@
     margin-bottom: 10px;
   }
 
-  [data-section-id="{{ section.id }}"] .video-reels__subheading {
-    font-weight: 500;
-  }
+
 
   @media (min-width: 900px) {
     [data-section-id="{{ section.id }}"] .headline__title {
@@ -77,7 +75,7 @@
 
 <video-reels data-section-id="{{ section.id }}" class="section-content video-reels wt-slider--wrapper {% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}">
   {% if section.settings.subheading != blank %}
-    <h4 class="video-reels__subheading">{{ section.settings.subheading }}</h4>
+    <h5 class="video-reels__subheading">{{ section.settings.subheading }}</h5>
   {% endif %}
 
   {% render 'headline'

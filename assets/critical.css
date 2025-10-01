@@ -1605,6 +1605,16 @@ page-header {
   position: absolute;
 }
 
+/* Keep header overlay below header on mobile */
+@media (max-width: 1199px) {
+  .page-header-sticky.menu-drawer-overlay-on
+    .page-header.sticky-enabled
+    .wt-header__body::before {
+    z-index: -1;
+    background: transparent !important;
+  }
+}
+
 .wt-header {
   --search-trigger-width: 3rem;
   display: block;
@@ -3979,6 +3989,14 @@ mega-menu-section {
   z-index: 15;
   transition: opacity 0.3s ease-in-out;
 }
+
+/* Keep overlay below header and menu on mobile */
+@media (max-width: 1199px) {
+  .menu-drawer-overlay {
+    z-index: 999;
+  }
+}
+
 @media (min-width: 1200px) {
   .menu-drawer-overlay {
     height: 100%;
@@ -4165,12 +4183,15 @@ mega-menu-section {
   .wt-drawer--nav {
     top: var(--dynamic-header-height, 64px);
     height: calc(100vh - var(--dynamic-header-height, 64px));
+    z-index: 1001;
   }
 
-  /* Ensure header stays above drawer when menu is open on mobile */
+  /* Ensure header stays above drawer overlay but below drawer content */
   .menu-open .page-header {
-    z-index: 101 !important;
-    position: relative !important;
+    z-index: 1000 !important;
+    position: sticky !important;
+    top: 0 !important;
+    transform: translateY(0) !important;
   }
 }
 [dir="rtl"] .wt-drawer {
