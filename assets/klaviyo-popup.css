@@ -38,7 +38,6 @@
   padding: 0;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   z-index: 1;
-  display: flex;
 }
 
 .klaviyo-popup-close {
@@ -65,7 +64,6 @@
 
 .klaviyo-popup-content {
   position: relative;
-  flex: 1;
 }
 
 /* Klaviyo Form Customization */
