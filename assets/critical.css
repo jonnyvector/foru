@@ -4169,7 +4169,7 @@ mega-menu-section {
 
   /* Ensure header stays above drawer when menu is open on mobile */
   .menu-open .page-header {
-    z-index: 101 !important;
+    z-index: 1000 !important;
     position: sticky !important;
     top: 0 !important;
     transform: translateY(0) !important;
