@@ -48,6 +48,21 @@
     {% endif %}
   }
 
+  [data-section-id="{{ section.id }}"] .hero__overlay--top {
+    margin-top: 0;
+    margin-bottom: auto;
+  }
+
+  [data-section-id="{{ section.id }}"] .hero__overlay--bottom {
+    margin-top: auto;
+    margin-bottom: 0;
+  }
+
+  [data-section-id="{{ section.id }}"] .hero__overlay--center {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
   {%- for block in section.blocks -%}
   [data-block-id="{{ block.id }}"]
   {
