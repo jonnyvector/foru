@@ -135,9 +135,9 @@
     // Remove all non-digit characters except + at the start
     const cleaned = phoneNumber.replace(/[^\d+]/g, '');
 
-    // International format: must start with + and have 7-15 digits
-    // Allows formats like: +1234567890, +44 20 1234 5678, etc.
-    const internationalPattern = /^\+\d{7,15}$/;
+    // International format: optional + at start, then 7-15 digits
+    // Allows formats like: +1234567890, 1234567890, +44 20 1234 5678, etc.
+    const internationalPattern = /^\+?\d{7,15}$/;
 
     return internationalPattern.test(cleaned);
   }
@@ -173,7 +173,7 @@
       errorMsg.style.fontSize = '14px';
       errorMsg.style.marginTop = '4px';
       errorMsg.style.display = 'none';
-      errorMsg.textContent = 'Please enter a valid international phone number (e.g., +1234567890)';
+      errorMsg.textContent = 'Please enter a valid phone number (7-15 digits, e.g., +1234567890 or 1234567890)';
       phoneInput.parentElement.appendChild(errorMsg);
     }
     console.log('[PHONE VALIDATION] Error message element created/found:', errorMsg);
@@ -191,13 +191,13 @@
         e.stopPropagation();
         e.stopImmediatePropagation();
         errorMsg.style.display = 'block';
-        phoneInput.style.borderColor = '#d43c3c';
+        phoneInput.style.border = '2px solid #d43c3c';
         phoneInput.focus();
         return false;
       } else {
         console.log('[PHONE VALIDATION] Phone valid or empty, allowing submission');
         errorMsg.style.display = 'none';
-        phoneInput.style.borderColor = '';
+        phoneInput.style.border = '';
       }
     }
 
@@ -227,7 +227,7 @@
           e.preventDefault();
           e.stopPropagation();
           errorMsg.style.display = 'block';
-          phoneInput.style.borderColor = '#d43c3c';
+          phoneInput.style.border = '2px solid #d43c3c';
           phoneInput.focus();
           return false;
         }
@@ -250,7 +250,7 @@
           e.stopPropagation();
           e.stopImmediatePropagation();
           errorMsg.style.display = 'block';
-          phoneInput.style.borderColor = '#d43c3c';
+          phoneInput.style.border = '2px solid #d43c3c';
           phoneInput.focus();
           return false;
         }
@@ -267,7 +267,7 @@
           e.stopPropagation();
           e.stopImmediatePropagation();
           errorMsg.style.display = 'block';
-          phoneInput.style.borderColor = '#d43c3c';
+          phoneInput.style.border = '2px solid #d43c3c';
           phoneInput.focus();
           return false;
         }
@@ -285,7 +285,7 @@
             e.stopPropagation();
             e.stopImmediatePropagation();
             errorMsg.style.display = 'block';
-            phoneInput.style.borderColor = '#d43c3c';
+            phoneInput.style.border = '2px solid #d43c3c';
             phoneInput.focus();
             return false;
           }
@@ -296,7 +296,7 @@
     // Clear error on input
     phoneInput.addEventListener('input', function() {
       errorMsg.style.display = 'none';
-      phoneInput.style.borderColor = '';
+      phoneInput.style.border = '';
     });
 
     console.log('[PHONE VALIDATION] Validation setup complete');
