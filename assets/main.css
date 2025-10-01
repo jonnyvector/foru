@@ -10986,6 +10986,7 @@ main#root > .wt-featured-nav {
 
 .wt-benefits-product__subheading {
   font-family: var(--font-headline);
+  font-weight: var(--font-headline-weight);
 }
 
 /* .wt-benefits-product__heading {
