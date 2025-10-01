@@ -475,7 +475,7 @@
         "desktop_fixed_height": 680,
         "mobile_fixed_height": 460,
         "color-body-heading": "#ffffff",
-        "color-overlay": "transparent",
+        "color-overlay": "rgba(0,0,0,0)",
         "color-overlay-opacity": 100,
         "color-body-text": "#ffffff",
         "desktop_text_horizontal_position": "left",
@@ -673,6 +673,67 @@
         "exit_intent": false,
         "show_once": false
       }
+    },
+    "background_video_custom_zknj3k": {
+      "type": "background-video-custom",
+      "blocks": {
+        "icon_DrADWq": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame_154_1.svg",
+            "icon_width": 80
+          }
+        },
+        "heading_BfGUeU": {
+          "type": "heading",
+          "settings": {
+            "heading": "Every ingredient\nhas an origin story.\nWe know ours.",
+            "disable_on_mobile": false,
+            "size_heading": 330,
+            "size_heading_mobile": 100
+          }
+        },
+        "button_9bbhDc": {
+          "type": "button",
+          "settings": {
+            "button_select": "primary",
+            "button_label": "Button label",
+            "disable_on_mobile": false,
+            "button_link": "",
+            "second_button_select": "primary",
+            "second_button_label": "Button label",
+            "second_disable_on_mobile": false,
+            "second_button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "icon_DrADWq",
+        "heading_BfGUeU",
+        "button_9bbhDc"
+      ],
+      "name": "Background video custom",
+      "settings": {
+        "heading": "",
+        "full-width-enabled": true,
+        "video_hosted": "shopify://files/videos/2583472-uhd_3840_2160_24fps.mp4",
+        "autoplay": true,
+        "video_controls": false,
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "original_ratio": "fixed_height",
+        "desktop_fixed_height": 640,
+        "mobile_fixed_height": 460,
+        "color-body-heading": "transparent",
+        "color-overlay": "transparent",
+        "color-overlay-opacity": 100,
+        "color-body-text": "#ffffff",
+        "desktop_text_horizontal_position": "left",
+        "desktop_text_vertical_position": "bottom",
+        "mobile_text_horizontal_position": "center",
+        "mobile_text_vertical_position": "center",
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
     }
   },
   "order": [
@@ -688,6 +749,7 @@
     "testimonials_custom_kHmmbJ",
     "blog_posts_Pt33Px",
     "1759117549c8402d37",
-    "klaviyo_popup_D43Wkh"
+    "klaviyo_popup_D43Wkh",
+    "background_video_custom_zknj3k"
   ]
 }
