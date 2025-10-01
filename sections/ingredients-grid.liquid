@@ -11,47 +11,6 @@
 {{ 'swiper.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'slider.js' | asset_url }}" defer></script>
 <script src="{{ 'ingredient-drawer.js' | asset_url }}" defer></script>
-<script>
-  // Align ingredient card descriptions on mobile slider only
-  function alignIngredientGridDescriptions() {
-    // Only run on mobile (when slider is visible)
-    if (window.innerWidth >= 768) return;
-
-    const swiperEl = document.querySelector('[data-section-id="{{ section.id }}"] [data-swiper]');
-    if (!swiperEl) return;
-
-    const cards = Array.from(swiperEl.querySelectorAll('.ingredients-grid__card'));
-    const names = cards.map(card => card.querySelector('.ingredients-grid__card-name'));
-
-    // Reset heights
-    names.forEach(name => { if (name) name.style.height = 'auto'; });
-
-    // Calculate max height for names
-    let maxNameHeight = 0;
-    names.forEach(name => {
-      if (name) {
-        const height = name.offsetHeight;
-        if (height > maxNameHeight) maxNameHeight = height;
-      }
-    });
-
-    // Apply max height to all names to align descriptions
-    names.forEach(name => {
-      if (name) name.style.height = maxNameHeight + 'px';
-    });
-  }
-
-  // Run on load and resize
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      setTimeout(alignIngredientGridDescriptions, 100);
-    });
-  } else {
-    setTimeout(alignIngredientGridDescriptions, 100);
-  }
-
-  window.addEventListener('resize', alignIngredientGridDescriptions);
-</script>
 
 <style>
   [data-section-id="{{ section.id }}"] {
