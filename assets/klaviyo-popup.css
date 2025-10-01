@@ -148,6 +148,19 @@
   font-size: var(--font-base-size, 16px) !important;
 }
 
+/* Balance the form and image columns on desktop */
+@media (min-width: 900px) {
+  .klaviyo-popup-content .klaviyo-form > div:nth-child(1) {
+    flex: 1 !important;
+    max-width: 50% !important;
+  }
+
+  .klaviyo-popup-content .klaviyo-form > div:nth-child(2) {
+    flex: 1 !important;
+    max-width: 50% !important;
+  }
+}
+
 /* Mobile responsiveness */
 @media (max-width: 899px) {
   /* Hide the second child div (image container) in Klaviyo form */
