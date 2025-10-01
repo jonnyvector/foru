@@ -90,11 +90,13 @@
     {%- endif -%}
     {% unless hide_read_more %}
       <div class="wt-blog__read article-card__footer" {{ block.shopify_attributes }}>
+        {% assign read_more_text = 'blogs.article.read_more' | t %}
+        {% assign read_more_aria = 'blogs.article.read_more_title' | t: title: article.title %}
         {% render 'custom-button'
-          , text: 'blogs.article.read_more' | t
+          , text: read_more_text
           , type: 'link'
           , url: article.url
-          , aria_label: 'blogs.article.read_more_title' | t: title: article.title
+          , aria_label: read_more_aria
           , style: 'primary'
           , class: 'custom-button-wrapper--fit-content' %}
       </div>
