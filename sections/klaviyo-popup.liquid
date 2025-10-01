@@ -129,6 +129,81 @@
       closePopup();
     }
   });
+
+  // Phone number validation
+  function validatePhoneNumber(phoneNumber) {
+    // Remove all non-digit characters except + at the start
+    const cleaned = phoneNumber.replace(/[^\d+]/g, '');
+
+    // International format: must start with + and have 7-15 digits
+    // Allows formats like: +1234567890, +44 20 1234 5678, etc.
+    const internationalPattern = /^\+\d{7,15}$/;
+
+    return internationalPattern.test(cleaned);
+  }
+
+  function addPhoneValidation() {
+    const phoneInput = popup.querySelector('#phone_number_01K6FRB02HPPKJ92PX7FC5QW4R');
+    if (!phoneInput) return;
+
+    const form = phoneInput.closest('form');
+    if (!form) return;
+
+    // Create error message element
+    let errorMsg = phoneInput.parentElement.querySelector('.phone-error-message');
+    if (!errorMsg) {
+      errorMsg = document.createElement('div');
+      errorMsg.className = 'phone-error-message';
+      errorMsg.style.color = '#d43c3c';
+      errorMsg.style.fontSize = '14px';
+      errorMsg.style.marginTop = '4px';
+      errorMsg.style.display = 'none';
+      errorMsg.textContent = 'Please enter a valid international phone number (e.g., +1234567890)';
+      phoneInput.parentElement.appendChild(errorMsg);
+    }
+
+    // Validate on form submit
+    form.addEventListener('submit', function(e) {
+      const phoneValue = phoneInput.value.trim();
+
+      if (phoneValue && !validatePhoneNumber(phoneValue)) {
+        e.preventDefault();
+        e.stopPropagation();
+        errorMsg.style.display = 'block';
+        phoneInput.style.borderColor = '#d43c3c';
+        phoneInput.focus();
+        return false;
+      } else {
+        errorMsg.style.display = 'none';
+        phoneInput.style.borderColor = '';
+      }
+    });
+
+    // Clear error on input
+    phoneInput.addEventListener('input', function() {
+      errorMsg.style.display = 'none';
+      phoneInput.style.borderColor = '';
+    });
+  }
+
+  // Wait for form to be ready, then add validation
+  const validationObserver = new MutationObserver(function() {
+    const phoneInput = popup.querySelector('#phone_number_01K6FRB02HPPKJ92PX7FC5QW4R');
+    if (phoneInput) {
+      addPhoneValidation();
+      validationObserver.disconnect();
+    }
+  });
+
+  validationObserver.observe(popup.querySelector('.klaviyo-popup-content'), {
+    childList: true,
+    subtree: true
+  });
+
+  // Try immediately in case form is already loaded
+  if (popup.querySelector('#phone_number_01K6FRB02HPPKJ92PX7FC5QW4R')) {
+    addPhoneValidation();
+  }
 })();
 </script>
 {%- endif -%}
