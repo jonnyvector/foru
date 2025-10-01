@@ -1605,6 +1605,15 @@ page-header {
   position: absolute;
 }
 
+/* Keep header overlay below header on mobile */
+@media (max-width: 1199px) {
+  .page-header-sticky.menu-drawer-overlay-on
+    .page-header.sticky-enabled
+    .wt-header__body::before {
+    z-index: -1;
+  }
+}
+
 .wt-header {
   --search-trigger-width: 3rem;
   display: block;
