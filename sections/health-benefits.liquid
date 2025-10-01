@@ -96,7 +96,7 @@
 
     [data-section-id="{{ section.id }}"] .health-benefits__eyebrow {
       /* font-size: calc(var(--font-base-size) * 0.875); */
-      letter-spacing: 0.1em;
+      margin-bottom: 32px;
       margin-top: 24px;
     }
     
@@ -260,7 +260,8 @@
               , text: section.settings.cta_label
               , type: 'link'
               , url: section.settings.cta_link
-              , style: 'primary' %}
+              , style: 'primary'
+              , class: 'custom-button-wrapper--fit-content' %}
           </div>
         {% endif %}
       </div>

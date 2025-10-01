@@ -39,7 +39,7 @@
   }
 
   section[id="shopify-section-{{ section.id }}"] .wt-benefits-product__subheading {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     text-align: center;
   }
 
@@ -125,7 +125,7 @@
 <div class="{{ width_line }} wt-benefits-product" data-section-id="{{ section.id }}">
   <div>
     {% if section.settings.subheading %}
-      <div class="wt-benefits-product__subheading h4">{{ section.settings.subheading }}</div>
+      <div class="wt-benefits-product__subheading h5">{{ section.settings.subheading }}</div>
     {% endif %}
     {% comment %}{% render 'headline', title: section.settings.heading %}{% endcomment %}
     {% if section.settings.heading %}
