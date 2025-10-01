@@ -93,10 +93,38 @@
   font-weight: 700 !important;
   border-radius: var(--border-radius, 4px) !important;
   padding: 14px 32px !important;
+  padding-right: 80px !important;
   cursor: pointer !important;
   transition: all 0.3s ease !important;
   width: 100% !important;
   max-height: 64px !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.klaviyo-popup-content button[type="submit"]::after,
+.klaviyo-popup-content button[type="button"]::after {
+  content: "→" !important;
+  position: absolute !important;
+  right: 8px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 56px !important;
+  height: 48px !important;
+  background: white !important;
+  border-radius: var(--border-radius, 4px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 24px !important;
+  color: #1a1c1c !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+}
+
+.klaviyo-popup-content button[type="submit"]:hover::after,
+.klaviyo-popup-content button[type="button"]:hover::after {
+  opacity: 1 !important;
 }
 
 .klaviyo-popup-content h1,
