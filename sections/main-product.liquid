@@ -1893,7 +1893,7 @@
                       {%- else -%}
                         {%- assign button_text = 'products.product.sold_out' | t -%}
                       {%- endif -%}
-                      {% assign unique_id = 'ProductSubmitButton-{{ section.id }}' | default: section.id | default: 'default' | prepend: 'custom-btn-' %}
+                      {% assign unique_id = 'ProductSubmitButton-' | default: section.id | default: 'default' | prepend: 'custom-btn-' %}
                       <button
                         type="submit"
                         class="js-add-to-cart product-form__submit button--full-width custom-button-text-{{ section.id }}"
