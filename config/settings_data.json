@@ -505,7 +505,8 @@
   "platform_customizations": {
     "custom_css": [
       ".eca_selling_plan_container {padding: 0;}",
-      ".wt-apps__wrapper:has([id*=\"easy_subscriptions\"]) {display: none;}"
+      ".wt-apps__wrapper:has([id*=\"easy_subscriptions\"]) {display: none;}",
+      ".selling_plan_app_container .esa_subscription_price_and_per_unit_delivery .price {font-size: 19px;}"
     ]
   }
 }
