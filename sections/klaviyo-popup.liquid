@@ -162,13 +162,14 @@
       phoneInput.parentElement.appendChild(errorMsg);
     }
 
-    // Validate on form submit
-    form.addEventListener('submit', function(e) {
+    // Validation handler
+    function handleValidation(e) {
       const phoneValue = phoneInput.value.trim();
 
       if (phoneValue && !validatePhoneNumber(phoneValue)) {
         e.preventDefault();
         e.stopPropagation();
+        e.stopImmediatePropagation();
         errorMsg.style.display = 'block';
         phoneInput.style.borderColor = '#d43c3c';
         phoneInput.focus();
@@ -177,6 +178,29 @@
         errorMsg.style.display = 'none';
         phoneInput.style.borderColor = '';
       }
+    }
+
+    // Capture submit event in capture phase (before Klaviyo)
+    form.addEventListener('submit', handleValidation, true);
+
+    // Also add in bubble phase as backup
+    form.addEventListener('submit', handleValidation, false);
+
+    // Intercept submit button clicks directly
+    const submitButtons = form.querySelectorAll('button[type="submit"], input[type="submit"]');
+    submitButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        const phoneValue = phoneInput.value.trim();
+        if (phoneValue && !validatePhoneNumber(phoneValue)) {
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+          errorMsg.style.display = 'block';
+          phoneInput.style.borderColor = '#d43c3c';
+          phoneInput.focus();
+          return false;
+        }
+      }, true);
     });
 
     // Clear error on input
