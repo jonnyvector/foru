@@ -143,11 +143,26 @@
   }
 
   function addPhoneValidation() {
+    console.log('[PHONE VALIDATION] Starting addPhoneValidation');
+
     const phoneInput = popup.querySelector('#phone_number_01K6FRB02HPPKJ92PX7FC5QW4R');
-    if (!phoneInput) return;
+    console.log('[PHONE VALIDATION] Phone input found:', phoneInput);
+
+    if (!phoneInput) {
+      console.warn('[PHONE VALIDATION] Phone input NOT found with ID: phone_number_01K6FRB02HPPKJ92PX7FC5QW4R');
+      // Try to find any phone input
+      const allInputs = popup.querySelectorAll('input[type="tel"], input[name*="phone"]');
+      console.log('[PHONE VALIDATION] All phone-like inputs found:', allInputs);
+      return;
+    }
 
     const form = phoneInput.closest('form');
-    if (!form) return;
+    console.log('[PHONE VALIDATION] Form found:', form);
+
+    if (!form) {
+      console.warn('[PHONE VALIDATION] Form NOT found for phone input');
+      return;
+    }
 
     // Create error message element
     let errorMsg = phoneInput.parentElement.querySelector('.phone-error-message');
@@ -161,12 +176,17 @@
       errorMsg.textContent = 'Please enter a valid international phone number (e.g., +1234567890)';
       phoneInput.parentElement.appendChild(errorMsg);
     }
+    console.log('[PHONE VALIDATION] Error message element created/found:', errorMsg);
 
     // Validation handler
     function handleValidation(e) {
+      console.log('[PHONE VALIDATION] handleValidation triggered, event type:', e.type);
       const phoneValue = phoneInput.value.trim();
+      console.log('[PHONE VALIDATION] Phone value:', phoneValue);
+      console.log('[PHONE VALIDATION] Is valid?', validatePhoneNumber(phoneValue));
 
       if (phoneValue && !validatePhoneNumber(phoneValue)) {
+        console.log('[PHONE VALIDATION] BLOCKING SUBMISSION - invalid phone');
         e.preventDefault();
         e.stopPropagation();
         e.stopImmediatePropagation();
@@ -175,6 +195,7 @@
         phoneInput.focus();
         return false;
       } else {
+        console.log('[PHONE VALIDATION] Phone valid or empty, allowing submission');
         errorMsg.style.display = 'none';
         phoneInput.style.borderColor = '';
       }
@@ -182,16 +203,22 @@
 
     // Capture submit event in capture phase (before Klaviyo)
     form.addEventListener('submit', handleValidation, true);
+    console.log('[PHONE VALIDATION] Added submit listener (capture phase)');
 
     // Also add in bubble phase as backup
     form.addEventListener('submit', handleValidation, false);
+    console.log('[PHONE VALIDATION] Added submit listener (bubble phase)');
 
     // Intercept submit button clicks directly
     const submitButtons = form.querySelectorAll('button[type="submit"], input[type="submit"]');
+    console.log('[PHONE VALIDATION] Submit buttons found:', submitButtons);
+
     submitButtons.forEach(button => {
       button.addEventListener('click', function(e) {
+        console.log('[PHONE VALIDATION] Submit button clicked');
         const phoneValue = phoneInput.value.trim();
         if (phoneValue && !validatePhoneNumber(phoneValue)) {
+          console.log('[PHONE VALIDATION] BLOCKING BUTTON CLICK - invalid phone');
           e.preventDefault();
           e.stopPropagation();
           e.stopImmediatePropagation();
@@ -208,6 +235,8 @@
       errorMsg.style.display = 'none';
       phoneInput.style.borderColor = '';
     });
+
+    console.log('[PHONE VALIDATION] Validation setup complete');
   }
 
   // Wait for form to be ready, then add validation
