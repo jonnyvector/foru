@@ -140,6 +140,12 @@
 }
 
 /* Mobile responsiveness */
+@media (max-width: 899px) {
+  .klaviyo-popup-content img {
+    display: none !important;
+  }
+}
+
 @media (max-width: 749px) {
   .klaviyo-popup-container {
     padding: 24px;
