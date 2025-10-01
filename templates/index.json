@@ -619,7 +619,7 @@
         "popup_delay": 3,
         "scroll_percentage": 50,
         "exit_intent": false,
-        "show_once": true
+        "show_once": false
       }
     },
     "175929218733d48b98": {
