@@ -433,57 +433,6 @@
         "margin-bottom": 0
       }
     },
-    "background_video_mKAMBX": {
-      "type": "background-video",
-      "blocks": {
-        "heading_nwYL6X": {
-          "type": "heading",
-          "settings": {
-            "heading": "EVERY INGREDIENT\nHAS AN ORIGIN STORY\nWE KNOW OURS.",
-            "disable_on_mobile": false,
-            "size_heading": 320,
-            "size_heading_mobile": 170
-          }
-        },
-        "button_GFmCRQ": {
-          "type": "button",
-          "settings": {
-            "button_select": "primary",
-            "button_label": "Button label",
-            "disable_on_mobile": false,
-            "button_link": "",
-            "second_button_select": "primary",
-            "second_button_label": "Button label",
-            "second_disable_on_mobile": false,
-            "second_button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "heading_nwYL6X",
-        "button_GFmCRQ"
-      ],
-      "name": "t:sections.background-video.presets.name",
-      "settings": {
-        "heading": "",
-        "full-width-enabled": true,
-        "video_hosted": "shopify://files/videos/2583472-uhd_3840_2160_24fps.mp4",
-        "autoplay": true,
-        "video_controls": false,
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "original_ratio": "fixed_height",
-        "desktop_fixed_height": 680,
-        "mobile_fixed_height": 460,
-        "color-body-heading": "#ffffff",
-        "color-overlay": "rgba(0,0,0,0)",
-        "color-overlay-opacity": 100,
-        "color-body-text": "#ffffff",
-        "desktop_text_horizontal_position": "left",
-        "mobile_text_horizontal_position": "left",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
     "featured_on_iXfAwg": {
       "type": "featured-on",
       "blocks": {
@@ -744,12 +693,11 @@
     "video_reels_custom_LBnjxB",
     "image_with_text_3rdT8b",
     "image_with_text_ewadgb",
-    "background_video_mKAMBX",
+    "background_video_custom_zknj3k",
     "featured_on_iXfAwg",
     "testimonials_custom_kHmmbJ",
     "blog_posts_Pt33Px",
     "1759117549c8402d37",
-    "klaviyo_popup_D43Wkh",
-    "background_video_custom_zknj3k"
+    "klaviyo_popup_D43Wkh"
   ]
 }
