@@ -40,9 +40,50 @@
   const exitIntent = popup.dataset.exitIntent === 'true';
   const showOnce = popup.dataset.showOnce === 'true';
   const storageKey = 'klaviyo-popup-{{ section.id }}-shown';
+  let isFormReady = false;
+
+  // Wait for Klaviyo form to be rendered
+  function waitForKlaviyoForm() {
+    const contentContainer = popup.querySelector('.klaviyo-popup-content');
+    if (!contentContainer) return false;
+
+    // Check if there's actual content inside (form elements)
+    const hasForm = contentContainer.querySelector('form') ||
+                    contentContainer.querySelector('[class*="klaviyo-form"]') ||
+                    contentContainer.querySelector('input, button');
+
+    return hasForm !== null;
+  }
+
+  // Check form readiness with observer
+  const observer = new MutationObserver(function() {
+    if (waitForKlaviyoForm()) {
+      isFormReady = true;
+      observer.disconnect();
+    }
+  });
+
+  observer.observe(popup.querySelector('.klaviyo-popup-content'), {
+    childList: true,
+    subtree: true
+  });
+
+  // Initial check
+  if (waitForKlaviyoForm()) {
+    isFormReady = true;
+  }
 
   function showPopup() {
     if (showOnce && localStorage.getItem(storageKey)) return;
+
+    // Only show popup if form is ready
+    if (!isFormReady) {
+      console.warn('Klaviyo form not ready yet, waiting...');
+      // Retry after a short delay
+      setTimeout(showPopup, 500);
+      return;
+    }
+
     popup.classList.add('active');
     document.body.style.overflow = 'hidden';
     if (showOnce) localStorage.setItem(storageKey, 'true');
