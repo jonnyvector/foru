@@ -471,6 +471,9 @@
         "heading_BfGUeU",
         "button_9bbhDc"
       ],
+      "custom_css": [
+        ".hero__overlay__content{width:100%;}"
+      ],
       "name": "Background video custom",
       "settings": {
         "heading": "",
@@ -480,7 +483,7 @@
         "video_controls": false,
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "original_ratio": "fixed_height",
-        "desktop_fixed_height": 640,
+        "desktop_fixed_height": 840,
         "mobile_fixed_height": 460,
         "color-body-heading": "rgba(0,0,0,0)",
         "color-overlay": "rgba(0,0,0,0)",
