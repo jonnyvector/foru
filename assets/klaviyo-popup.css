@@ -64,12 +64,16 @@
 
 .klaviyo-popup-content {
   position: relative;
+  width: 100%;
 }
 
 /* Klaviyo Form Customization */
 .klaviyo-popup-content .klaviyo-form,
-.klaviyo-popup-content form {
+.klaviyo-popup-content form,
+.klaviyo-popup-content > div {
   font-family: var(--font-body);
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 .klaviyo-popup-content input[type="email"],
