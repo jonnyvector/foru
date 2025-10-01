@@ -518,7 +518,7 @@ h6,
 }
 
 /* Klaviyo Popup Form Customization */
-.klaviyo-form-WHjrSp button[type="submit"],
+.klaviyo-form-WHjrSp button[type="button"],
 .klaviyo-form-WHjrSp button.needsclick {
   font-family: var(--font-headline) !important;
 }
