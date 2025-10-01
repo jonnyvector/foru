@@ -152,6 +152,11 @@
     max-width: 100% !important;
     padding-right: 0 !important;
   }
+
+  /* Remove form padding on mobile */
+  .klaviyo-popup-content .klaviyo-form {
+    padding: 0 !important;
+  }
 }
 
 @media (max-width: 749px) {
