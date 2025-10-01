@@ -1,6 +1,9 @@
 {{ 'klaviyo-popup.css' | asset_url | stylesheet_tag }}
 
 {%- if section.settings.enable_popup -%}
+{%- if section.settings.klaviyo_api_key != blank -%}
+<script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id={{ section.settings.klaviyo_api_key }}"></script>
+{%- endif -%}
 <div
   class="klaviyo-popup-modal"
   id="klaviyo-popup-{{ section.id }}"
@@ -9,7 +12,6 @@
   data-scroll-percentage="{{ section.settings.scroll_percentage }}"
   data-exit-intent="{{ section.settings.exit_intent }}"
   data-show-once="{{ section.settings.show_once }}"
-  style="display: none;"
 >
   <div class="klaviyo-popup-overlay"></div>
   <div class="klaviyo-popup-container">
@@ -41,13 +43,13 @@
 
   function showPopup() {
     if (showOnce && localStorage.getItem(storageKey)) return;
-    popup.style.display = 'block';
+    popup.classList.add('active');
     document.body.style.overflow = 'hidden';
     if (showOnce) localStorage.setItem(storageKey, 'true');
   }
 
   function closePopup() {
-    popup.style.display = 'none';
+    popup.classList.remove('active');
     document.body.style.overflow = '';
   }
 
@@ -82,7 +84,7 @@
 
   // ESC key to close
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && popup.style.display === 'block') {
+    if (e.key === 'Escape' && popup.classList.contains('active')) {
       closePopup();
     }
   });

@@ -6,10 +6,14 @@
   right: 0;
   bottom: 0;
   z-index: 9999;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   padding: 20px;
+}
+
+.klaviyo-popup-modal.active {
+  display: flex;
 }
 
 .klaviyo-popup-overlay {
@@ -125,6 +129,6 @@
   }
 }
 
-.klaviyo-popup-modal[style*="display: block"] .klaviyo-popup-container {
+.klaviyo-popup-modal.active .klaviyo-popup-container {
   animation: klaviyoPopupFadeIn 0.3s ease-out;
 }
