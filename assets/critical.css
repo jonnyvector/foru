@@ -3976,7 +3976,7 @@ mega-menu-section {
   left: 0;
   opacity: 0;
   transform: scale(0);
-  z-index: 15;
+  z-index: 1001;
   transition: opacity 0.3s ease-in-out;
 }
 @media (min-width: 1200px) {
@@ -4165,6 +4165,7 @@ mega-menu-section {
   .wt-drawer--nav {
     top: var(--dynamic-header-height, 64px);
     height: calc(100vh - var(--dynamic-header-height, 64px));
+    z-index: 1001;
   }
 
   /* Ensure header stays above drawer when menu is open on mobile */
