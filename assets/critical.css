@@ -3979,6 +3979,14 @@ mega-menu-section {
   z-index: 15;
   transition: opacity 0.3s ease-in-out;
 }
+
+/* Keep overlay below header and menu on mobile */
+@media (max-width: 1199px) {
+  .menu-drawer-overlay {
+    z-index: 999;
+  }
+}
+
 @media (min-width: 1200px) {
   .menu-drawer-overlay {
     height: 100%;
@@ -4165,9 +4173,10 @@ mega-menu-section {
   .wt-drawer--nav {
     top: var(--dynamic-header-height, 64px);
     height: calc(100vh - var(--dynamic-header-height, 64px));
+    z-index: 1001;
   }
 
-  /* Ensure header stays above drawer when menu is open on mobile */
+  /* Ensure header stays above drawer overlay but below drawer content */
   .menu-open .page-header {
     z-index: 1000 !important;
     position: sticky !important;
