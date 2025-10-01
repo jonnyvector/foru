@@ -4,7 +4,6 @@
 {% assign ingredients = product.metafields.custom.ingredients.value %}
 
 
-
 {{ 'swiper.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'slider.js' | asset_url }}" defer></script>
 <script>
@@ -66,7 +65,7 @@
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product {
-    padding: var(--section-gap-top, 40px) 0 var(--section-gap-bottom, 40px);
+    padding: var(--section-gap-top, 40px) 0 var(--section-gap-bottom,;
     background-color: var(--color-background, transparent);
   }
 
@@ -182,7 +181,7 @@
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__card-content {
-    padding: 0.75rem 0 0 0;
+    padding: 0.75rem 0 0;
     display: contents;
   }
 
@@ -195,7 +194,7 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
     line-height: 1.2;
-    margin: 24px 0 0 0;
+    margin: 24px 0 0;
     display: flex;
     align-items: flex-start;
   }
@@ -207,10 +206,9 @@
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__card-description {
-    font-size: calc(var(--font-base-size, 1rem) * 0.75);
     line-height: 1.4;
     color: var(--color-body-text);
-    margin: 8px 0 0 0;
+    margin: 8px 0 0;
     align-self: start;
   }
 
@@ -322,12 +320,12 @@
   @media (max-width: 767px) {
 
     [data-section-id="{{ section.id }}"] .ingredients-product__card-content {
-      padding: 0.75rem 0 0 0;
+      padding: 0.75rem 0 0;
     }
 
 
     [data-section-id="{{ section.id }}"] .ingredients-product__card-name {
-      margin: 24px 0 0 0;
+      margin: 24px 0 0;
     }
 
     [data-section-id="{{ section.id }}"] .ingredients-product__card-description {
@@ -352,7 +350,7 @@
 </style>
 
 <section data-section-id="{{ section.id }}" class="ingredients-product">
-  
+
   <div class="ingredients-product__container">
     <div class="ingredients-product__header">
       <div class="ingredients-product__header-grid">
@@ -374,14 +372,14 @@
           {% endif %}
 
           {% if section.settings.view_all_text != blank and section.settings.view_all_link != blank %}
-            {% render 'custom-view-all', 
-               text: section.settings.view_all_text, 
-               url: section.settings.view_all_link %}
+            {% render 'custom-view-all'
+              ,  text: section.settings.view_all_text
+              ,  url: section.settings.view_all_link %}
           {% endif %}
         </div>
       </div>
     </div>
-      
+
     {% if ingredients %}
       <!-- Ingredients Slider (Desktop & Mobile) -->
       <div class="ingredients-product__slider">
@@ -464,13 +462,31 @@
 
             <!-- Desktop Navigation Arrows -->
             <div class="ingredients-swiper-button-next swiper-button-next" style="display: none;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none">
+                <path
+                  d="M9 18L15 12L9 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
               </svg>
             </div>
             <div class="ingredients-swiper-button-prev swiper-button-prev" style="display: none;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none">
+                <path
+                  d="M15 18L9 12L15 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
               </svg>
             </div>
           </div>
