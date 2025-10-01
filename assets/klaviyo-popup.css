@@ -141,9 +141,16 @@
 
 /* Mobile responsiveness */
 @media (max-width: 899px) {
-  /* Hide any div that contains an img inside Klaviyo popup */
-  .klaviyo-popup-content div:has(> img) {
+  /* Hide the second child div (image container) in Klaviyo form */
+  .klaviyo-popup-content .klaviyo-form > div:nth-child(2) {
     display: none !important;
+  }
+
+  /* Make first child (form content) full width */
+  .klaviyo-popup-content .klaviyo-form > div:nth-child(1) {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-right: 0 !important;
   }
 }
 
