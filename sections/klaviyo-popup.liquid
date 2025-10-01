@@ -45,14 +45,26 @@
   // Wait for Klaviyo form to be rendered
   function waitForKlaviyoForm() {
     const contentContainer = popup.querySelector('.klaviyo-popup-content');
-    if (!contentContainer) return false;
+    if (!contentContainer) {
+      console.log('[FORM CHECK] Content container not found');
+      return false;
+    }
 
-    // Check if there's actual content inside (form elements)
-    const hasForm = contentContainer.querySelector('form') ||
-                    contentContainer.querySelector('[class*="klaviyo-form"]') ||
-                    contentContainer.querySelector('input, button');
+    // Check if there's actual Klaviyo form rendered (must have the klaviyo-form class AND form elements)
+    const klaviyoForm = contentContainer.querySelector('.klaviyo-form');
+    if (!klaviyoForm) {
+      console.log('[FORM CHECK] No .klaviyo-form element found');
+      return false;
+    }
 
-    return hasForm !== null;
+    // Make sure it has actual content (inputs)
+    const hasInputs = klaviyoForm.querySelector('input');
+    const hasButtons = klaviyoForm.querySelector('button');
+
+    console.log('[FORM CHECK] klaviyoForm:', klaviyoForm, 'hasInputs:', hasInputs, 'hasButtons:', hasButtons);
+
+    // Form must have both inputs AND buttons to be considered ready
+    return hasInputs !== null && hasButtons !== null;
   }
 
   // Check form readiness with observer
