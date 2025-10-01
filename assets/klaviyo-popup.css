@@ -92,7 +92,7 @@
   font-family: var(--font-headline) !important;
   font-weight: 700 !important;
   border-radius: var(--border-radius, 4px) !important;
-  padding: 14px 32px !important;
+  padding: 7px 32px !important;
   cursor: pointer !important;
   transition: all 0.3s ease !important;
   width: 100% !important;
