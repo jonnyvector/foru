@@ -517,9 +517,4 @@ h6,
   }
 }
 
-/* Klaviyo Popup Form Customization */
-.klaviyo-form-WHjrSp button[type="button"],
-.klaviyo-form-WHjrSp button.needsclick,
-.klaviyo-form-WHjrSp button.kl-private-reset-css-Xuajs1 {
-  font-family: var(--font-headline) !important;
-}
+/* Klaviyo Popup Form Customization - inline styles require JS override */
