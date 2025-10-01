@@ -93,33 +93,30 @@
   font-weight: 700 !important;
   border-radius: var(--border-radius, 4px) !important;
   padding: 14px 32px !important;
-  padding-right: 80px !important;
   cursor: pointer !important;
   transition: all 0.3s ease !important;
   width: 100% !important;
   max-height: 64px !important;
   position: relative !important;
   overflow: visible !important;
+  text-align: center !important;
 }
 
 .klaviyo-popup-content button[type="submit"]::after,
 .klaviyo-popup-content button[type="button"]::after {
-  content: "→" !important;
+  content: "" !important;
   position: absolute !important;
   right: 8px !important;
   top: 50% !important;
   transform: translateY(-50%) !important;
   width: 56px !important;
   height: 48px !important;
-  background: white !important;
+  background: white url('data:image/svg+xml;utf8,<svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.929688 7H15.0718M15.0718 7L8.70786 0.636039M15.0718 7L8.70786 13.364" stroke="%231A1C1C" stroke-width="1.5"/></svg>') no-repeat center center !important;
+  background-size: 17px 14px !important;
   border-radius: var(--border-radius, 4px) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-size: 24px !important;
-  color: #1a1c1c !important;
   opacity: 0 !important;
   transition: opacity 0.3s ease !important;
+  pointer-events: none !important;
 }
 
 .klaviyo-popup-content button[type="submit"]:hover::after,
