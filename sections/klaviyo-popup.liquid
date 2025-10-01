@@ -209,16 +209,36 @@
     form.addEventListener('submit', handleValidation, false);
     console.log('[PHONE VALIDATION] Added submit listener (bubble phase)');
 
-    // Intercept submit button clicks directly
-    const submitButtons = form.querySelectorAll('button[type="submit"], input[type="submit"]');
-    console.log('[PHONE VALIDATION] Submit buttons found:', submitButtons);
+    // Intercept ALL buttons in the form (Klaviyo might use button without type="submit")
+    const allButtons = form.querySelectorAll('button');
+    console.log('[PHONE VALIDATION] All buttons found:', allButtons);
 
-    submitButtons.forEach(button => {
+    allButtons.forEach(button => {
+      // Add click listener with capture phase
       button.addEventListener('click', function(e) {
-        console.log('[PHONE VALIDATION] Submit button clicked');
+        console.log('[PHONE VALIDATION] Button clicked:', button);
         const phoneValue = phoneInput.value.trim();
+        console.log('[PHONE VALIDATION] Phone value on click:', phoneValue);
+
         if (phoneValue && !validatePhoneNumber(phoneValue)) {
           console.log('[PHONE VALIDATION] BLOCKING BUTTON CLICK - invalid phone');
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+          errorMsg.style.display = 'block';
+          phoneInput.style.borderColor = '#d43c3c';
+          phoneInput.focus();
+          return false;
+        }
+      }, true);
+
+      // Also add mousedown event as Klaviyo might use that
+      button.addEventListener('mousedown', function(e) {
+        console.log('[PHONE VALIDATION] Button mousedown:', button);
+        const phoneValue = phoneInput.value.trim();
+
+        if (phoneValue && !validatePhoneNumber(phoneValue)) {
+          console.log('[PHONE VALIDATION] BLOCKING MOUSEDOWN - invalid phone');
           e.preventDefault();
           e.stopPropagation();
           e.stopImmediatePropagation();
