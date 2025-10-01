@@ -4167,12 +4167,6 @@ mega-menu-section {
     height: calc(100vh - var(--dynamic-header-height, 64px));
   }
 
-  /* Mobile menu content should appear above header when scrolled */
-  .wt-drawer--nav .wt-drawer__content {
-    position: relative;
-    z-index: 1001;
-  }
-
   /* Ensure header stays above drawer when menu is open on mobile */
   .menu-open .page-header {
     z-index: 1000 !important;
