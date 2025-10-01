@@ -524,6 +524,13 @@ h6,
   font-family: var(--font-headline) !important;
 }
 
+/* Exclude Klaviyo country selector dropdown from custom button styles */
+.klaviyo-form-WHjrSp button[role="combobox"],
+.klaviyo-form-WHjrSp button[aria-haspopup="listbox"],
+button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
+  all: revert !important;
+}
+
 .hero__info-tooltip {
   margin-left: -0.25rem;
 }
