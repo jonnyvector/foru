@@ -116,7 +116,7 @@
             "pcolor": "#ffffff",
             "scolor": "#303030",
             "bcolor": "rgba(0,0,0,0)",
-            "easy-is-currency-code": false,
+            "easy-is-currency-code": true,
             "widget-feature-product": "",
             "eca-title-font-size": 15,
             "eca-text-font-size": 16,
