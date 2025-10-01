@@ -7,6 +7,45 @@
 
 {{ 'swiper.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'slider.js' | asset_url }}" defer></script>
+<script>
+  // Align ingredient card descriptions across all visible slides
+  function alignIngredientDescriptions() {
+    const swiperEl = document.querySelector('[data-section-id="{{ section.id }}"] [data-swiper]');
+    if (!swiperEl) return;
+
+    const cards = Array.from(swiperEl.querySelectorAll('.ingredients-product__card'));
+    const names = cards.map(card => card.querySelector('.ingredients-product__card-name'));
+    const descriptions = cards.map(card => card.querySelector('.ingredients-product__card-description'));
+
+    // Reset heights
+    names.forEach(name => { if (name) name.style.height = 'auto'; });
+
+    // Calculate max height for names
+    let maxNameHeight = 0;
+    names.forEach(name => {
+      if (name) {
+        const height = name.offsetHeight;
+        if (height > maxNameHeight) maxNameHeight = height;
+      }
+    });
+
+    // Apply max height to all names to align descriptions
+    names.forEach(name => {
+      if (name) name.style.height = maxNameHeight + 'px';
+    });
+  }
+
+  // Run on load and resize
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(alignIngredientDescriptions, 100);
+    });
+  } else {
+    setTimeout(alignIngredientDescriptions, 100);
+  }
+
+  window.addEventListener('resize', alignIngredientDescriptions);
+</script>
 
 <style>
   [data-section-id="{{ section.id }}"] {
@@ -116,8 +155,9 @@
     box-shadow: none;
     transition: none;
     height: 100%;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    align-content: start;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__card:hover {
@@ -143,9 +183,7 @@
 
   [data-section-id="{{ section.id }}"] .ingredients-product__card-content {
     padding: 0.75rem 0 0 0;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+    display: contents;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__card-name {
@@ -158,7 +196,6 @@
     letter-spacing: 0.5px;
     line-height: 1.2;
     margin: 24px 0 0 0;
-    flex: 1;
     display: flex;
     align-items: flex-start;
   }
@@ -174,6 +211,7 @@
     line-height: 1.4;
     color: var(--color-body-text);
     margin: 8px 0 0 0;
+    align-self: start;
   }
 
   [data-section-id="{{ section.id }}"] .ingredients-product__dots {
