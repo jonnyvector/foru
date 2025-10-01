@@ -31,7 +31,6 @@
   position: relative;
   background-color: var(--color-background, #ffffff);
   border-radius: var(--border-radius, 8px);
-  max-width: 780px;
   width: 100%;
   max-height: 90vh;
   overflow: hidden;
