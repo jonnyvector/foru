@@ -48,42 +48,30 @@
     </button>
   {% elsif settings.show_view_cart == false and settings.hide_checkout_button == false %}
     {% comment %}Only checkout button{% endcomment %}
-    <button
-      aria-label="{{ 'sections.cart.checkout' | t }}"
-      type="submit"
-      id="CartDrawer-Checkout"
-      class="btn-checkout wt-cart__cta"
-      name="checkout"
-      form="CartDrawer-Form"
-      {% if cart == empty %}
-        disabled
-      {% endif %}
-      tabindex="-1"
-    >
-      {% if settings['enable-lock-icon'] %}
-        {% render 'icon-lock' %}
-      {% endif %}
-      {{ 'sections.cart.checkout' | t }}
-    </button>
+    {% render 'custom-button-loadable',
+      button_text: 'sections.cart.checkout',
+      button_type: 'submit',
+      button_id: 'CartDrawer-Checkout',
+      button_name: 'checkout',
+      button_form: 'CartDrawer-Form',
+      button_aria_label: 'sections.cart.checkout',
+      button_tabindex: '-1',
+      button_disabled: cart == empty,
+      full_width: true
+    %}
   {% else %}
     {% comment %}Both buttons{% endcomment %}
-    <button
-      aria-label="{{ 'sections.cart.checkout' | t }}"
-      type="submit"
-      id="CartDrawer-Checkout"
-      class="btn-checkout wt-cart__cta"
-      name="checkout"
-      form="CartDrawer-Form"
-      {% if cart == empty %}
-        disabled
-      {% endif %}
-      tabindex="-1"
-    >
-      {% if settings['enable-lock-icon'] %}
-        {% render 'icon-lock' %}
-      {% endif %}
-      {{ 'sections.cart.checkout' | t }}
-    </button>
+    {% render 'custom-button-loadable',
+      button_text: 'sections.cart.checkout',
+      button_type: 'submit',
+      button_id: 'CartDrawer-Checkout',
+      button_name: 'checkout',
+      button_form: 'CartDrawer-Form',
+      button_aria_label: 'sections.cart.checkout',
+      button_tabindex: '-1',
+      button_disabled: cart == empty,
+      full_width: true
+    %}
     <div class="wt-featured-collection__button-container wt-button__container">
       <button
         aria-label="{{ 'aria-label.featured-collection' | t }}"
