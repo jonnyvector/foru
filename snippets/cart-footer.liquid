@@ -49,27 +49,49 @@
   {% elsif settings.show_view_cart == false and settings.hide_checkout_button == false %}
     {% comment %}Only checkout button{% endcomment %}
     {% assign checkout_text = 'sections.cart.checkout' | t %}
-    {% render 'custom-button-loadable',
-      text: checkout_text,
-      type: 'submit',
-      button_id: 'CartDrawer-Checkout',
-      name: 'checkout',
-      form: 'CartDrawer-Form',
-      aria_label: checkout_text,
-      disabled: cart.item_count == 0
-    %}
+    {% if cart == empty %}
+      {% render 'custom-button-loadable',
+        text: checkout_text,
+        type: 'submit',
+        button_id: 'CartDrawer-Checkout',
+        name: 'checkout',
+        form: 'CartDrawer-Form',
+        aria_label: checkout_text,
+        disabled: true
+      %}
+    {% else %}
+      {% render 'custom-button-loadable',
+        text: checkout_text,
+        type: 'submit',
+        button_id: 'CartDrawer-Checkout',
+        name: 'checkout',
+        form: 'CartDrawer-Form',
+        aria_label: checkout_text
+      %}
+    {% endif %}
   {% else %}
     {% comment %}Both buttons{% endcomment %}
     {% assign checkout_text = 'sections.cart.checkout' | t %}
-    {% render 'custom-button-loadable',
-      text: checkout_text,
-      type: 'submit',
-      button_id: 'CartDrawer-Checkout',
-      name: 'checkout',
-      form: 'CartDrawer-Form',
-      aria_label: checkout_text,
-      disabled: cart.item_count == 0
-    %}
+    {% if cart == empty %}
+      {% render 'custom-button-loadable',
+        text: checkout_text,
+        type: 'submit',
+        button_id: 'CartDrawer-Checkout',
+        name: 'checkout',
+        form: 'CartDrawer-Form',
+        aria_label: checkout_text,
+        disabled: true
+      %}
+    {% else %}
+      {% render 'custom-button-loadable',
+        text: checkout_text,
+        type: 'submit',
+        button_id: 'CartDrawer-Checkout',
+        name: 'checkout',
+        form: 'CartDrawer-Form',
+        aria_label: checkout_text
+      %}
+    {% endif %}
     <div class="wt-featured-collection__button-container wt-button__container">
       <button
         aria-label="{{ 'aria-label.featured-collection' | t }}"
