@@ -56,6 +56,14 @@ h6,
 [data-section-id*="main-collection-product-grid"]
   .custom-button-wrapper--secondary
   [class*="custom-button-arrow-"],
+[data-section-id*="collection-grid"]
+  .custom-button-wrapper--secondary
+  [class*="custom-button-text-"],
+[data-section-id*="collection-grid"]
+  .custom-button-wrapper--secondary
+  [class*="custom-button-arrow-"],
+quick-add .custom-button-wrapper--secondary [class*="custom-button-text-"],
+quick-add .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
 .wt-card .custom-button-wrapper--secondary [class*="custom-button-text-"],
 .wt-card .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
 .card .custom-button-wrapper--secondary [class*="custom-button-text-"],
@@ -522,6 +530,13 @@ h6,
 .klaviyo-form-WHjrSp button.needsclick,
 .klaviyo-form-WHjrSp button.kl-private-reset-css-Xuajs1 {
   font-family: var(--font-headline) !important;
+}
+
+/* Exclude Klaviyo country selector dropdown from custom button styles */
+.klaviyo-form-WHjrSp button[role="combobox"],
+.klaviyo-form-WHjrSp button[aria-haspopup="listbox"],
+button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
+  all: revert !important;
 }
 
 .hero__info-tooltip {

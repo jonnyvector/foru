@@ -27,6 +27,16 @@
   </div>
 </div>
 
+{%- if section.settings.enable_teaser -%}
+<button class="klaviyo-popup-teaser" id="klaviyo-teaser-{{ section.id }}" aria-label="Open signup popup">
+  <span>{{ section.settings.teaser_text }}</span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+  </svg>
+</button>
+{%- endif -%}
+
 <script>
 (function() {
   const popup = document.getElementById('klaviyo-popup-{{ section.id }}');
@@ -40,22 +50,114 @@
   const exitIntent = popup.dataset.exitIntent === 'true';
   const showOnce = popup.dataset.showOnce === 'true';
   const storageKey = 'klaviyo-popup-{{ section.id }}-shown';
+  let isFormReady = false;
+
+  // Wait for Klaviyo form to be rendered
+  function waitForKlaviyoForm() {
+    const contentContainer = popup.querySelector('.klaviyo-popup-content');
+    if (!contentContainer) {
+      console.log('[FORM CHECK] Content container not found');
+      return false;
+    }
+
+    // Check if there's actual Klaviyo form rendered (must have the klaviyo-form class AND form elements)
+    const klaviyoForm = contentContainer.querySelector('.klaviyo-form');
+    if (!klaviyoForm) {
+      console.log('[FORM CHECK] No .klaviyo-form element found');
+      return false;
+    }
+
+    // Make sure it has actual content (inputs)
+    const hasInputs = klaviyoForm.querySelector('input');
+    const hasButtons = klaviyoForm.querySelector('button');
+
+    console.log('[FORM CHECK] klaviyoForm:', klaviyoForm, 'hasInputs:', hasInputs, 'hasButtons:', hasButtons);
+
+    // Form must have both inputs AND buttons to be considered ready
+    return hasInputs !== null && hasButtons !== null;
+  }
+
+  // Check form readiness with observer
+  const observer = new MutationObserver(function() {
+    if (waitForKlaviyoForm()) {
+      isFormReady = true;
+      observer.disconnect();
+    }
+  });
+
+  observer.observe(popup.querySelector('.klaviyo-popup-content'), {
+    childList: true,
+    subtree: true
+  });
+
+  // Initial check
+  if (waitForKlaviyoForm()) {
+    isFormReady = true;
+  }
+
+  let retryCount = 0;
+  const maxRetries = 10; // Try for up to 5 seconds (10 * 500ms)
 
   function showPopup() {
     if (showOnce && localStorage.getItem(storageKey)) return;
+
+    // Check again if form became ready
+    if (!isFormReady && waitForKlaviyoForm()) {
+      isFormReady = true;
+    }
+
+    // Only show popup if form is ready
+    if (!isFormReady) {
+      console.warn('Klaviyo form not ready yet, waiting... (attempt ' + (retryCount + 1) + '/' + maxRetries + ')');
+
+      if (retryCount < maxRetries) {
+        // Retry after a short delay - DO NOT show popup yet
+        retryCount++;
+        setTimeout(showPopup, 500);
+        return;
+      } else {
+        console.error('Klaviyo form never loaded after ' + maxRetries + ' attempts. Aborting popup.');
+        return;
+      }
+    }
+
+    // Form is ready - NOW show the popup
+    console.log('[POPUP] Showing popup - form is ready');
     popup.classList.add('active');
     document.body.style.overflow = 'hidden';
     if (showOnce) localStorage.setItem(storageKey, 'true');
   }
 
+  const teaser = document.getElementById('klaviyo-teaser-{{ section.id }}');
+
   function closePopup() {
     popup.classList.remove('active');
     document.body.style.overflow = '';
+    // Show teaser after closing popup
+    if (teaser) {
+      setTimeout(() => {
+        teaser.classList.add('visible');
+      }, 300);
+    }
+  }
+
+  function reopenPopup() {
+    // Hide teaser when reopening
+    if (teaser) {
+      teaser.classList.remove('visible');
+    }
+    popup.classList.add('active');
+    document.body.style.overflow = 'hidden';
   }
 
   // Close handlers
   closeBtn.addEventListener('click', closePopup);
   overlay.addEventListener('click', closePopup);
+
+  // Teaser click handler
+  if (teaser) {
+    teaser.addEventListener('click', reopenPopup);
+  }
 
   // Trigger logic
   if (trigger === 'delay') {
@@ -88,6 +190,206 @@
       closePopup();
     }
   });
+
+  // Phone number validation
+  function validatePhoneNumber(phoneNumber) {
+    // Remove all non-digit characters except + at the start
+    const cleaned = phoneNumber.replace(/[^\d+]/g, '');
+
+    // International format: optional + at start, then 7-15 digits
+    // Allows formats like: +1234567890, 1234567890, +44 20 1234 5678, etc.
+    const internationalPattern = /^\+?\d{7,15}$/;
+
+    return internationalPattern.test(cleaned);
+  }
+
+  function addPhoneValidation() {
+    console.log('[PHONE VALIDATION] Starting addPhoneValidation');
+
+    // Try multiple selectors to find phone input flexibly
+    let phoneInput = popup.querySelector('input[id*="phone_number"]') ||
+                     popup.querySelector('input[type="tel"]') ||
+                     popup.querySelector('input[name*="phone"]') ||
+                     popup.querySelector('input[placeholder*="phone" i]') ||
+                     popup.querySelector('input[placeholder*="205" i]'); // Matches the placeholder format
+
+    console.log('[PHONE VALIDATION] Phone input found:', phoneInput);
+
+    if (!phoneInput) {
+      console.warn('[PHONE VALIDATION] Phone input NOT found with any selector');
+      return;
+    }
+
+    const form = phoneInput.closest('form');
+    console.log('[PHONE VALIDATION] Form found:', form);
+
+    if (!form) {
+      console.warn('[PHONE VALIDATION] Form NOT found for phone input');
+      return;
+    }
+
+    // Create error message element
+    let errorMsg = phoneInput.parentElement.querySelector('.phone-error-message');
+    if (!errorMsg) {
+      errorMsg = document.createElement('div');
+      errorMsg.className = 'phone-error-message';
+      errorMsg.style.color = '#d43c3c';
+      errorMsg.style.fontSize = '14px';
+      errorMsg.style.marginTop = '4px';
+      errorMsg.style.display = 'none';
+      errorMsg.textContent = 'Please enter a valid phone number (7-15 digits, e.g., +1234567890 or 1234567890)';
+      phoneInput.parentElement.appendChild(errorMsg);
+    }
+    console.log('[PHONE VALIDATION] Error message element created/found:', errorMsg);
+
+    // Validation handler
+    function handleValidation(e) {
+      console.log('[PHONE VALIDATION] handleValidation triggered, event type:', e.type);
+      const phoneValue = phoneInput.value.trim();
+      console.log('[PHONE VALIDATION] Phone value:', phoneValue);
+      console.log('[PHONE VALIDATION] Is valid?', validatePhoneNumber(phoneValue));
+
+      if (phoneValue && !validatePhoneNumber(phoneValue)) {
+        console.log('[PHONE VALIDATION] BLOCKING SUBMISSION - invalid phone');
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        errorMsg.style.display = 'block';
+        phoneInput.style.border = '2px solid #d43c3c';
+        phoneInput.focus();
+        return false;
+      } else {
+        console.log('[PHONE VALIDATION] Phone valid or empty, allowing submission');
+        errorMsg.style.display = 'none';
+        phoneInput.style.border = '';
+      }
+    }
+
+    // Capture submit event in capture phase (before Klaviyo)
+    form.addEventListener('submit', handleValidation, true);
+    console.log('[PHONE VALIDATION] Added submit listener (capture phase)');
+
+    // Also add in bubble phase as backup
+    form.addEventListener('submit', handleValidation, false);
+    console.log('[PHONE VALIDATION] Added submit listener (bubble phase)');
+
+    // Intercept ALL buttons in the form (Klaviyo might use button without type="submit")
+    const allButtons = form.querySelectorAll('button');
+    console.log('[PHONE VALIDATION] All buttons found:', allButtons);
+
+    allButtons.forEach(button => {
+      // Store original onclick if it exists
+      const originalOnClick = button.onclick;
+
+      // Override the button's onclick completely
+      button.onclick = function(e) {
+        console.log('[PHONE VALIDATION] Button onclick override triggered');
+        const phoneValue = phoneInput.value.trim();
+
+        if (phoneValue && !validatePhoneNumber(phoneValue)) {
+          console.log('[PHONE VALIDATION] BLOCKING via onclick override - invalid phone');
+          e.preventDefault();
+          e.stopPropagation();
+          errorMsg.style.display = 'block';
+          phoneInput.style.border = '2px solid #d43c3c';
+          phoneInput.focus();
+          return false;
+        }
+
+        // Call original onclick if it existed
+        if (originalOnClick) {
+          return originalOnClick.call(this, e);
+        }
+      };
+
+      // Add click listener with capture phase
+      button.addEventListener('click', function(e) {
+        console.log('[PHONE VALIDATION] Button clicked (capture):', button);
+        const phoneValue = phoneInput.value.trim();
+        console.log('[PHONE VALIDATION] Phone value on click:', phoneValue);
+
+        if (phoneValue && !validatePhoneNumber(phoneValue)) {
+          console.log('[PHONE VALIDATION] BLOCKING BUTTON CLICK - invalid phone');
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+          errorMsg.style.display = 'block';
+          phoneInput.style.border = '2px solid #d43c3c';
+          phoneInput.focus();
+          return false;
+        }
+      }, true);
+
+      // Also add mousedown event as Klaviyo might use that
+      button.addEventListener('mousedown', function(e) {
+        console.log('[PHONE VALIDATION] Button mousedown:', button);
+        const phoneValue = phoneInput.value.trim();
+
+        if (phoneValue && !validatePhoneNumber(phoneValue)) {
+          console.log('[PHONE VALIDATION] BLOCKING MOUSEDOWN - invalid phone');
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+          errorMsg.style.display = 'block';
+          phoneInput.style.border = '2px solid #d43c3c';
+          phoneInput.focus();
+          return false;
+        }
+      }, true);
+
+      // Nuclear option: listen to ALL events on the button
+      ['pointerdown', 'touchstart'].forEach(eventType => {
+        button.addEventListener(eventType, function(e) {
+          console.log('[PHONE VALIDATION] Button ' + eventType + ':', button);
+          const phoneValue = phoneInput.value.trim();
+
+          if (phoneValue && !validatePhoneNumber(phoneValue)) {
+            console.log('[PHONE VALIDATION] BLOCKING ' + eventType + ' - invalid phone');
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            errorMsg.style.display = 'block';
+            phoneInput.style.border = '2px solid #d43c3c';
+            phoneInput.focus();
+            return false;
+          }
+        }, true);
+      });
+    });
+
+    // Clear error on input
+    phoneInput.addEventListener('input', function() {
+      errorMsg.style.display = 'none';
+      phoneInput.style.border = '';
+    });
+
+    console.log('[PHONE VALIDATION] Validation setup complete');
+  }
+
+  // Wait for form to be ready, then add validation
+  const validationObserver = new MutationObserver(function() {
+    // Check if phone input exists using flexible selectors
+    const phoneInput = popup.querySelector('input[id*="phone_number"]') ||
+                       popup.querySelector('input[type="tel"]') ||
+                       popup.querySelector('input[name*="phone"]');
+    if (phoneInput) {
+      addPhoneValidation();
+      validationObserver.disconnect();
+    }
+  });
+
+  validationObserver.observe(popup.querySelector('.klaviyo-popup-content'), {
+    childList: true,
+    subtree: true
+  });
+
+  // Try immediately in case form is already loaded
+  const immediatePhoneInput = popup.querySelector('input[id*="phone_number"]') ||
+                              popup.querySelector('input[type="tel"]') ||
+                              popup.querySelector('input[name*="phone"]');
+  if (immediatePhoneInput) {
+    addPhoneValidation();
+  }
 })();
 </script>
 {%- endif -%}
@@ -103,6 +405,12 @@
       "id": "enable_popup",
       "label": "Enable popup",
       "default": true
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_api_key",
+      "label": "Klaviyo Company/Public API Key",
+      "info": "Find this in Klaviyo under Settings > Account > API Keys (Company ID or Public API Key starting with your site ID)"
     },
     {
       "type": "html",
@@ -164,6 +472,20 @@
       "label": "Show only once per visitor",
       "default": true,
       "info": "Uses browser localStorage to remember if popup was shown"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_teaser",
+      "label": "Enable teaser button",
+      "default": true,
+      "info": "Show a teaser button at bottom of screen after popup is closed"
+    },
+    {
+      "type": "text",
+      "id": "teaser_text",
+      "label": "Teaser button text",
+      "default": "Sign up for updates",
+      "info": "Text shown on the teaser button at bottom of screen after popup is closed"
     }
   ],
   "presets": [
