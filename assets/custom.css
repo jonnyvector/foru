@@ -395,7 +395,7 @@ quick-add .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
     padding-right: calc(var(--gap) * 2);
   }
 }
-
+/* 
 .selling_plan_app_container .purchase-option,
 .selling_plan_app_container .esa_subscription_text {
   border-radius: var(--border-radius) !important;
@@ -404,7 +404,7 @@ quick-add .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
 
 .subscription-options {
   border-radius: var(--border-radius) !important;
-}
+} */
 
 /* Product page custom button hover fix - higher specificity to override subscription app conflicts */
 .main-product
