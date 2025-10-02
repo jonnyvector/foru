@@ -640,6 +640,37 @@
         "margin-bottom": 100
       }
     },
+    "featured_collection_nEbYjp": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "title": "Featured collection",
+        "disable_on_mobile": false,
+        "hide_empty_section": false,
+        "collection": "frontpage",
+        "product_list": [],
+        "products_to_show": 4,
+        "enable_stack_products": false,
+        "show_view_all": true,
+        "button_select": "primary",
+        "number_of_column_desktop": 4,
+        "spacing_desktop": "16",
+        "make_products_full_width": true,
+        "number_of_column_mobile": 2.1,
+        "spacing_mobile": "16",
+        "text_alignment": "left",
+        "image_ratio": "square",
+        "show_video": false,
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "show_product_rating": false,
+        "enable_quick_add_button": false,
+        "color-body-text": "transparent",
+        "background_color": "transparent",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
     "1759117549c8402d37": {
       "type": "apps",
       "blocks": {
@@ -735,6 +766,7 @@
     "featured_on_iXfAwg",
     "testimonials_custom_kHmmbJ",
     "blog_posts_Pt33Px",
+    "featured_collection_nEbYjp",
     "1759117549c8402d37",
     "featured_collection_variant_YtNKNt",
     "klaviyo_popup_D43Wkh"
