@@ -49,28 +49,24 @@
   {% elsif settings.show_view_cart == false and settings.hide_checkout_button == false %}
     {% comment %}Only checkout button{% endcomment %}
     {% render 'custom-button-loadable',
-      button_text: 'sections.cart.checkout',
-      button_type: 'submit',
+      text: 'sections.cart.checkout' | t,
+      type: 'submit',
       button_id: 'CartDrawer-Checkout',
-      button_name: 'checkout',
-      button_form: 'CartDrawer-Form',
-      button_aria_label: 'sections.cart.checkout',
-      button_tabindex: '-1',
-      button_disabled: cart == empty,
-      full_width: true
+      name: 'checkout',
+      form: 'CartDrawer-Form',
+      aria_label: 'sections.cart.checkout' | t,
+      disabled: cart == empty
     %}
   {% else %}
     {% comment %}Both buttons{% endcomment %}
     {% render 'custom-button-loadable',
-      button_text: 'sections.cart.checkout',
-      button_type: 'submit',
+      text: 'sections.cart.checkout' | t,
+      type: 'submit',
       button_id: 'CartDrawer-Checkout',
-      button_name: 'checkout',
-      button_form: 'CartDrawer-Form',
-      button_aria_label: 'sections.cart.checkout',
-      button_tabindex: '-1',
-      button_disabled: cart == empty,
-      full_width: true
+      name: 'checkout',
+      form: 'CartDrawer-Form',
+      aria_label: 'sections.cart.checkout' | t,
+      disabled: cart == empty
     %}
     <div class="wt-featured-collection__button-container wt-button__container">
       <button
