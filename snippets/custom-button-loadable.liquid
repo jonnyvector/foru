@@ -76,6 +76,7 @@
       aria-live="polite"
       aria-busy="false"
       {% if name %}name="{{ name }}"{% endif %}
+      {% if form %}form="{{ form }}"{% endif %}
       {% if data_product_url %}data-product-url="{{ data_product_url }}"{% endif %}
       {% if button_id %}id="{{ button_id }}"{% endif %}
       {% if disabled %}
@@ -93,6 +94,7 @@
       class="custom-button-arrow-{{ unique_id }}"
       aria-label="{{ aria_label | default: button_text }}"
       {% if name %}name="{{ name }}"{% endif %}
+      {% if form %}form="{{ form }}"{% endif %}
       {% if data_product_url %}data-product-url="{{ data_product_url }}"{% endif %}
       {% if disabled %}
       disabled{% endif %}>
