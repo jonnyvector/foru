@@ -27,6 +27,7 @@
   </div>
 </div>
 
+{%- if section.settings.enable_teaser -%}
 <button class="klaviyo-popup-teaser" id="klaviyo-teaser-{{ section.id }}" aria-label="Open signup popup">
   <span>{{ section.settings.teaser_text }}</span>
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -34,6 +35,7 @@
     <polyline points="22,6 12,13 2,6"></polyline>
   </svg>
 </button>
+{%- endif -%}
 
 <script>
 (function() {
@@ -470,6 +472,13 @@
       "label": "Show only once per visitor",
       "default": true,
       "info": "Uses browser localStorage to remember if popup was shown"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_teaser",
+      "label": "Enable teaser button",
+      "default": true,
+      "info": "Show a teaser button at bottom of screen after popup is closed"
     },
     {
       "type": "text",
