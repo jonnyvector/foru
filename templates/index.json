@@ -653,7 +653,7 @@
         "enable_stack_products": false,
         "show_view_all": true,
         "button_select": "primary",
-        "number_of_column_desktop": 4,
+        "number_of_column_desktop": 3,
         "spacing_desktop": "16",
         "make_products_full_width": true,
         "number_of_column_mobile": 1.1,
@@ -757,6 +757,7 @@
   "order": [
     "featured_collection_variant_W7pFMg",
     "featured_collection_HNLYAF",
+    "featured_collection_nEbYjp",
     "benefits_product_DGyBfk",
     "starter_kit_TjFAiC",
     "video_reels_custom_LBnjxB",
@@ -766,7 +767,6 @@
     "featured_on_iXfAwg",
     "testimonials_custom_kHmmbJ",
     "blog_posts_Pt33Px",
-    "featured_collection_nEbYjp",
     "1759117549c8402d37",
     "featured_collection_variant_YtNKNt",
     "klaviyo_popup_D43Wkh"
