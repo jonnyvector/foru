@@ -27,6 +27,14 @@
   </div>
 </div>
 
+<button class="klaviyo-popup-teaser" id="klaviyo-teaser-{{ section.id }}" aria-label="Open signup popup">
+  <span>{{ section.settings.teaser_text }}</span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+  </svg>
+</button>
+
 <script>
 (function() {
   const popup = document.getElementById('klaviyo-popup-{{ section.id }}');
@@ -118,14 +126,36 @@
     if (showOnce) localStorage.setItem(storageKey, 'true');
   }
 
+  const teaser = document.getElementById('klaviyo-teaser-{{ section.id }}');
+
   function closePopup() {
     popup.classList.remove('active');
     document.body.style.overflow = '';
+    // Show teaser after closing popup
+    if (teaser) {
+      setTimeout(() => {
+        teaser.classList.add('visible');
+      }, 300);
+    }
+  }
+
+  function reopenPopup() {
+    // Hide teaser when reopening
+    if (teaser) {
+      teaser.classList.remove('visible');
+    }
+    popup.classList.add('active');
+    document.body.style.overflow = 'hidden';
   }
 
   // Close handlers
   closeBtn.addEventListener('click', closePopup);
   overlay.addEventListener('click', closePopup);
+
+  // Teaser click handler
+  if (teaser) {
+    teaser.addEventListener('click', reopenPopup);
+  }
 
   // Trigger logic
   if (trigger === 'delay') {
@@ -440,6 +470,13 @@
       "label": "Show only once per visitor",
       "default": true,
       "info": "Uses browser localStorage to remember if popup was shown"
+    },
+    {
+      "type": "text",
+      "id": "teaser_text",
+      "label": "Teaser button text",
+      "default": "Sign up for updates",
+      "info": "Text shown on the teaser button at bottom of screen after popup is closed"
     }
   ],
   "presets": [
