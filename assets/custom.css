@@ -56,6 +56,12 @@ h6,
 [data-section-id*="main-collection-product-grid"]
   .custom-button-wrapper--secondary
   [class*="custom-button-arrow-"],
+[data-section-id*="collection-grid"]
+  .custom-button-wrapper--secondary
+  [class*="custom-button-text-"],
+[data-section-id*="collection-grid"]
+  .custom-button-wrapper--secondary
+  [class*="custom-button-arrow-"],
 .wt-card .custom-button-wrapper--secondary [class*="custom-button-text-"],
 .wt-card .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
 .card .custom-button-wrapper--secondary [class*="custom-button-text-"],
