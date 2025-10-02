@@ -174,14 +174,17 @@
   function addPhoneValidation() {
     console.log('[PHONE VALIDATION] Starting addPhoneValidation');
 
-    const phoneInput = popup.querySelector('#phone_number_01K6FRB02HPPKJ92PX7FC5QW4R');
+    // Try multiple selectors to find phone input flexibly
+    let phoneInput = popup.querySelector('input[id*="phone_number"]') ||
+                     popup.querySelector('input[type="tel"]') ||
+                     popup.querySelector('input[name*="phone"]') ||
+                     popup.querySelector('input[placeholder*="phone" i]') ||
+                     popup.querySelector('input[placeholder*="205" i]'); // Matches the placeholder format
+
     console.log('[PHONE VALIDATION] Phone input found:', phoneInput);
 
     if (!phoneInput) {
-      console.warn('[PHONE VALIDATION] Phone input NOT found with ID: phone_number_01K6FRB02HPPKJ92PX7FC5QW4R');
-      // Try to find any phone input
-      const allInputs = popup.querySelectorAll('input[type="tel"], input[name*="phone"]');
-      console.log('[PHONE VALIDATION] All phone-like inputs found:', allInputs);
+      console.warn('[PHONE VALIDATION] Phone input NOT found with any selector');
       return;
     }
 
@@ -333,7 +336,10 @@
 
   // Wait for form to be ready, then add validation
   const validationObserver = new MutationObserver(function() {
-    const phoneInput = popup.querySelector('#phone_number_01K6FRB02HPPKJ92PX7FC5QW4R');
+    // Check if phone input exists using flexible selectors
+    const phoneInput = popup.querySelector('input[id*="phone_number"]') ||
+                       popup.querySelector('input[type="tel"]') ||
+                       popup.querySelector('input[name*="phone"]');
     if (phoneInput) {
       addPhoneValidation();
       validationObserver.disconnect();
@@ -346,7 +352,10 @@
   });
 
   // Try immediately in case form is already loaded
-  if (popup.querySelector('#phone_number_01K6FRB02HPPKJ92PX7FC5QW4R')) {
+  const immediatePhoneInput = popup.querySelector('input[id*="phone_number"]') ||
+                              popup.querySelector('input[type="tel"]') ||
+                              popup.querySelector('input[name*="phone"]');
+  if (immediatePhoneInput) {
     addPhoneValidation();
   }
 })();
