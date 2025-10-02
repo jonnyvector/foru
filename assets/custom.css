@@ -62,6 +62,8 @@ h6,
 [data-section-id*="collection-grid"]
   .custom-button-wrapper--secondary
   [class*="custom-button-arrow-"],
+quick-add .custom-button-wrapper--secondary [class*="custom-button-text-"],
+quick-add .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
 .wt-card .custom-button-wrapper--secondary [class*="custom-button-text-"],
 .wt-card .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
 .card .custom-button-wrapper--secondary [class*="custom-button-text-"],
