@@ -399,7 +399,7 @@ quick-add .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
 .selling_plan_app_container .purchase-option,
 .selling_plan_app_container .esa_subscription_text {
   border-radius: var(--border-radius) !important;
-  padding: 24px !important;
+  padding: 18px !important;
 }
 
 .subscription-options {
