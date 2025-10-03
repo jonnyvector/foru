@@ -46,7 +46,7 @@
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
-        "title": "Featured collection",
+        "title": "Find your protocol",
         "heading_alignment": "left",
         "disable_on_mobile": false,
         "hide_empty_section": false,
