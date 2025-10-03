@@ -396,16 +396,6 @@ quick-add .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
   }
 }
 
-.selling_plan_app_container .purchase-option,
-.selling_plan_app_container .esa_subscription_text {
-  border-radius: var(--border-radius) !important;
-  padding: 18px !important;
-}
-
-.subscription-options {
-  border-radius: var(--border-radius) !important;
-}
-
 /* Product page custom button hover fix - higher specificity to override subscription app conflicts */
 .main-product
   .wt-product__add-to-cart_form.main-product__buy-buttons--container
@@ -549,6 +539,8 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   }
 }
 
+/* Subscription App Customization */
+
 .selling_plan_app_container .easy-purchase-option-details {
   padding: 0 !important;
 }
@@ -557,4 +549,18 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   > div.esa_subscription_price_and_per_unit_delivery
   > div {
   flex-direction: column !important;
+}
+
+.selling_plan_app_container .purchase-option,
+.selling_plan_app_container .esa_subscription_text {
+  border-radius: var(--border-radius) !important;
+  padding: 18px !important;
+}
+
+#esa_subscription_text_first_label_50848423608631 {
+  padding: 12px !important;
+}
+
+.subscription-options {
+  border-radius: var(--border-radius) !important;
 }
