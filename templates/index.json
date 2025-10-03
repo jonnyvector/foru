@@ -47,6 +47,7 @@
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "title": "Featured collection",
+        "heading_alignment": "left",
         "disable_on_mobile": false,
         "hide_empty_section": false,
         "collection": "frontpage",
