@@ -74,37 +74,6 @@
         "margin-bottom": 100
       }
     },
-    "featured_collection_nEbYjp": {
-      "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
-      "settings": {
-        "title": "Featured collection",
-        "disable_on_mobile": false,
-        "hide_empty_section": false,
-        "collection": "frontpage",
-        "product_list": [],
-        "products_to_show": 4,
-        "enable_stack_products": false,
-        "show_view_all": true,
-        "button_select": "primary",
-        "number_of_column_desktop": 3,
-        "spacing_desktop": "16",
-        "make_products_full_width": true,
-        "number_of_column_mobile": 1.1,
-        "spacing_mobile": "16",
-        "text_alignment": "left",
-        "image_ratio": "square",
-        "show_video": false,
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_product_rating": false,
-        "enable_quick_add_button": true,
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
-        "margin-top": 20,
-        "margin-bottom": 20
-      }
-    },
     "benefits_product_DGyBfk": {
       "type": "benefits-product",
       "blocks": {
@@ -505,7 +474,7 @@
       ],
       "custom_css": [
         ".hero__overlay__content {width: 100%;}",
-        ".hero__title{margin-bottom:0;}"
+        ".hero__title {margin-bottom: 0;}"
       ],
       "name": "Background video custom",
       "settings": {
@@ -759,7 +728,6 @@
   "order": [
     "featured_collection_variant_W7pFMg",
     "featured_collection_HNLYAF",
-    "featured_collection_nEbYjp",
     "benefits_product_DGyBfk",
     "starter_kit_TjFAiC",
     "video_reels_custom_LBnjxB",
