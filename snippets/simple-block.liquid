@@ -245,7 +245,7 @@
   {%- endfor -%}
 {% else %}
   {% if title %}
-    <h5 class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__title h5">{{ title }}</h5>
+    <h5 class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__title h5" style="text-transform: none;">{{ title }}</h5>
   {% endif %}
   {% if title_h1 %}
     <h1 class="{% if prefix %}{{ prefix }}{% else %}block{% endif %}__title">{{ title }}</h1>
