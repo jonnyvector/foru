@@ -564,3 +564,7 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 .subscription-options {
   border-radius: var(--border-radius) !important;
 }
+
+.price {
+  font-family: var(--font-body) !important;
+}
