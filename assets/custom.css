@@ -576,3 +576,7 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 .subscription-options {
   background-color: transparent !important;
 }
+
+.purchase-option {
+  border: 1px solid var(--color-body-text) !important;
+}
