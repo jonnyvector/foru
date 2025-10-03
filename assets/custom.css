@@ -395,7 +395,7 @@ quick-add .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
     padding-right: calc(var(--gap) * 2);
   }
 }
-/* 
+/*
 .selling_plan_app_container .purchase-option,
 .selling_plan_app_container .esa_subscription_text {
   border-radius: var(--border-radius) !important;
@@ -547,4 +547,53 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   .hero__info-tooltip {
     margin-left: -1.5rem;
   }
+}
+
+/* Subscription App Customization */
+
+.selling_plan_app_container .easy-purchase-option-details {
+  padding: 0 !important;
+}
+
+#esa_subscription_text_first_label_50848423608631
+  > div.esa_subscription_price_and_per_unit_delivery
+  > div {
+  flex-direction: column-reverse !important;
+}
+
+.selling_plan_app_container .purchase-option,
+.selling_plan_app_container .esa_subscription_text {
+  border-radius: var(--border-radius) !important;
+  padding: 18px !important;
+}
+
+#esa_subscription_text_first_label_50848423608631 {
+  padding: 12px 18px !important;
+}
+
+.subscription-options {
+  border-radius: var(--border-radius) !important;
+}
+
+.price {
+  font-family: var(--font-body) !important;
+}
+
+#esa-purchase-option-50848423608631 > label {
+  padding: 1rem !important;
+}
+
+.subscription-options {
+  background-color: transparent !important;
+}
+
+.purchase-option,
+.subscription-options,
+.esa-upper-purchase-options {
+  border: 1px solid var(--color-body-text) !important;
+}
+
+.esa-upper-purchase-options,
+.selling_plan_app_container .esa-purchase-option.middle {
+  border-radius: 4px !important;
 }
