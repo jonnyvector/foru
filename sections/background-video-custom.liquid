@@ -68,6 +68,28 @@
     right: 16px;
   }
 
+  [data-section-id="{{ section.id }}"] .background-video__icon {
+    position: absolute;
+    top: calc(var(--gap, 8px) * 2);
+    left: calc(var(--gap, 8px) * 2);
+    z-index: 6;
+    width: var(--icon-width);
+  }
+
+  @media (min-width: 600px) {
+    [data-section-id="{{ section.id }}"] .background-video__icon {
+      top: calc(var(--gap, 8px) * 4);
+      left: calc(var(--gap, 8px) * 4);
+    }
+  }
+
+  @media (min-width: 1800px) {
+    [data-section-id="{{ section.id }}"] .background-video__icon {
+      top: calc(var(--gap, 8px) * 6);
+      left: calc(var(--gap, 8px) * 6);
+    }
+  }
+
   {%- for block in section.blocks -%}
   [data-block-id="{{ block.id }}"]
   {
@@ -118,7 +140,7 @@
       >
         {% for block in section.blocks %}
           {% if block.type == 'icon' %}
-            <div data-block-id="{{ block.id }}" style="position: absolute; top: 1.5rem; left: 1.5rem; z-index: 2; width: var(--icon-width);">
+            <div data-block-id="{{ block.id }}" class="background-video__icon">
               {% if block.settings.icon_image %}
                 <img src="{{ block.settings.icon_image | image_url }}" alt="{{ block.settings.icon_image.alt | escape }}" loading="lazy" style="width: 100%; height: auto; display: block;">
               {% endif %}
