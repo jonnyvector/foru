@@ -548,7 +548,7 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 #esa_subscription_text_first_label_50848423608631
   > div.esa_subscription_price_and_per_unit_delivery
   > div {
-  flex-direction: column !important;
+  flex-direction: column-reverse !important;
 }
 
 .selling_plan_app_container .purchase-option,
