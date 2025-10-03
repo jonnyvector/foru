@@ -578,6 +578,7 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 }
 
 .purchase-option,
-.subscription-options {
+.subscription-options,
+.esa-upper-purchase-options {
   border: 1px solid var(--color-body-text) !important;
 }
