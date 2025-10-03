@@ -568,3 +568,7 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 .price {
   font-family: var(--font-body) !important;
 }
+
+#esa-purchase-option-50848423608631 > label {
+  padding: 1rem !important;
+}
