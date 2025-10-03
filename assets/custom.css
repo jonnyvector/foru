@@ -583,6 +583,7 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   border: 1px solid var(--color-body-text) !important;
 }
 
-.esa-upper-purchase-options {
+.esa-upper-purchase-options,
+.selling_plan_app_container .esa-purchase-option.middle {
   border-radius: 4px !important;
 }
