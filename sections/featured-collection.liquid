@@ -57,7 +57,7 @@
 
   <div data-section-id="{{ section.id }}" class="wt-featured-collection wt-slider {% if section.settings.disable_on_mobile %}wt-featured-collection--disable-on-mobile{% endif %}">
     {% if section.settings.title != blank %}
-      <div class="headline {% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %} {% if section.settings.heading_disable_on_mobile == true %} hero__title--mobile{% endif %}  {% if section.settings.disable_on_mobile %}disable-on-mobile{% endif %}">
+      <div class="headline {% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %} {% if section.settings.heading_disable_on_mobile == true %} hero__title--mobile{% endif %}  {% if section.settings.disable_on_mobile %}disable-on-mobile{% endif %}" style="text-align: {{ section.settings.heading_alignment }};">
         {% render 'simple-block'
           , prefix: 'headline'
           , title: section.settings.title %}
@@ -221,6 +221,22 @@
         "id": "title",
         "default": "Featured collection",
         "label": "t:sections.featured-collection.settings.title.label"
+      },
+      {
+        "type": "select",
+        "id": "heading_alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          }
+        ],
+        "default": "center",
+        "label": "Heading alignment"
       },
       {
         "type": "checkbox",
