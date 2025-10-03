@@ -2000,6 +2000,9 @@ body.no-focus-visible .form-checkbox__input:focus-visible ~ .input-decorator {
     );
   }
 }
+.headline__title.h5 {
+  font-size: var(--font-h5-size);
+}
 .newsletter__wrapper .headline__title,
 .wt-contact__form--wrapper .headline__title {
   padding-bottom: calc(var(--gap, 8px) * 1);
