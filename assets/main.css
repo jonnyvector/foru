@@ -113,7 +113,7 @@
   width: 100%;
 }
 .wt-footer__additional .wt-footer__title {
-  text-align: center;
+  text-align: left;
 }
 @media (min-width: 900px) {
   .wt-footer__additional .wt-footer__title {
