@@ -588,9 +588,12 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   border-radius: 4px !important;
 }
 
-/* Fix bottom padding on mobile for hero overlay when positioned at bottom */
+/* Fix bottom positioning on mobile for hero overlay when positioned at bottom-left */
 @media (max-width: 899px) {
-  .background-video .hero__overlay--mobile--bottom {
-    margin-bottom: calc(var(--gap, 8px) * 2) !important;
+  .background-video .hero__overlay--mobile--bottom.hero__overlay--mobile--left {
+    bottom: 16px;
+    left: 16px;
+    top: auto;
+    right: auto;
   }
 }
