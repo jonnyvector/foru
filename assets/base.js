@@ -145,7 +145,9 @@ class DrawerNavSection extends HTMLElement {
 
     // Set CSS variable for dynamic header height positioning
     const headerHeight = this.getHeaderHeight();
-    document.documentElement.style.setProperty('--dynamic-header-height', `${headerHeight}px`);
+    // Remove 'px' if already present since getStyleProperty returns value with unit
+    const heightValue = parseFloat(headerHeight);
+    document.documentElement.style.setProperty('--dynamic-header-height', `${heightValue}px`);
   }
 
   toggleMenuButtonAttr() {
