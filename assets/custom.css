@@ -587,3 +587,10 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 .selling_plan_app_container .esa-purchase-option.middle {
   border-radius: 4px !important;
 }
+
+/* Fix bottom padding on mobile for hero overlay when positioned at bottom */
+@media (max-width: 899px) {
+  .hero__overlay--mobile--bottom {
+    padding-bottom: calc(var(--gap, 8px) * 2);
+  }
+}
