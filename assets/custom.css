@@ -610,3 +610,18 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
     justify-content: flex-start;
   }
 }
+
+/* Keep announcement bar above menu drawer overlay */
+.menu-drawer-overlay-on .wt-announcement,
+.menu-open .wt-announcement {
+  z-index: 1000 !important;
+}
+
+/* Make mobile drawer menu fill full height */
+@media (max-width: 1199px) {
+  .wt-drawer--nav mega-menu-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
