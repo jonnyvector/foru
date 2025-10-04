@@ -473,7 +473,8 @@
         "button_9bbhDc"
       ],
       "custom_css": [
-        ".hero__overlay__content {width: 100%;}"
+        ".hero__overlay__content {width: 100%;}",
+        ".hero__title{margin-bottom:0;}"
       ],
       "name": "Background video custom",
       "settings": {
@@ -676,6 +677,7 @@
     },
     "klaviyo_popup_D43Wkh": {
       "type": "klaviyo-popup",
+      "custom_css": [],
       "name": "Klaviyo Popup",
       "settings": {
         "enable_popup": true,
