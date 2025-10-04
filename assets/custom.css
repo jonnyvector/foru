@@ -606,10 +606,3 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 .menu-open .wt-announcement {
   z-index: 1000 !important;
 }
-
-/* Ensure mobile drawer content takes full available height */
-@media (max-width: 1199px) {
-  .wt-drawer--nav .wt-drawer__content {
-    max-height: calc(100vh - var(--dynamic-header-height, 64px));
-  }
-}
