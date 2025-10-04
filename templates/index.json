@@ -680,7 +680,7 @@
       "custom_css": [],
       "name": "Klaviyo Popup",
       "settings": {
-        "enable_popup": true,
+        "enable_popup": false,
         "klaviyo_api_key": "",
         "klaviyo_embed_code": "<div class=\"klaviyo-form-XnQuBp\"></div>",
         "popup_trigger": "delay",
