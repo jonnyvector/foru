@@ -600,3 +600,9 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
     justify-content: flex-start;
   }
 }
+
+/* Keep announcement bar above menu drawer overlay */
+.menu-drawer-overlay-on .wt-announcement,
+.menu-open .wt-announcement {
+  z-index: 1000 !important;
+}
