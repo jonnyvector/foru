@@ -119,6 +119,22 @@ class LocalizationDrawer extends HTMLElement {
       trigger.addEventListener("click", (e) => {
         e.preventDefault();
 
+        // Close mobile menu drawer if open
+        const mobileDrawer = document.querySelector('drawer-nav');
+        if (mobileDrawer && mobileDrawer.isOpen) {
+          const menuToggleButton = document.querySelector('.wt-header__menu-trigger');
+          if (menuToggleButton) {
+            // Simulate click on menu toggle to close it
+            const activeNavBodyClass = "menu-open";
+            const activeOverlayBodyClass = "menu-drawer-overlay-on";
+            document.body.classList.remove(activeNavBodyClass);
+            document.body.classList.remove(activeOverlayBodyClass);
+            mobileDrawer.isOpen = false;
+            menuToggleButton.dataset.open = "false";
+            menuToggleButton.setAttribute("aria-expanded", "false");
+          }
+        }
+
         const openTab = trigger.dataset.openDrawer;
 
         this.toggleDrawerClasses();
