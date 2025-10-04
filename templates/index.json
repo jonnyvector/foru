@@ -472,7 +472,10 @@
         "heading_BfGUeU",
         "button_9bbhDc"
       ],
-      "custom_css": [],
+      "custom_css": [
+        ".hero__overlay__content {width: 100%;}",
+        ".hero__title {margin-bottom: 0;}"
+      ],
       "name": "Background video custom",
       "settings": {
         "heading": "",
