@@ -591,6 +591,6 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 /* Fix bottom padding on mobile for hero overlay when positioned at bottom */
 @media (max-width: 899px) {
   .background-video .hero__overlay--mobile--bottom {
-    margin-bottom: calc(var(--gap, 8px) * 2);
+    margin-bottom: calc(var(--gap, 8px) * 2) !important;
   }
 }
