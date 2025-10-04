@@ -473,8 +473,7 @@
         "button_9bbhDc"
       ],
       "custom_css": [
-        ".hero__overlay__content {width: 100%;}",
-        ".hero__title {margin-bottom: 0;}"
+        ".hero__overlay__content {width: 100%;}"
       ],
       "name": "Background video custom",
       "settings": {
@@ -496,7 +495,7 @@
         "mobile_text_horizontal_position": "left",
         "mobile_text_vertical_position": "bottom",
         "margin-top": 0,
-        "margin-bottom": 0
+        "margin-bottom": 20
       }
     },
     "featured_on_iXfAwg": {
