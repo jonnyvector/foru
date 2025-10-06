@@ -45,7 +45,7 @@
     "featured_collection_HNLYAF": {
       "type": "featured-collection",
       "custom_css": [
-        ".wt-slider__container--featured{padding-bottom:6rem;}"
+        ".wt-slider__container--featured {padding-bottom: 6rem;}"
       ],
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
