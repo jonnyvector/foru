@@ -640,3 +640,26 @@ main .wt-slider__nav-btn .icon,
 .wt-cart .wt-slider__nav-btn .icon {
   display: none !important;
 }
+
+/* Featured collection product title and price sizing */
+[data-section-id*="featured_collection"] .card__title,
+[data-section-id*="featured_collection"] .card__heading {
+  font-size: 16px;
+}
+
+[data-section-id*="featured_collection"] .price,
+[data-section-id*="featured_collection"] .card__price {
+  font-size: 16px;
+}
+
+@media (min-width: 900px) {
+  [data-section-id*="featured_collection"] .card__title,
+  [data-section-id*="featured_collection"] .card__heading {
+    font-size: 24px;
+  }
+
+  [data-section-id*="featured_collection"] .price,
+  [data-section-id*="featured_collection"] .card__price {
+    font-size: 24px;
+  }
+}
