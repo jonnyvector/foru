@@ -13,7 +13,7 @@
       "type": "main-breadcrumbs",
       "settings": {
         "full-width-enabled": true,
-        "text_color": "#ffffff",
+        "text_color": "#1a1c1c",
         "background_color": "#f7f7f7",
         "margin-top": 12,
         "margin-bottom": 12
