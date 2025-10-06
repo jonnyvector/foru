@@ -625,3 +625,22 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
     flex-direction: column;
   }
 }
+
+/* Fix swiper buttons to only show SVG background arrow, not CSS border arrow */
+main .wt-slider__nav-btn.swiper-button-next:after,
+main .wt-slider__nav-btn.swiper-button-prev:after,
+.wt-cart .wt-slider__nav-btn.swiper-button-next:after,
+.wt-cart .wt-slider__nav-btn.swiper-button-prev:after {
+  border: none !important;
+  width: 20px !important;
+  height: 20px !important;
+  transform: none !important;
+}
+
+/* Hide the icon snippet content inside swiper buttons */
+main .wt-slider__nav-btn svg,
+.wt-cart .wt-slider__nav-btn svg,
+main .wt-slider__nav-btn .icon,
+.wt-cart .wt-slider__nav-btn .icon {
+  display: none !important;
+}
