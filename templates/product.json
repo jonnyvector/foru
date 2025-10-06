@@ -241,7 +241,8 @@
         "separator_LgmQMx"
       ],
       "custom_css": [
-        ".wt-collapse__trigger {margin-bottom: 0; padding-left: 0; padding: 1rem 0;}"
+        ".wt-collapse__trigger {margin-bottom: 0; padding-left: 0; padding: 1rem 0;}",
+        ".swiper-pagination {display:none;}"
       ],
       "settings": {
         "enable_sticky_buy_button": true,
