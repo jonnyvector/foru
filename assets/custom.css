@@ -652,7 +652,7 @@ main .wt-slider__nav-btn .icon,
   font-size: 16px;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1200px) {
   [data-section-id*="featured_collection"] .card__title,
   [data-section-id*="featured_collection"] .card__heading {
     font-size: 24px;
@@ -660,6 +660,19 @@ main .wt-slider__nav-btn .icon,
 
   [data-section-id*="featured_collection"] .price,
   [data-section-id*="featured_collection"] .card__price {
+    font-size: 24px;
+  }
+}
+
+/* Collection grid product title sizing */
+.collection__grid__item .card__title,
+.collection__grid__item .card__heading {
+  font-size: 16px;
+}
+
+@media (min-width: 1200px) {
+  .collection__grid__item .card__title,
+  .collection__grid__item .card__heading {
     font-size: 24px;
   }
 }
