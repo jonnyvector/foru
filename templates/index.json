@@ -716,14 +716,14 @@
       "custom_css": [],
       "name": "Klaviyo Popup",
       "settings": {
-        "enable_popup": false,
+        "enable_popup": true,
         "klaviyo_api_key": "",
         "klaviyo_embed_code": "<div class=\"klaviyo-form-XnQuBp\"></div>",
         "popup_trigger": "delay",
         "popup_delay": 3,
         "scroll_percentage": 50,
         "exit_intent": false,
-        "show_once": false,
+        "show_once": true,
         "enable_teaser": true,
         "teaser_text": "Sign Up"
       }
