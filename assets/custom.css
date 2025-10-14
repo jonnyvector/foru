@@ -777,4 +777,12 @@ main .wt-slider__nav-btn .icon,
     > h3 {
     font-size: 24px;
   }
+
+  /* Benefits Product Image max-width for mobile */
+  #shopify-section-template--25052416049463__benefits_product_DGyBfk
+    .wt-benefits-product__img,
+  #shopify-section-template--25052423979319__benefits_product_DGyBfk
+    .wt-benefits-product__img {
+    max-width: 300px;
+  }
 }
