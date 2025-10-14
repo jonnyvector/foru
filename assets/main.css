@@ -1178,7 +1178,7 @@ button[disabled] {
 @media (hover: hover) {
   .card:has(.card__img--hover):hover .card__img,
   .card:has(.card__img--hover):hover .card__video {
-    transition: opacity 0.3s ease-out;
+    transition: none;
     opacity: 0;
   }
 }
@@ -1191,13 +1191,13 @@ button[disabled] {
   top: 0;
   left: 0;
   object-fit: cover;
-  transition: opacity 0.3s ease-out;
+  transition: none;
 }
 @media (hover: hover) {
   .card:has(.card__img--hover):hover .card__img--hover,
   .card:has(.card__img--hover):hover .card__video--hover {
     opacity: 1;
-    transition: opacity 0.3s ease-out;
+    transition: none;
   }
 }
 .card__img--placeholder,
