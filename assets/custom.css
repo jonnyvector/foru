@@ -705,6 +705,9 @@ main .wt-slider__nav-btn .icon,
   #shopify-section-template--25052416049463__benefits_product_DGyBfk .wt-benefits-product__icons-container {
     margin-top: -4rem;
   }
+  #shopify-section-template--25052416049463__benefits_product_DGyBfk .hero__wrapper.wt-benefits-product {
+    margin-bottom: 8rem;
+  }
 }
 
 #shopify-section-template--25052416049463__benefits_product_DGyBfk .wt-benefits-product__icon-item:nth-of-type(1),
