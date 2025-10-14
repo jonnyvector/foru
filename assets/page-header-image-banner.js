@@ -90,14 +90,14 @@ if (!customElements.get("page-header-image-banner")) {
         this.observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
-              // Check if header is in sticky mode
-              const isStickyActive = header.classList.contains("sticky-enabled");
+              // Check if we're near the top of the page
+              const isNearTop = window.pageYOffset < 100;
 
               if (!entry.isIntersecting) {
                 header.classList.remove(activeTransparentClass);
               } else {
-                // Only add transparent class if NOT in sticky mode
-                if (!isStickyActive) {
+                // Only add transparent class if we're near the top of the page
+                if (isNearTop) {
                   header.classList.add(activeTransparentClass);
                 }
               }
