@@ -87,24 +87,45 @@ if (!customElements.get("page-header-image-banner")) {
       observeHeader() {
         const header = document.querySelector(".wt-header");
         const activeTransparentClass = "wt-header--transparent";
+        let heroIsIntersecting = false;
+
+        // Handle scroll position updates when hero is visible
+        const handleScroll = () => {
+          if (heroIsIntersecting) {
+            const isNearTop = window.pageYOffset < 100;
+            if (isNearTop) {
+              header.classList.add(activeTransparentClass);
+            } else {
+              header.classList.remove(activeTransparentClass);
+            }
+          }
+        };
+
         this.observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
-              // Check if we're near the top of the page
-              const isNearTop = window.pageYOffset < 100;
+              heroIsIntersecting = entry.isIntersecting;
 
               if (!entry.isIntersecting) {
+                // Hero section scrolled out of view - remove transparent
                 header.classList.remove(activeTransparentClass);
               } else {
-                // Only add transparent class if we're near the top of the page
+                // Hero section in view - check scroll position
+                const isNearTop = window.pageYOffset < 100;
                 if (isNearTop) {
                   header.classList.add(activeTransparentClass);
+                } else {
+                  header.classList.remove(activeTransparentClass);
                 }
               }
             });
           },
           { root: null, threshold: 0.05 },
         );
+
+        // Add scroll listener
+        this.scrollListener = handleScroll;
+        window.addEventListener("scroll", this.scrollListener);
 
         this.observer.observe(this.logoBanner);
       }
