@@ -683,7 +683,7 @@ main .wt-slider__nav-btn .icon,
   }
 }
 
-/* Benefits Product Section Customization */
+/* Benefits Product Section Customization - Master Theme */
 #shopify-section-template--25052416049463__benefits_product_DGyBfk .wt-benefits-product__img {
   max-width: 620px;
 }
@@ -714,5 +714,39 @@ main .wt-slider__nav-btn .icon,
 #shopify-section-template--25052416049463__benefits_product_DGyBfk .wt-benefits-product__icon-item:nth-of-type(2),
 #shopify-section-template--25052416049463__benefits_product_DGyBfk .wt-benefits-product__icon-item:nth-of-type(5),
 #shopify-section-template--25052416049463__benefits_product_DGyBfk .wt-benefits-product__icon-item:nth-of-type(6) {
+  align-items: center;
+}
+
+/* Benefits Product Section Customization - Staging Theme */
+#shopify-section-template--25052423979319__benefits_product_DGyBfk .wt-benefits-product__img {
+  max-width: 620px;
+}
+
+#shopify-section-template--25052423979319__benefits_product_DGyBfk .wt-benefits-product__custom-heading {
+  margin-bottom: 0;
+}
+
+@media (min-width: 1100px) {
+  #shopify-section-template--25052423979319__benefits_product_DGyBfk .wt-benefits-product__icon-list {
+    height: 80%;
+  }
+  #shopify-section-template--25052423979319__benefits_product_DGyBfk .wt-benefits-product__icon-item-heading {
+    margin: 1rem 0;
+  }
+}
+
+@media (max-width: 899px) {
+  #shopify-section-template--25052423979319__benefits_product_DGyBfk .wt-benefits-product__icons-container {
+    margin-top: -4rem;
+  }
+  #shopify-section-template--25052423979319__benefits_product_DGyBfk .hero__wrapper.wt-benefits-product {
+    margin-bottom: 8rem;
+  }
+}
+
+#shopify-section-template--25052423979319__benefits_product_DGyBfk .wt-benefits-product__icon-item:nth-of-type(1),
+#shopify-section-template--25052423979319__benefits_product_DGyBfk .wt-benefits-product__icon-item:nth-of-type(2),
+#shopify-section-template--25052423979319__benefits_product_DGyBfk .wt-benefits-product__icon-item:nth-of-type(5),
+#shopify-section-template--25052423979319__benefits_product_DGyBfk .wt-benefits-product__icon-item:nth-of-type(6) {
   align-items: center;
 }
