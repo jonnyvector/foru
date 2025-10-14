@@ -167,8 +167,8 @@
         "color-overlay": "#ffffff",
         "color-overlay-opacity": 100,
         "color-body-text": "rgba(0,0,0,0)",
-        "margin-top": 100,
-        "margin-bottom": 100
+        "margin-top": 20,
+        "margin-bottom": 0
       }
     },
     "starter_kit_TjFAiC": {
