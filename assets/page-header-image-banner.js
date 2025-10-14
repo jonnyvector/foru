@@ -90,10 +90,16 @@ if (!customElements.get("page-header-image-banner")) {
         this.observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
+              // Check if header is in sticky mode
+              const isStickyActive = header.classList.contains("sticky-enabled");
+
               if (!entry.isIntersecting) {
                 header.classList.remove(activeTransparentClass);
               } else {
-                header.classList.add(activeTransparentClass);
+                // Only add transparent class if NOT in sticky mode
+                if (!isStickyActive) {
+                  header.classList.add(activeTransparentClass);
+                }
               }
             });
           },
