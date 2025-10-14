@@ -1178,7 +1178,7 @@ button[disabled] {
 @media (hover: hover) {
   .card:has(.card__img--hover):hover .card__img,
   .card:has(.card__img--hover):hover .card__video {
-    transition: opacity 0.2s ease-out 0.2s;
+    transition: opacity 0.3s ease-out;
     opacity: 0;
   }
 }
