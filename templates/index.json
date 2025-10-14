@@ -67,7 +67,7 @@
         "text_alignment": "left",
         "image_ratio": "square",
         "show_video": false,
-        "show_secondary_image": false,
+        "show_secondary_image": true,
         "show_vendor": false,
         "show_product_rating": false,
         "enable_quick_add_button": true,
