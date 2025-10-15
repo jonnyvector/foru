@@ -640,12 +640,24 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 }
 
 /* Radio button styling */
-.delivery_value:checked {
+.delivery_value:checked,
+.delivery_value_small:checked {
   border: 2px solid #1a1c1c !important;
   background: transparent !important;
 }
 
 .delivery_value:checked::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 10px !important;
+  height: 10px !important;
+  margin: auto !important;
+  border-radius: 9999px !important;
+  background-color: #1a1c1c !important;
+}
+
+.delivery_value_small:checked::after {
   content: "";
   position: absolute;
   inset: 0;
