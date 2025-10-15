@@ -657,7 +657,7 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   background-color: #1a1c1c !important;
 }
 
-.delivery_value_small:checked::after {
+.selling_plan_app_container .delivery_value_small:checked::after {
   content: "";
   position: absolute;
   inset: 0;
