@@ -283,7 +283,7 @@
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
         "margin-top": 48,
-        "margin-bottom": 48
+        "margin-bottom": 16
       }
     },
     "image_with_text_3rdT8b": {
@@ -607,7 +607,7 @@
         "color_body_text": "#1a1c1c",
         "background_color": "rgba(0,0,0,0)",
         "quote_icon": "shopify://shop_images/Frame_1_41d73260-6314-4618-a31f-a5cb2b91c3e4.svg",
-        "margin-top": 24,
+        "margin-top": 36,
         "margin-bottom": 0
       }
     },
@@ -637,7 +637,7 @@
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
         "margin-top": 48,
-        "margin-bottom": 48
+        "margin-bottom": 36
       }
     },
     "1759117549c8402d37": {
