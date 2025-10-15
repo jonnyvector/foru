@@ -637,7 +637,8 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 }
 
 .selling_plan_app_container .subscription-options:has(input:checked),
-.selling_plan_app_container .subscription-options:has(input[type="radio"]:checked) {
+.selling_plan_app_container
+  .subscription-options:has(input[type="radio"]:checked) {
   background-color: transparent !important;
 }
 
@@ -855,13 +856,6 @@ main .wt-slider__nav-btn .icon,
   #shopify-section-template--25052416049463__benefits_product_DGyBfk
     .wt-benefits-product__icon-item-heading {
     margin: 1rem 0;
-  }
-}
-
-@media (max-width: 899px) {
-  #shopify-section-template--25052416049463__benefits_product_DGyBfk
-    .hero__wrapper.wt-benefits-product {
-    margin-bottom: 8rem;
   }
 }
 
