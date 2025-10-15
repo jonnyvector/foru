@@ -582,7 +582,7 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 }
 
 .esa-purchase-option.middle > label {
-  padding: 1rem !important;
+  padding: 1.5rem !important;
 }
 
 .subscription-options {
@@ -608,6 +608,120 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   bottom: -5px !important;
   background-color: #1a1c1c !important;
   border-radius: 4px !important;
+}
+
+.esa_subscription_text_span_regular,
+.esa_subscription_text_span_g {
+  text-transform: none !important;
+}
+
+.purchase-option,
+.subscription-options {
+  border: 1px solid #d0d0d0 !important;
+}
+
+.purchase-option,
+.esa_subscription_text,
+.esa-upper-purchase-options.index-one,
+.esa-purchase-option.middle {
+  background: transparent !important;
+}
+
+.purchase-option:has(input:checked),
+.subscription-options:has(input:checked) {
+  border: 1px solid #1a1c1c !important;
+}
+
+.esa-upper-purchase-options.index-one {
+  border: 1px solid #d0d0d0 !important;
+}
+
+.esa-purchase-option.middle {
+  border: none !important;
+}
+
+.esa_subscription_text {
+  border-bottom: none !important;
+}
+
+.selling_plan_app_container .subscription-options:has(input:checked),
+.selling_plan_app_container .subscription-options:has(input[type="radio"]:checked) {
+  background-color: transparent !important;
+}
+
+/* Radio button styling */
+.selling_plan_app_container .delivery_value,
+.selling_plan_app_container .delivery_value_small {
+  border: 1px solid var(--secondary-color) !important;
+}
+
+.selling_plan_app_container .delivery_value:checked,
+.selling_plan_app_container .delivery_value_small:checked {
+  background: transparent !important;
+}
+
+.delivery_value:checked::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 10px !important;
+  height: 10px !important;
+  margin: auto !important;
+  border-radius: 9999px !important;
+  background-color: #1a1c1c !important;
+}
+
+.selling_plan_app_container .delivery_value_small:checked::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 10px !important;
+  height: 10px !important;
+  margin: auto !important;
+  border-radius: 9999px !important;
+  background-color: #1a1c1c !important;
+  top: 0 !important;
+  left: 0 !important;
+  transform: none !important;
+}
+
+/* Custom radio span styling */
+.selling_plan_app_container .easy_radio_design {
+  position: relative !important;
+  border: 1px solid var(--secondary-color) !important;
+}
+
+.selling_plan_app_container .easy_radio_design:not(.unchecked) {
+  background: transparent !important;
+}
+
+.selling_plan_app_container .easy_radio_design:not(.unchecked)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 10px !important;
+  height: 10px !important;
+  margin: auto !important;
+  border-radius: 9999px !important;
+  background-color: #1a1c1c !important;
+}
+
+.tooltip-title-svg-container-esa {
+  background: #ebebeb !important;
+  color: #1a1c1c !important;
+  border-radius: 4px !important;
+}
+
+.tooltip-title-text {
+  color: var(--secondary-color) !important;
+}
+
+.tooltip-title-svg svg path {
+  stroke: var(--secondary-color) !important;
+}
+
+.easy_guideline_details {
+  margin-bottom: 1rem !important;
 }
 
 /* Fix bottom positioning on mobile for hero overlay when positioned at bottom-left */
