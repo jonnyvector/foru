@@ -3486,8 +3486,8 @@ body.mobile-nav .wt-page-nav-mega__link__text--underline {
   body:not(.mobile-nav) .wt-page-nav-mega__link .svg-icon--arrow-down,
   body:not(.mobile-nav) .wt-page-nav-mega__link .svg-icon--arrow-right {
     display: block;
-    width: 14px;
-    height: 14px;
+    width: 20px;
+    height: 20px;
     color: var(--color-menu-text);
   }
   body:not(.mobile-nav) .wt-page-nav-mega__item {
