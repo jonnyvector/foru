@@ -583,6 +583,7 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 
 .esa-purchase-option.middle > label {
   padding: 1.5rem !important;
+  padding-bottom: 2rem !important;
 }
 
 .subscription-options {
@@ -605,9 +606,10 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 }
 
 .style1_discount_badge.bottom-left {
-  bottom: -5px !important;
+  bottom: -6px !important;
   background-color: #1a1c1c !important;
   border-radius: 4px !important;
+  padding: 2px 4px !important;
 }
 
 .esa_subscription_text_span_regular,
@@ -722,6 +724,10 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 
 .easy_guideline_details {
   margin-bottom: 1rem !important;
+}
+
+.plan-details-container .price-container {
+  gap: 10px !important;
 }
 
 /* Fix bottom positioning on mobile for hero overlay when positioned at bottom-left */
