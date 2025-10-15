@@ -734,26 +734,26 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 .wt-page-nav-mega__link--parent .svg-icon--arrow-down {
   display: block !important;
   transform: rotate(0deg) !important;
-  transition: transform 0.3s ease !important;
+  transition: none !important;
 }
 
-/* CRITICAL: Prevent any hover-based rotation on all devices with maximum specificity */
-body .wt-page-nav-mega__link--parent:hover .svg-icon--arrow-down,
-body.mobile-nav .wt-page-nav-mega__link--parent:hover .svg-icon--arrow-down,
-body .wt-page-nav-mega__link.slide-hover:hover .svg-icon--arrow-down,
-body.mobile-nav .wt-page-nav-mega__link.slide-hover:hover .svg-icon--arrow-down,
-.wt-page-nav-mega__link--parent:hover .svg-icon--arrow-down,
-.wt-page-nav-mega__link.slide-hover:hover .svg-icon--arrow-down {
+/* CRITICAL: On mobile (body.mobile-nav), NEVER rotate on hover/dropdown-opened */
+/* Only rotate when submenu-opened class is present */
+body.mobile-nav .wt-page-nav-mega__item--parent:not(.submenu-opened) .svg-icon--arrow-down,
+body.mobile-nav .wt-page-nav-mega__item--parent.dropdown-opened:not(.submenu-opened) .svg-icon--arrow-down,
+body.mobile-nav .wt-page-nav-mega__link--parent:hover .svg-icon--arrow-down {
   transform: rotate(0deg) !important;
 }
 
-/* Only rotate when dropdown is actually opened - handles both mobile (submenu-opened) and desktop (dropdown-opened) */
-body .wt-page-nav-mega__item--parent.dropdown-opened .wt-page-nav-mega__link--parent .svg-icon--arrow-down,
-body .wt-page-nav-mega__item--parent.submenu-opened .wt-page-nav-mega__link--parent .svg-icon--arrow-down,
-body.mobile-nav .wt-page-nav-mega__item--parent.submenu-opened .wt-page-nav-mega__link--parent .svg-icon--arrow-down,
-.wt-page-nav-mega__item--parent.dropdown-opened .svg-icon--arrow-down,
-.wt-page-nav-mega__item--parent.submenu-opened .svg-icon--arrow-down {
+/* Mobile: ONLY rotate when submenu-opened (clicked and opened) */
+body.mobile-nav .wt-page-nav-mega__item--parent.submenu-opened .svg-icon--arrow-down {
   transform: rotate(180deg) !important;
+}
+
+/* Desktop: Only rotate on dropdown-opened (not on hover alone) */
+body:not(.mobile-nav) .wt-page-nav-mega__item--parent.dropdown-opened .svg-icon--arrow-down {
+  transform: rotate(180deg) !important;
+  transition: transform 0.3s ease !important;
 }
 
 /* Fix bottom positioning on mobile for hero overlay when positioned at bottom-left */
