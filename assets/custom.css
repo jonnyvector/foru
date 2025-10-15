@@ -708,6 +708,7 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 
 .tooltip-title-svg svg path {
   stroke: var(--secondary-color) !important;
+  fill: var(--secondary-color) !important;
 }
 
 /* Fix bottom positioning on mobile for hero overlay when positioned at bottom-left */
