@@ -736,9 +736,16 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   transition: transform 0.3s ease;
 }
 
-.dropdown-opened .wt-page-nav-mega__link--parent .svg-icon--arrow-down,
+/* Only rotate on click when dropdown is opened, not on hover */
 .wt-page-nav-mega__item--parent.dropdown-opened .svg-icon--arrow-down {
   transform: rotate(180deg);
+}
+
+/* Prevent hover rotation on mobile */
+@media (max-width: 1199px) {
+  .wt-page-nav-mega__link--parent:hover .svg-icon--arrow-down {
+    transform: none !important;
+  }
 }
 
 /* Fix bottom positioning on mobile for hero overlay when positioned at bottom-left */
