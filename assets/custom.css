@@ -666,6 +666,9 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   margin: auto !important;
   border-radius: 9999px !important;
   background-color: #1a1c1c !important;
+  top: 0 !important;
+  left: 0 !important;
+  transform: none !important;
 }
 
 /* Custom radio span styling */
