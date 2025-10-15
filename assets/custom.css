@@ -730,6 +730,16 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   }
 }
 
+/* Rotate arrow-down icon when dropdown is open */
+.wt-page-nav-mega__link--parent .svg-icon--arrow-down {
+  transition: transform 0.3s ease;
+}
+
+.dropdown-opened .wt-page-nav-mega__link--parent .svg-icon--arrow-down,
+.wt-page-nav-mega__item--parent.dropdown-opened .svg-icon--arrow-down {
+  transform: rotate(180deg);
+}
+
 /* Fix bottom positioning on mobile for hero overlay when positioned at bottom-left */
 @media (max-width: 899px) {
   .background-video .hero__overlay--mobile--bottom {
