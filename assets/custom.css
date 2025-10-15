@@ -640,9 +640,13 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 }
 
 /* Radio button styling */
+.selling_plan_app_container .delivery_value,
+.selling_plan_app_container .delivery_value_small {
+  border: 1px solid var(--secondary-color) !important;
+}
+
 .selling_plan_app_container .delivery_value:checked,
 .selling_plan_app_container .delivery_value_small:checked {
-  border: 1px solid var(--secondary-color) !important;
   background: transparent !important;
 }
 
@@ -674,10 +678,10 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 /* Custom radio span styling */
 .selling_plan_app_container .easy_radio_design {
   position: relative !important;
+  border: 1px solid var(--secondary-color) !important;
 }
 
 .selling_plan_app_container .easy_radio_design:not(.unchecked) {
-  border: 1px solid var(--secondary-color) !important;
   background: transparent !important;
 }
 
