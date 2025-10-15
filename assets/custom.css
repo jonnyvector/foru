@@ -733,6 +733,8 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 /* Arrow-down icon - always visible, base state points down */
 .wt-page-nav-mega__link--parent .svg-icon--arrow-down {
   display: block !important;
+  width: 20px !important;
+  height: 20px !important;
   transform: rotate(0deg) !important;
   transition: transform 0.3s ease !important;
 }
