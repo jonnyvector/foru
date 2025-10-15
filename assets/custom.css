@@ -739,7 +739,7 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 
 /* Mobile (< 1200px): ONLY rotate on submenu-opened (click), ignore dropdown-opened (hover) */
 @media (max-width: 1199px) {
-  .wt-page-nav-mega__item--parent.submenu-opened .svg-icon--arrow-down {
+  .wt-page-nav-mega__link--parent.submenu-opened .svg-icon--arrow-down {
     transform: rotate(180deg) !important;
   }
 }
