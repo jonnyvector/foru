@@ -730,30 +730,16 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   }
 }
 
-/* Show arrow-down icon - base state points down */
+/* Arrow-down icon - always visible, base state points down */
 .wt-page-nav-mega__link--parent .svg-icon--arrow-down {
   display: block !important;
   transform: rotate(0deg) !important;
-  transition: none !important;
-}
-
-/* CRITICAL: On mobile (body.mobile-nav), NEVER rotate on hover/dropdown-opened */
-/* Only rotate when submenu-opened class is present */
-body.mobile-nav .wt-page-nav-mega__item--parent:not(.submenu-opened) .svg-icon--arrow-down,
-body.mobile-nav .wt-page-nav-mega__item--parent.dropdown-opened:not(.submenu-opened) .svg-icon--arrow-down,
-body.mobile-nav .wt-page-nav-mega__link--parent:hover .svg-icon--arrow-down {
-  transform: rotate(0deg) !important;
-}
-
-/* Mobile: ONLY rotate when submenu-opened (clicked and opened) */
-body.mobile-nav .wt-page-nav-mega__item--parent.submenu-opened .svg-icon--arrow-down {
-  transform: rotate(180deg) !important;
-}
-
-/* Desktop: Only rotate on dropdown-opened (not on hover alone) */
-body:not(.mobile-nav) .wt-page-nav-mega__item--parent.dropdown-opened .svg-icon--arrow-down {
-  transform: rotate(180deg) !important;
   transition: transform 0.3s ease !important;
+}
+
+/* ONLY rotate when submenu-opened (clicked/tapped open) - ignore dropdown-opened (hover) */
+.wt-page-nav-mega__item--parent.submenu-opened .svg-icon--arrow-down {
+  transform: rotate(180deg) !important;
 }
 
 /* Fix bottom positioning on mobile for hero overlay when positioned at bottom-left */
