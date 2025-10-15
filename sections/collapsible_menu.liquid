@@ -38,10 +38,6 @@
   }
 
   /* Heading styling */
-  [data-section-id="{{ section.id }}"] .headline {
-    padding-left: 0;
-  }
-
   [data-section-id="{{ section.id }}"] .headline__title {
     text-align: {{ section.settings.text_alignment }};
     --font-headline-scale-desk: {{ section.settings.heading_size | divided_by: 100.0 }};
