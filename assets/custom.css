@@ -610,6 +610,10 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   border: 1px solid #d0d0d0 !important;
 }
 
+.purchase-option {
+  background: transparent !important;
+}
+
 .purchase-option:has(input:checked),
 .subscription-options:has(input:checked) {
   border: 1px solid #1a1c1c !important;
