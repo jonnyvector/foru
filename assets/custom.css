@@ -730,21 +730,29 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   }
 }
 
-/* Show arrow-down icon and disable all hover rotation */
+/* Show arrow-down icon - base state points down */
 .wt-page-nav-mega__link--parent .svg-icon--arrow-down {
   display: block !important;
-  transform: none !important;
-  transition: transform 0.3s ease;
+  transform: rotate(0deg) !important;
+  transition: transform 0.3s ease !important;
 }
 
-/* Prevent any hover-based rotation on all devices */
+/* CRITICAL: Prevent any hover-based rotation on all devices with maximum specificity */
+body .wt-page-nav-mega__link--parent:hover .svg-icon--arrow-down,
+body.mobile-nav .wt-page-nav-mega__link--parent:hover .svg-icon--arrow-down,
+body .wt-page-nav-mega__link.slide-hover:hover .svg-icon--arrow-down,
+body.mobile-nav .wt-page-nav-mega__link.slide-hover:hover .svg-icon--arrow-down,
 .wt-page-nav-mega__link--parent:hover .svg-icon--arrow-down,
-.slide-hover:hover .svg-icon--arrow-down {
-  transform: none !important;
+.wt-page-nav-mega__link.slide-hover:hover .svg-icon--arrow-down {
+  transform: rotate(0deg) !important;
 }
 
-/* Only rotate when dropdown is actually opened */
-.wt-page-nav-mega__item--parent.dropdown-opened .svg-icon--arrow-down {
+/* Only rotate when dropdown is actually opened - handles both mobile (submenu-opened) and desktop (dropdown-opened) */
+body .wt-page-nav-mega__item--parent.dropdown-opened .wt-page-nav-mega__link--parent .svg-icon--arrow-down,
+body .wt-page-nav-mega__item--parent.submenu-opened .wt-page-nav-mega__link--parent .svg-icon--arrow-down,
+body.mobile-nav .wt-page-nav-mega__item--parent.submenu-opened .wt-page-nav-mega__link--parent .svg-icon--arrow-down,
+.wt-page-nav-mega__item--parent.dropdown-opened .svg-icon--arrow-down,
+.wt-page-nav-mega__item--parent.submenu-opened .svg-icon--arrow-down {
   transform: rotate(180deg) !important;
 }
 
