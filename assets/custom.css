@@ -740,6 +740,29 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   }
 }
 
+/* Arrow-down icon - always visible, base state points down */
+.wt-page-nav-mega__link--parent .svg-icon--arrow-down {
+  display: block !important;
+  width: 20px !important;
+  height: 20px !important;
+  transform: rotate(0deg) !important;
+  transition: transform 0.3s ease !important;
+}
+
+/* Mobile (< 1200px): ONLY rotate on submenu-opened (click), ignore dropdown-opened (hover) */
+@media (max-width: 1199px) {
+  .wt-page-nav-mega__link--parent.submenu-opened .svg-icon--arrow-down {
+    transform: rotate(180deg) !important;
+  }
+}
+
+/* Desktop (>= 1200px): Rotate on dropdown-opened (hover) */
+@media (min-width: 1200px) {
+  .wt-page-nav-mega__item--parent.dropdown-opened .svg-icon--arrow-down {
+    transform: rotate(180deg) !important;
+  }
+}
+
 /* Fix bottom positioning on mobile for hero overlay when positioned at bottom-left */
 @media (max-width: 899px) {
   .background-video .hero__overlay--mobile--bottom {
