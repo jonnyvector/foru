@@ -612,7 +612,8 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 
 .purchase-option,
 .esa_subscription_text,
-.esa-upper-purchase-options.index-one {
+.esa-upper-purchase-options.index-one,
+.esa-purchase-option.middle {
   background: transparent !important;
 }
 
@@ -621,7 +622,7 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   border: 1px solid #1a1c1c !important;
 }
 
-.selling_plan_app_container .esa-upper-purchase-options.index-one {
+.esa-upper-purchase-options.index-one {
   border: 1px solid #d0d0d0 !important;
 }
 
