@@ -600,6 +600,11 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   border-radius: 4px !important;
 }
 
+.esa_subscription_text_span_regular,
+.esa_subscription_text_span_g {
+  text-transform: none !important;
+}
+
 /* Fix bottom positioning on mobile for hero overlay when positioned at bottom-left */
 @media (max-width: 899px) {
   .background-video .hero__overlay--mobile--bottom {
