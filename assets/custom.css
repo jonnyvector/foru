@@ -656,6 +656,27 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   background-color: #1a1c1c !important;
 }
 
+/* Custom radio span styling */
+.selling_plan_app_container .easy_radio_design {
+  position: relative !important;
+}
+
+.selling_plan_app_container .easy_radio_design:not(.unchecked) {
+  border: 2px solid #1a1c1c !important;
+  background: transparent !important;
+}
+
+.selling_plan_app_container .easy_radio_design:not(.unchecked)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 10px !important;
+  height: 10px !important;
+  margin: auto !important;
+  border-radius: 9999px !important;
+  background-color: #1a1c1c !important;
+}
+
 /* Fix bottom positioning on mobile for hero overlay when positioned at bottom-left */
 @media (max-width: 899px) {
   .background-video .hero__overlay--mobile--bottom {
