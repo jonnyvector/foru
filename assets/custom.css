@@ -730,44 +730,22 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   }
 }
 
-/* Show and rotate arrow-down icon */
+/* Show arrow-down icon and disable all hover rotation */
 .wt-page-nav-mega__link--parent .svg-icon--arrow-down {
   display: block !important;
+  transform: none !important;
   transition: transform 0.3s ease;
 }
 
-/* Only rotate on click when dropdown is opened, not on hover */
+/* Prevent any hover-based rotation on all devices */
+.wt-page-nav-mega__link--parent:hover .svg-icon--arrow-down,
+.slide-hover:hover .svg-icon--arrow-down {
+  transform: none !important;
+}
+
+/* Only rotate when dropdown is actually opened */
 .wt-page-nav-mega__item--parent.dropdown-opened .svg-icon--arrow-down {
   transform: rotate(180deg) !important;
-}
-
-/* Disable hover effects on mobile and touch devices */
-@media (max-width: 1199px) {
-  .wt-page-nav-mega__link--parent .svg-icon--arrow-down,
-  .wt-page-nav-mega__link--parent:hover .svg-icon--arrow-down,
-  .wt-page-nav-mega__link--parent.slide-hover:hover .svg-icon--arrow-down,
-  .slide-hover:hover .svg-icon--arrow-down {
-    transform: none !important;
-    transition: none !important;
-  }
-
-  .wt-page-nav-mega__item--parent.dropdown-opened .svg-icon--arrow-down,
-  .wt-page-nav-mega__item--parent.dropdown-opened .wt-page-nav-mega__link--parent:hover .svg-icon--arrow-down {
-    transform: rotate(180deg) !important;
-    transition: transform 0.3s ease !important;
-  }
-}
-
-/* Disable all hover transforms on touch devices */
-@media (hover: none) {
-  .wt-page-nav-mega__link .svg-icon--arrow-down,
-  .wt-page-nav-mega__link:hover .svg-icon--arrow-down {
-    transform: none !important;
-  }
-
-  .wt-page-nav-mega__item--parent.dropdown-opened .svg-icon--arrow-down {
-    transform: rotate(180deg) !important;
-  }
 }
 
 /* Fix bottom positioning on mobile for hero overlay when positioned at bottom-left */
