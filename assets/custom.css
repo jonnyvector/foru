@@ -701,6 +701,10 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   color: #1a1c1c !important;
 }
 
+.tooltip-title-text {
+  color: var(--secondary-color) !important;
+}
+
 /* Fix bottom positioning on mobile for hero overlay when positioned at bottom-left */
 @media (max-width: 899px) {
   .background-video .hero__overlay--mobile--bottom {
