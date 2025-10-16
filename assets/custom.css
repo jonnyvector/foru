@@ -950,3 +950,133 @@ main .wt-slider__nav-btn .icon,
     max-width: 300px;
   }
 }
+
+/* Price-Quantity Container Styles - Product Page and Quick-Add Drawer */
+.main-product .wt-product__price-quantity-container,
+.wt__quick-buy .wt-product__price-quantity-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.main-product .wt-product__total-section,
+.wt__quick-buy .wt-product__total-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.main-product .wt-product__quantity-section,
+.wt__quick-buy .wt-product__quantity-section {
+  flex-shrink: 0;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.main-product .wt-product__total-label,
+.main-product .wt-product__quantity-label,
+.wt__quick-buy .wt-product__total-label,
+.wt__quick-buy .wt-product__quantity-label {
+  height: 1.2em;
+  display: flex;
+  align-items: center;
+  font-size: var(--font-body-size);
+  color: var(--color-custom-text, var(--color-text));
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+}
+
+.main-product .wt-product__quantity-label .js-counter-quantity,
+.wt__quick-buy .wt-product__quantity-label .js-counter-quantity {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.main-product .wt-product__total-price,
+.main-product .wt-product__quantity-section .counter-wrapper,
+.wt__quick-buy .wt-product__total-price,
+.wt__quick-buy .wt-product__quantity-section .counter-wrapper {
+  display: flex;
+  align-items: flex-end;
+  height: 48px;
+}
+
+.main-product .wt-product__total-price .price,
+.wt__quick-buy .wt-product__total-price .price {
+  margin-top: auto;
+  line-height: 1;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--color-custom-text, var(--color-text));
+}
+
+.main-product .wt-product__quantity-section .counter,
+.wt__quick-buy .wt-product__quantity-section .counter {
+  margin-top: auto;
+  line-height: 1;
+  padding-bottom: 8px;
+  height: auto;
+  align-items: center;
+}
+
+.main-product .wt-product__quantity-section .counter-wrapper,
+.wt__quick-buy .wt-product__quantity-section .counter-wrapper {
+  margin-top: 0.5rem;
+  border: none;
+  background: transparent;
+  border-radius: 0;
+}
+
+.main-product .wt-product__quantity-section .counter input,
+.wt__quick-buy .wt-product__quantity-section .counter input {
+  height: 32px;
+  min-width: 24px;
+  text-align: center;
+  padding: 0;
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  color: var(--color-input-text);
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  outline: none;
+}
+
+.main-product .wt-product__quantity-section .counter input:focus,
+.wt__quick-buy .wt-product__quantity-section .counter input:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.main-product .wt-product__quantity-section .counter button svg,
+.wt__quick-buy .wt-product__quantity-section .counter button svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 749px) {
+  .main-product .wt-product__price-quantity-container,
+  .wt__quick-buy .wt-product__price-quantity-container {
+    gap: 1rem;
+  }
+
+  .main-product .wt-product__total-price .price,
+  .wt__quick-buy .wt-product__total-price .price {
+    font-size: 2rem;
+  }
+
+  .main-product .wt-product__quantity-section,
+  .wt__quick-buy .wt-product__quantity-section {
+    text-align: left;
+  }
+}
