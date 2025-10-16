@@ -242,7 +242,7 @@
       ],
       "custom_css": [
         ".wt-collapse__trigger {margin-bottom: 0; padding-left: 0; padding: 1rem 0;}",
-        ".swiper-pagination {display:none;}"
+        ".swiper-pagination {display: none;}"
       ],
       "settings": {
         "enable_sticky_buy_button": true,
@@ -257,7 +257,7 @@
         "text_color": "#1a1c1c",
         "background_color": "#f7f7f7",
         "margin-top": 0,
-        "margin-bottom": 8
+        "margin-bottom": 0
       }
     },
     "features_banner_idectQ": {
@@ -333,8 +333,8 @@
         "color_background_icon": "rgba(0,0,0,0)",
         "color_body_text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
-        "margin-top": 100,
-        "margin-bottom": 100
+        "margin-top": 48,
+        "margin-bottom": 0
       }
     },
     "ingredients_product_nVPErd": {
@@ -352,8 +352,8 @@
         "ingredient_name_size_desktop": 150,
         "text_color": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
-        "margin_top": 100,
-        "margin_bottom": 100
+        "margin_top": 48,
+        "margin_bottom": 48
       }
     },
     "health_benefits_aBfLBK": {
@@ -405,7 +405,7 @@
         "show_pagination": false,
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
-        "margin-top": 100,
+        "margin-top": 48,
         "margin-bottom": 0
       }
     },
@@ -474,8 +474,8 @@
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
         "compact-size-enabled": true,
-        "margin-top": 100,
-        "margin-bottom": 100
+        "margin-top": 24,
+        "margin-bottom": 48
       }
     },
     "split_banner_jgRFr4": {

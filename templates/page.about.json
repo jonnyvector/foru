@@ -217,8 +217,8 @@
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
         "logo_container_color": "#f7f7f7",
-        "margin-top": 80,
-        "margin-bottom": 80
+        "margin-top": 48,
+        "margin-bottom": 24
       }
     }
   },
