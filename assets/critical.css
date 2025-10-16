@@ -815,7 +815,7 @@ js-link[data-mobile="true"] {
   max-width: 50rem;
   height: 100%;
   z-index: 100;
-  padding: 56px 32px 74px 32px;
+  padding: 56px 16px 74px;
   overflow-y: auto;
   scrollbar-width: thin;
 }
