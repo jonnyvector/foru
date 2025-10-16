@@ -84,7 +84,7 @@
           "type": "benefit",
           "settings": {
             "image": "shopify://shop_images/Icons_4_6e3ff6e8-ee04-4021-81fe-4e7d63bf44d7.svg",
-            "item_heading": "<h3>100% Ingredient <br/>Transparency</h3>",
+            "item_heading": "<h3>100% Ingredient Transparency</h3>",
             "text": "<p>Every compound listed. No blends. No guessing.</p>",
             "alignment": "right"
           }
@@ -93,7 +93,7 @@
           "type": "benefit",
           "settings": {
             "image": "shopify://shop_images/Icons_6_e49fd3fa-d99b-4646-a98e-399579c8ba73.svg",
-            "item_heading": "<h3>Clinician-Led<br/>Formulation</h3>",
+            "item_heading": "<h3>Clinician-Led <br/>Formulation</h3>",
             "text": "<p>Developed with doctors and health scientists. Ingredients with purpose, not trends.</p>",
             "alignment": "left"
           }
