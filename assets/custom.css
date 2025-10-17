@@ -74,8 +74,8 @@ quick-add .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
 .wt-card .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
 .card .custom-button-wrapper--secondary [class*="custom-button-text-"],
 .card .custom-button-wrapper--secondary [class*="custom-button-arrow-"] {
-  background-color: var(--color-button-secondary-background) !important;
-  color: var(--color-button-secondary-text) !important;
+  background-color: var(--color-button-primary-background) !important;
+  color: var(--color-button-primary-text) !important;
   border-color: transparent !important;
 }
 
