@@ -74,7 +74,8 @@ quick-add .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
 .wt-card .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
 .card .custom-button-wrapper--secondary [class*="custom-button-text-"],
 .card .custom-button-wrapper--secondary [class*="custom-button-arrow-"] {
-  background-color: #e8e8e8 !important;
+  background-color: var(--secondary-color) !important;
+  color: var(--primary-color) !important;
   border-color: transparent !important;
 }
 
@@ -995,14 +996,18 @@ main .wt-slider__nav-btn .icon,
   opacity: 0.7;
 }
 
-.main-product__buy-buttons--container .wt-product__quantity-label .js-counter-quantity,
+.main-product__buy-buttons--container
+  .wt-product__quantity-label
+  .js-counter-quantity,
 .wt__quick-buy .wt-product__quantity-label .js-counter-quantity {
   font-size: 24px;
   font-weight: 500;
 }
 
 .main-product__buy-buttons--container .wt-product__total-price,
-.main-product__buy-buttons--container .wt-product__quantity-section .counter-wrapper,
+.main-product__buy-buttons--container
+  .wt-product__quantity-section
+  .counter-wrapper,
 .wt__quick-buy .wt-product__total-price,
 .wt__quick-buy .wt-product__quantity-section .counter-wrapper {
   display: flex;
@@ -1028,7 +1033,9 @@ main .wt-slider__nav-btn .icon,
   align-items: center;
 }
 
-.main-product__buy-buttons--container .wt-product__quantity-section .counter-wrapper,
+.main-product__buy-buttons--container
+  .wt-product__quantity-section
+  .counter-wrapper,
 .wt__quick-buy .wt-product__quantity-section .counter-wrapper {
   margin-top: 0.5rem;
   border: none;
@@ -1036,7 +1043,10 @@ main .wt-slider__nav-btn .icon,
   border-radius: 0;
 }
 
-.main-product__buy-buttons--container .wt-product__quantity-section .counter input,
+.main-product__buy-buttons--container
+  .wt-product__quantity-section
+  .counter
+  input,
 .wt__quick-buy .wt-product__quantity-section .counter input {
   height: 32px;
   min-width: 24px;
@@ -1051,14 +1061,21 @@ main .wt-slider__nav-btn .icon,
   outline: none;
 }
 
-.main-product__buy-buttons--container .wt-product__quantity-section .counter input:focus,
+.main-product__buy-buttons--container
+  .wt-product__quantity-section
+  .counter
+  input:focus,
 .wt__quick-buy .wt-product__quantity-section .counter input:focus {
   outline: none !important;
   border: none !important;
   box-shadow: none !important;
 }
 
-.main-product__buy-buttons--container .wt-product__quantity-section .counter button svg,
+.main-product__buy-buttons--container
+  .wt-product__quantity-section
+  .counter
+  button
+  svg,
 .wt__quick-buy .wt-product__quantity-section .counter button svg {
   width: 16px;
   height: 16px;
