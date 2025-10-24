@@ -59,8 +59,8 @@
         "template--15329436369096__19343041-49f3-4eb8-918f-d93e323afa2e-collapsible_tab-1": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Are your beauty products cruelty-free?",
-            "content": "<p>Absolutely! We are committed to ethical beauty, ensuring all our products are 100% cruelty-free.</p>",
+            "heading": "What is FORU?",
+            "content": "<p>FORU is a system of targeted nutrition protocols designed by doctors and scientists to help your body perform and recover better. Each formula is built for a specific purpose - recovery, hydration, focus - using clinically backed ingredients, tested for purity and certified clean.</p>",
             "page": "",
             "tab_background_color": "rgba(0,0,0,0)",
             "icon": "none"
@@ -69,8 +69,8 @@
         "6c6c8546-4be8-47e9-8694-d542109d388e": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "How can I determine my skin type?",
-            "content": "<p>Check out our guide on identifying skin types, available in our blog section, to find products perfect for you.</p>",
+            "heading": "What does “Certified Clean” mean?",
+            "content": "<p>It means every formula is <strong>third-party tested</strong> for safety, purity, and banned substances.<br/>We work with internationally recognized labs (including NSF) to ensure what’s on the label is exactly what’s inside - and nothing else.</p>",
             "page": "",
             "tab_background_color": "rgba(0,0,0,0)",
             "icon": "none"
@@ -79,8 +79,8 @@
         "18a26329-3e89-409b-b175-cad7e9531a44": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "What are some essential makeup products for beginners?",
-            "content": "<p>We recommend starting with a basic foundation, a versatile eyeshadow palette, and a nourishing lip balm.</p>",
+            "heading": "Who develops your formulas?",
+            "content": "<p>Our products are formulated by the <strong>FORU Labs team</strong>, led by <strong>Dr. Ahmed Abbas</strong>, with input from sports scientists, biochemists, and professional athletes.<br/>Every ingredient and dosage is backed by research, not marketing trends.</p>",
             "page": "",
             "tab_background_color": "rgba(0,0,0,0)",
             "icon": "none"
@@ -89,8 +89,8 @@
         "1587700a-5ee8-43f8-a35f-d929db42fb22": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "How do I place an order?",
-            "content": "<p>Browse our products, add your selections to the cart, and follow the checkout process. It's that simple!</p>",
+            "heading": "Are FORU products safe?",
+            "content": "<p>Yes, all products are manufactured in <strong>GMP-certified facilities</strong> under strict quality control.<br/>Every batch is tested for heavy metals, microbial content, and ingredient verification before release.</p>",
             "page": "",
             "tab_background_color": "rgba(0,0,0,0)",
             "icon": "none"
@@ -99,8 +99,8 @@
         "bb27c4f2-0c26-45bf-8b45-d680bea4e03c": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "What are your shipping rates?",
-            "content": "<p>Shipping rates vary based on location and order size. Please refer to our shipping policy for detailed information.</p>",
+            "heading": "Can I combine different FORU protocols?",
+            "content": "<p>Yes - that’s the idea.<br/>Each protocol serves a different system in your body and can be stacked safely.<br/>For example: <em>Daily Hydration</em> in the morning, <em>Recovery</em> post-training, <em>Focus</em> during work.</p>",
             "page": "",
             "tab_background_color": "rgba(0,0,0,0)",
             "icon": "none"
@@ -109,8 +109,8 @@
         "2c2aaa13-82fb-4138-aa8a-37f18b412379": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Can I return a product if I'm not satisfied?",
-            "content": "<p>Yes, we accept returns within a specified period. Please review our return policy for more details</p>",
+            "heading": "Where is FORU made?",
+            "content": "<p>All FORU products are <strong>researched, developed, and manufactured in Dubai</strong>, following global quality and safety standards.</p>",
             "page": "",
             "tab_background_color": "rgba(0,0,0,0)",
             "icon": "none"
@@ -119,18 +119,8 @@
         "24d707a1-7b6d-40e9-a2b3-45c72368e607": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "How do I manage my account?",
-            "content": "<p>Log in to your account to track orders, manage addresses, and update personal information.</p>",
-            "page": "",
-            "tab_background_color": "rgba(0,0,0,0)",
-            "icon": "none"
-          }
-        },
-        "77e8081d-3216-4f92-9f1e-bab5a6656d97": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Do you offer gift wrapping services?",
-            "content": "<p>Yes, we offer elegant gift wrapping options to make your presents even more special.</p>",
+            "heading": "Why don’t you use sugar?",
+            "content": "<p>Sugar spikes energy, then crashes it.<br/>We use <strong>clinically safe, zero-calorie sweeteners</strong> like sucralose and acesulfame-K for taste, without compromising metabolic health or performance.</p>",
             "page": "",
             "tab_background_color": "rgba(0,0,0,0)",
             "icon": "none"
@@ -144,8 +134,7 @@
         "1587700a-5ee8-43f8-a35f-d929db42fb22",
         "bb27c4f2-0c26-45bf-8b45-d680bea4e03c",
         "2c2aaa13-82fb-4138-aa8a-37f18b412379",
-        "24d707a1-7b6d-40e9-a2b3-45c72368e607",
-        "77e8081d-3216-4f92-9f1e-bab5a6656d97"
+        "24d707a1-7b6d-40e9-a2b3-45c72368e607"
       ],
       "custom_css": [
         ".wt-collapse {border-radius: 4px; background-color: #f7f7f7; margin: 2rem 0; padding: 0 2rem;}",
