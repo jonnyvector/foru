@@ -124,7 +124,7 @@
         "text_QT6maj": {
           "type": "text",
           "settings": {
-            "text": "<p>No dairy, gluten, or animal products. Pure, clean fuel.</p>",
+            "text": "<p>Science-built formulas for specific needs — hydration, recovery, focus. Clean, tested, and designed to fit your routine.</p>",
             "disable_on_mobile": false
           }
         }
@@ -235,7 +235,7 @@
         "easy_subscriptions_subscription_widget_3Ax7Qh": {
           "type": "shopify://apps/easy-subscriptions/blocks/subscription-widget/62ae0f16-e4ee-41c3-a62d-125b812e0b06",
           "settings": {
-            "pcolor": "#FFFFFF",
+            "pcolor": "#ffffff",
             "scolor": "#303030",
             "bcolor": "rgba(0,0,0,0)",
             "easy-is-currency-code": false,
