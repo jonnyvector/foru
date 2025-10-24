@@ -173,15 +173,15 @@
           "type": "included_item",
           "settings": {
             "item_name": "Welcome Kit",
-            "item_description": "Shaker, Scoop, and Canister",
+            "item_description": "Foru Perfomance Water Bottle, 700ml",
             "item_price": "Free"
           }
         },
         "included_item_r7LF8n": {
           "type": "included_item",
           "settings": {
-            "item_name": "Travel Packs (10 count)",
-            "item_description": "10 individual servings",
+            "item_name": "Foru Variety Travel Packs (6 count)",
+            "item_description": "6 individual servings",
             "item_price": "Free"
           }
         },
@@ -202,7 +202,7 @@
       "name": "Starter Kit",
       "settings": {
         "product": "ag-1-pouch-30-servings",
-        "label": "Products",
+        "label": "Bundle",
         "heading": "Your Complete FORU Starter Kit",
         "show_checkmark": true,
         "show_subscription_frequency": true,
