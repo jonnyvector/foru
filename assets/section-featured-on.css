@@ -128,7 +128,7 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  padding: 20px;
+  /* padding: 20px; */
   border-radius: var(--border-radius);
   background-color: var(--logo-container-bg, transparent);
   transition: opacity 0.2s ease, transform 0.2s ease;
