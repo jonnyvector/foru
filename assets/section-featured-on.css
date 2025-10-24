@@ -54,7 +54,9 @@
   @media (min-width: 1200px) {
     .wt-featured-on--desktop-grid {
       padding-left: calc(calc(var(--gap, 8px) * 2) + calc(var(--gap, 8px) * 2));
-      padding-right: calc(calc(var(--gap, 8px) * 2) + calc(var(--gap, 8px) * 2));
+      padding-right: calc(
+        calc(var(--gap, 8px) * 2) + calc(var(--gap, 8px) * 2)
+      );
     }
   }
 
@@ -73,7 +75,6 @@
     max-width: 298px;
     aspect-ratio: 3/2;
   }
-
 }
 
 /* Mobile and tablet: Hide grid, show marquee autoscroll */
@@ -163,8 +164,6 @@
   max-width: min(160px, 70%);
   max-height: min(80px, 40%);
   object-fit: contain;
-  filter: grayscale(100%);
-  transition: filter 0.3s ease;
 }
 
 @media (max-width: 768px) {
