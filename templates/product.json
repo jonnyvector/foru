@@ -415,8 +415,8 @@
         "collapsible_tab_mpkxkM": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Are Wellness supplements safe to use?",
-            "content": "<p>Absolutely! All our products are manufactured in certified facilities and meet strict safety and quality standards. We recommend consulting your healthcare provider if you have specific health conditions or are taking medications.This is the demo store.</p>",
+            "heading": "What makes FORU Recovery different from other electrolyte drinks?",
+            "content": "<p>Most electrolyte products focus only on sodium. FORU goes further - combining electrolytes, amino acids, and antioxidants to support hydration, muscle recovery, and cellular repair*. We call them protocols - formulas designed for specific moments, not one-size-fits-all blends.</p>",
             "page": "",
             "tab_background_color": "#f7f7f7",
             "icon": "none"
@@ -425,8 +425,8 @@
         "collapsible_tab_YnLn3p": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "How should I store my supplements?",
-            "content": "",
+            "heading": "Is it just for athletes or can I use it daily?",
+            "content": "<p>FORU Recovery is for <em>anyone who trains, sweats, or simply wants to feel better faster.<br/></em><br/>Whether it’s post-gym, post-run, or after a long workday, it helps your body bounce back by restoring what stress and activity deplete.</p>",
             "page": "",
             "tab_background_color": "#f7f7f7",
             "icon": "none"
@@ -435,8 +435,8 @@
         "collapsible_tab_9kz7pN": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Do you offer international shipping?",
-            "content": "",
+            "heading": "Is it safe? Is it tested FOR SPORT USE?",
+            "content": "<p>Yes — all FORU products are <strong>doctor-designed, third-party tested, and manufactured in GMP-certified facilities.</strong><br/>Our formulas meet strict international standards for purity, heavy metals, and banned substances, certified by NSF.</p>",
             "page": "",
             "tab_background_color": "#f7f7f7",
             "icon": "none"
@@ -445,8 +445,28 @@
         "collapsible_tab_fUb36k": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "What is your return policy?",
-            "content": "",
+            "heading": "Why did you include sucralose instead of natural sweeteners?",
+            "content": "<p>We use <strong>a small, safe amount of sucralose</strong> to deliver a clean, refreshing taste <em>without sugar spikes, calories, or bitterness.</em><br/>It’s one of the most studied zero-calorie sweeteners and approved by all major health authorities - including FDA, EFSA, and Dubai Municipality.</p>",
+            "page": "",
+            "tab_background_color": "#f7f7f7",
+            "icon": "none"
+          }
+        },
+        "collapsible_tab_T76eE8": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Can I mix it with other supplements or pre-workouts?",
+            "content": "<p>Yes. FORU Recovery complements most routines because it’s <strong>sugar-free, stimulant-free, and non-overlapping</strong> with typical pre-workout ingredients.<br/>Think of it as your <em>post-anything protocol,</em> it works alongside, not against, your stack.</p>",
+            "page": "",
+            "tab_background_color": "#f7f7f7",
+            "icon": "none"
+          }
+        },
+        "collapsible_tab_rQqmtH": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How does it taste?",
+            "content": "<p>Refreshing and balanced - lightly sweet with a subtle citrus bitterness that fades cleanly.We designed the flavor to feel natural and not overpowering, striking that citrus-style balance between tart and sweet. Because amino acids naturally have a bitter profile, we kept the sweetness slightly higher to create a smooth, drinkable finish you’ll actually enjoy after training or a long day.</p>",
             "page": "",
             "tab_background_color": "#f7f7f7",
             "icon": "none"
@@ -457,7 +477,9 @@
         "collapsible_tab_mpkxkM",
         "collapsible_tab_YnLn3p",
         "collapsible_tab_9kz7pN",
-        "collapsible_tab_fUb36k"
+        "collapsible_tab_fUb36k",
+        "collapsible_tab_T76eE8",
+        "collapsible_tab_rQqmtH"
       ],
       "custom_css": [
         ".wt-collapse__trigger__title {font-size: 20px;}",
