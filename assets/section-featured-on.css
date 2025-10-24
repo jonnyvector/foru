@@ -161,7 +161,7 @@
 .wt-featured-on__logo {
   width: 100%;
   height: auto;
-  max-width: min(160px, 70%);
+  max-width: min(200px, 70%);
   max-height: min(80px, 40%);
   object-fit: contain;
 }
