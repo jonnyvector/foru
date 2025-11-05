@@ -403,8 +403,8 @@ quick-add .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
   }
 }
 /*
-.wt-product__info .selling_plan_app_container .purchase-option,
-.wt-product__info .selling_plan_app_container .esa_subscription_text {
+.selling_plan_app_container .purchase-option,
+.selling_plan_app_container .esa_subscription_text {
   border-radius: var(--border-radius) !important;
   padding: 24px !important;
 }
@@ -558,8 +558,8 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 
 /* Subscription App Customization */
 
-.wt-product__info .selling_plan_app_container .easy-purchase-option-details {
-  padding: 1rem 1rem 1.5rem!important;
+.selling_plan_app_container .easy-purchase-option-details {
+  padding: 0 !important;
 }
 
 #esa_subscription_text_first_label_50848423608631
@@ -568,8 +568,8 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   flex-direction: column-reverse !important;
 }
 
-.wt-product__info .selling_plan_app_container .purchase-option,
-.wt-product__info .selling_plan_app_container .esa_subscription_text {
+.selling_plan_app_container .purchase-option,
+.selling_plan_app_container .esa_subscription_text {
   border-radius: var(--border-radius) !important;
   padding: 18px !important;
 }
@@ -602,7 +602,7 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 }
 
 .esa-upper-purchase-options,
-.wt-product__info .selling_plan_app_container .esa-purchase-option.middle {
+.selling_plan_app_container .esa-purchase-option.middle {
   border-radius: 4px !important;
 }
 
@@ -664,7 +664,7 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   background: transparent !important;
 }
 
-.delivery_value:checked::after {
+.wt-product__info .delivery_value:checked::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -675,7 +675,7 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   background-color: #1a1c1c !important;
 }
 
-.wt-product__info .selling_plan_app_container .delivery_value_small:checked::after {
+.selling_plan_app_container .delivery_value_small:checked::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -695,7 +695,7 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   border: 1px solid var(--secondary-color) !important;
 }
 
-.wt-product__info .selling_plan_app_container .easy_radio_design:not(.unchecked) {
+.wt-product__info  .selling_plan_app_container .easy_radio_design:not(.unchecked) {
   background: transparent !important;
 }
 
