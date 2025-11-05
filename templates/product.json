@@ -242,7 +242,8 @@
       ],
       "custom_css": [
         ".wt-collapse__trigger {margin-bottom: 0; padding-left: 0; padding: 1rem 0;}",
-        ".swiper-pagination {display: none;}"
+        ".swiper-pagination {display: none;}",
+        ".selling_plan_app_container .delivery_value:checked, .selling_plan_app_container .delivery_value_small:checked {background: transparent !important;}"
       ],
       "settings": {
         "enable_sticky_buy_button": true,
