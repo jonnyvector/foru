@@ -342,3 +342,11 @@ class ProductRecommendations extends HTMLElement {
 }
 
 customElements.define("product-recommendations", ProductRecommendations);
+
+document.addEventListener('DOMContentLoaded', function () {
+  const radio = document.querySelector('.delivery_value_hidden');
+  if (radio) {
+    radio.checked = true;
+    radio.dispatchEvent(new Event('change', { bubbles: true }));
+  }
+});
