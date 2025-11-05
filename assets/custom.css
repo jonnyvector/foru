@@ -1097,3 +1097,10 @@ main .wt-slider__nav-btn .icon,
     text-align: left;
   }
 }
+
+.selling_plan_app_container .delivery_value:checked,
+.selling_plan_app_container .delivery_value_small:checked,
+.selling_plan_app_container .delivery_value_hidden:checked,
+.selling_plan_app_container .style2_radio_input:checked {
+  background-color: transparent !important;
+}
