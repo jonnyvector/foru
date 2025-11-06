@@ -345,7 +345,6 @@ customElements.define("product-recommendations", ProductRecommendations);
 
 document.addEventListener('DOMContentLoaded', function () {
   const radios = document.querySelectorAll('.delivery_value_hidden');
-  console.log('Total radios found:', radios.length);
 
   if (radios.length > 0) {
     radios.forEach(radio => {
