@@ -294,6 +294,7 @@ if (!customElements.get("quick-add")) {
                 oldScriptTag.parentNode.replaceChild(newScriptTag, oldScriptTag);
               });
             }
+            onLoadSuscriptionChecked();
           })
           .catch((error) => {
             if (error.name === "AbortError") {
