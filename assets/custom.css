@@ -647,24 +647,24 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   border-bottom: none !important;
 }
 
-.selling_plan_app_container .subscription-options:has(input:checked),
-.selling_plan_app_container
+.wt-product__info .selling_plan_app_container .subscription-options:has(input:checked),
+.wt-product__info .selling_plan_app_container
   .subscription-options:has(input[type="radio"]:checked) {
   background-color: transparent !important;
 }
 
 /* Radio button styling */
-.selling_plan_app_container .delivery_value,
-.selling_plan_app_container .delivery_value_small {
+.wt-product__info .selling_plan_app_container .delivery_value,
+.wt-product__info .selling_plan_app_container .delivery_value_small {
   border: 1px solid var(--secondary-color) !important;
 }
 
-.selling_plan_app_container .delivery_value:checked,
-.selling_plan_app_container .delivery_value_small:checked {
+.wt-product__info .selling_plan_app_container .delivery_value:checked,
+.wt-product__info .selling_plan_app_container .delivery_value_small:checked {
   background: transparent !important;
 }
 
-.delivery_value:checked::after {
+.wt-product__info .delivery_value:checked::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -690,16 +690,16 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
 }
 
 /* Custom radio span styling */
-.selling_plan_app_container .easy_radio_design {
+.wt-product__info .selling_plan_app_container .easy_radio_design {
   position: relative !important;
   border: 1px solid var(--secondary-color) !important;
 }
 
-.selling_plan_app_container .easy_radio_design:not(.unchecked) {
+.wt-product__info  .selling_plan_app_container .easy_radio_design:not(.unchecked) {
   background: transparent !important;
 }
 
-.selling_plan_app_container .easy_radio_design:not(.unchecked)::after {
+.wt-product__info .selling_plan_app_container .easy_radio_design:not(.unchecked)::after {
   content: "";
   position: absolute;
   inset: 0;

@@ -111,19 +111,9 @@
         "disabled": false,
         "settings": {}
       },
-      "6174324309569838175": {
-        "type": "shopify://apps/smile-io/blocks/smile-shopify-app/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
-        "disabled": false,
-        "settings": {}
-      },
       "14060646107696862457": {
         "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
-        "settings": {}
-      },
-      "341186785192672687": {
-        "type": "shopify://apps/seal-subscriptions/blocks/subscription-script-append/13b25004-a140-4ab7-b5fe-29918f759699",
-        "disabled": true,
         "settings": {}
       }
     }
@@ -504,7 +494,11 @@
   },
   "platform_customizations": {
     "custom_css": [
-      ".wt-apps__wrapper:has([id*=\"easy_subscriptions\"]) {display: none;}"
+      ".wt-apps__wrapper:has([id*=\"easy_subscriptions\"]) {display: none;}",
+      ".selling_plan_app_container .easy-subscription-purchase-options {display: flex; flex-direction: column;}",
+      ".selling_plan_app_container .purchase-option-wrapper {order: 1;}",
+      ".selling_plan_app_container .purchase-option {order: 3;}",
+      ".selling_plan_app_container .subscription-options {order: 2; margin-bottom: 10px;}"
     ]
   }
 }
