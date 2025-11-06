@@ -1104,3 +1104,7 @@ main .wt-slider__nav-btn .icon,
 .selling_plan_app_container .style2_radio_input:checked {
   background-color: transparent !important;
 }
+
+.esa_tooltip-title-svg {
+  background: transparent !important;
+}
