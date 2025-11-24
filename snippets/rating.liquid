@@ -15,38 +15,10 @@
   if product_rating_obj
     assign use_data = product_rating_obj.use_review_data
     if use_data == true
-      # Rating field returns an object with value property that's a string
-      # We need to extract and convert it to a number
-      assign rating_str = product_rating_obj.rating.value
+      # Rating field is a rating object with .rating property for the numeric value
+      assign rating_value = product_rating_obj.rating.rating
       assign review_count = product_rating_obj.review_count
       assign has_rating = true
-
-      # Convert string to number by splitting and rebuilding
-      # For "5.0" or "4.7" we need to calculate percent directly
-      if rating_str == "5.0" or rating_str == "5"
-        assign percent = 100
-      elsif rating_str == "4.5"
-        assign percent = 90
-      elsif rating_str == "4.7"
-        assign percent = 94
-      elsif rating_str == "4.0" or rating_str == "4"
-        assign percent = 80
-      elsif rating_str == "3.5"
-        assign percent = 70
-      elsif rating_str == "3.0" or rating_str == "3"
-        assign percent = 60
-      elsif rating_str == "2.5"
-        assign percent = 50
-      elsif rating_str == "2.0" or rating_str == "2"
-        assign percent = 40
-      elsif rating_str == "1.5"
-        assign percent = 30
-      elsif rating_str == "1.0" or rating_str == "1"
-        assign percent = 20
-      else
-        assign percent = 0
-      endif
-      assign rating_value = rating_str
     endif
   endif
 
@@ -55,15 +27,14 @@
     assign rating_value = reviews.rating.value.rating
     assign review_count = reviews.rating_count
     assign has_rating = true
-    assign percent = rating_value | times: 20
   endif
+
+  assign percent = rating_value | times: 20
 -%}
 
 <!-- DEBUG START -->
-<!-- rating_str from metaobj: "{{ rating_str }}" -->
-<!-- rating_str == "5.0": {{ rating_str == "5.0" }} -->
-<!-- rating_str == "5": {{ rating_str == "5" }} -->
-<!-- rating_str size: {{ rating_str | size }} -->
+<!-- product_rating_obj.rating: {{ product_rating_obj.rating }} -->
+<!-- product_rating_obj.rating.rating: {{ product_rating_obj.rating.rating }} -->
 <!-- has_rating: {{ has_rating }} -->
 <!-- rating_value: {{ rating_value }} -->
 <!-- review_count var: {{ review_count }} -->
