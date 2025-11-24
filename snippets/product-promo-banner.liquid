@@ -128,17 +128,23 @@
 
     @media (max-width: 749px) {
       .product-promo-banner__content {
-        flex-direction: column;
-        text-align: center;
-        padding: calc(var(--gap, 8px) * 2);
+        min-height: 80px;
+      }
+
+      .product-promo-banner__bg-image {
+        height: 80px;
       }
 
       .product-promo-banner__title {
-        font-size: calc(var(--font-h3-size, 24px) * 0.8);
+        font-size: 16px;
       }
 
       .product-promo-banner__image-container {
-        max-width: 150px;
+        max-height: 70px;
+      }
+
+      .product-promo-banner__image {
+        max-height: 70px;
       }
     }
   </style>
