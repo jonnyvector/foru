@@ -355,6 +355,12 @@ if (!customElements.get("variant-options")) {
 
             this.toggleAddButton(shouldDisable, buttonText);
 
+            // External scripts may modify button text, ensure it stays correct
+            setTimeout(() => {
+              console.log('Re-applying button text after timeout');
+              this.toggleAddButton(shouldDisable, buttonText);
+            }, 100);
+
             publish(PUB_SUB_EVENTS.variantChange, {
               data: {
                 sectionId: sectionId,
