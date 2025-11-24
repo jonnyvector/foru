@@ -337,6 +337,13 @@ if (!customElements.get("variant-options")) {
             const shouldDisable = !this.currentVariant || !this.currentVariant.available;
             const buttonText = shouldDisable ? window.variantStrings.soldOut : window.variantStrings.addToCart;
 
+            console.log('Variant change:', {
+              variantId: this.currentVariant?.id,
+              available: this.currentVariant?.available,
+              shouldDisable,
+              buttonText
+            });
+
             this.toggleAddButton(shouldDisable, buttonText);
 
             publish(PUB_SUB_EVENTS.variantChange, {
