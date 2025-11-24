@@ -89,6 +89,8 @@
     "social_tiktok_link": "https://tiktok.com/@forulabs",
     "enable_color_swatch_in_filters": false,
     "enable_round_color_swatches": true,
+    "swatches_config": "Berry: linear-gradient(182.39deg, #64427C 2%, #221A32 146.25%)\nMango: linear-gradient(55.7deg, #964D28 -34.56%, #DA9533 81.96%)",
+    "color_swatch_names": "Color\nTaste",
     "custom-badge-1-text": "#ffffff",
     "custom-badge-1-background": "#1a1c1c",
     "custom-badge-1-input": "New",
