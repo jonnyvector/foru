@@ -21,7 +21,11 @@
 
 {% if promo %}
   <div class="product-promo-banner">
-    <div class="product-promo-banner__content" {% if promo.background_image %}style="background-image: url('{{ promo.background_image | image_url: width: 1200 }}');"{% endif %}>
+    <div class="product-promo-banner__content">
+      {% if promo.background_image %}
+        {{ promo.background_image | image_url: width: 1200 | image_tag: loading: 'lazy', class: 'product-promo-banner__bg-image' }}
+      {% endif %}
+
       <div class="product-promo-banner__text-container">
         {% if promo.title %}
           <h3 class="product-promo-banner__title">{{ promo.title }}</h3>
@@ -54,10 +58,16 @@
       border-radius: 12px;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(90deg, #c89563, #5a4b7c);
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+    }
+
+    .product-promo-banner__bg-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
     }
 
     .product-promo-banner__text-container {
