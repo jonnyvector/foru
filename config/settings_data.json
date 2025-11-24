@@ -92,6 +92,7 @@
     "enable_round_color_swatches": true,
     "swatches_config": "Mango: #DA9533\nBerry: #64427C",
     "color_swatch_names": "Taste\nColor",
+    "variant_picture_swatch_names": "Quantity",
     "custom-badge-1-text": "#ffffff",
     "custom-badge-1-background": "#1a1c1c",
     "custom-badge-1-input": "New",
