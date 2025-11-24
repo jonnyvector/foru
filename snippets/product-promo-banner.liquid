@@ -57,8 +57,9 @@
       padding: calc(var(--gap, 8px) * 2);
       border-radius: 12px;
       position: relative;
-      overflow: hidden;
+      overflow: visible;
       min-height: 80px;
+      max-height: 100px;
     }
 
     .product-promo-banner__bg-image {
@@ -78,7 +79,7 @@
 
     .product-promo-banner__title {
       font-family: var(--font-headline, inherit);
-      font-size: calc(var(--font-base-size, 16px) * 1);
+      font-size: 32px;
       font-weight: var(--font-headline-weight, 600);
       line-height: 1.2;
       color: #ffffff;
@@ -89,8 +90,10 @@
     .product-promo-banner__image-container {
       position: relative;
       flex-shrink: 0;
-      max-width: 120px;
+      max-width: 150px;
       z-index: 1;
+      margin-top: -20px;
+      margin-bottom: -20px;
     }
 
     .product-promo-banner__badge {
