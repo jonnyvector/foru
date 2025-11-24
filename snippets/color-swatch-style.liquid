@@ -9,9 +9,6 @@
 {% assign swatch_focal_point = null %}
 {% assign color_swatch_style = null %}
 
-{%- comment -%} Debug check {%- endcomment -%}
-<!-- Swatch params: option_name="{{ option_name }}" has_map="{{ taste_swatches_map_string | size }}" -->
-
 {%- comment -%} Check if this is a Taste option and if we have metaobject data {%- endcomment -%}
 {% if option_name and taste_swatches_map_string != blank %}
   {% assign option_name_downcase = option_name | downcase %}
@@ -36,10 +33,6 @@
       {% endif %}
     {% endfor %}
 
-    {%- comment -%} Debug - remove after testing {%- endcomment -%}
-    {% unless color_swatch_style %}
-      <!-- Swatch Debug: Looking for "{{ taste_handle }}" in map, option="{{ option_name }}" value="{{ value_to_check }}" -->
-    {% endunless %}
   {% endif %}
 {% endif %}
 
