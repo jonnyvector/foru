@@ -9,14 +9,14 @@
   assign rating_value = null
   assign review_count = null
   assign has_rating = false
-  assign product_rating_obj = product.metafields.custom.product_rating
+  assign product_rating_obj = product.metafields.custom.product_rating.value
 
   # Check for product-level static rating metaobject
   if product_rating_obj
-    assign use_data = product_rating_obj.use_review_data.value
+    assign use_data = product_rating_obj.use_review_data
     if use_data == true
-      assign rating_value = product_rating_obj.rating.value
-      assign review_count = product_rating_obj.review_count.value
+      assign rating_value = product_rating_obj.rating
+      assign review_count = product_rating_obj.review_count
       assign has_rating = true
     endif
   endif
