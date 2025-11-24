@@ -137,6 +137,13 @@
             "background_color": "#151515"
           }
         },
+        "usps_RenHig": {
+          "type": "usps",
+          "settings": {
+            "usp_left": "60-day guarantee",
+            "usp_right": "3-6 day US delivery"
+          }
+        },
         "promo_wBVFy3": {
           "type": "promo",
           "disabled": true,
@@ -235,6 +242,7 @@
         "variant_picker_fHUhmX",
         "easy_subscriptions_subscription_widget_E3thWB",
         "buy_buttons",
+        "usps_RenHig",
         "promo_wBVFy3",
         "description",
         "separator_b4z8Dx",
