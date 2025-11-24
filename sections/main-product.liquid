@@ -1702,8 +1702,10 @@
                 </modal-dialog>
               {% endif %}
 
-            {%- when 'buy_buttons' -%}
+            {%- when 'promo_banner' -%}
               {% render 'product-promo-banner', product: product %}
+
+            {%- when 'buy_buttons' -%}
               <div
                 class="wt-product__add-to-cart_form main-product__buy-buttons--container {% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %} {% if section.settings.desktop-media-size == 'large' %}large{% endif %}"
                 data-block-id="{{ block.id }}"
