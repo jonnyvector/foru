@@ -9,14 +9,20 @@
   assign rating_value = null
   assign review_count = null
   assign has_rating = false
+  assign product_rating_obj = product.metafields.custom.product_rating
 
   # Check for product-level static rating metaobject
-  if product.metafields.custom.product_rating and product.metafields.custom.product_rating.use_review_data == true
-    assign rating_value = product.metafields.custom.product_rating.rating
-    assign review_count = product.metafields.custom.product_rating.review_count
-    assign has_rating = true
-  elsif reviews.rating.value != blank and reviews.rating_count != 0
-    # Use real review app data
+  if product_rating_obj
+    assign use_data = product_rating_obj.use_review_data.value
+    if use_data == true
+      assign rating_value = product_rating_obj.rating.value
+      assign review_count = product_rating_obj.review_count.value
+      assign has_rating = true
+    endif
+  endif
+
+  # Fallback to real review app data if no metaobject rating
+  if has_rating == false and reviews.rating.value != blank and reviews.rating_count != 0
     assign rating_value = reviews.rating.value.rating
     assign review_count = reviews.rating_count
     assign has_rating = true
