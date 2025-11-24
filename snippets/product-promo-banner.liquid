@@ -52,15 +52,16 @@
       gap: calc(var(--gap, 8px) * 3);
       padding: calc(var(--gap, 8px) * 3);
       border-radius: 12px;
+      position: relative;
+      overflow: hidden;
       {% if promo.background_image %}
-        background-image: url({{ promo.background_image | image_url: width: 1200 }});
+        background-image: url('{{ promo.background_image | image_url: width: 1200 }}');
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
       {% else %}
         background: linear-gradient(90deg, #c89563, #5a4b7c);
       {% endif %}
-      position: relative;
-      overflow: hidden;
     }
 
     .product-promo-banner__text-container {
