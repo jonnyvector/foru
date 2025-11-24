@@ -144,6 +144,10 @@
             "usp_right": "3-6 day US delivery"
           }
         },
+        "promo_banner_iWXLcw": {
+          "type": "promo_banner",
+          "settings": {}
+        },
         "promo_wBVFy3": {
           "type": "promo",
           "disabled": true,
@@ -243,6 +247,7 @@
         "easy_subscriptions_subscription_widget_E3thWB",
         "buy_buttons",
         "usps_RenHig",
+        "promo_banner_iWXLcw",
         "promo_wBVFy3",
         "description",
         "separator_b4z8Dx",
