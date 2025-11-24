@@ -27,6 +27,13 @@ if (!customElements.get("variant-options")) {
         this.updateGallery();
         this.updateVariantStatuses();
         this.updateDropdownButtons();
+
+        // Ensure button state is correct on initialization
+        if (this.currentVariant) {
+          const shouldDisable = !this.currentVariant.available;
+          const buttonText = shouldDisable ? window.variantStrings.soldOut : window.variantStrings.addToCart;
+          this.toggleAddButton(shouldDisable, buttonText);
+        }
       }
 
       onKeyDown(event) {
