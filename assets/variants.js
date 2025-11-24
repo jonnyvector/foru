@@ -338,10 +338,8 @@ if (!customElements.get("variant-options")) {
               `ProductSubmitButton-${sectionId}`,
             );
             this.toggleAddButton(
-              addButtonUpdated
-                ? addButtonUpdated.hasAttribute("disabled")
-                : true,
-              window.variantStrings.soldOut,
+              !this.currentVariant || !this.currentVariant.available,
+              this.currentVariant && !this.currentVariant.available ? window.variantStrings.soldOut : null,
             );
 
             publish(PUB_SUB_EVENTS.variantChange, {
