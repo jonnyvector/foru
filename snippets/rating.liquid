@@ -34,9 +34,8 @@
     assign rating_value = reviews.rating.value.rating
     assign review_count = reviews.rating_count
     assign has_rating = true
+    assign percent = rating_value | times: 20
   endif
-
-  assign percent = rating_value | times: 20
 -%}
 
 <!-- DEBUG START -->
