@@ -24,11 +24,7 @@
       "blocks": {
         "rating_AeMbjb": {
           "type": "rating",
-          "settings": {
-            "use_placeholder_rating": true,
-            "placeholder_rating": 5,
-            "placeholder_review_count": 1211
-          }
+          "settings": {}
         },
         "title": {
           "type": "title",
