@@ -53,11 +53,12 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: calc(var(--gap, 8px) * 3);
-      padding: calc(var(--gap, 8px) * 3);
+      gap: calc(var(--gap, 8px) * 2);
+      padding: calc(var(--gap, 8px) * 2);
       border-radius: 12px;
       position: relative;
       overflow: hidden;
+      min-height: 80px;
     }
 
     .product-promo-banner__bg-image {
@@ -77,17 +78,18 @@
 
     .product-promo-banner__title {
       font-family: var(--font-headline, inherit);
-      font-size: calc(var(--font-h3-size, 24px) * 1);
+      font-size: calc(var(--font-base-size, 16px) * 1);
       font-weight: var(--font-headline-weight, 600);
       line-height: 1.2;
       color: #ffffff;
       margin: 0;
+      text-transform: none;
     }
 
     .product-promo-banner__image-container {
       position: relative;
       flex-shrink: 0;
-      max-width: 200px;
+      max-width: 120px;
       z-index: 1;
     }
 
