@@ -46,7 +46,6 @@ if (!customElements.get("variant-options")) {
         this.updateOptions();
         this.updateMasterId();
         this.updateGallery();
-        this.toggleAddButton(true, "", false);
         this.updatePickupAvailability();
         this.removeErrorMessage();
         this.updateVariantStatuses();
