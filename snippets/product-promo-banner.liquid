@@ -37,7 +37,7 @@
           {% if promo.badge_text %}
             <div class="product-promo-banner__badge">{{ promo.badge_text }}</div>
           {% endif %}
-          {{ promo.image | image_url: width: 300 | image_tag: loading: 'lazy', class: 'product-promo-banner__image' }}
+          {{ promo.image | image_url: width: 200 | image_tag: loading: 'lazy', class: 'product-promo-banner__image' }}
         </div>
       {% endif %}
     </div>
@@ -90,10 +90,10 @@
     .product-promo-banner__image-container {
       position: relative;
       flex-shrink: 0;
-      max-width: 150px;
+      max-width: 120px;
       z-index: 1;
-      margin-top: -20px;
-      margin-bottom: -20px;
+      margin-top: -10px;
+      margin-bottom: -10px;
     }
 
     .product-promo-banner__badge {
