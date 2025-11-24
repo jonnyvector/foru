@@ -389,8 +389,10 @@ if (!customElements.get("variant-options")) {
           if (text && allSlideTexts.length) {
             // Update ALL slide text elements
             console.log('Setting disabled text to:', text);
-            allSlideTexts.forEach(slideText => {
+            allSlideTexts.forEach((slideText, index) => {
+              console.log(`Before setting [${index}]:`, slideText.textContent);
               slideText.textContent = text;
+              console.log(`After setting [${index}]:`, slideText.textContent);
             });
           }
         } else {
@@ -398,8 +400,10 @@ if (!customElements.get("variant-options")) {
           // Only update text if text parameter is provided
           if (text && allSlideTexts.length) {
             console.log('Setting enabled text to:', text);
-            allSlideTexts.forEach(slideText => {
+            allSlideTexts.forEach((slideText, index) => {
+              console.log(`Before setting [${index}]:`, slideText.textContent);
               slideText.textContent = text;
+              console.log(`After setting [${index}]:`, slideText.textContent);
             });
           } else if (!text && allSlideTexts.length) {
             // If no text provided, default to addToCart
