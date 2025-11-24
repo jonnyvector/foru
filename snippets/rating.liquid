@@ -11,7 +11,7 @@
   assign has_rating = false
 
   comment Check for product-level static rating metaobject
-  if product.metafields.custom.product_rating and product.metafields.custom.product_rating.use_static_rating == true
+  if product.metafields.custom.product_rating and product.metafields.custom.product_rating.use_review_data == true
     assign rating_value = product.metafields.custom.product_rating.rating
     assign review_count = product.metafields.custom.product_rating.review_count
     assign has_rating = true
