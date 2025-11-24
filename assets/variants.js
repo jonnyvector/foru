@@ -344,20 +344,10 @@ if (!customElements.get("variant-options")) {
             const shouldDisable = !this.currentVariant || !this.currentVariant.available;
             const buttonText = shouldDisable ? window.variantStrings.soldOut : window.variantStrings.addToCart;
 
-            console.log('About to call toggleAddButton from renderProductInfo:', {
-              requestedVariantId,
-              currentVariantId: this.currentVariant?.id,
-              available: this.currentVariant?.available,
-              shouldDisable,
-              buttonText,
-              timestamp: Date.now()
-            });
-
             this.toggleAddButton(shouldDisable, buttonText);
 
             // External scripts may modify button text, ensure it stays correct
             setTimeout(() => {
-              console.log('Re-applying button text after timeout');
               this.toggleAddButton(shouldDisable, buttonText);
             }, 100);
 
@@ -372,85 +362,28 @@ if (!customElements.get("variant-options")) {
       }
 
       toggleAddButton(disable = true, text, modifyClass = true) {
-        console.log('toggleAddButton called:', { disable, text, modifyClass });
-
         const productForm = document.getElementById(
           `product-form-${this.dataset.section}`,
         );
-        if (!productForm) {
-          console.log('Product form not found');
-          return;
-        }
+        if (!productForm) return;
         const addButtons = productForm.querySelectorAll('[name="add"]');
-
-        // Get ALL slide texts in the entire button wrapper, not just within buttons
-        const buttonWrapper = productForm.querySelector('[class*="custom-button-wrapper-"]');
-        const allSlideTexts = buttonWrapper ? Array.from(buttonWrapper.querySelectorAll('.slide-text')) : [];
-
-        console.log('Found elements:', {
-          buttonsCount: addButtons.length,
-          slideTextsCount: allSlideTexts.length,
-          currentTexts: allSlideTexts.map(t => t.textContent),
-          wrapperFound: !!buttonWrapper
-        });
-
+        const allSlideTexts = productForm.querySelectorAll('[name="add"] .slide-text');
         if (!addButtons.length) return;
 
         if (disable) {
           addButtons.forEach(button => button.setAttribute("disabled", "disabled"));
           if (text && allSlideTexts.length) {
-            // Update ALL slide text elements
-            console.log('Setting disabled text to:', text);
-            allSlideTexts.forEach((slideText, index) => {
-              console.log(`Before setting [${index}]:`, slideText.textContent);
+            allSlideTexts.forEach(slideText => {
               slideText.textContent = text;
-              console.log(`After setting [${index}]:`, slideText.textContent);
-
-              // Add mutation observer to prevent external scripts from changing the text
-              if (!slideText.hasObserver) {
-                const expectedText = text;
-                const observer = new MutationObserver((mutations) => {
-                  mutations.forEach((mutation) => {
-                    if (mutation.type === 'characterData' || mutation.type === 'childList') {
-                      // If text was changed to something other than expected, fix it
-                      if (slideText.textContent !== expectedText) {
-                        console.log('External script changed button text, fixing...', {
-                          expected: expectedText,
-                          actual: slideText.textContent
-                        });
-                        slideText.textContent = expectedText;
-                      }
-                    }
-                  });
-                });
-                observer.observe(slideText, {
-                  characterData: true,
-                  characterDataOldValue: true,
-                  childList: true,
-                  subtree: true
-                });
-                slideText.hasObserver = true;
-                slideText.observer = observer;
-                slideText.expectedText = expectedText;
-              } else if (slideText.expectedText !== text) {
-                // Update expected text if it changed
-                slideText.expectedText = text;
-              }
             });
           }
         } else {
           addButtons.forEach(button => button.removeAttribute("disabled"));
-          // Only update text if text parameter is provided
           if (text && allSlideTexts.length) {
-            console.log('Setting enabled text to:', text);
-            allSlideTexts.forEach((slideText, index) => {
-              console.log(`Before setting [${index}]:`, slideText.textContent);
+            allSlideTexts.forEach(slideText => {
               slideText.textContent = text;
-              console.log(`After setting [${index}]:`, slideText.textContent);
             });
           } else if (!text && allSlideTexts.length) {
-            // If no text provided, default to addToCart
-            console.log('No text provided, defaulting to addToCart');
             allSlideTexts.forEach(slideText => {
               slideText.textContent = window.variantStrings.addToCart;
             });
