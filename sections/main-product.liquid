@@ -1269,6 +1269,18 @@
             {%- when 'rating' -%}
               {% render 'rating', reviews: product.metafields.reviews, main_product: true, product: product %}
 
+            {%- when 'usps' -%}
+              <div class="wt-product__usps {% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}" not-quick-add>
+                <div class="wt-product__usps-container">
+                  {% if block.settings.usp_left != blank %}
+                    <div class="wt-product__usp-item">{{ block.settings.usp_left }}</div>
+                  {% endif %}
+                  {% if block.settings.usp_right != blank %}
+                    <div class="wt-product__usp-item">{{ block.settings.usp_right }}</div>
+                  {% endif %}
+                </div>
+              </div>
+
             {%- when 'text' -%}
               <span
                 class="wt-product__text-block__title headline__title {% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}"
