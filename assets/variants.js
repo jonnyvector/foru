@@ -337,12 +337,12 @@ if (!customElements.get("variant-options")) {
             const addButtonUpdated = html.getElementById(
               `ProductSubmitButton-${sectionId}`,
             );
-            this.toggleAddButton(
-              addButtonUpdated
-                ? addButtonUpdated.hasAttribute("disabled")
-                : true,
-              window.variantStrings.soldOut,
-            );
+
+            // Check variant availability directly instead of relying on HTML
+            const shouldDisable = !this.currentVariant || !this.currentVariant.available;
+            const buttonText = shouldDisable ? window.variantStrings.soldOut : window.variantStrings.addToCart;
+
+            this.toggleAddButton(shouldDisable, buttonText);
 
             publish(PUB_SUB_EVENTS.variantChange, {
               data: {
