@@ -357,18 +357,28 @@ if (!customElements.get("variant-options")) {
       }
 
       toggleAddButton(disable = true, text, modifyClass = true) {
+        console.log('toggleAddButton called:', { disable, text, modifyClass });
+
         const productForm = document.getElementById(
           `product-form-${this.dataset.section}`,
         );
         if (!productForm) return;
         const addButtons = productForm.querySelectorAll('[name="add"]');
         const allSlideTexts = productForm.querySelectorAll('[name="add"] .slide-text');
+
+        console.log('Found elements:', {
+          buttonsCount: addButtons.length,
+          slideTextsCount: allSlideTexts.length,
+          currentTexts: Array.from(allSlideTexts).map(t => t.textContent)
+        });
+
         if (!addButtons.length) return;
 
         if (disable) {
           addButtons.forEach(button => button.setAttribute("disabled", "disabled"));
           if (text && allSlideTexts.length) {
             // Update ALL slide text elements
+            console.log('Setting disabled text to:', text);
             allSlideTexts.forEach(slideText => {
               slideText.textContent = text;
             });
@@ -377,11 +387,13 @@ if (!customElements.get("variant-options")) {
           addButtons.forEach(button => button.removeAttribute("disabled"));
           // Only update text if text parameter is provided
           if (text && allSlideTexts.length) {
+            console.log('Setting enabled text to:', text);
             allSlideTexts.forEach(slideText => {
               slideText.textContent = text;
             });
           } else if (!text && allSlideTexts.length) {
             // If no text provided, default to addToCart
+            console.log('No text provided, defaulting to addToCart');
             allSlideTexts.forEach(slideText => {
               slideText.textContent = window.variantStrings.addToCart;
             });
