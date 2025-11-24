@@ -373,11 +373,15 @@ if (!customElements.get("variant-options")) {
           }
         } else {
           addButtons.forEach(button => button.removeAttribute("disabled"));
-          if (allSlideTexts.length) {
-            // Update ALL slide text elements - use passed text or default to addToCart
-            const buttonText = text || window.variantStrings.addToCart;
+          // Only update text if text parameter is provided
+          if (text && allSlideTexts.length) {
             allSlideTexts.forEach(slideText => {
-              slideText.textContent = buttonText;
+              slideText.textContent = text;
+            });
+          } else if (!text && allSlideTexts.length) {
+            // If no text provided, default to addToCart
+            allSlideTexts.forEach(slideText => {
+              slideText.textContent = window.variantStrings.addToCart;
             });
           }
         }
