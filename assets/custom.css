@@ -1108,3 +1108,12 @@ main .wt-slider__nav-btn .icon,
 .esa_tooltip-title-svg {
   background: transparent !important;
 }
+
+/* Star rating size customization - use larger stars on hero/banner sections */
+[data-section-type="hero"] .wt-rating__stars,
+[data-section-type="split-banner"] .wt-rating__stars,
+.hero .wt-rating__stars,
+.split-banner .wt-rating__stars {
+  --star-width: 26px;
+  --star-height: 25px;
+}
