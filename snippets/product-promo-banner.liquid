@@ -14,6 +14,10 @@
 
 {%- assign promo = product.metafields.custom.promo_banner.value -%}
 
+<!-- DEBUG: promo_banner exists: {{ product.metafields.custom.promo_banner }} -->
+<!-- DEBUG: promo_banner.value: {{ promo }} -->
+<!-- DEBUG: promo.title: {{ promo.title }} -->
+
 {% if promo %}
   <div class="product-promo-banner">
     <div class="product-promo-banner__content">
