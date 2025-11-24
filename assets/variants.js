@@ -399,6 +399,29 @@ if (!customElements.get("variant-options")) {
               console.log(`Before setting [${index}]:`, slideText.textContent);
               slideText.textContent = text;
               console.log(`After setting [${index}]:`, slideText.textContent);
+
+              // Add mutation observer to detect what's changing the text
+              if (!slideText.hasObserver) {
+                const observer = new MutationObserver((mutations) => {
+                  mutations.forEach((mutation) => {
+                    if (mutation.type === 'characterData' || mutation.type === 'childList') {
+                      console.error('⚠️ slide-text was modified!', {
+                        index,
+                        oldValue: mutation.oldValue,
+                        newValue: slideText.textContent,
+                        stack: new Error().stack
+                      });
+                    }
+                  });
+                });
+                observer.observe(slideText, {
+                  characterData: true,
+                  characterDataOldValue: true,
+                  childList: true,
+                  subtree: true
+                });
+                slideText.hasObserver = true;
+              }
             });
           }
         } else {
