@@ -15,8 +15,15 @@
   if product_rating_obj
     assign use_data = product_rating_obj.use_review_data
     if use_data == true
-      # Rating field is a rating object with .rating property for the numeric value
-      assign rating_value = product_rating_obj.rating.rating
+      # Extract the numeric value from the rating's value string by removing decimals and dividing
+      assign rating_str = product_rating_obj.rating.value
+      # Calculate percent directly: "5.0" -> 100, "4.7" -> 94, etc
+      # Split on decimal, multiply whole number by 20, add decimal * 2
+      assign rating_parts = rating_str | split: '.'
+      assign whole = rating_parts[0] | times: 20
+      assign decimal = rating_parts[1] | times: 2
+      assign percent = whole | plus: decimal
+      assign rating_value = rating_str
       assign review_count = product_rating_obj.review_count
       assign has_rating = true
     endif
@@ -33,11 +40,10 @@
 -%}
 
 <!-- DEBUG START -->
-<!-- product_rating_obj.rating: {{ product_rating_obj.rating }} -->
-<!-- product_rating_obj.rating.rating: {{ product_rating_obj.rating.rating }} -->
-<!-- has_rating: {{ has_rating }} -->
-<!-- rating_value: {{ rating_value }} -->
-<!-- review_count var: {{ review_count }} -->
+<!-- rating_str: {{ rating_str }} -->
+<!-- rating_parts: {{ rating_parts }} -->
+<!-- whole: {{ whole }} -->
+<!-- decimal: {{ decimal }} -->
 <!-- percent: {{ percent }} -->
 <!-- DEBUG END -->
 
