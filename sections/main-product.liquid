@@ -1703,6 +1703,7 @@
               {% endif %}
 
             {%- when 'buy_buttons' -%}
+              {% render 'product-promo-banner', product: product %}
               <div
                 class="wt-product__add-to-cart_form main-product__buy-buttons--container {% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %} {% if section.settings.desktop-media-size == 'large' %}large{% endif %}"
                 data-block-id="{{ block.id }}"
