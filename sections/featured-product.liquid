@@ -1,5 +1,5 @@
 {%- comment -%} Load taste swatches data once for product page {%- endcomment -%}
-{% render 'taste-swatches-data' %}
+{% include 'taste-swatches-data' %}
 
 {{ 'photoswipe.css' | asset_url | stylesheet_tag }}
 {{ 'module-product-gallery.css' | asset_url | stylesheet_tag }}

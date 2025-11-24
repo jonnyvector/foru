@@ -1,5 +1,5 @@
 {%- comment -%} Load taste swatches data once for all products {%- endcomment -%}
-{% render 'taste-swatches-data' %}
+{% include 'taste-swatches-data' %}
 
 {{ 'swiper.css' | asset_url | stylesheet_tag }}
 
