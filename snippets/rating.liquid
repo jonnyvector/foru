@@ -13,7 +13,11 @@
   {% render 'rating-stars', percent: percent %}
 
   <div class="wt-rating__counter">
-    {% if use_placeholder or (reviews.rating.value != blank and reviews.rating_count != 0) %}
+    {% if use_placeholder %}
+      ({{ review_count }}
+      {{ 'accessibility.total_reviews' | t -}}
+      )
+    {% elsif reviews.rating.value != blank and reviews.rating_count != 0 %}
       ({{ review_count }}
       {{ 'accessibility.total_reviews' | t -}}
       )
