@@ -32,6 +32,11 @@
         {% break %}
       {% endif %}
     {% endfor %}
+
+    {%- comment -%} Debug - remove after testing {%- endcomment -%}
+    {% unless color_swatch_style %}
+      <!-- Swatch Debug: Looking for "{{ taste_handle }}" in map, option="{{ option_name }}" value="{{ value_to_check }}" -->
+    {% endunless %}
   {% endif %}
 {% endif %}
 
