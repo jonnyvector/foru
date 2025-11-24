@@ -12,10 +12,10 @@
   - badge_text (string, optional)
 {%- endcomment -%}
 
-{%- assign promo = product.metafields.custom.promo_banner.value -%}
+{%- assign promo = product.metafields.custom.product_promo_banner.value -%}
 
-<!-- DEBUG: promo_banner exists: {{ product.metafields.custom.promo_banner }} -->
-<!-- DEBUG: promo_banner.value: {{ promo }} -->
+<!-- DEBUG: product_promo_banner exists: {{ product.metafields.custom.product_promo_banner }} -->
+<!-- DEBUG: product_promo_banner.value: {{ promo }} -->
 <!-- DEBUG: promo.title: {{ promo.title }} -->
 
 {% if promo %}
