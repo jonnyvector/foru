@@ -55,7 +55,7 @@
       position: relative;
       overflow: hidden;
       {% if promo.background_image %}
-        background-image: url('{{ promo.background_image | image_url: width: 1200 }}');
+        background-image: url('https:{{ promo.background_image | image_url: width: 1200 }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
