@@ -22,6 +22,10 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "rating_AeMbjb": {
+          "type": "rating",
+          "settings": {}
+        },
         "title": {
           "type": "title",
           "settings": {
@@ -202,7 +206,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "INGREDIENTS",
-            "content": "<ul><li><strong>Protein</strong></li><li><strong>Vitamin C</strong> (as L-Ascorbic Acid)</li><li><strong>Vitamin E</strong> (as D-Alpha Tocopherol Succinate)</li><li><strong>Hydrolysed Collagen</strong> (from Bovine)</li></ul>",
+            "content": "{{ product.metafields.custom.ingredients_text | metafield_tag }}",
             "metafield_variables": "",
             "page": "",
             "icon": "none"
@@ -219,6 +223,7 @@
         }
       },
       "block_order": [
+        "rating_AeMbjb",
         "title",
         "feature_tags_ktxUht",
         "separator_reBrRK",
