@@ -25,6 +25,12 @@
   assign percent = rating_value | times: 20
 -%}
 
+<!-- DEBUG: product_rating exists: {{ product.metafields.custom.product_rating }} -->
+<!-- DEBUG: use_review_data: {{ product.metafields.custom.product_rating.use_review_data }} -->
+<!-- DEBUG: rating: {{ product.metafields.custom.product_rating.rating }} -->
+<!-- DEBUG: review_count: {{ product.metafields.custom.product_rating.review_count }} -->
+<!-- DEBUG: has_rating: {{ has_rating }} -->
+
 <div class="wt-rating{% if text_alignment %} wt-rating--{{ text_alignment }}{% endif %} {% if settings.animations and main_product %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}">
   {% render 'rating-stars', percent: percent %}
 
