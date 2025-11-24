@@ -90,6 +90,16 @@
         "name": "metaobject_reference",
         "category": "REFERENCE"
       }
+    },
+    {
+      "key": "promo_banner",
+      "namespace": "custom",
+      "name": "Promo Banner",
+      "description": "Product promotional banner displayed between price and add to cart button",
+      "type": {
+        "name": "metaobject_reference",
+        "category": "REFERENCE"
+      }
     }
   ],
   "variant": [],
