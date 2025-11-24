@@ -28,7 +28,8 @@
     assign has_rating = true
   endif
 
-  assign percent = rating_value | times: 20.0
+  assign rating_as_number = rating_value | plus: 0.0
+  assign percent = rating_as_number | times: 20
 -%}
 
 <!-- DEBUG START -->
@@ -38,6 +39,9 @@
 <!-- review_count: {{ product.metafields.custom.product_rating.review_count }} -->
 <!-- has_rating: {{ has_rating }} -->
 <!-- rating_value: {{ rating_value }} -->
+<!-- rating_value type: {{ rating_value | type_of }} -->
+<!-- rating_as_number: {{ rating_as_number }} -->
+<!-- rating_as_number type: {{ rating_as_number | type_of }} -->
 <!-- review_count var: {{ review_count }} -->
 <!-- percent: {{ percent }} -->
 <!-- DEBUG END -->
