@@ -400,17 +400,20 @@ if (!customElements.get("variant-options")) {
               slideText.textContent = text;
               console.log(`After setting [${index}]:`, slideText.textContent);
 
-              // Add mutation observer to detect what's changing the text
+              // Add mutation observer to prevent external scripts from changing the text
               if (!slideText.hasObserver) {
+                const expectedText = text;
                 const observer = new MutationObserver((mutations) => {
                   mutations.forEach((mutation) => {
                     if (mutation.type === 'characterData' || mutation.type === 'childList') {
-                      console.error('⚠️ slide-text was modified!', {
-                        index,
-                        oldValue: mutation.oldValue,
-                        newValue: slideText.textContent,
-                        stack: new Error().stack
-                      });
+                      // If text was changed to something other than expected, fix it
+                      if (slideText.textContent !== expectedText) {
+                        console.log('External script changed button text, fixing...', {
+                          expected: expectedText,
+                          actual: slideText.textContent
+                        });
+                        slideText.textContent = expectedText;
+                      }
                     }
                   });
                 });
@@ -421,6 +424,11 @@ if (!customElements.get("variant-options")) {
                   subtree: true
                 });
                 slideText.hasObserver = true;
+                slideText.observer = observer;
+                slideText.expectedText = expectedText;
+              } else if (slideText.expectedText !== text) {
+                // Update expected text if it changed
+                slideText.expectedText = text;
               }
             });
           }
