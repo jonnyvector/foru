@@ -333,10 +333,6 @@ if (!customElements.get("variant-options")) {
                 inventorySource.innerText === "",
               );
 
-            const addButtonUpdated = html.getElementById(
-              `ProductSubmitButton-${sectionId}`,
-            );
-
             // Check variant availability directly instead of relying on HTML
             const shouldDisable = !this.currentVariant || !this.currentVariant.available;
             const buttonText = shouldDisable ? window.variantStrings.soldOut : window.variantStrings.addToCart;
