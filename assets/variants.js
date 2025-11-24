@@ -360,24 +360,24 @@ if (!customElements.get("variant-options")) {
         );
         if (!productForm) return;
         const addButtons = productForm.querySelectorAll('[name="add"]');
-        const addButtonText = productForm.querySelector('[name="add"] .slide-text');
+        const allSlideTexts = productForm.querySelectorAll('[name="add"] .slide-text');
         if (!addButtons.length) return;
 
         if (disable) {
           addButtons.forEach(button => button.setAttribute("disabled", "disabled"));
-          if (text && addButtonText) {
-            addButtonText.textContent = text;
-            // Update second slide text if it exists
-            const secondText = addButtonText.nextElementSibling;
-            if (secondText) secondText.textContent = text;
+          if (text && allSlideTexts.length) {
+            // Update ALL slide text elements
+            allSlideTexts.forEach(slideText => {
+              slideText.textContent = text;
+            });
           }
         } else {
           addButtons.forEach(button => button.removeAttribute("disabled"));
-          if (addButtonText) {
-            addButtonText.textContent = window.variantStrings.addToCart;
-            // Update second slide text if it exists
-            const secondText = addButtonText.nextElementSibling;
-            if (secondText) secondText.textContent = window.variantStrings.addToCart;
+          if (allSlideTexts.length) {
+            // Update ALL slide text elements
+            allSlideTexts.forEach(slideText => {
+              slideText.textContent = window.variantStrings.addToCart;
+            });
           }
         }
 
