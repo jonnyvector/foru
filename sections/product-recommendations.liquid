@@ -1,3 +1,6 @@
+{%- comment -%} Load taste swatches data once for all products {%- endcomment -%}
+{% render 'taste-swatches-data' %}
+
 {{ 'swiper.css' | asset_url | stylesheet_tag }}
 
 {% assign background_rgb = section.settings.background_color | color_to_rgb %}
@@ -77,7 +80,8 @@
                   variants: recommendation.variants,
                   product_options: recommendation.options,
                   options: false,
-                  url: recommendation.url
+                  url: recommendation.url,
+                  taste_swatches_map_string: taste_swatches_map_string
                 %}
               </div>
             {%- endfor -%}

@@ -1,0 +1,48 @@
+{%- comment -%}
+  This snippet queries all Taste Swatch metaobjects and builds a lookup dictionary.
+
+  Output: taste_swatches_map (hash mapping handleized taste names to gradient CSS strings)
+
+  Usage: {% render 'taste-swatches-data' %}
+  Then access via: taste_swatches_map['berry']
+{%- endcomment -%}
+
+{%- liquid
+  assign taste_swatches_map = blank
+  assign taste_swatches_map_string = ''
+-%}
+
+{%- comment -%} Query all Taste Swatch metaobjects {%- endcomment -%}
+{%- capture taste_swatches_query -%}
+  {
+    metaobjects(type: "taste_swatch", first: 250) {
+      edges {
+        node {
+          handle
+          gradient: field(key: "gradient") {
+            value
+          }
+        }
+      }
+    }
+  }
+{%- endcapture -%}
+
+{%- assign taste_swatches_result = shop.metaobjects.taste_swatch.values -%}
+
+{%- comment -%} Build lookup hash {%- endcomment -%}
+{%- assign taste_swatches_map = blank -%}
+{%- for metaobject in taste_swatches_result -%}
+  {%- assign gradient_value = metaobject.gradient.value -%}
+  {%- if gradient_value != blank -%}
+    {%- assign taste_swatches_map = taste_swatches_map | default: blank -%}
+    {%- assign handle_key = metaobject.system.handle -%}
+    {%- comment -%} Store in a searchable format {%- endcomment -%}
+    {%- capture taste_swatch_entry -%}{{ handle_key }}::{{ gradient_value }}{%- endcapture -%}
+    {%- if taste_swatches_map_string == blank -%}
+      {%- assign taste_swatches_map_string = taste_swatch_entry -%}
+    {%- else -%}
+      {%- assign taste_swatches_map_string = taste_swatches_map_string | append: '||' | append: taste_swatch_entry -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}

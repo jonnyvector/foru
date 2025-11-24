@@ -3,24 +3,56 @@
 
   - color_swatch_config: extracted from the theme settings
   - value: the actual color
+  - taste_swatches_map_string: (optional) string map of taste handles to gradients
+  - option_name: (optional) the product option name (e.g. "Taste", "Color")
 {%- endcomment -%}
 {% assign swatch_focal_point = null %}
-{% if swatch_image %}
-  {% assign image_url = swatch_image | image_url: width: 120 %}
-  {% assign color_swatch_style = 'background-image: url(' | append: image_url | append: ');' %}
-{% elsif swatch_color %}
-  {% assign color_swatch_style = 'background-color: ' | append: swatch_color %}
-{% elsif value.swatch.image %}
-  {% assign image_url = value.swatch.image | image_url: width: 120 %}
-  {% assign swatch_focal_point = value.swatch.image.presentation.focal_point %}
-  {% assign color_swatch_style = 'background-image: url('
-    | append: image_url
-    | append: '); background-position: '
-    | append: swatch_focal_point
-  %}
-{% elsif value.swatch.color %}
-  {% assign color_swatch_style = 'background-color: rgb(' | append: value.swatch.color.rgb | append: ')' %}
-{% else %}
+{% assign color_swatch_style = null %}
+
+{%- comment -%} Check if this is a Taste option and if we have metaobject data {%- endcomment -%}
+{% if option_name and taste_swatches_map_string != blank %}
+  {% assign option_name_downcase = option_name | downcase %}
+  {% if option_name_downcase == 'taste' %}
+    {%- comment -%} Get the handleized version of the taste value {%- endcomment -%}
+    {% unless value.size > 0 %}
+      {% assign value_to_check = value.value %}
+    {% else %}
+      {% assign value_to_check = value %}
+    {% endunless %}
+    {% assign taste_handle = value_to_check | handleize %}
+
+    {%- comment -%} Parse the taste_swatches_map_string to find matching gradient {%- endcomment -%}
+    {% assign taste_entries = taste_swatches_map_string | split: '||' %}
+    {% for entry in taste_entries %}
+      {% assign entry_parts = entry | split: '::' %}
+      {% assign entry_handle = entry_parts[0] %}
+      {% if entry_handle == taste_handle %}
+        {% assign gradient_value = entry_parts[1] %}
+        {% assign color_swatch_style = 'background: ' | append: gradient_value %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endif %}
+
+{%- comment -%} If no taste gradient found, fall back to normal swatch logic {%- endcomment -%}
+{% if color_swatch_style == null %}
+  {% if swatch_image %}
+    {% assign image_url = swatch_image | image_url: width: 120 %}
+    {% assign color_swatch_style = 'background-image: url(' | append: image_url | append: ');' %}
+  {% elsif swatch_color %}
+    {% assign color_swatch_style = 'background-color: ' | append: swatch_color %}
+  {% elsif value.swatch.image %}
+    {% assign image_url = value.swatch.image | image_url: width: 120 %}
+    {% assign swatch_focal_point = value.swatch.image.presentation.focal_point %}
+    {% assign color_swatch_style = 'background-image: url('
+      | append: image_url
+      | append: '); background-position: '
+      | append: swatch_focal_point
+    %}
+  {% elsif value.swatch.color %}
+    {% assign color_swatch_style = 'background-color: rgb(' | append: value.swatch.color.rgb | append: ')' %}
+  {% else %}
   {% comment %} it used for filters {% endcomment %}
   {% unless value.size > 0 %}
     {% assign value = value.value %}
@@ -76,6 +108,7 @@
       {%- break -%}
     {%- endif -%}
   {%- endfor -%}
+  {% endif %}
 {% endif %}
 
 {{- color_swatch_style -}}
