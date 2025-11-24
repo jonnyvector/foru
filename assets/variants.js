@@ -337,11 +337,13 @@ if (!customElements.get("variant-options")) {
             const shouldDisable = !this.currentVariant || !this.currentVariant.available;
             const buttonText = shouldDisable ? window.variantStrings.soldOut : window.variantStrings.addToCart;
 
-            console.log('Variant change:', {
-              variantId: this.currentVariant?.id,
+            console.log('About to call toggleAddButton from renderProductInfo:', {
+              requestedVariantId,
+              currentVariantId: this.currentVariant?.id,
               available: this.currentVariant?.available,
               shouldDisable,
-              buttonText
+              buttonText,
+              timestamp: Date.now()
             });
 
             this.toggleAddButton(shouldDisable, buttonText);
