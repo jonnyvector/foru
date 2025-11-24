@@ -359,16 +359,26 @@ if (!customElements.get("variant-options")) {
           `product-form-${this.dataset.section}`,
         );
         if (!productForm) return;
-        const addButton = productForm.querySelector('[name="add"]');
-        const addButtonText = productForm.querySelector('[name="add"] > span');
-        if (!addButton) return;
+        const addButtons = productForm.querySelectorAll('[name="add"]');
+        const addButtonText = productForm.querySelector('[name="add"] .slide-text');
+        if (!addButtons.length) return;
 
         if (disable) {
-          addButton.setAttribute("disabled", "disabled");
-          if (text) addButtonText.textContent = text;
+          addButtons.forEach(button => button.setAttribute("disabled", "disabled"));
+          if (text && addButtonText) {
+            addButtonText.textContent = text;
+            // Update second slide text if it exists
+            const secondText = addButtonText.nextElementSibling;
+            if (secondText) secondText.textContent = text;
+          }
         } else {
-          addButton.removeAttribute("disabled");
-          addButtonText.textContent = window.variantStrings.addToCart;
+          addButtons.forEach(button => button.removeAttribute("disabled"));
+          if (addButtonText) {
+            addButtonText.textContent = window.variantStrings.addToCart;
+            // Update second slide text if it exists
+            const secondText = addButtonText.nextElementSibling;
+            if (secondText) secondText.textContent = window.variantStrings.addToCart;
+          }
         }
 
         if (!modifyClass) return;
