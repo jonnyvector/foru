@@ -34,15 +34,13 @@
 -%}
 
 <!-- DEBUG START -->
-<!-- product_rating metaobject: {{ product.metafields.custom.product_rating | json }} -->
-<!-- use_review_data: {{ product.metafields.custom.product_rating.use_review_data }} -->
-<!-- rating: {{ product.metafields.custom.product_rating.rating }} -->
-<!-- review_count: {{ product.metafields.custom.product_rating.review_count }} -->
+<!-- product_rating_obj: {{ product_rating_obj }} -->
+<!-- product_rating_obj.rating: {{ product_rating_obj.rating }} -->
+<!-- product_rating_obj.rating times 1: {{ product_rating_obj.rating | times: 1 }} -->
 <!-- has_rating: {{ has_rating }} -->
 <!-- rating_value: {{ rating_value }} -->
-<!-- rating_value type: {{ rating_value | type_of }} -->
+<!-- rating_value times 1: {{ rating_value | times: 1 }} -->
 <!-- rating_as_number: {{ rating_as_number }} -->
-<!-- rating_as_number type: {{ rating_as_number | type_of }} -->
 <!-- review_count var: {{ review_count }} -->
 <!-- percent: {{ percent }} -->
 <!-- DEBUG END -->
