@@ -49,7 +49,7 @@
 
       {% if section.settings.show_rating == true %}
         <div class="wt-products-slider__product__rating">
-          {% render 'rating', reviews: reviews, text_alignment: text_alignment %}
+          {% render 'rating', reviews: reviews, text_alignment: text_alignment, product: block.settings.slider_product %}
         </div>
       {% endif %}
 

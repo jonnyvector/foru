@@ -246,7 +246,8 @@
       {% if rating and reviews %}
         {% render 'rating'
           , reviews: reviews
-          , text_alignment: text_alignment %}
+          , text_alignment: text_alignment
+          , product: card_product %}
       {% endif %}
     </a>
 
