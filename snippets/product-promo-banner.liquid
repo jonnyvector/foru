@@ -37,7 +37,7 @@
           {% if promo.badge_text %}
             <div class="product-promo-banner__badge">{{ promo.badge_text }}</div>
           {% endif %}
-          {{ promo.image | image_url: width: 200 | image_tag: loading: 'lazy', class: 'product-promo-banner__image' }}
+          {{ promo.image | image_url: width: 300 | image_tag: loading: 'lazy', class: 'product-promo-banner__image' }}
         </div>
       {% endif %}
     </div>
@@ -53,13 +53,12 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: calc(var(--gap, 8px) * 2);
-      padding: calc(var(--gap, 8px) * 2);
+      gap: calc(var(--gap, 8px) * 3);
+      padding: calc(var(--gap, 8px) * 3) calc(var(--gap, 8px) * 4);
       border-radius: 12px;
       position: relative;
-      overflow: visible;
-      min-height: 80px;
-      max-height: 100px;
+      overflow: hidden;
+      min-height: 120px;
     }
 
     .product-promo-banner__bg-image {
@@ -90,10 +89,8 @@
     .product-promo-banner__image-container {
       position: relative;
       flex-shrink: 0;
-      max-width: 120px;
+      max-width: 180px;
       z-index: 1;
-      margin-top: -10px;
-      margin-bottom: -10px;
     }
 
     .product-promo-banner__badge {
