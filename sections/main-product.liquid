@@ -1,3 +1,6 @@
+{%- comment -%} Load taste swatches data once for product page {%- endcomment -%}
+{% render 'taste-swatches-data' %}
+
 {{ 'photoswipe.css' | asset_url | stylesheet_tag }}
 {{ 'module-product-gallery.css' | asset_url | stylesheet_tag }}
 
@@ -1547,7 +1550,7 @@
                                           >
                                             <div
                                               class="{{ options_container_class }}__list__link__content {% if settings.enable_round_color_swatches %} rounded {% endif %}{% if block.settings.radius == 'custom' %} custom-radius{% endif %}"
-                                              style="{% render 'color-swatch-style', swatches_config: swatches_config, value: value %}"
+                                              style="{% render 'color-swatch-style', swatches_config: swatches_config, value: value, taste_swatches_map_string: taste_swatches_map_string, option_name: option.name %}"
                                             ></div>
                                           </label>
                                       {% endcase %}
@@ -2108,7 +2111,7 @@
                               >
                                 <div
                                   class="{{ options_container_class }}__list__link__content {% if settings.enable_round_color_swatches %} rounded {% endif %}{% if block.settings.radius == 'custom' %} custom-radius {% endif %}"
-                                  style="{% render 'color-swatch-style', swatches_config: swatches_config, value: option_value, swatch_image: option_image, swatch_color: option_color %}"
+                                  style="{% render 'color-swatch-style', swatches_config: swatches_config, value: option_value, swatch_image: option_image, swatch_color: option_color, taste_swatches_map_string: taste_swatches_map_string, option_name: option.name %}"
                                 ></div>
                               </a>
                           {%- endcase -%}
