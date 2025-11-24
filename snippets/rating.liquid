@@ -25,15 +25,15 @@
   assign percent = rating_value | times: 20
 -%}
 
-<script>
-  console.log('DEBUG product_rating exists:', {{ product.metafields.custom.product_rating | json }});
-  console.log('DEBUG use_review_data:', {{ product.metafields.custom.product_rating.use_review_data | json }});
-  console.log('DEBUG rating:', {{ product.metafields.custom.product_rating.rating | json }});
-  console.log('DEBUG review_count:', {{ product.metafields.custom.product_rating.review_count | json }});
-  console.log('DEBUG has_rating:', {{ has_rating | json }});
-  console.log('DEBUG rating_value:', {{ rating_value | json }});
-  console.log('DEBUG review_count var:', {{ review_count | json }});
-</script>
+<!-- DEBUG START -->
+<!-- product_rating metaobject: {{ product.metafields.custom.product_rating | json }} -->
+<!-- use_review_data: {{ product.metafields.custom.product_rating.use_review_data }} -->
+<!-- rating: {{ product.metafields.custom.product_rating.rating }} -->
+<!-- review_count: {{ product.metafields.custom.product_rating.review_count }} -->
+<!-- has_rating: {{ has_rating }} -->
+<!-- rating_value: {{ rating_value }} -->
+<!-- review_count var: {{ review_count }} -->
+<!-- DEBUG END -->
 
 <div class="wt-rating{% if text_alignment %} wt-rating--{{ text_alignment }}{% endif %} {% if settings.animations and main_product %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}">
   {% render 'rating-stars', percent: percent %}
