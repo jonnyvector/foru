@@ -1267,7 +1267,7 @@
                 </drawer-select>
               </div>
             {%- when 'rating' -%}
-              {% render 'rating', reviews: product.metafields.reviews, main_product: true, use_placeholder: block.settings.use_placeholder_rating, placeholder_rating: block.settings.placeholder_rating, placeholder_count: block.settings.placeholder_review_count %}
+              {% render 'rating', reviews: product.metafields.reviews, main_product: true, product: product %}
 
             {%- when 'text' -%}
               <span
@@ -3512,27 +3512,8 @@
           "content": "t:sections.main-product.blocks.rating.settings.paragraph.content"
         },
         {
-          "type": "checkbox",
-          "id": "use_placeholder_rating",
-          "label": "Use placeholder rating",
-          "info": "Enable to show static rating data until you have real reviews",
-          "default": false
-        },
-        {
-          "type": "range",
-          "id": "placeholder_rating",
-          "min": 0,
-          "max": 5,
-          "step": 0.1,
-          "unit": "★",
-          "label": "Placeholder star rating",
-          "default": 4.8
-        },
-        {
-          "type": "number",
-          "id": "placeholder_review_count",
-          "label": "Placeholder review count",
-          "default": 127
+          "type": "paragraph",
+          "content": "To show static ratings, add a 'Product Rating' metafield to individual products with 'Use Static Rating' enabled."
         }
       ]
     },

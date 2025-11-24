@@ -1,9 +1,8 @@
 {%- comment -%}
   Priority order for rating data:
   1. Product metaobject with "Use Static Rating" = true
-  2. Block-level placeholder setting
-  3. Real review app data
-  4. No reviews fallback
+  2. Real review app data
+  3. No reviews fallback
 {%- endcomment -%}
 
 {%- liquid
@@ -15,11 +14,6 @@
   if product.metafields.custom.product_rating and product.metafields.custom.product_rating.use_static_rating == true
     assign rating_value = product.metafields.custom.product_rating.rating
     assign review_count = product.metafields.custom.product_rating.review_count
-    assign has_rating = true
-  elsif use_placeholder
-    comment Use block-level placeholder data
-    assign rating_value = placeholder_rating
-    assign review_count = placeholder_count
     assign has_rating = true
   elsif reviews.rating.value != blank and reviews.rating_count != 0
     comment Use real review app data
