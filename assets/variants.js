@@ -374,9 +374,10 @@ if (!customElements.get("variant-options")) {
         } else {
           addButtons.forEach(button => button.removeAttribute("disabled"));
           if (allSlideTexts.length) {
-            // Update ALL slide text elements
+            // Update ALL slide text elements - use passed text or default to addToCart
+            const buttonText = text || window.variantStrings.addToCart;
             allSlideTexts.forEach(slideText => {
-              slideText.textContent = window.variantStrings.addToCart;
+              slideText.textContent = buttonText;
             });
           }
         }
