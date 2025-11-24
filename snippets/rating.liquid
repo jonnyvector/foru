@@ -1,11 +1,20 @@
-{% assign percent = reviews.rating.value.rating | times: 20 %}
+{%- comment -%} Determine if using placeholder or real data {%- endcomment -%}
+{% if use_placeholder %}
+  {% assign rating_value = placeholder_rating %}
+  {% assign review_count = placeholder_count %}
+{% else %}
+  {% assign rating_value = reviews.rating.value.rating %}
+  {% assign review_count = reviews.rating_count %}
+{% endif %}
+
+{% assign percent = rating_value | times: 20 %}
 
 <div class="wt-rating{% if text_alignment %} wt-rating--{{ text_alignment }}{% endif %} {% if settings.animations and main_product %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}">
   {% render 'rating-stars', percent: percent %}
 
   <div class="wt-rating__counter">
-    {% if reviews.rating.value != blank and reviews.rating_count != 0 %}
-      ({{ reviews.rating_count }}
+    {% if use_placeholder or (reviews.rating.value != blank and reviews.rating_count != 0) %}
+      ({{ review_count }}
       {{ 'accessibility.total_reviews' | t -}}
       )
     {% else %}
