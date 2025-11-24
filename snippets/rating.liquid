@@ -15,7 +15,8 @@
   if product_rating_obj
     assign use_data = product_rating_obj.use_review_data
     if use_data == true
-      assign rating_value = product_rating_obj.rating.value
+      # Get the rating - try both with and without .value
+      assign rating_value = product_rating_obj.rating
       assign review_count = product_rating_obj.review_count
       assign has_rating = true
     endif
