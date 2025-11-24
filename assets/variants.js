@@ -362,14 +362,24 @@ if (!customElements.get("variant-options")) {
         const productForm = document.getElementById(
           `product-form-${this.dataset.section}`,
         );
-        if (!productForm) return;
+        if (!productForm) {
+          console.log('Product form not found');
+          return;
+        }
         const addButtons = productForm.querySelectorAll('[name="add"]');
-        const allSlideTexts = productForm.querySelectorAll('[name="add"] .slide-text');
+
+        // Get slide texts from within the buttons directly
+        const allSlideTexts = [];
+        addButtons.forEach(button => {
+          const slideTexts = button.querySelectorAll('.slide-text');
+          allSlideTexts.push(...slideTexts);
+        });
 
         console.log('Found elements:', {
           buttonsCount: addButtons.length,
           slideTextsCount: allSlideTexts.length,
-          currentTexts: Array.from(allSlideTexts).map(t => t.textContent)
+          currentTexts: allSlideTexts.map(t => t.textContent),
+          buttons: Array.from(addButtons).map(b => b.outerHTML.substring(0, 100))
         });
 
         if (!addButtons.length) return;
