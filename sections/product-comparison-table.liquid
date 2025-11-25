@@ -36,11 +36,17 @@
 
     .comparison-table-header__title {
       font-family: var(--font-headline);
-      font-size: var(--font-h2-size);
+      font-size: 32px;
       font-weight: var(--font-headline-weight);
       line-height: 1.2;
       margin: 0;
       color: var(--color-text);
+    }
+
+    @media (min-width: 750px) {
+      .comparison-table-header__title {
+        font-size: 64px;
+      }
     }
 
     /* Desktop Grid Layout */
@@ -64,10 +70,21 @@
       .comparison-table__header-cell {
         padding: calc(var(--gap) * 2) calc(var(--gap) * 3);
         font-family: var(--font-headline);
-        font-size: var(--font-h3-size);
+        font-size: 24px;
         font-weight: var(--font-headline-weight);
         text-align: center;
         border-bottom: 2px solid #E5E5E5;
+      }
+
+      .comparison-table__header-cell--logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .comparison-table__header-logo {
+        max-width: 150px;
+        height: auto;
       }
 
       .comparison-table__header-cell:nth-child(1) {
@@ -103,18 +120,18 @@
       }
 
       .comparison-table__cell--feature {
-        font-family: var(--font-body);
-        font-size: 16px;
-        font-weight: 600;
+        font-family: var(--font-headline);
+        font-size: 24px;
+        font-weight: var(--font-headline-weight);
         text-transform: uppercase;
         letter-spacing: 0.05em;
         color: var(--color-text);
       }
 
       .comparison-table__cell--value {
-        font-family: var(--font-body);
-        font-size: 15px;
-        font-weight: 500;
+        font-family: var(--font-headline);
+        font-size: 24px;
+        font-weight: var(--font-headline-weight);
         text-align: center;
         color: var(--color-text);
         text-transform: uppercase;
@@ -155,10 +172,19 @@
     .comparison-table-mobile__header {
       padding: calc(var(--gap) * 2);
       font-family: var(--font-headline);
-      font-size: 20px;
+      font-size: 14px;
       font-weight: var(--font-headline-weight);
       text-align: center;
       border-bottom: 2px solid #E5E5E5;
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .comparison-table-mobile__header-logo {
+      max-width: 120px;
+      height: auto;
     }
 
     .comparison-table-mobile__header--foru {
@@ -179,9 +205,9 @@
     }
 
     .comparison-table-mobile__label {
-      font-family: var(--font-body);
+      font-family: var(--font-headline);
       font-size: 12px;
-      font-weight: 600;
+      font-weight: var(--font-headline-weight);
       text-transform: uppercase;
       letter-spacing: 0.05em;
       margin-bottom: calc(var(--gap) / 2);
@@ -189,9 +215,9 @@
     }
 
     .comparison-table-mobile__value {
-      font-family: var(--font-body);
+      font-family: var(--font-headline);
       font-size: 14px;
-      font-weight: 500;
+      font-weight: var(--font-headline-weight);
       color: var(--color-text);
       text-transform: uppercase;
     }
@@ -225,7 +251,13 @@
       <div class="comparison-table">
         <div class="comparison-table__header">
           <div class="comparison-table__header-cell"></div>
-          <div class="comparison-table__header-cell">{{ section.settings.column_2_header }}</div>
+          <div class="comparison-table__header-cell comparison-table__header-cell--logo">
+            {%- if section.settings.brand_logo != blank -%}
+              {{ section.settings.brand_logo | image_url: width: 300 | image_tag: class: 'comparison-table__header-logo', alt: section.settings.column_2_header }}
+            {%- else -%}
+              {{ section.settings.column_2_header }}
+            {%- endif -%}
+          </div>
           <div class="comparison-table__header-cell">{{ section.settings.column_3_header }}</div>
         </div>
 
@@ -269,7 +301,11 @@
             <div class="swiper-slide">
               <div class="comparison-table-mobile__column comparison-table-mobile__column--foru">
                 <div class="comparison-table-mobile__header comparison-table-mobile__header--foru">
-                  {{ section.settings.column_2_header }}
+                  {%- if section.settings.brand_logo != blank -%}
+                    {{ section.settings.brand_logo | image_url: width: 240 | image_tag: class: 'comparison-table-mobile__header-logo', alt: section.settings.column_2_header }}
+                  {%- else -%}
+                    {{ section.settings.column_2_header }}
+                  {%- endif -%}
                 </div>
                 {%- for row in comparison_rows -%}
                   <div class="comparison-table-mobile__row">
@@ -340,10 +376,16 @@
       "default": "QUALITY THAT YOU CAN'T FIND ELSEWHERE"
     },
     {
+      "type": "image_picker",
+      "id": "brand_logo",
+      "label": "Brand Logo (Column 2)"
+    },
+    {
       "type": "text",
       "id": "column_2_header",
-      "label": "Column 2 Header",
-      "default": "FÖRU"
+      "label": "Column 2 Header (Fallback)",
+      "default": "FÖRU",
+      "info": "Used if no logo is uploaded"
     },
     {
       "type": "text",
@@ -355,7 +397,7 @@
       "type": "color",
       "id": "foru_column_bg",
       "label": "FÖRU Column Background",
-      "default": "#F5F5F5"
+      "default": "#f7f7f7"
     },
     {
       "type": "range",
