@@ -384,8 +384,8 @@
         "column_2_header": "FÖRU",
         "column_3_header": "LEADING COMPETITORS",
         "foru_column_bg": "#f7f7f7",
-        "section_padding_top": 36,
-        "section_padding_bottom": 36
+        "section_padding_top": 0,
+        "section_padding_bottom": 48
       }
     },
     "health_benefits_aBfLBK": {
