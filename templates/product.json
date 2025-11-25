@@ -131,6 +131,7 @@
         },
         "promo_banner_Y7aiNw": {
           "type": "promo_banner",
+          "disabled": true,
           "settings": {}
         },
         "buy_buttons": {
@@ -373,6 +374,7 @@
       "settings": {
         "pre_title": "Difference",
         "heading": "QUALITY THAT YOU CAN'T FIND ELSEWHERE",
+        "brand_logo": "shopify://shop_images/Frame_154.svg",
         "column_2_header": "FÖRU",
         "column_3_header": "LEADING COMPETITORS",
         "foru_column_bg": "#f7f7f7",
