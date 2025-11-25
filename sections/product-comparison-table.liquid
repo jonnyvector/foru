@@ -15,8 +15,24 @@
     }
 
     .comparison-table-wrapper {
-      margin: 0 auto;
-      padding: 0 calc(var(--gap) * 2);
+      max-width: var(--site-max-width);
+      padding-left: calc(var(--gap) * 2);
+      padding-right: calc(var(--gap) * 2);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (min-width: 1200px) {
+      .comparison-table-wrapper {
+        padding-left: calc(calc(var(--gap) * 2) + calc(var(--gap) * 2));
+        padding-right: calc(calc(var(--gap) * 2) + calc(var(--gap) * 2));
+      }
+    }
+
+    @media (min-width: 1800px) {
+      .comparison-table-wrapper {
+        max-width: var(--site-max-width-big);
+      }
     }
 
     .comparison-table-header {
