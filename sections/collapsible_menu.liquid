@@ -67,6 +67,30 @@
     max-width: none;
   }
 
+  /* Constrained width styling */
+  {% if section.settings.use_constrained_width %}
+    .wt-collapse__wrapper {
+      max-width: var(--site-max-width);
+      padding-left: calc(var(--gap) * 2);
+      padding-right: calc(var(--gap) * 2);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (min-width: 1200px) {
+      .wt-collapse__wrapper {
+        padding-left: calc(calc(var(--gap) * 2) + calc(var(--gap) * 2));
+        padding-right: calc(calc(var(--gap) * 2) + calc(var(--gap) * 2));
+      }
+    }
+
+    @media (min-width: 1800px) {
+      .wt-collapse__wrapper {
+        max-width: var(--site-max-width-big);
+      }
+    }
+  {% endif %}
+
   /* Hide bottom border */
   .wt-collapse__section--no-border .wt-collapse__wrapper .wt-collapse {
     border-bottom: none !important;
@@ -185,6 +209,12 @@
         "type": "checkbox",
         "id": "full-width-enabled",
         "label": "t:sections.settings.settings.section-full-width.label",
+        "default": false
+      }, {
+        "type": "checkbox",
+        "id": "use_constrained_width",
+        "label": "Use constrained width",
+        "info": "Apply responsive max-width matching other product sections",
         "default": false
       }, {
         "type": "checkbox",
