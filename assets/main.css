@@ -6942,7 +6942,7 @@ input.disabled + .f-swatch__list__link .f-swatch__list__link__content {
   .wt-variant-options
   .wt-product__option__body--swatches
   .f-swatch__list__item {
-  --custom-size: 32px;
+  --custom-size: 40px;
 }
 .wt-product__option {
   font-family: var(--font-price);
