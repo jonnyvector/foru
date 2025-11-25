@@ -374,6 +374,20 @@
         "margin_bottom": 48
       }
     },
+    "product_comparison_table_wQc3Q9": {
+      "type": "product-comparison-table",
+      "name": "Product Comparison Table",
+      "settings": {
+        "pre_title": "Difference",
+        "heading": "QUALITY THAT YOU CAN'T FIND ELSEWHERE",
+        "brand_logo": "shopify://shop_images/Frame_154.svg",
+        "column_2_header": "FÖRU",
+        "column_3_header": "LEADING COMPETITORS",
+        "foru_column_bg": "#f7f7f7",
+        "section_padding_top": 36,
+        "section_padding_bottom": 36
+      }
+    },
     "health_benefits_aBfLBK": {
       "type": "health-benefits",
       "name": "Health Benefits",
@@ -425,20 +439,6 @@
         "background_color": "rgba(0,0,0,0)",
         "margin-top": 48,
         "margin-bottom": 0
-      }
-    },
-    "product_comparison_table_wQc3Q9": {
-      "type": "product-comparison-table",
-      "name": "Product Comparison Table",
-      "settings": {
-        "pre_title": "Difference",
-        "heading": "QUALITY THAT YOU CAN'T FIND ELSEWHERE",
-        "brand_logo": "shopify://shop_images/Frame_154.svg",
-        "column_2_header": "FÖRU",
-        "column_3_header": "LEADING COMPETITORS",
-        "foru_column_bg": "#f7f7f7",
-        "section_padding_top": 36,
-        "section_padding_bottom": 36
       }
     },
     "collapsible_menu_dHQ3TK": {
@@ -581,9 +581,9 @@
     "main",
     "features_banner_idectQ",
     "ingredients_product_nVPErd",
+    "product_comparison_table_wQc3Q9",
     "health_benefits_aBfLBK",
     "video_reels_custom_zarqym",
-    "product_comparison_table_wQc3Q9",
     "collapsible_menu_dHQ3TK",
     "split_banner_jgRFr4"
   ]
