@@ -127,19 +127,24 @@
             "eca-price-font-size": 16
           }
         },
-        "buy_buttons": {
-          "type": "buy_buttons",
+        "price_quantity_Yby3mY": {
+          "type": "price_quantity",
           "settings": {
-            "show_dynamic_checkout": false,
-            "show_gift_card_recipient": true,
-            "show_qty_selector": true,
-            "text_color": "#ffffff",
-            "background_color": "#151515"
+            "show_qty_selector": true
           }
         },
         "promo_banner_iWXLcw": {
           "type": "promo_banner",
           "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true,
+            "text_color": "#ffffff",
+            "background_color": "#151515"
+          }
         },
         "usps_RenHig": {
           "type": "usps",
@@ -245,8 +250,9 @@
         "price",
         "variant_picker_fHUhmX",
         "easy_subscriptions_subscription_widget_E3thWB",
-        "buy_buttons",
+        "price_quantity_Yby3mY",
         "promo_banner_iWXLcw",
+        "buy_buttons",
         "usps_RenHig",
         "promo_wBVFy3",
         "description",
