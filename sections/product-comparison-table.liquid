@@ -186,15 +186,25 @@
 
     .comparison-table-mobile__row {
       padding: calc(var(--gap) * 2);
-      border-bottom: 1px solid rgba(208, 208, 208, 0.7);
       min-height: 80px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      position: relative;
     }
 
-    .comparison-table-mobile__row:last-child {
-      border-bottom: none;
+    .comparison-table-mobile__row::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 5%;
+      right: 5%;
+      height: 1px;
+      background: rgba(208, 208, 208, 0.7);
+    }
+
+    .comparison-table-mobile__row:last-child::after {
+      display: none;
     }
 
     .comparison-table-mobile__label {
