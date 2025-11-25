@@ -27,6 +27,13 @@ if (!customElements.get("variant-options")) {
         this.updateGallery();
         this.updateVariantStatuses();
         this.updateDropdownButtons();
+
+        // Ensure button state is correct on initialization
+        if (this.currentVariant) {
+          const shouldDisable = !this.currentVariant.available;
+          const buttonText = shouldDisable ? window.variantStrings.soldOut : window.variantStrings.addToCart;
+          this.toggleAddButton(shouldDisable, buttonText);
+        }
       }
 
       onKeyDown(event) {
@@ -46,7 +53,6 @@ if (!customElements.get("variant-options")) {
         this.updateOptions();
         this.updateMasterId();
         this.updateGallery();
-        this.toggleAddButton(true, "", false);
         this.updatePickupAvailability();
         this.removeErrorMessage();
         this.updateVariantStatuses();
@@ -334,15 +340,16 @@ if (!customElements.get("variant-options")) {
                 inventorySource.innerText === "",
               );
 
-            const addButtonUpdated = html.getElementById(
-              `ProductSubmitButton-${sectionId}`,
-            );
-            this.toggleAddButton(
-              addButtonUpdated
-                ? addButtonUpdated.hasAttribute("disabled")
-                : true,
-              window.variantStrings.soldOut,
-            );
+            // Check variant availability directly instead of relying on HTML
+            const shouldDisable = !this.currentVariant || !this.currentVariant.available;
+            const buttonText = shouldDisable ? window.variantStrings.soldOut : window.variantStrings.addToCart;
+
+            this.toggleAddButton(shouldDisable, buttonText);
+
+            // External scripts may modify button text, ensure it stays correct
+            setTimeout(() => {
+              this.toggleAddButton(shouldDisable, buttonText);
+            }, 100);
 
             publish(PUB_SUB_EVENTS.variantChange, {
               data: {
@@ -359,16 +366,28 @@ if (!customElements.get("variant-options")) {
           `product-form-${this.dataset.section}`,
         );
         if (!productForm) return;
-        const addButton = productForm.querySelector('[name="add"]');
-        const addButtonText = productForm.querySelector('[name="add"] > span');
-        if (!addButton) return;
+        const addButtons = productForm.querySelectorAll('[name="add"]');
+        const allSlideTexts = productForm.querySelectorAll('[name="add"] .slide-text');
+        if (!addButtons.length) return;
 
         if (disable) {
-          addButton.setAttribute("disabled", "disabled");
-          if (text) addButtonText.textContent = text;
+          addButtons.forEach(button => button.setAttribute("disabled", "disabled"));
+          if (text && allSlideTexts.length) {
+            allSlideTexts.forEach(slideText => {
+              slideText.textContent = text;
+            });
+          }
         } else {
-          addButton.removeAttribute("disabled");
-          addButtonText.textContent = window.variantStrings.addToCart;
+          addButtons.forEach(button => button.removeAttribute("disabled"));
+          if (text && allSlideTexts.length) {
+            allSlideTexts.forEach(slideText => {
+              slideText.textContent = text;
+            });
+          } else if (!text && allSlideTexts.length) {
+            allSlideTexts.forEach(slideText => {
+              slideText.textContent = window.variantStrings.addToCart;
+            });
+          }
         }
 
         if (!modifyClass) return;

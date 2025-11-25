@@ -1,0 +1,468 @@
+{%- comment -%}
+  Product Comparison Table Section
+  Displays FÖRU product features vs competitors in a 3-column table
+  Desktop: Grid layout
+  Mobile: Horizontal swiper slider
+{%- endcomment -%}
+
+{%- assign comparison_rows = product.metafields.custom.comparison_table.value -%}
+
+{% if comparison_rows.size > 0 %}
+  <style>
+    section[id="shopify-section-{{ section.id }}"] {
+      padding-top: {{ section.settings.section_padding_top }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom }}px;
+    }
+
+    .comparison-table-wrapper {
+      max-width: var(--site-max-width);
+      padding-left: calc(var(--gap) * 2);
+      padding-right: calc(var(--gap) * 2);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (min-width: 1200px) {
+      .comparison-table-wrapper {
+        padding-left: calc(calc(var(--gap) * 2) + calc(var(--gap) * 2));
+        padding-right: calc(calc(var(--gap) * 2) + calc(var(--gap) * 2));
+      }
+    }
+
+    @media (min-width: 1800px) {
+      .comparison-table-wrapper {
+        max-width: var(--site-max-width-big);
+      }
+    }
+
+    .comparison-table-header {
+      text-align: left;
+      margin-bottom: calc(var(--gap) * 4);
+    }
+
+    @media (min-width: 750px) {
+      .comparison-table-header {
+        text-align: center;
+      }
+    }
+
+    .comparison-table-header__pre-title {
+      font-family: var(--font-headline);
+      font-size: 20px;
+      font-weight: var(--font-headline-weight);
+      margin-bottom: calc(var(--gap) * 2);
+      color: var(--color-text);
+    }
+
+    @media (min-width: 750px) {
+      .comparison-table-header__pre-title {
+        font-size: 28px;
+      }
+    }
+
+    .comparison-table-header__title {
+      font-family: var(--font-headline);
+      font-size: 32px;
+      font-weight: var(--font-headline-weight);
+      line-height: 1.2;
+      margin: 0 auto;
+      max-width: 800px;
+      color: var(--color-text);
+    }
+
+    @media (min-width: 750px) {
+      .comparison-table-header__title {
+        font-size: 64px;
+      }
+    }
+
+    /* Desktop Grid Layout */
+    .comparison-table {
+      display: none;
+    }
+
+    @media (min-width: 750px) {
+      .comparison-table {
+        display: block;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
+
+      .comparison-table__header {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0;
+      }
+
+      .comparison-table__header-cell {
+        padding: calc(var(--gap) * 2) calc(var(--gap) * 3);
+        padding-bottom: calc(var(--gap) * 2 + 2rem);
+        font-family: var(--font-headline);
+        font-size: 24px;
+        font-weight: var(--font-headline-weight);
+        text-align: center;
+      }
+
+      .comparison-table__header-cell--logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .comparison-table__header-logo {
+        max-width: 90px;
+        height: auto;
+      }
+
+      .comparison-table__row {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0;
+      }
+
+      .comparison-table__cell {
+        padding: calc(var(--gap) * 2.5) calc(var(--gap) * 3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .comparison-table__cell::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 5%;
+        right: 5%;
+        height: 1px;
+        background: rgba(208, 208, 208, 0.7);
+      }
+
+      .comparison-table__row:last-child .comparison-table__cell::after {
+        display: none;
+      }
+
+      .comparison-table__cell:nth-child(1) {
+        justify-content: flex-start;
+      }
+
+      .comparison-table__cell:nth-child(2) {
+        background: {{ section.settings.foru_column_bg }};
+      }
+
+      .comparison-table__cell--feature {
+        font-family: var(--font-headline);
+        font-size: 24px;
+        font-weight: var(--font-headline-weight);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--color-text);
+      }
+
+      .comparison-table__cell--value {
+        font-family: var(--font-headline);
+        font-size: 24px;
+        font-weight: var(--font-headline-weight);
+        text-align: center;
+        color: var(--color-text);
+        text-transform: uppercase;
+      }
+
+      .comparison-table__cell--competitor {
+        font-size: 32px;
+        color: #000;
+      }
+    }
+
+    /* Mobile Swiper Layout */
+    .comparison-table-mobile {
+      display: block;
+    }
+
+    @media (min-width: 750px) {
+      .comparison-table-mobile {
+        display: none;
+      }
+    }
+
+
+    .comparison-table-mobile__column {
+      background: #fff;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+    }
+
+    .comparison-table-mobile__header {
+      padding: calc(var(--gap) * 2);
+      font-family: var(--font-headline);
+      font-size: 14px;
+      font-weight: var(--font-headline-weight);
+      text-align: center;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .comparison-table-mobile__header-logo {
+      max-width: 56px;
+      height: auto;
+    }
+
+    .comparison-table-mobile__header--foru {
+      background: transparent;
+    }
+
+    .comparison-table-mobile__row {
+      padding: calc(var(--gap) * 2);
+      min-height: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .comparison-table-mobile__row::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 5%;
+      right: 5%;
+      height: 1px;
+      background: rgba(208, 208, 208, 0.7);
+    }
+
+    .comparison-table-mobile__row:last-child::after {
+      display: none;
+    }
+
+    .comparison-table-mobile__label {
+      font-family: var(--font-headline);
+      font-size: 12px;
+      font-weight: var(--font-headline-weight);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: calc(var(--gap) / 2);
+      color: #999;
+    }
+
+    .comparison-table-mobile__value {
+      font-family: var(--font-headline);
+      font-size: 14px;
+      font-weight: var(--font-headline-weight);
+      color: var(--color-text);
+      text-transform: uppercase;
+    }
+
+    .comparison-table-mobile__value--competitor {
+      font-size: 24px;
+      text-align: center;
+      color: #000;
+    }
+
+    .comparison-table-mobile__column--foru .comparison-table-mobile__row {
+      background: {{ section.settings.foru_column_bg }};
+    }
+  </style>
+
+  <section data-section-id="{{ section.id }}" class="section-comparison-table">
+    <div class="comparison-table-wrapper">
+
+      {%- if section.settings.pre_title != blank or section.settings.heading != blank -%}
+        <div class="comparison-table-header">
+          {%- if section.settings.pre_title != blank -%}
+            <div class="comparison-table-header__pre-title">{{ section.settings.pre_title }}</div>
+          {%- endif -%}
+          {%- if section.settings.heading != blank -%}
+            <h2 class="comparison-table-header__title">{{ section.settings.heading }}</h2>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- comment -%} Desktop Table {%- endcomment -%}
+      <div class="comparison-table">
+        <div class="comparison-table__header">
+          <div class="comparison-table__header-cell"></div>
+          <div class="comparison-table__header-cell comparison-table__header-cell--logo">
+            {%- if section.settings.brand_logo != blank -%}
+              {{ section.settings.brand_logo | image_url: width: 300 | image_tag: class: 'comparison-table__header-logo', alt: section.settings.column_2_header }}
+            {%- else -%}
+              {{ section.settings.column_2_header }}
+            {%- endif -%}
+          </div>
+          <div class="comparison-table__header-cell">{{ section.settings.column_3_header }}</div>
+        </div>
+
+        {%- for row in comparison_rows -%}
+          <div class="comparison-table__row">
+            <div class="comparison-table__cell comparison-table__cell--feature">
+              {{ row.feature_label }}
+            </div>
+            <div class="comparison-table__cell comparison-table__cell--value">
+              {{ row.foru_value }}
+            </div>
+            <div class="comparison-table__cell comparison-table__cell--competitor">
+              {%- if row.competitor_has == true -%}
+                ✓
+              {%- else -%}
+                ✕
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- comment -%} Mobile Swiper {%- endcomment -%}
+      <div class="comparison-table-mobile">
+        <slideshow-section class="wt-slider">
+          <div data-swiper>
+            <div data-swiper-container>
+
+              {%- comment -%} Column 1: Features {%- endcomment -%}
+              <div data-swiper-slide>
+                <div class="comparison-table-mobile__column">
+                  <div class="comparison-table-mobile__header"></div>
+                  {%- for row in comparison_rows -%}
+                    <div class="comparison-table-mobile__row">
+                      <div class="comparison-table-mobile__value">{{ row.feature_label }}</div>
+                    </div>
+                  {%- endfor -%}
+                </div>
+              </div>
+
+              {%- comment -%} Column 2: FÖRU {%- endcomment -%}
+              <div data-swiper-slide>
+                <div class="comparison-table-mobile__column comparison-table-mobile__column--foru">
+                  <div class="comparison-table-mobile__header comparison-table-mobile__header--foru">
+                    {%- if section.settings.brand_logo != blank -%}
+                      {{ section.settings.brand_logo | image_url: width: 240 | image_tag: class: 'comparison-table-mobile__header-logo', alt: section.settings.column_2_header }}
+                    {%- else -%}
+                      {{ section.settings.column_2_header }}
+                    {%- endif -%}
+                  </div>
+                  {%- for row in comparison_rows -%}
+                    <div class="comparison-table-mobile__row">
+                      <div class="comparison-table-mobile__value">{{ row.foru_value }}</div>
+                    </div>
+                  {%- endfor -%}
+                </div>
+              </div>
+
+              {%- comment -%} Column 3: Competitors {%- endcomment -%}
+              <div data-swiper-slide>
+                <div class="comparison-table-mobile__column">
+                  <div class="comparison-table-mobile__header">
+                    {{ section.settings.column_3_header }}
+                  </div>
+                  {%- for row in comparison_rows -%}
+                    <div class="comparison-table-mobile__row">
+                      <div class="comparison-table-mobile__value comparison-table-mobile__value--competitor">
+                        {%- if row.competitor_has == true -%}
+                          ✓
+                        {%- else -%}
+                          ✕
+                        {%- endif -%}
+                      </div>
+                    </div>
+                  {%- endfor -%}
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="swiper-scrollbar wt-slider__scrollbar wt-slider__scrollbar--comparison"></div>
+
+          <script data-swiper-configuration type="text/json">
+            {
+              "enableOnMedia": "(max-width: 749px)",
+              "autoheight": false,
+              "slidesPerView": 2,
+              "slidesPerGroup": 1,
+              "spaceBetween": 16,
+              "freeMode": false,
+              "centeredSlides": false,
+              "grabCursor": true,
+              "scrollbar": {
+                "el": ".wt-slider__scrollbar--comparison",
+                "draggable": true
+              }
+            }
+          </script>
+        </slideshow-section>
+      </div>
+
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Product Comparison Table",
+  "tag": "section",
+  "class": "section-comparison-table",
+  "settings": [
+    {
+      "type": "text",
+      "id": "pre_title",
+      "label": "Pre-title",
+      "default": "Difference"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "QUALITY THAT YOU CAN'T FIND ELSEWHERE"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo",
+      "label": "Brand Logo (Column 2)"
+    },
+    {
+      "type": "text",
+      "id": "column_2_header",
+      "label": "Column 2 Header (Fallback)",
+      "default": "FÖRU",
+      "info": "Used if no logo is uploaded"
+    },
+    {
+      "type": "text",
+      "id": "column_3_header",
+      "label": "Column 3 Header",
+      "default": "LEADING COMPETITORS"
+    },
+    {
+      "type": "color",
+      "id": "foru_column_bg",
+      "label": "FÖRU Column Background",
+      "default": "#f7f7f7"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Comparison Table"
+    }
+  ]
+}
+{% endschema %}

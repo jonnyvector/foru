@@ -64,6 +64,26 @@
               --aspect-ratio: var(--aspect-ratio-portait);
           {% endcase %}
         }
+
+  .wt-product__usps {
+    width: 100%;
+  }
+
+  .wt-product__usps-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: calc(var(--gap, 8px) * 2);
+    padding-bottom: calc(var(--gap, 8px) * 2);
+    border-bottom: 1px solid var(--color-border, #e0e0e0);
+  }
+
+  .wt-product__usp-item {
+    font-family: var(--font-body, inherit);
+    font-size: var(--font-base-size, 16px);
+    line-height: var(--font-base-line-height, 1.5);
+    color: var(--color-custom-text, inherit);
+  }
   }
 
     {%- for block in section.blocks -%}
@@ -1267,7 +1287,19 @@
                 </drawer-select>
               </div>
             {%- when 'rating' -%}
-              {% render 'rating', reviews: product.metafields.reviews, main_product: true %}
+              {% render 'rating', reviews: product.metafields.reviews, main_product: true, product: product %}
+
+            {%- when 'usps' -%}
+              <div class="wt-product__usps {% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}" not-quick-add>
+                <div class="wt-product__usps-container">
+                  {% if block.settings.usp_left != blank %}
+                    <div class="wt-product__usp-item">{{ block.settings.usp_left }}</div>
+                  {% endif %}
+                  {% if block.settings.usp_right != blank %}
+                    <div class="wt-product__usp-item">{{ block.settings.usp_right }}</div>
+                  {% endif %}
+                </div>
+              </div>
 
             {%- when 'text' -%}
               <span
@@ -1409,6 +1441,9 @@
                     %}
                   {% endif %}
 
+                  {%- comment -%} Load taste swatches data once for product page {%- endcomment -%}
+                  {%- include 'taste-swatches-data' -%}
+
                   {%- unless product.has_only_default_variant -%}
                     <variant-options
                       class="no-js-hidden wt-variant-options"
@@ -1547,7 +1582,7 @@
                                           >
                                             <div
                                               class="{{ options_container_class }}__list__link__content {% if settings.enable_round_color_swatches %} rounded {% endif %}{% if block.settings.radius == 'custom' %} custom-radius{% endif %}"
-                                              style="{% render 'color-swatch-style', swatches_config: swatches_config, value: value %}"
+                                              style="{% render 'color-swatch-style', swatches_config: swatches_config, value: value, taste_swatches_map_string: taste_swatches_map_string, option_name: option.name %}"
                                             ></div>
                                           </label>
                                       {% endcase %}
@@ -1667,6 +1702,33 @@
                 </modal-dialog>
               {% endif %}
 
+            {%- when 'promo_banner' -%}
+              {% render 'product-promo-banner', product: product %}
+
+            {%- when 'price_quantity' -%}
+              <div class="wt-product__price-quantity-block" data-block-id="{{ block.id }}">
+                <div class="wt-product__price-quantity-container">
+                  <div class="wt-product__total-section">
+                    <p class="wt-product__total-label">Total</p>
+                    <div class="wt-product__total-price">
+                      {%- render 'price',
+                        product: product,
+                        use_variant: true,
+                        show_badges: false,
+                        price_class: 'price--total',
+                        show_compare_at_price: false
+                      -%}
+                    </div>
+                  </div>
+                  {% if block.settings.show_qty_selector %}
+                    <div class="wt-product__quantity-section">
+                      <p class="wt-product__quantity-label">Quantity</p>
+                      {% render 'component-counter' %}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+
             {%- when 'buy_buttons' -%}
               <div
                 class="wt-product__add-to-cart_form main-product__buy-buttons--container {% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %} {% if section.settings.desktop-media-size == 'large' %}large{% endif %}"
@@ -1694,28 +1756,7 @@
                     {% if block.settings.show_gift_card_recipient and product.gift_card? %}
                       {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
                     {% endif %}
-                    {% comment %} Price-Quantity container matching the design {% endcomment %}
-                    <div class="wt-product__price-quantity-container">
-                      <div class="wt-product__total-section">
-                        <p class="wt-product__total-label">Total</p>
-                        <div class="wt-product__total-price">
-                          {%- render 'price',
-                            product: product,
-                            use_variant: true,
-                            show_badges: false,
-                            price_class: 'price--total',
-                            show_compare_at_price: false
-                          -%}
-                        </div>
-                      </div>
-                      {% if block.settings.show_qty_selector %}
-                        <div class="wt-product__quantity-section">
-                          <p class="wt-product__quantity-label">Quantity</p>
-                          {% render 'component-counter' %}
-                        </div>
-                      {% endif %}
-                    </div>
-                    
+
                     <div class="wt-product__add-to-cart_form--wrapper">
 
                       {% assign disable_button = false %}
@@ -1744,9 +1785,10 @@
                         type: 'submit',
                         aria_label: button_text,
                         class: 'js-add-to-cart product-form__submit button--full-width',
-                        id: 'ProductSubmitButton-' | append: section.id,
+                        button_id: 'ProductSubmitButton-' | append: section.id,
                         style: 'primary',
-                        disabled: disable_button
+                        disabled: disable_button,
+                        name: 'add'
                       %}
                     </div>
                     <input name="selling_plan" class="selected-selling-plan-id" type="hidden" value="">
@@ -2108,7 +2150,7 @@
                               >
                                 <div
                                   class="{{ options_container_class }}__list__link__content {% if settings.enable_round_color_swatches %} rounded {% endif %}{% if block.settings.radius == 'custom' %} custom-radius {% endif %}"
-                                  style="{% render 'color-swatch-style', swatches_config: swatches_config, value: option_value, swatch_image: option_image, swatch_color: option_color %}"
+                                  style="{% render 'color-swatch-style', swatches_config: swatches_config, value: option_value, swatch_image: option_image, swatch_color: option_color, taste_swatches_map_string: taste_swatches_map_string, option_name: option.name %}"
                                 ></div>
                               </a>
                           {%- endcase -%}
@@ -3106,6 +3148,19 @@
       ]
     },
     {
+      "type": "price_quantity",
+      "name": "Price & Quantity",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_qty_selector",
+          "default": true,
+          "label": "Show quantity selector"
+        }
+      ]
+    },
+    {
       "type": "buy_buttons",
       "name": "t:sections.main-product.blocks.buy_buttons.name",
       "limit": 1,
@@ -3123,12 +3178,6 @@
           "default": true,
           "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
           "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_qty_selector",
-          "default": true,
-          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_qty_selector.label"
         },
         {
           "type": "header",
@@ -3507,6 +3556,40 @@
         {
           "type": "paragraph",
           "content": "t:sections.main-product.blocks.rating.settings.paragraph.content"
+        },
+        {
+          "type": "paragraph",
+          "content": "To show static ratings, add a 'Product Rating' metafield to individual products with 'Use Review Data' enabled."
+        }
+      ]
+    },
+    {
+      "type": "usps",
+      "name": "USPs",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "usp_left",
+          "label": "Left USP",
+          "default": "60-day guarantee"
+        },
+        {
+          "type": "text",
+          "id": "usp_right",
+          "label": "Right USP",
+          "default": "3-6 day US delivery"
+        }
+      ]
+    },
+    {
+      "type": "promo_banner",
+      "name": "Promo Banner",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Displays promotional banner from product metafield. Attach a 'Promo Banner' metaobject to the product to show this block."
         }
       ]
     },

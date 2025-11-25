@@ -62,10 +62,33 @@
     margin-bottom: 1rem;
   }
 
-  /* Full width styling */
-  .wt-collapse__section--full-width .wt-collapse__wrapper {
-    max-width: none;
-  }
+  /* Width options */
+  {% if section.settings.section_width == 'large' %}
+    .wt-collapse__wrapper {
+      max-width: var(--site-max-width);
+      padding-left: calc(var(--gap) * 2);
+      padding-right: calc(var(--gap) * 2);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (min-width: 1200px) {
+      .wt-collapse__wrapper {
+        padding-left: calc(calc(var(--gap) * 2) + calc(var(--gap) * 2));
+        padding-right: calc(calc(var(--gap) * 2) + calc(var(--gap) * 2));
+      }
+    }
+
+    @media (min-width: 1800px) {
+      .wt-collapse__wrapper {
+        max-width: var(--site-max-width-big);
+      }
+    }
+  {% elsif section.settings.section_width == 'full' %}
+    .wt-collapse__wrapper {
+      max-width: none;
+    }
+  {% endif %}
 
   /* Hide bottom border */
   .wt-collapse__section--no-border .wt-collapse__wrapper .wt-collapse {
@@ -182,10 +205,25 @@
         "default": "center",
         "label": "t:sections.featured-collection.settings.text_alignment.label"
       }, {
-        "type": "checkbox",
-        "id": "full-width-enabled",
-        "label": "t:sections.settings.settings.section-full-width.label",
-        "default": false
+        "type": "select",
+        "id": "section_width",
+        "label": "Section width",
+        "options": [
+          {
+            "value": "narrow",
+            "label": "Narrow"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          },
+          {
+            "value": "full",
+            "label": "Full screen"
+          }
+        ],
+        "default": "narrow",
+        "info": "Narrow uses default theme width, Large uses responsive max-width, Full removes width constraints"
       }, {
         "type": "checkbox",
         "id": "hide_bottom_border",

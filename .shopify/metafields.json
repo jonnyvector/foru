@@ -50,6 +50,56 @@
         "name": "metaobject_reference",
         "category": "REFERENCE"
       }
+    },
+    {
+      "key": "benefits",
+      "namespace": "custom",
+      "name": "Benefits",
+      "description": "",
+      "type": {
+        "name": "rich_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "instructions",
+      "namespace": "custom",
+      "name": "Instructions",
+      "description": "",
+      "type": {
+        "name": "rich_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "ingredients_text",
+      "namespace": "custom",
+      "name": "Ingredients-Text",
+      "description": "",
+      "type": {
+        "name": "rich_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "product_rating",
+      "namespace": "custom",
+      "name": "Product Rating",
+      "description": "",
+      "type": {
+        "name": "metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "promo_banner",
+      "namespace": "custom",
+      "name": "Promo Banner",
+      "description": "Product promotional banner displayed between price and add to cart button",
+      "type": {
+        "name": "metaobject_reference",
+        "category": "REFERENCE"
+      }
     }
   ],
   "variant": [],

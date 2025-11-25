@@ -736,11 +736,6 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   --size-icon: 1.5rem !important;
 }
 
-@media (min-width: 900px) {
-  .wt-collapse__target--text {
-    max-width: 65% !important;
-  }
-}
 
 /* Arrow-down icon - always visible, base state points down */
 .wt-page-nav-mega__link--parent .svg-icon--arrow-down {
@@ -954,6 +949,7 @@ main .wt-slider__nav-btn .icon,
 
 /* Price-Quantity Container Styles - Product Page and Quick-Add Drawer */
 .main-product__buy-buttons--container .wt-product__price-quantity-container,
+.wt-product__price-quantity-block .wt-product__price-quantity-container,
 .wt__quick-buy .wt-product__price-quantity-container {
   display: flex;
   justify-content: space-between;
@@ -964,6 +960,7 @@ main .wt-slider__nav-btn .icon,
 }
 
 .main-product__buy-buttons--container .wt-product__total-section,
+.wt-product__price-quantity-block .wt-product__total-section,
 .wt__quick-buy .wt-product__total-section {
   flex: 1;
   display: flex;
@@ -972,6 +969,7 @@ main .wt-slider__nav-btn .icon,
 }
 
 .main-product__buy-buttons--container .wt-product__quantity-section,
+.wt-product__price-quantity-block .wt-product__quantity-section,
 .wt__quick-buy .wt-product__quantity-section {
   flex-shrink: 0;
   text-align: right;
@@ -983,6 +981,8 @@ main .wt-slider__nav-btn .icon,
 
 .main-product__buy-buttons--container .wt-product__total-label,
 .main-product__buy-buttons--container .wt-product__quantity-label,
+.wt-product__price-quantity-block .wt-product__total-label,
+.wt-product__price-quantity-block .wt-product__quantity-label,
 .wt__quick-buy .wt-product__total-label,
 .wt__quick-buy .wt-product__quantity-label {
   height: 1.2em;
@@ -999,6 +999,9 @@ main .wt-slider__nav-btn .icon,
 .main-product__buy-buttons--container
   .wt-product__quantity-label
   .js-counter-quantity,
+.wt-product__price-quantity-block
+  .wt-product__quantity-label
+  .js-counter-quantity,
 .wt__quick-buy .wt-product__quantity-label .js-counter-quantity {
   font-size: 24px;
   font-weight: 500;
@@ -1006,6 +1009,10 @@ main .wt-slider__nav-btn .icon,
 
 .main-product__buy-buttons--container .wt-product__total-price,
 .main-product__buy-buttons--container
+  .wt-product__quantity-section
+  .counter-wrapper,
+.wt-product__price-quantity-block .wt-product__total-price,
+.wt-product__price-quantity-block
   .wt-product__quantity-section
   .counter-wrapper,
 .wt__quick-buy .wt-product__total-price,
@@ -1016,6 +1023,7 @@ main .wt-slider__nav-btn .icon,
 }
 
 .main-product__buy-buttons--container .wt-product__total-price .price,
+.wt-product__price-quantity-block .wt-product__total-price .price,
 .wt__quick-buy .wt-product__total-price .price {
   margin-top: auto;
   line-height: 1;
@@ -1025,6 +1033,7 @@ main .wt-slider__nav-btn .icon,
 }
 
 .main-product__buy-buttons--container .wt-product__quantity-section .counter,
+.wt-product__price-quantity-block .wt-product__quantity-section .counter,
 .wt__quick-buy .wt-product__quantity-section .counter {
   margin-top: auto;
   line-height: 1;
@@ -1036,6 +1045,7 @@ main .wt-slider__nav-btn .icon,
 .main-product__buy-buttons--container
   .wt-product__quantity-section
   .counter-wrapper,
+.wt-product__price-quantity-block .wt-product__quantity-section .counter-wrapper,
 .wt__quick-buy .wt-product__quantity-section .counter-wrapper {
   margin-top: 0.5rem;
   border: none;
@@ -1047,6 +1057,7 @@ main .wt-slider__nav-btn .icon,
   .wt-product__quantity-section
   .counter
   input,
+.wt-product__price-quantity-block .wt-product__quantity-section .counter input,
 .wt__quick-buy .wt-product__quantity-section .counter input {
   height: 32px;
   min-width: 24px;
@@ -1065,6 +1076,7 @@ main .wt-slider__nav-btn .icon,
   .wt-product__quantity-section
   .counter
   input:focus,
+.wt-product__price-quantity-block .wt-product__quantity-section .counter input:focus,
 .wt__quick-buy .wt-product__quantity-section .counter input:focus {
   outline: none !important;
   border: none !important;
@@ -1076,6 +1088,7 @@ main .wt-slider__nav-btn .icon,
   .counter
   button
   svg,
+.wt-product__price-quantity-block .wt-product__quantity-section .counter button svg,
 .wt__quick-buy .wt-product__quantity-section .counter button svg {
   width: 16px;
   height: 16px;
@@ -1083,16 +1096,19 @@ main .wt-slider__nav-btn .icon,
 
 @media (max-width: 749px) {
   .main-product__buy-buttons--container .wt-product__price-quantity-container,
+  .wt-product__price-quantity-block .wt-product__price-quantity-container,
   .wt__quick-buy .wt-product__price-quantity-container {
     gap: 1rem;
   }
 
   .main-product__buy-buttons--container .wt-product__total-price .price,
+  .wt-product__price-quantity-block .wt-product__total-price .price,
   .wt__quick-buy .wt-product__total-price .price {
     font-size: 2rem;
   }
 
   .main-product__buy-buttons--container .wt-product__quantity-section,
+  .wt-product__price-quantity-block .wt-product__quantity-section,
   .wt__quick-buy .wt-product__quantity-section {
     text-align: left;
   }
@@ -1107,4 +1123,28 @@ main .wt-slider__nav-btn .icon,
 
 .esa_tooltip-title-svg {
   background: transparent !important;
+}
+
+/* Star rating size customization - use larger stars on hero/banner sections */
+[data-section-type="hero"] .wt-rating__stars,
+[data-section-type="split-banner"] .wt-rating__stars,
+.hero .wt-rating__stars,
+.split-banner .wt-rating__stars {
+  --star-width: 26px;
+  --star-height: 25px;
+}
+
+/* Remove gap between color swatch border and swatch circle */
+.wt-product__option__body--swatches label::before,
+.wt-product__option__body--swatches a::before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Increase border width to 2px for round swatches only */
+.wt-product__option__body--swatches label.rounded::before,
+.wt-product__option__body--swatches a.rounded::before {
+  border-width: 2px;
 }

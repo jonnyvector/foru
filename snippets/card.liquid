@@ -246,7 +246,8 @@
       {% if rating and reviews %}
         {% render 'rating'
           , reviews: reviews
-          , text_alignment: text_alignment %}
+          , text_alignment: text_alignment
+          , product: card_product %}
       {% endif %}
     </a>
 
@@ -361,7 +362,7 @@
                   {% if is_variant_picture %}
                           background-image: url({{ rep_variant.image | image_url: width: 48 }});
                   {% else %}
-                      {% render 'color-swatch-style', swatches_config: swatches_config, value: color %};
+                      {% render 'color-swatch-style', swatches_config: swatches_config, value: color, taste_swatches_map_string: taste_swatches_map_string, option_name: option_name %};
                   {% endif %}
                 "
                 tabindex="0"></div>

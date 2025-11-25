@@ -1,0 +1,32 @@
+{%- comment -%}
+  This snippet queries all Taste Swatch metaobjects and builds a lookup dictionary.
+
+  Output: taste_swatches_map_string (string mapping handleized taste names to gradient CSS strings)
+
+  Usage: {% render 'taste-swatches-data' %}
+  Then variable taste_swatches_map_string is available in parent scope
+{%- endcomment -%}
+
+{%- comment -%} Initialize empty string {%- endcomment -%}
+{%- assign taste_swatches_map_string = '' -%}
+
+{%- comment -%} Query all Taste Swatch metaobjects - with error handling {%- endcomment -%}
+{%- if shop.metaobjects.taste_swatch -%}
+  {%- assign taste_swatches_result = shop.metaobjects.taste_swatch.values -%}
+
+  {%- comment -%} Build lookup string {%- endcomment -%}
+  {%- for metaobject in taste_swatches_result -%}
+    {%- if metaobject.gradient -%}
+      {%- assign gradient_value = metaobject.gradient.value -%}
+      {%- if gradient_value != blank -%}
+        {%- assign handle_key = metaobject.system.handle -%}
+        {%- comment -%} Store in a searchable format {%- endcomment -%}
+        {%- if taste_swatches_map_string == blank -%}
+          {%- assign taste_swatches_map_string = handle_key | append: '::' | append: gradient_value -%}
+        {%- else -%}
+          {%- assign taste_swatches_map_string = taste_swatches_map_string | append: '||' | append: handle_key | append: '::' | append: gradient_value -%}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}

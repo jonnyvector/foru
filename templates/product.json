@@ -22,6 +22,10 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "rating_AeMbjb": {
+          "type": "rating",
+          "settings": {}
+        },
         "title": {
           "type": "title",
           "settings": {
@@ -123,14 +127,30 @@
             "eca-price-font-size": 16
           }
         },
+        "price_quantity_Yby3mY": {
+          "type": "price_quantity",
+          "settings": {
+            "show_qty_selector": true
+          }
+        },
+        "promo_banner_iWXLcw": {
+          "type": "promo_banner",
+          "settings": {}
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": true,
-            "show_qty_selector": true,
             "text_color": "#ffffff",
             "background_color": "#151515"
+          }
+        },
+        "usps_RenHig": {
+          "type": "usps",
+          "settings": {
+            "usp_left": "60-day guarantee",
+            "usp_right": "3-6 day US delivery"
           }
         },
         "promo_wBVFy3": {
@@ -164,7 +184,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "BENEFITS",
-            "content": "<ul><li><strong>Supports Healthy Skin</strong>: Boosts skin elasticity, hydration, and firmness, helping to reduce the appearance of wrinkles and promote a youthful glow.</li><li><strong>Strengthens Hair and Nails</strong>: Encourages healthier, stronger hair growth and helps to reduce brittle nails, giving you a polished look from within.</li><li><strong>Promotes Joint Health</strong>: Enhances joint flexibility and reduces discomfort, supporting an active lifestyle and overall mobility.</li><li><strong>Improves Bone Density</strong>: Aids in maintaining strong and healthy bones by supporting bone structure and density.</li><li><strong>Enhances Muscle Recovery</strong>: Assists in muscle repair and recovery, making it an excellent supplement for active individuals and athletes.</li></ul>",
+            "content": "{{ product.metafields.custom.benefits | metafield_tag }}",
             "metafield_variables": "",
             "page": "",
             "icon": "none"
@@ -183,7 +203,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "How to take supplement?",
-            "content": "<ol><li>Recommended Dosage: Take 1 capsules daily, preferably with water or your favorite beverage.</li><li>Best Time to Take: For optimal results, consume the supplement in the morning on an empty stomach or as advised by your healthcare professional.</li><li>Consistency is Key: Incorporate the supplement into your daily routine to maximize its benefits.</li><li>Optional Pairing: Pair with a balanced diet and a healthy lifestyle to enhance the effects.</li><li>Always read the product label for specific instructions and consult your healthcare provider if you are pregnant, nursing, or taking medications.<br/>This is demo store, this information are only for demo purpose</li></ol>",
+            "content": "{{ product.metafields.custom.instructions | metafield_tag }}",
             "metafield_variables": "",
             "page": "",
             "icon": "none"
@@ -202,7 +222,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "INGREDIENTS",
-            "content": "<ul><li><strong>Protein</strong></li><li><strong>Vitamin C</strong> (as L-Ascorbic Acid)</li><li><strong>Vitamin E</strong> (as D-Alpha Tocopherol Succinate)</li><li><strong>Hydrolysed Collagen</strong> (from Bovine)</li></ul>",
+            "content": "{{ product.metafields.custom.ingredients_text | metafield_tag }}",
             "metafield_variables": "",
             "page": "",
             "icon": "none"
@@ -219,6 +239,7 @@
         }
       },
       "block_order": [
+        "rating_AeMbjb",
         "title",
         "feature_tags_ktxUht",
         "separator_reBrRK",
@@ -229,7 +250,10 @@
         "price",
         "variant_picker_fHUhmX",
         "easy_subscriptions_subscription_widget_E3thWB",
+        "price_quantity_Yby3mY",
+        "promo_banner_iWXLcw",
         "buy_buttons",
+        "usps_RenHig",
         "promo_wBVFy3",
         "description",
         "separator_b4z8Dx",
@@ -354,6 +378,20 @@
         "background_color": "rgba(0,0,0,0)",
         "margin_top": 48,
         "margin_bottom": 48
+      }
+    },
+    "product_comparison_table_wQc3Q9": {
+      "type": "product-comparison-table",
+      "name": "Product Comparison Table",
+      "settings": {
+        "pre_title": "Difference",
+        "heading": "QUALITY THAT YOU CAN'T FIND ELSEWHERE",
+        "brand_logo": "shopify://shop_images/Frame_154.svg",
+        "column_2_header": "FÖRU",
+        "column_3_header": "LEADING COMPETITORS",
+        "foru_column_bg": "#f7f7f7",
+        "section_padding_top": 0,
+        "section_padding_bottom": 48
       }
     },
     "health_benefits_aBfLBK": {
@@ -491,7 +529,7 @@
         "heading_size": 270,
         "heading_size_mobile": 180,
         "text_alignment": "left",
-        "full-width-enabled": true,
+        "section_width": "large",
         "hide_bottom_border": true,
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
@@ -549,6 +587,7 @@
     "main",
     "features_banner_idectQ",
     "ingredients_product_nVPErd",
+    "product_comparison_table_wQc3Q9",
     "health_benefits_aBfLBK",
     "video_reels_custom_zarqym",
     "collapsible_menu_dHQ3TK",

@@ -141,14 +141,15 @@
         ".wt-collapse__trigger {padding: 1rem 0; padding-bottom: 0;}",
         "p {padding-bottom: 1rem;}",
         ".wt-collapse__trigger__title {font-size: 20px;}",
-        "@media (min-width: 1200px) {.wt-collapse__trigger__title {font-size: 32px; }}"
+        "@media (min-width: 1200px) {.wt-collapse__trigger__title {font-size: 32px; }}",
+        "@media (min-width: 900px) {.wt-collapse__target--text {max-width: 65% !important; }}"
       ],
       "settings": {
         "heading": "",
         "heading_size": 100,
         "heading_size_mobile": 100,
         "text_alignment": "center",
-        "full-width-enabled": false,
+        "section_width": "narrow",
         "hide_bottom_border": true,
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "#ffffff",

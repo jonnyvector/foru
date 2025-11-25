@@ -1,0 +1,157 @@
+{%- comment -%}
+  Renders a product promotional banner from metaobject
+
+  Usage:
+  {% render 'product-promo-banner', product: product %}
+
+  Expects metaobject: product.metafields.custom.product_promo_banner with fields:
+  - title (string)
+  - image (file)
+  - background_image (file)
+  - badge_text (string, optional)
+{%- endcomment -%}
+
+{%- assign promo = product.metafields.custom.product_promo_banner.value -%}
+
+<!-- DEBUG: product_promo_banner exists: {{ product.metafields.custom.product_promo_banner }} -->
+<!-- DEBUG: product_promo_banner.value: {{ promo }} -->
+<!-- DEBUG: promo.title: {{ promo.title }} -->
+<!-- DEBUG: promo.background_image: {{ promo.background_image }} -->
+<!-- DEBUG: promo.background_image url: {{ promo.background_image | image_url: width: 1200 }} -->
+
+{% if promo %}
+  <div class="product-promo-banner">
+    <div class="product-promo-banner__content">
+      {% if promo.background_image %}
+        {{ promo.background_image | image_url: width: 1200 | image_tag: loading: 'lazy', class: 'product-promo-banner__bg-image' }}
+      {% endif %}
+
+      <div class="product-promo-banner__text-container">
+        {% if promo.title %}
+          <h3 class="product-promo-banner__title">{{ promo.title }}</h3>
+        {% endif %}
+      </div>
+
+      {% if promo.image %}
+        <div class="product-promo-banner__image-container">
+          {% if promo.badge_text %}
+            <div class="product-promo-banner__badge">{{ promo.badge_text }}</div>
+          {% endif %}
+          {{ promo.image | image_url: width: 300 | image_tag: loading: 'lazy', class: 'product-promo-banner__image' }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <style>
+    .product-promo-banner {
+      width: 100%;
+      margin: calc(var(--gap, 8px) * 2) 0;
+      padding-top: 34px;
+    }
+
+    .product-promo-banner__content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: calc(var(--gap, 8px) * 3);
+      padding: 0 calc(var(--gap, 8px) * 3);
+      border-radius: var(--border-radius);
+      position: relative;
+      overflow: visible;
+      height: 120px;
+    }
+
+    .product-promo-banner__bg-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      border-radius: var(--border-radius);
+    }
+
+    .product-promo-banner__text-container {
+      flex: 1;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .product-promo-banner__title {
+      font-family: var(--font-headline, inherit);
+      font-size: 32px;
+      font-weight: var(--font-headline-weight, 600);
+      line-height: 1.2;
+      color: #ffffff;
+      margin: 0;
+      text-transform: none;
+    }
+
+    .product-promo-banner__image-container {
+      position: relative;
+      flex-shrink: 0;
+      max-width: 180px;
+      max-height: 130px;
+      z-index: 1;
+      align-self: flex-end;
+      margin-bottom: 2.5rem;
+    }
+
+    .product-promo-banner__image {
+      max-height: 130px;
+      width: auto;
+      height: auto;
+    }
+
+    .product-promo-banner__badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: #6CB849;
+      color: #ffffff;
+      font-family: var(--font-body, inherit);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 50%;
+      min-width: 40px;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .product-promo-banner__image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 749px) {
+      .product-promo-banner {
+        padding-top: 15px;
+      }
+
+      .product-promo-banner__content {
+        height: 70px;
+      }
+
+      .product-promo-banner__title {
+        font-size: 16px;
+      }
+
+      .product-promo-banner__image-container {
+        max-height: 75px;
+        margin-bottom: 1.5rem;
+      }
+
+      .product-promo-banner__image {
+        max-height: 75px;
+      }
+    }
+  </style>
+{% endif %}

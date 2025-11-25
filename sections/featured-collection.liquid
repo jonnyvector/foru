@@ -12,6 +12,9 @@
 %}
 
 {% if show_section %}
+  {%- comment -%} Load taste swatches data once for all products {%- endcomment -%}
+  {% include 'taste-swatches-data' %}
+
   {{ 'swiper.css' | asset_url | stylesheet_tag }}
 
   {% assign background_rgb = section.settings.background_color | color_to_rgb %}
@@ -135,6 +138,7 @@
                   , media_aspect_ratio: section.settings.image_ratio
                   , enable_quick_add_button: section.settings.enable_quick_add_button
                   , show_video: section.settings.show_video
+                  , taste_swatches_map_string: taste_swatches_map_string
                 %}
               </div>
             </div>

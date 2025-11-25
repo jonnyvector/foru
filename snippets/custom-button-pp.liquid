@@ -287,8 +287,20 @@
   /* Disabled state - higher specificity to override hover transforms */
   .custom-button-wrapper-{{ unique_id }}:has(:disabled):hover .slide-text,
   .custom-button-wrapper-{{ unique_id }}:has(:disabled):hover .slide-arrow {
-    transform: none;
-    transition: none;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Prevent hover transform on first elements when disabled */
+  .custom-button-wrapper-{{ unique_id }}:has(:disabled):hover .slide-text:first-child,
+  .custom-button-wrapper-{{ unique_id }}:has(:disabled):hover .slide-arrow:first-child {
+    transform: translateY(0) !important;
+  }
+
+  /* Prevent hover transform on last elements when disabled */
+  .custom-button-wrapper-{{ unique_id }}:has(:disabled):hover .slide-text:last-child,
+  .custom-button-wrapper-{{ unique_id }}:has(:disabled):hover .slide-arrow:last-child {
+    transform: translateY(100%) !important;
   }
 
   /* Loading state - maintain button size by keeping layout but hiding content */
