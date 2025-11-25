@@ -251,7 +251,13 @@
       <div class="comparison-table">
         <div class="comparison-table__header">
           <div class="comparison-table__header-cell"></div>
-          <div class="comparison-table__header-cell">{{ section.settings.column_2_header }}</div>
+          <div class="comparison-table__header-cell comparison-table__header-cell--logo">
+            {%- if section.settings.brand_logo != blank -%}
+              {{ section.settings.brand_logo | image_url: width: 300 | image_tag: class: 'comparison-table__header-logo', alt: section.settings.column_2_header }}
+            {%- else -%}
+              {{ section.settings.column_2_header }}
+            {%- endif -%}
+          </div>
           <div class="comparison-table__header-cell">{{ section.settings.column_3_header }}</div>
         </div>
 
@@ -295,7 +301,11 @@
             <div class="swiper-slide">
               <div class="comparison-table-mobile__column comparison-table-mobile__column--foru">
                 <div class="comparison-table-mobile__header comparison-table-mobile__header--foru">
-                  {{ section.settings.column_2_header }}
+                  {%- if section.settings.brand_logo != blank -%}
+                    {{ section.settings.brand_logo | image_url: width: 240 | image_tag: class: 'comparison-table-mobile__header-logo', alt: section.settings.column_2_header }}
+                  {%- else -%}
+                    {{ section.settings.column_2_header }}
+                  {%- endif -%}
                 </div>
                 {%- for row in comparison_rows -%}
                   <div class="comparison-table-mobile__row">
