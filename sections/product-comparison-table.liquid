@@ -15,7 +15,6 @@
     }
 
     .comparison-table-wrapper {
-      max-width: var(--site-max-width, 1200px);
       margin: 0 auto;
       padding: 0 calc(var(--gap) * 2);
     }
@@ -56,15 +55,15 @@
 
     @media (min-width: 750px) {
       .comparison-table {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 0;
+        display: block;
         border-radius: var(--border-radius);
         overflow: hidden;
       }
 
       .comparison-table__header {
-        display: contents;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0;
       }
 
       .comparison-table__header-cell {
@@ -73,7 +72,6 @@
         font-size: 24px;
         font-weight: var(--font-headline-weight);
         text-align: center;
-        border-bottom: 2px solid #E5E5E5;
       }
 
       .comparison-table__header-cell--logo {
@@ -87,35 +85,29 @@
         height: auto;
       }
 
-      .comparison-table__header-cell:nth-child(1) {
-        background: transparent;
-      }
-
-      .comparison-table__header-cell:nth-child(2) {
-        background: transparent;
-      }
-
-      .comparison-table__header-cell:nth-child(3) {
-        background: transparent;
-      }
-
       .comparison-table__row {
-        display: contents;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0;
+        border-bottom: 1px solid rgba(208, 208, 208, 0.7);
+      }
+
+      .comparison-table__row:last-child {
+        border-bottom: none;
       }
 
       .comparison-table__cell {
         padding: calc(var(--gap) * 2.5) calc(var(--gap) * 3);
-        border-bottom: 1px solid #E5E5E5;
         display: flex;
         align-items: center;
         justify-content: center;
       }
 
-      .comparison-table__cell:nth-child(3n+1) {
+      .comparison-table__cell:nth-child(1) {
         justify-content: flex-start;
       }
 
-      .comparison-table__cell:nth-child(3n+2) {
+      .comparison-table__cell:nth-child(2) {
         background: {{ section.settings.foru_column_bg }};
       }
 
@@ -175,7 +167,6 @@
       font-size: 14px;
       font-weight: var(--font-headline-weight);
       text-align: center;
-      border-bottom: 2px solid #E5E5E5;
       min-height: 80px;
       display: flex;
       align-items: center;
@@ -193,7 +184,7 @@
 
     .comparison-table-mobile__row {
       padding: calc(var(--gap) * 2);
-      border-bottom: 1px solid #E5E5E5;
+      border-bottom: 1px solid rgba(208, 208, 208, 0.7);
       min-height: 80px;
       display: flex;
       flex-direction: column;
