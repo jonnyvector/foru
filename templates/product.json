@@ -427,6 +427,19 @@
         "margin-bottom": 0
       }
     },
+    "product_comparison_table_wQc3Q9": {
+      "type": "product-comparison-table",
+      "name": "Product Comparison Table",
+      "settings": {
+        "pre_title": "Difference",
+        "heading": "QUALITY THAT YOU CAN'T FIND ELSEWHERE",
+        "column_2_header": "FÖRU",
+        "column_3_header": "LEADING COMPETITORS",
+        "foru_column_bg": "#f7f7f7",
+        "section_padding_top": 36,
+        "section_padding_bottom": 36
+      }
+    },
     "collapsible_menu_dHQ3TK": {
       "type": "collapsible_menu",
       "blocks": {
@@ -569,6 +582,7 @@
     "ingredients_product_nVPErd",
     "health_benefits_aBfLBK",
     "video_reels_custom_zarqym",
+    "product_comparison_table_wQc3Q9",
     "collapsible_menu_dHQ3TK",
     "split_banner_jgRFr4"
   ]
