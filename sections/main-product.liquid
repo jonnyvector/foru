@@ -1705,6 +1705,30 @@
             {%- when 'promo_banner' -%}
               {% render 'product-promo-banner', product: product %}
 
+            {%- when 'price_quantity' -%}
+              <div class="wt-product__price-quantity-block" data-block-id="{{ block.id }}">
+                <div class="wt-product__price-quantity-container">
+                  <div class="wt-product__total-section">
+                    <p class="wt-product__total-label">Total</p>
+                    <div class="wt-product__total-price">
+                      {%- render 'price',
+                        product: product,
+                        use_variant: true,
+                        show_badges: false,
+                        price_class: 'price--total',
+                        show_compare_at_price: false
+                      -%}
+                    </div>
+                  </div>
+                  {% if block.settings.show_qty_selector %}
+                    <div class="wt-product__quantity-section">
+                      <p class="wt-product__quantity-label">Quantity</p>
+                      {% render 'component-counter' %}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+
             {%- when 'buy_buttons' -%}
               <div
                 class="wt-product__add-to-cart_form main-product__buy-buttons--container {% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %} {% if section.settings.desktop-media-size == 'large' %}large{% endif %}"
@@ -1732,28 +1756,7 @@
                     {% if block.settings.show_gift_card_recipient and product.gift_card? %}
                       {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
                     {% endif %}
-                    {% comment %} Price-Quantity container matching the design {% endcomment %}
-                    <div class="wt-product__price-quantity-container">
-                      <div class="wt-product__total-section">
-                        <p class="wt-product__total-label">Total</p>
-                        <div class="wt-product__total-price">
-                          {%- render 'price',
-                            product: product,
-                            use_variant: true,
-                            show_badges: false,
-                            price_class: 'price--total',
-                            show_compare_at_price: false
-                          -%}
-                        </div>
-                      </div>
-                      {% if block.settings.show_qty_selector %}
-                        <div class="wt-product__quantity-section">
-                          <p class="wt-product__quantity-label">Quantity</p>
-                          {% render 'component-counter' %}
-                        </div>
-                      {% endif %}
-                    </div>
-                    
+
                     <div class="wt-product__add-to-cart_form--wrapper">
 
                       {% assign disable_button = false %}
@@ -3145,6 +3148,19 @@
       ]
     },
     {
+      "type": "price_quantity",
+      "name": "Price & Quantity",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_qty_selector",
+          "default": true,
+          "label": "Show quantity selector"
+        }
+      ]
+    },
+    {
       "type": "buy_buttons",
       "name": "t:sections.main-product.blocks.buy_buttons.name",
       "limit": 1,
@@ -3162,12 +3178,6 @@
           "default": true,
           "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
           "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_qty_selector",
-          "default": true,
-          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_qty_selector.label"
         },
         {
           "type": "header",
