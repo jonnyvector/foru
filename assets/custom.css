@@ -1147,3 +1147,9 @@ main .wt-slider__nav-btn .icon,
   right: 0;
   bottom: 0;
 }
+
+/* Increase border width to 2px for round swatches only */
+.wt-product__option__body--swatches label.rounded::before,
+.wt-product__option__body--swatches a.rounded::before {
+  border-width: 2px;
+}
