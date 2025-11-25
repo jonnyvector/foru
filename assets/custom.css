@@ -1138,3 +1138,12 @@ main .wt-slider__nav-btn .icon,
   --star-width: 26px;
   --star-height: 25px;
 }
+
+/* Remove gap between color swatch border and swatch circle */
+.wt-product__option__body--swatches label::before,
+.wt-product__option__body--swatches a::before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
