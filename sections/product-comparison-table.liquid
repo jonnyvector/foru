@@ -89,11 +89,6 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 0;
-        border-bottom: 1px solid rgba(208, 208, 208, 0.7);
-      }
-
-      .comparison-table__row:last-child {
-        border-bottom: none;
       }
 
       .comparison-table__cell {
@@ -101,6 +96,21 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
+      }
+
+      .comparison-table__cell::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 5%;
+        right: 5%;
+        height: 1px;
+        background: rgba(208, 208, 208, 0.7);
+      }
+
+      .comparison-table__row:last-child .comparison-table__cell::after {
+        display: none;
       }
 
       .comparison-table__cell:nth-child(1) {
