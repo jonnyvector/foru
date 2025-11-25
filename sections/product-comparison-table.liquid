@@ -156,11 +156,7 @@
       }
     }
 
-    .comparison-table-mobile .swiper {
-      overflow: visible;
-    }
-
-    .comparison-table-mobile .swiper-slide {
+    .comparison-table-mobile [data-swiper-slide] {
       width: 85%;
     }
 
@@ -283,79 +279,78 @@
 
       {%- comment -%} Mobile Swiper {%- endcomment -%}
       <div class="comparison-table-mobile">
-        <div class="swiper" data-swiper-comparison>
-          <div class="swiper-wrapper">
+        <slideshow-section class="wt-slider">
+          <div data-swiper>
+            <div data-swiper-container>
 
-            {%- comment -%} Column 1: Features {%- endcomment -%}
-            <div class="swiper-slide">
-              <div class="comparison-table-mobile__column">
-                <div class="comparison-table-mobile__header">Features</div>
-                {%- for row in comparison_rows -%}
-                  <div class="comparison-table-mobile__row">
-                    <div class="comparison-table-mobile__value">{{ row.feature_label }}</div>
-                  </div>
-                {%- endfor -%}
-              </div>
-            </div>
-
-            {%- comment -%} Column 2: FÖRU {%- endcomment -%}
-            <div class="swiper-slide">
-              <div class="comparison-table-mobile__column comparison-table-mobile__column--foru">
-                <div class="comparison-table-mobile__header comparison-table-mobile__header--foru">
-                  {%- if section.settings.brand_logo != blank -%}
-                    {{ section.settings.brand_logo | image_url: width: 240 | image_tag: class: 'comparison-table-mobile__header-logo', alt: section.settings.column_2_header }}
-                  {%- else -%}
-                    {{ section.settings.column_2_header }}
-                  {%- endif -%}
-                </div>
-                {%- for row in comparison_rows -%}
-                  <div class="comparison-table-mobile__row">
-                    <div class="comparison-table-mobile__value">{{ row.foru_value }}</div>
-                  </div>
-                {%- endfor -%}
-              </div>
-            </div>
-
-            {%- comment -%} Column 3: Competitors {%- endcomment -%}
-            <div class="swiper-slide">
-              <div class="comparison-table-mobile__column">
-                <div class="comparison-table-mobile__header">
-                  {{ section.settings.column_3_header }}
-                </div>
-                {%- for row in comparison_rows -%}
-                  <div class="comparison-table-mobile__row">
-                    <div class="comparison-table-mobile__value comparison-table-mobile__value--competitor">
-                      {%- if row.competitor_has == true -%}
-                        ✓
-                      {%- else -%}
-                        ✕
-                      {%- endif -%}
+              {%- comment -%} Column 1: Features {%- endcomment -%}
+              <div data-swiper-slide>
+                <div class="comparison-table-mobile__column">
+                  <div class="comparison-table-mobile__header">Features</div>
+                  {%- for row in comparison_rows -%}
+                    <div class="comparison-table-mobile__row">
+                      <div class="comparison-table-mobile__value">{{ row.feature_label }}</div>
                     </div>
-                  </div>
-                {%- endfor -%}
+                  {%- endfor -%}
+                </div>
               </div>
-            </div>
 
+              {%- comment -%} Column 2: FÖRU {%- endcomment -%}
+              <div data-swiper-slide>
+                <div class="comparison-table-mobile__column comparison-table-mobile__column--foru">
+                  <div class="comparison-table-mobile__header comparison-table-mobile__header--foru">
+                    {%- if section.settings.brand_logo != blank -%}
+                      {{ section.settings.brand_logo | image_url: width: 240 | image_tag: class: 'comparison-table-mobile__header-logo', alt: section.settings.column_2_header }}
+                    {%- else -%}
+                      {{ section.settings.column_2_header }}
+                    {%- endif -%}
+                  </div>
+                  {%- for row in comparison_rows -%}
+                    <div class="comparison-table-mobile__row">
+                      <div class="comparison-table-mobile__value">{{ row.foru_value }}</div>
+                    </div>
+                  {%- endfor -%}
+                </div>
+              </div>
+
+              {%- comment -%} Column 3: Competitors {%- endcomment -%}
+              <div data-swiper-slide>
+                <div class="comparison-table-mobile__column">
+                  <div class="comparison-table-mobile__header">
+                    {{ section.settings.column_3_header }}
+                  </div>
+                  {%- for row in comparison_rows -%}
+                    <div class="comparison-table-mobile__row">
+                      <div class="comparison-table-mobile__value comparison-table-mobile__value--competitor">
+                        {%- if row.competitor_has == true -%}
+                          ✓
+                        {%- else -%}
+                          ✕
+                        {%- endif -%}
+                      </div>
+                    </div>
+                  {%- endfor -%}
+                </div>
+              </div>
+
+            </div>
           </div>
-        </div>
+          <script data-swiper-configuration type="text/json">
+            {
+              "enableOnMedia": "(max-width: 749px)",
+              "autoheight": false,
+              "slidesPerView": "auto",
+              "spaceBetween": 16,
+              "freeMode": true,
+              "centeredSlides": false,
+              "grabCursor": true
+            }
+          </script>
+        </slideshow-section>
       </div>
 
     </div>
   </section>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const swiperEl = document.querySelector('[data-swiper-comparison]');
-      if (swiperEl && typeof Swiper !== 'undefined') {
-        new Swiper(swiperEl, {
-          slidesPerView: 'auto',
-          spaceBetween: 16,
-          centeredSlides: false,
-          freeMode: true,
-        });
-      }
-    });
-  </script>
 {% endif %}
 
 {% schema %}
