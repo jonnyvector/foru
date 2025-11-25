@@ -36,11 +36,17 @@
 
     .comparison-table-header__title {
       font-family: var(--font-headline);
-      font-size: var(--font-h2-size);
+      font-size: 32px;
       font-weight: var(--font-headline-weight);
       line-height: 1.2;
       margin: 0;
       color: var(--color-text);
+    }
+
+    @media (min-width: 750px) {
+      .comparison-table-header__title {
+        font-size: 64px;
+      }
     }
 
     /* Desktop Grid Layout */
@@ -355,7 +361,7 @@
       "type": "color",
       "id": "foru_column_bg",
       "label": "FÖRU Column Background",
-      "default": "#F5F5F5"
+      "default": "#f7f7f7"
     },
     {
       "type": "range",
