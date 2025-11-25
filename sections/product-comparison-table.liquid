@@ -335,6 +335,9 @@
 
             </div>
           </div>
+
+          <div class="swiper-scrollbar wt-slider__scrollbar wt-slider__scrollbar--comparison"></div>
+
           <script data-swiper-configuration type="text/json">
             {
               "enableOnMedia": "(max-width: 749px)",
@@ -343,7 +346,11 @@
               "spaceBetween": 16,
               "freeMode": false,
               "centeredSlides": false,
-              "grabCursor": true
+              "grabCursor": true,
+              "scrollbar": {
+                "el": ".wt-slider__scrollbar--comparison",
+                "draggable": true
+              }
             }
           </script>
         </slideshow-section>
