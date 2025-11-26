@@ -98,6 +98,23 @@
       "type": "ingredients-grid",
       "name": "Ingredients Grid",
       "settings": {
+        "product": "recovery",
+        "fallback_title": "INGREDIENTS",
+        "enable_hover_effect": true,
+        "size_heading_mobile": 130,
+        "size_heading": 150,
+        "ingredient_name_size_mobile": 130,
+        "ingredient_name_size_desktop": 150,
+        "text_color": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin_top": 20,
+        "margin_bottom": 48
+      }
+    },
+    "ingredients_grid_pnTtxC": {
+      "type": "ingredients-grid",
+      "name": "Ingredients Grid",
+      "settings": {
         "product": "hydration",
         "fallback_title": "INGREDIENTS",
         "enable_hover_effect": true,
@@ -107,7 +124,7 @@
         "ingredient_name_size_desktop": 150,
         "text_color": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
-        "margin_top": 0,
+        "margin_top": 20,
         "margin_bottom": 48
       }
     }
@@ -116,6 +133,7 @@
     "main",
     "image_banner_VVa6tN",
     "ingredients_navigation_KiDUbm",
-    "ingredients_grid_HcbWNt"
+    "ingredients_grid_HcbWNt",
+    "ingredients_grid_pnTtxC"
   ]
 }
