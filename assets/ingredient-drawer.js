@@ -1,33 +1,39 @@
 class IngredientDrawer extends HTMLElement {
   constructor() {
     super();
-    
+    this.body = document.body;
+    this.isOpen = false;
+  }
+
+  connectedCallback() {
+    // Query DOM elements after the element is connected to the DOM
     this.drawer = this.querySelector('.ingredient-drawer');
     this.overlay = this.querySelector('.page-overlay-ingredient');
     this.closeButton = this.querySelector('.ingredient-drawer__close');
     this.image = this.querySelector('.ingredient-drawer__img');
     this.title = this.querySelector('.ingredient-drawer__title');
     this.description = this.querySelector('.ingredient-drawer__description');
-    
-    this.body = document.body;
-    this.isOpen = false;
-    
+
     this.init();
   }
-  
+
   init() {
     // Add drawers-animated class to body for smooth transitions
     this.body.classList.add('drawers-animated');
-    
+
     // Add click event to close button
-    this.closeButton.addEventListener('click', () => this.close());
-    
+    if (this.closeButton) {
+      this.closeButton.addEventListener('click', () => this.close());
+    }
+
     // Add click event to overlay
-    this.overlay.addEventListener('click', () => this.close());
-    
+    if (this.overlay) {
+      this.overlay.addEventListener('click', () => this.close());
+    }
+
     // Add click events to all ingredient card triggers
     this.bindIngredientTriggers();
-    
+
     // Close on escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && this.isOpen) {
