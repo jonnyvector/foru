@@ -14,6 +14,9 @@ class IngredientDrawer extends HTMLElement {
     this.title = this.querySelector('.ingredient-drawer__title');
     this.description = this.querySelector('.ingredient-drawer__description');
 
+    // Find the parent section to scope event listeners
+    this.section = this.closest('[data-section-id]');
+
     this.init();
   }
 
@@ -43,7 +46,11 @@ class IngredientDrawer extends HTMLElement {
   }
   
   bindIngredientTriggers() {
-    const triggers = document.querySelectorAll('.ingredient-card-trigger');
+    // Only bind to triggers within this section, not all triggers on the page
+    const triggers = this.section
+      ? this.section.querySelectorAll('.ingredient-card-trigger')
+      : document.querySelectorAll('.ingredient-card-trigger');
+
     console.log('Found triggers:', triggers.length);
     triggers.forEach(trigger => {
       trigger.addEventListener('click', (e) => {
@@ -51,7 +58,7 @@ class IngredientDrawer extends HTMLElement {
         const name = trigger.dataset.ingredientName;
         const imageUrl = trigger.dataset.ingredientImage;
         const description = trigger.dataset.ingredientFullDescription;
-        
+
         this.open(name, imageUrl, description);
       });
     });
