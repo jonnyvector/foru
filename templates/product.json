@@ -22,6 +22,10 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "rating_HRrThg": {
+          "type": "rating",
+          "settings": {}
+        },
         "title": {
           "type": "title",
           "settings": {
@@ -228,6 +232,7 @@
         }
       },
       "block_order": [
+        "rating_HRrThg",
         "title",
         "feature_tags_ktxUht",
         "separator_reBrRK",
