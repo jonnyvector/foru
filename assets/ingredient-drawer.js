@@ -56,7 +56,13 @@ class IngredientDrawer extends HTMLElement {
     const titleEl = this.querySelector('.ingredient-drawer__title');
     const imageEl = this.querySelector('.ingredient-drawer__img');
     const descEl = this.querySelector('.ingredient-drawer__description');
-    
+
+    // Clear old image immediately to prevent showing stale content
+    if (imageEl) {
+      imageEl.src = '';
+      imageEl.alt = '';
+    }
+
     // Set content
     if (titleEl) titleEl.textContent = name;
     if (imageEl) {
