@@ -107,7 +107,7 @@
         "ingredient_name_size_desktop": 150,
         "text_color": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
-        "margin_top": 20,
+        "margin_top": 28,
         "margin_bottom": 48
       }
     },
