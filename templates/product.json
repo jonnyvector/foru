@@ -146,6 +146,13 @@
             "background_color": "#151515"
           }
         },
+        "usps_FGTmEY": {
+          "type": "usps",
+          "settings": {
+            "usp_left": "60-day guarantee",
+            "usp_right": "3-6 day US delivery"
+          }
+        },
         "promo_wBVFy3": {
           "type": "promo",
           "disabled": true,
@@ -246,6 +253,7 @@
         "price_quantity_pUxVNG",
         "promo_banner_Y7aiNw",
         "buy_buttons",
+        "usps_FGTmEY",
         "promo_wBVFy3",
         "description",
         "separator_b4z8Dx",
