@@ -1148,3 +1148,8 @@ main .wt-slider__nav-btn .icon,
 .wt-product__option__body--swatches a.rounded::before {
   border-width: 2px;
 }
+
+/* Rating count text size - 14px */
+.wt-rating__counter {
+  font-size: 14px !important;
+}
