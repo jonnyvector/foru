@@ -85,32 +85,43 @@ class IngredientDrawer extends HTMLElement {
     if (descEl) {
       descEl.innerHTML = description;
     }
-    
+
     // Open drawer
     this.drawer.classList.add('ingredient-drawer--open');
-    this.body.classList.add('page-overlay-ingredient-on');
+    // Show overlay for this specific drawer instance
+    if (this.overlay) {
+      this.overlay.style.opacity = '1';
+      this.overlay.style.visibility = 'visible';
+    }
     this.isOpen = true;
-    
+
     // Focus management
     this.closeButton.focus();
-    
+
     // Prevent body scroll
     this.body.style.overflow = 'hidden';
-    
+
     // Dispatch custom event
     this.dispatchEvent(new CustomEvent('ingredient-drawer:opened', {
       detail: { name, imageUrl, description }
     }));
   }
-  
+
   close() {
     this.drawer.classList.remove('ingredient-drawer--open');
-    this.body.classList.remove('page-overlay-ingredient-on');
+    // Hide overlay for this specific drawer instance
+    if (this.overlay) {
+      this.overlay.style.opacity = '0';
+      this.overlay.style.visibility = 'hidden';
+    }
     this.isOpen = false;
-    
-    // Restore body scroll
-    this.body.style.overflow = '';
-    
+
+    // Restore body scroll only if no other drawers are open
+    const openDrawers = document.querySelectorAll('.ingredient-drawer--open');
+    if (openDrawers.length === 0) {
+      this.body.style.overflow = '';
+    }
+
     // Dispatch custom event
     this.dispatchEvent(new CustomEvent('ingredient-drawer:closed'));
   }
