@@ -131,7 +131,6 @@
         },
         "promo_banner_Y7aiNw": {
           "type": "promo_banner",
-          "disabled": true,
           "settings": {}
         },
         "buy_buttons": {
