@@ -200,12 +200,22 @@
     [data-section-id="{{ section.id }}"] .secondary-navigation__swiper-wrapper {
       padding-left: 0;
       padding-right: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      transform: none !important;
     }
 
-    /* Show navigation arrows on desktop if needed */
+    /* Disable slider behavior on desktop */
+    [data-section-id="{{ section.id }}"] .secondary-navigation__swiper-slide {
+      width: auto !important;
+      margin-right: 0;
+    }
+
+    /* Hide navigation arrows on desktop */
     [data-section-id="{{ section.id }}"] .swiper-button-prev,
     [data-section-id="{{ section.id }}"] .swiper-button-next {
-      color: var(--color-custom-text, #333);
+      display: none;
     }
   }
 </style>
