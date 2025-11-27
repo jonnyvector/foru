@@ -102,6 +102,22 @@
     .wt-collapse__section--no-border .wt-collapse__wrapper .wt-collapse {
       border-bottom: none !important;
     }
+
+    /* FAQ item background color */
+    {% assign faq_bg_rgb = section.settings.faq_background_color | color_to_rgb %}
+    {% if faq_bg_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      [data-section-id="{{ section.id }}"] collapsible-section {
+        background-color: {{ section.settings.faq_background_color }};
+        border-radius: var(--border-radius);
+        padding: calc(var(--gap, 8px) * 2);
+        margin-bottom: calc(var(--gap, 8px) * 1.5);
+      }
+      [data-section-id="{{ section.id }}"] collapsible-section .wt-collapse__trigger {
+        background-color: transparent;
+        padding: 0;
+        margin-bottom: 0;
+      }
+    {% endif %}
   </style>
   <section class="wt-collapse__section__inner{% if section.settings.full-width-enabled %} wt-collapse__section--full-width{% endif %}{% if section.settings.hide_bottom_border %} wt-collapse__section--no-border{% endif %}" data-section-id="{{ section.id }}">
     {% if section.settings.heading != blank %}
@@ -323,6 +339,11 @@
         "id": "background_color",
         "default": "transparent",
         "label": "t:sections.settings.settings.background-color.label"
+      }, {
+        "type": "color",
+        "id": "faq_background_color",
+        "default": "transparent",
+        "label": "FAQ item background color"
       }, {
         "type": "header",
         "content": "t:sections.global.section_spacing"
