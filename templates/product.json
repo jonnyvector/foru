@@ -447,6 +447,30 @@
         "margin-bottom": 0
       }
     },
+    "product_faq_MerHtb": {
+      "type": "product-faq",
+      "custom_css": [
+        ".wt-collapse__trigger__title {font-size: 20px;}",
+        "@media (min-width: 1200px) {.wt-collapse__trigger__title {font-size: 32px; }}"
+      ],
+      "name": "Product FAQ",
+      "settings": {
+        "heading": "FAQ",
+        "heading_size": 270,
+        "heading_size_mobile": 180,
+        "text_alignment": "left",
+        "section_width": "large",
+        "hide_bottom_border": true,
+        "show_icon": true,
+        "icon": "none",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "#ffffff",
+        "faq_background_color": "#f7f7f7",
+        "compact-size-enabled": true,
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
     "collapsible_menu_dHQ3TK": {
       "type": "collapsible_menu",
       "blocks": {
@@ -590,6 +614,7 @@
     "product_comparison_table_LzrwQU",
     "health_benefits_aBfLBK",
     "video_reels_custom_zarqym",
+    "product_faq_MerHtb",
     "collapsible_menu_dHQ3TK",
     "split_banner_jgRFr4"
   ]

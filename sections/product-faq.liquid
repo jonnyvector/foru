@@ -1,0 +1,387 @@
+{%- comment -%}
+  Product FAQ Section
+  Displays FAQs from product metafields (list of FAQ Entry metaobject references)
+  Uses same collapsible styling as collapsible_menu.liquid
+{%- endcomment -%}
+
+{%- assign faq_entries = product.metafields.custom.product_faqs.value -%}
+
+{% if faq_entries and faq_entries.size > 0 %}
+  {% assign background_rgb = section.settings.background_color | color_to_rgb %}
+  {% assign text_rgb = section.settings['color-body-text'] | color_to_rgb %}
+
+  <style>
+    [data-section-id="{{ section.id }}"] {
+
+      {% if section.settings.margin-top %}
+        --section-gap-top: {{ section.settings.margin-top }}px;
+      {% endif %}
+
+      {% if section.settings.margin-bottom %}
+        --section-gap-bottom: {{ section.settings.margin-bottom }}px;
+      {% endif %}
+    }
+
+    [id="shopify-section-{{ section.id }}"] {
+      {% if background_rgb != 'rgba(0, 0, 0, 0.0)' %}
+        --color-background: {{ section.settings.background_color }};
+      {% endif %}
+
+      {% if text_rgb != 'rgba(0, 0, 0, 0.0)' %}
+        --color-custom-text: {{ section.settings.color-body-text }};
+        --custom-section-color-border: {{ section.settings.color-body-text }};
+      {% endif %}
+    }
+
+    .wt-collapse__trigger .wt-icon {
+      width: 40px;
+      height: 40px;
+      background-color: #e3e3e3;
+    }
+
+    @media (min-width: 1200px) {
+      .wt-collapse__trigger .wt-icon {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    /* Heading styling */
+    [data-section-id="{{ section.id }}"] .headline__title {
+      text-align: {{ section.settings.text_alignment }};
+      --font-headline-scale-desk: {{ section.settings.heading_size | divided_by: 100.0 }};
+      --font-headline-scale: {{ section.settings.heading_size_mobile | divided_by: 100.0 }};
+      font-size: calc(var(--font-headline-size) * var(--font-headline-scale, 1)) !important;
+      padding: 0;
+      margin-bottom: 36px;
+    }
+
+    @media (min-width: 1200px) {
+      [data-section-id="{{ section.id }}"] .headline__title {
+        font-size: calc(var(--font-headline-size) * var(--font-headline-scale-desk, 1)) !important;
+      }
+    }
+
+    /* Individual tab styling */
+    .wt-collapse__trigger {
+      padding-left: calc(var(--gap, 8px) * 2);
+      padding-right: calc(var(--gap, 8px) * 2);
+      border-radius: var(--border-radius);
+      margin-bottom: 1rem;
+    }
+
+    [data-section-id="{{ section.id }}"] .wt-collapse__trigger__text {
+      gap: 0;
+    }
+
+    /* Width options */
+    {% if section.settings.section_width == 'large' %}
+      .wt-collapse__wrapper {
+        max-width: var(--site-max-width);
+        padding-left: calc(var(--gap) * 2);
+        padding-right: calc(var(--gap) * 2);
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      @media (min-width: 1200px) {
+        .wt-collapse__wrapper {
+          padding-left: calc(calc(var(--gap) * 2) + calc(var(--gap) * 2));
+          padding-right: calc(calc(var(--gap) * 2) + calc(var(--gap) * 2));
+        }
+      }
+
+      @media (min-width: 1800px) {
+        .wt-collapse__wrapper {
+          max-width: var(--site-max-width-big);
+        }
+      }
+    {% elsif section.settings.section_width == 'full' %}
+      .wt-collapse__wrapper {
+        max-width: none;
+      }
+    {% endif %}
+
+    /* Hide bottom border */
+    .wt-collapse__section--no-border .wt-collapse__wrapper .wt-collapse {
+      border-bottom: none !important;
+    }
+
+    /* FAQ item background color */
+    {% assign faq_bg_rgb = section.settings.faq_background_color | color_to_rgb %}
+    {% if faq_bg_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      [data-section-id="{{ section.id }}"] collapsible-section {
+        background-color: {{ section.settings.faq_background_color }};
+        border-radius: var(--border-radius);
+        padding: calc(var(--gap, 8px) * 2);
+        margin-bottom: calc(var(--gap, 8px) * 1.5);
+      }
+      [data-section-id="{{ section.id }}"] collapsible-section .wt-collapse__trigger {
+        background-color: transparent;
+        padding: 0;
+        margin-bottom: 0;
+      }
+    {% endif %}
+  </style>
+  <section class="wt-collapse__section__inner{% if section.settings.full-width-enabled %} wt-collapse__section--full-width{% endif %}{% if section.settings.hide_bottom_border %} wt-collapse__section--no-border{% endif %}" data-section-id="{{ section.id }}">
+    {% if section.settings.heading != blank %}
+      {% render 'headline'
+        , title: section.settings.heading %}
+    {% endif %}
+    <div class="wt-collapse__wrapper wt-collapse-menu{% if section.settings.compact-size-enabled == true %}  wt-collapse__wrapper--compact{% endif %} rte">
+      {% for faq in faq_entries %}
+        <collapsible-section
+          {% if settings.animations %}
+          data-cascade
+          style="--animation-order: {{ forloop.index }};"
+          {% endif %}
+          class="wt-collapse wt-collapse--always  {% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}">
+          <div
+            class="wt-collapse__trigger wt-collapsible__trigger"
+            role="button"
+            tabindex="0"
+            data-open="false"
+            aria-expanded="false"
+            aria-controls="CollapsibleFAQ-{{ faq.id }}">
+            <div class="wt-collapse__trigger__text">
+              {% if section.settings.show_icon %}
+                <div class="wt-collapse__trigger__icon">
+                  {% render 'icon-accordion'
+                    , icon: section.settings.icon %}
+                </div>
+              {% endif %}
+              <span class="wt-collapse__trigger__title">
+                {{- faq.question -}}
+              </span>
+            </div>
+            <div class="wt-icon" aria-hidden="true">
+              {% render 'icons'
+                , id: 'plus' %}
+            </div>
+          </div>
+          <div class="wt-collapse__target wt-collapsible__target" id="CollapsibleFAQ-{{ faq.id }}">
+            <div class="wt-collapse__target--text rte">
+              {{ faq.answer | metafield_tag }}
+            </div>
+          </div>
+        </collapsible-section>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Product FAQ",
+    "tag": "section",
+    "class": "wt-collapse__section",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Frequently Asked Questions"
+      },
+      {
+        "type": "range",
+        "id": "heading_size",
+        "min": 50,
+        "max": 300,
+        "step": 10,
+        "default": 100,
+        "label": "t:sections.settings.settings.size-heading.label",
+        "unit": "%"
+      },
+      {
+        "type": "range",
+        "id": "heading_size_mobile",
+        "min": 80,
+        "max": 300,
+        "step": 10,
+        "default": 100,
+        "label": "t:sections.settings.settings.size-heading-mobile.label",
+        "unit": "%"
+      },
+      {
+        "type": "select",
+        "id": "text_alignment",
+        "options": [
+          {
+            "value": "center",
+            "label": "t:sections.featured-collection.settings.text_alignment.center.label"
+          }, {
+            "value": "left",
+            "label": "t:sections.featured-collection.settings.text_alignment.left.label"
+          }
+        ],
+        "default": "center",
+        "label": "t:sections.featured-collection.settings.text_alignment.label"
+      }, {
+        "type": "select",
+        "id": "section_width",
+        "label": "Section width",
+        "options": [
+          {
+            "value": "narrow",
+            "label": "Narrow"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          },
+          {
+            "value": "full",
+            "label": "Full screen"
+          }
+        ],
+        "default": "narrow",
+        "info": "Narrow uses default theme width, Large uses responsive max-width, Full removes width constraints"
+      }, {
+        "type": "checkbox",
+        "id": "hide_bottom_border",
+        "label": "Hide bottom border",
+        "default": false
+      }, {
+        "type": "checkbox",
+        "id": "show_icon",
+        "label": "Show icon",
+        "default": true
+      }, {
+        "type": "select",
+        "id": "icon",
+        "options": [
+          {
+            "value": "none",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__1.label"
+          },
+          {
+            "value": "box",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__2.label"
+          },
+          {
+            "value": "chat_bubble",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__3.label"
+          },
+          {
+            "value": "check_mark",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__4.label"
+          }, {
+            "value": "dryer",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__5.label"
+          }, {
+            "value": "eye",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__6.label"
+          }, {
+            "value": "heart",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__7.label"
+          }, {
+            "value": "iron",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__8.label"
+          }, {
+            "value": "leaf",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__9.label"
+          }, {
+            "value": "leather",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__10.label"
+          }, {
+            "value": "lock",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__11.label"
+          }, {
+            "value": "map_pin",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__12.label"
+          }, {
+            "value": "pants",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__13.label"
+          }, {
+            "value": "plane",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__14.label"
+          }, {
+            "value": "price_tag",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__15.label"
+          }, {
+            "value": "question_mark",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__16.label"
+          }, {
+            "value": "return",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__17.label"
+          }, {
+            "value": "ruler",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__18.label"
+          }, {
+            "value": "shirt",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__19.label"
+          }, {
+            "value": "shoe",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__20.label"
+          }, {
+            "value": "silhouette",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__21.label"
+          }, {
+            "value": "star",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__22.label"
+          }, {
+            "value": "truck",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__23.label"
+          }, {
+            "value": "washing",
+            "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__24.label"
+          }
+        ],
+        "default": "question_mark",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.label"
+      }, {
+        "type": "header",
+        "content": "t:sections.global.colors",
+        "info": "t:sections.global.colors-info"
+      }, {
+        "type": "color",
+        "id": "color-body-text",
+        "default": "transparent",
+        "label": "t:sections.settings.settings.text-color.label"
+      }, {
+        "type": "color",
+        "id": "background_color",
+        "default": "transparent",
+        "label": "t:sections.settings.settings.background-color.label"
+      }, {
+        "type": "color",
+        "id": "faq_background_color",
+        "default": "transparent",
+        "label": "FAQ item background color"
+      }, {
+        "type": "header",
+        "content": "t:sections.global.section_spacing"
+      }, {
+        "type": "checkbox",
+        "id": "compact-size-enabled",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.compact-size-enabled.label",
+        "default": true
+      }, {
+        "type": "range",
+        "id": "margin-top",
+        "min": 0,
+        "max": 100,
+        "unit": "px",
+        "step": 4,
+        "default": 20,
+        "label": "t:sections.settings.settings.distance-top.label"
+      }, {
+        "type": "range",
+        "id": "margin-bottom",
+        "min": 0,
+        "max": 100,
+        "unit": "px",
+        "step": 4,
+        "default": 20,
+        "label": "t:sections.settings.settings.distance-bottom.label",
+        "info": "t:sections.settings.settings.distance-bottom.info"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product FAQ"
+      }
+    ],
+    "templates": ["product"]
+  }
+{% endschema %}
