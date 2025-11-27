@@ -1,0 +1,622 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "main-breadcrumbs",
+      "settings": {
+        "full-width-enabled": true,
+        "text_color": "#1a1c1c",
+        "background_color": "#f7f7f7",
+        "margin-top": 12,
+        "margin-bottom": 12
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "rating_HRrThg": {
+          "type": "rating",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "brand": "The Protocol That Gets You Back to 100%",
+            "size_text": 270,
+            "size_text_mobile": 230
+          }
+        },
+        "feature_tags_ktxUht": {
+          "type": "feature_tags",
+          "settings": {
+            "metafield": "shopify.detailed-ingredients",
+            "limit": 4,
+            "text_color": "rgba(0,0,0,0)",
+            "border_color": "rgba(0,0,0,0)"
+          }
+        },
+        "separator_reBrRK": {
+          "type": "separator",
+          "settings": {
+            "show-separator-line": false,
+            "color-background": "#000000",
+            "margin-top": 8,
+            "margin-bottom": 8
+          }
+        },
+        "text_LQ6bM9": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "content": "<p>Topical skincare is key, but lasting results start within. WELLNESS Collagen provides 2000 mg of Collagen Peptides plus Vitamins C and E to promote clear skin and boost natural collagen. Elevate your skincare from the inside out.</p>",
+            "page": ""
+          }
+        },
+        "c1ba8695-94d2-40ad-ac06-93ec3b8cf38e": {
+          "type": "separator",
+          "settings": {
+            "show-separator-line": false,
+            "color-background": "#ffffff",
+            "margin-top": 8,
+            "margin-bottom": 0
+          }
+        },
+        "product_variations_7LBAAU": {
+          "type": "product_variations",
+          "settings": {
+            "option_name": "Choose Supplement",
+            "picker_type": "swatch",
+            "swatch_size": 36,
+            "radius": "default",
+            "border_radius": 0,
+            "option_value_metafield": "custom.color",
+            "products": []
+          }
+        },
+        "separator_xgqTJM": {
+          "type": "separator",
+          "settings": {
+            "show-separator-line": false,
+            "color-background": "#000000",
+            "margin-top": 8,
+            "margin-bottom": 4
+          }
+        },
+        "price": {
+          "type": "price",
+          "disabled": true,
+          "settings": {
+            "show_tax_included": true,
+            "show_shipping_policy": true,
+            "size_text": 140,
+            "size_text_mobile": 140
+          }
+        },
+        "variant_picker_fHUhmX": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_swatch_names": "",
+            "variant_picture_swatch_names": "",
+            "thumb_size": 60,
+            "radius": "default",
+            "border_radius": 0,
+            "dropdown_swatch_names": "",
+            "margin-top": 8,
+            "margin-bottom": 8
+          }
+        },
+        "easy_subscriptions_subscription_widget_E3thWB": {
+          "type": "shopify://apps/easy-subscriptions/blocks/subscription-widget/62ae0f16-e4ee-41c3-a62d-125b812e0b06",
+          "settings": {
+            "pcolor": "#ffffff",
+            "scolor": "#1a1c1c",
+            "bcolor": "rgba(0,0,0,0)",
+            "easy-is-currency-code": true,
+            "widget-feature-product": "",
+            "eca-title-font-size": 15,
+            "eca-text-font-size": 16,
+            "eca-price-font-size": 16
+          }
+        },
+        "price_quantity_pUxVNG": {
+          "type": "price_quantity",
+          "settings": {
+            "show_qty_selector": true
+          }
+        },
+        "promo_banner_Y7aiNw": {
+          "type": "promo_banner",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true,
+            "text_color": "#ffffff",
+            "background_color": "#151515"
+          }
+        },
+        "usps_FGTmEY": {
+          "type": "usps",
+          "settings": {
+            "usp_left": "60-day guarantee",
+            "usp_right": "3-6 day US delivery"
+          }
+        },
+        "promo_wBVFy3": {
+          "type": "promo",
+          "disabled": true,
+          "settings": {
+            "content": "<p>+10000 Happy Customers  - Free shipping on US</p>",
+            "text_alignment": "center",
+            "color-body-text": "#ffffff",
+            "background_color": "#eb9a00"
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "is_open": false,
+            "icon": "none"
+          }
+        },
+        "separator_b4z8Dx": {
+          "type": "separator",
+          "settings": {
+            "show-separator-line": true,
+            "color-background": "#d0d0d0",
+            "margin-top": 16,
+            "margin-bottom": 0
+          }
+        },
+        "collapsible_tab_Q7UFgL": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "BENEFITS",
+            "content": "<ul><li><strong>Supports Healthy Skin</strong>: Boosts skin elasticity, hydration, and firmness, helping to reduce the appearance of wrinkles and promote a youthful glow.</li><li><strong>Strengthens Hair and Nails</strong>: Encourages healthier, stronger hair growth and helps to reduce brittle nails, giving you a polished look from within.</li><li><strong>Promotes Joint Health</strong>: Enhances joint flexibility and reduces discomfort, supporting an active lifestyle and overall mobility.</li><li><strong>Improves Bone Density</strong>: Aids in maintaining strong and healthy bones by supporting bone structure and density.</li><li><strong>Enhances Muscle Recovery</strong>: Assists in muscle repair and recovery, making it an excellent supplement for active individuals and athletes.</li></ul>",
+            "metafield_variables": "",
+            "page": "",
+            "icon": "none"
+          }
+        },
+        "separator_gDwzxi": {
+          "type": "separator",
+          "settings": {
+            "show-separator-line": true,
+            "color-background": "#d0d0d0",
+            "margin-top": 0,
+            "margin-bottom": 0
+          }
+        },
+        "collapsible_tab_3rErRt": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How to take supplement?",
+            "content": "<ol><li>Recommended Dosage: Take 1 capsules daily, preferably with water or your favorite beverage.</li><li>Best Time to Take: For optimal results, consume the supplement in the morning on an empty stomach or as advised by your healthcare professional.</li><li>Consistency is Key: Incorporate the supplement into your daily routine to maximize its benefits.</li><li>Optional Pairing: Pair with a balanced diet and a healthy lifestyle to enhance the effects.</li><li>Always read the product label for specific instructions and consult your healthcare provider if you are pregnant, nursing, or taking medications.<br/>This is demo store, this information are only for demo purpose</li></ol>",
+            "metafield_variables": "",
+            "page": "",
+            "icon": "none"
+          }
+        },
+        "separator_pEEMHg": {
+          "type": "separator",
+          "settings": {
+            "show-separator-line": true,
+            "color-background": "#d0d0d0",
+            "margin-top": 0,
+            "margin-bottom": 0
+          }
+        },
+        "collapsible_tab_cAT6Ne": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "INGREDIENTS",
+            "content": "<ul><li><strong>Protein</strong></li><li><strong>Vitamin C</strong> (as L-Ascorbic Acid)</li><li><strong>Vitamin E</strong> (as D-Alpha Tocopherol Succinate)</li><li><strong>Hydrolysed Collagen</strong> (from Bovine)</li></ul>",
+            "metafield_variables": "",
+            "page": "",
+            "icon": "none"
+          }
+        },
+        "separator_LgmQMx": {
+          "type": "separator",
+          "settings": {
+            "show-separator-line": true,
+            "color-background": "#d0d0d0",
+            "margin-top": 0,
+            "margin-bottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "rating_HRrThg",
+        "title",
+        "feature_tags_ktxUht",
+        "separator_reBrRK",
+        "text_LQ6bM9",
+        "c1ba8695-94d2-40ad-ac06-93ec3b8cf38e",
+        "product_variations_7LBAAU",
+        "separator_xgqTJM",
+        "price",
+        "variant_picker_fHUhmX",
+        "easy_subscriptions_subscription_widget_E3thWB",
+        "price_quantity_pUxVNG",
+        "promo_banner_Y7aiNw",
+        "buy_buttons",
+        "usps_FGTmEY",
+        "promo_wBVFy3",
+        "description",
+        "separator_b4z8Dx",
+        "collapsible_tab_Q7UFgL",
+        "separator_gDwzxi",
+        "collapsible_tab_3rErRt",
+        "separator_pEEMHg",
+        "collapsible_tab_cAT6Ne",
+        "separator_LgmQMx"
+      ],
+      "custom_css": [
+        ".wt-collapse__trigger {margin-bottom: 0; padding-left: 0; padding: 1rem 0;}",
+        ".swiper-pagination {display: none;}"
+      ],
+      "settings": {
+        "enable_sticky_buy_button": true,
+        "full-width-enabled": false,
+        "desktop-media-size": "normal",
+        "desktop-layout": "carousel-vertical",
+        "desktop-image-ratio": "original",
+        "enable_video_looping": true,
+        "enable-preselected-variant": true,
+        "enable-image-zoom": true,
+        "mobile-image": "small",
+        "text_color": "#1a1c1c",
+        "background_color": "#f7f7f7",
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
+    "features_banner_idectQ": {
+      "type": "features-banner",
+      "blocks": {
+        "image_jbPcfi": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Icons_4_6e3ff6e8-ee04-4021-81fe-4e7d63bf44d7.svg",
+            "select_icon": "bag",
+            "heading": "100% Ingredient Transparency",
+            "text": "<p>Items you love at prices that fit your budget.</p>",
+            "link": ""
+          }
+        },
+        "image_VeHKih": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Icons_5.svg",
+            "select_icon": "bag",
+            "heading": "Third-party\ntested",
+            "text": "<p>Items you love at prices that fit your budget.</p>",
+            "link": ""
+          }
+        },
+        "image_ywEm3e": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Icons_6_e49fd3fa-d99b-4646-a98e-399579c8ba73.svg",
+            "select_icon": "bag",
+            "heading": "Clinician-Led Formulation",
+            "text": "<p>Items you love at prices that fit your budget.</p>",
+            "link": ""
+          }
+        },
+        "image_P4VQTE": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Icons_8.svg",
+            "select_icon": "bag",
+            "heading": "Vegan &\nGluten-Free",
+            "text": "<p>Items you love at prices that fit your budget.</p>",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_jbPcfi",
+        "image_VeHKih",
+        "image_ywEm3e",
+        "image_P4VQTE"
+      ],
+      "custom_css": [
+        ".wt-keys__content {text-align: left; max-width: 350px;}",
+        ".wt-keys__item {align-items: flex-start;}",
+        ".headline__title {text-align: left;}",
+        "@media (min-width: 768px) {.headline__title {margin-left: 16px; } img {margin-left: 16px; }}"
+      ],
+      "name": "t:sections.features-banner.settings.presets.name",
+      "settings": {
+        "heading": "The Foru Standard",
+        "size_heading_mobile": 130,
+        "size_heading": 150,
+        "headline_font_size_mobile": 110,
+        "headline_font_size_desktop": 120,
+        "headline_text_case": "normal",
+        "icon_width_mobile": 32,
+        "icon_width_desktop": 48,
+        "icon_layout": "center",
+        "columns_desktop": "4",
+        "icon_layout_mobile": "grid",
+        "color_body_icon": "rgba(0,0,0,0)",
+        "color_background_icon": "rgba(0,0,0,0)",
+        "color_body_text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 48,
+        "margin-bottom": 0
+      }
+    },
+    "ingredients_product_nVPErd": {
+      "type": "ingredients-product",
+      "name": "Product Ingredients",
+      "settings": {
+        "subtitle": "Ingredients",
+        "title": "RESEARCH-BACKED FORMULA",
+        "description": "<p>Each component is precisely selected and dosed based on clinical research. Clean formulas designed to work together, not just work alone.</p>",
+        "view_all_text": "View all",
+        "view_all_link": "shopify://pages/ingredients",
+        "size_heading_mobile": 180,
+        "size_heading": 270,
+        "ingredient_name_size_mobile": 130,
+        "ingredient_name_size_desktop": 150,
+        "text_color": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin_top": 48,
+        "margin_bottom": 48
+      }
+    },
+    "product_comparison_table_LzrwQU": {
+      "type": "product-comparison-table",
+      "name": "Product Comparison Table",
+      "settings": {
+        "pre_title": "Difference",
+        "heading": "QUALITY THAT YOU CAN'T FIND ELSEWHERE",
+        "brand_logo": "shopify://shop_images/Frame_154.svg",
+        "column_2_header": "FÖRU",
+        "column_3_header": "LEADING COMPETITORS",
+        "foru_column_bg": "#f7f7f7",
+        "section_padding_top": 36,
+        "section_padding_bottom": 36
+      }
+    },
+    "health_benefits_aBfLBK": {
+      "type": "health-benefits",
+      "name": "Health Benefits",
+      "settings": {
+        "background_color": "#f7f7f7",
+        "cta_label": "See all",
+        "cta_link": "shopify://pages/health-benefits"
+      }
+    },
+    "video_reels_custom_zarqym": {
+      "type": "video-reels-custom",
+      "blocks": {
+        "product_GYBxx3": {
+          "type": "product",
+          "settings": {
+            "video_hosted": "shopify://files/videos/7191505-uhd_2160_3840_25fps.mp4",
+            "featured_product": ""
+          }
+        },
+        "product_qaGVQq": {
+          "type": "product",
+          "settings": {
+            "video_hosted": "shopify://files/videos/12433200-uhd_2160_3840_30fps.mp4",
+            "featured_product": ""
+          }
+        },
+        "product_z4tWdC": {
+          "type": "product",
+          "settings": {
+            "video_hosted": "shopify://files/videos/6213994-hd_1080_1920_30fps.mp4",
+            "featured_product": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_GYBxx3",
+        "product_qaGVQq",
+        "product_z4tWdC"
+      ],
+      "name": "Video Reels Custom",
+      "settings": {
+        "subheading": "Testimonials",
+        "heading": "What our community says",
+        "quick-add-enabled": false,
+        "hide-brand-name": false,
+        "video_button": false,
+        "show_pagination": false,
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 48,
+        "margin-bottom": 0
+      }
+    },
+    "product_faq_MerHtb": {
+      "type": "product-faq",
+      "custom_css": [
+        ".wt-collapse__trigger__title {font-size: 20px;}",
+        "@media (min-width: 1200px) {.wt-collapse__trigger__title {font-size: 32px; }}"
+      ],
+      "name": "Product FAQ",
+      "settings": {
+        "heading": "FAQ",
+        "heading_size": 270,
+        "heading_size_mobile": 180,
+        "text_alignment": "left",
+        "section_width": "large",
+        "hide_bottom_border": true,
+        "show_icon": true,
+        "icon": "none",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "#ffffff",
+        "faq_background_color": "#f7f7f7",
+        "compact-size-enabled": true,
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
+    "collapsible_menu_dHQ3TK": {
+      "type": "collapsible_menu",
+      "blocks": {
+        "collapsible_tab_mpkxkM": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What makes FORU Recovery different from other electrolyte drinks?",
+            "content": "<p>Most electrolyte products focus only on sodium. FORU goes further - combining electrolytes, amino acids, and antioxidants to support hydration, muscle recovery, and cellular repair*. We call them protocols - formulas designed for specific moments, not one-size-fits-all blends.</p>",
+            "page": "",
+            "tab_background_color": "#f7f7f7",
+            "icon": "none"
+          }
+        },
+        "collapsible_tab_YnLn3p": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Is it just for athletes or can I use it daily?",
+            "content": "<p>FORU Recovery is for <em>anyone who trains, sweats, or simply wants to feel better faster.<br/></em><br/>Whether it’s post-gym, post-run, or after a long workday, it helps your body bounce back by restoring what stress and activity deplete.</p>",
+            "page": "",
+            "tab_background_color": "#f7f7f7",
+            "icon": "none"
+          }
+        },
+        "collapsible_tab_9kz7pN": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Is it safe? Is it tested FOR SPORT USE?",
+            "content": "<p>Yes — all FORU products are <strong>doctor-designed, third-party tested, and manufactured in GMP-certified facilities.</strong><br/>Our formulas meet strict international standards for purity, heavy metals, and banned substances, certified by NSF.</p>",
+            "page": "",
+            "tab_background_color": "#f7f7f7",
+            "icon": "none"
+          }
+        },
+        "collapsible_tab_fUb36k": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Why did you include sucralose instead of natural sweeteners?",
+            "content": "<p>We use <strong>a small, safe amount of sucralose</strong> to deliver a clean, refreshing taste <em>without sugar spikes, calories, or bitterness.</em><br/>It’s one of the most studied zero-calorie sweeteners and approved by all major health authorities - including FDA, EFSA, and Dubai Municipality.</p>",
+            "page": "",
+            "tab_background_color": "#f7f7f7",
+            "icon": "none"
+          }
+        },
+        "collapsible_tab_T76eE8": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Can I mix it with other supplements or pre-workouts?",
+            "content": "<p>Yes. FORU Recovery complements most routines because it’s <strong>sugar-free, stimulant-free, and non-overlapping</strong> with typical pre-workout ingredients.<br/>Think of it as your <em>post-anything protocol,</em> it works alongside, not against, your stack.</p>",
+            "page": "",
+            "tab_background_color": "#f7f7f7",
+            "icon": "none"
+          }
+        },
+        "collapsible_tab_rQqmtH": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How does it taste?",
+            "content": "<p>Refreshing and balanced - lightly sweet with a subtle citrus bitterness that fades cleanly.We designed the flavor to feel natural and not overpowering, striking that citrus-style balance between tart and sweet. Because amino acids naturally have a bitter profile, we kept the sweetness slightly higher to create a smooth, drinkable finish you’ll actually enjoy after training or a long day.</p>",
+            "page": "",
+            "tab_background_color": "#f7f7f7",
+            "icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_tab_mpkxkM",
+        "collapsible_tab_YnLn3p",
+        "collapsible_tab_9kz7pN",
+        "collapsible_tab_fUb36k",
+        "collapsible_tab_T76eE8",
+        "collapsible_tab_rQqmtH"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".wt-collapse__trigger__title {font-size: 20px;}",
+        "@media (min-width: 1200px) {.wt-collapse__trigger__title {font-size: 32px; }}"
+      ],
+      "name": "t:sections.collapsible_menu.presets.name",
+      "settings": {
+        "heading": "FAQ",
+        "heading_size": 270,
+        "heading_size_mobile": 180,
+        "text_alignment": "left",
+        "section_width": "large",
+        "hide_bottom_border": true,
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "compact-size-enabled": true,
+        "margin-top": 24,
+        "margin-bottom": 48
+      }
+    },
+    "split_banner_jgRFr4": {
+      "type": "split-banner",
+      "blocks": {
+        "banner_item_Pb8BtA": {
+          "type": "banner_item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_804.png",
+            "heading": "Daily Hydration",
+            "text": "No dairy, gluten, or animal products. Pure, clean fuel.",
+            "button_text": "Check now",
+            "button_link": "",
+            "button_style": "secondary"
+          }
+        },
+        "banner_item_yDiUwa": {
+          "type": "banner_item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_805.png",
+            "heading": "Brain + Focus",
+            "text": "No dairy, gluten, or animal products. Pure, clean fuel.",
+            "button_text": "Check now",
+            "button_link": "",
+            "button_style": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "banner_item_Pb8BtA",
+        "banner_item_yDiUwa"
+      ],
+      "name": "Split Banner",
+      "settings": {
+        "heading_size": 100,
+        "heading_size_mobile": 100,
+        "section_height": 950,
+        "mobile_height": 450,
+        "image_size": "square",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main",
+    "features_banner_idectQ",
+    "ingredients_product_nVPErd",
+    "product_comparison_table_LzrwQU",
+    "health_benefits_aBfLBK",
+    "video_reels_custom_zarqym",
+    "product_faq_MerHtb",
+    "collapsible_menu_dHQ3TK",
+    "split_banner_jgRFr4"
+  ]
+}
