@@ -396,6 +396,7 @@
     },
     "health_benefits_aBfLBK": {
       "type": "health-benefits",
+      "disabled": true,
       "name": "Health Benefits",
       "settings": {
         "background_color": "#f7f7f7",
