@@ -449,6 +449,10 @@
     },
     "product_faq_MerHtb": {
       "type": "product-faq",
+      "custom_css": [
+        ".wt-collapse__trigger__title {font-size: 20px;}",
+        "@media (min-width: 1200px) {.wt-collapse__trigger__title {font-size: 32px; }}"
+      ],
       "name": "Product FAQ",
       "settings": {
         "heading": "FAQ",
