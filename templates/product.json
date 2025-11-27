@@ -463,8 +463,9 @@
         "hide_bottom_border": true,
         "show_icon": true,
         "icon": "none",
-        "color-body-text": "transparent",
+        "color-body-text": "rgba(0,0,0,0)",
         "background_color": "#ffffff",
+        "faq_background_color": "#f7f7f7",
         "compact-size-enabled": true,
         "margin-top": 20,
         "margin-bottom": 20
