@@ -447,6 +447,25 @@
         "margin-bottom": 0
       }
     },
+    "product_faq_MerHtb": {
+      "type": "product-faq",
+      "name": "Product FAQ",
+      "settings": {
+        "heading": "FAQ",
+        "heading_size": 270,
+        "heading_size_mobile": 180,
+        "text_alignment": "left",
+        "section_width": "large",
+        "hide_bottom_border": true,
+        "show_icon": true,
+        "icon": "none",
+        "color-body-text": "transparent",
+        "background_color": "#ffffff",
+        "compact-size-enabled": true,
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
     "collapsible_menu_dHQ3TK": {
       "type": "collapsible_menu",
       "blocks": {
@@ -536,25 +555,6 @@
         "compact-size-enabled": true,
         "margin-top": 24,
         "margin-bottom": 48
-      }
-    },
-    "product_faq_MerHtb": {
-      "type": "product-faq",
-      "name": "Product FAQ",
-      "settings": {
-        "heading": "Frequently Asked Questions",
-        "heading_size": 100,
-        "heading_size_mobile": 100,
-        "text_alignment": "center",
-        "section_width": "narrow",
-        "hide_bottom_border": false,
-        "show_icon": true,
-        "icon": "question_mark",
-        "color-body-text": "transparent",
-        "background_color": "transparent",
-        "compact-size-enabled": true,
-        "margin-top": 20,
-        "margin-bottom": 20
       }
     },
     "split_banner_jgRFr4": {
