@@ -468,7 +468,7 @@
         "faq_background_color": "#f7f7f7",
         "compact-size-enabled": true,
         "margin-top": 20,
-        "margin-bottom": 20
+        "margin-bottom": 40
       }
     },
     "collapsible_menu_dHQ3TK": {
@@ -543,6 +543,7 @@
         "collapsible_tab_T76eE8",
         "collapsible_tab_rQqmtH"
       ],
+      "disabled": true,
       "custom_css": [
         ".wt-collapse__trigger__title {font-size: 20px;}",
         "@media (min-width: 1200px) {.wt-collapse__trigger__title {font-size: 32px; }}"
