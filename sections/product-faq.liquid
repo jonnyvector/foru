@@ -70,6 +70,10 @@
       margin-bottom: 1rem;
     }
 
+    [data-section-id="{{ section.id }}"] .wt-collapse__trigger__text {
+      gap: 0;
+    }
+
     /* Width options */
     {% if section.settings.section_width == 'large' %}
       .wt-collapse__wrapper {
