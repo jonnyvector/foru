@@ -1602,10 +1602,11 @@
                       </script>
                     </variant-options>
                   {%- endunless -%}
-
-                  <kaching-bundle product-id="{{ product.id }}"></kaching-bundle>
                 </div>
               </div>
+
+            {%- when '@app' -%}
+              {% render block %}
 
             {%- when 'image' %}
               <div
