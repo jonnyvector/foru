@@ -49,7 +49,9 @@
 <!-- DEBUG END -->
 
 <div class="wt-rating{% if text_alignment %} wt-rating--{{ text_alignment }}{% endif %} {% if settings.animations and main_product %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}">
-  {% render 'rating-stars', percent: percent %}
+  {% if has_rating %}
+    {% render 'rating-stars', percent: percent %}
+  {% endif %}
 
   <div class="wt-rating__counter">
     {% if has_rating %}
