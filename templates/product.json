@@ -122,6 +122,7 @@
         },
         "easy_subscriptions_subscription_widget_E3thWB": {
           "type": "shopify://apps/easy-subscriptions/blocks/subscription-widget/62ae0f16-e4ee-41c3-a62d-125b812e0b06",
+          "disabled": true,
           "settings": {
             "pcolor": "#ffffff",
             "scolor": "#1a1c1c",
