@@ -127,8 +127,6 @@
         >
       {%- endunless -%}
     {% endcomment %}
-
-    
   </head>
 
   {% assign template_name = template | handleize %}
@@ -202,8 +200,18 @@
             {% render 'icons', id: 'close' %}
           </div>
         </nav>
+        <script>
+          window.kachingBundlesDisableAutoInitialize = true;
+
+          document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(() => {
+              window.kachingBundlesInitialize();
+            }, 500);
+          });
+        </script>
+
         <div class="wt__quick-buy--wrapper">
-          <kaching-bundle product-id="{{ product.id }}"></kaching-bundle>  
+          <kaching-bundle product-id="{{ product.id }}"></kaching-bundle>
           <div class="wt__quick-buy-loader">
             {% render 'loader' %}
           </div>
