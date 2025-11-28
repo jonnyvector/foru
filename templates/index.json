@@ -11,7 +11,6 @@
   "sections": {
     "featured_collection_variant_W7pFMg": {
       "type": "featured-collection-variant",
-      "disabled": true,
       "name": "Collection Variants",
       "settings": {
         "title": "Find Your Protocol",
@@ -44,6 +43,7 @@
     },
     "featured_collection_HNLYAF": {
       "type": "featured-collection",
+      "disabled": true,
       "custom_css": [
         ".wt-slider__container--featured {padding-bottom: 6rem;}"
       ],
