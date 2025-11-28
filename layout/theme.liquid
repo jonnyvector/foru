@@ -203,11 +203,12 @@
         <script>
           window.kachingBundlesDisableAutoInitialize = true;
 
-          document.addEventListener('DOMContentLoaded', function () {
-            setTimeout(() => {
+          const checkInterval = setInterval(() => {
+            if (window.Shopify?.shop) {
               window.kachingBundlesInitialize();
-            }, 500);
-          });
+              clearInterval(checkInterval);
+            }
+          }, 50);
         </script>
 
         <div class="wt__quick-buy--wrapper">
