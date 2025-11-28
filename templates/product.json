@@ -136,6 +136,7 @@
         },
         "price_quantity_Yby3mY": {
           "type": "price_quantity",
+          "disabled": true,
           "settings": {
             "show_qty_selector": true
           }
