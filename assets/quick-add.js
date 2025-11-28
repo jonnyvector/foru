@@ -295,6 +295,13 @@ if (!customElements.get("quick-add")) {
               });
             }
             onLoadSuscriptionChecked();
+
+            // Initialize Kaching bundles after product content loads
+            if (window.kachingBundlesInitialize) {
+              setTimeout(() => {
+                window.kachingBundlesInitialize();
+              }, 100);
+            }
           })
           .catch((error) => {
             if (error.name === "AbortError") {

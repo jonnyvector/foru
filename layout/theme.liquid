@@ -127,8 +127,6 @@
         >
       {%- endunless -%}
     {% endcomment %}
-
-    
   </head>
 
   {% assign template_name = template | handleize %}
@@ -202,6 +200,17 @@
             {% render 'icons', id: 'close' %}
           </div>
         </nav>
+        <script>
+          window.kachingBundlesDisableAutoInitialize = true;
+
+          const checkInterval = setInterval(() => {
+            if (window.Shopify?.shop) {
+              window.kachingBundlesInitialize();
+              clearInterval(checkInterval);
+            }
+          }, 500);
+        </script>
+
         <div class="wt__quick-buy--wrapper">
           <div class="wt__quick-buy-loader">
             {% render 'loader' %}
