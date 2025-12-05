@@ -39,7 +39,9 @@
     "main": {
       "type": "main-page",
       "custom_css": [
-        ".wt-page{max-width:930px;}"
+        ".wt-page {max-width: 930px;}",
+        ".wt-page__title{font-size:32px;}",
+        "@media(min-width:1200px){.wt-page__title{font-size:64px; }}"
       ],
       "settings": {
         "compact-size-enabled": true,
