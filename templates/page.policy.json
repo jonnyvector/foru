@@ -18,7 +18,7 @@
             "heading": "Authorized Resale Policy",
             "disable_on_mobile": false,
             "size_heading": 270,
-            "size_heading_mobile": 170
+            "size_heading_mobile": 180
           }
         }
       },
@@ -45,7 +45,7 @@
         "color-bg-overlay": "rgba(0,0,0,0)",
         "color-overlay-opacity": 100,
         "margin-top": 40,
-        "margin-bottom": 0
+        "margin-bottom": 40
       }
     }
   },
