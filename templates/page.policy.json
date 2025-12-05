@@ -9,17 +9,48 @@
  */
 {
   "sections": {
+    "rich_text_nAq8ki": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_byYWXC": {
+          "type": "heading",
+          "settings": {
+            "heading": "Authorized Resale Policy",
+            "disable_on_mobile": false,
+            "size_heading": 100,
+            "size_heading_mobile": 100
+          }
+        }
+      },
+      "block_order": [
+        "heading_byYWXC"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_width": "regular",
+        "desktop_text_horizontal_position": "left",
+        "color-body-text": "transparent",
+        "background_color": "transparent",
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
     "main": {
       "type": "main-page",
       "settings": {
+        "compact-size-enabled": true,
         "size_heading": 140,
         "size_heading_mobile": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-bg-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
         "margin-top": 40,
         "margin-bottom": 0
       }
     }
   },
   "order": [
+    "rich_text_nAq8ki",
     "main"
   ]
 }
