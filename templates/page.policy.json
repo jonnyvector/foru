@@ -25,12 +25,13 @@
       "block_order": [
         "heading_byYWXC"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "section_width": "regular",
         "desktop_text_horizontal_position": "left",
-        "color-body-text": "transparent",
-        "background_color": "transparent",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
         "margin-top": 0,
         "margin-bottom": 0
       }
