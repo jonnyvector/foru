@@ -43,6 +43,7 @@
     },
     "featured_collection_HNLYAF": {
       "type": "featured-collection",
+      "disabled": true,
       "custom_css": [
         ".wt-slider__container--featured {padding-bottom: 6rem;}"
       ],
