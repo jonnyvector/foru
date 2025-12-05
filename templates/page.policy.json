@@ -38,6 +38,9 @@
     },
     "main": {
       "type": "main-page",
+      "custom_css": [
+        ".wt-page{max-width:930px;}"
+      ],
       "settings": {
         "compact-size-enabled": true,
         "size_heading": 140,
