@@ -56,8 +56,16 @@
           "type": "text",
           "settings": {
             "heading": "",
-            "content": "<p>Topical skincare is key, but lasting results start within. WELLNESS Collagen provides 2000 mg of Collagen Peptides plus Vitamins C and E to promote clear skin and boost natural collagen. Elevate your skincare from the inside out.</p>",
+            "content": "{{ product.description }}",
             "page": ""
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "is_open": false,
+            "icon": "none"
           }
         },
         "c1ba8695-94d2-40ad-ac06-93ec3b8cf38e": {
@@ -171,14 +179,6 @@
             "background_color": "#eb9a00"
           }
         },
-        "description": {
-          "type": "description",
-          "disabled": true,
-          "settings": {
-            "is_open": false,
-            "icon": "none"
-          }
-        },
         "separator_b4z8Dx": {
           "type": "separator",
           "settings": {
@@ -252,6 +252,7 @@
         "feature_tags_ktxUht",
         "separator_reBrRK",
         "text_LQ6bM9",
+        "description",
         "c1ba8695-94d2-40ad-ac06-93ec3b8cf38e",
         "product_variations_7LBAAU",
         "separator_xgqTJM",
@@ -264,7 +265,6 @@
         "buy_buttons",
         "usps_FGTmEY",
         "promo_wBVFy3",
-        "description",
         "separator_b4z8Dx",
         "collapsible_tab_Q7UFgL",
         "separator_gDwzxi",
