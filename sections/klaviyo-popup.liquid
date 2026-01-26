@@ -130,6 +130,11 @@
 
   const teaser = document.getElementById('klaviyo-teaser-{{ section.id }}');
 
+  // If popup was already shown, show teaser immediately
+  if (showOnce && localStorage.getItem(storageKey) && teaser) {
+    teaser.classList.add('visible');
+  }
+
   function closePopup() {
     popup.classList.remove('active');
     document.body.style.overflow = '';
