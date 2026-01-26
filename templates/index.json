@@ -16,7 +16,7 @@
         "title": "Find Your Protocol",
         "disable_on_mobile": false,
         "hide_empty_section": false,
-        "collection": "frontpage",
+        "collection": "featured-collection",
         "product_list": [],
         "products_to_show": 4,
         "variants_per_product": 3,
