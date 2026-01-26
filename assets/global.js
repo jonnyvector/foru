@@ -344,8 +344,11 @@ class ProductRecommendations extends HTMLElement {
 customElements.define("product-recommendations", ProductRecommendations);
 
 document.addEventListener('DOMContentLoaded', function () {
+  onLoadSuscriptionChecked();
+});
+
+function onLoadSuscriptionChecked() {
   const radios = document.querySelectorAll('.delivery_value_hidden');
-  console.log('Total radios found:', radios.length);
 
   if (radios.length > 0) {
     radios.forEach(radio => {
@@ -355,4 +358,4 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
-});
+}

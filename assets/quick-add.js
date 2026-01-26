@@ -294,6 +294,7 @@ if (!customElements.get("quick-add")) {
                 oldScriptTag.parentNode.replaceChild(newScriptTag, oldScriptTag);
               });
             }
+            onLoadSuscriptionChecked();
 
             // Initialize Kaching bundles after product content loads
             if (window.kachingBundlesInitialize) {

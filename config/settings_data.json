@@ -90,7 +90,7 @@
     "enable_color_swatch": true,
     "enable_color_swatch_in_filters": false,
     "enable_round_color_swatches": true,
-    "swatches_config": "Mango: #DA9533\nBerry: #64427C",
+    "swatches_config": "Berry: linear-gradient(182.39deg, #64427C 2%, #221A32 146.25%)\nMango: linear-gradient(55.7deg, #964D28 -34.56%, #DA9533 81.96%)",
     "color_swatch_names": "Taste\nColor",
     "variant_picture_swatch_names": "Quantity",
     "custom-badge-1-text": "#ffffff",

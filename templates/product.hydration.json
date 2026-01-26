@@ -56,16 +56,8 @@
           "type": "text",
           "settings": {
             "heading": "",
-            "content": "{{ product.description }}",
+            "content": "<p>Topical skincare is key, but lasting results start within. WELLNESS Collagen provides 2000 mg of Collagen Peptides plus Vitamins C and E to promote clear skin and boost natural collagen. Elevate your skincare from the inside out.</p>",
             "page": ""
-          }
-        },
-        "description": {
-          "type": "description",
-          "disabled": true,
-          "settings": {
-            "is_open": false,
-            "icon": "none"
           }
         },
         "c1ba8695-94d2-40ad-ac06-93ec3b8cf38e": {
@@ -122,15 +114,8 @@
             "margin-bottom": 8
           }
         },
-        "kaching_bundles_app_block_cx3BV6": {
-          "type": "shopify://apps/kaching-bundles/blocks/app-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
-          "settings": {
-            "product": "{{product}}"
-          }
-        },
         "easy_subscriptions_subscription_widget_E3thWB": {
           "type": "shopify://apps/easy-subscriptions/blocks/subscription-widget/62ae0f16-e4ee-41c3-a62d-125b812e0b06",
-          "disabled": true,
           "settings": {
             "pcolor": "#ffffff",
             "scolor": "#1a1c1c",
@@ -144,7 +129,6 @@
         },
         "price_quantity_pUxVNG": {
           "type": "price_quantity",
-          "disabled": true,
           "settings": {
             "show_qty_selector": true
           }
@@ -177,6 +161,14 @@
             "text_alignment": "center",
             "color-body-text": "#ffffff",
             "background_color": "#eb9a00"
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "is_open": false,
+            "icon": "none"
           }
         },
         "separator_b4z8Dx": {
@@ -252,19 +244,18 @@
         "feature_tags_ktxUht",
         "separator_reBrRK",
         "text_LQ6bM9",
-        "description",
         "c1ba8695-94d2-40ad-ac06-93ec3b8cf38e",
         "product_variations_7LBAAU",
         "separator_xgqTJM",
         "price",
         "variant_picker_fHUhmX",
-        "kaching_bundles_app_block_cx3BV6",
         "easy_subscriptions_subscription_widget_E3thWB",
         "price_quantity_pUxVNG",
         "promo_banner_Y7aiNw",
         "buy_buttons",
         "usps_FGTmEY",
         "promo_wBVFy3",
+        "description",
         "separator_b4z8Dx",
         "collapsible_tab_Q7UFgL",
         "separator_gDwzxi",
@@ -405,6 +396,7 @@
     },
     "health_benefits_aBfLBK": {
       "type": "health-benefits",
+      "disabled": true,
       "name": "Health Benefits",
       "settings": {
         "background_color": "#f7f7f7",
@@ -477,7 +469,7 @@
         "faq_background_color": "#f7f7f7",
         "compact-size-enabled": true,
         "margin-top": 20,
-        "margin-bottom": 40
+        "margin-bottom": 20
       }
     },
     "collapsible_menu_dHQ3TK": {
