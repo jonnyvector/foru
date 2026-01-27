@@ -659,10 +659,10 @@ button.needsclick.go2410364621.kl-private-reset-css-Xuajs1[role="combobox"] {
   border: 1px solid var(--secondary-color) !important;
 }
 
-.wt-product__info .selling_plan_app_container .delivery_value:checked,
+/* .wt-product__info .selling_plan_app_container .delivery_value:checked,
 .wt-product__info .selling_plan_app_container .delivery_value_small:checked {
   background: transparent !important;
-}
+} */
 
 .wt-product__info .delivery_value:checked::after {
   content: "";
