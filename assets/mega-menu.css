@@ -239,6 +239,7 @@
   body:not(.mobile-nav) .wt-page-nav-mega__sublist__item--gallery {
     padding-right: calc(var(--gap) * 3);
     margin-left: auto;
+    width: 100%;
   }
   body:not(.mobile-nav) .wt-page-nav-mega__sublist__link {
     padding: 0;
