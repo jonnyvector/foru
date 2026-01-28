@@ -296,14 +296,7 @@ if (!customElements.get("quick-add")) {
             }
             onLoadSuscriptionChecked();
 
-            setTimeout(() => {
-              if (window.initializeSellingPlansWidget) {
-                console.log("Mihir topa 2222222");
-                window.initializeSellingPlansWidget();
-              } else {
-                console.log("Mihir topa");
-              }
-            }, 1000);
+            initializeSellingPlansWidget();
 
             // Initialize Kaching bundles after product content loads
             if (window.kachingBundlesInitialize) {
