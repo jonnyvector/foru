@@ -283,7 +283,7 @@ quick-add .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
     flex-shrink: 0;
     flex-grow: 0;
     width: auto;
-    max-width: 280px;
+    max-width: 432px;
   }
 }
 
