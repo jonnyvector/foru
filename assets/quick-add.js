@@ -296,20 +296,13 @@ if (!customElements.get("quick-add")) {
             }
             onLoadSuscriptionChecked();
 
-            try {
-               setTimeout(() => {
+            setTimeout(() => {
               if (window.initializeSellingPlansWidget) {
-               
-                  window.initializeSellingPlansWidget();
-                
+                window.initializeSellingPlansWidget();
               } else {
                 console.log("...")
               }
-              }, 1000);
-            } catch (error) {
-              console.warn('initializeSellingPlansWidget() failed or is not defined', error);
-            }
-
+            }, 1000);
 
             // Initialize Kaching bundles after product content loads
             if (window.kachingBundlesInitialize) {
