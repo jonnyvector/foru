@@ -295,8 +295,9 @@ if (!customElements.get("quick-add")) {
               });
             }
             onLoadSuscriptionChecked();
-
-            initializeSellingPlansWidget();
+            setTimeout(() => {
+              initializeSellingPlansWidget();
+            }, 1000);
 
             // Initialize Kaching bundles after product content loads
             if (window.kachingBundlesInitialize) {
