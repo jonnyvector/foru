@@ -298,9 +298,10 @@ if (!customElements.get("quick-add")) {
 
             setTimeout(() => {
               if (window.initializeSellingPlansWidget) {
+                console.log("Mihir topa 2222222");
                 window.initializeSellingPlansWidget();
               } else {
-                console.log("Mihir topa")
+                console.log("Mihir topa");
               }
             }, 1000);
 
