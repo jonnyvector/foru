@@ -300,7 +300,7 @@ if (!customElements.get("quick-add")) {
               if (window.initializeSellingPlansWidget) {
                 window.initializeSellingPlansWidget();
               } else {
-                console.log("...")
+                console.log("Mihir topa")
               }
             }, 1000);
 
