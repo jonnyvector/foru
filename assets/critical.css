@@ -3767,11 +3767,12 @@ body.mobile-nav .wt-page-nav-mega__link__text--underline {
     padding: 0 calc(var(--gap, 8px) * 3);
   }
   body:not(.mobile-nav) .wt-page-nav-mega__sublist__item--gallery {
-    padding-left: calc(var(--gap, 8px) * 2);
-    padding-right: calc(var(--gap, 8px) * 2);
+    padding-left: calc(calc(var(--gap, 8px) * 2) + calc(var(--gap, 8px) * 2));
+    padding-right: calc(calc(var(--gap, 8px) * 2) + calc(var(--gap, 8px) * 2));
     margin-left: auto;
     grid-row: 1/99;
     grid-column: var(--promo-columns, 1) / 7;
+    width: 100%;
   }
   body:not(.mobile-nav) .wt-page-nav-mega__sublist__link {
     padding: 0;

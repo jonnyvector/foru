@@ -115,7 +115,7 @@
       "type": "ingredients-grid",
       "name": "Ingredients Grid",
       "settings": {
-        "product": "hydration",
+        "product": "whey-protein",
         "fallback_title": "INGREDIENTS",
         "enable_hover_effect": true,
         "size_heading_mobile": 130,
