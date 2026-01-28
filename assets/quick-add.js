@@ -297,13 +297,15 @@ if (!customElements.get("quick-add")) {
             onLoadSuscriptionChecked();
 
             try {
+               setTimeout(() => {
               if (window.initializeSellingPlansWidget) {
-                setTimeout(() => {
+               
                   window.initializeSellingPlansWidget();
-                }, 1000);
+                
               } else {
-                console.log("Mihir loda")
+                console.log("...")
               }
+              }, 1000);
             } catch (error) {
               console.warn('initializeSellingPlansWidget() failed or is not defined', error);
             }
