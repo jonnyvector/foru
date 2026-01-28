@@ -253,7 +253,17 @@ quick-add .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
   display: none;
 }
 
+/* Products wrapper hidden on mobile - products show individually */
+.mega-menu__products-wrapper {
+  display: contents;
+}
+
 @media (min-width: 1200px) {
+  /* Gallery uses space-between to push Shop All left and products right */
+  body:not(.mobile-nav) .mega-menu__gallery {
+    justify-content: space-between;
+  }
+
   body:not(.mobile-nav) .mega-menu__shop-all-column {
     display: block;
     flex-shrink: 0;
@@ -261,17 +271,19 @@ quick-add .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
     width: auto;
   }
 
-  /* Product cards: fixed size, pushed to the right */
-  body:not(.mobile-nav) .mega-menu__gallery__item:not(.mega-menu__shop-all-column) {
+  /* Products wrapper - contains all product cards */
+  body:not(.mobile-nav) .mega-menu__products-wrapper {
+    display: flex;
+    gap: calc(var(--gap) * 2);
+    flex-shrink: 0;
+  }
+
+  /* Product cards: fixed size */
+  body:not(.mobile-nav) .mega-menu__products-wrapper .mega-menu__gallery__item {
     flex-shrink: 0;
     flex-grow: 0;
     width: auto;
     max-width: 280px;
-  }
-
-  /* Push product cards to the right, space between Shop All and products */
-  body:not(.mobile-nav) .mega-menu__shop-all-column + .mega-menu__gallery__item {
-    margin-left: auto;
   }
 }
 
