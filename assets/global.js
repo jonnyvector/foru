@@ -359,3 +359,8 @@ function onLoadSuscriptionChecked() {
     });
   }
 }
+
+window.onload = function () {
+  console.log("All content loaded");
+  init();
+};
