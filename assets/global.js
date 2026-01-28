@@ -362,5 +362,10 @@ function onLoadSuscriptionChecked() {
 
 window.onload = function () {
   console.log("All content loaded");
-  init();
+  try {
+    initializeSellingPlansWidget();
+  } catch (error) {
+    console.warn('initializeSellingPlansWidget() failed or is not defined', error);
+  }
+
 };
