@@ -203,7 +203,7 @@
         <script>
           window.kachingBundlesDisableAutoInitialize = true;
 
-          const checkInterval = setInterval(() => {
+          var checkInterval = setInterval(() => {
             if (window.Shopify?.shop) {
               window.kachingBundlesInitialize();
               clearInterval(checkInterval);
