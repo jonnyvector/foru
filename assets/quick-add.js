@@ -297,10 +297,15 @@ if (!customElements.get("quick-add")) {
             onLoadSuscriptionChecked();
 
             try {
-              initializeSellingPlansWidget();
+              if (window.initializeSellingPlansWidget) {
+                setTimeout(() => {
+                  window.initializeSellingPlansWidget();
+                }, 100);
+              }
             } catch (error) {
               console.warn('initializeSellingPlansWidget() failed or is not defined', error);
             }
+
 
             // Initialize Kaching bundles after product content loads
             if (window.kachingBundlesInitialize) {
