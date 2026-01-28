@@ -296,6 +296,12 @@ if (!customElements.get("quick-add")) {
             }
             onLoadSuscriptionChecked();
 
+            try {
+              initializeSellingPlansWidget();
+            } catch (error) {
+              console.warn('initializeSellingPlansWidget() failed or is not defined', error);
+            }
+
             // Initialize Kaching bundles after product content loads
             if (window.kachingBundlesInitialize) {
               setTimeout(() => {
