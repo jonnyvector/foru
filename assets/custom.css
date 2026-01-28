@@ -282,7 +282,7 @@ quick-add .custom-button-wrapper--secondary [class*="custom-button-arrow-"],
   justify-content: flex-start;
   align-items: flex-start;
   padding: 0 calc(var(--gap) * 3);
-  padding-left: 1rem;
+  padding-left: 0;
   text-align: left;
 }
 
