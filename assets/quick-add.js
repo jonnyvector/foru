@@ -300,7 +300,9 @@ if (!customElements.get("quick-add")) {
               if (window.initializeSellingPlansWidget) {
                 setTimeout(() => {
                   window.initializeSellingPlansWidget();
-                }, 100);
+                }, 1000);
+              } else {
+                console.log("Mihir loda")
               }
             } catch (error) {
               console.warn('initializeSellingPlansWidget() failed or is not defined', error);
