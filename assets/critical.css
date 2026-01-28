@@ -3772,6 +3772,7 @@ body.mobile-nav .wt-page-nav-mega__link__text--underline {
     margin-left: auto;
     grid-row: 1/99;
     grid-column: var(--promo-columns, 1) / 7;
+    width: 100%;
   }
   body:not(.mobile-nav) .wt-page-nav-mega__sublist__link {
     padding: 0;
