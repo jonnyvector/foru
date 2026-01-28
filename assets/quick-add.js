@@ -295,8 +295,14 @@ if (!customElements.get("quick-add")) {
               });
             }
             onLoadSuscriptionChecked();
+
             setTimeout(() => {
-              initializeSellingPlansWidget();
+              if (window.initializeSellingPlansWidget) {
+                console.log("Mihir mera bhai");
+                window.initializeSellingPlansWidget();
+              } else {
+                console.log("Mihir meri behan");
+              }
             }, 1000);
 
             // Initialize Kaching bundles after product content loads
