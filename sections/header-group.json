@@ -114,6 +114,7 @@
         "social_proof_NT9zAb": {
           "type": "social_proof",
           "settings": {
+            "use_dynamic_data": false,
             "rating": 49,
             "review_count": 100,
             "member_count": 1000,
@@ -193,11 +194,11 @@
         "slide_height": "fixed_height",
         "desktop_fixed_height": 320,
         "mobile_fixed_height": 380,
-        "video_hosted": "shopify://files/videos/Foru Main Screen (1).mp4",
-        "desktop_image": "shopify://shop_images/image_21_2.png",
+        "video_hosted": "shopify://files/videos/1.mp4",
+        "desktop_image": "shopify://shop_images/Screenshot_2026-05-09_at_00.01.18.png",
         "desktop_text_vertical_position": "center",
         "desktop_text_horizontal_position": "center",
-        "mobile_image": "shopify://shop_images/image_21_3.png",
+        "mobile_image": "shopify://shop_images/Screenshot_2026-05-09_at_00.01.18.png",
         "mobile_text_vertical_position": "top",
         "mobile_text_horizontal_position": "center",
         "color-body-text": "#ffffff",

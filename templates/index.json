@@ -345,7 +345,7 @@
         "color-body-text": "rgba(0,0,0,0)",
         "color-overlay": "rgba(0,0,0,0)",
         "color-overlay-opacity": 100,
-        "desktop_image": "shopify://shop_images/image_55.png",
+        "desktop_image": "shopify://shop_images/Tezza-6630.jpg",
         "desktop_text_vertical_position": "center",
         "desktop_text_horizontal_position": "left",
         "mobile_text_horizontal_position": "left",
@@ -424,7 +424,7 @@
         "color-body-text": "rgba(0,0,0,0)",
         "color-overlay": "rgba(0,0,0,0)",
         "color-overlay-opacity": 100,
-        "desktop_image": "shopify://shop_images/image_56.png",
+        "desktop_image": "shopify://shop_images/image_56.jpg",
         "desktop_text_vertical_position": "center",
         "desktop_text_horizontal_position": "left",
         "mobile_text_horizontal_position": "left",
@@ -478,7 +478,7 @@
       "settings": {
         "heading": "",
         "full-width-enabled": true,
-        "video_hosted": "shopify://files/videos/2583472-uhd_3840_2160_24fps.mp4",
+        "video_hosted": "shopify://files/videos/FŌRU 3.mp4",
         "autoplay": true,
         "video_controls": false,
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
@@ -654,14 +654,7 @@
         "easy_subscriptions_subscription_widget_imYQ4T": {
           "type": "shopify://apps/easy-subscriptions/blocks/subscription-widget/62ae0f16-e4ee-41c3-a62d-125b812e0b06",
           "settings": {
-            "pcolor": "#ffffff",
-            "scolor": "#303030",
-            "bcolor": "rgba(0,0,0,0)",
-            "easy-is-currency-code": false,
-            "widget-feature-product": "",
-            "eca-title-font-size": 15,
-            "eca-text-font-size": 16,
-            "eca-price-font-size": 16
+            "widget-feature-product": ""
           }
         }
       },
